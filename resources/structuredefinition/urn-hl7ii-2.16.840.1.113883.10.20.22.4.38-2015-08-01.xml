@@ -1,0 +1,142 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Social_History_Observation_V3" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2015-08-01" />
+  <name value="Social History Observation (V3)" />
+  <status value="active" />
+  <publisher value="River Rock Associates" />
+  <contact>
+    <name value="Brett Marquard" />
+    <telecom>
+      <system value="phone" />
+      <value value="4135496886" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="brett@riverrockassociates.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template represents a patient's occupations, lifestyle, and environmental health risk factors. Demographic data (e.g., marital status, race, ethnicity, religious affiliation) are captured in the header. Though tobacco use and exposure may be represented with a Social History Observation, it is recommended to use the Current Smoking Status template or the Tobacco Use template instead, to represent smoking or tobacco habits." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+    </element>
+    <element id="Observation.classCode">
+      <path value="Observation.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8548)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.moodCode">
+      <path value="Observation.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8549)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId">
+      <path value="Observation.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8550) such that it" />
+    </element>
+    <element id="Observation.templateId:templateId1">
+      <path value="Observation.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8550) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.root">
+      <path value="Observation.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.38&quot; (CONF:1198-10526)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.extension">
+      <path value="Observation.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32495)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.id">
+      <path value="Observation.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:1198-8551)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Social History Type urn:oid:2.16.840.1.113883.3.88.12.80.60 STATIC 2008-12-18 (CONF:1198-8558)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="preferred" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.60" />
+          <display value="Social History Type" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.statusCode">
+      <path value="Observation.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8553)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode.code">
+      <path value="Observation.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19117)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.effectiveTime">
+      <path value="Observation.effectiveTime" />
+      <short value="effectiveTime" />
+      <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-31868)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.value">
+      <path value="Observation.value" />
+      <short value="value" />
+      <definition value="SHOULD contain zero or one [0..1] value (CONF:1198-8559)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.author">
+      <path value="Observation.author" />
+      <short value="author" />
+      <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31869)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+  </differential>
+</StructureDefinition>

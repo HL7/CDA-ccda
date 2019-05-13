@@ -1,0 +1,128 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Medication_Information_V2" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09" />
+  <name value="Medication Information (V2)" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A medication should be recorded as a pre-coordinated ingredient + strength + dose form (e.g., metoprolol 25mg tablet, amoxicillin 400mg/5mL suspension) where possible. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack).&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="ManufacturedProduct" />
+  <type value="ManufacturedProduct" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ManufacturedProduct">
+      <path value="ManufacturedProduct" />
+    </element>
+    <element id="ManufacturedProduct.classCode">
+      <path value="ManufacturedProduct.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-7408)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ManufacturedProduct.templateId">
+      <path value="ManufacturedProduct.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7409) such that it" />
+    </element>
+    <element id="ManufacturedProduct.templateId:templateId1">
+      <path value="ManufacturedProduct.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7409) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ManufacturedProduct.templateId:templateId1.root">
+      <path value="ManufacturedProduct.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.23&quot; (CONF:1098-10506)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ManufacturedProduct.templateId:templateId1.extension">
+      <path value="ManufacturedProduct.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32579)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ManufacturedProduct.id">
+      <path value="ManufacturedProduct.id" />
+      <short value="id" />
+      <definition value="MAY contain zero or more [0..*] id (CONF:1098-7410)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="ManufacturedProduct.manufacturedMaterial">
+      <path value="ManufacturedProduct.manufacturedMaterial" />
+      <label value="A medication should be recorded as a pre-coordinated ingredient + strength + dose form (e.g., “metoprolol 25mg tablet”, “amoxicillin 400mg/5mL suspension”) where possible. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack)." />
+      <short value="A medication should be recorded as a pre-coordinated ingredient + strength + dose form (e.g., “metoprolol 25mg tablet”, “amoxicillin 400mg/5mL suspension”) where possible. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack)." />
+      <definition value="SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-7411)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ManufacturedProduct.manufacturedMaterial.code">
+      <path value="ManufacturedProduct.manufacturedMaterial.code" />
+      <short value="code" />
+      <definition value="This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Medication Clinical Drug urn:oid:2.16.840.1.113762.1.4.1010.4 DYNAMIC (CONF:1098-7412)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4" />
+          <display value="Medication Clinical Drug" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ManufacturedProduct.manufacturedMaterial.code.translation">
+      <path value="ManufacturedProduct.manufacturedMaterial.code.translation" />
+      <short value="translation" />
+      <definition value="This code MAY contain zero or more [0..*] translation, which MAY be selected from ValueSet Clinical Substance urn:oid:2.16.840.1.113762.1.4.1010.2 DYNAMIC (CONF:1098-31884)." />
+      <min value="0" />
+      <max value="*" />
+      <binding>
+        <strength value="example" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.2" />
+          <display value="Clinical Substance" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ManufacturedProduct.manufacturerOrganization">
+      <path value="ManufacturedProduct.manufacturerOrganization" />
+      <short value="manufacturerOrganization" />
+      <definition value="MAY contain zero or one [0..1] manufacturerOrganization (CONF:1098-7416)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

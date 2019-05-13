@@ -1,0 +1,146 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Preoperative_Diagnosis_V3" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.65:2015-08-01" />
+  <name value="Preoperative Diagnosis (V3)" />
+  <status value="active" />
+  <publisher value="River Rock Associates" />
+  <contact>
+    <name value="Brett Marquard" />
+    <telecom>
+      <system value="phone" />
+      <value value="4135496886" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="brett@riverrockassociates.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template represents the surgical diagnosis or diagnoses assigned to the patient before the surgical procedure and is the reason for the surgery. The preoperative diagnosis is, in the opinion of the surgeon, the diagnosis that will be confirmed during surgery." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Act" />
+  <type value="Act" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Act">
+      <path value="Act" />
+    </element>
+    <element id="Act.classCode">
+      <path value="Act.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CONF:1198-10090)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.moodCode">
+      <path value="Act.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CONF:1198-10091)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.templateId">
+      <path value="Act.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-16770) such that it" />
+    </element>
+    <element id="Act.templateId:templateId1">
+      <path value="Act.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-16770) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.templateId:templateId1.root">
+      <path value="Act.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.65&quot; (CONF:1198-16771)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.templateId:templateId1.extension">
+      <path value="Act.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32540)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.code">
+      <path value="Act.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1198-19155)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.code.code">
+      <path value="Act.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;10219-4&quot; Preoperative Diagnosis (CONF:1198-19156)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.code.codeSystem">
+      <path value="Act.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32167)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.entryRelationship">
+      <path value="Act.entryRelationship" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="observation" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="typeCode" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-10093) such that it" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship1">
+      <path value="Act.entryRelationship" />
+      <sliceName value="entryRelationship1" />
+      <short value="entryRelationship" />
+      <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-10093) such that it" />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship1.typeCode">
+      <path value="Act.entryRelationship.typeCode" />
+      <sliceName value="entryRelationship1" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-10094)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship1.observation">
+      <path value="Act.entryRelationship.observation" />
+      <sliceName value="entryRelationship1" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Problem Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15605)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

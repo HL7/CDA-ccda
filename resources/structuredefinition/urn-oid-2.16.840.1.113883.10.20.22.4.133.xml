@@ -1,0 +1,122 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Wound_Measurement_Observation" />
+  <url value="urn:oid:2.16.840.1.113883.10.20.22.4.133" />
+  <name value="Wound Measurement Observation" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template represents the Wound Measurement Observations of wound width, depth and length. " />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+    </element>
+    <element id="Observation.classCode">
+      <path value="Observation.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-29926)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.moodCode">
+      <path value="Observation.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-29927)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId">
+      <path value="Observation.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-29928) such that it" />
+    </element>
+    <element id="Observation.templateId:templateId1">
+      <path value="Observation.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-29928) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.root">
+      <path value="Observation.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.133&quot; (CONF:1098-29929)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.id">
+      <path value="Observation.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:1098-29930)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Wound Measurements urn:oid:2.16.840.1.113883.1.11.20.2.5 DYNAMIC (CONF:1098-29931)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.2.5" />
+          <display value="Wound Measurements" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.statusCode">
+      <path value="Observation.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-29933)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode.code">
+      <path value="Observation.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-29934)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.effectiveTime">
+      <path value="Observation.effectiveTime" />
+      <short value="effectiveTime" />
+      <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-29935)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.value">
+      <path value="Observation.value" />
+      <short value="value" />
+      <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:1098-29936)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

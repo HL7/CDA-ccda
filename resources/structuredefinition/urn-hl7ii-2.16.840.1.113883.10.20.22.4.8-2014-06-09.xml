@@ -1,0 +1,134 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Severity_Observation_V2" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09" />
+  <name value="Severity Observation (V2)" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This clinical statement represents the gravity of the reaction. The Severity Observation characterizes the Reaction Observation. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity.&#xA;&#xA;Note the severity observation is no longer recommended for use with the Allergy and Intolerance Observation. The Criticality Observation is preferred for characterizing the Allergy and Intolerance." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+    </element>
+    <element id="Observation.classCode">
+      <path value="Observation.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7345)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.moodCode">
+      <path value="Observation.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7346)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId">
+      <path value="Observation.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7347) such that it" />
+    </element>
+    <element id="Observation.templateId:templateId1">
+      <path value="Observation.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7347) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.root">
+      <path value="Observation.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.8&quot; (CONF:1098-10525)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.extension">
+      <path value="Observation.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32577)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-19168)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.code">
+      <path value="Observation.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;SEV&quot; Severity (CONF:1098-19169)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.codeSystem">
+      <path value="Observation.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-32170)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode">
+      <path value="Observation.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-7352)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode.code">
+      <path value="Observation.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19115)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.value">
+      <path value="Observation.value" />
+      <short value="value" />
+      <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Reaction Severity urn:oid:2.16.840.1.113883.3.88.12.3221.6.8 DYNAMIC (CONF:1098-7356)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.8" />
+          <display value="Reaction Severity" />
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,108 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Entry_Reference" />
+  <url value="urn:oid:2.16.840.1.113883.10.20.22.4.122" />
+  <name value="Entry Reference" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template represents the act of referencing another entry in the same CDA document instance. Its purpose is to remove the need to repeat the complete XML representation of the referred entry when relating one entry to another. This template can be used to reference many types of Act class derivations, such as encounters, observations, procedures etc., as it is often necessary when authoring CDA documents to repeatedly reference other Acts of these types. For example, in a Care Plan it is necessary to repeatedly relate Health Concerns, Goals, Interventions and Outcomes.&#xA;&#xA;The id is required and must be the same id as the entry/id it is referencing. The id cannot be a null value. Act/Code is set to nullFlavor=NP (Not Present). This means the value is not present in the message (in act/Code)." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Act" />
+  <type value="Act" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Act">
+      <path value="Act" />
+    </element>
+    <element id="Act.classCode">
+      <path value="Act.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31485)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.moodCode">
+      <path value="Act.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31486)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.templateId">
+      <path value="Act.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-31487) such that it" />
+    </element>
+    <element id="Act.templateId:templateId1">
+      <path value="Act.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-31487) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.templateId:templateId1.root">
+      <path value="Act.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.122&quot; (CONF:1098-31488)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.id">
+      <path value="Act.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:1098-31489)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Act.code">
+      <path value="Act.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-31490)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.code.nullFlavor">
+      <path value="Act.code.nullFlavor" />
+      <short value="nullFlavor" />
+      <definition value="This code SHALL contain exactly one [1..1] @nullFlavor=&quot;NP&quot; Not Present (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-31491)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.statusCode">
+      <path value="Act.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31498)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.statusCode.code">
+      <path value="Act.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode MAY contain zero or one [0..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31499)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,191 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Smoking_Status__Meaningful_Use_V2" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09" />
+  <name value="Smoking Status - Meaningful Use (V2)" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template represents the current smoking status of the patient as specified in Meaningful Use (MU) Stage 2 requirements. Historic smoking status observations as well as details about the smoking habit (e.g., how many per day) would be represented in the Tobacco Use template.&#xA;&#xA;This template represents a &quot;snapshot in time&quot; observation, simply reflecting what the patient's current smoking status is at the time of the observation. As a result, the effectiveTime is constrained to a time stamp, and will approximately correspond with the author/time. Details regarding the time period when the patient is/was smoking would be recorded in the Tobacco Use template.&#xA;&#xA;If the patient's current smoking status is unknown, the value element must be populated with SNOMED CT code 266927001 to communicate &quot;Unknown if ever smoked&quot; from the Current Smoking Status Value Set. " />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+    </element>
+    <element id="Observation.classCode">
+      <path value="Observation.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14806)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.moodCode">
+      <path value="Observation.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14807)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId">
+      <path value="Observation.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-14815) such that it" />
+    </element>
+    <element id="Observation.templateId:templateId1">
+      <path value="Observation.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-14815) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.root">
+      <path value="Observation.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.78&quot; (CONF:1098-14816)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.extension">
+      <path value="Observation.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32573)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.id">
+      <path value="Observation.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:1098-32401)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-19170)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.code">
+      <path value="Observation.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;72166-2&quot; Tobacco smoking status NHIS (CONF:1098-31039)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.codeSystem">
+      <path value="Observation.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32157)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode">
+      <path value="Observation.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-14809)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode.code">
+      <path value="Observation.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19116)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.effectiveTime">
+      <path value="Observation.effectiveTime" />
+      <label value="This template represents a &quot;snapshot in time&quot; observation, simply reflecting what the patient's current smoking status is at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp, and will approximately correspond with the author/time." />
+      <short value="This template represents a &quot;snapshot in time&quot; observation, simply reflecting what the patient's current smoking status is at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp, and will approximately correspond with the author/time." />
+      <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31928)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.effectiveTime.low">
+      <path value="Observation.effectiveTime.low" />
+      <short value="low" />
+      <definition value="This effectiveTime SHALL NOT contain [0..0] low (CONF:1098-32894)." />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Observation.effectiveTime.width">
+      <path value="Observation.effectiveTime.width" />
+      <short value="width" />
+      <definition value="This effectiveTime SHALL NOT contain [0..0] width (CONF:1098-32895)." />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Observation.effectiveTime.high">
+      <path value="Observation.effectiveTime.high" />
+      <short value="high" />
+      <definition value="This effectiveTime SHALL NOT contain [0..0] high (CONF:1098-32896)." />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Observation.effectiveTime.center">
+      <path value="Observation.effectiveTime.center" />
+      <short value="center" />
+      <definition value="This effectiveTime SHALL NOT contain [0..0] center (CONF:1098-32897)." />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Observation.value">
+      <path value="Observation.value" />
+      <short value="value" />
+      <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot; (CONF:1098-14810)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.value.code">
+      <path value="Observation.value.code" />
+      <short value="code" />
+      <definition value="This value SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Current Smoking Status urn:oid:2.16.840.1.113883.11.20.9.38 STATIC 2014-09-01 (CONF:1098-14817)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.38" />
+          <display value="Current Smoking Status" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.author">
+      <path value="Observation.author" />
+      <short value="author" />
+      <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31148)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+  </differential>
+</StructureDefinition>

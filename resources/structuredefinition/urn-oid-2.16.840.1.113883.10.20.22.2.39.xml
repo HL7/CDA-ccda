@@ -1,0 +1,94 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="S_Medical_General_History_Section" />
+  <url value="urn:oid:2.16.840.1.113883.10.20.22.2.39" />
+  <name value="Medical (General) History Section" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The Medical History Section describes all aspects of the medical history of the patient even if not pertinent to the current procedure, and may include chief complaint, past medical history, social history, family history, surgical or procedure history, medication history, and other history information. The history may be limited to information pertinent to the current procedure or may be more comprehensive. The history may be reported as a collection of random clinical statements or it may be reported categorically. Categorical report formats may be divided into multiple subsections including Past Medical History, Social History." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Section" />
+  <type value="Section" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Section">
+      <path value="Section" />
+    </element>
+    <element id="Section.templateId">
+      <path value="Section.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8160) such that it" />
+    </element>
+    <element id="Section.templateId:templateId1">
+      <path value="Section.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8160) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.root">
+      <path value="Section.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.39&quot; (CONF:81-10403)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code">
+      <path value="Section.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:81-15379)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.code">
+      <path value="Section.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;11329-0&quot; Medical (General) History (CONF:81-15380)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.codeSystem">
+      <path value="Section.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26484)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.title">
+      <path value="Section.title" />
+      <short value="title" />
+      <definition value="SHALL contain exactly one [1..1] title (CONF:81-8162)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.text">
+      <path value="Section.text" />
+      <short value="text" />
+      <definition value="SHALL contain exactly one [1..1] text (CONF:81-8163)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

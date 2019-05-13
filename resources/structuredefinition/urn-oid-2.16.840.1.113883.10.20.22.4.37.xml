@@ -1,0 +1,101 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Product_Instance" />
+  <url value="urn:oid:2.16.840.1.113883.10.20.22.4.37" />
+  <name value="Product Instance" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This clinical statement represents a particular device that was placed in a patient or used as part of a procedure or other act. This provides a record of the identifier and other details about the given product that was used. For example, it is important to have a record that indicates not just that a hip prostheses was placed in a patient but that it was a particular hip prostheses number with a unique identifier.&#xA;&#xA;The FDA Amendments Act specifies the creation of a Unique Device Identification (UDI) System that requires the label of devices to bear a unique identifier that will standardize device identification and identify the device through distribution and use. &#xA;&#xA;The FDA permits an issuing agency to designate that their Device Identifier (DI) + Production Identifier (PI) format qualifies as a UDI through a process of accreditation. Currently, there are three FDA-accredited issuing agencies that are allowed to call their format a UDI. These organizations are GS1, HIBCC, and ICCBBA. For additional information on technical formats that qualify as UDI from each of the issuing agencies see the UDI Appendix.&#xA;&#xA;When communicating only the issuing agency device identifier (i.e., subcomponent of the UDI), the use of the issuing agency OID is appropriate. However, when communicating the unique device identifier (DI + PI), the FDA OID (2.16.840.1.113883.3.3719) must be used. &#xA;When sending a UDI, populate the participantRole/id/@root with the FDA OID (2.16.840.1.113883.3.3719) and participantRole/id/@extension with the UDI.&#xA;&#xA;When sending a DI, populate the participantRole/id/@root with the appropriate assigning agency OID and participantRole/id/@extension with the DI.&#xA;The scopingEntity/id should correspond to FDA or the appropriate issuing agency." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="ParticipantRole" />
+  <type value="ParticipantRole" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/ParticipantRole" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ParticipantRole">
+      <path value="ParticipantRole" />
+    </element>
+    <element id="ParticipantRole.classCode">
+      <path value="ParticipantRole.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; Manufactured Product (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7900)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ParticipantRole.templateId">
+      <path value="ParticipantRole.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-7901) such that it" />
+    </element>
+    <element id="ParticipantRole.templateId:templateId1">
+      <path value="ParticipantRole.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-7901) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ParticipantRole.templateId:templateId1.root">
+      <path value="ParticipantRole.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.37&quot; (CONF:81-10522)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ParticipantRole.id">
+      <path value="ParticipantRole.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:81-7902)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="ParticipantRole.playingDevice">
+      <path value="ParticipantRole.playingDevice" />
+      <short value="playingDevice" />
+      <definition value="SHALL contain exactly one [1..1] playingDevice (CONF:81-7903)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ParticipantRole.playingDevice.code">
+      <path value="ParticipantRole.playingDevice.code" />
+      <short value="code" />
+      <definition value="This playingDevice SHOULD contain zero or one [0..1] code (CONF:81-16837)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ParticipantRole.scopingEntity">
+      <path value="ParticipantRole.scopingEntity" />
+      <short value="scopingEntity" />
+      <definition value="SHALL contain exactly one [1..1] scopingEntity (CONF:81-7905)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ParticipantRole.scopingEntity.id">
+      <path value="ParticipantRole.scopingEntity.id" />
+      <short value="id" />
+      <definition value="This scopingEntity SHALL contain at least one [1..*] id (CONF:81-7908)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+  </differential>
+</StructureDefinition>

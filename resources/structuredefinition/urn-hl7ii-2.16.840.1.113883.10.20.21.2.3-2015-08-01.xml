@@ -1,0 +1,166 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="S_Interventions_Section_V3" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2015-08-01" />
+  <name value="Interventions Section (V3)" />
+  <status value="active" />
+  <publisher value="River Rock Associates" />
+  <contact>
+    <name value="Brett Marquard" />
+    <telecom>
+      <system value="phone" />
+      <value value="4135496886" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="brett@riverrockassociates.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template represents Interventions. Interventions are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Interventions can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patients health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individuals condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Interventions Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Section" />
+  <type value="Section" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Section">
+      <path value="Section" />
+    </element>
+    <element id="Section.templateId">
+      <path value="Section.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8680) such that it" />
+    </element>
+    <element id="Section.templateId:templateId1">
+      <path value="Section.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8680) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.root">
+      <path value="Section.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.21.2.3&quot; (CONF:1198-10461)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.extension">
+      <path value="Section.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32559)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code">
+      <path value="Section.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1198-15377)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.code">
+      <path value="Section.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;62387-6&quot; Interventions Provided (CONF:1198-15378)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.codeSystem">
+      <path value="Section.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30864)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.title">
+      <path value="Section.title" />
+      <short value="title" />
+      <definition value="SHALL contain exactly one [1..1] title (CONF:1198-8682)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.text">
+      <path value="Section.text" />
+      <short value="text" />
+      <definition value="SHALL contain exactly one [1..1] text (CONF:1198-8683)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry">
+      <path value="Section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="act" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-32730) such that it" />
+    </element>
+    <element id="Section.entry:entry1">
+      <path value="Section.entry" />
+      <sliceName value="entry1" />
+      <short value="entry" />
+      <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-30996) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry1.act">
+      <path value="Section.entry.act" />
+      <sliceName value="entry1" />
+      <short value="act" />
+      <definition value="SHALL contain exactly one [1..1] Intervention Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.131:2015-08-01) (CONF:1198-30997)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry3">
+      <path value="Section.entry" />
+      <sliceName value="entry3" />
+      <short value="entry" />
+      <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-32730) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry3.act">
+      <path value="Section.entry.act" />
+      <sliceName value="entry3" />
+      <short value="act" />
+      <definition value="SHALL contain exactly one [1..1] Planned Intervention Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.146:2015-08-01) (CONF:1198-32731)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry2">
+      <path value="Section.entry" />
+      <sliceName value="entry2" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1198-32402) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry2.act">
+      <path value="Section.entry.act" />
+      <sliceName value="entry2" />
+      <short value="act" />
+      <definition value="SHALL contain exactly one [1..1] Handoff Communication Participants (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.141) (CONF:1198-32403)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

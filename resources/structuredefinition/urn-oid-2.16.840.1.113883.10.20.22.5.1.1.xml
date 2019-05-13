@@ -1,0 +1,39 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="U_US_Realm_Person_Name_PNUSFIELDED" />
+  <url value="urn:oid:2.16.840.1.113883.10.20.22.5.1.1" />
+  <name value="US Realm Person Name (PN.US.FIELDED)" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The US Realm Clinical Document Person Name datatype flavor is a set of reusable constraints that can be used for Persons." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="PN" />
+  <type value="PN" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/PN" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="PN">
+      <path value="PN" />
+    </element>
+    <element id="PN.name">
+      <path value="PN.name" />
+      <short value="name" />
+      <definition value="SHALL contain exactly one [1..1] name (CONF:81-9368)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

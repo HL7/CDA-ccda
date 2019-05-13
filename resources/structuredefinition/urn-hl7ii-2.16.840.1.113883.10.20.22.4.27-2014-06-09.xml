@@ -1,0 +1,197 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="E_Vital_Sign_Observation_V2" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09" />
+  <name value="Vital Sign Observation (V2)" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template represents measurement of common vital signs. Vital signs are represented with additional vocabulary constraints for type of vital sign and unit of measure.&#xA;&#xA;The following is a list of recommended units for common types of vital sign measurements:&#xA;&#xA;| Name | Unit |&#xA;| -------- | ------- |&#xA;| PulseOx | % |&#xA;| Height/Head Circumf | cm |&#xA;| Weight | kg |&#xA;| Temp | Cel |&#xA;| BP | mm[Hg] |&#xA;| Pulse/Resp Rate | /min |&#xA;| BMI | kg/m2 |&#xA;| BSA | m2 |&#xA;| inhaled oxygen concentration | % |&#xA;&#xA;" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+    </element>
+    <element id="Observation.classCode">
+      <path value="Observation.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7297)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.moodCode">
+      <path value="Observation.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7298)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId">
+      <path value="Observation.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7299) such that it" />
+    </element>
+    <element id="Observation.templateId:templateId1">
+      <path value="Observation.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7299) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.root">
+      <path value="Observation.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.27&quot; (CONF:1098-10527)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.extension">
+      <path value="Observation.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32574)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.id">
+      <path value="Observation.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:1098-7300)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-7301)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.code">
+      <path value="Observation.code.code" />
+      <short value="code" />
+      <definition value="This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Vital Sign Result Type urn:oid:2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:1098-32934)." />
+      <min value="0" />
+      <max value="1" />
+      <binding>
+        <strength value="preferred" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62" />
+          <display value="Vital Sign Result Type" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.statusCode">
+      <path value="Observation.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-7303)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode.code">
+      <path value="Observation.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19119)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.effectiveTime">
+      <path value="Observation.effectiveTime" />
+      <short value="effectiveTime" />
+      <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7304)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.value">
+      <path value="Observation.value" />
+      <short value="value" />
+      <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:1098-7305)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.value.unit">
+      <path value="Observation.value.unit" />
+      <short value="unit" />
+      <definition value="This value SHALL contain exactly one [1..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-31579)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839" />
+          <display value="UnitsOfMeasureCaseSensitive" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.interpretationCode">
+      <path value="Observation.interpretationCode" />
+      <short value="interpretationCode" />
+      <definition value="MAY contain zero or one [0..1] interpretationCode (CONF:1098-7307)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.interpretationCode.code">
+      <path value="Observation.interpretationCode.code" />
+      <short value="code" />
+      <definition value="The interpretationCode, if present, SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:1098-32886)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.78" />
+          <display value="Observation Interpretation (HL7)" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.methodCode">
+      <path value="Observation.methodCode" />
+      <short value="methodCode" />
+      <definition value="MAY contain zero or one [0..1] methodCode (CONF:1098-7308)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.targetSiteCode">
+      <path value="Observation.targetSiteCode" />
+      <short value="targetSiteCode" />
+      <definition value="MAY contain zero or one [0..1] targetSiteCode (CONF:1098-7309)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.author">
+      <path value="Observation.author" />
+      <short value="author" />
+      <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-7310)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+  </differential>
+</StructureDefinition>

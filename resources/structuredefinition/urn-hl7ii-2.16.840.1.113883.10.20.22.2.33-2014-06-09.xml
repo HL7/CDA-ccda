@@ -1,0 +1,106 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="S_Implants_Section_DEPRECATED" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.33:2014-06-09" />
+  <name value="Implants Section (DEPRECATED)" />
+  <publisher value="Lantana Consulting Group" />
+  <contact>
+    <name value="Eric Parapini" />
+    <telecom>
+      <system value="phone" />
+      <value value="+13604405780" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="eric.parapini@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="THIS TEMPLATE HAS BEEN DEPRECATED IN C-CDA R2 AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for Deprecation*: Replaced by the Procedure Implants Section (2.16.840.1.113883.10.20.22.2.40)" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Section" />
+  <type value="Section" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Section">
+      <path value="Section" />
+    </element>
+    <element id="Section.templateId">
+      <path value="Section.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-8042) such that it" />
+    </element>
+    <element id="Section.templateId:templateId1">
+      <path value="Section.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-8042) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.root">
+      <path value="Section.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.33&quot; (CONF:1098-32608)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.extension">
+      <path value="Section.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32609)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code">
+      <path value="Section.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-15371)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.code">
+      <path value="Section.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;55122-6&quot; Implants (CONF:1098-15372)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.codeSystem">
+      <path value="Section.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-26471)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.title">
+      <path value="Section.title" />
+      <short value="title" />
+      <definition value="SHALL contain exactly one [1..1] title (CONF:1098-8044)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.text">
+      <path value="Section.text" />
+      <short value="text" />
+      <definition value="SHALL contain exactly one [1..1] text (CONF:1098-8045)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

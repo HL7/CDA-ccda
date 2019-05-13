@@ -1,0 +1,530 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="D_Operative_Note_V3" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.7:2015-08-01" />
+  <name value="Operative Note (V3)" />
+  <status value="active" />
+  <publisher value="River Rock Associates" />
+  <contact>
+    <name value="Brett Marquard" />
+    <telecom>
+      <system value="phone" />
+      <value value="4135496886" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="brett@riverrockassociates.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory agencies. &#xA;The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="ClinicalDocument" />
+  <type value="ClinicalDocument" />
+  <baseDefinition value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2015-08-01" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ClinicalDocument">
+      <path value="ClinicalDocument" />
+    </element>
+    <element id="ClinicalDocument.templateId">
+      <path value="ClinicalDocument.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8483) such that it" />
+    </element>
+    <element id="ClinicalDocument.templateId:templateId1">
+      <path value="ClinicalDocument.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8483) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.templateId:templateId1.root">
+      <path value="ClinicalDocument.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.7&quot; (CONF:1198-10048)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.templateId:templateId1.extension">
+      <path value="ClinicalDocument.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32519)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.code">
+      <path value="ClinicalDocument.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1198-17187)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.code.code">
+      <path value="ClinicalDocument.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet SurgicalOperationNoteDocumentTypeCode http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.1.1 DYNAMIC (CONF:1198-17188)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.1.1" />
+          <display value="SurgicalOperationNoteDocumentTypeCode" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ClinicalDocument.documentationOf">
+      <path value="ClinicalDocument.documentationOf" />
+      <short value="documentationOf" />
+      <definition value="SHALL contain at least one [1..*] documentationOf (CONF:1198-8486)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.documentationOf.serviceEvent">
+      <path value="ClinicalDocument.documentationOf.serviceEvent" />
+      <short value="serviceEvent" />
+      <definition value="Such documentationOfs SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8493)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime" />
+      <short value="effectiveTime" />
+      <definition value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="assignedEntity" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="typeCode" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer" />
+      <sliceName value="performer1" />
+      <short value="performer" />
+      <definition value="This serviceEvent SHALL contain exactly one [1..1] performer (CONF:1198-8489) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.typeCode">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode" />
+      <sliceName value="performer1" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;PPRF&quot; Primary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8495)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity" />
+      <sliceName value="performer1" />
+      <short value="assignedEntity" />
+      <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-10917)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.code">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code" />
+      <sliceName value="performer1" />
+      <short value="code" />
+      <definition value="This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy (HIPAA) urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8490)." />
+      <min value="0" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066" />
+          <display value="Healthcare Provider Taxonomy (HIPAA)" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer2">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer" />
+      <sliceName value="performer2" />
+      <short value="performer" />
+      <definition value="This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer2.typeCode">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode" />
+      <sliceName value="performer2" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRF&quot; Secondary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32738)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer2.assignedEntity">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity" />
+      <sliceName value="performer2" />
+      <short value="assignedEntity" />
+      <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32737)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer2.assignedEntity.code">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code" />
+      <sliceName value="performer2" />
+      <short value="code" />
+      <definition value="This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy (HIPAA) urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32739)." />
+      <min value="0" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066" />
+          <display value="Healthcare Provider Taxonomy (HIPAA)" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ClinicalDocument.authorization">
+      <path value="ClinicalDocument.authorization" />
+      <short value="authorization" />
+      <definition value="MAY contain zero or one [0..1] authorization (CONF:1198-32404)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authorization.typeCode">
+      <path value="ClinicalDocument.authorization.typeCode" />
+      <short value="typeCode" />
+      <definition value="The authorization, if present, SHALL contain exactly one [1..1] @typeCode=&quot;AUTH&quot; authorized by (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32408)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authorization.consent">
+      <path value="ClinicalDocument.authorization.consent" />
+      <short value="consent" />
+      <definition value="The authorization, if present, SHALL contain exactly one [1..1] consent (CONF:1198-32405)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authorization.consent.classCode">
+      <path value="ClinicalDocument.authorization.consent.classCode" />
+      <short value="classCode" />
+      <definition value="This consent SHALL contain exactly one [1..1] @classCode=&quot;CONS&quot; consent (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32409)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authorization.consent.moodCode">
+      <path value="ClinicalDocument.authorization.consent.moodCode" />
+      <short value="moodCode" />
+      <definition value="This consent SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-32410)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authorization.consent.statusCode">
+      <path value="ClinicalDocument.authorization.consent.statusCode" />
+      <short value="statusCode" />
+      <definition value="This consent SHALL contain exactly one [1..1] statusCode (CONF:1198-32411)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.component">
+      <path value="ClinicalDocument.component" />
+      <short value="component" />
+      <definition value="SHALL contain exactly one [1..1] component (CONF:1198-9585)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.component.structuredBody">
+      <path value="ClinicalDocument.component.structuredBody" />
+      <short value="structuredBody" />
+      <definition value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30485)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.component.structuredBody.component">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="section" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30516) such that it" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component1" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30486) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component1" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Anesthesia Section (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09) (CONF:1198-30487)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component2">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component2" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30488) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component2.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component2" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Complications Section (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2015-08-01) (CONF:1198-30489)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component3" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30490) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component3" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Preoperative Diagnosis Section (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.34:2015-08-01) (CONF:1198-30491)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component4">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component4" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30492) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component4.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component4" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Procedure Estimated Blood Loss Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.9) (CONF:1198-30493)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component5">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component5" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30494) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component5.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component5" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Procedure Findings Section (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.28:2015-08-01) (CONF:1198-30495)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component6">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component6" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30496) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component6.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component6" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Procedure Specimens Taken Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.31) (CONF:1198-30497)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component7">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component7" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30498) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component7.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component7" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Procedure Description Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.27) (CONF:1198-30499)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component8">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component8" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30500) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component8.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component8" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Postoperative Diagnosis Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.35) (CONF:1198-30501)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component9">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component9" />
+      <short value="component" />
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30502) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component9.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component9" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Procedure Implants Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.40) (CONF:1198-30503)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component10">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component10" />
+      <short value="component" />
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30504) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component10.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component10" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Operative Note Fluids Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.12) (CONF:1198-30505)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component11">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component11" />
+      <short value="component" />
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30506) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component11.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component11" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Operative Note Surgical Procedure Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.14) (CONF:1198-30507)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component12">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component12" />
+      <short value="component" />
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30508) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component12.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component12" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Plan of Treatment Section (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30509)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component13">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component13" />
+      <short value="component" />
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30510) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component13.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component13" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Planned Procedure Section (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.30:2014-06-09) (CONF:1198-30511)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component14">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component14" />
+      <short value="component" />
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30512) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component14.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component14" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Procedure Disposition Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.12) (CONF:1198-30513)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component15">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component15" />
+      <short value="component" />
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30514) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component15.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component15" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Procedure Indications Section (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.29:2014-06-09) (CONF:1198-30515)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component16">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component16" />
+      <short value="component" />
+      <definition value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30516) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component16.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component16" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Surgical Drains Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.13) (CONF:1198-30517)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

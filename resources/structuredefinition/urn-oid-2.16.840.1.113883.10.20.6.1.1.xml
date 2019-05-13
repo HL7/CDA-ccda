@@ -1,0 +1,94 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="S_DICOM_Object_Catalog_Section__DCM_121" />
+  <url value="urn:oid:2.16.840.1.113883.10.20.6.1.1" />
+  <name value="DICOM Object Catalog Section - DCM 121181" />
+  <status value="active" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="DICOM Object Catalog lists all referenced objects and their parent Series and Studies, plus other DICOM attributes required for retrieving the objects.&#xD;&#xA;&#xD;&#xA;DICOM Object Catalog sections are not intended for viewing and contain empty section text." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Section" />
+  <type value="Section" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Section">
+      <path value="Section" />
+    </element>
+    <element id="Section.templateId">
+      <path value="Section.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8525) such that it" />
+    </element>
+    <element id="Section.templateId:templateId1">
+      <path value="Section.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8525) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.root">
+      <path value="Section.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.1.1&quot; (CONF:81-10454)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code">
+      <path value="Section.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:81-15456)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.code">
+      <path value="Section.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;121181&quot; Dicom Object Catalog (CONF:81-15457)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.codeSystem">
+      <path value="Section.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;1.2.840.10008.2.16.4&quot; (CodeSystem: DCM urn:oid:1.2.840.10008.2.16.4) (CONF:81-26475)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry">
+      <path value="Section.entry" />
+      <short value="entry" />
+      <definition value="SHALL contain at least one [1..*] entry (CONF:81-8530)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry.act">
+      <path value="Section.entry.act" />
+      <short value="act" />
+      <definition value="Such entries SHALL contain exactly one [1..1] actStudy Act (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.6) (CONF:81-15458)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>
