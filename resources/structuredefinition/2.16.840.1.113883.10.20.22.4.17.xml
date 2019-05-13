@@ -1,0 +1,236 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.10.20.22.4.17" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09" />
+  <identifier>
+    <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09" />
+  </identifier>
+  <name value="Medication Supply Order (V2)" />
+  <status value="active" />
+  <date value="20140609" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template records the intent to supply a patient with medications." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Supply" />
+  <type value="Supply" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Supply" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Supply">
+      <path value="Supply" />
+    </element>
+    <element id="Supply.classCode">
+      <path value="Supply.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7427)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.moodCode">
+      <path value="Supply.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;INT&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7428)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.templateId">
+      <path value="Supply.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7429) such that it" />
+    </element>
+    <element id="Supply.templateId:templateId1">
+      <path value="Supply.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7429) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.templateId:templateId1.root">
+      <path value="Supply.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.17&quot; (CONF:1098-10507)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.templateId:templateId1.extension">
+      <path value="Supply.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32578)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.id">
+      <path value="Supply.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:1098-7430)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Supply.statusCode">
+      <path value="Supply.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-7432)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.statusCode.code">
+      <path value="Supply.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32362)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15933" />
+          <display value="ActStatus" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Supply.effectiveTime">
+      <path value="Supply.effectiveTime" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="high" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15143) such that it" />
+    </element>
+    <element id="Supply.effectiveTime:effectiveTime1">
+      <path value="Supply.effectiveTime" />
+      <sliceName value="effectiveTime1" />
+      <short value="effectiveTime" />
+      <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15143) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Supply.effectiveTime:effectiveTime1.high">
+      <path value="Supply.effectiveTime.high" />
+      <sliceName value="effectiveTime1" />
+      <short value="high" />
+      <definition value="SHALL contain exactly one [1..1] high (CONF:1098-15144)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.repeatNumber">
+      <path value="Supply.repeatNumber" />
+      <short value="repeatNumber" />
+      <definition value="SHOULD contain zero or one [0..1] repeatNumber (CONF:1098-7434)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Supply.quantity">
+      <path value="Supply.quantity" />
+      <short value="quantity" />
+      <definition value="SHOULD contain zero or one [0..1] quantity (CONF:1098-7436)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Supply.product">
+      <path value="Supply.product" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="manufacturedProduct" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="MAY contain zero or one [0..1] product (CONF:1098-9334) such that it" />
+    </element>
+    <element id="Supply.product:product1">
+      <path value="Supply.product" />
+      <sliceName value="product1" />
+      <short value="product" />
+      <definition value="MAY contain zero or one [0..1] product (CONF:1098-7439) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Supply.product:product1.manufacturedProduct">
+      <path value="Supply.product.manufacturedProduct" />
+      <sliceName value="product1" />
+      <short value="manufacturedProduct" />
+      <definition value="SHALL contain exactly one [1..1] Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-16093)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.product:product2">
+      <path value="Supply.product" />
+      <sliceName value="product2" />
+      <short value="product" />
+      <definition value="MAY contain zero or one [0..1] product (CONF:1098-9334) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Supply.product:product2.manufacturedProduct">
+      <path value="Supply.product.manufacturedProduct" />
+      <sliceName value="product2" />
+      <short value="manufacturedProduct" />
+      <definition value="SHALL contain exactly one [1..1] Immunization Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1098-31695)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.author">
+      <path value="Supply.author" />
+      <short value="author" />
+      <definition value="MAY contain zero or one [0..1] author (CONF:1098-7438)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Supply.entryRelationship">
+      <path value="Supply.entryRelationship" />
+      <short value="entryRelationship" />
+      <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7442)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Supply.entryRelationship.typeCode">
+      <path value="Supply.entryRelationship.typeCode" />
+      <short value="typeCode" />
+      <definition value="The entryRelationship, if present, SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7444)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.entryRelationship.inversionInd">
+      <path value="Supply.entryRelationship.inversionInd" />
+      <short value="inversionInd" />
+      <definition value="The entryRelationship, if present, SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-7445)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Supply.entryRelationship.act">
+      <path value="Supply.entryRelationship.act" />
+      <short value="act" />
+      <definition value="The entryRelationship, if present, SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31391)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

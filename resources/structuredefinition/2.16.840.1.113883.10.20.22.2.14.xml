@@ -1,0 +1,281 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.10.20.22.2.14" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09" />
+  <identifier>
+    <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09" />
+  </identifier>
+  <name value="Functional Status Section (V2)" />
+  <status value="active" />
+  <date value="20140609" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The Functional Status Section contains observations and assessments of a patient's physical abilities. A patients functional status may include information regarding the patients ability to perform Activities of Daily Living (ADLs) in areas such as Mobility (e.g., ambulation), Self-Care (e.g., bathing, dressing, feeding, grooming) or Instrumental Activities of Daily Living (IADLs) (e.g., shopping, using a telephone, balancing a check book). Problems that impact function (e.g., dyspnea, dysphagia) can be contained in the section." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Section" />
+  <type value="Section" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Section">
+      <path value="Section" />
+    </element>
+    <element id="Section.templateId">
+      <path value="Section.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7920) such that it" />
+    </element>
+    <element id="Section.templateId:templateId1">
+      <path value="Section.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7920) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.root">
+      <path value="Section.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.14&quot; (CONF:1098-10389)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.extension">
+      <path value="Section.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32567)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code">
+      <path value="Section.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-14578)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.code">
+      <path value="Section.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;47420-5&quot; Functional Status (CONF:1098-14579)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.codeSystem">
+      <path value="Section.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-30866)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.title">
+      <path value="Section.title" />
+      <short value="title" />
+      <definition value="SHALL contain exactly one [1..1] title (CONF:1098-7922)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.text">
+      <path value="Section.text" />
+      <short value="text" />
+      <definition value="SHALL contain exactly one [1..1] text (CONF:1098-7923)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry">
+      <path value="Section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="observation" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-16777) such that it" />
+    </element>
+    <element id="Section.entry:entry1">
+      <path value="Section.entry" />
+      <sliceName value="entry1" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-14414) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry1.organizer">
+      <path value="Section.entry.organizer" />
+      <sliceName value="entry1" />
+      <short value="organizer" />
+      <definition value="SHALL contain exactly one [1..1] Functional Status Organizer (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.66:2014-06-09) (CONF:1098-14415)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry2">
+      <path value="Section.entry" />
+      <sliceName value="entry2" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-14418) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry2.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry2" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Functional Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:1098-14419)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry3">
+      <path value="Section.entry" />
+      <sliceName value="entry3" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-14426) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry3.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry3" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:1098-14427)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry4">
+      <path value="Section.entry" />
+      <sliceName value="entry4" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-14580) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry4.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry4" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1098-14581)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry5">
+      <path value="Section.entry" />
+      <sliceName value="entry5" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-14582) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry5.supply">
+      <path value="Section.entry.supply" />
+      <sliceName value="entry5" />
+      <short value="supply" />
+      <definition value="SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-30783)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry6">
+      <path value="Section.entry" />
+      <sliceName value="entry6" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-32792) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry6.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry6" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Self-Care Activities (ADL and IADL) (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.128) (CONF:1098-31009)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry7">
+      <path value="Section.entry" />
+      <sliceName value="entry7" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-16779) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry7.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry7" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Sensory Status (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.127) (CONF:1098-31011)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry8">
+      <path value="Section.entry" />
+      <sliceName value="entry8" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-14424) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry8.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry8" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Cognitive Status Problem Observation (DEPRECATED) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.73:2014-06-09) (CONF:1098-14425)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry9">
+      <path value="Section.entry" />
+      <sliceName value="entry9" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-14422) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry9.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry9" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Functional Status Problem Observation (DEPRECATED) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.68:2014-06-09) (CONF:1098-14423)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry10">
+      <path value="Section.entry" />
+      <sliceName value="entry10" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1098-16777) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry10.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry10" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Pressure Ulcer Observation (DEPRECATED) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.70:2014-06-09) (CONF:1098-16778)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

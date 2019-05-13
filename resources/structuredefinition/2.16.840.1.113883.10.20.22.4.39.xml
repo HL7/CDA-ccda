@@ -1,0 +1,232 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.10.20.22.4.39" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09" />
+  <identifier>
+    <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09" />
+  </identifier>
+  <name value="Planned Act (V2)" />
+  <status value="active" />
+  <date value="20140609" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template represents planned acts that are not classified as an observation or a procedure according to the HL7 RIM. Examples of these acts are a dressing change, the teaching or feeding of a patient or the providing of comfort measures. &#xD;&#xA;The priority of the activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the activity is intended to take place." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Act" />
+  <type value="Act" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Act">
+      <path value="Act" />
+    </element>
+    <element id="Act.classCode">
+      <path value="Act.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8538)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.moodCode">
+      <path value="Act.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-8539)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23" />
+          <display value="Planned moodCode (Act/Encounter/Procedure)" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Act.templateId">
+      <path value="Act.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-30430) such that it" />
+    </element>
+    <element id="Act.templateId:templateId1">
+      <path value="Act.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-30430) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.templateId:templateId1.root">
+      <path value="Act.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.39&quot; (CONF:1098-30431)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.templateId:templateId1.extension">
+      <path value="Act.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32552)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.id">
+      <path value="Act.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:1098-8546)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Act.code">
+      <path value="Act.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-31687)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.statusCode">
+      <path value="Act.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-30432)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.statusCode.code">
+      <path value="Act.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32019)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.effectiveTime">
+      <path value="Act.effectiveTime" />
+      <short value="effectiveTime" />
+      <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30433)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Act.performer">
+      <path value="Act.performer" />
+      <short value="performer" />
+      <definition value="MAY contain zero or more [0..*] performer (CONF:1098-30435)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Act.author">
+      <path value="Act.author" />
+      <short value="author" />
+      <definition value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32020)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Act.entryRelationship">
+      <path value="Act.entryRelationship" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="typeCode" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="act" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship1">
+      <path value="Act.entryRelationship" />
+      <sliceName value="entryRelationship1" />
+      <short value="entryRelationship" />
+      <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31067) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship1.typeCode">
+      <path value="Act.entryRelationship.typeCode" />
+      <sliceName value="entryRelationship1" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31068)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship1.observation">
+      <path value="Act.entryRelationship.observation" />
+      <sliceName value="entryRelationship1" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31069)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship2">
+      <path value="Act.entryRelationship" />
+      <sliceName value="entryRelationship2" />
+      <short value="entryRelationship" />
+      <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32021) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship2.typeCode">
+      <path value="Act.entryRelationship.typeCode" />
+      <sliceName value="entryRelationship2" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32022)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship2.observation">
+      <path value="Act.entryRelationship.observation" />
+      <sliceName value="entryRelationship2" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32023)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship3">
+      <path value="Act.entryRelationship" />
+      <sliceName value="entryRelationship3" />
+      <short value="entryRelationship" />
+      <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship3.typeCode">
+      <path value="Act.entryRelationship.typeCode" />
+      <sliceName value="entryRelationship3" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32025)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Act.entryRelationship:entryRelationship3.act">
+      <path value="Act.entryRelationship.act" />
+      <sliceName value="entryRelationship3" />
+      <short value="act" />
+      <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32026)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

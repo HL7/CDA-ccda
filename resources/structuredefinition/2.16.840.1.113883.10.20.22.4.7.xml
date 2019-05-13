@@ -1,0 +1,410 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.10.20.22.4.7" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09" />
+  <identifier>
+    <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09" />
+  </identifier>
+  <name value="Allergy - Intolerance Observation (V2)" />
+  <status value="active" />
+  <date value="20140609" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This template reflects a discrete observation about a patient's allergy or intolerance. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the &quot;biologically relevant time&quot; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of penicillin allergy that developed five years ago, the effectiveTime is five years ago. &#xA;&#xA;The effectiveTime of the Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;.&#xA;&#xA;The agent responsible for an allergy or adverse reaction is not always a manufactured material (for example, food allergies), nor is it necessarily consumed. The following constraints reflect limitations in the base CDA R2 specification, and should be used to represent any type of responsible agent, i.e., use playingEntity classCode = &quot;MMAT&quot; for all agents, manufactured or not." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation" />
+  <type value="Observation" />
+  <baseDefinition value="urn:hl7ii:2.16.840.1.113883.10.20.24.3.90:2014-06-09" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+    </element>
+    <element id="Observation.classCode">
+      <path value="Observation.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7379)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.moodCode">
+      <path value="Observation.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7380)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.negationInd">
+      <path value="Observation.negationInd" />
+      <label value="Use negationInd=&quot;true&quot; to indicate that the allergy was not observed." />
+      <short value="Use negationInd=&quot;true&quot; to indicate that the allergy was not observed." />
+      <definition value="MAY contain zero or one [0..1] @negationInd (CONF:1098-31526)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId">
+      <path value="Observation.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7381) such that it" />
+    </element>
+    <element id="Observation.templateId:templateId1">
+      <path value="Observation.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7381) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.root">
+      <path value="Observation.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.7&quot; (CONF:1098-10488)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.templateId:templateId1.extension">
+      <path value="Observation.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32526)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.id">
+      <path value="Observation.id" />
+      <short value="id" />
+      <definition value="SHALL contain at least one [1..*] id (CONF:1098-7382)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-15947)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.code">
+      <path value="Observation.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; Assertion (CONF:1098-15948)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.codeSystem">
+      <path value="Observation.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-32153)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode">
+      <path value="Observation.statusCode" />
+      <short value="statusCode" />
+      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-19084)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.statusCode.code">
+      <path value="Observation.statusCode.code" />
+      <short value="code" />
+      <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19085)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.effectiveTime">
+      <path value="Observation.effectiveTime" />
+      <label value="If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'. " />
+      <short value="If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'. " />
+      <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7387)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.effectiveTime.low">
+      <path value="Observation.effectiveTime.low" />
+      <label value="The effectiveTime/low (a.k.a. &quot;onset date&quot;) asserts when the allergy/intolerance became biologically active." />
+      <short value="The effectiveTime/low (a.k.a. &quot;onset date&quot;) asserts when the allergy/intolerance became biologically active." />
+      <definition value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-31538)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.effectiveTime.high">
+      <path value="Observation.effectiveTime.high" />
+      <label value="The effectiveTime/high (a.k.a. &quot;resolution date&quot;) asserts when the allergy/intolerance became biologically resolved." />
+      <short value="The effectiveTime/high (a.k.a. &quot;resolution date&quot;) asserts when the allergy/intolerance became biologically resolved." />
+      <definition value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31539)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.value">
+      <path value="Observation.value" />
+      <label value="The consumable participant points to the precise allergen or substance of intolerance. Because the consumable and the reaction are more clinically relevant than a categorization of the allergy/adverse event type, many systems will simply assign a fixed value here (e.g., &quot;allergy to substance&quot;). " />
+      <short value="The consumable participant points to the precise allergen or substance of intolerance. Because the consumable and the reaction are more clinically relevant than a categorization of the allergy/adverse event type, many systems will simply assign a fixed value here (e.g., &quot;allergy to substance&quot;). " />
+      <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Allergy and Intolerance Type urn:oid:2.16.840.1.113883.3.88.12.3221.6.2 DYNAMIC (CONF:1098-7390)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2" />
+          <display value="Allergy and Intolerance Type" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.author">
+      <path value="Observation.author" />
+      <short value="author" />
+      <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31143)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Observation.participant">
+      <path value="Observation.participant" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="typeCode" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="participantRole" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] participant (CONF:1098-7402) such that it" />
+    </element>
+    <element id="Observation.participant:participant1">
+      <path value="Observation.participant" />
+      <sliceName value="participant1" />
+      <short value="participant" />
+      <definition value="SHALL contain exactly one [1..1] participant (CONF:1098-7402) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.participant:participant1.typeCode">
+      <path value="Observation.participant.typeCode" />
+      <sliceName value="participant1" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;CSM&quot; Consumable (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-7403)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.participant:participant1.participantRole">
+      <path value="Observation.participant.participantRole" />
+      <sliceName value="participant1" />
+      <short value="participantRole" />
+      <definition value="SHALL contain exactly one [1..1] participantRole (CONF:1098-7404)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.participant:participant1.participantRole.classCode">
+      <path value="Observation.participant.participantRole.classCode" />
+      <sliceName value="participant1" />
+      <short value="classCode" />
+      <definition value="This participantRole SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; Manufactured Product (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-7405)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.participant:participant1.participantRole.playingEntity">
+      <path value="Observation.participant.participantRole.playingEntity" />
+      <sliceName value="participant1" />
+      <short value="playingEntity" />
+      <definition value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1098-7406)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.participant:participant1.participantRole.playingEntity.classCode">
+      <path value="Observation.participant.participantRole.playingEntity.classCode" />
+      <sliceName value="participant1" />
+      <short value="classCode" />
+      <definition value="This playingEntity SHALL contain exactly one [1..1] @classCode=&quot;MMAT&quot; Manufactured Material (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:1098-7407)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.participant:participant1.participantRole.playingEntity.code">
+      <path value="Observation.participant.participantRole.playingEntity.code" />
+      <sliceName value="participant1" />
+      <short value="code" />
+      <definition value="This playingEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Substance Reactant for Intolerance urn:oid:2.16.840.1.113762.1.4.1010.1 DYNAMIC (CONF:1098-7419)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.1" />
+          <display value="Substance Reactant for Intolerance" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.entryRelationship">
+      <path value="Observation.entryRelationship" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="typeCode" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="inversionInd" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="observation" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-32939) such that it" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship4">
+      <path value="Observation.entryRelationship" />
+      <sliceName value="entryRelationship4" />
+      <short value="entryRelationship" />
+      <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-32939) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship4.typeCode">
+      <path value="Observation.entryRelationship.typeCode" />
+      <sliceName value="entryRelationship4" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32940)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship4.inversionInd">
+      <path value="Observation.entryRelationship.inversionInd" />
+      <sliceName value="entryRelationship4" />
+      <short value="inversionInd" />
+      <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-32941)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship4.observation">
+      <path value="Observation.entryRelationship.observation" />
+      <sliceName value="entryRelationship4" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Allergy Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.28) (CONF:1098-32942)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship2">
+      <path value="Observation.entryRelationship" />
+      <sliceName value="entryRelationship2" />
+      <short value="entryRelationship" />
+      <definition value="SHOULD NOT contain zero or one [0..1] entryRelationship (CONF:1098-9961) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship2.typeCode">
+      <path value="Observation.entryRelationship.typeCode" />
+      <sliceName value="entryRelationship2" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-9962)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship2.inversionInd">
+      <path value="Observation.entryRelationship.inversionInd" />
+      <sliceName value="entryRelationship2" />
+      <short value="inversionInd" />
+      <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-9964)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship2.observation">
+      <path value="Observation.entryRelationship.observation" />
+      <sliceName value="entryRelationship2" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Severity Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09) (CONF:1098-15956)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship1">
+      <path value="Observation.entryRelationship" />
+      <sliceName value="entryRelationship1" />
+      <short value="entryRelationship" />
+      <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-7447) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+      <path value="Observation.entryRelationship.typeCode" />
+      <sliceName value="entryRelationship1" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;MFST&quot; Is Manifestation of (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7907)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship1.inversionInd">
+      <path value="Observation.entryRelationship.inversionInd" />
+      <sliceName value="entryRelationship1" />
+      <short value="inversionInd" />
+      <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-7449)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship1.observation">
+      <path value="Observation.entryRelationship.observation" />
+      <sliceName value="entryRelationship1" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-15955)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship3">
+      <path value="Observation.entryRelationship" />
+      <sliceName value="entryRelationship3" />
+      <short value="entryRelationship" />
+      <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32910) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship3.typeCode">
+      <path value="Observation.entryRelationship.typeCode" />
+      <sliceName value="entryRelationship3" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32911)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship3.inversionInd">
+      <path value="Observation.entryRelationship.inversionInd" />
+      <sliceName value="entryRelationship3" />
+      <short value="inversionInd" />
+      <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-32912)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.entryRelationship:entryRelationship3.observation">
+      <path value="Observation.entryRelationship.observation" />
+      <sliceName value="entryRelationship3" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Criticality Observation  (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.145) (CONF:1098-32913)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

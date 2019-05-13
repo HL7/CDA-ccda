@@ -1,0 +1,773 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.10.20.22.1.15" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.15:2015-08-01" />
+  <identifier>
+    <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.15:2015-08-01" />
+  </identifier>
+  <name value="Care Plan (V2)" />
+  <status value="active" />
+  <date value="20150801" />
+  <publisher value="River Rock Associates" />
+  <contact>
+    <name value="Brett Marquard" />
+    <telecom>
+      <system value="phone" />
+      <value value="4135496886" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="brett@riverrockassociates.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="CARE PLAN FRAMEWORK&#xA;&#xA;A Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patients and Care Team Members prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patients care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):&#xA;There are 2 required sections:&#xA;        o  Health Concerns&#xA;        o  Interventions&#xA;There are 2 optional sections:&#xA;        o  Goals&#xA;        o  Outcomes&#xA;	Provides the ability to identify patient and provider priorities with each act&#xA;	Provides a header participant to indicate occurrences of Care Plan review&#xA;A care plan document can include entry references from the information in these sections to the information (entries) in other sections.&#xA;&#xA;Please see Volume 1 of this guide to view a Care Plan Relationship diagram and story board." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="ClinicalDocument" />
+  <type value="ClinicalDocument" />
+  <baseDefinition value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2015-08-01" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ClinicalDocument">
+      <path value="ClinicalDocument" />
+    </element>
+    <element id="ClinicalDocument.templateId">
+      <path value="ClinicalDocument.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-28741) such that it" />
+    </element>
+    <element id="ClinicalDocument.templateId:templateId1">
+      <path value="ClinicalDocument.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-28741) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.templateId:templateId1.root">
+      <path value="ClinicalDocument.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.15&quot; (CONF:1198-28742)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.templateId:templateId1.extension">
+      <path value="ClinicalDocument.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32877)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.code">
+      <path value="ClinicalDocument.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1198-28745)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.code.code">
+      <path value="ClinicalDocument.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Care Plan Document Type urn:oid:2.16.840.1.113762.1.4.1099.10 DYNAMIC (CONF:1198-32959)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.10" />
+          <display value="Care Plan Document Type" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ClinicalDocument.setId">
+      <path value="ClinicalDocument.setId" />
+      <short value="setId" />
+      <definition value="SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.versionNumber">
+      <path value="ClinicalDocument.versionNumber" />
+      <short value="versionNumber" />
+      <definition value="SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient">
+      <path value="ClinicalDocument.informationRecipient" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="intendedRecipient" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHOULD contain zero or more [0..*] informationRecipient (CONF:1198-31993) such that it" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1">
+      <path value="ClinicalDocument.informationRecipient" />
+      <sliceName value="informationRecipient1" />
+      <short value="informationRecipient" />
+      <definition value="SHOULD contain zero or more [0..*] informationRecipient (CONF:1198-31993) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient" />
+      <sliceName value="informationRecipient1" />
+      <short value="intendedRecipient" />
+      <definition value="SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.id">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.id" />
+      <sliceName value="informationRecipient1" />
+      <short value="id" />
+      <definition value="This intendedRecipient SHALL contain at least one [1..*] id (CONF:1198-31996)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.addr">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.addr" />
+      <sliceName value="informationRecipient1" />
+      <short value="addr" />
+      <definition value="This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.telecom">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.telecom" />
+      <sliceName value="informationRecipient1" />
+      <short value="telecom" />
+      <definition value="This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.informationRecipient">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient" />
+      <sliceName value="informationRecipient1" />
+      <short value="informationRecipient" />
+      <definition value="This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.informationRecipient.name">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name" />
+      <sliceName value="informationRecipient1" />
+      <short value="name" />
+      <definition value="The informationRecipient, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32320)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization" />
+      <sliceName value="informationRecipient1" />
+      <short value="receivedOrganization" />
+      <definition value="This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization.id">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.id" />
+      <sliceName value="informationRecipient1" />
+      <short value="id" />
+      <definition value="The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization.name">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.name" />
+      <sliceName value="informationRecipient1" />
+      <short value="name" />
+      <definition value="The receivedOrganization, if present, SHALL contain at least one [1..*] name (CONF:1198-32002)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization.standardIndustryClassCode">
+      <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.standardIndustryClassCode" />
+      <sliceName value="informationRecipient1" />
+      <short value="standardIndustryClassCode" />
+      <definition value="The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy (HIPAA) urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)." />
+      <min value="0" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066" />
+          <display value="Healthcare Provider Taxonomy (HIPAA)" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ClinicalDocument.authenticator">
+      <path value="ClinicalDocument.authenticator" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="assignedEntity" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHOULD contain zero or one [0..1] authenticator (CONF:1198-31910) such that it" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1">
+      <path value="ClinicalDocument.authenticator" />
+      <sliceName value="authenticator1" />
+      <short value="authenticator" />
+      <definition value="SHOULD contain zero or one [0..1] authenticator (CONF:1198-31910) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1.time">
+      <path value="ClinicalDocument.authenticator.time" />
+      <sliceName value="authenticator1" />
+      <short value="time" />
+      <definition value="SHALL contain exactly one [1..1] time (CONF:1198-31911)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1.signatureCode">
+      <path value="ClinicalDocument.authenticator.signatureCode" />
+      <sliceName value="authenticator1" />
+      <short value="signatureCode" />
+      <definition value="SHALL contain exactly one [1..1] signatureCode (CONF:1198-31912)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1.sdtc:signatureText">
+      <path value="ClinicalDocument.authenticator.sdtc:signatureText" />
+      <sliceName value="authenticator1" />
+      <short value="sdtc:signatureText" />
+      <definition value="MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-31913)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity">
+      <path value="ClinicalDocument.authenticator.assignedEntity" />
+      <sliceName value="authenticator1" />
+      <short value="assignedEntity" />
+      <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31914)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.id">
+      <path value="ClinicalDocument.authenticator.assignedEntity.id" />
+      <sliceName value="authenticator1" />
+      <short value="id" />
+      <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-31915)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code">
+      <path value="ClinicalDocument.authenticator.assignedEntity.code" />
+      <sliceName value="authenticator1" />
+      <short value="code" />
+      <definition value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:1198-31916)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code.code">
+      <path value="ClinicalDocument.authenticator.assignedEntity.code.code" />
+      <sliceName value="authenticator1" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;ONESELF&quot; Self (CONF:1198-31917)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code.codeSystem">
+      <path value="ClinicalDocument.authenticator.assignedEntity.code.codeSystem" />
+      <sliceName value="authenticator1" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.111&quot; (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111) (CONF:1198-31918)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant">
+      <path value="ClinicalDocument.participant" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="typeCode" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-31895) such that it" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1">
+      <path value="ClinicalDocument.participant" />
+      <sliceName value="participant1" />
+      <short value="participant" />
+      <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-31677) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.typeCode">
+      <path value="ClinicalDocument.participant.typeCode" />
+      <sliceName value="participant1" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;VRF&quot; Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31678)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.functionCode">
+      <path value="ClinicalDocument.participant.functionCode" />
+      <sliceName value="participant1" />
+      <short value="functionCode" />
+      <definition value="SHALL contain exactly one [1..1] functionCode (CONF:1198-31679)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.functionCode.code">
+      <path value="ClinicalDocument.participant.functionCode.code" />
+      <sliceName value="participant1" />
+      <short value="code" />
+      <definition value="This functionCode SHALL contain exactly one [1..1] @code=&quot;425268008&quot; Review of Care Plan (CONF:1198-31680)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.functionCode.codeSystem">
+      <path value="ClinicalDocument.participant.functionCode.codeSystem" />
+      <sliceName value="participant1" />
+      <short value="codeSystem" />
+      <definition value="This functionCode SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31681)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.time">
+      <path value="ClinicalDocument.participant.time" />
+      <sliceName value="participant1" />
+      <short value="time" />
+      <definition value="SHALL contain exactly one [1..1] time (CONF:1198-31682)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.associatedEntity">
+      <path value="ClinicalDocument.participant.associatedEntity" />
+      <sliceName value="participant1" />
+      <short value="associatedEntity" />
+      <definition value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31683)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.associatedEntity.classCode">
+      <path value="ClinicalDocument.participant.associatedEntity.classCode" />
+      <sliceName value="participant1" />
+      <short value="classCode" />
+      <definition value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;ASSIGNED&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-31686)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.associatedEntity.id">
+      <path value="ClinicalDocument.participant.associatedEntity.id" />
+      <sliceName value="participant1" />
+      <short value="id" />
+      <definition value="This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31684)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.associatedEntity.code">
+      <path value="ClinicalDocument.participant.associatedEntity.code" />
+      <sliceName value="participant1" />
+      <short value="code" />
+      <definition value="This associatedEntity SHOULD contain zero or one [0..1] code (CONF:1198-31685)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant1.associatedEntity.code.code">
+      <path value="ClinicalDocument.participant.associatedEntity.code.code" />
+      <sliceName value="participant1" />
+      <short value="code" />
+      <definition value="The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-32367)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="preferred" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1" />
+          <display value="Personal And Legal Relationship Role Type" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ClinicalDocument.participant:participant2">
+      <path value="ClinicalDocument.participant" />
+      <sliceName value="participant2" />
+      <short value="participant" />
+      <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-31895) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.participant:participant2.typeCode">
+      <path value="ClinicalDocument.participant.typeCode" />
+      <sliceName value="participant2" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31896)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant2.associatedEntity">
+      <path value="ClinicalDocument.participant.associatedEntity" />
+      <sliceName value="participant2" />
+      <short value="associatedEntity" />
+      <definition value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31897)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant2.associatedEntity.classCode">
+      <path value="ClinicalDocument.participant.associatedEntity.classCode" />
+      <sliceName value="participant2" />
+      <short value="classCode" />
+      <definition value="This associatedEntity SHALL contain exactly one [1..1] @classCode, which SHALL be selected from ValueSet INDRoleclassCodes urn:oid:2.16.840.1.113883.11.20.9.33 STATIC (CONF:1198-31898)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33" />
+          <display value="INDRoleclassCodes" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson">
+      <path value="ClinicalDocument.participant.associatedEntity.associatedPerson" />
+      <sliceName value="participant2" />
+      <short value="associatedPerson" />
+      <definition value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31899)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson.name">
+      <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name" />
+      <sliceName value="participant2" />
+      <short value="name" />
+      <definition value="This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31900)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.documentationOf">
+      <path value="ClinicalDocument.documentationOf" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="serviceEvent" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it" />
+    </element>
+    <element id="ClinicalDocument.documentationOf:documentationOf1">
+      <path value="ClinicalDocument.documentationOf" />
+      <sliceName value="documentationOf1" />
+      <short value="documentationOf" />
+      <definition value="SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent">
+      <path value="ClinicalDocument.documentationOf.serviceEvent" />
+      <sliceName value="documentationOf1" />
+      <short value="serviceEvent" />
+      <definition value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-31902)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.classCode">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.classCode" />
+      <sliceName value="documentationOf1" />
+      <short value="classCode" />
+      <definition value="This serviceEvent SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Care Provision (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31903)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime" />
+      <sliceName value="documentationOf1" />
+      <short value="effectiveTime" />
+      <definition value="This serviceEvent SHALL contain exactly one [1..1] effectiveTime (CONF:1198-31904)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime.low">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low" />
+      <sliceName value="documentationOf1" />
+      <short value="low" />
+      <definition value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime.high">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high" />
+      <sliceName value="documentationOf1" />
+      <short value="high" />
+      <definition value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-32331)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="assignedEntity" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="This serviceEvent SHALL contain at least one [1..*] performer (CONF:1198-31905) such that it" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer" />
+      <sliceName value="performer1" />
+      <short value="performer" />
+      <definition value="This serviceEvent SHALL contain at least one [1..*] performer (CONF:1198-31905) such that it" />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity" />
+      <sliceName value="performer1" />
+      <short value="assignedEntity" />
+      <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31907)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.id">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id" />
+      <sliceName value="performer1" />
+      <short value="id" />
+      <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-31908)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.code">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code" />
+      <sliceName value="performer1" />
+      <short value="code" />
+      <definition value="This assignedEntity MAY contain zero or one [0..1] code (CONF:1198-31909)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.assignedPerson">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson" />
+      <sliceName value="performer1" />
+      <short value="assignedPerson" />
+      <definition value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-32328)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.assignedPerson.name">
+      <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.name" />
+      <sliceName value="performer1" />
+      <short value="name" />
+      <definition value="This assignedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32329)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.relatedDocument">
+      <path value="ClinicalDocument.relatedDocument" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="parentDocument" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="typeCode" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="MAY contain zero or more [0..*] relatedDocument (CONF:1198-29893) such that it" />
+    </element>
+    <element id="ClinicalDocument.relatedDocument:relatedDocument1">
+      <path value="ClinicalDocument.relatedDocument" />
+      <sliceName value="relatedDocument1" />
+      <short value="relatedDocument" />
+      <definition value="MAY contain zero or more [0..*] relatedDocument (CONF:1198-29893) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.relatedDocument:relatedDocument1.typeCode">
+      <path value="ClinicalDocument.relatedDocument.typeCode" />
+      <sliceName value="relatedDocument1" />
+      <short value="typeCode" />
+      <definition value="SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ActRelationshipDocument urn:oid:2.16.840.1.113883.1.11.11610 STATIC (CONF:1198-31889)." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.11610" />
+          <display value="x_ActRelationshipDocument" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ClinicalDocument.relatedDocument:relatedDocument1.parentDocument">
+      <path value="ClinicalDocument.relatedDocument.parentDocument" />
+      <sliceName value="relatedDocument1" />
+      <short value="parentDocument" />
+      <definition value="SHALL contain exactly one [1..1] parentDocument (CONF:1198-29894)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.relatedDocument:relatedDocument1.parentDocument.id">
+      <path value="ClinicalDocument.relatedDocument.parentDocument.id" />
+      <sliceName value="relatedDocument1" />
+      <short value="id" />
+      <definition value="This parentDocument SHALL contain at least one [1..*] id (CONF:1198-32949)." />
+      <min value="1" />
+      <max value="*" />
+    </element>
+    <element id="ClinicalDocument.relatedDocument:relatedDocument1.parentDocument.setId">
+      <path value="ClinicalDocument.relatedDocument.parentDocument.setId" />
+      <sliceName value="relatedDocument1" />
+      <short value="setId" />
+      <definition value="This parentDocument SHALL contain exactly one [1..1] setId (CONF:1198-29895)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.relatedDocument:relatedDocument1.parentDocument.versionNumber">
+      <path value="ClinicalDocument.relatedDocument.parentDocument.versionNumber" />
+      <sliceName value="relatedDocument1" />
+      <short value="versionNumber" />
+      <definition value="This parentDocument SHALL contain exactly one [1..1] versionNumber (CONF:1198-29896)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.componentOf">
+      <path value="ClinicalDocument.componentOf" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="encompassingEncounter" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it" />
+    </element>
+    <element id="ClinicalDocument.componentOf:componentOf1">
+      <path value="ClinicalDocument.componentOf" />
+      <sliceName value="componentOf1" />
+      <short value="componentOf" />
+      <definition value="SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.componentOf:componentOf1.encompassingEncounter">
+      <path value="ClinicalDocument.componentOf.encompassingEncounter" />
+      <sliceName value="componentOf1" />
+      <short value="encompassingEncounter" />
+      <definition value="SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-32005)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.componentOf:componentOf1.encompassingEncounter.effectiveTime">
+      <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime" />
+      <sliceName value="componentOf1" />
+      <short value="effectiveTime" />
+      <definition value="This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:1198-32007)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.component">
+      <path value="ClinicalDocument.component" />
+      <short value="component" />
+      <definition value="SHALL contain exactly one [1..1] component (CONF:1198-28753)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.component.structuredBody">
+      <path value="ClinicalDocument.component.structuredBody" />
+      <short value="structuredBody" />
+      <definition value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28754)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ClinicalDocument.component.structuredBody.component">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="section" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component1" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component1" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Health Concerns Section (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.58:2015-08-01) (CONF:1198-28756)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component2">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component2" />
+      <short value="component" />
+      <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28761) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component2.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component2" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Goals Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.60) (CONF:1198-28762)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component3" />
+      <short value="component" />
+      <definition value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28763) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component3" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Interventions Section (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2015-08-01) (CONF:1198-28764)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component4">
+      <path value="ClinicalDocument.component.structuredBody.component" />
+      <sliceName value="component4" />
+      <short value="component" />
+      <definition value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component4.section">
+      <path value="ClinicalDocument.component.structuredBody.component.section" />
+      <sliceName value="component4" />
+      <short value="section" />
+      <definition value="SHALL contain exactly one [1..1] Health Status Evaluations and Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

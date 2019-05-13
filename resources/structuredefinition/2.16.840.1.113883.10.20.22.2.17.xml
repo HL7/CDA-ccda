@@ -1,0 +1,234 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.10.20.22.2.17" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01" />
+  <identifier>
+    <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01" />
+  </identifier>
+  <name value="Social History Section (V3)" />
+  <status value="active" />
+  <date value="20150801" />
+  <publisher value="River Rock Associates" />
+  <contact>
+    <name value="Brett Marquard" />
+    <telecom>
+      <system value="phone" />
+      <value value="4135496886" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="brett@riverrockassociates.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This section contains social history data that influence a patients physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Section" />
+  <type value="Section" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Section">
+      <path value="Section" />
+    </element>
+    <element id="Section.templateId">
+      <path value="Section.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7936) such that it" />
+    </element>
+    <element id="Section.templateId:templateId1">
+      <path value="Section.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7936) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.root">
+      <path value="Section.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.17&quot; (CONF:1198-10449)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.templateId:templateId1.extension">
+      <path value="Section.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32494)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code">
+      <path value="Section.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1198-14819)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.code">
+      <path value="Section.code.code" />
+      <short value="code" />
+      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;29762-2&quot; Social History (CONF:1198-14820)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.code.codeSystem">
+      <path value="Section.code.codeSystem" />
+      <short value="codeSystem" />
+      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30814)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.title">
+      <path value="Section.title" />
+      <short value="title" />
+      <definition value="SHALL contain exactly one [1..1] title (CONF:1198-7938)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.text">
+      <path value="Section.text" />
+      <short value="text" />
+      <definition value="SHALL contain exactly one [1..1] text (CONF:1198-7939)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry">
+      <path value="Section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="observation" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28825) such that it" />
+    </element>
+    <element id="Section.entry:entry1">
+      <path value="Section.entry" />
+      <sliceName value="entry1" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1198-7953) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry1.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry1" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Social History Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2015-08-01) (CONF:1198-14821)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry2">
+      <path value="Section.entry" />
+      <sliceName value="entry2" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1198-9132) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry2.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry2" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Pregnancy Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:1198-14822)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry3">
+      <path value="Section.entry" />
+      <sliceName value="entry3" />
+      <short value="entry" />
+      <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-14823) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry3.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry3" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:1198-14824)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry4">
+      <path value="Section.entry" />
+      <sliceName value="entry4" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1198-16816) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry4.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry4" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Tobacco Use (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:1198-16817)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry5">
+      <path value="Section.entry" />
+      <sliceName value="entry5" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28361) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry5.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry5" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:1198-28362)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry6">
+      <path value="Section.entry" />
+      <sliceName value="entry6" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28366) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry6.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry6" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Cultural and Religious Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.111) (CONF:1198-28367)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Section.entry:entry7">
+      <path value="Section.entry" />
+      <sliceName value="entry7" />
+      <short value="entry" />
+      <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28825) such that it" />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Section.entry:entry7.observation">
+      <path value="Section.entry.observation" />
+      <sliceName value="entry7" />
+      <short value="observation" />
+      <definition value="SHALL contain exactly one [1..1] Characteristics of Home Environment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.109) (CONF:1198-28826)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

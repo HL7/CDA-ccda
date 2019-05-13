@@ -1,0 +1,117 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="2.16.840.1.113883.10.20.22.4.115" />
+  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09" />
+  <identifier>
+    <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09" />
+  </identifier>
+  <name value="External Document Reference" />
+  <status value="active" />
+  <date value="20140609" />
+  <contact>
+    <name value="Gaye Dolin" />
+    <telecom>
+      <system value="phone" />
+      <value value="714-744-4152" />
+      <use value="work" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="gaye.dolin@lantanagroup.com" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Where it is necessary to reference an external clinical document, the External Document Reference template can be used to reference this external document. However, if the containing document is appending to or replacing another document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument." />
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="ExternalDocument" />
+  <type value="ExternalDocument" />
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/ExternalDocument" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ExternalDocument">
+      <path value="ExternalDocument" />
+    </element>
+    <element id="ExternalDocument.classCode">
+      <path value="ExternalDocument.classCode" />
+      <short value="classCode" />
+      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;DOCCLIN&quot; Clinical Document (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31931)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ExternalDocument.moodCode">
+      <path value="ExternalDocument.moodCode" />
+      <short value="moodCode" />
+      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31932)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ExternalDocument.templateId">
+      <path value="ExternalDocument.templateId" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="extension" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="root" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-32748) such that it" />
+    </element>
+    <element id="ExternalDocument.templateId:templateId1">
+      <path value="ExternalDocument.templateId" />
+      <sliceName value="templateId1" />
+      <short value="templateId" />
+      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-32748) such that it" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ExternalDocument.templateId:templateId1.root">
+      <path value="ExternalDocument.templateId.root" />
+      <sliceName value="templateId1" />
+      <short value="root" />
+      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.115&quot; (CONF:1098-32750)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ExternalDocument.templateId:templateId1.extension">
+      <path value="ExternalDocument.templateId.extension" />
+      <sliceName value="templateId1" />
+      <short value="extension" />
+      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32749)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ExternalDocument.id">
+      <path value="ExternalDocument.id" />
+      <short value="id" />
+      <definition value="SHALL contain exactly one [1..1] id (CONF:1098-32751)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ExternalDocument.code">
+      <path value="ExternalDocument.code" />
+      <short value="code" />
+      <definition value="SHALL contain exactly one [1..1] code (CONF:1098-31933)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ExternalDocument.setId">
+      <path value="ExternalDocument.setId" />
+      <short value="setId" />
+      <definition value="SHOULD contain zero or one [0..1] setId (CONF:1098-32752)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="ExternalDocument.versionNumber">
+      <path value="ExternalDocument.versionNumber" />
+      <short value="versionNumber" />
+      <definition value="SHOULD contain zero or one [0..1] versionNumber (CONF:1098-32753)." />
+      <min value="0" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>
