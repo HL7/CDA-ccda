@@ -23,7 +23,7 @@ const valueSets = valueSetFiles.map((file) => {
 const ig = {
     resourceType: 'ImplementationGuide',
     id: 'ccda',
-    url: 'http://hl7.org/fhir/cda/ccda',
+    url: 'http://hl7.org/cda/us/ccda',
     name: 'ccda',
     title: 'Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1',
     packageId: 'hl7.fhir.cda.ccda',
