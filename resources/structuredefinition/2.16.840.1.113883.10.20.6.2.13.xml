@@ -1,147 +1,148 @@
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="2.16.840.1.113883.10.20.6.2.13" />
-  <url value="urn:oid:2.16.840.1.113883.10.20.6.2.13" />
-  <identifier>
-    <value value="urn:oid:2.16.840.1.113883.10.20.6.2.13" />
-  </identifier>
-  <name value="Code Observations" />
-  <status value="active" />
-  <contact>
-    <name value="Gaye Dolin" />
-    <telecom>
-      <system value="phone" />
-      <value value="714-744-4152" />
-      <use value="work" />
-    </telecom>
-    <telecom>
-      <system value="email" />
-      <value value="gaye.dolin@lantanagroup.com" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="DICOM Template 2000 specifies that Imaging Report Elements of Value Type Code are contained in sections. The Imaging Report Elements are inferred from Basic Diagnostic Imaging Report Observations that consist of image references and measurements (linear, area, volume, and numeric). Coded DICOM Imaging Report Elements in this context are mapped to CDA-coded observations that are section components and are related to the SOP Instance Observations (templateId 2.16.840.1.113883.10.20.6.2.8) or Quantity Measurement Observations (templateId 2.16.840.1.113883.10.20.6.2.14) by the SPRT (Support) act relationship." />
-  <kind value="resource" />
-  <abstract value="false" />
-  <contextType value="resource" />
-  <context value="Observation" />
-  <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="Observation">
-      <path value="Observation" />
-    </element>
-    <element id="Observation.classCode">
-      <path value="Observation.classCode" />
-      <short value="classCode" />
-      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9304)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.moodCode">
-      <path value="Observation.moodCode" />
-      <short value="moodCode" />
-      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9305)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.templateId">
-      <path value="Observation.templateId" />
-      <short value="templateId" />
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-15523)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.templateId.root">
-      <path value="Observation.templateId.root" />
-      <short value="root" />
-      <definition value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.2.13&quot; (CONF:81-15524)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code" />
-      <short value="code" />
-      <definition value="SHALL contain exactly one [1..1] code (CONF:81-19181)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.effectiveTime">
-      <path value="Observation.effectiveTime" />
-      <short value="effectiveTime" />
-      <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:81-9309)." />
-      <min value="0" />
-      <max value="1" />
-    </element>
-    <element id="Observation.value">
-      <path value="Observation.value" />
-      <short value="value" />
-      <definition value="SHALL contain exactly one [1..1] value (CONF:81-9308)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.entryRelationship">
-      <path value="Observation.entryRelationship" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="typeCode" />
-        </discriminator>
-        <discriminator>
-          <type value="value" />
-          <path value="observation" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9314) such that it" />
-    </element>
-    <element id="Observation.entryRelationship:entryRelationship1">
-      <path value="Observation.entryRelationship" />
-      <sliceName value="entryRelationship1" />
-      <short value="entryRelationship" />
-      <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9311) such that it" />
-      <min value="0" />
-      <max value="*" />
-    </element>
-    <element id="Observation.entryRelationship:entryRelationship1.typeCode">
-      <path value="Observation.entryRelationship.typeCode" />
-      <sliceName value="entryRelationship1" />
-      <short value="typeCode" />
-      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9312)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.entryRelationship:entryRelationship1.observation">
-      <path value="Observation.entryRelationship.observation" />
-      <sliceName value="entryRelationship1" />
-      <short value="observation" />
-      <definition value="SHALL contain exactly one [1..1] observationSOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:81-16083)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.entryRelationship:entryRelationship2">
-      <path value="Observation.entryRelationship" />
-      <sliceName value="entryRelationship2" />
-      <short value="entryRelationship" />
-      <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9314) such that it" />
-      <min value="0" />
-      <max value="*" />
-    </element>
-    <element id="Observation.entryRelationship:entryRelationship2.typeCode">
-      <path value="Observation.entryRelationship.typeCode" />
-      <sliceName value="entryRelationship2" />
-      <short value="typeCode" />
-      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9315)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.entryRelationship:entryRelationship2.observation">
-      <path value="Observation.entryRelationship.observation" />
-      <sliceName value="entryRelationship2" />
-      <short value="observation" />
-      <definition value="SHALL contain exactly one [1..1] observationQuantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:81-16084)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-  </differential>
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.6.2.13"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.6.2.13"/>
+    </identifier>
+    <name value="Code Observations"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="DICOM Template 2000 specifies that Imaging Report Elements of Value Type Code are contained in sections. The Imaging Report Elements are inferred from Basic Diagnostic Imaging Report Observations that consist of image references and measurements (linear, area, volume, and numeric). Coded DICOM Imaging Report Elements in this context are mapped to CDA-coded observations that are section components and are related to the SOP Instance Observations (templateId 2.16.840.1.113883.10.20.6.2.8) or Quantity Measurement Observations (templateId 2.16.840.1.113883.10.20.6.2.14) by the SPRT (Support) act relationship."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <context/>
+    <type value="Observation"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9304)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9305)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-15523)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId.root">
+            <path value="Observation.templateId.root"/>
+            <short value="root"/>
+            <definition value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.2.13&quot; (CONF:81-15524)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:81-19181)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <short value="effectiveTime"/>
+            <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:81-9309)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <short value="value"/>
+            <definition value="SHALL contain exactly one [1..1] value (CONF:81-9308)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship">
+            <path value="Observation.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="observation"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9314) such that it"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship1">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9311) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9312)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship1.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] observationSOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:81-16083)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9314) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9315)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] observationQuantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:81-16084)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
 </StructureDefinition>

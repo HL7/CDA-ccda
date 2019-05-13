@@ -1,139 +1,140 @@
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="2.16.840.1.113883.10.20.22.1.10" />
-  <url value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.10:2015-08-01" />
-  <identifier>
-    <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.10:2015-08-01" />
-  </identifier>
-  <name value="Unstructured Document (V3)" />
-  <status value="active" />
-  <date value="20150801" />
-  <publisher value="River Rock Associates" />
-  <contact>
-    <name value="Brett Marquard" />
-    <telecom>
-      <system value="phone" />
-      <value value="4135496886" />
-      <use value="work" />
-    </telecom>
-    <telecom>
-      <system value="email" />
-      <value value="brett@riverrockassociates.com" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="An Unstructured Document (UD) document type can (1) include unstructured content, such as a graphic, directly in a text element with a mediaType attribute, or (2) reference a single document file, such as a word-processing document using a text/reference element.&#xA;For guidance on how to handle multiple files, on the selection of media types for this IG, and on the identification of external files, see the examples that follow the constraints below.&#xA;IHEs XDS-SD (Cross-Transaction Specifications and Content Specifications, Scanned Documents Module) profile addresses a similar, more restricted use case, specifically for scanned documents or documents electronically created from existing text sources, and limits content to PDF-A or text. This Unstructured Documents template is applicable not only for scanned documents in non-PDF formats, but also for clinical documents produced through word processing applications, etc. &#xA;For conformance with both specifications, implementers need to ensure that their documents at a minimum conform with the SHALL constraints from either specification." />
-  <kind value="resource" />
-  <abstract value="false" />
-  <contextType value="resource" />
-  <context value="ClinicalDocument" />
-  <type value="ClinicalDocument" />
-  <baseDefinition value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2015-08-01" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="ClinicalDocument">
-      <path value="ClinicalDocument" />
-    </element>
-    <element id="ClinicalDocument.templateId">
-      <path value="ClinicalDocument.templateId" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="root" />
-        </discriminator>
-        <discriminator>
-          <type value="value" />
-          <path value="extension" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7710) such that it" />
-    </element>
-    <element id="ClinicalDocument.templateId:templateId1">
-      <path value="ClinicalDocument.templateId" />
-      <sliceName value="templateId1" />
-      <short value="templateId" />
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7710) such that it" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.templateId:templateId1.root">
-      <path value="ClinicalDocument.templateId.root" />
-      <sliceName value="templateId1" />
-      <short value="root" />
-      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.10&quot; (CONF:1198-10054)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.templateId:templateId1.extension">
-      <path value="ClinicalDocument.templateId.extension" />
-      <sliceName value="templateId1" />
-      <short value="extension" />
-      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32522)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.recordTarget">
-      <path value="ClinicalDocument.recordTarget" />
-      <short value="recordTarget" />
-      <definition value="SHALL contain at least one [1..*] recordTarget (CONF:1198-31089)." />
-      <min value="1" />
-      <max value="*" />
-    </element>
-    <element id="ClinicalDocument.recordTarget.patientRole">
-      <path value="ClinicalDocument.recordTarget.patientRole" />
-      <short value="patientRole" />
-      <definition value="Such recordTargets SHALL contain exactly one [1..1] patientRole (CONF:1198-31090)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.recordTarget.patientRole.id">
-      <path value="ClinicalDocument.recordTarget.patientRole.id" />
-      <short value="id" />
-      <definition value="This patientRole SHALL contain at least one [1..*] id (CONF:1198-31091)." />
-      <min value="1" />
-      <max value="*" />
-    </element>
-    <element id="ClinicalDocument.custodian">
-      <path value="ClinicalDocument.custodian" />
-      <short value="custodian" />
-      <definition value="SHALL contain exactly one [1..1] custodian (CONF:1198-31096)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.custodian.assignedCustodian">
-      <path value="ClinicalDocument.custodian.assignedCustodian" />
-      <short value="assignedCustodian" />
-      <definition value="This custodian SHALL contain exactly one [1..1] assignedCustodian (CONF:1198-31097)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization">
-      <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization" />
-      <short value="representedCustodianOrganization" />
-      <definition value="This assignedCustodian SHALL contain exactly one [1..1] representedCustodianOrganization (CONF:1198-31098)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.component">
-      <path value="ClinicalDocument.component" />
-      <short value="component" />
-      <definition value="SHALL contain exactly one [1..1] component (CONF:1198-31085)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.component.nonXMLBody">
-      <path value="ClinicalDocument.component.nonXMLBody" />
-      <short value="nonXMLBody" />
-      <definition value="This component SHALL contain exactly one [1..1] nonXMLBody (CONF:1198-31086)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="ClinicalDocument.component.nonXMLBody.text">
-      <path value="ClinicalDocument.component.nonXMLBody.text" />
-      <short value="text" />
-      <definition value="This nonXMLBody SHALL contain exactly one [1..1] text (CONF:1198-31087)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-  </differential>
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.1.10"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.10"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.10:2015-08-01"/>
+    </identifier>
+    <name value="Unstructured Document (V3)"/>
+    <status value="active"/>
+    <date value="20150801"/>
+    <publisher value="River Rock Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@riverrockassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="An Unstructured Document (UD) document type can (1) include unstructured content, such as a graphic, directly in a text element with a mediaType attribute, or (2) reference a single document file, such as a word-processing document using a text/reference element.&#xA;For guidance on how to handle multiple files, on the selection of media types for this IG, and on the identification of external files, see the examples that follow the constraints below.&#xA;IHEs XDS-SD (Cross-Transaction Specifications and Content Specifications, Scanned Documents Module) profile addresses a similar, more restricted use case, specifically for scanned documents or documents electronically created from existing text sources, and limits content to PDF-A or text. This Unstructured Documents template is applicable not only for scanned documents in non-PDF formats, but also for clinical documents produced through word processing applications, etc. &#xA;For conformance with both specifications, implementers need to ensure that their documents at a minimum conform with the SHALL constraints from either specification."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <context/>
+    <type value="ClinicalDocument"/>
+    <baseDefinition value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2015-08-01"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+        </element>
+        <element id="ClinicalDocument.templateId">
+            <path value="ClinicalDocument.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7710) such that it"/>
+        </element>
+        <element id="ClinicalDocument.templateId:templateId1">
+            <path value="ClinicalDocument.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7710) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.templateId:templateId1.root">
+            <path value="ClinicalDocument.templateId.root"/>
+            <sliceName value="templateId1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.10&quot; (CONF:1198-10054)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.templateId:templateId1.extension">
+            <path value="ClinicalDocument.templateId.extension"/>
+            <sliceName value="templateId1"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32522)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget">
+            <path value="ClinicalDocument.recordTarget"/>
+            <short value="recordTarget"/>
+            <definition value="SHALL contain at least one [1..*] recordTarget (CONF:1198-31089)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole">
+            <path value="ClinicalDocument.recordTarget.patientRole"/>
+            <short value="patientRole"/>
+            <definition value="Such recordTargets SHALL contain exactly one [1..1] patientRole (CONF:1198-31090)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.id">
+            <path value="ClinicalDocument.recordTarget.patientRole.id"/>
+            <short value="id"/>
+            <definition value="This patientRole SHALL contain at least one [1..*] id (CONF:1198-31091)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.custodian">
+            <path value="ClinicalDocument.custodian"/>
+            <short value="custodian"/>
+            <definition value="SHALL contain exactly one [1..1] custodian (CONF:1198-31096)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian">
+            <path value="ClinicalDocument.custodian.assignedCustodian"/>
+            <short value="assignedCustodian"/>
+            <definition value="This custodian SHALL contain exactly one [1..1] assignedCustodian (CONF:1198-31097)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization"/>
+            <short value="representedCustodianOrganization"/>
+            <definition value="This assignedCustodian SHALL contain exactly one [1..1] representedCustodianOrganization (CONF:1198-31098)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component">
+            <path value="ClinicalDocument.component"/>
+            <short value="component"/>
+            <definition value="SHALL contain exactly one [1..1] component (CONF:1198-31085)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.nonXMLBody">
+            <path value="ClinicalDocument.component.nonXMLBody"/>
+            <short value="nonXMLBody"/>
+            <definition value="This component SHALL contain exactly one [1..1] nonXMLBody (CONF:1198-31086)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.nonXMLBody.text">
+            <path value="ClinicalDocument.component.nonXMLBody.text"/>
+            <short value="text"/>
+            <definition value="This nonXMLBody SHALL contain exactly one [1..1] text (CONF:1198-31087)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
 </StructureDefinition>

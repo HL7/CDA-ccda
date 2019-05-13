@@ -1,97 +1,98 @@
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="2.16.840.1.113883.10.20.22.2.40" />
-  <url value="urn:oid:2.16.840.1.113883.10.20.22.2.40" />
-  <identifier>
-    <value value="urn:oid:2.16.840.1.113883.10.20.22.2.40" />
-  </identifier>
-  <name value="Procedure Implants Section" />
-  <status value="active" />
-  <contact>
-    <name value="Gaye Dolin" />
-    <telecom>
-      <system value="phone" />
-      <value value="714-744-4152" />
-      <use value="work" />
-    </telecom>
-    <telecom>
-      <system value="email" />
-      <value value="gaye.dolin@lantanagroup.com" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="The Procedure Implants Section records any materials placed during the procedure including stents, tubes, and drains." />
-  <kind value="resource" />
-  <abstract value="false" />
-  <contextType value="resource" />
-  <context value="Section" />
-  <type value="Section" />
-  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="Section">
-      <path value="Section" />
-    </element>
-    <element id="Section.templateId">
-      <path value="Section.templateId" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="root" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8178) such that it" />
-    </element>
-    <element id="Section.templateId:templateId1">
-      <path value="Section.templateId" />
-      <sliceName value="templateId1" />
-      <short value="templateId" />
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8178) such that it" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Section.templateId:templateId1.root">
-      <path value="Section.templateId.root" />
-      <sliceName value="templateId1" />
-      <short value="root" />
-      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.40&quot; (CONF:81-10444)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Section.code">
-      <path value="Section.code" />
-      <short value="code" />
-      <definition value="SHALL contain exactly one [1..1] code (CONF:81-15373)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Section.code.code">
-      <path value="Section.code.code" />
-      <short value="code" />
-      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;59771-6&quot; Procedure Implants (CONF:81-15374)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Section.code.codeSystem">
-      <path value="Section.code.codeSystem" />
-      <short value="codeSystem" />
-      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26492)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Section.title">
-      <path value="Section.title" />
-      <short value="title" />
-      <definition value="SHALL contain exactly one [1..1] title (CONF:81-8180)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Section.text">
-      <path value="Section.text" />
-      <short value="text" />
-      <definition value="SHALL contain exactly one [1..1] text (CONF:81-8181)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-  </differential>
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.2.40"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.40"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.22.2.40"/>
+    </identifier>
+    <name value="Procedure Implants Section"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Procedure Implants Section records any materials placed during the procedure including stents, tubes, and drains."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <context/>
+    <type value="Section"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8178) such that it"/>
+        </element>
+        <element id="Section.templateId:templateId1">
+            <path value="Section.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8178) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:templateId1.root">
+            <path value="Section.templateId.root"/>
+            <sliceName value="templateId1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.40&quot; (CONF:81-10444)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code">
+            <path value="Section.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:81-15373)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;59771-6&quot; Procedure Implants (CONF:81-15374)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26492)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.title">
+            <path value="Section.title"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:81-8180)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.text">
+            <path value="Section.text"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:81-8181)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
 </StructureDefinition>

@@ -1,118 +1,119 @@
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="2.16.840.1.113883.10.20.15.3.1" />
-  <url value="urn:oid:2.16.840.1.113883.10.20.15.3.1" />
-  <identifier>
-    <value value="urn:oid:2.16.840.1.113883.10.20.15.3.1" />
-  </identifier>
-  <name value="Estimated Date of Delivery" />
-  <status value="active" />
-  <contact>
-    <name value="Gaye Dolin" />
-    <telecom>
-      <system value="phone" />
-      <value value="714-744-4152" />
-      <use value="work" />
-    </telecom>
-    <telecom>
-      <system value="email" />
-      <value value="gaye.dolin@lantanagroup.com" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="This clinical statement represents the anticipated date when a woman will give birth." />
-  <kind value="resource" />
-  <abstract value="false" />
-  <contextType value="resource" />
-  <context value="Observation" />
-  <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="Observation">
-      <path value="Observation" />
-    </element>
-    <element id="Observation.classCode">
-      <path value="Observation.classCode" />
-      <short value="classCode" />
-      <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-444)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.moodCode">
-      <path value="Observation.moodCode" />
-      <short value="moodCode" />
-      <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-445)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.templateId">
-      <path value="Observation.templateId" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="root" />
-        </discriminator>
-        <rules value="closed" />
-      </slicing>
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-16762) such that it" />
-    </element>
-    <element id="Observation.templateId:templateId1">
-      <path value="Observation.templateId" />
-      <sliceName value="templateId1" />
-      <short value="templateId" />
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-16762) such that it" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.templateId:templateId1.root">
-      <path value="Observation.templateId.root" />
-      <sliceName value="templateId1" />
-      <short value="root" />
-      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.15.3.1&quot; (CONF:81-16763)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code" />
-      <short value="code" />
-      <definition value="SHALL contain exactly one [1..1] code (CONF:81-19139)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.code.code">
-      <path value="Observation.code.code" />
-      <short value="code" />
-      <definition value="This code SHALL contain exactly one [1..1] @code=&quot;11778-8&quot; Estimated date of delivery (CONF:81-19140)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.code.codeSystem">
-      <path value="Observation.code.codeSystem" />
-      <short value="codeSystem" />
-      <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26503)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.statusCode">
-      <path value="Observation.statusCode" />
-      <short value="statusCode" />
-      <definition value="SHALL contain exactly one [1..1] statusCode (CONF:81-448)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.statusCode.code">
-      <path value="Observation.statusCode.code" />
-      <short value="code" />
-      <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19096)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.value">
-      <path value="Observation.value" />
-      <short value="value" />
-      <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;TS&quot; (CONF:81-450)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-  </differential>
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.15.3.1"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.15.3.1"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.15.3.1"/>
+    </identifier>
+    <name value="Estimated Date of Delivery"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This clinical statement represents the anticipated date when a woman will give birth."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <context/>
+    <type value="Observation"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-444)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-445)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="closed"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-16762) such that it"/>
+        </element>
+        <element id="Observation.templateId:templateId1">
+            <path value="Observation.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-16762) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId:templateId1.root">
+            <path value="Observation.templateId.root"/>
+            <sliceName value="templateId1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.15.3.1&quot; (CONF:81-16763)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:81-19139)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;11778-8&quot; Estimated date of delivery (CONF:81-19140)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26503)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:81-448)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19096)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <short value="value"/>
+            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;TS&quot; (CONF:81-450)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
 </StructureDefinition>

@@ -1,131 +1,132 @@
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="2.16.840.1.113883.10.20.6.2.2" />
-  <url value="urn:hl7ii:2.16.840.1.113883.10.20.6.2.2:2014-06-09" />
-  <identifier>
-    <value value="urn:hl7ii:2.16.840.1.113883.10.20.6.2.2:2014-06-09" />
-  </identifier>
-  <name value="Physician of Record Participant (V2)" />
-  <status value="active" />
-  <date value="20140609" />
-  <contact>
-    <name value="Gaye Dolin" />
-    <telecom>
-      <system value="phone" />
-      <value value="714-744-4152" />
-      <use value="work" />
-    </telecom>
-    <telecom>
-      <system value="email" />
-      <value value="gaye.dolin@lantanagroup.com" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="This encounterParticipant is the attending physician and is usually different from the Physician Reading Study Performer defined in documentationOf/serviceEvent." />
-  <kind value="resource" />
-  <abstract value="false" />
-  <contextType value="resource" />
-  <context value="EncounterParticipant" />
-  <type value="EncounterParticipant" />
-  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/EncounterParticipant" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="EncounterParticipant">
-      <path value="EncounterParticipant" />
-    </element>
-    <element id="EncounterParticipant.typeCode">
-      <path value="EncounterParticipant.typeCode" />
-      <short value="typeCode" />
-      <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;ATND&quot; Attender (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8881)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.templateId">
-      <path value="EncounterParticipant.templateId" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="root" />
-        </discriminator>
-        <discriminator>
-          <type value="value" />
-          <path value="extension" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-16072) such that it" />
-    </element>
-    <element id="EncounterParticipant.templateId:templateId1">
-      <path value="EncounterParticipant.templateId" />
-      <sliceName value="templateId1" />
-      <short value="templateId" />
-      <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-16072) such that it" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.templateId:templateId1.root">
-      <path value="EncounterParticipant.templateId.root" />
-      <sliceName value="templateId1" />
-      <short value="root" />
-      <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.2.2&quot; (CONF:1098-16073)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.templateId:templateId1.extension">
-      <path value="EncounterParticipant.templateId.extension" />
-      <sliceName value="templateId1" />
-      <short value="extension" />
-      <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32586)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.assignedEntity">
-      <path value="EncounterParticipant.assignedEntity" />
-      <short value="assignedEntity" />
-      <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-8886)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.assignedEntity.id">
-      <path value="EncounterParticipant.assignedEntity.id" />
-      <short value="id" />
-      <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1098-8887)." />
-      <min value="1" />
-      <max value="*" />
-    </element>
-    <element id="EncounterParticipant.assignedEntity.code">
-      <path value="EncounterParticipant.assignedEntity.code" />
-      <short value="code" />
-      <definition value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:1098-8888)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.assignedEntity.assignedPerson">
-      <path value="EncounterParticipant.assignedEntity.assignedPerson" />
-      <short value="assignedPerson" />
-      <definition value="This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:1098-30928)." />
-      <min value="0" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.assignedEntity.assignedPerson.name">
-      <path value="EncounterParticipant.assignedEntity.assignedPerson.name" />
-      <short value="name" />
-      <definition value="The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1098-30929)." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.assignedEntity.representedOrganization">
-      <path value="EncounterParticipant.assignedEntity.representedOrganization" />
-      <short value="representedOrganization" />
-      <definition value="This assignedEntity MAY contain zero or one [0..1] representedOrganization (CONF:1098-16074)." />
-      <min value="0" />
-      <max value="1" />
-    </element>
-    <element id="EncounterParticipant.assignedEntity.representedOrganization.name">
-      <path value="EncounterParticipant.assignedEntity.representedOrganization.name" />
-      <short value="name" />
-      <definition value="The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:1098-16075)." />
-      <min value="0" />
-      <max value="1" />
-    </element>
-  </differential>
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.6.2.2"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.2"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.6.2.2:2014-06-09"/>
+    </identifier>
+    <name value="Physician of Record Participant (V2)"/>
+    <status value="active"/>
+    <date value="20140609"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This encounterParticipant is the attending physician and is usually different from the Physician Reading Study Performer defined in documentationOf/serviceEvent."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <context/>
+    <type value="EncounterParticipant"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/EncounterParticipant"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="EncounterParticipant">
+            <path value="EncounterParticipant"/>
+        </element>
+        <element id="EncounterParticipant.typeCode">
+            <path value="EncounterParticipant.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;ATND&quot; Attender (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8881)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.templateId">
+            <path value="EncounterParticipant.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-16072) such that it"/>
+        </element>
+        <element id="EncounterParticipant.templateId:templateId1">
+            <path value="EncounterParticipant.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-16072) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.templateId:templateId1.root">
+            <path value="EncounterParticipant.templateId.root"/>
+            <sliceName value="templateId1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.2.2&quot; (CONF:1098-16073)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.templateId:templateId1.extension">
+            <path value="EncounterParticipant.templateId.extension"/>
+            <sliceName value="templateId1"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32586)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.assignedEntity">
+            <path value="EncounterParticipant.assignedEntity"/>
+            <short value="assignedEntity"/>
+            <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-8886)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.assignedEntity.id">
+            <path value="EncounterParticipant.assignedEntity.id"/>
+            <short value="id"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1098-8887)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="EncounterParticipant.assignedEntity.code">
+            <path value="EncounterParticipant.assignedEntity.code"/>
+            <short value="code"/>
+            <definition value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:1098-8888)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.assignedEntity.assignedPerson">
+            <path value="EncounterParticipant.assignedEntity.assignedPerson"/>
+            <short value="assignedPerson"/>
+            <definition value="This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:1098-30928)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.assignedEntity.assignedPerson.name">
+            <path value="EncounterParticipant.assignedEntity.assignedPerson.name"/>
+            <short value="name"/>
+            <definition value="The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1098-30929)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.assignedEntity.representedOrganization">
+            <path value="EncounterParticipant.assignedEntity.representedOrganization"/>
+            <short value="representedOrganization"/>
+            <definition value="This assignedEntity MAY contain zero or one [0..1] representedOrganization (CONF:1098-16074)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="EncounterParticipant.assignedEntity.representedOrganization.name">
+            <path value="EncounterParticipant.assignedEntity.representedOrganization.name"/>
+            <short value="name"/>
+            <definition value="The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:1098-16075)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+    </differential>
 </StructureDefinition>
