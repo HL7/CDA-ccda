@@ -38,6 +38,7 @@
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31219)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
@@ -45,6 +46,7 @@
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31220)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -72,6 +74,7 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.144&quot; (CONF:1098-31222)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.144"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -106,69 +109,38 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="act"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="act"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship3">
-            <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
-            <short value="entryRelationship"/>
-            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship3.typeCode">
-            <path value="Observation.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship3"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;GEVL&quot; Evaluates goal (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31225)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship3.act">
-            <path value="Observation.entryRelationship.act"/>
-            <sliceName value="entryRelationship3"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-32465)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <short value="entryRelationship"/>
-            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-31427) such that it"/>
+            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"/>
             <min value="0"/>
-            <max value="1"/>
+            <max value="*"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <sliceName value="entryRelationship1"/>
             <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31428)."/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;GEVL&quot; Evaluates goal (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31225)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="GEVL"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.inversionInd">
-            <path value="Observation.entryRelationship.inversionInd"/>
+        <element id="Observation.entryRelationship:entryRelationship1.act">
+            <path value="Observation.entryRelationship.act"/>
             <sliceName value="entryRelationship1"/>
-            <short value="inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1098-31429)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
-            <path value="Observation.entryRelationship.observation"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110) (CONF:1098-31430)."/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-32465)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -176,21 +148,56 @@
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"/>
+            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-31427) such that it"/>
             <min value="0"/>
-            <max value="*"/>
+            <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <sliceName value="entryRelationship2"/>
             <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31689)."/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31428)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="SPRT"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1098-31429)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110) (CONF:1098-31430)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.act">
+        <element id="Observation.entryRelationship:entryRelationship3">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="entryRelationship3"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship3.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship3"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31689)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="RSON"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship3.act">
             <path value="Observation.entryRelationship.act"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="entryRelationship3"/>
             <short value="act"/>
             <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-31690)."/>
             <min value="1"/>
@@ -209,6 +216,7 @@
             <definition value="The reference, if present, SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32764)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="REFR"/>
         </element>
         <element id="Observation.reference.externalDocument">
             <path value="Observation.reference.externalDocument"/>

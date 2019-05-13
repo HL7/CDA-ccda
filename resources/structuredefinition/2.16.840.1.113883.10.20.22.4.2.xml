@@ -40,6 +40,7 @@
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7130)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
@@ -47,17 +48,18 @@
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7131)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -78,6 +80,7 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.2&quot; (CONF:1198-9138)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.2"/>
         </element>
         <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
@@ -86,6 +89,7 @@
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32575)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2015-08-01"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>

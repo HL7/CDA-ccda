@@ -39,6 +39,7 @@
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;DOCCLIN&quot; Clinical Document (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31931)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="DOCCLIN"/>
         </element>
         <element id="ExternalDocument.moodCode">
             <path value="ExternalDocument.moodCode"/>
@@ -46,17 +47,18 @@
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31932)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="EVN"/>
         </element>
         <element id="ExternalDocument.templateId">
             <path value="ExternalDocument.templateId"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -77,6 +79,7 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.115&quot; (CONF:1098-32750)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.115"/>
         </element>
         <element id="ExternalDocument.templateId:templateId1.extension">
             <path value="ExternalDocument.templateId.extension"/>
@@ -85,6 +88,7 @@
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32749)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2014-06-09"/>
         </element>
         <element id="ExternalDocument.id">
             <path value="ExternalDocument.id"/>

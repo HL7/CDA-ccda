@@ -10,7 +10,7 @@ sdFileNames.forEach((sdFileName) => {
     const absSdFileName = path.join('resources/structuredefinition', sdFileName);
     let xmlContent = fs.readFileSync(absSdFileName).toString();
     const resource = fhir.xmlToObj(xmlContent);
-    resource.url = 'http://hl7.org/cda/us/ccda/StructureDefinition/' + resource.id;
+    // TODO
     xmlContent = vkbeautify.xml(fhir.objToXml(resource));
     fs.writeFileSync(absSdFileName, xmlContent);
 });

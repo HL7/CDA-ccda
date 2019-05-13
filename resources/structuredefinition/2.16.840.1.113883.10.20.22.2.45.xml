@@ -39,17 +39,18 @@
             <definition value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-32835)."/>
             <min value="0"/>
             <max value="1"/>
+            <patternString value="NI"/>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -70,6 +71,7 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.45&quot; (CONF:1098-31384)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.2.45"/>
         </element>
         <element id="Section.templateId:templateId1.extension">
             <path value="Section.templateId.extension"/>
@@ -78,6 +80,7 @@
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32599)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2014-06-09"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
@@ -92,6 +95,7 @@
             <definition value="This code SHALL contain exactly one [1..1] @code=&quot;69730-0&quot; Instructions (CONF:1098-15376)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="69730-0"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
@@ -99,6 +103,7 @@
             <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32148)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>

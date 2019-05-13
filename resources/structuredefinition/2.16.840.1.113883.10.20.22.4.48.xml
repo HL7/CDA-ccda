@@ -40,6 +40,7 @@
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8648)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
@@ -47,17 +48,18 @@
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8649)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -78,6 +80,7 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.48&quot; (CONF:1198-10485)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.48"/>
         </element>
         <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
@@ -86,6 +89,7 @@
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32496)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2015-08-01"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -134,6 +138,7 @@
             <definition value="SHALL contain exactly one [1..1] @code=&quot;75320-2&quot; Advance directive (CONF:1198-32843)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="75320-2"/>
         </element>
         <element id="code.Observation.code.translation:translation1.codeSystem">
             <path value="Observation.code.translation.codeSystem"/>
@@ -142,6 +147,7 @@
             <definition value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32844)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -157,6 +163,7 @@
             <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19082)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -206,31 +213,32 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="participantRole"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="participantRole"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"/>
+            <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"/>
         </element>
-        <element id="Observation.participant:participant2">
+        <element id="Observation.participant:participant1">
             <path value="Observation.participant"/>
-            <sliceName value="participant2"/>
+            <sliceName value="participant1"/>
             <short value="participant"/>
             <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.participant:participant2.typeCode">
+        <element id="Observation.participant:participant1.typeCode">
             <path value="Observation.participant.typeCode"/>
-            <sliceName value="participant2"/>
+            <sliceName value="participant1"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;VRF&quot; Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="VRF"/>
         </element>
         <element id="Observation.participant.templateId">
             <path value="Observation.participant.templateId"/>
@@ -258,87 +266,21 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.58&quot; (CONF:1198-10486)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.1.58"/>
         </element>
-        <element id="Observation.participant:participant2.time">
+        <element id="Observation.participant:participant1.time">
             <path value="Observation.participant.time"/>
-            <sliceName value="participant2"/>
+            <sliceName value="participant1"/>
             <short value="time"/>
             <definition value="SHOULD contain zero or one [0..1] time (CONF:1198-8665)."/>
             <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.participant:participant2.participantRole">
-            <path value="Observation.participant.participantRole"/>
-            <sliceName value="participant2"/>
-            <short value="participantRole"/>
-            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:1198-8825)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.participant:participant2.participantRole.code">
-            <path value="Observation.participant.participantRole.code"/>
-            <sliceName value="participant2"/>
-            <short value="code"/>
-            <definition value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy (HIPAA) urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)."/>
-            <min value="0"/>
-            <max value="1"/>
-            <binding>
-                <strength value="preferred"/>
-            </binding>
-        </element>
-        <element id="Observation.participant:participant2.participantRole.addr">
-            <path value="Observation.participant.participantRole.addr"/>
-            <sliceName value="participant2"/>
-            <short value="addr"/>
-            <definition value="This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Observation.participant:participant2.participantRole.playingEntity">
-            <path value="Observation.participant.participantRole.playingEntity"/>
-            <sliceName value="participant2"/>
-            <short value="playingEntity"/>
-            <definition value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1198-28428)."/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.participant:participant2.participantRole.playingEntity.name">
-            <path value="Observation.participant.participantRole.playingEntity.name"/>
-            <sliceName value="participant2"/>
-            <short value="name"/>
-            <definition value="The playingEntity, if present, MAY contain zero or more [0..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Observation.participant:participant1">
-            <path value="Observation.participant"/>
-            <sliceName value="participant1"/>
-            <short value="participant"/>
-            <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Observation.participant:participant1.typeCode">
-            <path value="Observation.participant.typeCode"/>
-            <sliceName value="participant1"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;CST&quot; Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."/>
-            <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.participant:participant1.participantRole">
             <path value="Observation.participant.participantRole"/>
             <sliceName value="participant1"/>
             <short value="participantRole"/>
-            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:1198-8669)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.participant:participant1.participantRole.classCode">
-            <path value="Observation.participant.participantRole.classCode"/>
-            <sliceName value="participant1"/>
-            <short value="classCode"/>
-            <definition value="This participantRole SHALL contain exactly one [1..1] @classCode=&quot;AGNT&quot; Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."/>
+            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:1198-8825)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -346,7 +288,7 @@
             <path value="Observation.participant.participantRole.code"/>
             <sliceName value="participant1"/>
             <short value="code"/>
-            <definition value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28440)."/>
+            <definition value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy (HIPAA) urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -357,15 +299,7 @@
             <path value="Observation.participant.participantRole.addr"/>
             <sliceName value="participant1"/>
             <short value="addr"/>
-            <definition value="This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.participant:participant1.participantRole.telecom">
-            <path value="Observation.participant.participantRole.telecom"/>
-            <sliceName value="participant1"/>
-            <short value="telecom"/>
-            <definition value="This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)."/>
+            <definition value="This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -373,13 +307,90 @@
             <path value="Observation.participant.participantRole.playingEntity"/>
             <sliceName value="participant1"/>
             <short value="playingEntity"/>
+            <definition value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1198-28428)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.participant:participant1.participantRole.playingEntity.name">
+            <path value="Observation.participant.participantRole.playingEntity.name"/>
+            <sliceName value="participant1"/>
+            <short value="name"/>
+            <definition value="The playingEntity, if present, MAY contain zero or more [0..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.participant:participant2">
+            <path value="Observation.participant"/>
+            <sliceName value="participant2"/>
+            <short value="participant"/>
+            <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.participant:participant2.typeCode">
+            <path value="Observation.participant.typeCode"/>
+            <sliceName value="participant2"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;CST&quot; Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="CST"/>
+        </element>
+        <element id="Observation.participant:participant2.participantRole">
+            <path value="Observation.participant.participantRole"/>
+            <sliceName value="participant2"/>
+            <short value="participantRole"/>
+            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:1198-8669)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.participant:participant2.participantRole.classCode">
+            <path value="Observation.participant.participantRole.classCode"/>
+            <sliceName value="participant2"/>
+            <short value="classCode"/>
+            <definition value="This participantRole SHALL contain exactly one [1..1] @classCode=&quot;AGNT&quot; Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="AGNT"/>
+        </element>
+        <element id="Observation.participant:participant2.participantRole.code">
+            <path value="Observation.participant.participantRole.code"/>
+            <sliceName value="participant2"/>
+            <short value="code"/>
+            <definition value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28440)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+            </binding>
+        </element>
+        <element id="Observation.participant:participant2.participantRole.addr">
+            <path value="Observation.participant.participantRole.addr"/>
+            <sliceName value="participant2"/>
+            <short value="addr"/>
+            <definition value="This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.participant:participant2.participantRole.telecom">
+            <path value="Observation.participant.participantRole.telecom"/>
+            <sliceName value="participant2"/>
+            <short value="telecom"/>
+            <definition value="This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.participant:participant2.participantRole.playingEntity">
+            <path value="Observation.participant.participantRole.playingEntity"/>
+            <sliceName value="participant2"/>
+            <short value="playingEntity"/>
             <definition value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.participant:participant1.participantRole.playingEntity.code">
+        <element id="Observation.participant:participant2.participantRole.playingEntity.code">
             <path value="Observation.participant.participantRole.playingEntity.code"/>
-            <sliceName value="participant1"/>
+            <sliceName value="participant2"/>
             <short value="code"/>
             <definition value="This playingEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent Qualifier urn:oid:2.16.840.1.113883.11.20.9.51 DYNAMIC (CONF:1198-28444)."/>
             <min value="0"/>
@@ -388,9 +399,9 @@
                 <strength value="preferred"/>
             </binding>
         </element>
-        <element id="Observation.participant:participant1.participantRole.playingEntity.name">
+        <element id="Observation.participant:participant2.participantRole.playingEntity.name">
             <path value="Observation.participant.participantRole.playingEntity.name"/>
-            <sliceName value="participant1"/>
+            <sliceName value="participant2"/>
             <short value="name"/>
             <definition value="This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."/>
             <min value="1"/>
@@ -401,11 +412,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="externalDocument"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="externalDocument"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -426,6 +437,7 @@
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8694)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="REFR"/>
         </element>
         <element id="Observation.reference:reference1.externalDocument">
             <path value="Observation.reference.externalDocument"/>
