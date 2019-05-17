@@ -6,9 +6,9 @@
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.5:2015-08-01"/>
     </identifier>
+    <version value="2015-08-01"/>
     <name value="Diagnostic Imaging Report (V3)"/>
     <status value="active"/>
-    <date value="20150801"/>
     <publisher value="River Rock Associates"/>
     <contact>
         <name value="Brett Marquard"/>
@@ -28,7 +28,7 @@
     <abstract value="false"/>
     <context/>
     <type value="ClinicalDocument"/>
-    <baseDefinition value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2015-08-01"/>
+    <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
     <derivation value="constraint"/>
     <differential>
         <element id="ClinicalDocument">
@@ -39,11 +39,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -209,11 +209,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="code"/>
+                    <path value="classCode"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="classCode"/>
+                    <path value="code"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -349,23 +349,23 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="ClinicalDocument.section"/>
+                    <path value="section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This structuredBody MAY contain zero or more [0..*] component (CONF:1198-31055) such that it"/>
+            <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30696) such that it"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <short value="component"/>
             <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30696) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <short value="section"/>
             <definition value="SHALL contain exactly one [1..1] Findings Section (DIR) (identifier: urn:oid:2.16.840.1.113883.10.20.6.1.2) (CONF:1198-30697)."/>
             <min value="1"/>
@@ -387,33 +387,33 @@
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <short value="component"/>
             <definition value="This structuredBody MAY contain zero or more [0..*] component (CONF:1198-31055) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <short value="section"/>
             <definition value="SHALL contain exactly one [1..1] section (CONF:1198-31056)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.code">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.code">
             <path value="ClinicalDocument.component.structuredBody.component.section.code"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <short value="code"/>
             <definition value="This section SHALL contain exactly one [1..1] code (CONF:1198-31057)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.code.code">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.code.code">
             <path value="ClinicalDocument.component.structuredBody.component.section.code.code"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <label value="The section/code SHOULD be selected from LOINC or DICOM for sections not listed in the DIR Section Type Codes table"/>
             <short value="The section/code SHOULD be selected from LOINC or DICOM for sections not listed in the DIR Section Type Codes table"/>
             <definition value="This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet DIRSectionTypeCodes http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.59 DYNAMIC (CONF:1198-31207)."/>
@@ -423,17 +423,17 @@
                 <strength value="preferred"/>
             </binding>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.title">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.title">
             <path value="ClinicalDocument.component.structuredBody.component.section.title"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <short value="title"/>
             <definition value="This section SHOULD contain zero or one [0..1] title (CONF:1198-31058)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.text">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.text">
             <path value="ClinicalDocument.component.structuredBody.component.section.text"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <short value="text"/>
             <definition value="This section SHOULD contain zero or one [0..1] text (CONF:1198-31059)."/>
             <min value="0"/>
@@ -498,39 +498,39 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="observation"/>
+                    <path value="act"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363) such that it"/>
+            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31213) such that it"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry1">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry1"/>
+            <sliceName value="entry5"/>
             <short value="entry"/>
             <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31213) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry1.act">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5.act">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.act"/>
-            <sliceName value="entry1"/>
+            <sliceName value="entry5"/>
             <short value="act"/>
             <definition value="SHALL contain exactly one [1..1] Procedure Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.5) (CONF:1198-31214)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry2"/>
+            <sliceName value="entry4"/>
             <short value="entry"/>
             <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31357) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2.observation">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <sliceName value="entry2"/>
+            <sliceName value="entry4"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Text Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.12) (CONF:1198-31358)."/>
             <min value="1"/>
@@ -552,41 +552,41 @@
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry4"/>
+            <sliceName value="entry2"/>
             <short value="entry"/>
             <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31361) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4.observation">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <sliceName value="entry4"/>
+            <sliceName value="entry2"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Quantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:1198-31362)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry1">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry5"/>
+            <sliceName value="entry1"/>
             <short value="entry"/>
             <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5.observation">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry1.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <sliceName value="entry5"/>
+            <sliceName value="entry1"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:1198-31364)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.component">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.component">
             <path value="ClinicalDocument.component.structuredBody.component.section.component"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <short value="component"/>
             <definition value="This section MAY contain zero or more [0..*] component (CONF:1198-31208)."/>
             <min value="0"/>

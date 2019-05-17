@@ -6,9 +6,9 @@
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09"/>
     </identifier>
+    <version value="2014-06-09"/>
     <name value="Allergy - Intolerance Observation (V2)"/>
     <status value="active"/>
-    <date value="20140609"/>
     <contact>
         <name value="Gaye Dolin"/>
         <telecom>
@@ -27,7 +27,7 @@
     <abstract value="false"/>
     <context/>
     <type value="Observation"/>
-    <baseDefinition value="urn:hl7ii:2.16.840.1.113883.10.20.24.3.90:2014-06-09"/>
+    <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.24.3.90"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Observation">
@@ -190,11 +190,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="participantRole"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="participantRole"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -267,127 +267,21 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="inversionInd"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
                     <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-32939) such that it"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship4">
-            <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship4"/>
-            <short value="entryRelationship"/>
-            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-32939) such that it"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship4.typeCode">
-            <path value="Observation.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship4"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32940)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="SUBJ"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship4.inversionInd">
-            <path value="Observation.entryRelationship.inversionInd"/>
-            <sliceName value="entryRelationship4"/>
-            <short value="inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-32941)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="true"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship4.observation">
-            <path value="Observation.entryRelationship.observation"/>
-            <sliceName value="entryRelationship4"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Allergy Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.28) (CONF:1098-32942)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship2">
-            <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="entryRelationship"/>
-            <definition value="SHOULD NOT contain zero or one [0..1] entryRelationship (CONF:1098-9961) such that it"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship2.typeCode">
-            <path value="Observation.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-9962)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="SUBJ"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship2.inversionInd">
-            <path value="Observation.entryRelationship.inversionInd"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-9964)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="true"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship2.observation">
-            <path value="Observation.entryRelationship.observation"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Severity Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09) (CONF:1098-15956)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
-            <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="entryRelationship"/>
-            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-7447) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
-            <path value="Observation.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;MFST&quot; Is Manifestation of (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7907)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="MFST"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship1.inversionInd">
-            <path value="Observation.entryRelationship.inversionInd"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-7449)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="true"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
-            <path value="Observation.entryRelationship.observation"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-15955)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32910) such that it"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
             <short value="entryRelationship"/>
-            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32910) such that it"/>
+            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-32939) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -395,7 +289,7 @@
             <path value="Observation.entryRelationship.typeCode"/>
             <sliceName value="entryRelationship3"/>
             <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32911)."/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32940)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="SUBJ"/>
@@ -404,7 +298,7 @@
             <path value="Observation.entryRelationship.inversionInd"/>
             <sliceName value="entryRelationship3"/>
             <short value="inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-32912)."/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-32941)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="true"/>
@@ -412,6 +306,108 @@
         <element id="Observation.entryRelationship:entryRelationship3.observation">
             <path value="Observation.entryRelationship.observation"/>
             <sliceName value="entryRelationship3"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Allergy Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.28) (CONF:1098-32942)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship1">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="entryRelationship"/>
+            <definition value="SHOULD NOT contain zero or one [0..1] entryRelationship (CONF:1098-9961) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-9962)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="SUBJ"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship1.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-9964)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship1.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Severity Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09) (CONF:1098-15956)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="entryRelationship"/>
+            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-7447) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;MFST&quot; Is Manifestation of (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7907)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="MFST"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-7449)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship2.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-15955)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship4">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="entryRelationship"/>
+            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32910) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship4.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32911)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="SUBJ"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship4.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-32912)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship4.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship4"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Criticality Observation  (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.145) (CONF:1098-32913)."/>
             <min value="1"/>

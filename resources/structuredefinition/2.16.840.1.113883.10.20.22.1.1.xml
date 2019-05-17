@@ -6,9 +6,9 @@
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2015-08-01"/>
     </identifier>
+    <version value="2015-08-01"/>
     <name value="US Realm Header (V3)"/>
     <status value="active"/>
-    <date value="20150801"/>
     <publisher value="River Rock Associates"/>
     <contact>
         <name value="Brett Marquard"/>
@@ -720,39 +720,39 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="relatedEntity"/>
+                    <path value="assignedEntity"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] informant (CONF:1198-31355) such that it"/>
+            <definition value="MAY contain zero or more [0..*] informant (CONF:1198-8001) such that it"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1">
+        <element id="ClinicalDocument.informant:informant2">
             <path value="ClinicalDocument.informant"/>
-            <sliceName value="informant1"/>
+            <sliceName value="informant2"/>
             <short value="informant"/>
             <definition value="MAY contain zero or more [0..*] informant (CONF:1198-8001) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity">
+        <element id="ClinicalDocument.informant:informant2.assignedEntity">
             <path value="ClinicalDocument.informant.assignedEntity"/>
-            <sliceName value="informant1"/>
+            <sliceName value="informant2"/>
             <short value="assignedEntity"/>
             <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-8002)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.id">
+        <element id="ClinicalDocument.informant:informant2.assignedEntity.id">
             <path value="ClinicalDocument.informant.assignedEntity.id"/>
-            <sliceName value="informant1"/>
+            <sliceName value="informant2"/>
             <short value="id"/>
             <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-9945)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.code">
+        <element id="ClinicalDocument.informant:informant2.assignedEntity.code">
             <path value="ClinicalDocument.informant.assignedEntity.code"/>
-            <sliceName value="informant1"/>
+            <sliceName value="informant2"/>
             <short value="code"/>
             <definition value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy (HIPAA) urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32174)."/>
             <min value="0"/>
@@ -761,41 +761,41 @@
                 <strength value="preferred"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.addr">
+        <element id="ClinicalDocument.informant:informant2.assignedEntity.addr">
             <path value="ClinicalDocument.informant.assignedEntity.addr"/>
-            <sliceName value="informant1"/>
+            <sliceName value="informant2"/>
             <short value="addr"/>
             <definition value="This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8220)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.assignedPerson">
+        <element id="ClinicalDocument.informant:informant2.assignedEntity.assignedPerson">
             <path value="ClinicalDocument.informant.assignedEntity.assignedPerson"/>
-            <sliceName value="informant1"/>
+            <sliceName value="informant2"/>
             <short value="assignedPerson"/>
             <definition value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-8221)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.assignedPerson.name">
+        <element id="ClinicalDocument.informant:informant2.assignedEntity.assignedPerson.name">
             <path value="ClinicalDocument.informant.assignedEntity.assignedPerson.name"/>
-            <sliceName value="informant1"/>
+            <sliceName value="informant2"/>
             <short value="name"/>
             <definition value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-8222)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.informant:informant2">
+        <element id="ClinicalDocument.informant:informant1">
             <path value="ClinicalDocument.informant"/>
-            <sliceName value="informant2"/>
+            <sliceName value="informant1"/>
             <short value="informant"/>
             <definition value="MAY contain zero or more [0..*] informant (CONF:1198-31355) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.informant:informant2.relatedEntity">
+        <element id="ClinicalDocument.informant:informant1.relatedEntity">
             <path value="ClinicalDocument.informant.relatedEntity"/>
-            <sliceName value="informant2"/>
+            <sliceName value="informant1"/>
             <short value="relatedEntity"/>
             <definition value="SHALL contain exactly one [1..1] relatedEntity (CONF:1198-31356)."/>
             <min value="1"/>
@@ -1029,11 +1029,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="ClinicalDocument.signatureCode"/>
+                    <path value="ClinicalDocument.assignedEntity"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="ClinicalDocument.assignedEntity"/>
+                    <path value="ClinicalDocument.signatureCode"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>

@@ -6,9 +6,9 @@
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09"/>
     </identifier>
+    <version value="2014-06-09"/>
     <name value="Procedure Activity Act (V2)"/>
     <status value="active"/>
-    <date value="20140609"/>
     <contact>
         <name value="Gaye Dolin"/>
         <telecom>
@@ -54,11 +54,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -278,136 +278,21 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
+                    <path value="Act.inversionInd"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
                     <path value="Act.typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8329) such that it"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship1">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8314) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8315)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="COMP"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship1.inversionInd">
-            <path value="Act.entryRelationship.inversionInd"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8316)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="true"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship1.encounter">
-            <path value="Act.entryRelationship.encounter"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="encounter"/>
-            <definition value="SHALL contain exactly one [1..1] encounter (CONF:1098-8317)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship1.encounter.classCode">
-            <path value="Act.entryRelationship.encounter.classCode"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="classCode"/>
-            <definition value="This encounter SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; Encounter (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8318)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="ENC"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship1.encounter.moodCode">
-            <path value="Act.entryRelationship.encounter.moodCode"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="moodCode"/>
-            <definition value="This encounter SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-8319)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="EVN"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship1.encounter.id">
-            <path value="Act.entryRelationship.encounter.id"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="id"/>
-            <definition value="This encounter SHALL contain exactly one [1..1] id (CONF:1098-8320)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship2">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="entryRelationship"/>
-            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-8322) such that it"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship2.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8323)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="SUBJ"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship2.inversionInd">
-            <path value="Act.entryRelationship.inversionInd"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8324)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="true"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship2.act">
-            <path value="Act.entryRelationship.act"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31396)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship3">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
-            <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8326) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship3.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship3"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8327)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="RSON"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship3.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <sliceName value="entryRelationship3"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-15601)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship4">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8329) such that it"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8314) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -415,14 +300,133 @@
             <path value="Act.entryRelationship.typeCode"/>
             <sliceName value="entryRelationship4"/>
             <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8315)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="COMP"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship4.inversionInd">
+            <path value="Act.entryRelationship.inversionInd"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8316)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="true"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship4.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="encounter"/>
+            <definition value="SHALL contain exactly one [1..1] encounter (CONF:1098-8317)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship4.encounter.classCode">
+            <path value="Act.entryRelationship.encounter.classCode"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="classCode"/>
+            <definition value="This encounter SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; Encounter (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8318)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="ENC"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship4.encounter.moodCode">
+            <path value="Act.entryRelationship.encounter.moodCode"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="moodCode"/>
+            <definition value="This encounter SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-8319)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="EVN"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship4.encounter.id">
+            <path value="Act.entryRelationship.encounter.id"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="id"/>
+            <definition value="This encounter SHALL contain exactly one [1..1] id (CONF:1098-8320)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship3">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="entryRelationship3"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-8322) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship3.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship3"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8323)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="SUBJ"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship3.inversionInd">
+            <path value="Act.entryRelationship.inversionInd"/>
+            <sliceName value="entryRelationship3"/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8324)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="true"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship3.act">
+            <path value="Act.entryRelationship.act"/>
+            <sliceName value="entryRelationship3"/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31396)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship2">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8326) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship2.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8327)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="RSON"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship2.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-15601)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8329) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8330)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship4.substanceAdministration">
+        <element id="Act.entryRelationship:entryRelationship1.substanceAdministration">
             <path value="Act.entryRelationship.substanceAdministration"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="entryRelationship1"/>
             <short value="substanceAdministration"/>
             <definition value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-15602)."/>
             <min value="1"/>
