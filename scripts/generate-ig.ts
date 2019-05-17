@@ -26,7 +26,7 @@ const ig = {
     url: 'http://hl7.org/cda/us/ccda',
     name: 'ccda',
     title: 'Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1',
-    packageId: 'hl7.fhir.cda.ccda',
+    packageId: 'hl7.cda.us.ccda',
     version: '2.1.0',
     status: 'active',
     experimental: false,
