@@ -24,7 +24,6 @@
     <description value="Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Act"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
     <derivation value="constraint"/>
@@ -38,7 +37,7 @@
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9425)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="ACT"/>
+            <fixedString value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
@@ -46,7 +45,7 @@
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9426)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="EVN"/>
+            <fixedString value="EVN"/>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -74,7 +73,7 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.64&quot; (CONF:81-10491)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.22.4.64"/>
+            <fixedString value="2.16.840.1.113883.10.20.22.4.64"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
@@ -89,7 +88,7 @@
             <definition value="This code SHALL contain exactly one [1..1] @code=&quot;48767-8&quot; Annotation Comment (CONF:81-19159)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="48767-8"/>
+            <fixedString value="48767-8"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
@@ -97,7 +96,7 @@
             <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26501)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2.16.840.1.113883.6.1"/>
+            <fixedString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Act.text">
             <path value="Act.text"/>
@@ -133,6 +132,10 @@
             <definition value="SHOULD contain zero or one [0..1] authorAuthor Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:81-9433)."/>
             <min value="0"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

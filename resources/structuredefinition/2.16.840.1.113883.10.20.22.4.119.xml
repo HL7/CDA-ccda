@@ -24,7 +24,6 @@
     <description value="This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden.&#xA;&#xA;The Author Participation template was added to those templates in scope for analysis in R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Author"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
     <derivation value="constraint"/>
@@ -58,7 +57,7 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.119&quot; (CONF:1098-32018)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.22.4.119"/>
+            <fixedString value="2.16.840.1.113883.10.20.22.4.119"/>
         </element>
         <element id="Author.time">
             <path value="Author.time"/>
@@ -90,6 +89,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
             </binding>
         </element>
         <element id="Author.assignedAuthor.assignedPerson">

@@ -25,7 +25,6 @@
     <description value="This section describes the clinical reason why a provider is sending a patient to another provider for care. The reason for referral may become the reason for visit documented by the receiving provider."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Section"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
     <derivation value="constraint"/>
@@ -63,7 +62,7 @@
             <definition value="SHALL contain exactly one [1..1] @root=&quot;1.3.6.1.4.1.19376.1.5.3.1.3.1&quot; (CONF:1098-10468)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
+            <fixedString value="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
         </element>
         <element id="Section.templateId:templateId1.extension">
             <path value="Section.templateId.extension"/>
@@ -72,7 +71,7 @@
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32571)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2014-06-09"/>
+            <fixedString value="2014-06-09"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
@@ -87,7 +86,7 @@
             <definition value="This code SHALL contain exactly one [1..1] @code=&quot;42349-1&quot; Reason for Referral (CONF:1098-15428)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="42349-1"/>
+            <fixedString value="42349-1"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
@@ -95,7 +94,7 @@
             <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-30867)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2.16.840.1.113883.6.1"/>
+            <fixedString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
@@ -116,7 +115,7 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="observation"/>
+                    <path value="act"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -130,13 +129,17 @@
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:entry1.observation">
-            <path value="Section.entry.observation"/>
+        <element id="Section.entry:entry1.act">
+            <path value="Section.entry.act"/>
             <sliceName value="entry1"/>
-            <short value="observation"/>
+            <short value="act"/>
             <definition value="SHALL contain exactly one [1..1] Patient Referral Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.140) (CONF:1098-30897)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.140"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>
