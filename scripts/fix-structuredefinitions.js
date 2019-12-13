@@ -13,6 +13,13 @@ sdFileNames.forEach((sdFileName) => {
     let xmlContent = fs.readFileSync(absSdFileName).toString();
     const resource = fhir.xmlToObj(xmlContent);
     // TODO
+    resource.title = resource.name;
+    resource.name = resource.name
+        .replace(' (V2)', '')
+        .replace(' (V3)', '')
+        .replace(' (DEPRECATED)', '')
+        .replace(/ /g, '')
+        .replace(/[^0-9a-zA-Z]+/g, '');
     xmlContent = vkbeautify.xml(fhir.objToXml(resource));
     fs.writeFileSync(absSdFileName, xmlContent);
     const nameValue = `<a href="StructureDefinition-${resource.id}.html">${resource.name}</a>`;
