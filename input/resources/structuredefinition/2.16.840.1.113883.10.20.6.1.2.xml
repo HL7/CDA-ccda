@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.6.1.2"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.1.2"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.6.1.2"/>
+    </identifier>
+    <name value="FindingsSectionDIR"/>
+    <title value="FindingsSectionDIR"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Findings section contains the main narrative body of the report. While not an absolute requirement for transformed DICOM SR reports, it is suggested that Diagnostic Imaging Reports authored in CDA follow Term Info guidelines for the codes in the various observations and procedures recorded in this section."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Section"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8531) such that it"/>
+        </element>
+        <element id="Section.templateId:templateId1">
+            <path value="Section.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8531) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:templateId1.root">
+            <path value="Section.templateId.root"/>
+            <sliceName value="templateId1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.1.2&quot; (CONF:81-10456)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.6.1.2"/>
+        </element>
+    </differential>
+</StructureDefinition>

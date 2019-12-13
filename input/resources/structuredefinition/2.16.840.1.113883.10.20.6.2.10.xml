@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.6.2.10"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.6.2.10"/>
+    </identifier>
+    <name value="ReferencedFramesObservation"/>
+    <title value="ReferencedFramesObservation"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="A Referenced Frames Observation is used if the referenced DICOM SOP instance is a multiframe image and the reference does not apply to all frames. The list of integer values for the referenced frames of a DICOM multiframe image SOP instance is contained in a Boundary Observation nested inside this class."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Observation"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ROIBND&quot; Bounded Region of Interest (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9276)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="ROIBND"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9277)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="EVN"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:81-19164)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <short value="code"/>
+            <definition value="This code MAY contain zero or one [0..1] @code=&quot;121190&quot; Referenced Frames (CodeSystem: DCM urn:oid:1.2.840.10008.2.16.4 STATIC) (CONF:81-19165)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="121190"/>
+        </element>
+        <element id="Observation.entryRelationship">
+            <path value="Observation.entryRelationship"/>
+            <short value="entryRelationship"/>
+            <definition value="SHALL contain exactly one [1..1] entryRelationship (CONF:81-9279)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="This entryRelationship SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9280)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="COMP"/>
+        </element>
+        <element id="Observation.entryRelationship.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <short value="observation"/>
+            <definition value="This entryRelationship SHALL contain exactly one [1..1] observationBoundary Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.11) (CONF:81-15923)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.11"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -1,0 +1,1517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.1.1"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2015-08-01"/>
+    </identifier>
+    <version value="2015-08-01"/>
+    <name value="USRealmHeader"/>
+    <title value="USRealmHeader"/>
+    <status value="active"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="ClinicalDocument"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/ClinicalDocument"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+        </element>
+        <element id="ClinicalDocument.realmCode">
+            <path value="ClinicalDocument.realmCode"/>
+            <short value="realmCode"/>
+            <definition value="SHALL contain exactly one [1..1] realmCode=&quot;US&quot; (CONF:1198-16791)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="US"/>
+        </element>
+        <element id="ClinicalDocument.typeId">
+            <path value="ClinicalDocument.typeId"/>
+            <short value="typeId"/>
+            <definition value="SHALL contain exactly one [1..1] typeId (CONF:1198-5361)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.typeId.root">
+            <path value="ClinicalDocument.typeId.root"/>
+            <short value="root"/>
+            <definition value="This typeId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.1.3&quot; (CONF:1198-5250)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.1.3"/>
+        </element>
+        <element id="ClinicalDocument.typeId.extension">
+            <path value="ClinicalDocument.typeId.extension"/>
+            <short value="extension"/>
+            <definition value="This typeId SHALL contain exactly one [1..1] @extension=&quot;POCD_HD000040&quot; (CONF:1198-5251)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="POCD_HD000040"/>
+        </element>
+        <element id="ClinicalDocument.templateId">
+            <path value="ClinicalDocument.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-5252) such that it"/>
+        </element>
+        <element id="ClinicalDocument.templateId:templateId1">
+            <path value="ClinicalDocument.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-5252) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.templateId:templateId1.root">
+            <path value="ClinicalDocument.templateId.root"/>
+            <sliceName value="templateId1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.1&quot; (CONF:1198-10036)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.1.1"/>
+        </element>
+        <element id="ClinicalDocument.templateId:templateId1.extension">
+            <path value="ClinicalDocument.templateId.extension"/>
+            <sliceName value="templateId1"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32503)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2015-08-01"/>
+        </element>
+        <element id="ClinicalDocument.id">
+            <path value="ClinicalDocument.id"/>
+            <short value="id"/>
+            <definition value="SHALL contain exactly one [1..1] id (CONF:1198-5363)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.code">
+            <path value="ClinicalDocument.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:1198-5253)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.title">
+            <path value="ClinicalDocument.title"/>
+            <label value="The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code"/>
+            <short value="The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:1198-5254)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.effectiveTime">
+            <path value="ClinicalDocument.effectiveTime"/>
+            <short value="effectiveTime"/>
+            <definition value="SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:1198-5256)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/TS"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.4"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.confidentialityCode">
+            <path value="ClinicalDocument.confidentialityCode"/>
+            <short value="confidentialityCode"/>
+            <definition value="SHALL contain exactly one [1..1] confidentialityCode, which SHOULD be selected from ValueSet HL7 BasicConfidentialityKind urn:oid:2.16.840.1.113883.1.11.16926 DYNAMIC (CONF:1198-5259)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.16926"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.languageCode">
+            <path value="ClinicalDocument.languageCode"/>
+            <short value="languageCode"/>
+            <definition value="SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet Language urn:oid:2.16.840.1.113883.1.11.11526 DYNAMIC (CONF:1198-5372)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.11526"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.setId">
+            <path value="ClinicalDocument.setId"/>
+            <short value="setId"/>
+            <definition value="MAY contain zero or one [0..1] setId (CONF:1198-5261)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.versionNumber">
+            <path value="ClinicalDocument.versionNumber"/>
+            <short value="versionNumber"/>
+            <definition value="MAY contain zero or one [0..1] versionNumber (CONF:1198-5264)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget">
+            <path value="ClinicalDocument.recordTarget"/>
+            <short value="recordTarget"/>
+            <definition value="SHALL contain at least one [1..*] recordTarget (CONF:1198-5266)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole">
+            <path value="ClinicalDocument.recordTarget.patientRole"/>
+            <short value="patientRole"/>
+            <definition value="Such recordTargets SHALL contain exactly one [1..1] patientRole (CONF:1198-5267)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.id">
+            <path value="ClinicalDocument.recordTarget.patientRole.id"/>
+            <short value="id"/>
+            <definition value="This patientRole SHALL contain at least one [1..*] id (CONF:1198-5268)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr"/>
+            <short value="addr"/>
+            <definition value="This patientRole SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-5271)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.telecom">
+            <path value="ClinicalDocument.recordTarget.patientRole.telecom"/>
+            <short value="telecom"/>
+            <definition value="This patientRole SHALL contain at least one [1..*] telecom (CONF:1198-5280)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.telecom.use">
+            <path value="ClinicalDocument.recordTarget.patientRole.telecom.use"/>
+            <short value="use"/>
+            <definition value="Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:1198-5375)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient"/>
+            <short value="patient"/>
+            <definition value="This patientRole SHALL contain exactly one [1..1] patient (CONF:1198-5283)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.name">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.name"/>
+            <short value="name"/>
+            <definition value="This patient SHALL contain at least one [1..*] US Realm Patient Name (PTN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1) (CONF:1198-5284)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.administrativeGenderCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.administrativeGenderCode"/>
+            <short value="administrativeGenderCode"/>
+            <definition value="This patient SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:1198-6394)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.birthTime">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.birthTime"/>
+            <short value="birthTime"/>
+            <definition value="This patient SHALL contain exactly one [1..1] birthTime (CONF:1198-5298)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.maritalStatusCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.maritalStatusCode"/>
+            <short value="maritalStatusCode"/>
+            <definition value="This patient SHOULD contain zero or one [0..1] maritalStatusCode, which SHALL be selected from ValueSet Marital Status urn:oid:2.16.840.1.113883.1.11.12212 DYNAMIC (CONF:1198-5303)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12212"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.religiousAffiliationCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.religiousAffiliationCode"/>
+            <short value="religiousAffiliationCode"/>
+            <definition value="This patient MAY contain zero or one [0..1] religiousAffiliationCode, which SHALL be selected from ValueSet Religious Affiliation urn:oid:2.16.840.1.113883.1.11.19185 DYNAMIC (CONF:1198-5317)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19185"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.raceCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.raceCode"/>
+            <short value="raceCode"/>
+            <definition value="This patient SHALL contain exactly one [1..1] raceCode, which SHALL be selected from ValueSet Race Category Excluding Nulls urn:oid:2.16.840.1.113883.3.2074.1.1.3 DYNAMIC (CONF:1198-5322)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.2074.1.1.3"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtc:raceCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtc:raceCode"/>
+            <label value="The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."/>
+            <short value="The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."/>
+            <definition value="This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:1198-7263)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.ethnicGroupCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.ethnicGroupCode"/>
+            <short value="ethnicGroupCode"/>
+            <definition value="This patient SHALL contain exactly one [1..1] ethnicGroupCode, which SHALL be selected from ValueSet Ethnicity urn:oid:2.16.840.1.114222.4.11.837 DYNAMIC (CONF:1198-5323)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtc:ethnicGroupCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtc:ethnicGroupCode"/>
+            <short value="sdtc:ethnicGroupCode"/>
+            <definition value="This patient MAY contain zero or more [0..*] sdtc:ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:1198-32901)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.877"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian"/>
+            <short value="guardian"/>
+            <definition value="This patient MAY contain zero or more [0..*] guardian (CONF:1198-5325)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.code">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.code"/>
+            <short value="code"/>
+            <definition value="The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-5326)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr"/>
+            <short value="addr"/>
+            <definition value="The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-5359)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom"/>
+            <short value="telecom"/>
+            <definition value="The guardian, if present, SHOULD contain zero or more [0..*] telecom (CONF:1198-5382)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom.use">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom.use"/>
+            <short value="use"/>
+            <definition value="The telecom, if present, SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:1198-7993)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+            <short value="guardianPerson"/>
+            <definition value="The guardian, if present, SHALL contain exactly one [1..1] guardianPerson (CONF:1198-5385)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson.name">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson.name"/>
+            <short value="name"/>
+            <definition value="This guardianPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-5386)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.birthplace">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.birthplace"/>
+            <short value="birthplace"/>
+            <definition value="This patient MAY contain zero or one [0..1] birthplace (CONF:1198-5395)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place"/>
+            <short value="place"/>
+            <definition value="The birthplace, if present, SHALL contain exactly one [1..1] place (CONF:1198-5396)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place.addr">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place.addr"/>
+            <short value="addr"/>
+            <definition value="This place SHALL contain exactly one [1..1] addr (CONF:1198-5397)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place.addr.country">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place.addr.country"/>
+            <short value="country"/>
+            <definition value="This addr SHOULD contain zero or one [0..1] country, which SHALL be selected from ValueSet Country urn:oid:2.16.840.1.113883.3.88.12.80.63 DYNAMIC (CONF:1198-5404)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.63"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication"/>
+            <short value="languageCommunication"/>
+            <definition value="This patient SHOULD contain zero or more [0..*] languageCommunication (CONF:1198-5406)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode"/>
+            <short value="languageCode"/>
+            <definition value="The languageCommunication, if present, SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet Language urn:oid:2.16.840.1.113883.1.11.11526 DYNAMIC (CONF:1198-5407)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.11526"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.modeCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.modeCode"/>
+            <short value="modeCode"/>
+            <definition value="The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:1198-5409)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12249"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.proficiencyLevelCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.proficiencyLevelCode"/>
+            <short value="proficiencyLevelCode"/>
+            <definition value="The languageCommunication, if present, SHOULD contain zero or one [0..1] proficiencyLevelCode, which SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.1.11.12199 DYNAMIC (CONF:1198-9965)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12199"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.preferenceInd">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.preferenceInd"/>
+            <short value="preferenceInd"/>
+            <definition value="The languageCommunication, if present, SHOULD contain zero or one [0..1] preferenceInd (CONF:1198-5414)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization">
+            <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization"/>
+            <short value="providerOrganization"/>
+            <definition value="This patientRole MAY contain zero or one [0..1] providerOrganization (CONF:1198-5416)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization.id">
+            <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization.id"/>
+            <short value="id"/>
+            <definition value="The providerOrganization, if present, SHALL contain at least one [1..*] id (CONF:1198-5417)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization.id.root">
+            <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization.id.root"/>
+            <short value="root"/>
+            <definition value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-16820)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization.name">
+            <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization.name"/>
+            <short value="name"/>
+            <definition value="The providerOrganization, if present, SHALL contain at least one [1..*] name (CONF:1198-5419)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization.telecom">
+            <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization.telecom"/>
+            <short value="telecom"/>
+            <definition value="The providerOrganization, if present, SHALL contain at least one [1..*] telecom (CONF:1198-5420)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization.telecom.use">
+            <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization.telecom.use"/>
+            <short value="use"/>
+            <definition value="Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:1198-7994)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization.addr">
+            <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization.addr"/>
+            <short value="addr"/>
+            <definition value="The providerOrganization, if present, SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-5422)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.author">
+            <path value="ClinicalDocument.author"/>
+            <short value="author"/>
+            <definition value="SHALL contain at least one [1..*] author (CONF:1198-5444)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.author.time">
+            <path value="ClinicalDocument.author.time"/>
+            <short value="time"/>
+            <definition value="Such authors SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:1198-5445)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/TS"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.4"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor">
+            <path value="ClinicalDocument.author.assignedAuthor"/>
+            <short value="assignedAuthor"/>
+            <definition value="Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:1198-5448)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.id">
+            <path value="ClinicalDocument.author.assignedAuthor.id"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:1198-32882) such that it"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.id">
+            <path value="ClinicalDocument.author.assignedAuthor.id"/>
+            <short value="id"/>
+            <definition value="This assignedAuthor SHALL contain at least one [1..*] id (CONF:1198-5449)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1">
+            <path value="ClinicalDocument.author.assignedAuthor.id"/>
+            <sliceName value="id1"/>
+            <short value="id"/>
+            <definition value="This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:1198-32882) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1.nullFlavor">
+            <path value="ClinicalDocument.author.assignedAuthor.id.nullFlavor"/>
+            <sliceName value="id1"/>
+            <short value="nullFlavor"/>
+            <definition value="MAY contain zero or one [0..1] @nullFlavor=&quot;UNK&quot; Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32883)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="UNK"/>
+        </element>
+        <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1.root">
+            <path value="ClinicalDocument.author.assignedAuthor.id.root"/>
+            <sliceName value="id1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32884)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1.extension">
+            <path value="ClinicalDocument.author.assignedAuthor.id.extension"/>
+            <sliceName value="id1"/>
+            <short value="extension"/>
+            <definition value="SHOULD contain zero or one [0..1] @extension (CONF:1198-32885)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.code">
+            <path value="ClinicalDocument.author.assignedAuthor.code"/>
+            <short value="code"/>
+            <definition value="This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-16787)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.code.code">
+            <path value="ClinicalDocument.author.assignedAuthor.code.code"/>
+            <short value="code"/>
+            <definition value="The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-16788)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.addr">
+            <path value="ClinicalDocument.author.assignedAuthor.addr"/>
+            <short value="addr"/>
+            <definition value="This assignedAuthor SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-5452)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.telecom">
+            <path value="ClinicalDocument.author.assignedAuthor.telecom"/>
+            <short value="telecom"/>
+            <definition value="This assignedAuthor SHALL contain at least one [1..*] telecom (CONF:1198-5428)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.telecom.use">
+            <path value="ClinicalDocument.author.assignedAuthor.telecom.use"/>
+            <short value="use"/>
+            <definition value="Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:1198-7995)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.assignedPerson">
+            <path value="ClinicalDocument.author.assignedAuthor.assignedPerson"/>
+            <short value="assignedPerson"/>
+            <definition value="This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:1198-5430)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.assignedPerson.name">
+            <path value="ClinicalDocument.author.assignedAuthor.assignedPerson.name"/>
+            <short value="name"/>
+            <definition value="The assignedPerson, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-16789)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice">
+            <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice"/>
+            <short value="assignedAuthoringDevice"/>
+            <definition value="This assignedAuthor SHOULD contain zero or one [0..1] assignedAuthoringDevice (CONF:1198-16783)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.manufacturerModelName">
+            <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.manufacturerModelName"/>
+            <short value="manufacturerModelName"/>
+            <definition value="The assignedAuthoringDevice, if present, SHALL contain exactly one [1..1] manufacturerModelName (CONF:1198-16784)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.softwareName">
+            <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.softwareName"/>
+            <short value="softwareName"/>
+            <definition value="The assignedAuthoringDevice, if present, SHALL contain exactly one [1..1] softwareName (CONF:1198-16785)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.dataEnterer">
+            <path value="ClinicalDocument.dataEnterer"/>
+            <short value="dataEnterer"/>
+            <definition value="MAY contain zero or one [0..1] dataEnterer (CONF:1198-5441)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity"/>
+            <short value="assignedEntity"/>
+            <definition value="The dataEnterer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-5442)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity.id">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity.id"/>
+            <short value="id"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-5443)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity.id.root">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity.id.root"/>
+            <short value="root"/>
+            <definition value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-16821)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity.code">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity.code"/>
+            <short value="code"/>
+            <definition value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32173)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity.addr">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity.addr"/>
+            <short value="addr"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-5460)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity.telecom">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity.telecom"/>
+            <short value="telecom"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] telecom (CONF:1198-5466)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity.telecom.use">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity.telecom.use"/>
+            <short value="use"/>
+            <definition value="Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:1198-7996)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity.assignedPerson">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity.assignedPerson"/>
+            <short value="assignedPerson"/>
+            <definition value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-5469)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.dataEnterer.assignedEntity.assignedPerson.name">
+            <path value="ClinicalDocument.dataEnterer.assignedEntity.assignedPerson.name"/>
+            <short value="name"/>
+            <definition value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-5470)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.informant">
+            <path value="ClinicalDocument.informant"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="relatedEntity"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] informant (CONF:1198-31355) such that it"/>
+        </element>
+        <element id="ClinicalDocument.informant:informant1">
+            <path value="ClinicalDocument.informant"/>
+            <sliceName value="informant1"/>
+            <short value="informant"/>
+            <definition value="MAY contain zero or more [0..*] informant (CONF:1198-8001) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.informant:informant1.assignedEntity">
+            <path value="ClinicalDocument.informant.assignedEntity"/>
+            <sliceName value="informant1"/>
+            <short value="assignedEntity"/>
+            <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-8002)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.informant:informant1.assignedEntity.id">
+            <path value="ClinicalDocument.informant.assignedEntity.id"/>
+            <sliceName value="informant1"/>
+            <short value="id"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-9945)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.informant:informant1.assignedEntity.code">
+            <path value="ClinicalDocument.informant.assignedEntity.code"/>
+            <sliceName value="informant1"/>
+            <short value="code"/>
+            <definition value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32174)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.informant:informant1.assignedEntity.addr">
+            <path value="ClinicalDocument.informant.assignedEntity.addr"/>
+            <sliceName value="informant1"/>
+            <short value="addr"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8220)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.informant:informant1.assignedEntity.assignedPerson">
+            <path value="ClinicalDocument.informant.assignedEntity.assignedPerson"/>
+            <sliceName value="informant1"/>
+            <short value="assignedPerson"/>
+            <definition value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-8221)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.informant:informant1.assignedEntity.assignedPerson.name">
+            <path value="ClinicalDocument.informant.assignedEntity.assignedPerson.name"/>
+            <sliceName value="informant1"/>
+            <short value="name"/>
+            <definition value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-8222)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.informant:informant2">
+            <path value="ClinicalDocument.informant"/>
+            <sliceName value="informant2"/>
+            <short value="informant"/>
+            <definition value="MAY contain zero or more [0..*] informant (CONF:1198-31355) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.informant:informant2.relatedEntity">
+            <path value="ClinicalDocument.informant.relatedEntity"/>
+            <sliceName value="informant2"/>
+            <short value="relatedEntity"/>
+            <definition value="SHALL contain exactly one [1..1] relatedEntity (CONF:1198-31356)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian">
+            <path value="ClinicalDocument.custodian"/>
+            <short value="custodian"/>
+            <definition value="SHALL contain exactly one [1..1] custodian (CONF:1198-5519)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian">
+            <path value="ClinicalDocument.custodian.assignedCustodian"/>
+            <short value="assignedCustodian"/>
+            <definition value="This custodian SHALL contain exactly one [1..1] assignedCustodian (CONF:1198-5520)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization"/>
+            <short value="representedCustodianOrganization"/>
+            <definition value="This assignedCustodian SHALL contain exactly one [1..1] representedCustodianOrganization (CONF:1198-5521)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id"/>
+            <short value="id"/>
+            <definition value="This representedCustodianOrganization SHALL contain at least one [1..*] id (CONF:1198-5522)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id.root">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id.root"/>
+            <short value="root"/>
+            <definition value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-16822)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.name">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.name"/>
+            <short value="name"/>
+            <definition value="This representedCustodianOrganization SHALL contain exactly one [1..1] name (CONF:1198-5524)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom"/>
+            <short value="telecom"/>
+            <definition value="This representedCustodianOrganization SHALL contain exactly one [1..1] telecom (CONF:1198-5525)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom.use">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom.use"/>
+            <short value="use"/>
+            <definition value="This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:1198-7998)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr"/>
+            <short value="addr"/>
+            <definition value="This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-5559)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.informationRecipient">
+            <path value="ClinicalDocument.informationRecipient"/>
+            <short value="informationRecipient"/>
+            <definition value="MAY contain zero or more [0..*] informationRecipient (CONF:1198-5565)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient">
+            <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
+            <short value="intendedRecipient"/>
+            <definition value="The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-5566)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.id">
+            <path value="ClinicalDocument.informationRecipient.intendedRecipient.id"/>
+            <short value="id"/>
+            <definition value="This intendedRecipient MAY contain zero or more [0..*] id (CONF:1198-32399)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient">
+            <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient"/>
+            <short value="informationRecipient"/>
+            <definition value="This intendedRecipient MAY contain zero or one [0..1] informationRecipient (CONF:1198-5567)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name">
+            <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name"/>
+            <short value="name"/>
+            <definition value="The informationRecipient, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-5568)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization">
+            <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization"/>
+            <short value="receivedOrganization"/>
+            <definition value="This intendedRecipient MAY contain zero or one [0..1] receivedOrganization (CONF:1198-5577)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.name">
+            <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.name"/>
+            <short value="name"/>
+            <definition value="The receivedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:1198-5578)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator">
+            <path value="ClinicalDocument.legalAuthenticator"/>
+            <short value="legalAuthenticator"/>
+            <definition value="SHOULD contain zero or one [0..1] legalAuthenticator (CONF:1198-5579)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.time">
+            <path value="ClinicalDocument.legalAuthenticator.time"/>
+            <short value="time"/>
+            <definition value="The legalAuthenticator, if present, SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:1198-5580)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/TS"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.4"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.signatureCode">
+            <path value="ClinicalDocument.legalAuthenticator.signatureCode"/>
+            <short value="signatureCode"/>
+            <definition value="The legalAuthenticator, if present, SHALL contain exactly one [1..1] signatureCode (CONF:1198-5583)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.signatureCode.code">
+            <path value="ClinicalDocument.legalAuthenticator.signatureCode.code"/>
+            <short value="code"/>
+            <definition value="This signatureCode SHALL contain exactly one [1..1] @code=&quot;S&quot; (CodeSystem: HL7ParticipationSignature urn:oid:2.16.840.1.113883.5.89 STATIC) (CONF:1198-5584)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="S"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.sdtc:signatureText">
+            <path value="ClinicalDocument.legalAuthenticator.sdtc:signatureText"/>
+            <label value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
+            <short value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
+            <definition value="The legalAuthenticator, if present, MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-30810)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity"/>
+            <short value="assignedEntity"/>
+            <definition value="The legalAuthenticator, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-5585)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.id">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.id"/>
+            <short value="id"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-5586)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.id.root">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.id.root"/>
+            <short value="root"/>
+            <definition value="Such ids MAY contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-16823)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.code">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.code"/>
+            <short value="code"/>
+            <definition value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-17000)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.addr">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.addr"/>
+            <short value="addr"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-5589)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.telecom">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.telecom"/>
+            <short value="telecom"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] telecom (CONF:1198-5595)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.telecom.use">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.telecom.use"/>
+            <short value="use"/>
+            <definition value="Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:1198-7999)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson"/>
+            <short value="assignedPerson"/>
+            <definition value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-5597)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.name">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.name"/>
+            <short value="name"/>
+            <definition value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-5598)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.authenticator">
+            <path value="ClinicalDocument.authenticator"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="ClinicalDocument.signatureCode"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="ClinicalDocument.assignedEntity"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="ClinicalDocument.time"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] authenticator (CONF:1198-5607) such that it"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1">
+            <path value="ClinicalDocument.authenticator"/>
+            <sliceName value="authenticator1"/>
+            <short value="authenticator"/>
+            <definition value="MAY contain zero or more [0..*] authenticator (CONF:1198-5607) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.time">
+            <path value="ClinicalDocument.authenticator.time"/>
+            <sliceName value="authenticator1"/>
+            <short value="time"/>
+            <definition value="SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:1198-5608)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/TS"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.4"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.signatureCode">
+            <path value="ClinicalDocument.authenticator.signatureCode"/>
+            <sliceName value="authenticator1"/>
+            <short value="signatureCode"/>
+            <definition value="SHALL contain exactly one [1..1] signatureCode (CONF:1198-5610)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.signatureCode.code">
+            <path value="ClinicalDocument.authenticator.signatureCode.code"/>
+            <sliceName value="authenticator1"/>
+            <short value="code"/>
+            <definition value="This signatureCode SHALL contain exactly one [1..1] @code=&quot;S&quot; (CodeSystem: HL7ParticipationSignature urn:oid:2.16.840.1.113883.5.89 STATIC) (CONF:1198-5611)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="S"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.sdtc:signatureText">
+            <path value="ClinicalDocument.authenticator.sdtc:signatureText"/>
+            <sliceName value="authenticator1"/>
+            <label value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
+            <short value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
+            <definition value="MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-30811)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity">
+            <path value="ClinicalDocument.authenticator.assignedEntity"/>
+            <sliceName value="authenticator1"/>
+            <short value="assignedEntity"/>
+            <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-5612)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.id">
+            <path value="ClinicalDocument.authenticator.assignedEntity.id"/>
+            <sliceName value="authenticator1"/>
+            <short value="id"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-5613)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.id.root">
+            <path value="ClinicalDocument.authenticator.assignedEntity.id.root"/>
+            <sliceName value="authenticator1"/>
+            <short value="root"/>
+            <definition value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier  (CONF:1198-16824)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code">
+            <path value="ClinicalDocument.authenticator.assignedEntity.code"/>
+            <sliceName value="authenticator1"/>
+            <short value="code"/>
+            <definition value="This assignedEntity MAY contain zero or one [0..1] code (CONF:1198-16825)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code.code">
+            <path value="ClinicalDocument.authenticator.assignedEntity.code.code"/>
+            <sliceName value="authenticator1"/>
+            <short value="code"/>
+            <definition value="The code, if present, MAY contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-16826)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.addr">
+            <path value="ClinicalDocument.authenticator.assignedEntity.addr"/>
+            <sliceName value="authenticator1"/>
+            <short value="addr"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-5616)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.telecom">
+            <path value="ClinicalDocument.authenticator.assignedEntity.telecom"/>
+            <sliceName value="authenticator1"/>
+            <short value="telecom"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] telecom (CONF:1198-5622)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.telecom.use">
+            <path value="ClinicalDocument.authenticator.assignedEntity.telecom.use"/>
+            <sliceName value="authenticator1"/>
+            <short value="use"/>
+            <definition value="Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:1198-8000)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.assignedPerson">
+            <path value="ClinicalDocument.authenticator.assignedEntity.assignedPerson"/>
+            <sliceName value="authenticator1"/>
+            <short value="assignedPerson"/>
+            <definition value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-5624)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.assignedPerson.name">
+            <path value="ClinicalDocument.authenticator.assignedEntity.assignedPerson.name"/>
+            <sliceName value="authenticator1"/>
+            <short value="name"/>
+            <definition value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-5625)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.participant">
+            <path value="ClinicalDocument.participant"/>
+            <slicing>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] participant (CONF:1198-10003) such that it"/>
+        </element>
+        <element id="ClinicalDocument.participant:participant1">
+            <path value="ClinicalDocument.participant"/>
+            <sliceName value="participant1"/>
+            <short value="participant"/>
+            <definition value="MAY contain zero or more [0..*] participant (CONF:1198-10003) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.participant:participant1.time">
+            <path value="ClinicalDocument.participant.time"/>
+            <sliceName value="participant1"/>
+            <short value="time"/>
+            <definition value="MAY contain zero or one [0..1] time (CONF:1198-10004)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.inFulfillmentOf">
+            <path value="ClinicalDocument.inFulfillmentOf"/>
+            <short value="inFulfillmentOf"/>
+            <definition value="MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-9952)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.inFulfillmentOf.order">
+            <path value="ClinicalDocument.inFulfillmentOf.order"/>
+            <short value="order"/>
+            <definition value="The inFulfillmentOf, if present, SHALL contain exactly one [1..1] order (CONF:1198-9953)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.inFulfillmentOf.order.id">
+            <path value="ClinicalDocument.inFulfillmentOf.order.id"/>
+            <short value="id"/>
+            <definition value="This order SHALL contain at least one [1..*] id (CONF:1198-9954)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf">
+            <path value="ClinicalDocument.documentationOf"/>
+            <short value="documentationOf"/>
+            <definition value="MAY contain zero or more [0..*] documentationOf (CONF:1198-14835)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent">
+            <path value="ClinicalDocument.documentationOf.serviceEvent"/>
+            <short value="serviceEvent"/>
+            <definition value="The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-14836)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
+            <short value="effectiveTime"/>
+            <definition value="This serviceEvent SHALL contain exactly one [1..1] effectiveTime (CONF:1198-14837)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
+            <short value="low"/>
+            <definition value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-14838)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
+            <short value="performer"/>
+            <definition value="This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-14839)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:1198-14840)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19601"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
+            <short value="functionCode"/>
+            <definition value="The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:1198-16818)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode.code">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode.code"/>
+            <short value="code"/>
+            <definition value="The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:1198-32889)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.30"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
+            <short value="assignedEntity"/>
+            <definition value="The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-14841)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
+            <short value="id"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-14846)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id.root">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id.root"/>
+            <short value="root"/>
+            <definition value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-14847)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
+            <short value="code"/>
+            <definition value="This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-14842)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.authorization">
+            <path value="ClinicalDocument.authorization"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="consent"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] authorization (CONF:1198-16792) such that it"/>
+        </element>
+        <element id="ClinicalDocument.authorization:authorization1">
+            <path value="ClinicalDocument.authorization"/>
+            <sliceName value="authorization1"/>
+            <short value="authorization"/>
+            <definition value="MAY contain zero or more [0..*] authorization (CONF:1198-16792) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.authorization:authorization1.consent">
+            <path value="ClinicalDocument.authorization.consent"/>
+            <sliceName value="authorization1"/>
+            <short value="consent"/>
+            <definition value="SHALL contain exactly one [1..1] consent (CONF:1198-16793)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.authorization:authorization1.consent.id">
+            <path value="ClinicalDocument.authorization.consent.id"/>
+            <sliceName value="authorization1"/>
+            <short value="id"/>
+            <definition value="This consent MAY contain zero or more [0..*] id (CONF:1198-16794)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.authorization:authorization1.consent.code">
+            <path value="ClinicalDocument.authorization.consent.code"/>
+            <sliceName value="authorization1"/>
+            <label value="The type of consent (e.g., a consent to perform the related serviceEvent) is conveyed in consent/code. "/>
+            <short value="The type of consent (e.g., a consent to perform the related serviceEvent) is conveyed in consent/code. "/>
+            <definition value="This consent MAY contain zero or one [0..1] code (CONF:1198-16795)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.authorization:authorization1.consent.statusCode">
+            <path value="ClinicalDocument.authorization.consent.statusCode"/>
+            <sliceName value="authorization1"/>
+            <short value="statusCode"/>
+            <definition value="This consent SHALL contain exactly one [1..1] statusCode (CONF:1198-16797)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.authorization:authorization1.consent.statusCode.code">
+            <path value="ClinicalDocument.authorization.consent.statusCode.code"/>
+            <sliceName value="authorization1"/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-16798)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="completed"/>
+        </element>
+        <element id="ClinicalDocument.componentOf">
+            <path value="ClinicalDocument.componentOf"/>
+            <short value="componentOf"/>
+            <definition value="MAY contain zero or one [0..1] componentOf (CONF:1198-9955)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.componentOf.encompassingEncounter">
+            <path value="ClinicalDocument.componentOf.encompassingEncounter"/>
+            <short value="encompassingEncounter"/>
+            <definition value="The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-9956)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.componentOf.encompassingEncounter.id">
+            <path value="ClinicalDocument.componentOf.encompassingEncounter.id"/>
+            <short value="id"/>
+            <definition value="This encompassingEncounter SHALL contain at least one [1..*] id (CONF:1198-9959)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime">
+            <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime"/>
+            <short value="effectiveTime"/>
+            <definition value="This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:1198-9958)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

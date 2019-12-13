@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.2.10"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.2.10"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.2.10:2015-08-01"/>
+    </identifier>
+    <version value="2015-08-01"/>
+    <name value="PhysicalExamSection"/>
+    <title value="PhysicalExamSection"/>
+    <status value="active"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The section includes direct observations made by a clinician. The examination may include the use of simple instruments and may also describe simple maneuvers performed directly on the patients body. &#xA;It also includes observations made by the examining clinician using only inspection, palpation, auscultation, and percussion. It does not include laboratory or imaging findings. &#xA;The exam may be limited to pertinent body systems based on the patients chief complaint or it may include a comprehensive examination. The examination may be reported as a collection of random clinical statements or it may be reported categorically. &#xA;The Physical Exam Section may contain multiple nested subsections."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Section"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7806) such that it"/>
+        </element>
+        <element id="Section.templateId:templateId1">
+            <path value="Section.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7806) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:templateId1.root">
+            <path value="Section.templateId.root"/>
+            <sliceName value="templateId1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.2.10&quot; (CONF:1198-10465)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.2.10"/>
+        </element>
+        <element id="Section.templateId:templateId1.extension">
+            <path value="Section.templateId.extension"/>
+            <sliceName value="templateId1"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32587)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2015-08-01"/>
+        </element>
+        <element id="Section.code">
+            <path value="Section.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:1198-15397)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;29545-1&quot; Physical Findings (CONF:1198-15398)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="29545-1"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30931)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Section.title">
+            <path value="Section.title"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:1198-7808)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.text">
+            <path value="Section.text"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:1198-7809)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry">
+            <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="observation"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] entry (CONF:1198-31926) such that it"/>
+        </element>
+        <element id="Section.entry:entry1">
+            <path value="Section.entry"/>
+            <sliceName value="entry1"/>
+            <short value="entry"/>
+            <definition value="MAY contain zero or more [0..*] entry (CONF:1198-31926) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:entry1.observation">
+            <path value="Section.entry.observation"/>
+            <sliceName value="entry1"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Longitudinal Care Wound Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01) (CONF:1198-31927)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.114"/>
+            </type>
+        </element>
+        <element id="Section.component">
+            <path value="Section.component"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="section"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] component (CONF:1198-32434) such that it"/>
+        </element>
+        <element id="Section.component:component1">
+            <path value="Section.component"/>
+            <sliceName value="component1"/>
+            <short value="component"/>
+            <definition value="MAY contain zero or more [0..*] component (CONF:1198-32434) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.component:component1.section">
+            <path value="Section.component.section"/>
+            <sliceName value="component1"/>
+            <short value="section"/>
+            <definition value="SHALL contain exactly one [1..1] section (CONF:1198-32435)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.component:component1.section.code">
+            <path value="Section.component.section.code"/>
+            <sliceName value="component1"/>
+            <short value="code"/>
+            <definition value="This section SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Physical Exam Type urn:oid:2.16.840.1.113883.11.20.9.65 DYNAMIC (CONF:1198-32436)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.65"/>
+            </binding>
+        </element>
+        <element id="Section.component:component1.section.title">
+            <path value="Section.component.section.title"/>
+            <sliceName value="component1"/>
+            <short value="title"/>
+            <definition value="This section SHALL contain exactly one [1..1] title (CONF:1198-32437)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.component:component1.section.text">
+            <path value="Section.component.section.text"/>
+            <sliceName value="component1"/>
+            <short value="text"/>
+            <definition value="This section SHALL contain exactly one [1..1] text (CONF:1198-32438)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

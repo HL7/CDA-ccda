@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.4.141"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.141"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.22.4.141"/>
+    </identifier>
+    <name value="HandoffCommunicationParticipants"/>
+    <title value="HandoffCommunicationParticipants"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template represents the sender (author) and receivers (participants) of a handoff communication in a plan of treatment. It does not convey details about the communication. The &quot;handoff&quot; process involves senders, those transmitting the patient's information and releasing the care of that patient to the next clinician, and receivers, those who accept the patient information and care of that patient. "/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Act"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Act">
+            <path value="Act"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-30832)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-30833)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="EVN"/>
+        </element>
+        <element id="Act.templateId">
+            <path value="Act.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-30834) such that it"/>
+        </element>
+        <element id="Act.templateId:templateId1">
+            <path value="Act.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-30834) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.templateId:templateId1.root">
+            <path value="Act.templateId.root"/>
+            <sliceName value="templateId1"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.141&quot; (CONF:1098-30835)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.141"/>
+        </element>
+        <element id="Act.code">
+            <path value="Act.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:1098-30836)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.code.code">
+            <path value="Act.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;432138007&quot; handoff communication (procedure) (CONF:1098-30837)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="432138007"/>
+        </element>
+        <element id="Act.code.codeSystem">
+            <path value="Act.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1098-30838)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.96"/>
+        </element>
+        <element id="Act.statusCode">
+            <path value="Act.statusCode"/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31668)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.statusCode.code">
+            <path value="Act.statusCode.code"/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31669)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="completed"/>
+        </element>
+        <element id="Act.effectiveTime">
+            <path value="Act.effectiveTime"/>
+            <short value="effectiveTime"/>
+            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31670)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.author">
+            <path value="Act.author"/>
+            <short value="author"/>
+            <definition value="SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31672)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
+        </element>
+        <element id="Act.participant">
+            <path value="Act.participant"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain at least one [1..*] participant (CONF:1098-31673) such that it"/>
+        </element>
+        <element id="Act.participant:participant1">
+            <path value="Act.participant"/>
+            <sliceName value="participant1"/>
+            <short value="participant"/>
+            <definition value="SHALL contain at least one [1..*] participant (CONF:1098-31673) such that it"/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.participant:participant1.typeCode">
+            <path value="Act.participant.typeCode"/>
+            <sliceName value="participant1"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;IRCP&quot; Information Recipient (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1098-31674)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="IRCP"/>
+        </element>
+        <element id="Act.participant:participant1.participantRole">
+            <path value="Act.participant.participantRole"/>
+            <sliceName value="participant1"/>
+            <short value="participantRole"/>
+            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:1098-31675)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.participant:participant1.participantRole.id">
+            <path value="Act.participant.participantRole.id"/>
+            <sliceName value="participant1"/>
+            <short value="id"/>
+            <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:1098-32422)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.participant:participant1.participantRole.code">
+            <path value="Act.participant.participantRole.code"/>
+            <sliceName value="participant1"/>
+            <short value="code"/>
+            <definition value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31676)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="Act.participant:participant1.participantRole.addr">
+            <path value="Act.participant.participantRole.addr"/>
+            <sliceName value="participant1"/>
+            <short value="addr"/>
+            <definition value="This participantRole SHALL contain at least one [1..*] addr (CONF:1098-32392)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.participant:participant1.participantRole.playingEntity">
+            <path value="Act.participant.participantRole.playingEntity"/>
+            <sliceName value="participant1"/>
+            <short value="playingEntity"/>
+            <definition value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1098-32393)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.participant:participant1.participantRole.playingEntity.name">
+            <path value="Act.participant.participantRole.playingEntity.name"/>
+            <sliceName value="participant1"/>
+            <short value="name"/>
+            <definition value="The playingEntity, if present, SHALL contain at least one [1..*] name (CONF:1098-32394)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+    </differential>
+</StructureDefinition>
