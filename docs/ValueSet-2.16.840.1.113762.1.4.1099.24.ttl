@@ -1,0 +1,53 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113762.1.4.1099.24> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113762.1.4.1099.24"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "5" ];
+     fhir:Meta.lastUpdated [ fhir:value "2018-11-08T22:12:07.000-08:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>Extended Pregnancy Status</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <a href=\"http://www.snomed.org/\">\n                        <code>http://snomed.info/sct</code>\n                    </a>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=102874004\">102874004</a>\n                            </td>\n                            <td>Possible pregnancy (finding)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=60001007\">60001007</a>\n                            </td>\n                            <td>Not pregnant (finding)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=77386006\">77386006</a>\n                            </td>\n                            <td>Pregnant (finding)</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.24"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "ExtendedPregnancyStatus"];
+  fhir:ValueSet.title [ fhir:value "Extended Pregnancy Status"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2018-11-08T22:00:05-08:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "102874004" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Possible pregnancy (finding)" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "60001007" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Not pregnant (finding)" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "77386006" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pregnant (finding)" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113762.1.4.1099.24.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113762.1.4.1099.24.ttl> .
+
+# -------------------------------------------------------------------------------------
+

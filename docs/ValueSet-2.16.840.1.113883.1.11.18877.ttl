@@ -1,0 +1,73 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.18877> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.1.11.18877"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "7" ];
+     fhir:Meta.lastUpdated [ fhir:value "2015-04-23T22:00:02.000-07:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>Coverage Role Type Value Set</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <code>http://hl7.org/fhir/v3/RoleCode</code>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>FAMDEP</td>\n                            <td>family dependent</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>FSTUD</td>\n                            <td>full-time student</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>HANDIC</td>\n                            <td>handicapped dependent</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>INJ</td>\n                            <td>injured plaintiff</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>PSTUD</td>\n                            <td>part-time student</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>SELF</td>\n                            <td>self</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>SPON</td>\n                            <td>sponsored dependent</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>STUD</td>\n                            <td>student</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.18877"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "CoverageRoleTypeValueSet"];
+  fhir:ValueSet.title [ fhir:value "Coverage Role Type Value Set"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2015-04-23T22:00:02-07:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/v3/RoleCode" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FAMDEP" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "family dependent" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FSTUD" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "full-time student" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HANDIC" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "handicapped dependent" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "INJ" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "injured plaintiff" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PSTUD" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "part-time student" ]
+       ], [
+         fhir:index 5;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SELF" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "self" ]
+       ], [
+         fhir:index 6;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SPON" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "sponsored dependent" ]
+       ], [
+         fhir:index 7;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "STUD" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "student" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.18877.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.1.11.18877.ttl> .
+
+# -------------------------------------------------------------------------------------
+

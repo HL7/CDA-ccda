@@ -1,0 +1,61 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.5> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.1.11.20.2.5"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "10" ];
+     fhir:Meta.lastUpdated [ fhir:value "2018-01-03T22:00:04.000-08:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>Wound Measurements</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <a href=\"http://loinc.org\">\n                        <code>http://loinc.org</code>\n                    </a>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://details.loinc.org/LOINC/39125-0.html\">39125-0</a>\n                            </td>\n                            <td>Width of Wound</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://details.loinc.org/LOINC/39126-8.html\">39126-8</a>\n                            </td>\n                            <td>Length of Wound</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://details.loinc.org/LOINC/39127-6.html\">39127-6</a>\n                            </td>\n                            <td>Depth of Wound</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://details.loinc.org/LOINC/72293-4.html\">72293-4</a>\n                            </td>\n                            <td>Undermining [Length] of Wound</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://details.loinc.org/LOINC/72296-7.html\">72296-7</a>\n                            </td>\n                            <td>Tunneling [Length] of Wound</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.2.5"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "WoundMeasurements"];
+  fhir:ValueSet.title [ fhir:value "Wound Measurements"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2018-01-03T22:00:04-08:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "39125-0" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Width of Wound" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "39126-8" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Length of Wound" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "39127-6" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Depth of Wound" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "72293-4" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Undermining [Length] of Wound" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "72296-7" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tunneling [Length] of Wound" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.5.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.5.ttl> .
+
+# -------------------------------------------------------------------------------------
+

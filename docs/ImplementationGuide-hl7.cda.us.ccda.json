@@ -1,0 +1,1759 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "hl7.cda.us.ccda",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>ccda</h2><p>The official URL for this implementation guide is: </p><pre>http://hl7.org/fhir/cda/ccda/ImplementationGuide/hl7.cda.us.ccda</pre></div>"
+  },
+  "url": "http://hl7.org/fhir/cda/ccda/ImplementationGuide/hl7.cda.us.ccda",
+  "version": "2.1.0",
+  "name": "ccda",
+  "title": "Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-12-13T11:29:21-08:00",
+  "publisher": "Health Level 7",
+  "packageId": "hl7.cda.us.ccda",
+  "license": "CC0-1.0",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "uri": "http://hl7.org/fhir/cda/ImplementationGuide/cda-ig",
+      "packageId": "hl7.fhir.cda",
+      "version": "dev"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.17.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.17"
+        },
+        "name": "MedicationSupplyOrder",
+        "description": "This template records the intent to supply a patient with medications."
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.20.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.20"
+        },
+        "name": "Instruction",
+        "description": "The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template's moodCode can only be INT. If an instruction was already given, the Procedure Activity Act template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode."
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.54.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.54"
+        },
+        "name": "ImmunizationMedicationInformation",
+        "description": "The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-1.3.6.1.4.1.19376.1.5.3.1.3.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1"
+        },
+        "name": "ReasonforReferralSection",
+        "description": "This section describes the clinical reason why a provider is sending a patient to another provider for care. The reason for referral may become the reason for visit documented by the receiving provider."
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.119.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.119"
+        },
+        "name": "AuthorParticipation",
+        "description": "This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden.\n\nThe Author Participation template was added to those templates in scope for analysis in R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template."
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.140.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.140"
+        },
+        "name": "PatientReferralAct",
+        "description": "This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.19.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.19"
+        },
+        "name": "Indication",
+        "description": "This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration (V2) [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met."
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.64.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.64"
+        },
+        "name": "CommentActivity",
+        "description": "Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-1.3.6.1.4.1.12009.10.2.5.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/1.3.6.1.4.1.12009.10.2.5"
+        },
+        "name": "LOINC Imaging Document Codes"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1010.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.1"
+        },
+        "name": "Substance Reactant for Intolerance"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1010.2.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.2"
+        },
+        "name": "Clinical Substance"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1010.4.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.4"
+        },
+        "name": "Medication Clinical Drug"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1010.6.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.6"
+        },
+        "name": "CVX Vaccines Administered Vaccine Set"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1010.8.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.8"
+        },
+        "name": "Vaccine Clinical Drug"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1021.30.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1021.30"
+        },
+        "name": "AdministrationUnitDoseForm"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1099.11.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.11"
+        },
+        "name": "Medication Status"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1099.12.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.12"
+        },
+        "name": "Medication Route"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113762.1.4.1099.24.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.24"
+        },
+        "name": "Extended Pregnancy Status"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.1"
+        },
+        "name": "Administrative Gender (HL7 V3)"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.10267.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.10267"
+        },
+        "name": "ParticipationFunction"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.10416.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.10416"
+        },
+        "name": "Financially Responsible Party Type Value Set"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.10637.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.10637"
+        },
+        "name": "PostalAddressUse"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.11526.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.11526"
+        },
+        "name": "Language"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.11610.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.11610"
+        },
+        "name": "x_ActRelationshipDocument"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.12199.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.12199"
+        },
+        "name": "LanguageAbilityProficiency"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.12212.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.12212"
+        },
+        "name": "Marital Status"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.12249.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.12249"
+        },
+        "name": "LanguageAbilityMode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.12839.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.12839"
+        },
+        "name": "UnitsOfMeasureCaseSensitive"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.14914.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.14914"
+        },
+        "name": "Race Value Set"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.15913.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.15913"
+        },
+        "name": "EntityNameUse"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.15933.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.15933"
+        },
+        "name": "ActStatus"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.16866.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.16866"
+        },
+        "name": "ActPriority"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.16926.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.16926"
+        },
+        "name": "HL7 BasicConfidentialityKind"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.18877.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.18877"
+        },
+        "name": "Coverage Role Type Value Set"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.19185.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.19185"
+        },
+        "name": "Religious Affiliation"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.19579.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.19579"
+        },
+        "name": "Family Member Value"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.19601.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.19601"
+        },
+        "name": "x_ServiceEventPerformer"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.19717.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.19717"
+        },
+        "name": "No Immunization Reason"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20.12.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.12"
+        },
+        "name": "HealthStatus"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20.2.3.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.3"
+        },
+        "name": "ReferralDocumentType"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20.2.4.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.4"
+        },
+        "name": "TransferDocumentType"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20.2.5.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.5"
+        },
+        "name": "Wound Measurements"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20.2.6.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.6"
+        },
+        "name": "Wound Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20.2.7.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.7"
+        },
+        "name": "Nutritional Status"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20.2.9.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.9"
+        },
+        "name": "Nutrition Recommendations"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20.2.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2"
+        },
+        "name": "Advance Directive Type Code"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.20549.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20549"
+        },
+        "name": "Criticality Observation"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.1.11.78.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.1.11.78"
+        },
+        "name": "Observation Interpretation (HL7)"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.1.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.1.1"
+        },
+        "name": "SurgicalOperationNoteDocumentTypeCode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.12.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.12.1"
+        },
+        "name": "Personal And Legal Relationship Role Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.6.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.6.1"
+        },
+        "name": "ProcedureNoteDocumentTypeCodes"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.8.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.8.1"
+        },
+        "name": "ProgressNoteDocumentTypeCode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.18.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.18"
+        },
+        "name": "MoodCodeEvnInt"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.19.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.19"
+        },
+        "name": "ProblemAct statusCode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.20.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.20"
+        },
+        "name": "Telecom Use (US Realm Header)"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.21.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.21"
+        },
+        "name": "AgePQ_UCUM"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.22.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.22"
+        },
+        "name": "ProcedureAct statusCode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.23.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.23"
+        },
+        "name": "Planned moodCode (Act/Encounter/Procedure)"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.24.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.24"
+        },
+        "name": "Planned moodCode (SubstanceAdministration/Supply)"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.25.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.25"
+        },
+        "name": "Planned moodCode (Observation)"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.26.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.26"
+        },
+        "name": "EntityPersonNamePartQualifier"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.29.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.29"
+        },
+        "name": "DIRQuantityMeasurementTypeCodes"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.31.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.31"
+        },
+        "name": "ConsultDocumentType"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.33.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.33"
+        },
+        "name": "INDRoleclassCodes"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.35.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.35"
+        },
+        "name": "Pressure Ulcer Stage"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.36.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.36"
+        },
+        "name": "Pressure Point"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.37.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.37"
+        },
+        "name": "TargetSite Qualifiers"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.38.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.38"
+        },
+        "name": "Smoking Status"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.39.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.39"
+        },
+        "name": "Result Status"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.41.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.41"
+        },
+        "name": "Tobacco Use"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.44.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.44"
+        },
+        "name": "Mental and Functional Status Response"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.47.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.47"
+        },
+        "name": "ADL Result Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.49.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.49"
+        },
+        "name": "Residence and Accommodation Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.50.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.50"
+        },
+        "name": "Sensory Status Problem Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.51.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.51"
+        },
+        "name": "Healthcare Agent Qualifier"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.52.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.52"
+        },
+        "name": "Encounter Planned"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.54.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.54"
+        },
+        "name": "Planned Intervention moodCode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.55.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.55"
+        },
+        "name": "Goal Achievement"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.58.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.58"
+        },
+        "name": "Wound Characteristic"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.59.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.59"
+        },
+        "name": "DIRSectionTypeCodes"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.60.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.60"
+        },
+        "name": "Priority Level"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.61.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.61"
+        },
+        "name": "Care Model"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.65.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.65"
+        },
+        "name": "Physical Exam Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.11.20.9.66.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.66"
+        },
+        "name": "Patient Referral Act moodCode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.2074.1.1.3.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.2074.1.1.3"
+        },
+        "name": "Race Category Excluding Nulls"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.3221.6.2.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.6.2"
+        },
+        "name": "Allergy and Intolerance Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.3221.6.8.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.6.8"
+        },
+        "name": "Reaction Severity"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.3221.7.2.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.7.2"
+        },
+        "name": "Problem Type (SNOMEDCT)"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.3221.8.7.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"
+        },
+        "name": "SPL Drug Route of Administration Terminology"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.3221.8.9.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"
+        },
+        "name": "Body Site Value Set"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.80.32.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.32"
+        },
+        "name": "EncounterTypeCode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.80.60.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.60"
+        },
+        "name": "Social History Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.80.62.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.62"
+        },
+        "name": "Vital Sign Result Type"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.80.64.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.64"
+        },
+        "name": "Medication Fill Status"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.113883.3.88.12.80.68.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.68"
+        },
+        "name": "Problem Status"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.114222.4.11.1066.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.114222.4.11.1066"
+        },
+        "name": "Healthcare Provider Taxonomy (HIPAA)"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.114222.4.11.3591.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.114222.4.11.3591"
+        },
+        "name": "Payer"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.114222.4.11.837.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.114222.4.11.837"
+        },
+        "name": "Ethnicity"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "ValueSet"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-2.16.840.1.114222.4.11.877.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/2.16.840.1.114222.4.11.877"
+        },
+        "name": "Detailed Ethnicity"
+      }
+    ],
+    "page": {
+      "nameUrl": "index.html",
+      "title": "IG Home Page",
+      "generation": "markdown",
+      "page": [
+        {
+          "nameUrl": "acknowledgments.html",
+          "title": "Acknowledgments",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "background.html",
+          "title": "Background",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "introduction.html",
+          "title": "Introduction",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "designconsiderations.html",
+          "title": "Design Considerations",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "using.html",
+          "title": "Using this Implementation Guide",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "downloads.html",
+          "title": "Downloads",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "path-resource",
+        "value": "input/capabilities"
+      },
+      {
+        "code": "path-resource",
+        "value": "input/examples"
+      },
+      {
+        "code": "path-resource",
+        "value": "input/extensions"
+      },
+      {
+        "code": "path-resource",
+        "value": "input/models"
+      },
+      {
+        "code": "path-resource",
+        "value": "input/operations"
+      },
+      {
+        "code": "path-resource",
+        "value": "input/profiles"
+      },
+      {
+        "code": "path-resource",
+        "value": "input/resources"
+      },
+      {
+        "code": "path-resource",
+        "value": "input/vocabulary"
+      },
+      {
+        "code": "path-pages",
+        "value": "input/pagecontent"
+      },
+      {
+        "code": "path-pages",
+        "value": "input/images"
+      },
+      {
+        "code": "path-qa",
+        "value": "temp/qa"
+      },
+      {
+        "code": "path-temp",
+        "value": "temp/pages"
+      },
+      {
+        "code": "path-output",
+        "value": "output"
+      },
+      {
+        "code": "path-tx-cache",
+        "value": "input-cache/txcache"
+      },
+      {
+        "code": "path-suppressed-warnings",
+        "value": "input/ignoreWarnings.txt"
+      },
+      {
+        "code": "template-html",
+        "value": "template-page.html"
+      },
+      {
+        "code": "template-md",
+        "value": "template-page-md.html"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-context",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "apply-jurisdiction",
+        "value": "true"
+      },
+      {
+        "code": "apply-license",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      }
+    ]
+  }
+}

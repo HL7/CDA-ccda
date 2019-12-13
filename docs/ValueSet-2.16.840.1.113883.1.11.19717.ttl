@@ -1,0 +1,73 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.19717> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.1.11.19717"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "10" ];
+     fhir:Meta.lastUpdated [ fhir:value "2017-12-28T07:58:48.000-08:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>No Immunization Reason</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <code>http://hl7.org/fhir/v3/ActReason</code>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>IMMUNE</td>\n                            <td>immunity</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>MEDPREC</td>\n                            <td>medical precaution</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>OSTOCK</td>\n                            <td>product out of stock</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>PATOBJ</td>\n                            <td>patient objection</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>PHILISOP</td>\n                            <td>philosophical objection</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>RELIG</td>\n                            <td>religious objection</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>VACEFF</td>\n                            <td>vaccine efficacy concerns</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>VACSAF</td>\n                            <td>vaccine safety concerns</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19717"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "NoImmunizationReason"];
+  fhir:ValueSet.title [ fhir:value "No Immunization Reason"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2017-09-14T22:00:04-07:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/v3/ActReason" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IMMUNE" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "immunity" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MEDPREC" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "medical precaution" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "OSTOCK" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "product out of stock" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PATOBJ" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "patient objection" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PHILISOP" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "philosophical objection" ]
+       ], [
+         fhir:index 5;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RELIG" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "religious objection" ]
+       ], [
+         fhir:index 6;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VACEFF" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "vaccine efficacy concerns" ]
+       ], [
+         fhir:index 7;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VACSAF" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "vaccine safety concerns" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.19717.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.1.11.19717.ttl> .
+
+# -------------------------------------------------------------------------------------
+

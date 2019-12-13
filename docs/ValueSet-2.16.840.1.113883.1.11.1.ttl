@@ -1,0 +1,53 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.1> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.1.11.1"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "9" ];
+     fhir:Meta.lastUpdated [ fhir:value "2015-04-23T22:00:02.000-07:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>Administrative Gender (HL7 V3)</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <code>http://hl7.org/fhir/v3/AdministrativeGender</code>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>F</td>\n                            <td>Female</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>M</td>\n                            <td>Male</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>UN</td>\n                            <td>Undifferentiated</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "AdministrativeGenderHL7V3"];
+  fhir:ValueSet.title [ fhir:value "Administrative Gender (HL7 V3)"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2015-04-23T22:00:02-07:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/v3/AdministrativeGender" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "F" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Female" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "M" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Male" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UN" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Undifferentiated" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.1.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.1.11.1.ttl> .
+
+# -------------------------------------------------------------------------------------
+

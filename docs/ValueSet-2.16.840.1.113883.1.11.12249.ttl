@@ -1,0 +1,65 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.12249> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.1.11.12249"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "6" ];
+     fhir:Meta.lastUpdated [ fhir:value "2017-12-28T07:54:58.000-08:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>LanguageAbilityMode</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <code>http://hl7.org/fhir/v3/LanguageAbilityMode</code>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>ESGN</td>\n                            <td>Expressed signed</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>ESP</td>\n                            <td>Expressed spoken</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>EWR</td>\n                            <td>Expressed written</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>RSGN</td>\n                            <td>Received signed</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>RSP</td>\n                            <td>Received spoken</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>RWR</td>\n                            <td>Received written</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12249"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "LanguageAbilityMode"];
+  fhir:ValueSet.title [ fhir:value "LanguageAbilityMode"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2015-04-23T22:00:02-07:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/v3/LanguageAbilityMode" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ESGN" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Expressed signed" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ESP" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Expressed spoken" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "EWR" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Expressed written" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RSGN" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Received signed" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RSP" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Received spoken" ]
+       ], [
+         fhir:index 5;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RWR" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Received written" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.12249.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.1.11.12249.ttl> .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,61 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.11.20.9.37> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.11.20.9.37"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "4" ];
+     fhir:Meta.lastUpdated [ fhir:value "2015-04-23T22:00:02.000-07:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>TargetSite Qualifiers</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <a href=\"http://www.snomed.org/\">\n                        <code>http://snomed.info/sct</code>\n                    </a>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=24028007\">24028007</a>\n                            </td>\n                            <td>Right (qualifier value)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=255549009\">255549009</a>\n                            </td>\n                            <td>Anterior (qualifier value)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=255551008\">255551008</a>\n                            </td>\n                            <td>Posterior (qualifier value)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=255561001\">255561001</a>\n                            </td>\n                            <td>Medial (qualifier value)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=7771000\">7771000</a>\n                            </td>\n                            <td>Left (qualifier value)</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.37"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "TargetSiteQualifiers"];
+  fhir:ValueSet.title [ fhir:value "TargetSite Qualifiers"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2015-04-23T22:00:02-07:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24028007" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Right (qualifier value)" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "255549009" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Anterior (qualifier value)" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "255551008" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Posterior (qualifier value)" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "255561001" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Medial (qualifier value)" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "7771000" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Left (qualifier value)" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.11.20.9.37.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.11.20.9.37.ttl> .
+
+# -------------------------------------------------------------------------------------
+

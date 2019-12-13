@@ -1,0 +1,77 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.3.88.12.3221.6.2"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "11" ];
+     fhir:Meta.lastUpdated [ fhir:value "2017-09-14T22:00:04.000-07:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>Allergy and Intolerance Type</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <a href=\"http://www.snomed.org/\">\n                        <code>http://snomed.info/sct</code>\n                    </a>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=235719002\">235719002</a>\n                            </td>\n                            <td>Food intolerance (disorder)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=414285001\">414285001</a>\n                            </td>\n                            <td>Food allergy (disorder)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=416098002\">416098002</a>\n                            </td>\n                            <td>Drug allergy (disorder)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=418038007\">418038007</a>\n                            </td>\n                            <td>Propensity to adverse reactions to substance (disorder)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=418471000\">418471000</a>\n                            </td>\n                            <td>Propensity to adverse reactions to food (disorder)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=419199007\">419199007</a>\n                            </td>\n                            <td>Allergy to substance (disorder)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=419511003\">419511003</a>\n                            </td>\n                            <td>Propensity to adverse reactions to drug (disorder)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=420134006\">420134006</a>\n                            </td>\n                            <td>Propensity to adverse reactions (disorder)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=59037007\">59037007</a>\n                            </td>\n                            <td>Drug intolerance (disorder)</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "AllergyandIntoleranceType"];
+  fhir:ValueSet.title [ fhir:value "Allergy and Intolerance Type"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2017-09-14T22:00:04-07:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "235719002" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Food intolerance (disorder)" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "414285001" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Food allergy (disorder)" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "416098002" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Drug allergy (disorder)" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "418038007" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Propensity to adverse reactions to substance (disorder)" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "418471000" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Propensity to adverse reactions to food (disorder)" ]
+       ], [
+         fhir:index 5;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "419199007" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Allergy to substance (disorder)" ]
+       ], [
+         fhir:index 6;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "419511003" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Propensity to adverse reactions to drug (disorder)" ]
+       ], [
+         fhir:index 7;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "420134006" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Propensity to adverse reactions (disorder)" ]
+       ], [
+         fhir:index 8;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "59037007" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Drug intolerance (disorder)" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2.ttl> .
+
+# -------------------------------------------------------------------------------------
+

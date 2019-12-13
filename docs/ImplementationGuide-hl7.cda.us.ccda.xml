@@ -1,0 +1,1353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hl7.cda.us.ccda"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>ccda</h2><p>The official URL for this implementation guide is: </p><pre>http://hl7.org/fhir/cda/ccda/ImplementationGuide/hl7.cda.us.ccda</pre></div>
+  </text>
+  <url value="http://hl7.org/fhir/cda/ccda/ImplementationGuide/hl7.cda.us.ccda"/>
+  <version value="2.1.0"/>
+  <name value="ccda"/>
+  <title value="Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-13T11:29:21-08:00"/>
+  <publisher value="Health Level 7"/>
+  <packageId value="hl7.cda.us.ccda"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn>
+    <uri value="http://hl7.org/fhir/cda/ImplementationGuide/cda-ig"/>
+    <packageId value="hl7.fhir.cda"/>
+    <version value="dev"/>
+  </dependsOn>
+  <definition>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.17.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.17"/>
+      </reference>
+      <name value="MedicationSupplyOrder"/>
+      <description value="This template records the intent to supply a patient with medications."/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.20.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+      </reference>
+      <name value="Instruction"/>
+      <description value="The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template&#39;s moodCode can only be INT. If an instruction was already given, the Procedure Activity Act template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode."/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.54.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
+      </reference>
+      <name value="ImmunizationMedicationInformation"/>
+      <description value="The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-1.3.6.1.4.1.19376.1.5.3.1.3.1.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
+      </reference>
+      <name value="ReasonforReferralSection"/>
+      <description value="This section describes the clinical reason why a provider is sending a patient to another provider for care. The reason for referral may become the reason for visit documented by the receiving provider."/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.119.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+      </reference>
+      <name value="AuthorParticipation"/>
+      <description value="This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden.&#xA;&#xA;The Author Participation template was added to those templates in scope for analysis in R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template."/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.140.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.140"/>
+      </reference>
+      <name value="PatientReferralAct"/>
+      <description value="This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.19.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
+      </reference>
+      <name value="Indication"/>
+      <description value="This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration (V2) [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met."/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.64.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.64"/>
+      </reference>
+      <name value="CommentActivity"/>
+      <description value="Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-1.3.6.1.4.1.12009.10.2.5.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/1.3.6.1.4.1.12009.10.2.5"/>
+      </reference>
+      <name value="LOINC Imaging Document Codes"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1010.1.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1010.1"/>
+      </reference>
+      <name value="Substance Reactant for Intolerance"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1010.2.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1010.2"/>
+      </reference>
+      <name value="Clinical Substance"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1010.4.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1010.4"/>
+      </reference>
+      <name value="Medication Clinical Drug"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1010.6.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1010.6"/>
+      </reference>
+      <name value="CVX Vaccines Administered Vaccine Set"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1010.8.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1010.8"/>
+      </reference>
+      <name value="Vaccine Clinical Drug"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1021.30.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1021.30"/>
+      </reference>
+      <name value="AdministrationUnitDoseForm"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1099.11.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1099.11"/>
+      </reference>
+      <name value="Medication Status"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1099.12.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1099.12"/>
+      </reference>
+      <name value="Medication Route"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113762.1.4.1099.24.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113762.1.4.1099.24"/>
+      </reference>
+      <name value="Extended Pregnancy Status"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.1.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.1"/>
+      </reference>
+      <name value="Administrative Gender (HL7 V3)"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.10267.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.10267"/>
+      </reference>
+      <name value="ParticipationFunction"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.10416.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.10416"/>
+      </reference>
+      <name value="Financially Responsible Party Type Value Set"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.10637.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.10637"/>
+      </reference>
+      <name value="PostalAddressUse"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.11526.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.11526"/>
+      </reference>
+      <name value="Language"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.11610.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.11610"/>
+      </reference>
+      <name value="x_ActRelationshipDocument"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.12199.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.12199"/>
+      </reference>
+      <name value="LanguageAbilityProficiency"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.12212.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.12212"/>
+      </reference>
+      <name value="Marital Status"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.12249.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.12249"/>
+      </reference>
+      <name value="LanguageAbilityMode"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.12839.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.12839"/>
+      </reference>
+      <name value="UnitsOfMeasureCaseSensitive"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.14914.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.14914"/>
+      </reference>
+      <name value="Race Value Set"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.15913.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.15913"/>
+      </reference>
+      <name value="EntityNameUse"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.15933.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.15933"/>
+      </reference>
+      <name value="ActStatus"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.16866.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.16866"/>
+      </reference>
+      <name value="ActPriority"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.16926.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.16926"/>
+      </reference>
+      <name value="HL7 BasicConfidentialityKind"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.18877.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.18877"/>
+      </reference>
+      <name value="Coverage Role Type Value Set"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.19185.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.19185"/>
+      </reference>
+      <name value="Religious Affiliation"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.19579.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.19579"/>
+      </reference>
+      <name value="Family Member Value"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.19601.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.19601"/>
+      </reference>
+      <name value="x_ServiceEventPerformer"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.19717.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.19717"/>
+      </reference>
+      <name value="No Immunization Reason"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20.12.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20.12"/>
+      </reference>
+      <name value="HealthStatus"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20.2.3.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.3"/>
+      </reference>
+      <name value="ReferralDocumentType"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20.2.4.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.4"/>
+      </reference>
+      <name value="TransferDocumentType"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20.2.5.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.5"/>
+      </reference>
+      <name value="Wound Measurements"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20.2.6.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.6"/>
+      </reference>
+      <name value="Wound Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20.2.7.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.7"/>
+      </reference>
+      <name value="Nutritional Status"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20.2.9.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.9"/>
+      </reference>
+      <name value="Nutrition Recommendations"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20.2.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20.2"/>
+      </reference>
+      <name value="Advance Directive Type Code"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.20549.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.20549"/>
+      </reference>
+      <name value="Criticality Observation"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.1.11.78.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.1.11.78"/>
+      </reference>
+      <name value="Observation Interpretation (HL7)"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.1.1.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.1.1"/>
+      </reference>
+      <name value="SurgicalOperationNoteDocumentTypeCode"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.12.1.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.12.1"/>
+      </reference>
+      <name value="Personal And Legal Relationship Role Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.6.1.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.6.1"/>
+      </reference>
+      <name value="ProcedureNoteDocumentTypeCodes"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.8.1.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.8.1"/>
+      </reference>
+      <name value="ProgressNoteDocumentTypeCode"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.18.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.18"/>
+      </reference>
+      <name value="MoodCodeEvnInt"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.19.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.19"/>
+      </reference>
+      <name value="ProblemAct statusCode"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.20.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.20"/>
+      </reference>
+      <name value="Telecom Use (US Realm Header)"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.21.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.21"/>
+      </reference>
+      <name value="AgePQ_UCUM"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.22.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.22"/>
+      </reference>
+      <name value="ProcedureAct statusCode"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.23.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.23"/>
+      </reference>
+      <name value="Planned moodCode (Act/Encounter/Procedure)"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.24.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.24"/>
+      </reference>
+      <name value="Planned moodCode (SubstanceAdministration/Supply)"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.25.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.25"/>
+      </reference>
+      <name value="Planned moodCode (Observation)"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.26.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.26"/>
+      </reference>
+      <name value="EntityPersonNamePartQualifier"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.29.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.29"/>
+      </reference>
+      <name value="DIRQuantityMeasurementTypeCodes"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.31.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.31"/>
+      </reference>
+      <name value="ConsultDocumentType"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.33.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.33"/>
+      </reference>
+      <name value="INDRoleclassCodes"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.35.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.35"/>
+      </reference>
+      <name value="Pressure Ulcer Stage"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.36.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.36"/>
+      </reference>
+      <name value="Pressure Point"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.37.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.37"/>
+      </reference>
+      <name value="TargetSite Qualifiers"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.38.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.38"/>
+      </reference>
+      <name value="Smoking Status"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.39.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.39"/>
+      </reference>
+      <name value="Result Status"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.41.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.41"/>
+      </reference>
+      <name value="Tobacco Use"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.44.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.44"/>
+      </reference>
+      <name value="Mental and Functional Status Response"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.47.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.47"/>
+      </reference>
+      <name value="ADL Result Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.49.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.49"/>
+      </reference>
+      <name value="Residence and Accommodation Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.50.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.50"/>
+      </reference>
+      <name value="Sensory Status Problem Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.51.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.51"/>
+      </reference>
+      <name value="Healthcare Agent Qualifier"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.52.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.52"/>
+      </reference>
+      <name value="Encounter Planned"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.54.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.54"/>
+      </reference>
+      <name value="Planned Intervention moodCode"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.55.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.55"/>
+      </reference>
+      <name value="Goal Achievement"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.58.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.58"/>
+      </reference>
+      <name value="Wound Characteristic"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.59.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.59"/>
+      </reference>
+      <name value="DIRSectionTypeCodes"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.60.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.60"/>
+      </reference>
+      <name value="Priority Level"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.61.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.61"/>
+      </reference>
+      <name value="Care Model"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.65.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.65"/>
+      </reference>
+      <name value="Physical Exam Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.11.20.9.66.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.11.20.9.66"/>
+      </reference>
+      <name value="Patient Referral Act moodCode"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.2074.1.1.3.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.2074.1.1.3"/>
+      </reference>
+      <name value="Race Category Excluding Nulls"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.3221.6.2.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.6.2"/>
+      </reference>
+      <name value="Allergy and Intolerance Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.3221.6.8.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.6.8"/>
+      </reference>
+      <name value="Reaction Severity"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.3221.7.2.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.7.2"/>
+      </reference>
+      <name value="Problem Type (SNOMEDCT)"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.3221.8.7.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
+      </reference>
+      <name value="SPL Drug Route of Administration Terminology"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.3221.8.9.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
+      </reference>
+      <name value="Body Site Value Set"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.80.32.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
+      </reference>
+      <name value="EncounterTypeCode"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.80.60.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.60"/>
+      </reference>
+      <name value="Social History Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.80.62.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.62"/>
+      </reference>
+      <name value="Vital Sign Result Type"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.80.64.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.64"/>
+      </reference>
+      <name value="Medication Fill Status"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.113883.3.88.12.80.68.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.68"/>
+      </reference>
+      <name value="Problem Status"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.114222.4.11.1066.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.114222.4.11.1066"/>
+      </reference>
+      <name value="Healthcare Provider Taxonomy (HIPAA)"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.114222.4.11.3591.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.114222.4.11.3591"/>
+      </reference>
+      <name value="Payer"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.114222.4.11.837.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.114222.4.11.837"/>
+      </reference>
+      <name value="Ethnicity"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-2.16.840.1.114222.4.11.877.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/2.16.840.1.114222.4.11.877"/>
+      </reference>
+      <name value="Detailed Ethnicity"/>
+    </resource>
+    <page>
+      <nameUrl value="index.html"/>
+      <title value="IG Home Page"/>
+      <generation value="markdown"/>
+      <page>
+        <nameUrl value="acknowledgments.html"/>
+        <title value="Acknowledgments"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="background.html"/>
+        <title value="Background"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="introduction.html"/>
+        <title value="Introduction"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="designconsiderations.html"/>
+        <title value="Design Considerations"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="using.html"/>
+        <title value="Using this Implementation Guide"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="downloads.html"/>
+        <title value="Downloads"/>
+        <generation value="markdown"/>
+      </page>
+    </page>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/capabilities"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/examples"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/extensions"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/models"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/operations"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/profiles"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/vocabulary"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="input/pagecontent"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="input/images"/>
+    </parameter>
+    <parameter>
+      <code value="path-qa"/>
+      <value value="temp/qa"/>
+    </parameter>
+    <parameter>
+      <code value="path-temp"/>
+      <value value="temp/pages"/>
+    </parameter>
+    <parameter>
+      <code value="path-output"/>
+      <value value="output"/>
+    </parameter>
+    <parameter>
+      <code value="path-tx-cache"/>
+      <value value="input-cache/txcache"/>
+    </parameter>
+    <parameter>
+      <code value="path-suppressed-warnings"/>
+      <value value="input/ignoreWarnings.txt"/>
+    </parameter>
+    <parameter>
+      <code value="template-html"/>
+      <value value="template-page.html"/>
+    </parameter>
+    <parameter>
+      <code value="template-md"/>
+      <value value="template-page-md.html"/>
+    </parameter>
+    <parameter>
+      <code value="apply-contact"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-context"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-copyright"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-jurisdiction"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-license"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-publisher"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-version"/>
+      <value value="true"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

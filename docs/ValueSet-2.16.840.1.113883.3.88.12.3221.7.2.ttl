@@ -1,0 +1,73 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.3.88.12.3221.7.2> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.3.88.12.3221.7.2"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "19" ];
+     fhir:Meta.lastUpdated [ fhir:value "2019-04-15T14:11:19.000-07:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>Problem Type (SNOMEDCT)</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <a href=\"http://www.snomed.org/\">\n                        <code>http://snomed.info/sct</code>\n                    </a>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=248536006\">248536006</a>\n                            </td>\n                            <td>Finding of functional performance and activity (finding)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=282291009\">282291009</a>\n                            </td>\n                            <td>Diagnosis interpretation (observable entity)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=373930000\">373930000</a>\n                            </td>\n                            <td>Cognitive function finding (finding)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=404684003\">404684003</a>\n                            </td>\n                            <td>Clinical finding (finding)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=409586006\">409586006</a>\n                            </td>\n                            <td>Complaint (finding)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=418799008\">418799008</a>\n                            </td>\n                            <td>Finding reported by subject or history provider (finding)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=55607006\">55607006</a>\n                            </td>\n                            <td>Problem (finding)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=64572001\">64572001</a>\n                            </td>\n                            <td>Disease (disorder)</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.2"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "ProblemTypeSNOMEDCT"];
+  fhir:ValueSet.title [ fhir:value "Problem Type (SNOMEDCT)"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2018-01-26T22:00:04-08:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "248536006" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Finding of functional performance and activity (finding)" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "282291009" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Diagnosis interpretation (observable entity)" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "373930000" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cognitive function finding (finding)" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "404684003" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Clinical finding (finding)" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "409586006" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Complaint (finding)" ]
+       ], [
+         fhir:index 5;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "418799008" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Finding reported by subject or history provider (finding)" ]
+       ], [
+         fhir:index 6;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "55607006" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Problem (finding)" ]
+       ], [
+         fhir:index 7;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "64572001" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Disease (disorder)" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.3.88.12.3221.7.2.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.3.88.12.3221.7.2.ttl> .
+
+# -------------------------------------------------------------------------------------
+

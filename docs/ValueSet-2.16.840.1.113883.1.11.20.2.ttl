@@ -1,0 +1,73 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.20.2> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "2.16.840.1.113883.1.11.20.2"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "23" ];
+     fhir:Meta.lastUpdated [ fhir:value "2018-01-24T22:00:04.000-08:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>Advance Directive Type Code</h2>\n            <p>This value set includes codes from the following code systems:</p>\n            <ul>\n                <li>Include these codes as defined in \n                    \n                    <a href=\"http://www.snomed.org/\">\n                        <code>http://snomed.info/sct</code>\n                    </a>\n                    <table class=\"none\">\n                        <tr>\n                            <td>\n                                <b>Code</b>\n                            </td>\n                            <td>\n                                <b>Display</b>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=14152002\">14152002</a>\n                            </td>\n                            <td>Intravenous infusion (procedure)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=281789004\">281789004</a>\n                            </td>\n                            <td>Antibiotic therapy (procedure)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=304251008\">304251008</a>\n                            </td>\n                            <td>Resuscitation status (observable entity)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=52765003\">52765003</a>\n                            </td>\n                            <td>Intubation (procedure)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=61420007\">61420007</a>\n                            </td>\n                            <td>Tube feeding of patient (regime/therapy)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=71388002\">71388002</a>\n                            </td>\n                            <td>Procedure (procedure)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=78823007\">78823007</a>\n                            </td>\n                            <td>Life support procedure (procedure)</td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <td>\n                                <a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=89666000\">89666000</a>\n                            </td>\n                            <td>Cardiopulmonary resuscitation (procedure)</td>\n                            <td/>\n                        </tr>\n                    </table>\n                </li>\n            </ul>\n        </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.2"];
+  fhir:ValueSet.version [ fhir:value "2.1.0"];
+  fhir:ValueSet.name [ fhir:value "AdvanceDirectiveTypeCode"];
+  fhir:ValueSet.title [ fhir:value "Advance Directive Type Code"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.date [ fhir:value "2018-01-24T22:00:04-08:00"^^xsd:dateTime];
+  fhir:ValueSet.publisher [ fhir:value "Health Level 7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "14152002" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Intravenous infusion (procedure)" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "281789004" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Antibiotic therapy (procedure)" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "304251008" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Resuscitation status (observable entity)" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "52765003" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Intubation (procedure)" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "61420007" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tube feeding of patient (regime/therapy)" ]
+       ], [
+         fhir:index 5;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "71388002" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Procedure (procedure)" ]
+       ], [
+         fhir:index 6;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "78823007" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Life support procedure (procedure)" ]
+       ], [
+         fhir:index 7;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89666000" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cardiopulmonary resuscitation (procedure)" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/cda/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/cda/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.ttl> .
+
+# -------------------------------------------------------------------------------------
+
