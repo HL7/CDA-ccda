@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.29.1"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.29.1"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.29.1"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.29.1:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="US Realm Header for Patient Generated Document (V2)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,16 +19,15 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="This template is designed to be used in conjunction with the US Realm Header (V2). It includes additional conformances which further constrain the US Realm Header (V2). &#xA;The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="ClinicalDocument"/>
-    <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
     <derivation value="constraint"/>
     <differential>
         <element id="ClinicalDocument">
@@ -125,6 +124,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication">
@@ -186,6 +186,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
         <element id="ClinicalDocument.dataEnterer">
@@ -210,6 +211,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
         <element id="ClinicalDocument.informant">
@@ -256,6 +258,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
         <element id="ClinicalDocument.custodian">
@@ -350,6 +353,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
         <element id="ClinicalDocument.authenticator">
@@ -381,6 +385,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
         <element id="ClinicalDocument.participant">
@@ -412,6 +417,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
@@ -492,6 +498,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
     </differential>

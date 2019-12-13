@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.31"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.31"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.31"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.31"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="This Age Observation represents the subject's age at onset of an event or observation. The age of a relative in a Family History Observation at the time of that observation could also be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime. However, a common scenario is that a patient will know the age of a relative when the relative had a certain condition or when the relative died, but will not know the actual year (e.g., &quot;grandpa died of a heart attack at the age of 50&quot;). Often times, neither precise dates nor ages are known (e.g., &quot;cousin died of congenital heart disease as an infant&quot;)."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -129,6 +128,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.21"/>
             </binding>
         </element>
     </differential>

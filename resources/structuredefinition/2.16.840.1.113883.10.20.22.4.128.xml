@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.128"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.128"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.128"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.128"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="This template represents a patient's daily self-care ability. These activities are called Activities of Daily Living (ADL) and Instrumental Activities of Daily Living (IADL). ADLs involve caring for and moving of the body (e.g., dressing, bathing, eating). IADLs support an independent life style (e.g., cooking, managing medications, driving, shopping)."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -84,6 +83,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.47"/>
             </binding>
         </element>
         <element id="Observation.statusCode">
@@ -113,17 +113,18 @@
             <slicing>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Ability urn:oid:2.16.840.1.113883.11.20.9.46 STATIC (CONF:1098-28042)."/>
+            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Ability urn:oid:2.16.840.1.113883.11.20.9.46 DYNAMIC (CONF:1098-28042)."/>
         </element>
         <element id="Observation.value:value1">
             <path value="Observation.value"/>
             <sliceName value="value1"/>
             <short value="value"/>
-            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Ability urn:oid:2.16.840.1.113883.11.20.9.46 STATIC (CONF:1098-28042)."/>
+            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Ability urn:oid:2.16.840.1.113883.11.20.9.46 DYNAMIC (CONF:1098-28042)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.46"/>
             </binding>
         </element>
         <element id="Observation.author">
@@ -132,6 +133,10 @@
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32469)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

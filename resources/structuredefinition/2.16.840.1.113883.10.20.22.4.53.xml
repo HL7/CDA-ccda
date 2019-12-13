@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.53"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.53"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.53"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.53"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="The Immunization Refusal Reason documents the rationale for the patient declining an immunization."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -86,11 +85,12 @@
         <element id="Observation.code">
             <path value="Observation.code"/>
             <short value="code"/>
-            <definition value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet No Immunization Reason Value Set urn:oid:2.16.840.1.113883.1.11.19717 DYNAMIC (CONF:81-8995)."/>
+            <definition value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet No Immunization Reason urn:oid:2.16.840.1.113883.1.11.19717 DYNAMIC (CONF:81-8995)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19717"/>
             </binding>
         </element>
         <element id="Observation.statusCode">

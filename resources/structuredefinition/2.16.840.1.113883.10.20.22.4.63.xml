@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.63"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.63"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.63"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.63"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="A Series Act contains the DICOM series information for referenced DICOM composite objects. The series information defines the attributes that are used to group composite instances into distinct logical sets. Each series is associated with exactly one study. Series Act clinical statements are only instantiated in the DICOM Object Catalog section inside a Study Act, and thus do not require a separate templateId; in other sections, the SOP Instance Observation is included directly."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Act"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
     <derivation value="constraint"/>
@@ -210,6 +209,10 @@
             <definition value="SHALL contain exactly one [1..1] observationSOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:81-15927)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.54"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="ManufacturedProduct"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct"/>
     <derivation value="constraint"/>
@@ -46,11 +45,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -99,11 +98,12 @@
         <element id="ManufacturedProduct.manufacturedMaterial.code">
             <path value="ManufacturedProduct.manufacturedMaterial.code"/>
             <short value="code"/>
-            <definition value="This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered - Vaccine Set  urn:oid:2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)."/>
+            <definition value="This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered Vaccine Set urn:oid:2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6"/>
             </binding>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code.translation">
@@ -114,6 +114,7 @@
             <max value="*"/>
             <binding>
                 <strength value="example"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.8"/>
             </binding>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code.translation">

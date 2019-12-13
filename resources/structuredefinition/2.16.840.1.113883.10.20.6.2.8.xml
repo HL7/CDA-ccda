@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.6.2.8"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.6.2.8"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="A SOP Instance Observation contains the DICOM Service Object Pair (SOP) Instance information for referenced DICOM composite objects. The SOP Instance act class is used to reference both image and non-image DICOM instances. The text attribute contains the DICOM WADO reference."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -183,6 +182,10 @@
             <definition value="SHALL contain exactly one [1..1] observationPurpose of Reference Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.9) (CONF:81-15935)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.9"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3">
             <path value="Observation.entryRelationship"/>
@@ -208,6 +211,10 @@
             <definition value="SHALL contain exactly one [1..1] observationReferenced Frames Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.10) (CONF:81-15936)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

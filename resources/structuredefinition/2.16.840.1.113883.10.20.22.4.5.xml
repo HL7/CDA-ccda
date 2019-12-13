@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.5"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.5"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.5"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This template represents information about the overall health status of the patient. To represent the impact of a specific problem or concern related to the patient's expected health outcome use the Prognosis Observation template 2.16.840.1.113883.10.20.22.4.113."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -143,6 +142,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.12"/>
             </binding>
         </element>
     </differential>

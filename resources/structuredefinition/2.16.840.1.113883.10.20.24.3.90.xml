@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.24.3.90"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.24.3.90"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.24.3.90"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.24.3.90:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This template reflects a discrete observation about a patient's allergy or intolerance to a substance or device. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the 'biologically relevant time' is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of penicillin allergy that developed five years ago, the effectiveTime is five years ago. &#xA;&#xA;The effectiveTime of the Substance or Device Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -173,6 +172,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2"/>
             </binding>
         </element>
         <element id="Observation.author">
@@ -181,6 +181,10 @@
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31144)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="Observation.participant">
             <path value="Observation.participant"/>
@@ -253,6 +257,7 @@
             <max value="1"/>
             <binding>
                 <strength value="example"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.1"/>
             </binding>
         </element>
         <element id="Observation.entryRelationship">
@@ -300,9 +305,13 @@
             <path value="Observation.entryRelationship.observation"/>
             <sliceName value="entryRelationship1"/>
             <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Allergy Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.28) (CONF:1098-16336)."/>
+            <definition value="SHALL contain exactly one [1..1] Allergy Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.28:2019-06-20) (CONF:1098-16336)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.28"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2">
             <path value="Observation.entryRelationship"/>
@@ -337,6 +346,10 @@
             <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-16340)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3">
             <path value="Observation.entryRelationship"/>
@@ -371,6 +384,10 @@
             <definition value="SHALL contain exactly one [1..1] Severity Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09) (CONF:1098-16344)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.8"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship:entryRelationship4">
             <path value="Observation.entryRelationship"/>
@@ -405,6 +422,10 @@
             <definition value="SHALL contain exactly one [1..1] Criticality Observation  (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.145) (CONF:1098-32938)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.145"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

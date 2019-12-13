@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.27"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.27"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.27"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This template represents measurement of common vital signs. Vital signs are represented with additional vocabulary constraints for type of vital sign and unit of measure.&#xA;&#xA;The following is a list of recommended units for common types of vital sign measurements:&#xA;&#xA;| Name | Unit |&#xA;| -------- | ------- |&#xA;| PulseOx | % |&#xA;| Height/Head Circumf | cm |&#xA;| Weight | kg |&#xA;| Temp | Cel |&#xA;| BP | mm[Hg] |&#xA;| Pulse/Resp Rate | /min |&#xA;| BMI | kg/m2 |&#xA;| BSA | m2 |&#xA;| inhaled oxygen concentration | % |&#xA;&#xA;"/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -112,6 +111,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62"/>
             </binding>
         </element>
         <element id="Observation.statusCode">
@@ -151,6 +151,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839"/>
             </binding>
         </element>
         <element id="Observation.interpretationCode">
@@ -168,6 +169,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.78"/>
             </binding>
         </element>
         <element id="Observation.methodCode">
@@ -190,6 +192,10 @@
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-7310)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

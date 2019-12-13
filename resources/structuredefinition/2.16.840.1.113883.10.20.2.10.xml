@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.2.10"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.2.10"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.2.10"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.2.10:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Physical Exam Section (V3)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,14 +19,13 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="The section includes direct observations made by a clinician. The examination may include the use of simple instruments and may also describe simple maneuvers performed directly on the patients body. &#xA;It also includes observations made by the examining clinician using only inspection, palpation, auscultation, and percussion. It does not include laboratory or imaging findings. &#xA;The exam may be limited to pertinent body systems based on the patients chief complaint or it may include a comprehensive examination. The examination may be reported as a collection of random clinical statements or it may be reported categorically. &#xA;The Physical Exam Section may contain multiple nested subsections."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Section"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
     <derivation value="constraint"/>
@@ -138,6 +137,10 @@
             <definition value="SHALL contain exactly one [1..1] Longitudinal Care Wound Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01) (CONF:1198-31927)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.114"/>
+            </type>
         </element>
         <element id="Section.component">
             <path value="Section.component"/>
@@ -170,11 +173,12 @@
             <path value="Section.component.section.code"/>
             <sliceName value="component1"/>
             <short value="code"/>
-            <definition value="This section SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Physical Exam Type urn:oid:2.16.840.1.113883.11.20.9.65 STATIC (CONF:1198-32436)."/>
+            <definition value="This section SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Physical Exam Type urn:oid:2.16.840.1.113883.11.20.9.65 DYNAMIC (CONF:1198-32436)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.65"/>
             </binding>
         </element>
         <element id="Section.component:component1.section.title">

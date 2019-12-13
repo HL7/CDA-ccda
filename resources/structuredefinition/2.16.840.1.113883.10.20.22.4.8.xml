@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.8"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.8"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.8"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This clinical statement represents the gravity of the reaction. The Severity Observation characterizes the Reaction Observation. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity.&#xA;&#xA;Note the severity observation is no longer recommended for use with the Allergy and Intolerance Observation. The Criticality Observation is preferred for characterizing the Allergy and Intolerance."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -136,6 +135,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.8"/>
             </binding>
         </element>
     </differential>

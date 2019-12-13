@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.46"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.46"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.46"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.46:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Family History Observation (V3)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,14 +19,13 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="Family History Observations related to a particular family member are contained within a Family History Organizer. The effectiveTime in the Family History Observation is the biologically or clinically relevant time of the observation. The biologically or clinically relevant time is the time at which the observation holds (is effective) for the family member (the subject of the observation)."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -101,11 +100,12 @@
         <element id="Observation.code">
             <path value="Observation.code"/>
             <short value="code"/>
-            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Problem Type (SNOMED CT) urn:hl7ii:2.16.840.1.113883.3.88.12.3221.7.2:2012-06-01 STATIC 2012-06-01 (CONF:1198-32427)."/>
+            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Problem Type (SNOMEDCT) urn:oid:2.16.840.1.113883.3.88.12.3221.7.2 DYNAMIC (CONF:1198-32427)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.2"/>
             </binding>
         </element>
         <element id="Observation.code.translation">
@@ -113,17 +113,18 @@
             <slicing>
                 <rules value="open"/>
             </slicing>
-            <definition value="This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) urn:hl7ii:2.16.840.1.113883.3.88.12.3221.7.2:2014-09-02 STATIC 2014-09-02 (CONF:1198-32847)."/>
+            <definition value="This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 DYNAMIC (CONF:1198-32847)."/>
         </element>
         <element id="code.Observation.code.translation:translation1">
             <path value="Observation.code.translation"/>
             <sliceName value="translation1"/>
             <short value="translation"/>
-            <definition value="This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) urn:hl7ii:2.16.840.1.113883.3.88.12.3221.7.2:2014-09-02 STATIC 2014-09-02 (CONF:1198-32847)."/>
+            <definition value="This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 DYNAMIC (CONF:1198-32847)."/>
             <min value="1"/>
             <max value="*"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.28"/>
             </binding>
         </element>
         <element id="Observation.statusCode">
@@ -156,6 +157,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.4"/>
             </binding>
         </element>
         <element id="Observation.entryRelationship">
@@ -206,6 +208,10 @@
             <definition value="SHALL contain exactly one [1..1] Age Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.31) (CONF:1198-15526)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.31"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2">
             <path value="Observation.entryRelationship"/>
@@ -231,6 +237,10 @@
             <definition value="SHALL contain exactly one [1..1] Family History Death Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.47) (CONF:1198-15527)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.47"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

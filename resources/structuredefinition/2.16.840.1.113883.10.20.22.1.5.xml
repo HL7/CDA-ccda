@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.1.5"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.5"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.5"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.5:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Diagnostic Imaging Report (V3)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,16 +19,15 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="A Diagnostic Imaging Report (DIR) is a document that contains a consulting specialists interpretation of image data. It conveys the interpretation to the referring (ordering) physician and becomes part of the patients medical record. It is for use in Radiology, Endoscopy, Cardiology, and other imaging specialties."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="ClinicalDocument"/>
-    <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
+    <baseDefinition value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
     <derivation value="constraint"/>
     <differential>
         <element id="ClinicalDocument">
@@ -104,6 +103,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/ccda/ValueSet/1.3.6.1.4.1.12009.10.2.5"/>
             </binding>
         </element>
         <element id="ClinicalDocument.informant">
@@ -162,6 +162,10 @@
             <definition value="This associatedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-31200)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>
@@ -259,6 +263,10 @@
             <definition value="SHOULD contain zero or more [0..*] Physician Reading Study Performer (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.6.2.1:2014-06-09) (CONF:1198-8422)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Performer1"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.1"/>
+            </type>
         </element>
         <element id="ClinicalDocument.relatedDocument">
             <path value="ClinicalDocument.relatedDocument"/>
@@ -308,6 +316,10 @@
             <definition value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-30943)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/IVL_TS"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.3"/>
+            </type>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty"/>
@@ -329,6 +341,10 @@
             <definition value="This encompassingEncounter SHOULD contain zero or one [0..1] Physician of Record Participant (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.6.2.2:2014-06-09) (CONF:1198-30948)."/>
             <min value="0"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/EncounterParticipant"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.2"/>
+            </type>
         </element>
         <element id="ClinicalDocument.component">
             <path value="ClinicalDocument.component"/>
@@ -370,6 +386,10 @@
             <definition value="SHALL contain exactly one [1..1] Findings Section (DIR) (identifier: urn:oid:2.16.840.1.113883.10.20.6.1.2) (CONF:1198-30697)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.1.2"/>
+            </type>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component2">
             <path value="ClinicalDocument.component.structuredBody.component"/>
@@ -386,6 +406,10 @@
             <definition value="SHALL contain exactly one [1..1] DICOM Object Catalog Section - DCM 121181 (identifier: urn:oid:2.16.840.1.113883.10.20.6.1.1) (CONF:1198-30699)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.1.1"/>
+            </type>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
             <path value="ClinicalDocument.component.structuredBody.component"/>
@@ -421,6 +445,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.59"/>
             </binding>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.title">
@@ -465,6 +490,10 @@
             <definition value="SHALL contain exactly one [1..1] Fetus Subject Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.3) (CONF:1198-31216)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/RelatedSubject"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.3"/>
+            </type>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component.section.author">
             <path value="ClinicalDocument.component.structuredBody.component.section.author"/>
@@ -492,17 +521,10 @@
             <definition value="SHALL contain exactly one [1..1] Observer Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.4) (CONF:1198-31218)."/>
             <min value="1"/>
             <max value="1"/>
-        </element>
-        <element id="ClinicalDocument.component.structuredBody.component.section.entry">
-            <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="act"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31213) such that it"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AssignedAuthor"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.4"/>
+            </type>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
@@ -519,6 +541,10 @@
             <definition value="SHALL contain exactly one [1..1] Procedure Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.5) (CONF:1198-31214)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
+            </type>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
@@ -535,6 +561,10 @@
             <definition value="SHALL contain exactly one [1..1] Text Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.12) (CONF:1198-31358)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
+            </type>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry3">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
@@ -551,6 +581,10 @@
             <definition value="SHALL contain exactly one [1..1] Code Observations (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.13) (CONF:1198-31360)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
+            </type>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
@@ -567,22 +601,46 @@
             <definition value="SHALL contain exactly one [1..1] Quantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:1198-31362)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
+            </type>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry1">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.entry">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry1"/>
+            <sliceName value="component1"/>
             <short value="entry"/>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363) such that it"/>
+            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry1.observation">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.entry.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <sliceName value="entry1"/>
+            <sliceName value="component1"/>
             <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:1198-31364)."/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:1198-31364)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
+            </type>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.component">
             <path value="ClinicalDocument.component.structuredBody.component.section.component"/>

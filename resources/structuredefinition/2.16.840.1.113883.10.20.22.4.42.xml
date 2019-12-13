@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.42"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.42"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.42"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This template represents planned medication activities. The priority of the medication activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the medication activity is intended to take place. The authorTime indicates when the documentation of the plan occurred. "/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="SubstanceAdministration"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
@@ -49,6 +48,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.templateId">
@@ -193,6 +193,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.routeCode.translation">
@@ -203,6 +204,7 @@
             <max value="*"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.12"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.approachSiteCode">
@@ -213,6 +215,7 @@
             <max value="*"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.doseQuantity">
@@ -230,6 +233,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.rateQuantity">
@@ -247,6 +251,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.maxDoseQuantity">
@@ -264,6 +269,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.30"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.consumable">
@@ -279,6 +285,10 @@
             <definition value="This consumable SHALL contain exactly one [1..1] Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32083)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.performer">
             <path value="SubstanceAdministration.performer"/>
@@ -293,6 +303,10 @@
             <definition value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32046)."/>
             <min value="0"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -333,6 +347,10 @@
             <definition value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31106)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship2">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -358,6 +376,10 @@
             <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32071)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship3">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -383,6 +405,10 @@
             <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32074)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.precondition">
             <path value="SubstanceAdministration.precondition"/>
@@ -405,6 +431,10 @@
             <definition value="The precondition, if present, SHALL contain exactly one [1..1] Precondition for Substance Administration (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.25:2014-06-09) (CONF:1098-32086)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Criterion"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.25"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

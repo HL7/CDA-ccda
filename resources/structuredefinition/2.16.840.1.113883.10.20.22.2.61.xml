@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.2.61"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.61"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.61"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.2.61"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="This template represents observations regarding the outcome of care from the interventions used to treat the patient. These observations represent status, at points in time, related to established care plan goals and/or interventions."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Section"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
     <derivation value="constraint"/>
@@ -131,6 +130,10 @@
             <definition value="SHALL contain exactly one [1..1] Outcome Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.144) (CONF:1098-31228)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.144"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.146"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.146"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.146"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.146:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Planned Intervention Act (V2)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,14 +19,13 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="This template represents a Planned Intervention Act. It is a wrapper for planned intervention-type activities considered to be parts of the same intervention. For example, an activity such as &quot;elevate head of bed&quot; combined with &quot;provide humidified O2 per nasal cannula&quot; may be the interventions planned for a health concern of &quot;respiratory insufficiency&quot; in order to attempt to achieve a goal of &quot;pulse oximetry greater than 92%&quot;. These intervention activities may be newly described or derived from a variety of sources within an EHR.&#xA;&#xA;Interventions are actions taken to increase the likelihood of achieving the patient's or providers' goals. An Intervention Act should contain a reference to a Goal Observation representing the reason for the intervention.&#xA;&#xA;Planned Intervention Acts can be related to each other or to Intervention Acts. (E.g., a Planned Intervention Act with moodCode of INT could be related to a series of Intervention Acts with moodCode of EVN, each having an effectiveTime containing the time of the intervention.) &#xA;&#xA;All interventions referenced in a Planned Intervention Act must have moodCodes indicating that that are planned (have not yet occurred)."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Act"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
     <derivation value="constraint"/>
@@ -50,6 +49,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.54"/>
             </binding>
         </element>
         <element id="Act.templateId">
@@ -151,6 +151,10 @@
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32719)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="Act.entryRelationship">
             <path value="Act.entryRelationship"/>
@@ -191,6 +195,10 @@
             <definition value="SHALL contain exactly one [1..1] Advance Directive Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-32677)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.48"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship2">
             <path value="Act.entryRelationship"/>
@@ -216,6 +224,10 @@
             <definition value="SHALL contain exactly one [1..1] Immunization Activity (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01) (CONF:1198-32687)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.52"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship3">
             <path value="Act.entryRelationship"/>
@@ -241,6 +253,10 @@
             <definition value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1198-32689)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship4">
             <path value="Act.entryRelationship"/>
@@ -266,6 +282,10 @@
             <definition value="SHALL contain exactly one [1..1] Procedure Activity Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09) (CONF:1198-32691)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.12"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship5">
             <path value="Act.entryRelationship"/>
@@ -291,6 +311,10 @@
             <definition value="SHALL contain exactly one [1..1] Intervention Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.131:2015-08-01) (CONF:1198-32693)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.131"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship6">
             <path value="Act.entryRelationship"/>
@@ -316,6 +340,10 @@
             <definition value="SHALL contain exactly one [1..1] Procedure Activity Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09) (CONF:1198-32695)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship7">
             <path value="Act.entryRelationship"/>
@@ -341,6 +369,10 @@
             <definition value="SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1198-32697)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship8">
             <path value="Act.entryRelationship"/>
@@ -366,6 +398,10 @@
             <definition value="SHALL contain exactly one [1..1] Encounter Activity (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:1198-32699)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Encounter"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.49"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship9">
             <path value="Act.entryRelationship"/>
@@ -391,6 +427,10 @@
             <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1198-32701)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship10">
             <path value="Act.entryRelationship"/>
@@ -416,6 +456,10 @@
             <definition value="SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1198-32703)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.50"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship11">
             <path value="Act.entryRelationship"/>
@@ -441,6 +485,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1198-32705)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.39"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship12">
             <path value="Act.entryRelationship"/>
@@ -466,6 +514,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Encounter (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.40:2014-06-09) (CONF:1198-32707)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Encounter"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.40"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship13">
             <path value="Act.entryRelationship"/>
@@ -491,6 +543,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1198-32709)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.44"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship14">
             <path value="Act.entryRelationship"/>
@@ -516,6 +572,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09) (CONF:1198-32711)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship15">
             <path value="Act.entryRelationship"/>
@@ -541,6 +601,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1198-32713)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.42"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship16">
             <path value="Act.entryRelationship"/>
@@ -566,6 +630,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Supply (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09) (CONF:1198-32715)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.43"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship17">
             <path value="Act.entryRelationship"/>
@@ -582,6 +650,10 @@
             <definition value="SHALL contain exactly one [1..1] Nutrition Recommendation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.130) (CONF:1198-32716)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.130"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship18">
             <path value="Act.entryRelationship"/>
@@ -607,6 +679,10 @@
             <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32718)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship19">
             <path value="Act.entryRelationship"/>
@@ -632,6 +708,10 @@
             <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32721)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship20">
             <path value="Act.entryRelationship"/>
@@ -657,6 +737,10 @@
             <definition value="SHALL contain exactly one [1..1] Handoff Communication Participants (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.141) (CONF:1198-32727)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.141"/>
+            </type>
         </element>
         <element id="Act.entryRelationship:entryRelationship21">
             <path value="Act.entryRelationship"/>
@@ -682,6 +766,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Immunization Activity (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.120) (CONF:1198-32729)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.120"/>
+            </type>
         </element>
         <element id="Act.reference">
             <path value="Act.reference"/>
@@ -704,6 +792,10 @@
             <definition value="The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:1198-32768)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ExternalDocument"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.115"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

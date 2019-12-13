@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.2.22"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.22"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.22"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.22:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Encounters Section (entries optional) (V3)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,14 +19,13 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="This section lists and describes any healthcare encounters pertinent to the patients current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patients condition. It may include visits, appointments, or non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Section"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
     <derivation value="constraint"/>
@@ -138,6 +137,10 @@
             <definition value="SHALL contain exactly one [1..1] Encounter Activity (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:1198-15465)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Encounter"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.49"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

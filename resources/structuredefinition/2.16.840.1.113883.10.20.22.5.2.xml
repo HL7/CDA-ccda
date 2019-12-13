@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.5.2"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.2"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="Reusable address template, for use in US Realm CDA Header."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="AD"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
     <derivation value="constraint"/>
@@ -40,6 +39,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.10637"/>
             </binding>
         </element>
         <element id="AD.country">
@@ -50,6 +50,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.63"/>
             </binding>
         </element>
         <element id="AD.state">
@@ -60,6 +61,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.1"/>
             </binding>
         </element>
         <element id="AD.city">
@@ -77,6 +79,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.2"/>
             </binding>
         </element>
         <element id="AD.streetAddressLine">

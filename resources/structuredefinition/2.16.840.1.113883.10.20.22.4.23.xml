@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.23"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="A medication should be recorded as a pre-coordinated ingredient + strength + dose form (e.g., metoprolol 25mg tablet, amoxicillin 400mg/5mL suspension) where possible. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack).&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="ManufacturedProduct"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct"/>
     <derivation value="constraint"/>
@@ -105,6 +104,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"/>
             </binding>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code.translation">
@@ -115,6 +115,7 @@
             <max value="*"/>
             <binding>
                 <strength value="example"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.2"/>
             </binding>
         </element>
         <element id="ManufacturedProduct.manufacturerOrganization">

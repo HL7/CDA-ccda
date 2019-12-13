@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.20"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template's moodCode can only be INT. If an instruction was already given, the Procedure Activity Act template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Act"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
     <derivation value="constraint"/>
@@ -98,6 +97,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.34"/>
             </binding>
         </element>
         <element id="Act.statusCode">

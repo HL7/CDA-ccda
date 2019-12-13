@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.123"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.123"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.123"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.123"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="This template represents the act of monitoring the patient's medication and includes a participation to record the person responsible for monitoring the medication. The prescriber of the medication is not necessarily the same person or persons monitoring the drug. The effectiveTime indicates the time when the activity is intended to take place.&#xA;For example, a cardiologist may prescribe a patient Warfarin. The patient's primary care provider may monitor the patient's INR and adjust the dosing of the Warfarin based on these laboratory results. Here the person designated to monitor the drug is the primary care provider."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Act"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
     <derivation value="constraint"/>
@@ -121,6 +120,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15933"/>
             </binding>
         </element>
         <element id="Act.effectiveTime">
@@ -207,6 +207,10 @@
             <definition value="This playingEntity SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1098-28669)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

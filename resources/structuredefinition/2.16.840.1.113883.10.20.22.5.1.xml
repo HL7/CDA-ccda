@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.5.1"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.1"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="The US Realm Patient Name datatype flavor is a set of reusable constraints that can be used for the patient or any other person. It requires a first (given) and last (family) name. If a patient or person has only one name part (e.g., patient with first name only) place the name part in the field required by the organization. Use the appropriate nullFlavor, &quot;Not Applicable&quot; (NA), in the other field.&#xA;For information on mixed content see the Extensible Markup Language reference (http://www.w3c.org/TR/2008/REC-xml-20081126/)."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="PN"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
     <derivation value="constraint"/>
@@ -40,6 +39,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15913"/>
             </binding>
         </element>
         <element id="PN.family">
@@ -57,6 +57,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26"/>
             </binding>
         </element>
         <element id="PN.given">
@@ -74,6 +75,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26"/>
             </binding>
         </element>
         <element id="PN.prefix">
@@ -91,6 +93,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26"/>
             </binding>
         </element>
         <element id="PN.suffix">
@@ -108,6 +111,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26"/>
             </binding>
         </element>
     </differential>

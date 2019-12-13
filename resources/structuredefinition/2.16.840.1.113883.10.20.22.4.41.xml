@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.41"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Procedure"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
     <derivation value="constraint"/>
@@ -49,6 +48,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23"/>
             </binding>
         </element>
         <element id="Procedure.templateId">
@@ -143,6 +143,7 @@
             <max value="*"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
             </binding>
         </element>
         <element id="Procedure.performer">
@@ -158,6 +159,10 @@
             <definition value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31979)."/>
             <min value="0"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="Procedure.entryRelationship">
             <path value="Procedure.entryRelationship"/>
@@ -198,6 +203,10 @@
             <definition value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31081)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
+            </type>
         </element>
         <element id="Procedure.entryRelationship:entryRelationship2">
             <path value="Procedure.entryRelationship"/>
@@ -223,6 +232,10 @@
             <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-31984)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
+            </type>
         </element>
         <element id="Procedure.entryRelationship:entryRelationship3">
             <path value="Procedure.entryRelationship"/>
@@ -257,6 +270,10 @@
             <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31989)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+            </type>
         </element>
         <element id="Procedure.entryRelationship:entryRelationship4">
             <path value="Procedure.entryRelationship"/>
@@ -282,6 +299,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:1098-31992)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.129"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

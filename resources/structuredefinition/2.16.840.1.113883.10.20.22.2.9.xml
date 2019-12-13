@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.2.9"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.9"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.9"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This section represents the clinicians conclusions and working assumptions that will guide treatment of the patient. The Assessment and Plan Section may be combined or separated to meet local policy requirements.&#xA;See also the Assessment Section: templateId 2.16.840.1.113883.10.20.22.2.8 and Plan of Treatment Section (V2): templateId 2.16.840.1.113883.10.20.22.2.10:2014-06-09"/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Section"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
     <derivation value="constraint"/>
@@ -130,6 +129,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1098-15448)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.39"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

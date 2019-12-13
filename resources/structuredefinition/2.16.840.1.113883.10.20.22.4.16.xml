@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.16"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="A Medication Activity describes substance administrations that have actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &quot;take 2 tablets twice a day for the next 10 days&quot;). Medication activities in &quot;INT&quot; mood are reflections of what a clinician intends a patient to be taking. For example, a clinician may intend that a patient be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &quot;EVN&quot; mood would reflect actual use.&#xA;&#xA;A moodCode of INT is allowed, but it is recommended that the Planned Medication Activity (V2) template be used for moodCodes other than EVN if the document type contains a section that includes Planned Medication Activity (V2) (for example a Care Plan document with Plan of Treatment, Intervention, or Goal sections).&#xA;At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;. "/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="SubstanceAdministration"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
@@ -49,6 +48,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.18"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.templateId">
@@ -56,11 +56,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -122,63 +122,68 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.11"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.effectiveTime">
             <path value="SubstanceAdministration.effectiveTime"/>
             <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="operator"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"/>
+            <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime2">
+        <element id="SubstanceAdministration.effectiveTime:effectiveTime1">
             <path value="SubstanceAdministration.effectiveTime"/>
-            <sliceName value="effectiveTime2"/>
+            <sliceName value="effectiveTime1"/>
             <label value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."/>
             <short value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."/>
             <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime2.value">
+        <element id="SubstanceAdministration.effectiveTime:effectiveTime1.value">
             <path value="SubstanceAdministration.effectiveTime.value"/>
-            <sliceName value="effectiveTime2"/>
+            <sliceName value="effectiveTime1"/>
             <label value="indicates a single-administration timestamp"/>
             <short value="indicates a single-administration timestamp"/>
             <definition value="SHOULD contain zero or one [0..1] @value (CONF:1098-32775)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime2.low">
+        <element id="SubstanceAdministration.effectiveTime:effectiveTime1.low">
             <path value="SubstanceAdministration.effectiveTime.low"/>
-            <sliceName value="effectiveTime2"/>
+            <sliceName value="effectiveTime1"/>
             <label value="indicates when medication started"/>
             <short value="indicates when medication started"/>
             <definition value="SHOULD contain zero or one [0..1] low (CONF:1098-32776)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime2.high">
+        <element id="SubstanceAdministration.effectiveTime:effectiveTime1.high">
             <path value="SubstanceAdministration.effectiveTime.high"/>
-            <sliceName value="effectiveTime2"/>
+            <sliceName value="effectiveTime1"/>
             <label value="indicates when medication stopped"/>
             <short value="indicates when medication stopped"/>
             <definition value="MAY contain zero or one [0..1] high (CONF:1098-32777)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime1">
+        <element id="SubstanceAdministration.effectiveTime:effectiveTime2">
             <path value="SubstanceAdministration.effectiveTime"/>
-            <sliceName value="effectiveTime1"/>
+            <sliceName value="effectiveTime2"/>
             <label value="This effectiveTime represents the medication frequency (e.g., administration times per day)."/>
             <short value="This effectiveTime represents the medication frequency (e.g., administration times per day)."/>
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime1.operator">
+        <element id="SubstanceAdministration.effectiveTime:effectiveTime2.operator">
             <path value="SubstanceAdministration.effectiveTime.operator"/>
-            <sliceName value="effectiveTime1"/>
+            <sliceName value="effectiveTime2"/>
             <short value="operator"/>
             <definition value="SHALL contain exactly one [1..1] @operator=&quot;A&quot; (CONF:1098-9106)."/>
             <min value="1"/>
@@ -200,6 +205,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.routeCode.translation">
@@ -210,6 +216,7 @@
             <max value="*"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.12"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.approachSiteCode">
@@ -220,6 +227,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.doseQuantity">
@@ -237,6 +245,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.rateQuantity">
@@ -254,6 +263,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.maxDoseQuantity">
@@ -271,6 +281,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.30"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.consumable">
@@ -286,6 +297,10 @@
             <definition value="This consumable SHALL contain exactly one [1..1] Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-16085)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.performer">
             <path value="SubstanceAdministration.performer"/>
@@ -300,17 +315,21 @@
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31150)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.participant">
             <path value="SubstanceAdministration.participant"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="participantRole"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="participantRole"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -340,111 +359,31 @@
             <definition value="SHALL contain exactly one [1..1] Drug Vehicle (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.24) (CONF:1098-16086)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ParticipantRole"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.24"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship">
             <path value="SubstanceAdministration.entryRelationship"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="substanceAdministration"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="substanceAdministration"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32907) such that it"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship7">
-            <path value="SubstanceAdministration.entryRelationship"/>
-            <sliceName value="entryRelationship7"/>
-            <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7536) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship7.typeCode">
-            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship7"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7537)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="RSON"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship7.observation">
-            <path value="SubstanceAdministration.entryRelationship.observation"/>
-            <sliceName value="entryRelationship7"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-16087)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship6">
-            <path value="SubstanceAdministration.entryRelationship"/>
-            <sliceName value="entryRelationship6"/>
-            <short value="entryRelationship"/>
-            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7539) such that it"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship6.typeCode">
-            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship6"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7540)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="SUBJ"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship6.inversionInd">
-            <path value="SubstanceAdministration.entryRelationship.inversionInd"/>
-            <sliceName value="entryRelationship6"/>
-            <short value="inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-7542)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="true"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship6.act">
-            <path value="SubstanceAdministration.entryRelationship.act"/>
-            <sliceName value="entryRelationship6"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31387)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship5">
-            <path value="SubstanceAdministration.entryRelationship"/>
-            <sliceName value="entryRelationship5"/>
-            <short value="entryRelationship"/>
-            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7543) such that it"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship5.typeCode">
-            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship5"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7547)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="REFR"/>
-        </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship5.supply">
-            <path value="SubstanceAdministration.entryRelationship.supply"/>
-            <sliceName value="entryRelationship5"/>
-            <short value="supply"/>
-            <definition value="SHALL contain exactly one [1..1] Medication Supply Order (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09) (CONF:1098-16089)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship1">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7549) such that it"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7536) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -452,49 +391,66 @@
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
             <sliceName value="entryRelationship1"/>
             <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7553)."/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7537)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="REFR"/>
+            <patternString value="RSON"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship1.supply">
-            <path value="SubstanceAdministration.entryRelationship.supply"/>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship1.observation">
+            <path value="SubstanceAdministration.entryRelationship.observation"/>
             <sliceName value="entryRelationship1"/>
-            <short value="supply"/>
-            <definition value="SHALL contain exactly one [1..1] Medication Dispense (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.18:2014-06-09) (CONF:1098-16090)."/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-16087)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship2">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7552) such that it"/>
+            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7539) such that it"/>
             <min value="0"/>
-            <max value="*"/>
+            <max value="1"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship2.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
             <sliceName value="entryRelationship2"/>
             <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;CAUS&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7544)."/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7540)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="CAUS"/>
+            <patternString value="SUBJ"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship2.observation">
-            <path value="SubstanceAdministration.entryRelationship.observation"/>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship2.inversionInd">
+            <path value="SubstanceAdministration.entryRelationship.inversionInd"/>
             <sliceName value="entryRelationship2"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-16091)."/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-7542)."/>
             <min value="1"/>
             <max value="1"/>
+            <patternString value="true"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship2.act">
+            <path value="SubstanceAdministration.entryRelationship.act"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31387)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship3">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-30820) such that it"/>
+            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7543) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -502,24 +458,28 @@
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
             <sliceName value="entryRelationship3"/>
             <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CONF:1098-30821)."/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7547)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="COMP"/>
+            <patternString value="REFR"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship3.act">
-            <path value="SubstanceAdministration.entryRelationship.act"/>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship3.supply">
+            <path value="SubstanceAdministration.entryRelationship.supply"/>
             <sliceName value="entryRelationship3"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Drug Monitoring Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.123) (CONF:1098-30822)."/>
+            <short value="supply"/>
+            <definition value="SHALL contain exactly one [1..1] Medication Supply Order (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09) (CONF:1098-16089)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.17"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship4">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31515) such that it"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7549) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -527,35 +487,126 @@
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
             <sliceName value="entryRelationship4"/>
             <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7553)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="REFR"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship4.supply">
+            <path value="SubstanceAdministration.entryRelationship.supply"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="supply"/>
+            <definition value="SHALL contain exactly one [1..1] Medication Dispense (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.18:2014-06-09) (CONF:1098-16090)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.18"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship5">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <sliceName value="entryRelationship5"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7552) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship5.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship5"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;CAUS&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7544)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="CAUS"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship5.observation">
+            <path value="SubstanceAdministration.entryRelationship.observation"/>
+            <sliceName value="entryRelationship5"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-16091)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship6">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <sliceName value="entryRelationship6"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-30820) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship6.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship6"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CONF:1098-30821)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="COMP"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship6.act">
+            <path value="SubstanceAdministration.entryRelationship.act"/>
+            <sliceName value="entryRelationship6"/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Drug Monitoring Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.123) (CONF:1098-30822)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.123"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship7">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <sliceName value="entryRelationship7"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31515) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship7.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <sliceName value="entryRelationship7"/>
+            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31516)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship4.inversionInd">
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship7.inversionInd">
             <path value="SubstanceAdministration.entryRelationship.inversionInd"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="entryRelationship7"/>
             <short value="inversionInd"/>
             <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1098-31517)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="true"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship4.sequenceNumber">
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship7.sequenceNumber">
             <path value="SubstanceAdministration.entryRelationship.sequenceNumber"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="entryRelationship7"/>
             <short value="sequenceNumber"/>
             <definition value="MAY contain zero or one [0..1] sequenceNumber (CONF:1098-31518)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:entryRelationship4.act">
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship7.act">
             <path value="SubstanceAdministration.entryRelationship.act"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="entryRelationship7"/>
             <short value="act"/>
             <definition value="SHALL contain exactly one [1..1] Substance Administered Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.118) (CONF:1098-31519)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.118"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship8">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -581,6 +632,10 @@
             <definition value="SHALL contain exactly one [1..1] Medication Free Text Sig (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.147) (CONF:1098-32909)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.147"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.precondition">
             <path value="SubstanceAdministration.precondition"/>
@@ -603,6 +658,10 @@
             <definition value="The precondition, if present, SHALL contain exactly one [1..1] Precondition for Substance Administration (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.25:2014-06-09) (CONF:1098-31883)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Criterion"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.25"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

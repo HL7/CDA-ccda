@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.2.7"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.7"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.7"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.7:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure (V2) is for procedures that alter the physical condition of a patient (e.g., splenectomy). Procedure Activity Observation (V2) is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Procedure Activity Act (V2) is for all other types of procedures (e.g., dressing change)."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Section"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
     <derivation value="constraint"/>
@@ -112,62 +111,29 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="act"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1098-8533) such that it"/>
-        </element>
-        <element id="Section.entry:entry1">
-            <path value="Section.entry"/>
-            <sliceName value="entry1"/>
             <short value="entry"/>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1098-6274) such that it"/>
+            <definition value="MAY contain zero or more [0..*] entry (CONF:1098-6274)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:entry1.procedure">
+        <element id="Section.entry.procedure">
             <path value="Section.entry.procedure"/>
-            <sliceName value="entry1"/>
             <short value="procedure"/>
-            <definition value="SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15509)."/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15509)."/>
             <min value="1"/>
             <max value="1"/>
-        </element>
-        <element id="Section.entry:entry2">
-            <path value="Section.entry"/>
-            <sliceName value="entry2"/>
-            <short value="entry"/>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1098-6278) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:entry2.observation">
-            <path value="Section.entry.observation"/>
-            <sliceName value="entry2"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Procedure Activity Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09) (CONF:1098-15510)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Section.entry:entry3">
-            <path value="Section.entry"/>
-            <sliceName value="entry3"/>
-            <short value="entry"/>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1098-8533) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:entry3.act">
-            <path value="Section.entry.act"/>
-            <sliceName value="entry3"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Procedure Activity Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09) (CONF:1098-15511)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.12"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.13"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="The common notion of procedure is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Therefore procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy). &#xA;&#xA;This template represents procedures that result in new information about the patient that cannot be classified as a procedure according to the HL7 RIM. Examples of these procedures are diagnostic imaging procedures, EEGs, and EKGs."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -140,6 +139,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.22"/>
             </binding>
         </element>
         <element id="Observation.effectiveTime">
@@ -157,6 +157,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.16866"/>
             </binding>
         </element>
         <element id="Observation.value">
@@ -188,6 +189,7 @@
             <max value="*"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
             </binding>
         </element>
         <element id="Observation.performer">
@@ -267,6 +269,10 @@
             <comment value="201810 Errata STU Comment 1619: Updated cardinality from incorrect [1..*] to correct [0..*]"/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="Observation.participant">
             <path value="Observation.participant"/>
@@ -307,6 +313,10 @@
             <definition value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1098-15904)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ParticipantRole"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.32"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship">
             <path value="Observation.entryRelationship"/>
@@ -416,6 +426,10 @@
             <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31394)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3">
             <path value="Observation.entryRelationship"/>
@@ -441,6 +455,10 @@
             <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-15906)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship:entryRelationship4">
             <path value="Observation.entryRelationship"/>
@@ -466,6 +484,10 @@
             <definition value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-15907)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship:entryRelationship5">
             <path value="Observation.entryRelationship"/>
@@ -491,6 +513,10 @@
             <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-32472)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

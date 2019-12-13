@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.48"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.48"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.48"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Advance Directive Observation (V3)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,14 +19,13 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="This clinical statement represents Advance Directive Observation findings (e.g., resuscitation status is Full Code) rather than orders. It should not be considered a legal document or a substitute for the actual Advance Directive document. The related legal documents are referenced using the reference/externalReference element.&#xA;The Advance Directive Observation describes the patients directives, including but not limited to:&#xA;	Medications&#xA;	Transfer of Care to Hospital&#xA;	Treatment&#xA;	Procedures&#xA;	Intubation and Ventilation&#xA;	Diagnostic Tests&#xA;	Tests&#xA;&#xA;The observation/value element contains the detailed patient directive which may be coded or text. For example, a category directive may be antibiotics, and the details would be intravenous antibiotics only.&#xA;"/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -101,11 +100,12 @@
         <element id="Observation.code">
             <path value="Observation.code"/>
             <short value="code"/>
-            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet AdvanceDirectiveTypeCode urn:oid:2.16.840.1.113883.1.11.20.2 STATIC 2015-08-01 (CONF:1198-8651)."/>
+            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Advance Directive Type Code urn:oid:2.16.840.1.113883.1.11.20.2 DYNAMIC (CONF:1198-8651)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.2"/>
             </binding>
         </element>
         <element id="Observation.code.translation">
@@ -191,13 +191,13 @@
             <slicing>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] value (CONF:1198-30804) such that it"/>
+            <definition value="SHALL contain exactly one [1..1] value (CONF:1198-30804)."/>
         </element>
         <element id="Observation.value:value1">
             <path value="Observation.value"/>
             <sliceName value="value1"/>
             <short value="value"/>
-            <definition value="SHALL contain exactly one [1..1] value (CONF:1198-30804) such that it"/>
+            <definition value="SHALL contain exactly one [1..1] value (CONF:1198-30804)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -207,6 +207,10 @@
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32406)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="Observation.participant">
             <path value="Observation.participant"/>
@@ -288,11 +292,12 @@
             <path value="Observation.participant.participantRole.code"/>
             <sliceName value="participant1"/>
             <short value="code"/>
-            <definition value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy (HIPAA) urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)."/>
+            <definition value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
             </binding>
         </element>
         <element id="Observation.participant:participant1.participantRole.addr">
@@ -302,6 +307,10 @@
             <definition value="This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
         </element>
         <element id="Observation.participant:participant1.participantRole.playingEntity">
             <path value="Observation.participant.participantRole.playingEntity"/>
@@ -318,6 +327,10 @@
             <definition value="The playingEntity, if present, MAY contain zero or more [0..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
         </element>
         <element id="Observation.participant:participant2">
             <path value="Observation.participant"/>
@@ -362,6 +375,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
         <element id="Observation.participant:participant2.participantRole.addr">
@@ -371,6 +385,10 @@
             <definition value="This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."/>
             <min value="0"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
         </element>
         <element id="Observation.participant:participant2.participantRole.telecom">
             <path value="Observation.participant.participantRole.telecom"/>
@@ -397,6 +415,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.51"/>
             </binding>
         </element>
         <element id="Observation.participant:participant2.participantRole.playingEntity.name">

@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.6.2.9"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.9"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.9"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.6.2.9"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="A Purpose of Reference Observation describes the purpose of the DICOM composite object reference. Appropriate codes, such as externally defined DICOM codes, may be used to specify the semantics of the purpose of reference. When this observation is absent, it implies that the reason for the reference is unknown."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -99,6 +98,7 @@
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.28"/>
             </binding>
         </element>
     </differential>

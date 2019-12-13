@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.35"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.35"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.35"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.35:2016-03-01"/>
     </identifier>
@@ -26,7 +26,6 @@
     <description value="This template represents medications that the patient is intended to take (or stop) after discharge."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Act"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
     <derivation value="constraint"/>
@@ -55,11 +54,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -157,11 +156,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="substanceAdministration"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="substanceAdministration"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -191,6 +190,10 @@
             <definition value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1198-15525)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

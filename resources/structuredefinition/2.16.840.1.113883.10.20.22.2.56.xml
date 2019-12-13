@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.2.56"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.56"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.56"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.56:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Mental Status Section (V2)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,14 +19,13 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="The Mental Status Section contains observations and evaluations related to a patients psychological and mental competency and deficits including, but not limited to any of the following types of information:&#xA;  Appearance (e.g., unusual grooming, clothing or body modifications)&#xA;  Attitude (e.g., cooperative, guarded, hostile)&#xA;  Behavior/psychomotor (e.g., abnormal movements, eye contact, tics)&#xA;  Mood and affect (e.g., anxious, angry, euphoric)&#xA;  Speech and Language (e.g., pressured speech, perseveration)&#xA;  Thought process (e.g., logic, coherence)&#xA;  Thought content (e.g., delusions, phobias)&#xA;  Perception (e.g., voices, hallucinations)&#xA;  Cognition (e.g., memory, alertness/consciousness, attention, orientation)  which were included in Cognitive Status Observation in earlier publications of C-CDA.&#xA;  Insight and judgment (e.g., understanding of condition, decision making)"/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Section"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
     <derivation value="constraint"/>
@@ -114,62 +113,29 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="observation"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28313) such that it"/>
-        </element>
-        <element id="Section.entry:entry1">
-            <path value="Section.entry"/>
-            <sliceName value="entry1"/>
             <short value="entry"/>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28301) such that it"/>
+            <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28301)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:entry1.organizer">
+        <element id="Section.entry.organizer">
             <path value="Section.entry.organizer"/>
-            <sliceName value="entry1"/>
             <short value="organizer"/>
-            <definition value="SHALL contain exactly one [1..1] Mental Status Organizer (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.75:2015-08-01) (CONF:1198-28302)."/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] Mental Status Organizer (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.75:2015-08-01) (CONF:1198-28302)."/>
             <min value="1"/>
             <max value="1"/>
-        </element>
-        <element id="Section.entry:entry2">
-            <path value="Section.entry"/>
-            <sliceName value="entry2"/>
-            <short value="entry"/>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28305) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:entry2.observation">
-            <path value="Section.entry.observation"/>
-            <sliceName value="entry2"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Mental Status Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:1198-28306)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Section.entry:entry3">
-            <path value="Section.entry"/>
-            <sliceName value="entry3"/>
-            <short value="entry"/>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1198-28313) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:entry3.observation">
-            <path value="Section.entry.observation"/>
-            <sliceName value="entry3"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1198-28314)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Organizer"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.75"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.74"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

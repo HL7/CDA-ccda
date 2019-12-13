@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.52"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.52"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.52"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Immunization Activity (V3)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,14 +19,13 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="An Immunization Activity describes immunization substance administrations that have actually occurred or are intended to occur. Immunization Activities in &quot;INT&quot; mood are reflections of immunizations a clinician intends a patient to receive. Immunization Activities in &quot;EVN&quot; mood reflect immunizations actually received.&#xA;An Immunization Activity is very similar to a Medication Activity with some key differentiators. The drug code system is constrained to CVX codes. Administration timing is less complex. Patient refusal reasons should be captured. All vaccines administered should be fully documented in the patient's permanent medical record. Healthcare providers who administer vaccines covered by the National Childhood Vaccine Injury Act are required to ensure that the permanent medical record of the recipient indicates: &#xA;&#xA;1. Date of administration&#xA;2. Vaccine manufacturer&#xA;3. Vaccine lot number&#xA;4. Name and title of the person who administered the vaccine and the address of the clinic or facility where the permanent record will reside&#xA;5. Vaccine information statement (VIS)&#xA;	a. Date printed on the VIS&#xA;	b. Date VIS given to patient or parent/guardian.&#xA;&#xA;This information should be included in an Immunization Activity when available. (Reference: [https://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/c/vis-instruct.pdf])"/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="SubstanceAdministration"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
@@ -50,6 +49,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.18"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.negationInd">
@@ -131,6 +131,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15933"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.effectiveTime">
@@ -163,6 +164,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.routeCode.translation">
@@ -173,6 +175,7 @@
             <max value="*"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.12"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.approachSiteCode">
@@ -183,6 +186,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.doseQuantity">
@@ -200,6 +204,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.administrationUnitCode">
@@ -210,6 +215,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.30"/>
             </binding>
         </element>
         <element id="SubstanceAdministration.consumable">
@@ -225,6 +231,10 @@
             <definition value="This consumable SHALL contain exactly one [1..1] Immunization Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1198-15546)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.performer">
             <path value="SubstanceAdministration.performer"/>
@@ -239,6 +249,10 @@
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31151)."/>
             <min value="0"/>
             <max value="*"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.participant">
             <path value="SubstanceAdministration.participant"/>
@@ -279,6 +293,10 @@
             <definition value="SHALL contain exactly one [1..1] Drug Vehicle (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.24) (CONF:1198-15547)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ParticipantRole"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.24"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -323,6 +341,10 @@
             <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1198-15537)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship2">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -357,6 +379,10 @@
             <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1198-31392)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship3">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -382,6 +408,10 @@
             <definition value="SHALL contain exactly one [1..1] Medication Supply Order (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09) (CONF:1198-15539)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.17"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship4">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -407,6 +437,10 @@
             <definition value="SHALL contain exactly one [1..1] Medication Dispense (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.18:2014-06-09) (CONF:1198-15540)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.18"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship5">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -432,6 +466,10 @@
             <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1198-15541)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship6">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -457,6 +495,10 @@
             <definition value="SHALL contain exactly one [1..1] Immunization Refusal Reason (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.53) (CONF:1198-15542)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.53"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship7">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -499,6 +541,10 @@
             <definition value="SHALL contain exactly one [1..1] Substance Administered Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.118) (CONF:1198-31514)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.118"/>
+            </type>
         </element>
         <element id="SubstanceAdministration.precondition">
             <path value="SubstanceAdministration.precondition"/>
@@ -539,6 +585,10 @@
             <definition value="SHALL contain exactly one [1..1] Precondition for Substance Administration (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.25:2014-06-09) (CONF:1198-15548)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Criterion"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.25"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

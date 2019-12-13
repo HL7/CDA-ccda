@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.43"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.43"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.43"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09"/>
     </identifier>
@@ -25,7 +25,6 @@
     <description value="This template represents both medicinal and non-medicinal supplies ordered, requested, or intended for the patient (e.g., medication prescription, order for wheelchair). The importance of the supply order or request to the patient and provider may be indicated in the Priority Preference. &#xA;The effective time indicates the time when the supply is intended to take place and author time indicates when the documentation of the plan occurred. The Planned Supply template may also indicate the potential insurance coverage for the procedure. &#xA;Depending on the type of supply, the product or participant will be either a Medication Information product (medication), an Immunization Medication Information product (immunization), or a Product Instance participant (device/equipment)."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Supply"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
     <derivation value="constraint"/>
@@ -49,6 +48,7 @@
             <max value="1"/>
             <binding>
                 <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24"/>
             </binding>
         </element>
         <element id="Supply.templateId">
@@ -137,50 +137,25 @@
         </element>
         <element id="Supply.product">
             <path value="Supply.product"/>
-            <slicing>
-                <rules value="open"/>
-            </slicing>
-            <definition value="SHOULD contain zero or one [0..1] product (CONF:1098-32325)."/>
-        </element>
-        <element id="Supply.product:product1">
-            <path value="Supply.product"/>
-            <sliceName value="product1"/>
             <short value="product"/>
-            <definition value="MAY contain zero or one [0..1] product (CONF:1098-32049) such that it"/>
+            <definition value="MAY contain zero or one [0..1] product (CONF:1098-32049)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Supply.product:product1.manufacturedProduct">
+        <element id="Supply.product.manufacturedProduct">
             <path value="Supply.product.manufacturedProduct"/>
-            <sliceName value="product1"/>
             <short value="manufacturedProduct"/>
-            <definition value="SHALL contain exactly one [1..1] Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/>
+            <definition value="The product, if present, SHALL contain exactly one [1..1] Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/>
             <min value="1"/>
             <max value="1"/>
-        </element>
-        <element id="Supply.product:product2">
-            <path value="Supply.product"/>
-            <sliceName value="product2"/>
-            <short value="product"/>
-            <definition value="MAY contain zero or one [0..1] product (CONF:1098-32051) such that it"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Supply.product:product2.manufacturedProduct">
-            <path value="Supply.product.manufacturedProduct"/>
-            <sliceName value="product2"/>
-            <short value="manufacturedProduct"/>
-            <definition value="SHALL contain exactly one [1..1] Immunization Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1098-32052)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Supply.product:product3">
-            <path value="Supply.product"/>
-            <sliceName value="product3"/>
-            <short value="product"/>
-            <definition value="SHOULD contain zero or one [0..1] product (CONF:1098-32325)."/>
-            <min value="0"/>
-            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
+            </type>
         </element>
         <element id="Supply.performer">
             <path value="Supply.performer"/>
@@ -203,6 +178,10 @@
             <definition value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)."/>
             <min value="0"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
         </element>
         <element id="Supply.participant">
             <path value="Supply.participant"/>
@@ -230,6 +209,10 @@
             <definition value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-32095)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ParticipantRole"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.37"/>
+            </type>
         </element>
         <element id="Supply.entryRelationship">
             <path value="Supply.entryRelationship"/>
@@ -270,6 +253,10 @@
             <definition value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31112)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
+            </type>
         </element>
         <element id="Supply.entryRelationship:entryRelationship2">
             <path value="Supply.entryRelationship"/>
@@ -295,6 +282,10 @@
             <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32056)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
+            </type>
         </element>
         <element id="Supply.entryRelationship:entryRelationship3">
             <path value="Supply.entryRelationship"/>
@@ -320,6 +311,10 @@
             <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32059)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+            </type>
         </element>
         <element id="Supply.entryRelationship:entryRelationship4">
             <path value="Supply.entryRelationship"/>
@@ -345,6 +340,10 @@
             <definition value="SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:1098-32062)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.129"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

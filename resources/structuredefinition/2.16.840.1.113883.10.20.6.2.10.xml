@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.6.2.10"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.6.2.10"/>
     </identifier>
@@ -24,7 +24,6 @@
     <description value="A Referenced Frames Observation is used if the referenced DICOM SOP instance is a multiframe image and the reference does not apply to all frames. The list of integer values for the referenced frames of a DICOM multiframe image SOP instance is contained in a Boundary Observation nested inside this class."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Observation"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
@@ -84,6 +83,10 @@
             <definition value="This entryRelationship SHALL contain exactly one [1..1] observationBoundary Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.11) (CONF:81-15923)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.11"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

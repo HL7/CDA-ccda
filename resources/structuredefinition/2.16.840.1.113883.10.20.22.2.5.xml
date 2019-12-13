@@ -2,14 +2,14 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.2.5"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.5"/>
+    <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.5"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.5:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
     <name value="Problem Section (entries optional) (V3)"/>
     <status value="active"/>
-    <publisher value="River Rock Associates"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
         <telecom>
@@ -19,14 +19,13 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="brett@riverrockassociates.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
     <description value="This section lists and describes all relevant clinical problems at the time the document is generated. At a minimum, all pertinent current and historical problems should be listed. Overall health status may be represented in this section."/>
     <kind value="resource"/>
     <abstract value="false"/>
-    <context/>
     <type value="Section"/>
     <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
     <derivation value="constraint"/>
@@ -114,46 +113,25 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="observation"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="MAY contain zero or one [0..1] entry (CONF:1198-30481) such that it"/>
-        </element>
-        <element id="Section.entry:entry1">
-            <path value="Section.entry"/>
-            <sliceName value="entry1"/>
             <short value="entry"/>
-            <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-7881) such that it"/>
+            <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-7881)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:entry1.act">
+        <element id="Section.entry.act">
             <path value="Section.entry.act"/>
-            <sliceName value="entry1"/>
             <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Problem Concern Act (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15505)."/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] Problem Concern Act (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15505)."/>
             <min value="1"/>
             <max value="1"/>
-        </element>
-        <element id="Section.entry:entry2">
-            <path value="Section.entry"/>
-            <sliceName value="entry2"/>
-            <short value="entry"/>
-            <definition value="MAY contain zero or one [0..1] entry (CONF:1198-30481) such that it"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Section.entry:entry2.observation">
-            <path value="Section.entry.observation"/>
-            <sliceName value="entry2"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Health Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30482)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.3"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.5"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>
