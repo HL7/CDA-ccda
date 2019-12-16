@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.2.31"/>
     </identifier>
     <name value="ProcedureSpecimensTakenSection"/>
-    <title value="ProcedureSpecimensTakenSection"/>
+    <title value="Procedure Specimens Taken Section"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="Section">
             <path value="Section"/>
+            <constraint>
+                <key value="81-8742"/>
+                <severity value="warning"/>
+                <human value="The Procedure Specimens Taken section SHALL list all specimens removed or SHALL explicitly state that no specimens were taken (CONF:81-8742)."/>
+            </constraint>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>

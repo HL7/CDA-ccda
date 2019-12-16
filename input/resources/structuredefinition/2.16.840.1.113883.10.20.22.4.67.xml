@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="FunctionalStatusObservation"/>
-    <title value="FunctionalStatusObservation"/>
+    <title value="Functional Status Observation (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -148,6 +148,11 @@
             <definition value="SHALL contain exactly one [1..1] value (CONF:1098-13932)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-14234"/>
+                <severity value="warning"/>
+                <human value="If xsi:type=“CD”, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-14234)."/>
+            </constraint>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>

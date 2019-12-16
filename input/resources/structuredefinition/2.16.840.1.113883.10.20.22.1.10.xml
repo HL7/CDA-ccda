@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="UnstructuredDocument"/>
-    <title value="UnstructuredDocument"/>
+    <title value="Unstructured Document (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -56,6 +56,11 @@
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7710) such that it"/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32944"/>
+                <severity value="error"/>
+                <human value="When asserting this templateId, all C-CDA 2.1 section and entry templates that had a previous version in C-CDA R1.1 **SHALL** include both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32944)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.templateId:templateId1.root">
             <path value="ClinicalDocument.templateId.root"/>
@@ -137,6 +142,16 @@
             <definition value="This nonXMLBody SHALL contain exactly one [1..1] text (CONF:1198-31087)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-7624"/>
+                <severity value="error"/>
+                <human value="If the text element does not contain a reference element with a value attribute, then it **SHALL** contain exactly one [1..1] @representation=&quot;B64&quot; and exactly one [1..1] @mediaType (CONF:1198-7624)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-7623"/>
+                <severity value="error"/>
+                <human value="The value of @mediaType, if present, **SHALL** be drawn from the value set 2.16.840.1.113883.11.20.7.1 SupportedFileFormats STATIC 2010-05-12 (CONF:1198-7623)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

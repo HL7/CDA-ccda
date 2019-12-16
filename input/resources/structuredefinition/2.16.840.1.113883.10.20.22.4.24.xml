@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.24"/>
     </identifier>
     <name value="DrugVehicle"/>
-    <title value="DrugVehicle"/>
+    <title value="Drug Vehicle"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -111,6 +111,11 @@
             <definition value="This playingEntity MAY contain zero or one [0..1] name (CONF:81-7494)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-10087"/>
+                <severity value="warning"/>
+                <human value="This playingEntity/name MAY be used for the vehicle name in text, such as Normal Saline (CONF:81-10087)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

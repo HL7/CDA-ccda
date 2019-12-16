@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="MentalStatusOrganizer"/>
-    <title value="MentalStatusOrganizer"/>
+    <title value="Mental Status Organizer (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -55,11 +55,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -111,6 +111,11 @@
             <definition value="This code SHALL contain exactly one [1..1] @code (CONF:1198-14697)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-14698"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (codeSystem 2.16.840.1.113883.6.96) (CONF:1198-14698)."/>
+            </constraint>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
@@ -133,6 +138,11 @@
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32426"/>
+                <severity value="error"/>
+                <human value="The Organizer **SHALL** have at least one of *code* or *effectiveTime* (CONF:1198-32426)."/>
+            </constraint>
         </element>
         <element id="Organizer.component">
             <path value="Organizer.component"/>

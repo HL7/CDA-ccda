@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="DiagnosticImagingReport"/>
-    <title value="DiagnosticImagingReport"/>
+    <title value="Diagnostic Imaging Report (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -39,11 +39,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -56,6 +56,11 @@
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8404) such that it"/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32937"/>
+                <severity value="error"/>
+                <human value="When asserting this templateId, all C-CDA 2.1 section and entry templates that had a previous version in C-CDA R1.1 **SHALL** include both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32937)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.templateId:templateId1.root">
             <path value="ClinicalDocument.templateId.root"/>
@@ -88,6 +93,16 @@
             <definition value="This id SHALL contain exactly one [1..1] @root (CONF:1198-30933)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-30934"/>
+                <severity value="error"/>
+                <human value="The ClinicalDocument/id/@root attribute SHALL be a syntactically correct OID, and SHALL NOT be a UUID (CONF:1198-30934)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-30935"/>
+                <severity value="error"/>
+                <human value="OIDs SHALL be no more than 64 characters in length (CONF:1198-30935)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
@@ -120,6 +135,16 @@
             <definition value="MAY contain zero or more [0..*] informationRecipient (CONF:1198-8411)."/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-8412"/>
+                <severity value="warning"/>
+                <human value="The physician requesting the imaging procedure (ClinicalDocument/participant[@typeCode=REF]/associatedEntity), if present, **SHOULD** also be recorded as an informationRecipient, unless in the local setting another physician (such as the attending physician for an inpatient) is known to be the appropriate recipient of the report (CONF:1198-8412)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-8413"/>
+                <severity value="warning"/>
+                <human value="When no referring physician is present, as in the case of self-referred screening examinations allowed by law, the intendedRecipient **MAY** be absent. The intendedRecipient **MAY** also be the health chart of the patient, in which case the receivedOrganization **SHALL** be the scoping organization of that chart (CONF:1198-8413)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.participant">
             <path value="ClinicalDocument.participant"/>
@@ -214,11 +239,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="classCode"/>
+                    <path value="code"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="code"/>
+                    <path value="classCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -256,6 +281,11 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:1198-8419)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-8420"/>
+                <severity value="error"/>
+                <human value="The value of serviceEvent/code **SHALL NOT** conflict with the ClininicalDocument/code. When transforming from DICOM SR documents that do not contain a procedure code, an appropriate nullFlavor **SHALL** be used on serviceEvent/code (CONF:1198-8420)."/>
+            </constraint>
         </element>
         <element id="documentationOf.ClinicalDocument.documentationOf.serviceEvent:serviceEvent1.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
@@ -275,6 +305,11 @@
             <definition value="MAY contain zero or one [0..1] relatedDocument (CONF:1198-8432)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-8433"/>
+                <severity value="warning"/>
+                <human value="When a Diagnostic Imaging Report has been transformed from a DICOM SR document, relatedDocument/@typeCode **SHALL** be XFRM, and relatedDocument/parentDocument/id **SHALL** contain the SOP Instance UID of the original DICOM SR document (CONF:1198-8433)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.relatedDocument.parentDocument">
             <path value="ClinicalDocument.relatedDocument.parentDocument"/>
@@ -289,6 +324,16 @@
             <definition value="This parentDocument SHALL contain exactly one [1..1] id (CONF:1198-32090)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-10031"/>
+                <severity value="error"/>
+                <human value="OIDs **SHALL** be represented in dotted decimal notation, where each decimal number is either 0 or starts with a nonzero digit. More formally, an OID **SHALL** be in the form of the regular expression: ([0-2])(.([1-9][0-9][*]|0))+ (CONF:1198-10031)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-10032"/>
+                <severity value="error"/>
+                <human value="OIDs **SHALL** be no more than 64 characters in length (CONF:1198-10032)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
@@ -310,6 +355,11 @@
             <definition value="This encompassingEncounter SHALL contain at least one [1..*] id (CONF:1198-30941)."/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-30942"/>
+                <severity value="warning"/>
+                <human value="In the case of transformed DICOM SR documents, an appropriate null flavor **MAY** be used if the id is unavailable (CONF:1198-30942)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime"/>
@@ -335,6 +385,11 @@
             <definition value="The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-30946)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-30947"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** contain zero or one [0..1] assignedPerson *OR* contain zero or one [0..1] representedOrganization (CONF:1198-30947)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
@@ -366,23 +421,23 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="section"/>
+                    <path value="ClinicalDocument.section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30696) such that it"/>
+            <definition value="This structuredBody MAY contain zero or more [0..*] component (CONF:1198-31055) such that it"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <short value="component"/>
             <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30696) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <sliceName value="component3"/>
+            <sliceName value="component1"/>
             <short value="section"/>
             <definition value="SHALL contain exactly one [1..1] Findings Section (DIR) (identifier: urn:oid:2.16.840.1.113883.10.20.6.1.2) (CONF:1198-30697)."/>
             <min value="1"/>
@@ -411,34 +466,49 @@
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.1.1"/>
             </type>
+            <constraint>
+                <key value="1198-31206"/>
+                <severity value="error"/>
+                <human value="The DICOM Object Catalog section (templateId 2.16.840.1.113883.10.20.6.1.1), if present, **SHALL** be the first section in the document Body (CONF:1198-31206)."/>
+            </constraint>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <short value="component"/>
             <definition value="This structuredBody MAY contain zero or more [0..*] component (CONF:1198-31055) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <short value="section"/>
             <definition value="SHALL contain exactly one [1..1] section (CONF:1198-31056)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-31211"/>
+                <severity value="error"/>
+                <human value="All sections defined in the DIR Section Type Codes table **SHALL** be top-level sections (CONF:1198-31211)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-31212"/>
+                <severity value="error"/>
+                <human value="**SHALL** contain at least one text element or one or more component elements (CONF:1198-31212)."/>
+            </constraint>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.code">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.code">
             <path value="ClinicalDocument.component.structuredBody.component.section.code"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <short value="code"/>
             <definition value="This section SHALL contain exactly one [1..1] code (CONF:1198-31057)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.code.code">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.code.code">
             <path value="ClinicalDocument.component.structuredBody.component.section.code.code"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <label value="The section/code SHOULD be selected from LOINC or DICOM for sections not listed in the DIR Section Type Codes table"/>
             <short value="The section/code SHOULD be selected from LOINC or DICOM for sections not listed in the DIR Section Type Codes table"/>
             <definition value="This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet DIRSectionTypeCodes http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.59 DYNAMIC (CONF:1198-31207)."/>
@@ -449,21 +519,36 @@
                 <valueSet value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.59"/>
             </binding>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.title">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.title">
             <path value="ClinicalDocument.component.structuredBody.component.section.title"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <short value="title"/>
             <definition value="This section SHOULD contain zero or one [0..1] title (CONF:1198-31058)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.text">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.text">
             <path value="ClinicalDocument.component.structuredBody.component.section.text"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <short value="text"/>
             <definition value="This section SHOULD contain zero or one [0..1] text (CONF:1198-31059)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-31060"/>
+                <severity value="error"/>
+                <human value="If clinical statements are present, the section/text **SHALL** represent faithfully all such statements and **MAY** contain additional text (CONF:1198-31060)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-31061"/>
+                <severity value="error"/>
+                <human value="All text elements **SHALL** contain content. Text elements **SHALL** contain PCDATA or child elements (CONF:1198-31061)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-31062"/>
+                <severity value="warning"/>
+                <human value="The text elements (and their children) **MAY** contain Web Access to DICOM Persistent Object (WADO) references to DICOM objects by including a linkHtml element where @href is a valid WADO URL and the text content of linkHtml is the visible text of the hyperlink (CONF:1198-31062)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component.section.subject">
             <path value="ClinicalDocument.component.structuredBody.component.section.subject"/>
@@ -527,37 +612,53 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.4"/>
             </type>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.entry">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry5"/>
+            <sliceName value="component3"/>
             <short value="entry"/>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31213) such that it"/>
+            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31213)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5.act">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.entry.act">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.act"/>
-            <sliceName value="entry5"/>
+            <sliceName value="component3"/>
             <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Procedure Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.5) (CONF:1198-31214)."/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] Procedure Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.5) (CONF:1198-31214)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
             </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
+            </type>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry4"/>
+            <sliceName value="entry2"/>
             <short value="entry"/>
             <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31357) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4.observation">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <sliceName value="entry4"/>
+            <sliceName value="entry2"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Text Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.12) (CONF:1198-31358)."/>
             <min value="1"/>
@@ -587,17 +688,17 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
             </type>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry2"/>
+            <sliceName value="entry4"/>
             <short value="entry"/>
             <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31361) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2.observation">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <sliceName value="entry2"/>
+            <sliceName value="entry4"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Quantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:1198-31362)."/>
             <min value="1"/>
@@ -607,49 +708,38 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
             </type>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.entry">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="component1"/>
+            <sliceName value="entry5"/>
             <short value="entry"/>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363)."/>
+            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.entry.observation">
+        <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <sliceName value="component1"/>
+            <sliceName value="entry5"/>
             <short value="observation"/>
-            <definition value="The entry, if present, SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:1198-31364)."/>
+            <definition value="SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:1198-31364)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
             </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
-            </type>
         </element>
-        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section.component">
+        <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.component">
             <path value="ClinicalDocument.component.structuredBody.component.section.component"/>
-            <sliceName value="component1"/>
+            <sliceName value="component3"/>
             <short value="component"/>
             <definition value="This section MAY contain zero or more [0..*] component (CONF:1198-31208)."/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-31210"/>
+                <severity value="error"/>
+                <human value="**SHALL** contain child elements (CONF:1198-31210)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

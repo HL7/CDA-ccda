@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.6.2.4"/>
     </identifier>
     <name value="ObserverContext"/>
-    <title value="ObserverContext"/>
+    <title value="Observer Context"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="AssignedAuthor">
             <path value="AssignedAuthor"/>
+            <constraint>
+                <key value="81-9198"/>
+                <severity value="error"/>
+                <human value="Either assignedPerson or assignedAuthoringDevice SHALL be present (CONF:81-9198)."/>
+            </constraint>
         </element>
         <element id="AssignedAuthor.templateId">
             <path value="AssignedAuthor.templateId"/>

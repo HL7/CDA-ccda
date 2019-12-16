@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="PhysicianReadingStudyPerformer"/>
-    <title value="PhysicianReadingStudyPerformer"/>
+    <title value="Physician Reading Study Performer (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -81,6 +81,16 @@
             <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-8426)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-8429"/>
+                <severity value="error"/>
+                <human value="Every assignedEntity element **SHALL** contain at least one [1..*] assignedPerson or representedOrganization (CONF:1098-8429)."/>
+            </constraint>
+            <constraint>
+                <key value="1098-32135"/>
+                <severity value="warning"/>
+                <human value="The id **SHOULD** include zero or one [0..1] *id* where id/@root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1098-32135)."/>
+            </constraint>
         </element>
         <element id="Performer1.assignedEntity.id">
             <path value="Performer1.assignedEntity.id"/>
@@ -95,6 +105,11 @@
             <definition value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:1098-8427)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-8428"/>
+                <severity value="error"/>
+                <human value="**SHALL** contain a valid DICOM personal identification code sequence (@codeSystem is 1.2.840.10008.2.16.4) or an appropriate national health care provider coding system (e.g., NUCC in the U.S., where @codeSystem is 2.16.840.1.113883.6.101) (CONF:1098-8428)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

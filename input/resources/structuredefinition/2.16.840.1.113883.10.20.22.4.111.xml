@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.111"/>
     </identifier>
     <name value="CulturalandReligiousObservation"/>
-    <title value="CulturalandReligiousObservation"/>
+    <title value="Cultural and Religious Observation"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -127,6 +127,11 @@
             <definition value="SHALL contain exactly one [1..1] value (CONF:1098-28442)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-32487"/>
+                <severity value="error"/>
+                <human value="If xsi:type is CD, **SHALL** contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED-CT  urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-32487)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

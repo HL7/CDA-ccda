@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.6.2.9"/>
     </identifier>
     <name value="PurposeofReferenceObservation"/>
-    <title value="PurposeofReferenceObservation"/>
+    <title value="Purpose of Reference Observation"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -82,6 +82,11 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:81-9267)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-19209"/>
+                <severity value="warning"/>
+                <human value="For backwards compatibility with the DICOM CMET, the code MAY be drawn from ValueSet 2.16.840.1.113883.11.20.9.28 DICOMPurposeOfReference DYNAMIC (CONF:81-19209)."/>
+            </constraint>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>

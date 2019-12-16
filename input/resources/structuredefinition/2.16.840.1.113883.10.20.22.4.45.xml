@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="FamilyHistoryOrganizer"/>
-    <title value="FamilyHistoryOrganizer"/>
+    <title value="Family History Organizer (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -152,6 +152,26 @@
             <definition value="This relatedSubject SHOULD contain zero or one [0..1] subject (CONF:1198-15248)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-15249"/>
+                <severity value="warning"/>
+                <human value="The subject **SHOULD** contain zero or more [0..*] sdtc:id. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the id element (CONF:1198-15249)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-15981"/>
+                <severity value="warning"/>
+                <human value="The subject **MAY** contain zero or one [0..1] *sdtc:deceasedInd*. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the deceasedInd element (CONF:1198-15981)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-15982"/>
+                <severity value="warning"/>
+                <human value="The subject **MAY** contain zero or one [0..1] *sdtc:deceasedTime*. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the deceasedTime element (CONF:1198-15982)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-15983"/>
+                <severity value="warning"/>
+                <human value="The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."/>
+            </constraint>
         </element>
         <element id="Organizer.subject.relatedSubject.subject.administrativeGenderCode">
             <path value="Organizer.subject.relatedSubject.subject.administrativeGenderCode"/>

@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.119"/>
     </identifier>
     <name value="AuthorParticipation"/>
-    <title value="AuthorParticipation"/>
+    <title value="Author Participation"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -81,6 +81,11 @@
             <definition value="This assignedAuthor SHALL contain at least one [1..*] id (CONF:1098-31473)."/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1098-32628"/>
+                <severity value="error"/>
+                <human value="If the ID isn't referencing an author described elsewhere in the document, then the author components required in US Realm Header are required here as well (CONF:1098-32628)."/>
+            </constraint>
         </element>
         <element id="Author.assignedAuthor.code">
             <path value="Author.assignedAuthor.code"/>
@@ -88,6 +93,11 @@
             <definition value="This assignedAuthor SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31671)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-32315"/>
+                <severity value="warning"/>
+                <human value="If the content is patient authored the code **SHOULD** be selected from Personal And Legal Relationship Role Type (2.16.840.1.113883.11.20.12.1) (CONF:1098-32315)."/>
+            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>

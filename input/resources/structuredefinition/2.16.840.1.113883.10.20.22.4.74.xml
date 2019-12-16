@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="MentalStatusObservation"/>
-    <title value="MentalStatusObservation"/>
+    <title value="Mental Status Observation (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -190,6 +190,11 @@
             <definition value="SHALL contain exactly one [1..1] value (CONF:1198-14263)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-14271"/>
+                <severity value="warning"/>
+                <human value="If xsi:type=“CD”, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1198-14271)."/>
+            </constraint>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>

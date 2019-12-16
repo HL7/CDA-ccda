@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="ProcedureActivityObservation"/>
-    <title value="ProcedureActivityObservation"/>
+    <title value="Procedure Activity Observation (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -103,6 +103,11 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:1098-19197)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-19202"/>
+                <severity value="warning"/>
+                <human value="This @code **SHOULD** be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96), and **MAY** be selected from CPT-4 (CodeSystem: 2.16.840.1.113883.6.12) or ICD10 PCS (CodeSystem: 2.16.840.1.113883.6.4) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:1098-19202)."/>
+            </constraint>
         </element>
         <element id="Observation.code.originalText">
             <path value="Observation.code.originalText"/>
@@ -124,6 +129,11 @@
             <definition value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1098-19200)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-19201"/>
+                <severity value="error"/>
+                <human value="This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1098-19201)."/>
+            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -181,6 +191,11 @@
             <definition value="MAY contain zero or one [0..1] methodCode (CONF:1098-8248)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-8249"/>
+                <severity value="error"/>
+                <human value="MethodCode **SHALL NOT** conflict with the method inherent in Observation / code (CONF:1098-8249)."/>
+            </constraint>
         </element>
         <element id="Observation.targetSiteCode">
             <path value="Observation.targetSiteCode"/>
@@ -393,6 +408,11 @@
             <definition value="This encounter SHALL contain exactly one [1..1] id (CONF:1098-8270)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-16847"/>
+                <severity value="warning"/>
+                <human value="Set encounter/id to the id of an encounter in another section to signify they are the same encounter (CONF:1098-16847)."/>
+            </constraint>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2">
             <path value="Observation.entryRelationship"/>

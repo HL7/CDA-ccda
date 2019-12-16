@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="FunctionalStatusSection"/>
-    <title value="FunctionalStatusSection"/>
+    <title value="Functional Status Section (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -114,19 +114,43 @@
         <element id="Section.entry">
             <path value="Section.entry"/>
             <short value="entry"/>
-            <definition value="MAY contain zero or more [0..*] entry (CONF:1098-16779)."/>
+            <definition value="MAY contain zero or more [0..*] entry (CONF:1098-14414)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry.observation">
-            <path value="Section.entry.observation"/>
-            <short value="observation"/>
-            <definition value="The entry, if present, SHALL contain exactly one [1..1] Sensory Status (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.127) (CONF:1098-31011)."/>
+        <element id="Section.entry.organizer">
+            <path value="Section.entry.organizer"/>
+            <short value="organizer"/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] Functional Status Organizer (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.66:2014-06-09) (CONF:1098-14415)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Organizer"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.66"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.128"/>
+            </type>
+            <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.127"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.70"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.50"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.72"/>
             </type>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
@@ -138,31 +162,7 @@
             </type>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.70"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Organizer"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.66"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.67"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.72"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.50"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.128"/>
             </type>
         </element>
     </differential>

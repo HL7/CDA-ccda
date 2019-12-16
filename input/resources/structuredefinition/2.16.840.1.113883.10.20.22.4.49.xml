@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="EncounterActivity"/>
-    <title value="EncounterActivity"/>
+    <title value="Encounter Activity (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -129,6 +129,11 @@
             <definition value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1198-15971)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-15972"/>
+                <severity value="error"/>
+                <human value="This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1198-15972)."/>
+            </constraint>
         </element>
         <element id="Encounter.code.translation">
             <path value="Encounter.code.translation"/>
@@ -151,6 +156,16 @@
             <definition value="MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32177"/>
+                <severity value="warning"/>
+                <human value="This sdtc:dischargeDispositionCode **SHOULD** contain exactly [0..1] *code*, which **SHOULD** be selected from ValueSet 2.16.840.1.113883.3.88.12.80.33 NUBC UB-04 FL17-Patient Status (code system 2.16.840.1.113883.6.301.5) *DYNAMIC* or, if access to NUBC is unavailable, from CodeSystem 2.16.840.1.113883.12.112 HL7 Discharge Disposition (CONF:1198-32177)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-32377"/>
+                <severity value="warning"/>
+                <human value="This sdtc:dischargeDispositionCode **SHOULD** contain exactly [0..1] *codeSystem*, which **SHOULD** be either CodeSystem: NUBC 2.16.840.1.113883.6.301.5 *OR* CodeSystem: HL7 Discharge Disposition 2.16.840.1.113883.12.112 (CONF:1198-32377)."/>
+            </constraint>
         </element>
         <element id="Encounter.performer">
             <path value="Encounter.performer"/>

@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="DischargeSummary"/>
-    <title value="DischargeSummary"/>
+    <title value="Discharge Summary (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -56,6 +56,11 @@
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8463) such that it"/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32938"/>
+                <severity value="error"/>
+                <human value="When asserting this templateId, all C-CDA 2.1 section and entry templates that had a previous version in C-CDA R1.1 **SHALL** include both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32938)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.templateId:templateId1.root">
             <path value="ClinicalDocument.templateId.root"/>
@@ -99,6 +104,11 @@
             <definition value="MAY contain zero or more [0..*] participant (CONF:1198-8467)."/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-8469"/>
+                <severity value="error"/>
+                <human value="When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30 (CONF:1198-8469)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
@@ -159,6 +169,11 @@
             <definition value="The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32613)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32898"/>
+                <severity value="error"/>
+                <human value="This assignedEntity **SHALL** contain an assignedPerson or a representedOrganization or both (CONF:1198-32898)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
@@ -173,6 +188,11 @@
             <definition value="The encounterParticipant, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32615)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32899"/>
+                <severity value="error"/>
+                <human value="This assignedEntity **SHALL** contain an assignedPerson or a representedOrganization or both (CONF:1198-32899)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.component">
             <path value="ClinicalDocument.component"/>
@@ -187,6 +207,11 @@
             <definition value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30518)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-30569"/>
+                <severity value="error"/>
+                <human value="This structuredBody ***SHALL NOT*** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present (CONF:1198-30569)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>

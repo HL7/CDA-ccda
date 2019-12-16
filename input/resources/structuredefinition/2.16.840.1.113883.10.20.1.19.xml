@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.1.19"/>
     </identifier>
     <name value="AuthorizationActivity"/>
-    <title value="AuthorizationActivity"/>
+    <title value="Authorization Activity"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -101,6 +101,16 @@
             <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="81-8951"/>
+                <severity value="warning"/>
+                <human value="The target of an authorization activity with act/entryRelationship/@typeCode=&quot;SUBJ&quot; SHALL be a clinical statement with moodCode=&quot;PRMS&quot; Promise (CONF:81-8951)."/>
+            </constraint>
+            <constraint>
+                <key value="81-8952"/>
+                <severity value="warning"/>
+                <human value="The target of an authorization activity MAY contain one or more performer, to indicate the providers that have been authorized to provide treatment (CONF:81-8952)."/>
+            </constraint>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>

@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.3"/>
     </identifier>
     <name value="USRealmDateandTimeDTUSFIELDED"/>
-    <title value="USRealmDateandTimeDTUSFIELDED"/>
+    <title value="US Realm Date and Time (DT.US.FIELDED)"/>
     <status value="active"/>
     <publisher value="Lantana Consulting Group"/>
     <contact>
@@ -32,6 +32,26 @@
     <differential>
         <element id="IVL_TS">
             <path value="IVL_TS"/>
+            <constraint>
+                <key value="81-10078"/>
+                <severity value="error"/>
+                <human value="**SHALL** be precise to the day (CONF:81-10078)."/>
+            </constraint>
+            <constraint>
+                <key value="81-10079"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be precise to the minute (CONF:81-10079)."/>
+            </constraint>
+            <constraint>
+                <key value="81-10080"/>
+                <severity value="warning"/>
+                <human value="**MAY** be precise to the second (CONF:81-10080)."/>
+            </constraint>
+            <constraint>
+                <key value="81-10081"/>
+                <severity value="warning"/>
+                <human value="If more precise than day, **SHOULD** include time-zone offset (CONF:81-10081)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

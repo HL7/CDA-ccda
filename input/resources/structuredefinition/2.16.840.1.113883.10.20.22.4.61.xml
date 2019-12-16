@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="PolicyActivity"/>
-    <title value="PolicyActivity"/>
+    <title value="Policy Activity (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -305,6 +305,11 @@
             <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-8962)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-8967"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** include assignedEntity/assignedPerson/name AND/OR assignedEntity/representedOrganization/name (CONF:1198-8967)."/>
+            </constraint>
         </element>
         <element id="Act.performer:performer2.assignedEntity.code">
             <path value="Act.performer.assignedEntity.code"/>
@@ -444,6 +449,11 @@
             <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:1198-8922)."/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-8984"/>
+                <severity value="warning"/>
+                <human value="This id is a unique identifier for  the covered party member. Implementers **SHOULD** use the same GUID for each instance of a member identifier from the same health plan (CONF:1198-8984)."/>
+            </constraint>
         </element>
         <element id="Act.participant:participant1.participantRole.code">
             <path value="Act.participant.participantRole.code"/>
@@ -472,6 +482,11 @@
             <definition value="This participantRole SHOULD contain zero or one [0..1] addr (CONF:1198-8956)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-10484"/>
+                <severity value="error"/>
+                <human value="The content of addr **SHALL** be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2) (CONF:1198-10484)."/>
+            </constraint>
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity">
             <path value="Act.participant.participantRole.playingEntity"/>
@@ -496,6 +511,11 @@
             <definition value="The playingEntity, if present, SHALL contain exactly one [1..1] sdtc:birthTime (CONF:1198-31344)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-31345"/>
+                <severity value="error"/>
+                <human value="The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the birthTime element (CONF:1198-31345)."/>
+            </constraint>
         </element>
         <element id="Act.participant:participant2">
             <path value="Act.participant"/>
@@ -504,6 +524,11 @@
             <definition value="SHOULD contain zero or one [0..1] participant (CONF:1198-8934) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-17139"/>
+                <severity value="warning"/>
+                <human value="When the Subscriber is the patient, the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:1198-17139)."/>
+            </constraint>
         </element>
         <element id="Act.participant:participant2.typeCode">
             <path value="Act.participant.typeCode"/>
@@ -554,6 +579,11 @@
             <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:1198-8937)."/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-10120"/>
+                <severity value="warning"/>
+                <human value="This id is a unique identifier for the subscriber of the coverage (CONF:1198-10120)."/>
+            </constraint>
         </element>
         <element id="Act.participant:participant2.participantRole.addr">
             <path value="Act.participant.participantRole.addr"/>
@@ -562,6 +592,11 @@
             <definition value="This participantRole SHOULD contain zero or one [0..1] addr (CONF:1198-8925)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-10483"/>
+                <severity value="error"/>
+                <human value="The content of addr **SHALL** be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2) (CONF:1198-10483)."/>
+            </constraint>
         </element>
         <element id="Act.entryRelationship">
             <path value="Act.entryRelationship"/>
@@ -581,6 +616,16 @@
             <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-8939) such that it"/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-8942"/>
+                <severity value="warning"/>
+                <human value="The target of a policy activity with act/entryRelationship/@typeCode=&quot;REFR&quot; **SHALL** be an authorization activity (templateId 2.16.840.1.113883.10.20.1.19) *OR* an act, with act[@classCode=&quot;ACT&quot;] and act[@moodCode=&quot;DEF&quot;], representing a description of the coverage plan (CONF:1198-8942)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-8943"/>
+                <severity value="warning"/>
+                <human value="A description of the coverage plan **SHALL** contain one or more act/id, to represent the plan identifier, and an act/text with the name of the plan (CONF:1198-8943)."/>
+            </constraint>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>

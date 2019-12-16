@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="PhysicianofRecordParticipant"/>
-    <title value="PhysicianofRecordParticipant"/>
+    <title value="Physician of Record Participant (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -95,6 +95,11 @@
             <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1098-8887)."/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1098-31203"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** contain zero or one [0..1] *id* such that *@root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1098-31203)."/>
+            </constraint>
         </element>
         <element id="EncounterParticipant.assignedEntity.code">
             <path value="EncounterParticipant.assignedEntity.code"/>
@@ -102,6 +107,11 @@
             <definition value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:1098-8888)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-8889"/>
+                <severity value="error"/>
+                <human value="**SHALL** contain a valid DICOM Organizational Role from DICOM CID 7452  (Value Set 1.2.840.10008.6.1.516) (@codeSystem is 1.2.840.10008.2.16.4) or an appropriate national health care provider coding system (e.g., NUCC in the U.S., where @codeSystem is 2.16.840.1.113883.6.101). Footnote: DICOM Part 16 (NEMA PS3.16), page 631 in the 2011 edition. See [URL:ftp://medical.nema.org/medical/dicom/2011/11_16pu.pdf] (CONF:1098-8889)."/>
+            </constraint>
         </element>
         <element id="EncounterParticipant.assignedEntity.assignedPerson">
             <path value="EncounterParticipant.assignedEntity.assignedPerson"/>

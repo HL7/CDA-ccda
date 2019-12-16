@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.4"/>
     </identifier>
     <name value="USRealmDateandTimeDTMUSFIELDED"/>
-    <title value="USRealmDateandTimeDTMUSFIELDED"/>
+    <title value="US Realm Date and Time (DTM.US.FIELDED)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,26 @@
     <differential>
         <element id="TS">
             <path value="TS"/>
+            <constraint>
+                <key value="81-10127"/>
+                <severity value="error"/>
+                <human value="**SHALL** be precise to the day (CONF:81-10127)."/>
+            </constraint>
+            <constraint>
+                <key value="81-10128"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be precise to the minute (CONF:81-10128)."/>
+            </constraint>
+            <constraint>
+                <key value="81-10129"/>
+                <severity value="warning"/>
+                <human value="**MAY** be precise to the second (CONF:81-10129)."/>
+            </constraint>
+            <constraint>
+                <key value="81-10130"/>
+                <severity value="warning"/>
+                <human value="If more precise than day, **SHOULD** include time-zone offset (CONF:81-10130)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

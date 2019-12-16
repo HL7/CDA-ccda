@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="ProgressNote"/>
-    <title value="ProgressNote"/>
+    <title value="Progress Note (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -56,6 +56,11 @@
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7588) such that it"/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32942"/>
+                <severity value="error"/>
+                <human value="When asserting this templateId, all C-CDA 2.1 section and entry templates that had a previous version in C-CDA R1.1 **SHALL** include both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32942)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.templateId:templateId1.root">
             <path value="ClinicalDocument.templateId.root"/>
@@ -153,6 +158,16 @@
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/IVL_TS"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.3"/>
             </type>
+            <constraint>
+                <key value="1198-9482"/>
+                <severity value="warning"/>
+                <human value="The serviceEvent/effectiveTime element **SHOULD** be present with effectiveTime/low element (CONF:1198-9482)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-10066"/>
+                <severity value="error"/>
+                <human value="If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
@@ -227,6 +242,16 @@
             <definition value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30617)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-30657"/>
+                <severity value="error"/>
+                <human value="This structuredBody **SHALL** contain an Assessment and Plan Section (V2) (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (V2) (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30657)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-30658"/>
+                <severity value="error"/>
+                <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (V2) (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (V2) (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-30658)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>

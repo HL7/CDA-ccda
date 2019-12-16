@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.6.2.8"/>
     </identifier>
     <name value="SOPInstanceObservation"/>
-    <title value="SOPInstanceObservation"/>
+    <title value="SOP Instance Observation"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -68,6 +68,11 @@
             <definition value="This code SHALL contain exactly one [1..1] @code (CONF:81-19225)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-19226"/>
+                <severity value="error"/>
+                <human value="@code is an OID for a valid SOP class name UID (CONF:81-19226)."/>
+            </constraint>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
@@ -98,6 +103,11 @@
             <definition value="The text, if present, SHALL contain exactly one [1..1] reference (CONF:81-9248)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-9249"/>
+                <severity value="error"/>
+                <human value="**SHALL** contain a @value that contains a WADO reference as a URI (CONF:81-9249)."/>
+            </constraint>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -195,6 +205,11 @@
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9260) such that it"/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="81-9263"/>
+                <severity value="warning"/>
+                <human value="This entryRelationship SHALL be present if the referenced DICOM object is a multiframe object and the reference does not apply to all frames (CONF:81-9263)."/>
+            </constraint>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>

@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="CognitiveStatusProblemObservation"/>
-    <title value="CognitiveStatusProblemObservation"/>
+    <title value="Cognitive Status Problem Observation (DEPRECATED)"/>
     <contact>
         <name value="Gaye Dolin"/>
         <telecom>
@@ -138,6 +138,11 @@
             <definition value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1098-15533)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-15534"/>
+                <severity value="error"/>
+                <human value="SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1098-15534)."/>
+            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>

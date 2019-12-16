@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="AdvanceDirectiveObservation"/>
-    <title value="AdvanceDirectiveObservation"/>
+    <title value="Advance Directive Observation (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -186,6 +186,11 @@
             <definition value="This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-15521)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32449"/>
+                <severity value="error"/>
+                <human value="If the Advance Directive does not have a specified ending time, the &lt;high&gt; element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."/>
+            </constraint>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
@@ -201,6 +206,11 @@
             <definition value="SHALL contain exactly one [1..1] value (CONF:1198-30804)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32493"/>
+                <severity value="error"/>
+                <human value="If type CD, then value will be SNOMED-CT 2.16.840.1.113883.6.96 (CONF:1198-32493)."/>
+            </constraint>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
@@ -280,6 +290,11 @@
             <definition value="SHOULD contain zero or one [0..1] time (CONF:1198-8665)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-8666"/>
+                <severity value="warning"/>
+                <human value="The data type of Observation/participant/time in a verification **SHALL** be *TS* (time stamp) (CONF:1198-8666)."/>
+            </constraint>
         </element>
         <element id="Observation.participant:participant1.participantRole">
             <path value="Observation.participant.participantRole"/>
@@ -490,6 +505,16 @@
             <definition value="The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-8698"/>
+                <severity value="warning"/>
+                <human value="The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-8699"/>
+                <severity value="warning"/>
+                <human value="If a URL is referenced, then it **SHOULD** have a corresponding linkHTML element in narrative block (CONF:1198-8699)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

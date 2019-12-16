@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.135"/>
     </identifier>
     <name value="MedicalEquipmentOrganizer"/>
-    <title value="MedicalEquipmentOrganizer"/>
+    <title value="Medical Equipment Organizer"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="Organizer">
             <path value="Organizer"/>
+            <constraint>
+                <key value="1098-32380"/>
+                <severity value="error"/>
+                <human value="Either Non-Medicinal Supply Activity (V2) (templateId:2.16.840.1.113883.10.20.22.4.50:2014-06-09) **OR** Procedure Activity Procedure (V2) (templateId:2.16.840.1.113883.10.20.22.4.14:2014-06-09) **SHALL** be present (CONF:1098-32380)."/>
+            </constraint>
         </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>

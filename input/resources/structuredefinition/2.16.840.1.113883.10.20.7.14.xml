@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.7.14"/>
     </identifier>
     <name value="OperativeNoteSurgicalProcedureSection"/>
-    <title value="OperativeNoteSurgicalProcedureSection"/>
+    <title value="Operative Note Surgical Procedure Section"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="Section">
             <path value="Section"/>
+            <constraint>
+                <key value="81-8054"/>
+                <severity value="warning"/>
+                <human value="If the surgical procedure section is present there SHALL be text indicating the procedure performed (CONF:81-8054)."/>
+            </constraint>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>

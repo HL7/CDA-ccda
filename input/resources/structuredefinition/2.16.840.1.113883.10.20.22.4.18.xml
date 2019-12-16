@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="MedicationDispense"/>
-    <title value="MedicationDispense"/>
+    <title value="Medication Dispense (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -32,6 +32,11 @@
     <differential>
         <element id="Supply">
             <path value="Supply"/>
+            <constraint>
+                <key value="1098-9333"/>
+                <severity value="error"/>
+                <human value="A supply act  **SHALL** contain one product/Medication Information *OR* one product/Immunization Medication Information template (CONF:1098-9333)."/>
+            </constraint>
         </element>
         <element id="Supply.classCode">
             <path value="Supply.classCode"/>
@@ -182,17 +187,22 @@
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/AD"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
             </type>
+            <constraint>
+                <key value="1098-10565"/>
+                <severity value="error"/>
+                <human value="The content of addr **SHALL** be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2) (CONF:1098-10565)."/>
+            </constraint>
         </element>
         <element id="Supply.entryRelationship">
             <path value="Supply.entryRelationship"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="supply"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="supply"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

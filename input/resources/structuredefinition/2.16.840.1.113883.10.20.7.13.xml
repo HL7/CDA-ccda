@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.7.13"/>
     </identifier>
     <name value="SurgicalDrainsSection"/>
-    <title value="SurgicalDrainsSection"/>
+    <title value="Surgical Drains Section"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="Section">
             <path value="Section"/>
+            <constraint>
+                <key value="81-8056"/>
+                <severity value="warning"/>
+                <human value="If the Surgical Drains section is present, there SHALL be a statement providing details of the drains placed or SHALL explicitly state there were no drains placed (CONF:81-8056)."/>
+            </constraint>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>

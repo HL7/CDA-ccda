@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.64"/>
     </identifier>
     <name value="CommentActivity"/>
-    <title value="CommentActivity"/>
+    <title value="Comment Activity"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="Act">
             <path value="Act"/>
+            <constraint>
+                <key value="81-9429"/>
+                <severity value="warning"/>
+                <human value="Data elements defined elsewhere in the specification SHALL NOT be recorded using the Comment Activity (CONF:81-9429)."/>
+            </constraint>
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
@@ -119,6 +124,11 @@
             <definition value="This reference SHALL contain exactly one [1..1] @value (CONF:81-15968)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-15969"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-15969)."/>
+            </constraint>
         </element>
         <element id="Act.text.reference/value">
             <path value="Act.text.reference/value"/>

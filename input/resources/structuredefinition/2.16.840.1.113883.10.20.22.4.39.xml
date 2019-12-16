@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="PlannedAct"/>
-    <title value="PlannedAct"/>
+    <title value="Planned Act (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -106,6 +106,11 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:1098-31687)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-32030"/>
+                <severity value="warning"/>
+                <human value="This code in a Planned Act **SHOULD** be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) *OR* SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-32030)."/>
+            </constraint>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
@@ -162,26 +167,26 @@
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:entryRelationship3">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="entryRelationship3"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31067) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:entryRelationship3.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="entryRelationship3"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31068)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation">
+        <element id="Act.entryRelationship:entryRelationship3.observation">
             <path value="Act.entryRelationship.observation"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="entryRelationship3"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31069)."/>
             <min value="1"/>
@@ -191,26 +196,26 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2">
+        <element id="Act.entryRelationship:entryRelationship1">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="entryRelationship1"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32021) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.typeCode">
+        <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="entryRelationship1"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32022)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="RSON"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.observation">
+        <element id="Act.entryRelationship:entryRelationship1.observation">
             <path value="Act.entryRelationship.observation"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="entryRelationship1"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32023)."/>
             <min value="1"/>
@@ -220,26 +225,26 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3">
+        <element id="Act.entryRelationship:entryRelationship2">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="entryRelationship2"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.typeCode">
+        <element id="Act.entryRelationship:entryRelationship2.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="entryRelationship2"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32025)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="SUBJ"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.act">
+        <element id="Act.entryRelationship:entryRelationship2.act">
             <path value="Act.entryRelationship.act"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="entryRelationship2"/>
             <short value="act"/>
             <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32026)."/>
             <min value="1"/>

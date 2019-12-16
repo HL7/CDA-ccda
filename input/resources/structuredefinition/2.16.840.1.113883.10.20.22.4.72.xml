@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.72"/>
     </identifier>
     <name value="CaregiverCharacteristics"/>
-    <title value="CaregiverCharacteristics"/>
+    <title value="Caregiver Characteristics"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -89,6 +89,11 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:81-14230)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-26513"/>
+                <severity value="warning"/>
+                <human value="This code MAY be drawn from LOINC (CodeSystem: LOINC 2.16.840.1.113883.6.1)  or MAY be bound to ASSERTION (CodeSystem: ActCode 2.16.840.1.113883.5.4 STATIC) (CONF:81-26513)."/>
+            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -111,6 +116,11 @@
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot; (CONF:81-14599)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-14600"/>
+                <severity value="error"/>
+                <human value="The code **SHALL** be selected from LOINC (codeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:81-14600)."/>
+            </constraint>
         </element>
         <element id="Observation.participant">
             <path value="Observation.participant"/>

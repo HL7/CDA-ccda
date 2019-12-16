@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.6.1.1"/>
     </identifier>
     <name value="DICOMObjectCatalogSectionDCM121181"/>
-    <title value="DICOMObjectCatalogSectionDCM121181"/>
+    <title value="DICOM Object Catalog Section - DCM 121181"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="Section">
             <path value="Section"/>
+            <constraint>
+                <key value="81-8527"/>
+                <severity value="warning"/>
+                <human value="A DICOM Object Catalog SHALL be present if the document contains references to DICOM Images. If present, it SHALL be the first section in the document (CONF:81-8527)."/>
+            </constraint>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>

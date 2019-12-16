@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="FunctionalStatusOrganizer"/>
-    <title value="FunctionalStatusOrganizer"/>
+    <title value="Functional Status Organizer (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -103,6 +103,11 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:1098-14364)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-31417"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (2.16.840.1.113883.6.1) (CONF:1098-31417)."/>
+            </constraint>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>

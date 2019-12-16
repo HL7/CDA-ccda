@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="AdvanceDirectivesSectionentriesrequired"/>
-    <title value="AdvanceDirectivesSectionentriesrequired"/>
+    <title value="Advance Directives Section (entries required) (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -142,6 +142,11 @@
             <definition value="SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-32881"/>
+                <severity value="error"/>
+                <human value="This entry **SHALL** contain *EITHER* an Advance Directive Observation (V2) *OR* an Advance Directive Organizer (CONF:1198-32881)."/>
+            </constraint>
         </element>
         <element id="Section.entry:entry1.observation">
             <path value="Section.entry.observation"/>

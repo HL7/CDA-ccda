@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="PressureUlcerObservation"/>
-    <title value="PressureUlcerObservation"/>
+    <title value="Pressure Ulcer Observation (DEPRECATED)"/>
     <contact>
         <name value="Gaye Dolin"/>
         <telecom>
@@ -138,6 +138,11 @@
             <definition value="The reference, if present, SHALL contain exactly one [1..1] @value (CONF:1098-15585)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-15586"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1098-15586)."/>
+            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>

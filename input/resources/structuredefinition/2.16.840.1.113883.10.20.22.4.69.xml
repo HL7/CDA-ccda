@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.69"/>
     </identifier>
     <name value="AssessmentScaleObservation"/>
-    <title value="AssessmentScaleObservation"/>
+    <title value="Assessment Scale Observation"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -89,6 +89,11 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:81-14439)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-14440"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) identifying the assessment scale (CONF:81-14440)."/>
+            </constraint>
         </element>
         <element id="Observation.derivationExpr">
             <path value="Observation.derivationExpr"/>
@@ -152,11 +157,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="observation"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="observation"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -225,6 +230,11 @@
             <definition value="The reference, if present, MAY contain zero or one [0..1] @value (CONF:81-16803)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-16804"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-16804)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

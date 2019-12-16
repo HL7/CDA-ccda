@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.1"/>
     </identifier>
     <name value="USRealmPatientNamePTNUSFIELDED"/>
-    <title value="USRealmPatientNamePTNUSFIELDED"/>
+    <title value="US Realm Patient Name (PTN.US.FIELDED)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="PN">
             <path value="PN"/>
+            <constraint>
+                <key value="81-7278"/>
+                <severity value="error"/>
+                <human value="**SHALL NOT** have mixed content except for white space (CONF:81-7278)."/>
+            </constraint>
         </element>
         <element id="PN.use">
             <path value="PN.use"/>
@@ -67,6 +72,11 @@
             <definition value="SHALL contain at least one [1..*] given (CONF:81-7157)."/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="81-7163"/>
+                <severity value="warning"/>
+                <human value="The second occurrence of given (given[2]) if provided, SHALL include middle name or middle initial (CONF:81-7163)."/>
+            </constraint>
         </element>
         <element id="PN.given.qualifier">
             <path value="PN.given.qualifier"/>

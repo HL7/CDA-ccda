@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="ResultObservation"/>
-    <title value="ResultObservation"/>
+    <title value="Result Observation (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -55,11 +55,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -104,6 +104,11 @@
             <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:1198-7133)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-19212"/>
+                <severity value="warning"/>
+                <human value="This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:1198-19212)."/>
+            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -137,6 +142,21 @@
             <definition value="SHALL contain exactly one [1..1] value (CONF:1198-7143)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32610"/>
+                <severity value="warning"/>
+                <human value="If Observation/value is a CD (**xsi:type=&quot;CD&quot;**) the value **SHOULD** be SNOMED-CT (CONF:1198-32610)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-31866"/>
+                <severity value="warning"/>
+                <human value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:1198-31866)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-31484"/>
+                <severity value="error"/>
+                <human value="If Observation/value is a physical quantity (**xsi:type=&quot;PQ&quot;**), the unit of measure **SHALL** be selected from ValueSet UnitsOfMeasureCaseSensitive 2.16.840.1.113883.1.11.12839 **DYNAMIC** (CONF:1198-31484)."/>
+            </constraint>
         </element>
         <element id="Observation.interpretationCode">
             <path value="Observation.interpretationCode"/>

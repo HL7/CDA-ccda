@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="PlannedInterventionAct"/>
-    <title value="PlannedInterventionAct"/>
+    <title value="Planned Intervention Act (V2)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -692,6 +692,11 @@
             <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-32673) such that it"/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-32722"/>
+                <severity value="error"/>
+                <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1198-32722)."/>
+            </constraint>
         </element>
         <element id="Act.entryRelationship:entryRelationship19.typeCode">
             <path value="Act.entryRelationship.typeCode"/>

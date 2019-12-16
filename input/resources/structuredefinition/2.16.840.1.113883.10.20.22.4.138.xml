@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.138"/>
     </identifier>
     <name value="NutritionAssessment"/>
-    <title value="NutritionAssessment"/>
+    <title value="Nutrition Assessment"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -134,6 +134,11 @@
             <definition value="SHALL contain exactly one [1..1] value (CONF:1098-32922)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-32925"/>
+                <severity value="warning"/>
+                <human value="If xsi:type=“CD”, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-32925)."/>
+            </constraint>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>

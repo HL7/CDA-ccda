@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.6.2.6"/>
     </identifier>
     <name value="StudyAct"/>
-    <title value="StudyAct"/>
+    <title value="Study Act"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -140,6 +140,11 @@
             <definition value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:81-15996)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-15997"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-15997)."/>
+            </constraint>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>

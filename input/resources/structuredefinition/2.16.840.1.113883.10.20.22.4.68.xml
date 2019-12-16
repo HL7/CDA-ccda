@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="FunctionalStatusProblemObservation"/>
-    <title value="FunctionalStatusProblemObservation"/>
+    <title value="Functional Status Problem Observation (DEPRECATED)"/>
     <contact>
         <name value="Gaye Dolin"/>
         <telecom>
@@ -138,6 +138,11 @@
             <definition value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1098-15553)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-15554"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1098-15554)."/>
+            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -192,6 +197,11 @@
             <definition value="This value MAY contain zero or one [0..1] @nullFlavor (CONF:1098-14292)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-14293"/>
+                <severity value="warning"/>
+                <human value="If the diagnosis is unknown or the SNOMED code is unknown, @nullFlavor SHOULD be “UNK”.  If the diagnosis is known but the code cannot be found in the Value Set, @nullFlavor SHOULD be “OTH” and the known diagnosis code SHOULD be placed in the translation element (CONF:1098-14293)."/>
+            </constraint>
         </element>
         <element id="Observation.methodCode">
             <path value="Observation.methodCode"/>

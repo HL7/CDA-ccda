@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="ResultOrganizer"/>
-    <title value="ResultOrganizer"/>
+    <title value="Result Organizer (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -103,6 +103,16 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:1198-7128)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-19218"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be selected from LOINC (codeSystem 2.16.840.1.113883.6.1) **OR** SNOMED CT (codeSystem 2.16.840.1.113883.6.96), and **MAY** be selected from CPT-4 (codeSystem 2.16.840.1.113883.6.12) (CONF:1198-19218)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-19219"/>
+                <severity value="warning"/>
+                <human value="Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:1198-19219)."/>
+            </constraint>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>

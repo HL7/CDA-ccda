@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.86"/>
     </identifier>
     <name value="AssessmentScaleSupportingObservation"/>
-    <title value="AssessmentScaleSupportingObservation"/>
+    <title value="Assessment Scale Supporting Observation"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -96,6 +96,11 @@
             <definition value="This code SHALL contain exactly one [1..1] @code (CONF:81-19179)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-19180"/>
+                <severity value="error"/>
+                <human value="Such that the @code SHALL be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) and represents components of the scale (CONF:81-19180)."/>
+            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -118,6 +123,11 @@
             <definition value="SHALL contain at least one [1..*] value (CONF:81-16754)."/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="81-16755"/>
+                <severity value="warning"/>
+                <human value="If xsi:type=&quot;CD&quot;, MAY have a translation code to further specify the source if the instrument has an applicable code system and value set for the integer (CONF:14639) (CONF:81-16755)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

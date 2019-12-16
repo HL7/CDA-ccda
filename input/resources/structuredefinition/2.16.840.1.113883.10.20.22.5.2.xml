@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.2"/>
     </identifier>
     <name value="USRealmAddressADUSFIELDED"/>
-    <title value="USRealmAddressADUSFIELDED"/>
+    <title value="US Realm Address (AD.US.FIELDED)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="AD">
             <path value="AD"/>
+            <constraint>
+                <key value="81-7296"/>
+                <severity value="error"/>
+                <human value="**SHALL NOT** have mixed content except for white space (CONF:81-7296)."/>
+            </constraint>
         </element>
         <element id="AD.use">
             <path value="AD.use"/>
@@ -60,6 +65,11 @@
             <definition value="SHOULD contain zero or one [0..1] state (ValueSet: StateValueSet urn:oid:2.16.840.1.113883.3.88.12.80.1 DYNAMIC) (CONF:81-7293)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-10024"/>
+                <severity value="error"/>
+                <human value="If the country is US, the state element is required but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the state MAY be present but MAY be bound to different vocabularies (CONF:81-10024)."/>
+            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.1"/>
@@ -78,6 +88,11 @@
             <definition value="SHOULD contain zero or one [0..1] postalCode, which SHOULD be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 DYNAMIC (CONF:81-7294)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-10025"/>
+                <severity value="error"/>
+                <human value="If the country is US, the postalCode element is required but SHOULD have @nullFlavor if the postalCode is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the postalCode MAY be present but MAY be bound to different vocabularies (CONF:81-10025)."/>
+            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.2"/>

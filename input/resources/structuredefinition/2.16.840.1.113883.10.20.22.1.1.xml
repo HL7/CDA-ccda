@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="USRealmHeader"/>
-    <title value="USRealmHeader"/>
+    <title value="US Realm Header (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -112,6 +112,11 @@
             <definition value="SHALL contain exactly one [1..1] id (CONF:1198-5363)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-9991"/>
+                <severity value="warning"/>
+                <human value="This id **SHALL** be a globally unique identifier for the document (CONF:1198-9991)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
@@ -119,6 +124,16 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:1198-5253)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-9992"/>
+                <severity value="error"/>
+                <human value="This code **SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:1198-9992)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-32948"/>
+                <severity value="error"/>
+                <human value="This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:1198-32948)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.title">
             <path value="ClinicalDocument.title"/>
@@ -167,6 +182,11 @@
             <definition value="MAY contain zero or one [0..1] setId (CONF:1198-5261)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-6380"/>
+                <severity value="error"/>
+                <human value="If  setId is present versionNumber **SHALL** be present (CONF:1198-6380)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.versionNumber">
             <path value="ClinicalDocument.versionNumber"/>
@@ -174,6 +194,11 @@
             <definition value="MAY contain zero or one [0..1] versionNumber (CONF:1198-5264)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-6387"/>
+                <severity value="error"/>
+                <human value="If versionNumber is present setId **SHALL** be present (CONF:1198-6387)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget">
             <path value="ClinicalDocument.recordTarget"/>
@@ -260,6 +285,21 @@
             <definition value="This patient SHALL contain exactly one [1..1] birthTime (CONF:1198-5298)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-5299"/>
+                <severity value="error"/>
+                <human value="**SHALL** be precise to year (CONF:1198-5299)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-5300"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be precise to day (CONF:1198-5300)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-32418"/>
+                <severity value="warning"/>
+                <human value="**MAY** be precise to the minute (CONF:1198-32418)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.maritalStatusCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.maritalStatusCode"/>
@@ -301,6 +341,11 @@
             <definition value="This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:1198-7263)."/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-31347"/>
+                <severity value="error"/>
+                <human value="If sdtc:raceCode is present, then the patient **SHALL** contain [1..1] raceCode (CONF:1198-31347)."/>
+            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914"/>
@@ -413,6 +458,16 @@
             <definition value="This place SHALL contain exactly one [1..1] addr (CONF:1198-5397)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-5402"/>
+                <severity value="warning"/>
+                <human value="If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet StateValueSet 2.16.840.1.113883.3.88.12.80.1 *DYNAMIC* (CONF:1198-5402)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-5403"/>
+                <severity value="warning"/>
+                <human value="If country is US, this addr **MAY** contain zero or one [0..1] postalCode, which **SHALL** be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 *DYNAMIC* (CONF:1198-5403)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place.addr.country">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place.addr.country"/>
@@ -554,6 +609,11 @@
             <definition value="Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:1198-5448)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-16790"/>
+                <severity value="error"/>
+                <human value="There **SHALL** be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice (CONF:1198-16790)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.id">
             <path value="ClinicalDocument.author.assignedAuthor.id"/>
@@ -814,6 +874,11 @@
             <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-9945)."/>
             <min value="1"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-9946"/>
+                <severity value="warning"/>
+                <human value="If assignedEntity/id is a provider then this id, **SHOULD** include zero or one [0..1] id where id/@root =&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-9946)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.informant:informant1.assignedEntity.code">
             <path value="ClinicalDocument.informant.assignedEntity.code"/>
@@ -1297,6 +1362,16 @@
             <definition value="MAY contain zero or more [0..*] participant (CONF:1198-10003) such that it"/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-10006"/>
+                <severity value="error"/>
+                <human value="**SHALL** contain associatedEntity/associatedPerson *AND/OR* associatedEntity/scopingOrganization (CONF:1198-10006)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-10007"/>
+                <severity value="warning"/>
+                <human value="When participant/@typeCode is *IND*, associatedEntity/@classCode **SHOULD** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes *STATIC 2011-09-30* (CONF:1198-10007)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.participant:participant1.time">
             <path value="ClinicalDocument.participant.time"/>

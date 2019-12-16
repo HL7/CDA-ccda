@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="AllergyConcernAct"/>
-    <title value="AllergyConcernAct"/>
+    <title value="Allergy Concern Act (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -55,11 +55,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -145,6 +145,16 @@
             <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7498)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-10085"/>
+                <severity value="error"/>
+                <human value="If statusCode/@code=&quot;completed&quot; Completed, then effectiveTime **SHALL** contain [1..1] high (CONF:1198-10085)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-7504"/>
+                <severity value="error"/>
+                <human value="If statusCode/@code=&quot;active&quot; Active, then effectiveTime **SHALL** contain [1..1] low (CONF:1198-7504)."/>
+            </constraint>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
@@ -162,11 +172,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="observation"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="typeCode"/>
+                    <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

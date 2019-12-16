@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.1.1"/>
     </identifier>
     <name value="USRealmPersonNamePNUSFIELDED"/>
-    <title value="USRealmPersonNamePNUSFIELDED"/>
+    <title value="US Realm Person Name (PN.US.FIELDED)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -38,6 +38,16 @@
             <definition value="SHALL contain exactly one [1..1] name (CONF:81-9368)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="81-9371"/>
+                <severity value="error"/>
+                <human value="The content of name **SHALL** be either a conformant Patient Name (PTN.US.FIELDED), or a string (CONF:81-9371)."/>
+            </constraint>
+            <constraint>
+                <key value="81-9372"/>
+                <severity value="error"/>
+                <human value="The string **SHALL NOT** contain name parts (CONF:81-9372)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>

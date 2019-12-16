@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="NonMedicinalSupplyActivity"/>
-    <title value="NonMedicinalSupplyActivity"/>
+    <title value="Non-Medicinal Supply Activity (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -124,6 +124,11 @@
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-16867"/>
+                <severity value="warning"/>
+                <human value="The effectiveTime, if present, **SHOULD** contain zero or one [0..1] *high* (CONF:1098-16867)."/>
+            </constraint>
         </element>
         <element id="Supply.quantity">
             <path value="Supply.quantity"/>

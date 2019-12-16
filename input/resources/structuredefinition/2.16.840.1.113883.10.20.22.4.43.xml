@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="PlannedSupply"/>
-    <title value="PlannedSupply"/>
+    <title value="Planned Supply (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -142,6 +142,11 @@
             <definition value="MAY contain zero or one [0..1] product (CONF:1098-32049)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-32092"/>
+                <severity value="error"/>
+                <human value="If the product is Medication Information (V2) (2.16.840.1.113883.10.20.22.4.23.2) then the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) and the participant **SHALL NOT** be Product Instance (CONF:1098-32092)."/>
+            </constraint>
         </element>
         <element id="Supply.product.manufacturedProduct">
             <path value="Supply.product.manufacturedProduct"/>
@@ -202,6 +207,11 @@
             <definition value="MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-32096"/>
+                <severity value="error"/>
+                <human value="If the participant is Product Instance then the product **SHALL NOT** be Medication Information (V2) (2.16.840.1.113883.10.20.22.4.23.2) and the product **SHALL NOT** be Immunization Medication Information (V2) (2.16.840.1.113883.10.20.22.4.54.2) (CONF:1098-32096)."/>
+            </constraint>
         </element>
         <element id="Supply.participant:participant1.participantRole">
             <path value="Supply.participant.participantRole"/>

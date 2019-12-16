@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="USRealmHeaderforPatientGeneratedDocument"/>
-    <title value="USRealmHeaderforPatientGeneratedDocument"/>
+    <title value="US Realm Header for Patient Generated Document (V2)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -56,6 +56,11 @@
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-28458) such that it"/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1198-32945"/>
+                <severity value="error"/>
+                <human value="When asserting this templateId, all C-CDA 2.1 section and entry templates that had a previous version in C-CDA R1.1 **SHALL** include both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32945)."/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.templateId:templateId1.root">
             <path value="ClinicalDocument.templateId.root"/>

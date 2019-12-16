@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.7.12"/>
     </identifier>
     <name value="OperativeNoteFluidsSection"/>
-    <title value="OperativeNoteFluidsSection"/>
+    <title value="Operative Note Fluids Section"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="Section">
             <path value="Section"/>
+            <constraint>
+                <key value="81-8052"/>
+                <severity value="warning"/>
+                <human value="If the Operative Note Fluids section is present, there SHALL be a statement providing details of the fluids administered or SHALL explicitly state there were no fluids administered (CONF:81-8052)."/>
+            </constraint>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>

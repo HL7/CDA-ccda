@@ -7,7 +7,7 @@
         <value value="urn:oid:2.16.840.1.113883.10.20.18.2.9"/>
     </identifier>
     <name value="ProcedureEstimatedBloodLossSection"/>
-    <title value="ProcedureEstimatedBloodLossSection"/>
+    <title value="Procedure Estimated Blood Loss Section"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -31,6 +31,11 @@
     <differential>
         <element id="Section">
             <path value="Section"/>
+            <constraint>
+                <key value="81-8741"/>
+                <severity value="warning"/>
+                <human value="The Estimated Blood Loss section SHALL include a statement providing an estimate of the amount of blood lost during the procedure, even if the estimate is text, such as &quot;minimal&quot; or &quot;none&quot; (CONF:81-8741)."/>
+            </constraint>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>

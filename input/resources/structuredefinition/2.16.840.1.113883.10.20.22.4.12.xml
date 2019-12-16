@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="ProcedureActivityAct"/>
-    <title value="ProcedureActivityAct"/>
+    <title value="Procedure Activity Act (V2)"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -103,6 +103,11 @@
             <definition value="SHALL contain exactly one [1..1] code (CONF:1098-8293)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-19190"/>
+                <severity value="warning"/>
+                <human value="This @code **SHOULD** be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96), and **MAY** be selected from CPT-4 (CodeSystem: 2.16.840.1.113883.6.12) or ICD10 PCS (CodeSystem: 2.16.840.1.113883.6.4) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:1098-19190)."/>
+            </constraint>
         </element>
         <element id="Act.code.originalText">
             <path value="Act.code.originalText"/>
@@ -124,6 +129,11 @@
             <definition value="The reference, if present, MAY contain zero or one [0..1] @value (CONF:1098-19188)."/>
             <min value="0"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-19189"/>
+                <severity value="error"/>
+                <human value="This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1098-19189)."/>
+            </constraint>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
@@ -353,6 +363,11 @@
             <definition value="This encounter SHALL contain exactly one [1..1] id (CONF:1098-8320)."/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="1098-16849"/>
+                <severity value="warning"/>
+                <human value="Set the encounter ID to the ID of an encounter in another section to signify they are the same encounter (CONF:1098-16849)."/>
+            </constraint>
         </element>
         <element id="Act.entryRelationship:entryRelationship2">
             <path value="Act.entryRelationship"/>
