@@ -11,7 +11,7 @@
   <title value="Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-12-13T11:29:21-08:00"/>
+  <date value="2019-12-16T22:36:35-08:00"/>
   <publisher value="Health Level 7"/>
   <packageId value="hl7.cda.us.ccda"/>
   <license value="CC0-1.0"/>
@@ -27,104 +27,13 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.17.html"/>
+        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.1.1.html"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.17"/>
+        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
       </reference>
-      <name value="MedicationSupplyOrder"/>
-      <description value="This template records the intent to supply a patient with medications."/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.20.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
-      </reference>
-      <name value="Instruction"/>
-      <description value="The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template&#39;s moodCode can only be INT. If an instruction was already given, the Procedure Activity Act template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode."/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.54.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
-      </reference>
-      <name value="ImmunizationMedicationInformation"/>
-      <description value="The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-1.3.6.1.4.1.19376.1.5.3.1.3.1.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
-      </reference>
-      <name value="ReasonforReferralSection"/>
-      <description value="This section describes the clinical reason why a provider is sending a patient to another provider for care. The reason for referral may become the reason for visit documented by the receiving provider."/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.119.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
-      </reference>
-      <name value="AuthorParticipation"/>
-      <description value="This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden.&#xA;&#xA;The Author Participation template was added to those templates in scope for analysis in R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template."/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.140.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.140"/>
-      </reference>
-      <name value="PatientReferralAct"/>
-      <description value="This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.19.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
-      </reference>
-      <name value="Indication"/>
-      <description value="This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration (V2) [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met."/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-2.16.840.1.113883.10.20.22.4.64.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.64"/>
-      </reference>
-      <name value="CommentActivity"/>
-      <description value="Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."/>
+      <name value="US Realm Header (V3)"/>
+      <description value="This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template."/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">

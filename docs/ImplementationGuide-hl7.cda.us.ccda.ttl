@@ -18,7 +18,7 @@
   fhir:ImplementationGuide.title [ fhir:value "Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1"];
   fhir:ImplementationGuide.status [ fhir:value "active"];
   fhir:ImplementationGuide.experimental [ fhir:value "false"^^xsd:boolean];
-  fhir:ImplementationGuide.date [ fhir:value "2019-12-13T11:29:21-08:00"^^xsd:dateTime];
+  fhir:ImplementationGuide.date [ fhir:value "2019-12-16T22:36:35-08:00"^^xsd:dateTime];
   fhir:ImplementationGuide.publisher [ fhir:value "Health Level 7"];
   fhir:ImplementationGuide.packageId [ fhir:value "hl7.cda.us.ccda"];
   fhir:ImplementationGuide.license [ fhir:value "CC0-1.0"];
@@ -45,135 +45,16 @@
        ], [
          fhir:index 1;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-2.16.840.1.113883.10.20.22.4.17.html" ]
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-2.16.840.1.113883.10.20.22.1.1.html" ]
        ];
        fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.17>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/2.16.840.1.113883.10.20.22.4.17" ]
+         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.1>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/2.16.840.1.113883.10.20.22.1.1" ]
        ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MedicationSupplyOrder" ];
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This template records the intent to supply a patient with medications." ]
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "US Realm Header (V3)" ];
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template." ]
      ], [
        fhir:index 1;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ], [
-         fhir:index 1;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-2.16.840.1.113883.10.20.22.4.20.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/2.16.840.1.113883.10.20.22.4.20" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Instruction" ];
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template's moodCode can only be INT. If an instruction was already given, the Procedure Activity Act template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode." ]
-     ], [
-       fhir:index 2;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ], [
-         fhir:index 1;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-2.16.840.1.113883.10.20.22.4.54.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/2.16.840.1.113883.10.20.22.4.54" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ImmunizationMedicationInformation" ];
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known." ]
-     ], [
-       fhir:index 3;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ], [
-         fhir:index 1;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-1.3.6.1.4.1.19376.1.5.3.1.3.1.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ReasonforReferralSection" ];
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This section describes the clinical reason why a provider is sending a patient to another provider for care. The reason for referral may become the reason for visit documented by the receiving provider." ]
-     ], [
-       fhir:index 4;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ], [
-         fhir:index 1;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-2.16.840.1.113883.10.20.22.4.119.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/2.16.840.1.113883.10.20.22.4.119" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AuthorParticipation" ];
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden.\n\nThe Author Participation template was added to those templates in scope for analysis in R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template." ]
-     ], [
-       fhir:index 5;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ], [
-         fhir:index 1;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-2.16.840.1.113883.10.20.22.4.140.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.140>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/2.16.840.1.113883.10.20.22.4.140" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "PatientReferralAct" ];
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)." ]
-     ], [
-       fhir:index 6;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ], [
-         fhir:index 1;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-2.16.840.1.113883.10.20.22.4.19.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/2.16.840.1.113883.10.20.22.4.19" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Indication" ];
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration (V2) [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met." ]
-     ], [
-       fhir:index 7;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ], [
-         fhir:index 1;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-2.16.840.1.113883.10.20.22.4.64.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.64>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/2.16.840.1.113883.10.20.22.4.64" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "CommentActivity" ];
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment." ]
-     ], [
-       fhir:index 8;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -189,7 +70,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "LOINC Imaging Document Codes" ]
      ], [
-       fhir:index 9;
+       fhir:index 2;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -205,7 +86,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Substance Reactant for Intolerance" ]
      ], [
-       fhir:index 10;
+       fhir:index 3;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -221,7 +102,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clinical Substance" ]
      ], [
-       fhir:index 11;
+       fhir:index 4;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -237,7 +118,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medication Clinical Drug" ]
      ], [
-       fhir:index 12;
+       fhir:index 5;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -253,7 +134,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "CVX Vaccines Administered Vaccine Set" ]
      ], [
-       fhir:index 13;
+       fhir:index 6;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -269,7 +150,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Vaccine Clinical Drug" ]
      ], [
-       fhir:index 14;
+       fhir:index 7;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -285,7 +166,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "AdministrationUnitDoseForm" ]
      ], [
-       fhir:index 15;
+       fhir:index 8;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -301,7 +182,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medication Status" ]
      ], [
-       fhir:index 16;
+       fhir:index 9;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -317,7 +198,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medication Route" ]
      ], [
-       fhir:index 17;
+       fhir:index 10;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -333,7 +214,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Extended Pregnancy Status" ]
      ], [
-       fhir:index 18;
+       fhir:index 11;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -349,7 +230,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Administrative Gender (HL7 V3)" ]
      ], [
-       fhir:index 19;
+       fhir:index 12;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -365,7 +246,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ParticipationFunction" ]
      ], [
-       fhir:index 20;
+       fhir:index 13;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -381,7 +262,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Financially Responsible Party Type Value Set" ]
      ], [
-       fhir:index 21;
+       fhir:index 14;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -397,7 +278,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "PostalAddressUse" ]
      ], [
-       fhir:index 22;
+       fhir:index 15;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -413,7 +294,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Language" ]
      ], [
-       fhir:index 23;
+       fhir:index 16;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -429,7 +310,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "x_ActRelationshipDocument" ]
      ], [
-       fhir:index 24;
+       fhir:index 17;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -445,7 +326,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "LanguageAbilityProficiency" ]
      ], [
-       fhir:index 25;
+       fhir:index 18;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -461,7 +342,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Marital Status" ]
      ], [
-       fhir:index 26;
+       fhir:index 19;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -477,7 +358,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "LanguageAbilityMode" ]
      ], [
-       fhir:index 27;
+       fhir:index 20;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -493,7 +374,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "UnitsOfMeasureCaseSensitive" ]
      ], [
-       fhir:index 28;
+       fhir:index 21;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -509,7 +390,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Race Value Set" ]
      ], [
-       fhir:index 29;
+       fhir:index 22;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -525,7 +406,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "EntityNameUse" ]
      ], [
-       fhir:index 30;
+       fhir:index 23;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -541,7 +422,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ActStatus" ]
      ], [
-       fhir:index 31;
+       fhir:index 24;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -557,7 +438,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ActPriority" ]
      ], [
-       fhir:index 32;
+       fhir:index 25;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -573,7 +454,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "HL7 BasicConfidentialityKind" ]
      ], [
-       fhir:index 33;
+       fhir:index 26;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -589,7 +470,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Coverage Role Type Value Set" ]
      ], [
-       fhir:index 34;
+       fhir:index 27;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -605,7 +486,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Religious Affiliation" ]
      ], [
-       fhir:index 35;
+       fhir:index 28;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -621,7 +502,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Family Member Value" ]
      ], [
-       fhir:index 36;
+       fhir:index 29;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -637,7 +518,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "x_ServiceEventPerformer" ]
      ], [
-       fhir:index 37;
+       fhir:index 30;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -653,7 +534,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "No Immunization Reason" ]
      ], [
-       fhir:index 38;
+       fhir:index 31;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -669,7 +550,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "HealthStatus" ]
      ], [
-       fhir:index 39;
+       fhir:index 32;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -685,7 +566,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ReferralDocumentType" ]
      ], [
-       fhir:index 40;
+       fhir:index 33;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -701,7 +582,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "TransferDocumentType" ]
      ], [
-       fhir:index 41;
+       fhir:index 34;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -717,7 +598,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Wound Measurements" ]
      ], [
-       fhir:index 42;
+       fhir:index 35;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -733,7 +614,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Wound Type" ]
      ], [
-       fhir:index 43;
+       fhir:index 36;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -749,7 +630,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Nutritional Status" ]
      ], [
-       fhir:index 44;
+       fhir:index 37;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -765,7 +646,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Nutrition Recommendations" ]
      ], [
-       fhir:index 45;
+       fhir:index 38;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -781,7 +662,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Advance Directive Type Code" ]
      ], [
-       fhir:index 46;
+       fhir:index 39;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -797,7 +678,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Criticality Observation" ]
      ], [
-       fhir:index 47;
+       fhir:index 40;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -813,7 +694,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Observation Interpretation (HL7)" ]
      ], [
-       fhir:index 48;
+       fhir:index 41;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -829,7 +710,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "SurgicalOperationNoteDocumentTypeCode" ]
      ], [
-       fhir:index 49;
+       fhir:index 42;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -845,7 +726,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Personal And Legal Relationship Role Type" ]
      ], [
-       fhir:index 50;
+       fhir:index 43;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -861,7 +742,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ProcedureNoteDocumentTypeCodes" ]
      ], [
-       fhir:index 51;
+       fhir:index 44;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -877,7 +758,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ProgressNoteDocumentTypeCode" ]
      ], [
-       fhir:index 52;
+       fhir:index 45;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -893,7 +774,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "MoodCodeEvnInt" ]
      ], [
-       fhir:index 53;
+       fhir:index 46;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -909,7 +790,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ProblemAct statusCode" ]
      ], [
-       fhir:index 54;
+       fhir:index 47;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -925,7 +806,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Telecom Use (US Realm Header)" ]
      ], [
-       fhir:index 55;
+       fhir:index 48;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -941,7 +822,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "AgePQ_UCUM" ]
      ], [
-       fhir:index 56;
+       fhir:index 49;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -957,7 +838,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ProcedureAct statusCode" ]
      ], [
-       fhir:index 57;
+       fhir:index 50;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -973,7 +854,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Planned moodCode (Act/Encounter/Procedure)" ]
      ], [
-       fhir:index 58;
+       fhir:index 51;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -989,7 +870,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Planned moodCode (SubstanceAdministration/Supply)" ]
      ], [
-       fhir:index 59;
+       fhir:index 52;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1005,7 +886,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Planned moodCode (Observation)" ]
      ], [
-       fhir:index 60;
+       fhir:index 53;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1021,7 +902,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "EntityPersonNamePartQualifier" ]
      ], [
-       fhir:index 61;
+       fhir:index 54;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1037,7 +918,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "DIRQuantityMeasurementTypeCodes" ]
      ], [
-       fhir:index 62;
+       fhir:index 55;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1053,7 +934,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ConsultDocumentType" ]
      ], [
-       fhir:index 63;
+       fhir:index 56;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1069,7 +950,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "INDRoleclassCodes" ]
      ], [
-       fhir:index 64;
+       fhir:index 57;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1085,7 +966,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pressure Ulcer Stage" ]
      ], [
-       fhir:index 65;
+       fhir:index 58;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1101,7 +982,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pressure Point" ]
      ], [
-       fhir:index 66;
+       fhir:index 59;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1117,7 +998,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "TargetSite Qualifiers" ]
      ], [
-       fhir:index 67;
+       fhir:index 60;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1133,7 +1014,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Smoking Status" ]
      ], [
-       fhir:index 68;
+       fhir:index 61;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1149,7 +1030,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Result Status" ]
      ], [
-       fhir:index 69;
+       fhir:index 62;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1165,7 +1046,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tobacco Use" ]
      ], [
-       fhir:index 70;
+       fhir:index 63;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1181,7 +1062,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mental and Functional Status Response" ]
      ], [
-       fhir:index 71;
+       fhir:index 64;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1197,7 +1078,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "ADL Result Type" ]
      ], [
-       fhir:index 72;
+       fhir:index 65;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1213,7 +1094,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Residence and Accommodation Type" ]
      ], [
-       fhir:index 73;
+       fhir:index 66;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1229,7 +1110,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Sensory Status Problem Type" ]
      ], [
-       fhir:index 74;
+       fhir:index 67;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1245,7 +1126,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Healthcare Agent Qualifier" ]
      ], [
-       fhir:index 75;
+       fhir:index 68;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1261,7 +1142,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encounter Planned" ]
      ], [
-       fhir:index 76;
+       fhir:index 69;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1277,7 +1158,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Planned Intervention moodCode" ]
      ], [
-       fhir:index 77;
+       fhir:index 70;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1293,7 +1174,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Goal Achievement" ]
      ], [
-       fhir:index 78;
+       fhir:index 71;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1309,7 +1190,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Wound Characteristic" ]
      ], [
-       fhir:index 79;
+       fhir:index 72;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1325,7 +1206,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "DIRSectionTypeCodes" ]
      ], [
-       fhir:index 80;
+       fhir:index 73;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1341,7 +1222,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Priority Level" ]
      ], [
-       fhir:index 81;
+       fhir:index 74;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1357,7 +1238,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Care Model" ]
      ], [
-       fhir:index 82;
+       fhir:index 75;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1373,7 +1254,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Physical Exam Type" ]
      ], [
-       fhir:index 83;
+       fhir:index 76;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1389,7 +1270,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Patient Referral Act moodCode" ]
      ], [
-       fhir:index 84;
+       fhir:index 77;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1405,7 +1286,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Race Category Excluding Nulls" ]
      ], [
-       fhir:index 85;
+       fhir:index 78;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1421,7 +1302,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Allergy and Intolerance Type" ]
      ], [
-       fhir:index 86;
+       fhir:index 79;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1437,7 +1318,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Reaction Severity" ]
      ], [
-       fhir:index 87;
+       fhir:index 80;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1453,7 +1334,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Problem Type (SNOMEDCT)" ]
      ], [
-       fhir:index 88;
+       fhir:index 81;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1469,7 +1350,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "SPL Drug Route of Administration Terminology" ]
      ], [
-       fhir:index 89;
+       fhir:index 82;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1485,7 +1366,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Body Site Value Set" ]
      ], [
-       fhir:index 90;
+       fhir:index 83;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1501,7 +1382,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "EncounterTypeCode" ]
      ], [
-       fhir:index 91;
+       fhir:index 84;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1517,7 +1398,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Social History Type" ]
      ], [
-       fhir:index 92;
+       fhir:index 85;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1533,7 +1414,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Vital Sign Result Type" ]
      ], [
-       fhir:index 93;
+       fhir:index 86;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1549,7 +1430,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medication Fill Status" ]
      ], [
-       fhir:index 94;
+       fhir:index 87;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1565,7 +1446,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Problem Status" ]
      ], [
-       fhir:index 95;
+       fhir:index 88;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1581,7 +1462,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Healthcare Provider Taxonomy (HIPAA)" ]
      ], [
-       fhir:index 96;
+       fhir:index 89;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1597,7 +1478,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Payer" ]
      ], [
-       fhir:index 97;
+       fhir:index 90;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1613,7 +1494,7 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ethnicity" ]
      ], [
-       fhir:index 98;
+       fhir:index 91;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -1764,21 +1645,7 @@
      ]
   ] .
 
-<http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.17> a fhir:cda .
-
-<http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20> a fhir:cda .
-
-<http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54> a fhir:cda .
-
-<http://hl7.org/fhir/cda/ccda/StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1> a fhir:cda .
-
-<http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119> a fhir:cda .
-
-<http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.140> a fhir:cda .
-
-<http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19> a fhir:cda .
-
-<http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.64> a fhir:cda .
+<http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.1> a fhir:cda .
 
 <http://hl7.org/fhir/cda/ccda/ValueSet/1.3.6.1.4.1.12009.10.2.5> a fhir:cda .
 
