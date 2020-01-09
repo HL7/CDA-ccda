@@ -12,19 +12,25 @@ const ig = fhir.xmlToObj(igContent);
 
 const valueSetResources = valueSetFiles.map(valueSetFile => {
     const id = valueSetFile.substring(valueSetFile.lastIndexOf('/'), valueSetFile.indexOf('.xml'));
+    const content = fs.readFileSync(path.join('input/resources/valueset/', valueSetFile)).toString();
+    const valueSet = fhir.xmlToObj(content);
     return {
         reference: {
-            reference: `ValueSet/${id}`
+            reference: `ValueSet/${id}`,
+            display: valueSet.name
         }
     };
 });
 const strucDefResources = strucDefFiles.map(strucDefFile => {
-   const id = strucDefFile.substring(strucDefFile.lastIndexOf('/'), strucDefFile.indexOf('.xml'));
-   return {
-       reference: {
-           reference: `StructureDefinition/${id}`
-       }
-   };
+    const id = strucDefFile.substring(strucDefFile.lastIndexOf('/'), strucDefFile.indexOf('.xml'));
+    const content = fs.readFileSync(path.join('input/resources/structuredefinition/', strucDefFile)).toString();
+    const structureDefinition = fhir.xmlToObj(content);
+    return {
+        reference: {
+            reference: `StructureDefinition/${id}`,
+            display: structureDefinition.name
+        }
+    };
 });
 
 ig.definition.resource = strucDefResources.concat(valueSetResources);
