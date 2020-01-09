@@ -11,7 +11,7 @@
   "title": "Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1",
   "status": "active",
   "experimental": false,
-  "date": "2019-12-16T22:36:35-08:00",
+  "date": "2020-01-09T08:23:11-08:00",
   "publisher": "Health Level 7",
   "packageId": "hl7.cda.us.ccda",
   "license": "CC0-1.0",
@@ -26,6 +26,28 @@
     }
   ],
   "definition": {
+    "grouping": [
+      {
+        "id": "document",
+        "name": "Document Templates",
+        "description": "Document-level templates describe the purpose and rules for constructing a conforming CDA document. Document templates include constraints on the CDA header and indicate contained section-level templates.\rEach document-level template contains the following information:\r* Scope and intended use of the document type\r* Description and explanatory narrative\r* Template metadata (e.g., templateId)\r* Header constraints (e.g., document type, template id, participants)\r* Required and optional section-level templates\r"
+      },
+      {
+        "id": "section",
+        "name": "Section Templates",
+        "description": "This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.\rSection-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).\rEach section-level template contains the following:\r* Template metadata (e.g., templateId, etc.)\r* Description and explanatory narrative\r* LOINC section code\r* Section title\r* Requirements for a text element\r* Entry-level template names and Ids for referenced templates (required and optional)\rNarrative Text\rThe text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.\rThe content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.\rAs noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of \"DRIV\" (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.\rAs for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.\rHL7 CDA R2.1 IG: Consolidated CDA Templates for Clinical Note (US Realm), DSTU R2—Vol. 2: Templates Page 251\rAugust 2015 © 2015 Health Level Seven, Inc. All rights reserved.\rBy definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of \"DRIV\".\rAdditional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6."
+      },
+      {
+        "id": "entry",
+        "name": "Entry Templates",
+        "description": "This chapter describes the clinical statement entry templates used within the sections of the document types of this consolidated guide. Entry templates contain constraints that are required for conformance.\rEntry-level templates are always in sections.\rEach entry-level template description contains the following information:\r* Key template metadata (e.g., template identifier, etc.)\r* Description and explanatory narrative.\r* Required CDA acts, participants and vocabularies.\r* Optional CDA acts, participants and vocabularies.\rSeveral entry-level templates require an effectiveTime:\rThe effectiveTime of an observation is the time interval over which the observation is known to be true. The low and high values should be as precise as possible, but no more precise than known. While CDA has multiple mechanisms to record this time interval (e.g., by low and high values, low and width, high and width, or center point and width), this guide constrains most to use only the low/high form. The low value is the earliest point for which the condition is known to have existed. The high value, when present, indicates the time at which the observation was no longer known to be true. The full description of effectiveTime and time intervals is contained in the CDA R2 normative edition.\rProvenance in entry templates:\rIn this version of Consolidated CDA (C-CDA), we have added a \"SHOULD\" Author constraint on several entry-level templates. Authorship and Author timestamps must be explicitly asserted in these cases, unless the values propagated from the document header hold true.\rID in entry templates:\rEntry-level templates may also describe an id element, which is an identifier for that entry. This id may be referenced within the document, or by the system receiving the document. The id assigned must be globally unique."
+      },
+      {
+        "id": "other",
+        "name": "Participation & Other Templates",
+        "description": "The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."
+      }
+    ],
     "resource": [
       {
         "extension": [
@@ -39,10 +61,297 @@
           }
         ],
         "reference": {
-          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.1.1"
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.1.1",
+          "display": "USRealmHeader"
         },
         "name": "US Realm Header (V3)",
-        "description": "This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template."
+        "description": "This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template.",
+        "groupingId": "document"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.1.10.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.1.10",
+          "display": "UnstructuredDocument"
+        },
+        "name": "Unstructured Document (V3)",
+        "description": "An Unstructured Document (UD) document type can (1) include unstructured content, such as a graphic, directly in a text element with a mediaType attribute, or (2) reference a single document file, such as a word-processing document using a text/reference element.\nFor guidance on how to handle multiple files, on the selection of media types for this IG, and on the identification of external files, see the examples that follow the constraints below.\nIHEs XDS-SD (Cross-Transaction Specifications and Content Specifications, Scanned Documents Module) profile addresses a similar, more restricted use case, specifically for scanned documents or documents electronically created from existing text sources, and limits content to PDF-A or text. This Unstructured Documents template is applicable not only for scanned documents in non-PDF formats, but also for clinical documents produced through word processing applications, etc. \nFor conformance with both specifications, implementers need to ensure that their documents at a minimum conform with the SHALL constraints from either specification.",
+        "groupingId": "document"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.1.13.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.1.13",
+          "display": "TransferSummary"
+        },
+        "name": "Transfer Summary (V2)",
+        "description": "This document describes constraints on the Clinical Document Architecture (CDA) header and body elements for a Transfer Summary. The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings. \nStandardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement.",
+        "groupingId": "document"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.1.14.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.1.14",
+          "display": "ReferralNote"
+        },
+        "name": "Referral Note (V2)",
+        "description": "A Referral Note communicates pertinent information from a provider who is requesting services of another provider of clinical or non-clinical services. The information in this document includes the reason for the referral and additional information that would augment decision making and care delivery. \nExamples of referral situations are when a patient is referred from a family physician to a cardiologist for cardiac evaluation or when patient is sent by a cardiologist to an emergency department for angina or when a patient is referred by a nurse practitioner to an audiologist for hearing screening or when a patient is referred by a hospitalist to social services.",
+        "groupingId": "document"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.2.10.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.2.10",
+          "display": "PlanofTreatmentSection"
+        },
+        "name": "Plan of Treatment Section (V2)",
+        "description": "This section, formerly known as \"Plan of Care\", contains data that define pending orders, interventions, encounters, services, and procedures for the patient. It is limited to prospective, unfulfilled, or incomplete orders and requests only. These are indicated by the @moodCode of the entries within this section. All active, incomplete, or pending orders, appointments, referrals, procedures, services, or any other pending event of clinical significance to the current care of the patient should be listed.\nClinical reminders are placed here to provide prompts for disease prevention and management, patient safety, and healthcare quality improvements, including widely accepted performance measures. \nThe plan may also indicate that patient education will be provided.\nWhen used in a document that includes a Goals Section, all the goals (whether narrative only, or structured Goal Observation entries) should be recorded in the Goals Section, rather than in the Plan of Treatment Section, to avoid confusion as to which/whose goals should be in which section? \nWhen used in a document that does not include a Goals Section, the Plan of Treatment section may also contain information about care team members goals, including the patients values, beliefs, preferences, care expectations, and overarching care goals. Values may include the importance of quality of life over longevity. These values are taken into account when prioritizing all problems and their treatments. Beliefs may include comfort with dying or the refusal of blood transfusions because of the patients religious convictions. Preferences may include liquid medicines over tablets, or treatment via secure email instead of in person. Care expectations may range from being treated only by female clinicians, to expecting all calls to be returned within 24 hours. Overarching goals described in this section are not tied to a specific condition, problem, health concern, or intervention. Examples of overarching goals could be to minimize pain or dependence on others, or to walk a daughter down the aisle for her marriage.",
+        "groupingId": "section"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.5.4.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.5.4",
+          "display": "USRealmDateandTimeDTMUSFIELDED"
+        },
+        "name": "US Realm Date and Time (DTM.US.FIELDED)",
+        "description": "The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.\n\nThis data type uses the same rules as US Realm Date and Time (DT.US.FIELDED), but is used with elements having a datatype of TS.",
+        "groupingId": "other"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.5.2.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.5.2",
+          "display": "USRealmAddressADUSFIELDED"
+        },
+        "name": "US Realm Address (AD.US.FIELDED)",
+        "description": "Reusable address template, for use in US Realm CDA Header.",
+        "groupingId": "other"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.5.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.5.1",
+          "display": "USRealmPatientNamePTNUSFIELDED"
+        },
+        "name": "US Realm Patient Name (PTN.US.FIELDED)",
+        "description": "The US Realm Patient Name datatype flavor is a set of reusable constraints that can be used for the patient or any other person. It requires a first (given) and last (family) name. If a patient or person has only one name part (e.g., patient with first name only) place the name part in the field required by the organization. Use the appropriate nullFlavor, \"Not Applicable\" (NA), in the other field.\nFor information on mixed content see the Extensible Markup Language reference (http://www.w3c.org/TR/2008/REC-xml-20081126/).",
+        "groupingId": "other"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.5.1.1.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1",
+          "display": "USRealmPersonNamePNUSFIELDED"
+        },
+        "name": "US Realm Person Name (PN.US.FIELDED)",
+        "description": "The US Realm Clinical Document Person Name datatype flavor is a set of reusable constraints that can be used for Persons.",
+        "groupingId": "other"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.44.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.44",
+          "display": "PlannedObservation"
+        },
+        "name": "Planned Observation (V2)",
+        "description": "This template represents planned observations that result in new information about the patient which cannot be classified as a procedure according to the HL7 RIM, i.e., procedures alter the patient's body. Examples of these observations are laboratory tests, diagnostic imaging tests, EEGs, and EKGs.\r\n\r\nThe importance of the planned observation to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the observation is intended to take place and authorTime indicates when the documentation of the plan occurred. \r\nThe Planned Observation template may also indicate the potential insurance coverage for the observation.\r\n\r\n",
+        "groupingId": "entry"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.121.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.121",
+          "display": "GoalObservation"
+        },
+        "name": "Goal Observation",
+        "description": "This template represents a patient health goal. A Goal Observation template may have related components that are acts, encounters, observations, procedures, substance administrations, or supplies. \n\nA goal may be a patient or provider goal. If the author is set to the recordTarget (patient), this is a patient goal. If the author is set to a provider, this is a provider goal. If both patient and provider are set as authors, this is a negotiated goal.\n\nA goal usually has a related health concern and/or risk.\n\nA goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships.",
+        "groupingId": "entry"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.119.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.119",
+          "display": "AuthorParticipation"
+        },
+        "name": "Author Participation",
+        "description": "This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden.\n\nThe Author Participation template was added to those templates in scope for analysis in R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template.",
+        "groupingId": "other"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.143.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.143",
+          "display": "PriorityPreference"
+        },
+        "name": "Priority Preference",
+        "description": "This template represents priority preferences chosen by a patient or a care provider. Priority preferences are choices made by care providers or patients or both relative to options for care or treatment (including scheduling, care experience, and meeting of personal health goals), the sharing and disclosure of health information, and the prioritization of concerns and problems.",
+        "groupingId": "other"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.19.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.19",
+          "display": "Indication"
+        },
+        "name": "Indication (V2)",
+        "description": "This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration (V2) [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met.",
+        "groupingId": "other"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.20.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.20",
+          "display": "Instruction"
+        },
+        "name": "Instruction (V2)",
+        "description": "The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template's moodCode can only be INT. If an instruction was already given, the Procedure Activity Act template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode.",
+        "groupingId": "other"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString": "StructureDefinition:resource"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-2.16.840.1.113883.10.20.22.4.129.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/2.16.840.1.113883.10.20.22.4.129",
+          "display": "PlannedCoverage"
+        },
+        "name": "Planned Coverage",
+        "description": "This template represents the insurance coverage intended to cover an act or procedure.",
+        "groupingId": "other"
       },
       {
         "extension": [
@@ -56,7 +365,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/1.3.6.1.4.1.12009.10.2.5"
+          "reference": "ValueSet/1.3.6.1.4.1.12009.10.2.5",
+          "display": "LOINCImagingDocumentCodes"
         },
         "name": "LOINC Imaging Document Codes"
       },
@@ -72,7 +382,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.1"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.1",
+          "display": "SubstanceReactantforIntolerance"
         },
         "name": "Substance Reactant for Intolerance"
       },
@@ -88,7 +399,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.2"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.2",
+          "display": "ClinicalSubstance"
         },
         "name": "Clinical Substance"
       },
@@ -104,7 +416,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.4"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.4",
+          "display": "MedicationClinicalDrug"
         },
         "name": "Medication Clinical Drug"
       },
@@ -120,7 +433,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.6"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.6",
+          "display": "CVXVaccinesAdministeredVaccineSet"
         },
         "name": "CVX Vaccines Administered Vaccine Set"
       },
@@ -136,7 +450,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.8"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1010.8",
+          "display": "VaccineClinicalDrug"
         },
         "name": "Vaccine Clinical Drug"
       },
@@ -152,7 +467,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1021.30"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1021.30",
+          "display": "AdministrationUnitDoseForm"
         },
         "name": "AdministrationUnitDoseForm"
       },
@@ -168,7 +484,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.11"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.11",
+          "display": "MedicationStatus"
         },
         "name": "Medication Status"
       },
@@ -184,7 +501,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.12"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.12",
+          "display": "MedicationRoute"
         },
         "name": "Medication Route"
       },
@@ -200,7 +518,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.24"
+          "reference": "ValueSet/2.16.840.1.113762.1.4.1099.24",
+          "display": "ExtendedPregnancyStatus"
         },
         "name": "Extended Pregnancy Status"
       },
@@ -216,7 +535,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.1"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.1",
+          "display": "AdministrativeGenderHL7V3"
         },
         "name": "Administrative Gender (HL7 V3)"
       },
@@ -232,7 +552,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.10267"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.10267",
+          "display": "ParticipationFunction"
         },
         "name": "ParticipationFunction"
       },
@@ -248,7 +569,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.10416"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.10416",
+          "display": "FinanciallyResponsiblePartyTypeValueSet"
         },
         "name": "Financially Responsible Party Type Value Set"
       },
@@ -264,7 +586,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.10637"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.10637",
+          "display": "PostalAddressUse"
         },
         "name": "PostalAddressUse"
       },
@@ -280,7 +603,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.11526"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.11526",
+          "display": "Language"
         },
         "name": "Language"
       },
@@ -296,7 +620,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.11610"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.11610",
+          "display": "xActRelationshipDocument"
         },
         "name": "x_ActRelationshipDocument"
       },
@@ -312,7 +637,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.12199"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.12199",
+          "display": "LanguageAbilityProficiency"
         },
         "name": "LanguageAbilityProficiency"
       },
@@ -328,7 +654,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.12212"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.12212",
+          "display": "MaritalStatus"
         },
         "name": "Marital Status"
       },
@@ -344,7 +671,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.12249"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.12249",
+          "display": "LanguageAbilityMode"
         },
         "name": "LanguageAbilityMode"
       },
@@ -360,7 +688,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.12839"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.12839",
+          "display": "UnitsOfMeasureCaseSensitive"
         },
         "name": "UnitsOfMeasureCaseSensitive"
       },
@@ -376,7 +705,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.14914"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.14914",
+          "display": "RaceValueSet"
         },
         "name": "Race Value Set"
       },
@@ -392,7 +722,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.15913"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.15913",
+          "display": "EntityNameUse"
         },
         "name": "EntityNameUse"
       },
@@ -408,7 +739,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.15933"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.15933",
+          "display": "ActStatus"
         },
         "name": "ActStatus"
       },
@@ -424,7 +756,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.16866"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.16866",
+          "display": "ActPriority"
         },
         "name": "ActPriority"
       },
@@ -440,7 +773,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.16926"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.16926",
+          "display": "HL7BasicConfidentialityKind"
         },
         "name": "HL7 BasicConfidentialityKind"
       },
@@ -456,7 +790,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.18877"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.18877",
+          "display": "CoverageRoleTypeValueSet"
         },
         "name": "Coverage Role Type Value Set"
       },
@@ -472,7 +807,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.19185"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.19185",
+          "display": "ReligiousAffiliation"
         },
         "name": "Religious Affiliation"
       },
@@ -488,7 +824,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.19579"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.19579",
+          "display": "FamilyMemberValue"
         },
         "name": "Family Member Value"
       },
@@ -504,7 +841,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.19601"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.19601",
+          "display": "xServiceEventPerformer"
         },
         "name": "x_ServiceEventPerformer"
       },
@@ -520,7 +858,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.19717"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.19717",
+          "display": "NoImmunizationReason"
         },
         "name": "No Immunization Reason"
       },
@@ -536,7 +875,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20.12"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.12",
+          "display": "HealthStatus"
         },
         "name": "HealthStatus"
       },
@@ -552,7 +892,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.3"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.3",
+          "display": "ReferralDocumentType"
         },
         "name": "ReferralDocumentType"
       },
@@ -568,7 +909,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.4"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.4",
+          "display": "TransferDocumentType"
         },
         "name": "TransferDocumentType"
       },
@@ -584,7 +926,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.5"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.5",
+          "display": "WoundMeasurements"
         },
         "name": "Wound Measurements"
       },
@@ -600,7 +943,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.6"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.6",
+          "display": "WoundType"
         },
         "name": "Wound Type"
       },
@@ -616,7 +960,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.7"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.7",
+          "display": "NutritionalStatus"
         },
         "name": "Nutritional Status"
       },
@@ -632,7 +977,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.9"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2.9",
+          "display": "NutritionRecommendations"
         },
         "name": "Nutrition Recommendations"
       },
@@ -648,7 +994,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20.2",
+          "display": "AdvanceDirectiveTypeCode"
         },
         "name": "Advance Directive Type Code"
       },
@@ -664,7 +1011,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.20549"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.20549",
+          "display": "CriticalityObservation"
         },
         "name": "Criticality Observation"
       },
@@ -680,7 +1028,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.1.11.78"
+          "reference": "ValueSet/2.16.840.1.113883.1.11.78",
+          "display": "ObservationInterpretationHL7"
         },
         "name": "Observation Interpretation (HL7)"
       },
@@ -696,7 +1045,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.1.1"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.1.1",
+          "display": "SurgicalOperationNoteDocumentTypeCode"
         },
         "name": "SurgicalOperationNoteDocumentTypeCode"
       },
@@ -712,7 +1062,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.12.1"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.12.1",
+          "display": "PersonalAndLegalRelationshipRoleType"
         },
         "name": "Personal And Legal Relationship Role Type"
       },
@@ -728,7 +1079,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.6.1"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.6.1",
+          "display": "ProcedureNoteDocumentTypeCodes"
         },
         "name": "ProcedureNoteDocumentTypeCodes"
       },
@@ -744,7 +1096,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.8.1"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.8.1",
+          "display": "ProgressNoteDocumentTypeCode"
         },
         "name": "ProgressNoteDocumentTypeCode"
       },
@@ -760,7 +1113,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.18"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.18",
+          "display": "MoodCodeEvnInt"
         },
         "name": "MoodCodeEvnInt"
       },
@@ -776,7 +1130,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.19"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.19",
+          "display": "ProblemActstatusCode"
         },
         "name": "ProblemAct statusCode"
       },
@@ -792,7 +1147,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.20"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.20",
+          "display": "TelecomUseUSRealmHeader"
         },
         "name": "Telecom Use (US Realm Header)"
       },
@@ -808,7 +1164,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.21"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.21",
+          "display": "AgePQUCUM"
         },
         "name": "AgePQ_UCUM"
       },
@@ -824,7 +1181,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.22"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.22",
+          "display": "ProcedureActstatusCode"
         },
         "name": "ProcedureAct statusCode"
       },
@@ -840,7 +1198,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.23"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.23",
+          "display": "PlannedmoodCodeActEncounterProcedure"
         },
         "name": "Planned moodCode (Act/Encounter/Procedure)"
       },
@@ -856,7 +1215,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.24"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.24",
+          "display": "PlannedmoodCodeSubstanceAdministrationSupply"
         },
         "name": "Planned moodCode (SubstanceAdministration/Supply)"
       },
@@ -872,7 +1232,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.25"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.25",
+          "display": "PlannedmoodCodeObservation"
         },
         "name": "Planned moodCode (Observation)"
       },
@@ -888,7 +1249,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.26"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.26",
+          "display": "EntityPersonNamePartQualifier"
         },
         "name": "EntityPersonNamePartQualifier"
       },
@@ -904,7 +1266,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.29"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.29",
+          "display": "DIRQuantityMeasurementTypeCodes"
         },
         "name": "DIRQuantityMeasurementTypeCodes"
       },
@@ -920,7 +1283,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.31"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.31",
+          "display": "ConsultDocumentType"
         },
         "name": "ConsultDocumentType"
       },
@@ -936,7 +1300,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.33"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.33",
+          "display": "INDRoleclassCodes"
         },
         "name": "INDRoleclassCodes"
       },
@@ -952,7 +1317,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.35"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.35",
+          "display": "PressureUlcerStage"
         },
         "name": "Pressure Ulcer Stage"
       },
@@ -968,7 +1334,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.36"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.36",
+          "display": "PressurePoint"
         },
         "name": "Pressure Point"
       },
@@ -984,7 +1351,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.37"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.37",
+          "display": "TargetSiteQualifiers"
         },
         "name": "TargetSite Qualifiers"
       },
@@ -1000,7 +1368,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.38"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.38",
+          "display": "SmokingStatus"
         },
         "name": "Smoking Status"
       },
@@ -1016,7 +1385,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.39"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.39",
+          "display": "ResultStatus"
         },
         "name": "Result Status"
       },
@@ -1032,7 +1402,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.41"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.41",
+          "display": "TobaccoUse"
         },
         "name": "Tobacco Use"
       },
@@ -1048,7 +1419,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.44"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.44",
+          "display": "MentalandFunctionalStatusResponse"
         },
         "name": "Mental and Functional Status Response"
       },
@@ -1064,7 +1436,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.47"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.47",
+          "display": "ADLResultType"
         },
         "name": "ADL Result Type"
       },
@@ -1080,7 +1453,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.49"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.49",
+          "display": "ResidenceandAccommodationType"
         },
         "name": "Residence and Accommodation Type"
       },
@@ -1096,7 +1470,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.50"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.50",
+          "display": "SensoryStatusProblemType"
         },
         "name": "Sensory Status Problem Type"
       },
@@ -1112,7 +1487,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.51"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.51",
+          "display": "HealthcareAgentQualifier"
         },
         "name": "Healthcare Agent Qualifier"
       },
@@ -1128,7 +1504,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.52"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.52",
+          "display": "EncounterPlanned"
         },
         "name": "Encounter Planned"
       },
@@ -1144,7 +1521,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.54"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.54",
+          "display": "PlannedInterventionmoodCode"
         },
         "name": "Planned Intervention moodCode"
       },
@@ -1160,7 +1538,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.55"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.55",
+          "display": "GoalAchievement"
         },
         "name": "Goal Achievement"
       },
@@ -1176,7 +1555,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.58"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.58",
+          "display": "WoundCharacteristic"
         },
         "name": "Wound Characteristic"
       },
@@ -1192,7 +1572,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.59"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.59",
+          "display": "DIRSectionTypeCodes"
         },
         "name": "DIRSectionTypeCodes"
       },
@@ -1208,7 +1589,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.60"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.60",
+          "display": "PriorityLevel"
         },
         "name": "Priority Level"
       },
@@ -1224,7 +1606,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.61"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.61",
+          "display": "CareModel"
         },
         "name": "Care Model"
       },
@@ -1240,7 +1623,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.65"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.65",
+          "display": "PhysicalExamType"
         },
         "name": "Physical Exam Type"
       },
@@ -1256,7 +1640,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.11.20.9.66"
+          "reference": "ValueSet/2.16.840.1.113883.11.20.9.66",
+          "display": "PatientReferralActmoodCode"
         },
         "name": "Patient Referral Act moodCode"
       },
@@ -1272,7 +1657,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.2074.1.1.3"
+          "reference": "ValueSet/2.16.840.1.113883.3.2074.1.1.3",
+          "display": "RaceCategoryExcludingNulls"
         },
         "name": "Race Category Excluding Nulls"
       },
@@ -1288,7 +1674,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.6.2"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.6.2",
+          "display": "AllergyandIntoleranceType"
         },
         "name": "Allergy and Intolerance Type"
       },
@@ -1304,7 +1691,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.6.8"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.6.8",
+          "display": "ReactionSeverity"
         },
         "name": "Reaction Severity"
       },
@@ -1320,7 +1708,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.7.2"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.7.2",
+          "display": "ProblemTypeSNOMEDCT"
         },
         "name": "Problem Type (SNOMEDCT)"
       },
@@ -1336,7 +1725,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.8.7",
+          "display": "SPLDrugRouteofAdministrationTerminology"
         },
         "name": "SPL Drug Route of Administration Terminology"
       },
@@ -1352,7 +1742,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.3221.8.9",
+          "display": "BodySiteValueSet"
         },
         "name": "Body Site Value Set"
       },
@@ -1368,7 +1759,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.32"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.32",
+          "display": "EncounterTypeCode"
         },
         "name": "EncounterTypeCode"
       },
@@ -1384,7 +1776,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.60"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.60",
+          "display": "SocialHistoryType"
         },
         "name": "Social History Type"
       },
@@ -1400,7 +1793,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.62"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.62",
+          "display": "VitalSignResultType"
         },
         "name": "Vital Sign Result Type"
       },
@@ -1416,7 +1810,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.64"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.64",
+          "display": "MedicationFillStatus"
         },
         "name": "Medication Fill Status"
       },
@@ -1432,7 +1827,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.68"
+          "reference": "ValueSet/2.16.840.1.113883.3.88.12.80.68",
+          "display": "ProblemStatus"
         },
         "name": "Problem Status"
       },
@@ -1448,7 +1844,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.114222.4.11.1066"
+          "reference": "ValueSet/2.16.840.1.114222.4.11.1066",
+          "display": "HealthcareProviderTaxonomyHIPAA"
         },
         "name": "Healthcare Provider Taxonomy (HIPAA)"
       },
@@ -1464,7 +1861,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.114222.4.11.3591"
+          "reference": "ValueSet/2.16.840.1.114222.4.11.3591",
+          "display": "Payer"
         },
         "name": "Payer"
       },
@@ -1480,7 +1878,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.114222.4.11.837"
+          "reference": "ValueSet/2.16.840.1.114222.4.11.837",
+          "display": "Ethnicity"
         },
         "name": "Ethnicity"
       },
@@ -1496,7 +1895,8 @@
           }
         ],
         "reference": {
-          "reference": "ValueSet/2.16.840.1.114222.4.11.877"
+          "reference": "ValueSet/2.16.840.1.114222.4.11.877",
+          "display": "DetailedEthnicity"
         },
         "name": "Detailed Ethnicity"
       }
@@ -1507,18 +1907,8 @@
       "generation": "markdown",
       "page": [
         {
-          "nameUrl": "acknowledgments.html",
-          "title": "Acknowledgments",
-          "generation": "markdown"
-        },
-        {
           "nameUrl": "background.html",
           "title": "Background",
-          "generation": "markdown"
-        },
-        {
-          "nameUrl": "introduction.html",
-          "title": "Introduction",
           "generation": "markdown"
         },
         {
@@ -1633,6 +2023,10 @@
       },
       {
         "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "active-tables",
         "value": "true"
       }
     ]

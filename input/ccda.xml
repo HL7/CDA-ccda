@@ -1,1588 +1,1916 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide
     xmlns="http://hl7.org/fhir">
-	<id value="ccda"/>
-	<url value="http://hl7.org/fhir/cda/ccda/ImplementationGuide/ccda"/>
-	<version value="2.1.0"/>
-	<name value="ccda"/>
-	<title value="Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1"/>
-	<status value="active"/>
-	<experimental value="false"/>
-	<publisher value="Health Level 7"/>
-	<packageId value="hl7.cda.us.ccda"/>
-	<fhirVersion value="4.0.1"/>
-	<dependsOn>
-		<uri value="http://hl7.org/fhir/cda/ImplementationGuide/cda-ig"/>
-		<packageId value="hl7.fhir.cda"/>
-		<version value="dev"/>
-	</dependsOn>
-	<definition>
+    <id value="ccda"/>
+    <url value="http://hl7.org/fhir/cda/ccda/ImplementationGuide/ccda"/>
+    <version value="2.1.0"/>
+    <name value="ccda"/>
+    <title value="Consolidated CDA Templates for Clinical Notes (US Realm) DSTU R2.1"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <publisher value="Health Level 7"/>
+    <packageId value="hl7.cda.us.ccda"/>
+    <fhirVersion value="4.0.1"/>
+    <dependsOn>
+        <uri value="http://hl7.org/fhir/cda/ImplementationGuide/cda-ig"/>
+        <packageId value="hl7.fhir.cda"/>
+        <version value="dev"/>
+    </dependsOn>
+    <definition>
+        <grouping id="document">
+            <name value="Document Templates" />
+			<description value="Document-level templates describe the purpose and rules for constructing a conforming CDA document. Document templates include constraints on the CDA header and indicate contained section-level templates.&#13;Each document-level template contains the following information:&#13;* Scope and intended use of the document type&#13;* Description and explanatory narrative&#13;* Template metadata (e.g., templateId)&#13;* Header constraints (e.g., document type, template id, participants)&#13;* Required and optional section-level templates&#13;" />
+        </grouping>
+        <grouping id="section">
+            <name value="Section Templates" />
+			<description value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.&#13;Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).&#13;Each section-level template contains the following:&#13;* Template metadata (e.g., templateId, etc.)&#13;* Description and explanatory narrative&#13;* LOINC section code&#13;* Section title&#13;* Requirements for a text element&#13;* Entry-level template names and Ids for referenced templates (required and optional)&#13;Narrative Text&#13;The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.&#13;The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.&#13;As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.&#13;As for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.&#13;HL7 CDA R2.1 IG: Consolidated CDA Templates for Clinical Note (US Realm), DSTU R2—Vol. 2: Templates Page 251&#13;August 2015 © 2015 Health Level Seven, Inc. All rights reserved.&#13;By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.&#13;Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6." />
+        </grouping>
+        <grouping id="entry">
+            <name value="Entry Templates" />
+            <description value="This chapter describes the clinical statement entry templates used within the sections of the document types of this consolidated guide. Entry templates contain constraints that are required for conformance.&#13;Entry-level templates are always in sections.&#13;Each entry-level template description contains the following information:&#13;* Key template metadata (e.g., template identifier, etc.)&#13;* Description and explanatory narrative.&#13;* Required CDA acts, participants and vocabularies.&#13;* Optional CDA acts, participants and vocabularies.&#13;Several entry-level templates require an effectiveTime:&#13;The effectiveTime of an observation is the time interval over which the observation is known to be true. The low and high values should be as precise as possible, but no more precise than known. While CDA has multiple mechanisms to record this time interval (e.g., by low and high values, low and width, high and width, or center point and width), this guide constrains most to use only the low/high form. The low value is the earliest point for which the condition is known to have existed. The high value, when present, indicates the time at which the observation was no longer known to be true. The full description of effectiveTime and time intervals is contained in the CDA R2 normative edition.&#13;Provenance in entry templates:&#13;In this version of Consolidated CDA (C-CDA), we have added a &quot;SHOULD&quot; Author constraint on several entry-level templates. Authorship and Author timestamps must be explicitly asserted in these cases, unless the values propagated from the document header hold true.&#13;ID in entry templates:&#13;Entry-level templates may also describe an id element, which is an identifier for that entry. This id may be referenced within the document, or by the system receiving the document. The id assigned must be globally unique." />
+        </grouping>
+        <grouping id="other">
+            <name value="Participation &amp; Other Templates" />
+            <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template." />
+        </grouping>
 		<resource>
 			<reference>
 				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
+				<display value="USRealmHeader"/>
 			</reference>
-		</resource>
-		<!--
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.18"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.26"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.33"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.4"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.1.19"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.15.3.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.15.3.8"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.18.2.12"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.18.2.9"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.2.10"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.2.5"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
-			</reference>
+            <groupingId value="document" />
 		</resource>
 		<resource>
 			<reference>
 				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.10"/>
+				<display value="UnstructuredDocument"/>
 			</reference>
+            <groupingId value="document" />
 		</resource>
 		<resource>
 			<reference>
 				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.13"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.14"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.15"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.3"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.4"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.5"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.6"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.7"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.8"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.9"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.1.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.10"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.11.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.11"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.12"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.13"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.14"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.15"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.16"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.17"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.18"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.2.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.20"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.21.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.21"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.22.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.22"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.23"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.24"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.25"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.26"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.27"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.28"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.29"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.3.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.3"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.30"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.31"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.33"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.34"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.35"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.36"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.37"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.38"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.39"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.4.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.4"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.40"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.41"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.42"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.43"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.44"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.45"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.5.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.5"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.56"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.57"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.58"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.6.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.6"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.60"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.61"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.64"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.7.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.7"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.8"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.9"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.108"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.109"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.110"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.111"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.113"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.114"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.115"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.118"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.12"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.120"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.121"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.123"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.124"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.127"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.128"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.129"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.130"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.131"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.132"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.133"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.134"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.135"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.136"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.138"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.140"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.141"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.144"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.145"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.146"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.147"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.17"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.18"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.24"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.25"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.26"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.27"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.28"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.3"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.30"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.31"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.32"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.33"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.34"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.35"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.36"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.37"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.38"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.39"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.4"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.40"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.42"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.43"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.44"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.45"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.46"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.47"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.48"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.49"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.5"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.50"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.51"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.52"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.53"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.6"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.60"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.61"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.63"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.64"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.65"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.66"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.67"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.68"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.7"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.70"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.72"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.73"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.74"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.75"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.76"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.77"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.78"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.79"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.8"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.80"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.85"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.86"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.3"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.4"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.24.3.90"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.29.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.1.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.1.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.11"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.3"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.4"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.6"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.9"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.7.12"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.7.13"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.7.14"/>
-			</reference>
-		</resource>
-		-->
-		<resource>
-			<reference>
-				<reference value="ValueSet/1.3.6.1.4.1.12009.10.2.5"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1010.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1010.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1010.4"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1010.6"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1010.8"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1021.30"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1099.11"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1099.12"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113762.1.4.1099.24"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.10267"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.10416"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.10637"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.11526"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.11610"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.12199"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.12212"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.12249"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.12839"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.14914"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.15913"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.15933"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.16866"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.16926"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.18877"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.19185"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.19579"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.19601"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.19717"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20.12"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20.2.3"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20.2.4"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20.2.5"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20.2.6"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20.2.7"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20.2.9"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.20549"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.1.11.78"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.1.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.12.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.6.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.8.1"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.18"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.19"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.20"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.21"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.22"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.23"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.24"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.25"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.26"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.29"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.31"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.33"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.35"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.36"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.37"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.38"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.39"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.41"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.44"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.47"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.49"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.50"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.51"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.52"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.54"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.55"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.58"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.59"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.60"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.61"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.65"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.11.20.9.66"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.2074.1.1.3"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.6.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.6.8"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.7.2"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.80.60"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.80.62"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.80.64"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.113883.3.88.12.80.68"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.114222.4.11.1066"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.114222.4.11.3591"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.114222.4.11.837"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="ValueSet/2.16.840.1.114222.4.11.877"/>
-			</reference>
-		</resource>
-		<page>
-			<nameUrl value="index.html"/>
-			<title value="IG Home Page"/>
-			<generation value="markdown"/>
-			<page>
-				<nameUrl value="acknowledgments.html"/>
-				<title value="Acknowledgments"/>
-				<generation value="markdown"/>
-			</page>
-			<page>
-				<nameUrl value="background.html"/>
-				<title value="Background"/>
-				<generation value="markdown"/>
-			</page>
-			<page>
-				<nameUrl value="introduction.html"/>
-				<title value="Introduction"/>
-				<generation value="markdown"/>
-			</page>
-			<page>
-				<nameUrl value="designconsiderations.html"/>
-				<title value="Design Considerations"/>
-				<generation value="markdown"/>
-			</page>
-			<page>
-				<nameUrl value="using.html"/>
-				<title value="Using this Implementation Guide"/>
-				<generation value="markdown"/>
-			</page>
-			<page>
-				<nameUrl value="downloads.html"/>
-				<title value="Downloads"/>
-				<generation value="markdown"/>
-			</page>
-		</page>
-	</definition>
+				<display value="TransferSummary"/>
+			</reference>
+            <groupingId value="document" />
+		</resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.14"/>
+                <display value="ReferralNote"/>
+            </reference>
+            <groupingId value="document" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.10"/>
+                <display value="PlanofTreatmentSection"/>
+            </reference>
+            <groupingId value="section" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.4"/>
+                <display value="USRealmDateandTimeDTMUSFIELDED"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+                <display value="USRealmAddressADUSFIELDED"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.1"/>
+                <display value="USRealmPatientNamePTNUSFIELDED"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+                <display value="USRealmPersonNamePNUSFIELDED"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.44"/>
+                <display value="PlannedObservation"/>
+            </reference>
+            <groupingId value="entry" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.121"/>
+                <display value="GoalObservation"/>
+            </reference>
+            <groupingId value="entry" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+                <display value="AuthorParticipation"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
+                <display value="PriorityPreference"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
+                <display value="Indication"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+                <display value="Instruction"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.129"/>
+                <display value="PlannedCoverage"/>
+            </reference>
+            <groupingId value="other" />
+        </resource>
+		<!--
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1"/>
+                <display value="ChiefComplaintSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
+                <display value="ReasonforReferralSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.18"/>
+                <display value="ReviewofSystemsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.26"/>
+                <display value="HospitalDischargePhysicalSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.33"/>
+                <display value="DischargeDietSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.4"/>
+                <display value="HistoryofPresentIllnessSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
+                <display value="HospitalCourseSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.1.19"/>
+                <display value="AuthorizationActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.15.3.1"/>
+                <display value="EstimatedDateofDelivery"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.15.3.8"/>
+                <display value="PregnancyObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.18.2.12"/>
+                <display value="ProcedureDispositionSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.18.2.9"/>
+                <display value="ProcedureEstimatedBloodLossSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.2.10"/>
+                <display value="PhysicalExamSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.2.5"/>
+                <display value="GeneralStatusSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.1"/>
+                <display value="ObjectiveSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.2"/>
+                <display value="SubjectiveSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
+                <display value="InterventionsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.15"/>
+                <display value="CarePlan"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.2"/>
+                <display value="ContinuityofCareDocumentCCD"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.3"/>
+                <display value="HistoryandPhysical"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.4"/>
+                <display value="ConsultationNote"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.5"/>
+                <display value="DiagnosticImagingReport"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.6"/>
+                <display value="ProcedureNote"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.7"/>
+                <display value="OperativeNote"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.8"/>
+                <display value="DischargeSummary"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.9"/>
+                <display value="ProgressNote"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.1.1"/>
+                <display value="MedicationsSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.1"/>
+                <display value="MedicationsSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.11.1"/>
+                <display value="DischargeMedicationsSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.11"/>
+                <display value="DischargeMedicationsSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.12"/>
+                <display value="ReasonforVisitSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.13"/>
+                <display value="ChiefComplaintandReasonforVisitSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.14"/>
+                <display value="FunctionalStatusSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.15"/>
+                <display value="FamilyHistorySection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.16"/>
+                <display value="HospitalDischargeStudiesSummarySection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.17"/>
+                <display value="SocialHistorySection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.18"/>
+                <display value="PayersSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.2.1"/>
+                <display value="ImmunizationsSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.2"/>
+                <display value="ImmunizationsSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.20"/>
+                <display value="PastMedicalHistory"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.21.1"/>
+                <display value="AdvanceDirectivesSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.21"/>
+                <display value="AdvanceDirectivesSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.22.1"/>
+                <display value="EncountersSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.22"/>
+                <display value="EncountersSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.23"/>
+                <display value="MedicalEquipmentSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.24"/>
+                <display value="DischargeDiagnosisSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.25"/>
+                <display value="AnesthesiaSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.26"/>
+                <display value="SurgeryDescriptionSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.27"/>
+                <display value="ProcedureDescriptionSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.28"/>
+                <display value="ProcedureFindingsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.29"/>
+                <display value="ProcedureIndicationsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.3.1"/>
+                <display value="ResultsSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.3"/>
+                <display value="ResultsSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.30"/>
+                <display value="PlannedProcedureSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.31"/>
+                <display value="ProcedureSpecimensTakenSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.33"/>
+                <display value="ImplantsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.34"/>
+                <display value="PreoperativeDiagnosisSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.35"/>
+                <display value="PostoperativeDiagnosisSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.36"/>
+                <display value="PostprocedureDiagnosisSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.37"/>
+                <display value="ComplicationsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.38"/>
+                <display value="MedicationsAdministeredSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.39"/>
+                <display value="MedicalGeneralHistorySection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.4.1"/>
+                <display value="VitalSignsSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.4"/>
+                <display value="VitalSignsSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.40"/>
+                <display value="ProcedureImplantsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.41"/>
+                <display value="HospitalDischargeInstructionsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.42"/>
+                <display value="HospitalConsultationsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.43"/>
+                <display value="AdmissionDiagnosisSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.44"/>
+                <display value="AdmissionMedicationsSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.45"/>
+                <display value="InstructionsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.5.1"/>
+                <display value="ProblemSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.5"/>
+                <display value="ProblemSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.56"/>
+                <display value="MentalStatusSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.57"/>
+                <display value="NutritionSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.58"/>
+                <display value="HealthConcernsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.6.1"/>
+                <display value="AllergiesandIntolerancesSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.6"/>
+                <display value="AllergiesandIntolerancesSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.60"/>
+                <display value="GoalsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.61"/>
+                <display value="HealthStatusEvaluationsandOutcomesSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.64"/>
+                <display value="CourseofCareSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.7.1"/>
+                <display value="ProceduresSectionentriesrequired"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.7"/>
+                <display value="ProceduresSectionentriesoptional"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.8"/>
+                <display value="AssessmentSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.9"/>
+                <display value="AssessmentandPlanSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.1"/>
+                <display value="ResultOrganizer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.108"/>
+                <display value="AdvanceDirectiveOrganizer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.109"/>
+                <display value="CharacteristicsofHomeEnvironment"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.110"/>
+                <display value="ProgressTowardGoalObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.111"/>
+                <display value="CulturalandReligiousObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.113"/>
+                <display value="PrognosisObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.114"/>
+                <display value="LongitudinalCareWoundObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.115"/>
+                <display value="ExternalDocumentReference"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.118"/>
+                <display value="SubstanceAdministeredAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.12"/>
+                <display value="ProcedureActivityAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.120"/>
+                <display value="PlannedImmunizationActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
+                <display value="EntryReference"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.123"/>
+                <display value="DrugMonitoringAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.124"/>
+                <display value="NutritionalStatusObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.127"/>
+                <display value="SensoryStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.128"/>
+                <display value="SelfCareActivitiesADLandIADL"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
+                <display value="ProcedureActivityObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.130"/>
+                <display value="NutritionRecommendation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.131"/>
+                <display value="InterventionAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.132"/>
+                <display value="HealthConcernAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.133"/>
+                <display value="WoundMeasurementObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.134"/>
+                <display value="WoundCharacteristic"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.135"/>
+                <display value="MedicalEquipmentOrganizer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.136"/>
+                <display value="RiskConcernAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.138"/>
+                <display value="NutritionAssessment"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
+                <display value="ProcedureActivityProcedure"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.140"/>
+                <display value="PatientReferralAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.141"/>
+                <display value="HandoffCommunicationParticipants"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.144"/>
+                <display value="OutcomeObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.145"/>
+                <display value="CriticalityObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.146"/>
+                <display value="PlannedInterventionAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.147"/>
+                <display value="MedicationFreeTextSig"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
+                <display value="MedicationActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.17"/>
+                <display value="MedicationSupplyOrder"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.18"/>
+                <display value="MedicationDispense"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.2"/>
+                <display value="ResultObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
+                <display value="MedicationInformation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.24"/>
+                <display value="DrugVehicle"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.25"/>
+                <display value="PreconditionforSubstanceAdministration"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.26"/>
+                <display value="VitalSignsOrganizer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.27"/>
+                <display value="VitalSignObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.28"/>
+                <display value="AllergyStatusObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.3"/>
+                <display value="ProblemConcernAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.30"/>
+                <display value="AllergyConcernAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.31"/>
+                <display value="AgeObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.32"/>
+                <display value="ServiceDeliveryLocation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.33"/>
+                <display value="HospitalDischargeDiagnosis"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.34"/>
+                <display value="HospitalAdmissionDiagnosis"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.35"/>
+                <display value="DischargeMedication"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.36"/>
+                <display value="AdmissionMedication"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.37"/>
+                <display value="ProductInstance"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.38"/>
+                <display value="SocialHistoryObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.39"/>
+                <display value="PlannedAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.4"/>
+                <display value="ProblemObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.40"/>
+                <display value="PlannedEncounter"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
+                <display value="PlannedProcedure"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.42"/>
+                <display value="PlannedMedicationActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.43"/>
+                <display value="PlannedSupply"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.45"/>
+                <display value="FamilyHistoryOrganizer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.46"/>
+                <display value="FamilyHistoryObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.47"/>
+                <display value="FamilyHistoryDeathObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.48"/>
+                <display value="AdvanceDirectiveObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.49"/>
+                <display value="EncounterActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.5"/>
+                <display value="HealthStatusObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.50"/>
+                <display value="NonMedicinalSupplyActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.51"/>
+                <display value="PostprocedureDiagnosis"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.52"/>
+                <display value="ImmunizationActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.53"/>
+                <display value="ImmunizationRefusalReason"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
+                <display value="ImmunizationMedicationInformation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.6"/>
+                <display value="ProblemStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.60"/>
+                <display value="CoverageActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.61"/>
+                <display value="PolicyActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.63"/>
+                <display value="SeriesAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.64"/>
+                <display value="CommentActivity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.65"/>
+                <display value="PreoperativeDiagnosis"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.66"/>
+                <display value="FunctionalStatusOrganizer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.67"/>
+                <display value="FunctionalStatusObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.68"/>
+                <display value="FunctionalStatusProblemObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
+                <display value="AssessmentScaleObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.7"/>
+                <display value="AllergyIntoleranceObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.70"/>
+                <display value="PressureUlcerObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.72"/>
+                <display value="CaregiverCharacteristics"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.73"/>
+                <display value="CognitiveStatusProblemObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.74"/>
+                <display value="MentalStatusObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.75"/>
+                <display value="MentalStatusOrganizer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.76"/>
+                <display value="NumberofPressureUlcersObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.77"/>
+                <display value="HighestPressureUlcerStage"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.78"/>
+                <display value="SmokingStatusMeaningfulUse"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.79"/>
+                <display value="DeceasedObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.8"/>
+                <display value="SeverityObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.80"/>
+                <display value="EncounterDiagnosis"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.85"/>
+                <display value="TobaccoUse"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.86"/>
+                <display value="AssessmentScaleSupportingObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
+                <display value="ReactionObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.3"/>
+                <display value="USRealmDateandTimeDTUSFIELDED"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.24.3.90"/>
+                <display value="SubstanceorDeviceAllergyIntoleranceObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.29.1"/>
+                <display value="USRealmHeaderforPatientGeneratedDocument"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.1.1"/>
+                <display value="DICOMObjectCatalogSectionDCM121181"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.1.2"/>
+                <display value="FindingsSectionDIR"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.1"/>
+                <display value="PhysicianReadingStudyPerformer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
+                <display value="ReferencedFramesObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.11"/>
+                <display value="BoundaryObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
+                <display value="TextObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
+                <display value="CodeObservations"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
+                <display value="QuantityMeasurementObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.2"/>
+                <display value="PhysicianofRecordParticipant"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.3"/>
+                <display value="FetusSubjectContext"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.4"/>
+                <display value="ObserverContext"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
+                <display value="ProcedureContext"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.6"/>
+                <display value="StudyAct"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
+                <display value="SOPInstanceObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.9"/>
+                <display value="PurposeofReferenceObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.7.12"/>
+                <display value="OperativeNoteFluidsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.7.13"/>
+                <display value="SurgicalDrainsSection"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.7.14"/>
+                <display value="OperativeNoteSurgicalProcedureSection"/>
+            </reference>
+        </resource>
+        -->
+        <resource>
+            <reference>
+                <reference value="ValueSet/1.3.6.1.4.1.12009.10.2.5"/>
+                <display value="LOINCImagingDocumentCodes"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1010.1"/>
+                <display value="SubstanceReactantforIntolerance"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1010.2"/>
+                <display value="ClinicalSubstance"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1010.4"/>
+                <display value="MedicationClinicalDrug"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1010.6"/>
+                <display value="CVXVaccinesAdministeredVaccineSet"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1010.8"/>
+                <display value="VaccineClinicalDrug"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1021.30"/>
+                <display value="AdministrationUnitDoseForm"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1099.11"/>
+                <display value="MedicationStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1099.12"/>
+                <display value="MedicationRoute"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113762.1.4.1099.24"/>
+                <display value="ExtendedPregnancyStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.1"/>
+                <display value="AdministrativeGenderHL7V3"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.10267"/>
+                <display value="ParticipationFunction"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.10416"/>
+                <display value="FinanciallyResponsiblePartyTypeValueSet"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.10637"/>
+                <display value="PostalAddressUse"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.11526"/>
+                <display value="Language"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.11610"/>
+                <display value="xActRelationshipDocument"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.12199"/>
+                <display value="LanguageAbilityProficiency"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.12212"/>
+                <display value="MaritalStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.12249"/>
+                <display value="LanguageAbilityMode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.12839"/>
+                <display value="UnitsOfMeasureCaseSensitive"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.14914"/>
+                <display value="RaceValueSet"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.15913"/>
+                <display value="EntityNameUse"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.15933"/>
+                <display value="ActStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.16866"/>
+                <display value="ActPriority"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.16926"/>
+                <display value="HL7BasicConfidentialityKind"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.18877"/>
+                <display value="CoverageRoleTypeValueSet"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.19185"/>
+                <display value="ReligiousAffiliation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.19579"/>
+                <display value="FamilyMemberValue"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.19601"/>
+                <display value="xServiceEventPerformer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.19717"/>
+                <display value="NoImmunizationReason"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20.12"/>
+                <display value="HealthStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.3"/>
+                <display value="ReferralDocumentType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.4"/>
+                <display value="TransferDocumentType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.5"/>
+                <display value="WoundMeasurements"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.6"/>
+                <display value="WoundType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.7"/>
+                <display value="NutritionalStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.9"/>
+                <display value="NutritionRecommendations"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20.2"/>
+                <display value="AdvanceDirectiveTypeCode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.20549"/>
+                <display value="CriticalityObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.1.11.78"/>
+                <display value="ObservationInterpretationHL7"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.1.1"/>
+                <display value="SurgicalOperationNoteDocumentTypeCode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.12.1"/>
+                <display value="PersonalAndLegalRelationshipRoleType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.6.1"/>
+                <display value="ProcedureNoteDocumentTypeCodes"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.8.1"/>
+                <display value="ProgressNoteDocumentTypeCode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.18"/>
+                <display value="MoodCodeEvnInt"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.19"/>
+                <display value="ProblemActstatusCode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.20"/>
+                <display value="TelecomUseUSRealmHeader"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.21"/>
+                <display value="AgePQUCUM"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.22"/>
+                <display value="ProcedureActstatusCode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.23"/>
+                <display value="PlannedmoodCodeActEncounterProcedure"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.24"/>
+                <display value="PlannedmoodCodeSubstanceAdministrationSupply"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.25"/>
+                <display value="PlannedmoodCodeObservation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.26"/>
+                <display value="EntityPersonNamePartQualifier"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.29"/>
+                <display value="DIRQuantityMeasurementTypeCodes"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.31"/>
+                <display value="ConsultDocumentType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.33"/>
+                <display value="INDRoleclassCodes"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.35"/>
+                <display value="PressureUlcerStage"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.36"/>
+                <display value="PressurePoint"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.37"/>
+                <display value="TargetSiteQualifiers"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.38"/>
+                <display value="SmokingStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.39"/>
+                <display value="ResultStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.41"/>
+                <display value="TobaccoUse"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.44"/>
+                <display value="MentalandFunctionalStatusResponse"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.47"/>
+                <display value="ADLResultType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.49"/>
+                <display value="ResidenceandAccommodationType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.50"/>
+                <display value="SensoryStatusProblemType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.51"/>
+                <display value="HealthcareAgentQualifier"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.52"/>
+                <display value="EncounterPlanned"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.54"/>
+                <display value="PlannedInterventionmoodCode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.55"/>
+                <display value="GoalAchievement"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.58"/>
+                <display value="WoundCharacteristic"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.59"/>
+                <display value="DIRSectionTypeCodes"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.60"/>
+                <display value="PriorityLevel"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.61"/>
+                <display value="CareModel"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.65"/>
+                <display value="PhysicalExamType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.11.20.9.66"/>
+                <display value="PatientReferralActmoodCode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.2074.1.1.3"/>
+                <display value="RaceCategoryExcludingNulls"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.6.2"/>
+                <display value="AllergyandIntoleranceType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.6.8"/>
+                <display value="ReactionSeverity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.7.2"/>
+                <display value="ProblemTypeSNOMEDCT"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
+                <display value="SPLDrugRouteofAdministrationTerminology"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
+                <display value="BodySiteValueSet"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
+                <display value="EncounterTypeCode"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.60"/>
+                <display value="SocialHistoryType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.62"/>
+                <display value="VitalSignResultType"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.64"/>
+                <display value="MedicationFillStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.68"/>
+                <display value="ProblemStatus"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.114222.4.11.1066"/>
+                <display value="HealthcareProviderTaxonomyHIPAA"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.114222.4.11.3591"/>
+                <display value="Payer"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.114222.4.11.837"/>
+                <display value="Ethnicity"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/2.16.840.1.114222.4.11.877"/>
+                <display value="DetailedEthnicity"/>
+            </reference>
+        </resource>
+        <page>
+            <nameUrl value="index.html"/>
+            <title value="IG Home Page"/>
+            <generation value="markdown"/>
+            <page>
+                <nameUrl value="background.html"/>
+                <title value="Background"/>
+                <generation value="markdown"/>
+            </page>
+            <page>
+                <nameUrl value="designconsiderations.html"/>
+                <title value="Design Considerations"/>
+                <generation value="markdown"/>
+            </page>
+            <page>
+                <nameUrl value="using.html"/>
+                <title value="Using this Implementation Guide"/>
+                <generation value="markdown"/>
+            </page>
+            <page>
+                <nameUrl value="downloads.html"/>
+                <title value="Downloads"/>
+                <generation value="markdown"/>
+            </page>
+        </page>
+    </definition>
 </ImplementationGuide>

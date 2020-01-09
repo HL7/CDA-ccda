@@ -7,9 +7,9 @@
   
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
-  
+
     <link rel="stylesheet" href="fhir.css"/>
-      
+     
       <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.css"/>
     <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="assets/css/project.css"/>
     <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
     <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
-
       <!-- Placeholder for child template CSS declarations -->
     <link rel="stylesheet" href="assets/css/hl7.css"/>
-  
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
       <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- [if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
@@ -33,7 +34,7 @@
     <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
     <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
-    <link rel="shortcut icon" href="assets/ico/favicon.png"/>  
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
   </head>
   <body>
 
@@ -80,13 +81,7 @@
     <a data-toggle="dropdown" href="#" class="dropdown-toggle">Specification<b class="caret"></b></a>
     <ul class="dropdown-menu">
       <li>
-        <a href="acknowledgments.html">Acknowledgments</a>
-      </li>
-      <li>
         <a href="background.html">Background</a>
-      </li>
-      <li>
-        <a href="introduction.html">Introduction</a>
       </li>
       <li>
         <a href="designconsiderations.html">Design Considerations</a>
@@ -133,14 +128,157 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   
 <div class="markdown-toc">
 <ul id="markdown-toc">
-  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#purpose" id="markdown-toc-purpose">Purpose</a></li>
+  <li><a href="#audience" id="markdown-toc-audience">Audience</a></li>
+  <li><a href="#organization-of-the-guide" id="markdown-toc-organization-of-the-guide">Organization of the Guide</a></li>
+  <li><a href="#acknowledgments" id="markdown-toc-acknowledgments">Acknowledgments</a></li>
+  <li><a href="#authors" id="markdown-toc-authors">Authors</a></li>
 </ul>
 
 </div>
-<p><a name="intro"> </a></p>
-<h3 id="introduction">Introduction</h3>
+<h3 id="purpose">Purpose</h3>
 
-<p>What is this IG about (in patient/non-expert friendly terms).</p>
+<p>This two-volume implementation guide (IG) contains an overview of Clinical Document Architecture (CDA) markup standards, design, and use (Volume 1) and a consolidated library of CDA templates for clinical notes applicable to the US Realm (Volume 2). These two volumes comprise a Draft Standard for Trial Use (DSTU).
+It has been adapted from the Release 2.0 version of the Consolidated CDA Templates for Clinical Notes to support backward compatibility “on the wire” with the 1.1 Release of the templates described in this guide. This will enable implementers of systems conforming to this guide to produce documents that can be understood by systems which only support the C-CDA Release 1.1 specification.
+The consolidated library incorporates previous efforts from Health Level Seven (HL7), Integrating the Healthcare Enterprise (IHE), the Health Information Technology Standards Panel (HITSP), the HL7 Health Story guides, HITSP C32, and related components of IHE Patient Care Coordination (IHE PCC). It has additional or enhanced document types for greater expressivity and decrease ambiguity (see Volume 2 Summary of Changes). Volume 1 adds new general guidance (see Summary of Changes).
+This guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to be used for implementing the following CDA documents and header constraints for clinical notes.</p>
+
+<ul>
+  <li>Care Plan including Home Health Plan of Care (HHPoC)</li>
+  <li>Consultation Note</li>
+  <li>Continuity of Care Document (CCD)</li>
+  <li>Diagnostic Imaging Reports (DIR)</li>
+  <li>Discharge Summary</li>
+  <li>History and Physical (H&amp;P)</li>
+  <li>Operative Note</li>
+  <li>Procedure Note</li>
+  <li>Progress Note</li>
+  <li><a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.14.html">Referral Note</a></li>
+  <li><a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.13.html">Transfer Summary</a></li>
+  <li><a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.10.html">Unstructured Document</a></li>
+  <li>Patient Generated Document (<a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.1.html">US Realm Header</a>)</li>
+</ul>
+
+<h3 id="audience">Audience</h3>
+
+<p>The audience for this implementation guide includes architects and developers of healthcare information technology (HIT) systems in the US Realm that exchange patient clinical data. Business analysts and policy managers can also benefit from a basic understanding of the use of CDA templates across multiple implementation use cases.</p>
+
+<h3 id="organization-of-the-guide">Organization of the Guide</h3>
+
+<p>This implementation guide is organized into two volumes. Volume 1 contains primarily narrative text describing the Consolidated CDA Release 2 (C-CDA R2) guide, whereas Volume 2 contains normative CDA template definitions.</p>
+
+<h3 id="acknowledgments">Acknowledgments</h3>
+
+<p>This R2.1 guide was developed and produced through the efforts of Health Level Seven (HL7).</p>
+
+<p>The editors appreciate the support and sponsorship of the HL7 Structured Documents Working Group (SDWG), the HL7 Patient Care Work Group, the HL7 Child Health Work Group, and all volunteers and staff associated with the creation of this document. This guide would not have been possible without the support of the Department of Defense/Department of Veterans Affairs Interagency Program Office (DoD/VA IPO).</p>
+
+<p>This material contains content from SNOMED CT&reg; (http://www.ihtsdo.org/snomed-ct/). SNOMED CT is a registered trademark of the International Health Terminology Standard Development Organisation (IHTSDO).</p>
+
+<p>This material contains content from the Logical Observation Identifiers Names and Codes (LOINC) organization (http://loinc.org). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright &copy; 1995-2014, Regenstrief Institute, Inc. and LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.</p>
+
+<h3 id="authors">Authors</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Primary Editor / Co-Chair:</td>
+      <td>Rick Geimer<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:rick.geimer@lantanagroup.com">rick.geimer@lantanagroup.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Benjamin Flessner<br/><a href="http://www.epic.com">Epic</a><br/><a href="mailto:Benjamin@epic.com">Benjamin@epic.com</a></td>
+    </tr>
+    <tr>
+      <td>Primary Editor / Co-Chair:</td>
+      <td>Brett Marquard<br/><a href="http://www.riverrockassociates.com">River Rock Associates</a><br/><a href="mailto:brett@riverrockassociates.com">brett@riverrockassociates.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Larry Garber, MD<br/><a href="http://www.reliantmedicalgroup.org">Reliant Medical Group</a><br/><a href="mailto:Lawrence.Garber@ReliantMedicalGroup.org">Lawrence.Garber@ReliantMedicalGroup.org</a></td>
+    </tr>
+    <tr>
+      <td>Co-Chair:</td>
+      <td>Calvin Beebe<br/><a href="http://www.mayo.edu">Mayo Clinic</a><br/><a href="mailto:cbeebe@mayo.edu">cbeebe@mayo.edu</a></td>
+      <td>Co-Editor:</td>
+      <td>Jennie Harvell, M.Ed US Health and Human Services<br/><a href="mailto:Jennie.harvell@hhs.gov">Jennie.harvell@hhs.gov</a></td>
+    </tr>
+    <tr>
+      <td>Co-Chair:</td>
+      <td>Diana Behling<br/><a href="http://iatric.com">Iatric Systems</a><br/><a href="mailto:Diana.Behling@iatric.com">Diana.Behling@iatric.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Laura Heermann Langford, RN, PhD<br/>Intermountain Healthcare<br/><a href="mailto:Laura.Heermann@imail.org">Laura.Heermann@imail.org</a></td>
+    </tr>
+    <tr>
+      <td>Co-Chair:</td>
+      <td>Austin Kreisler<br/>SAIC Consultant to CDC/NHSN<br/><a href="mailto:duz1@cdc.gov">duz1@cdc.gov</a></td>
+      <td>Co-Editor:</td>
+      <td>Emma Jones RN-BC, MSN<br/>Allscripts<br/><a href="mailto:emma.jones@allscripts.com">emma.jones@allscripts.com</a></td>
+    </tr>
+    <tr>
+      <td>Co-Chair:</td>
+      <td>Patrick Lloyd<br/>Icode Solutions<br/><a href="mailto:patrick.e.loyd@gmail.com">patrick.e.loyd@gmail.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Josh Mandel, MD<br/>Harvard Medical School / Boston Children’s Hospital<br/><a href="mailto:Joshua.Mandel@childrens.harvard.edu">Joshua.Mandel@childrens.harvard.edu</a></td>
+    </tr>
+    <tr>
+      <td>Primary Editor / Co-Chair:</td>
+      <td>Gaye Dolin, MSN, RN<br/><a href="http://www.imo-online.com">Intelligent Medical Objects, Inc.</a><br/><a href="mailto:gdolin@imo-online.com">gdolin@imo-online.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Susan Matney, MSN, RN 3M<br/>Health Information Systems<br/><a href="mailto:samatney@mmm.com">samatney@mmm.com</a></td>
+    </tr>
+    <tr>
+      <td>Primary Editor:</td>
+      <td>Sarah Gaunt<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:sarah.gaunt@lantanagroup.com">sarah.gaunt@lantanagroup.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Sean McIlvenna<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:sean.mcilvenna@lantanagroup.com">sean.mcilvenna@lantanagroup.com</a></td>
+    </tr>
+    <tr>
+      <td>Primary Editor:</td>
+      <td>Zabrina Gonzaga<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:zabrina.gonzaga@lantanagroup.com">zabrina.gonzaga@lantanagroup.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Dale Nelson<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:dale.nelson@lantanagroup.com">dale.nelson@lantanagroup.com</a></td>
+    </tr>
+    <tr>
+      <td>Co-Editor:</td>
+      <td>Liora Alschuler<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:liora.alschuler@lantanagroup.com">liora.alschuler@lantanagroup.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Lisa Nelson<br/>Life Over Time Solutions<br/><a href="mailto:LisaRNelson@cox.net">LisaRNelson@cox.net</a></td>
+    </tr>
+    <tr>
+      <td>Co-Editor:</td>
+      <td>Virinder Batra<br/>Intuit Health<br/><a href="mailto:virinder.batra@gmail.com">virinder.batra@gmail.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Terrence A. O’Malley, MD<br/>Partners Healthcare<br/><a href="mailto:tomalley@partners.org">tomalley@partners.org</a></td>
+    </tr>
+    <tr>
+      <td>Co-Editor:</td>
+      <td>Keith W. Boone<br/>GE Healthcare<br/><a href="mailto:keith.boone@ge.com">keith.boone@ge.com</a></td>
+      <td>Co-Editor:</td>
+      <td>Eric Parapini<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:eric.parapini@lantanagroup.com">eric.parapini@lantanagroup.com</a></td>
+    </tr>
+    <tr>
+      <td>Co-Editor:</td>
+      <td>Stephen Chu, MD, PhD, FACS<br/>National E-Health Transition, Australia<br/><a href="mailto:stephen.chu@nehta.gov.au">stephen.chu@nehta.gov.au</a></td>
+      <td>Co-Editor:</td>
+      <td>David Tao, D.Sc.<br/>ICSA Labs<br/><a href="mailto:dtao12@gmail.com">dtao12@gmail.com</a></td>
+    </tr>
+    <tr>
+      <td>Co-Editor:</td>
+      <td>John D’Amore<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:john.damore@lantanagroup.com">john.damore@lantanagroup.com</a></td>
+      <td>Technical Editor:</td>
+      <td>Adrienne Giannone<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:adrienne.giannone@lantanagroup.com">adrienne.giannone@lantanagroup.com</a></td>
+    </tr>
+    <tr>
+      <td>Co-Editor:</td>
+      <td>Robert H. Dolin, MD<br/><a href="mailto:bobdolin@gmail.com">bobdolin@gmail.com</a></td>
+      <td>Technical Editor:</td>
+      <td>Diana Wright<br/><a href="http://www.lantanagroup.com">Lantana Consulting Group</a><br/><a href="mailto:diana.wright@lantanagroup.com">diana.wright@lantanagroup.com</a></td>
+    </tr>
+    <tr>
+      <td>Co-Editor:</td>
+      <td>Susan Campbell, PhD, RN<br/><a href="mailto:bostoncampbell@mindspring.com">bostoncampbell@mindspring.com</a></td>
+      <td>Technical Editor:</td>
+      <td>Veronica Kwok<br/>Deloitte<br/><a href="mailto:vkwok@deloitte.com">vkwok@deloitte.com</a></td>
+    </tr>
+  </tbody>
+</table>
 
 
 </div>
@@ -153,8 +291,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
     <div class="container">    <!-- container -->
       <div class="inner-wrapper">
-        <p><a name="db727efe-fb63-4d91-b4ec-d55881e95ada">​</a>
-          IG &copy; 2019+ <a style="color: #81BEF7" href="null"></a>Health Level 7.  Package hl7.cda.us.ccda#2.1.0 based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Dec 16, 2019 22:36-0800">2019-12-16</span>
+        <p><a name="6650fca6-4278-419d-85d3-c2e68c71f1ef">​</a>
+          IG &copy; 2019+ <a style="color: #81BEF7" href="null">Health Level 7</a>.  Package hl7.cda.us.ccda#2.1.0 based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Jan 9, 2020 08:23-0800">2020-01-09</span>
           <br/>
           <span style="color: #FFFF77">
                       Links: <a style="color: #81BEF7" href="toc.html">Table of Contents</a> |
@@ -182,7 +320,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
   <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
   <script src="assets/js/respond.min.js" type="text/javascript"> </script>
-  <script src="assets/js/fhir.js" type="text/javascript"> </script>
   <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
   <script>anchors.options.visible = 'hover'
 anchors.add()</script>

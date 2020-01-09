@@ -22,7 +22,8 @@ value:extension}","",,"open","ClinicalDocument.templateId",0,*,"",""
 "ClinicalDocument.title","","","The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code",1,1,"","","","http://hl7.org/fhir/cda/StructureDefinition/ST {[]} {[]}
 ","The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code","SHALL contain exactly one [1..1] title (CONF:1198-5254).","","","","","","","","","",,,,,"",,,,"ClinicalDocument.title",0,1,"",""
 "ClinicalDocument.effectiveTime","","","",1,1,"","","","http://hl7.org/fhir/cda/StructureDefinition/TS {[CanonicalType[http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.4]]} {[]}
-","effectiveTime","SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:1198-5256).","","","","","","","","","",,,,,"",,,,"ClinicalDocument.effectiveTime",1,1,"",""
+","effectiveTime","SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:1198-5256).","","","","","","","","","",,,,,"",,,,"ClinicalDocument.effectiveTime",1,1,"","81-10127:**SHALL** be precise to the day (CONF:81-10127). {null}
+81-10128:**SHOULD** be precise to the minute (CONF:81-10128). {null}81-10129:**MAY** be precise to the second (CONF:81-10129). {null}81-10130:If more precise than day, **SHOULD** include time-zone offset (CONF:81-10130). {null}"
 "ClinicalDocument.confidentialityCode","","","",1,1,"","","","http://hl7.org/fhir/cda/StructureDefinition/CE {[]} {[]}
 ","confidentialityCode","SHALL contain exactly one [1..1] confidentialityCode, which SHOULD be selected from ValueSet HL7 BasicConfidentialityKind urn:oid:2.16.840.1.113883.1.11.16926 DYNAMIC (CONF:1198-5259).","","","","","","","","","",,,,,"",,,,"ClinicalDocument.confidentialityCode",1,1,"",""
 "ClinicalDocument.languageCode","","","",1,1,"","","","http://hl7.org/fhir/cda/StructureDefinition/CS {[]} {[]}
@@ -55,8 +56,8 @@ value:extension}","",,"open","ClinicalDocument.templateId",0,*,"",""
 "ClinicalDocument.legalAuthenticator","","","",0,1,"","","","http://hl7.org/fhir/cda/StructureDefinition/LegalAuthenticator {[]} {[]}
 ","legalAuthenticator","SHOULD contain zero or one [0..1] legalAuthenticator (CONF:1198-5579).","","","","","","","","","",,,,,"",,,,"ClinicalDocument.legalAuthenticator",0,1,"",""
 "ClinicalDocument.authenticator","","","",0,*,"","","","http://hl7.org/fhir/cda/StructureDefinition/Authenticator {[]} {[]}
-","","MAY contain zero or more [0..*] authenticator (CONF:1198-5607) such that it","","","","","","","","","",,,,,"","value:ClinicalDocument.signatureCode}
-value:ClinicalDocument.assignedEntity}value:ClinicalDocument.time}","",,"open","ClinicalDocument.authenticator",0,*,"",""
+","","MAY contain zero or more [0..*] authenticator (CONF:1198-5607) such that it","","","","","","","","","",,,,,"","value:signatureCode}
+","",,"open","ClinicalDocument.authenticator",0,*,"",""
 "ClinicalDocument.authenticator","authenticator1","","",0,*,"","","","http://hl7.org/fhir/cda/StructureDefinition/Authenticator {[]} {[]}
 ","authenticator","MAY contain zero or more [0..*] authenticator (CONF:1198-5607) such that it","","","","","","","","","",,,,,"",,,,"ClinicalDocument.authenticator",0,*,"",""
 "ClinicalDocument.participant","","","",0,*,"","","","http://hl7.org/fhir/cda/StructureDefinition/Participant {[]} {[]}
