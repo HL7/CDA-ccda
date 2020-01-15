@@ -290,14 +290,14 @@ If a sender wants to state that a piece of information is unknown, the following
 
 **Value Completely Unknown**
 
-``
+```
 <entry>
 	<observation classCode="OBS" moodCode="EVN">
 		…
 		<value xsi:type="CD" nullFlavor="UNK"/>
 	</observation>
 </entry>
-``
+```
 
 **Value Known, Code in Required Code System Not Known But Code from Another Code System is Known**
 
