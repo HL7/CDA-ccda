@@ -6,9 +6,6 @@ import {Fhir} from 'fhir/fhir';
 const sdFileNames = fs.readdirSync('input/resources/structuredefinition');
 const fhir = new Fhir();
 
-let profilesTemplate = fs.readFileSync(path.join(__dirname, 'profiles.md')).toString();
-let profilesTemplateRows = '';
-
 sdFileNames.forEach((sdFileName) => {
     const absSdFileName = path.join('input/resources/structuredefinition', sdFileName);
     let xmlContent = fs.readFileSync(absSdFileName).toString();
