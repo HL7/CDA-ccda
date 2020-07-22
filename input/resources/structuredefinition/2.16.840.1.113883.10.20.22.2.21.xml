@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir file:/C:/Users/sean.mcilvenna/OneDrive%20-%20Lantana%20Consulting%20Group/Standards/FHIR%20R4/fhir-all.xsd"
+ xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.2.21"/>
     <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.21"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.21:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="AdvanceDirectivesSectionentriesoptional"/>
+    <name value="AdvanceDirectivesSectionEntriesOptional"/>
     <title value="Advance Directives Section (entries optional) (V3)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
@@ -112,21 +113,39 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="exists" />
+                    <path value="*" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
             <short value="entry"/>
             <definition value="MAY contain zero or more [0..*] entry (CONF:1198-7957)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry.observation">
+        <element id="Section.entry:observation">
+            <path value="Section.entry" />
+            <sliceName value="observation" />
+        </element>
+        <element id="Section.entry:observation.observation">
             <path value="Section.entry.observation"/>
             <short value="observation"/>
             <definition value="The entry, if present, SHALL contain exactly one [1..1] Advance Directive Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-15443)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.48"/>
             </type>
+        </element>
+        <element id="Section.entry:organizer">
+            <path value="Section.entry" />
+            <sliceName value="organizer" />
+        </element>
+        <element id="Section.entry:organizer.organizer">
+            <path value="Section.entry.organizer"/>
+            <short value="organizer"/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] Advance Directive Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-15443)."/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Organizer"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.108"/>
