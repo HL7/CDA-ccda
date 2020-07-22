@@ -1,1388 +1,334 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ImplementationGuide
-    xmlns="http://hl7.org/fhir">
+<ImplementationGuide xmlns="http://hl7.org/fhir">
     <id value="cda-ccda"/>
-    <url value="http://hl7.org/fhir/cda/ccda/ImplementationGuide/cda-ccda"/>
-    <version value="2.1.0"/>
-    <name value="ccda"/>
-    <title value="Consolidated CDA Templates for Clinical Notes (US Realm) STU R2.1"/>
-    <status value="active"/>
-    <experimental value="false"/>
-    <publisher value="Health Level 7"/>
-    <packageId value="hl7.cda.us.ccda"/>
-    <fhirVersion value="4.0.1"/>
+    <meta>
+        <versionId value="18"/>
+        <lastUpdated value="2020-07-22T15:53:51.140+00:00"/>
+        <source value="#kGDyN5xDozc17JJP"/>
+        <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="user^t200^read"/>
+        </security>
+        <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="user^t200^write"/>
+        </security>
+        <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+        </security>
+        <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="user^t282^read"/>
+        </security>
+        <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="user^t282^write"/>
+        </security>
+        <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="group^t2502^read"/>
+        </security>
+        <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="group^t2502^write"/>
+        </security>
+    </meta>
+    <url value="http://hl7.org/cda/us/ccda/ImplementationGuide/hl7.cda.us.ccda.r2dot2"/>
+    <version value="2.2"/>
+    <name value="CCDAR2dot2"/>
+    <title value="Consolidated CDA Release 2.2"/>
+    <status value="draft"/>
+    <publisher value="Health Level Seven"/>
+    <contact>
+        <name value="HL7 International - Structured Documents"/>
+        <telecom>
+            <system value="url"/>
+            <value value="http://www.hl7.org/Special/committees/structure"/>
+        </telecom>
+    </contact>
+    <jurisdiction>
+        <coding>
+            <system value="urn:iso:std:iso:3166:-2"/>
+            <code value="US"/>
+        </coding>
+    </jurisdiction>
+    <packageId value="hl7.cda.us.ccdar2dot2"/>
+    <fhirVersion value="4.0.0"/>
     <dependsOn>
         <uri value="http://hl7.org/fhir/cda/ImplementationGuide/cda-ig"/>
         <packageId value="hl7.fhir.cda"/>
-        <version value="dev"/>
+        <version value="current"/>
     </dependsOn>
     <definition>
         <grouping id="document">
-            <name value="Document Templates" />
-			<description value="Document-level templates describe the purpose and rules for constructing a conforming CDA document. Document templates include constraints on the CDA header and indicate contained section-level templates.&#13;Each document-level template contains the following information:&#13;* Scope and intended use of the document type&#13;* Description and explanatory narrative&#13;* Template metadata (e.g., templateId)&#13;* Header constraints (e.g., document type, template id, participants)&#13;* Required and optional section-level templates&#13;" />
+            <name value="Document Templates"/>
+            <description
+                value="Document-level templates describe the purpose and rules for constructing a conforming CDA document. Document templates include constraints on the CDA header and indicate contained section-level templates.&#xD;Each document-level template contains the following information:&#xD;* Scope and intended use of the document type&#xD;* Description and explanatory narrative&#xD;* Template metadata (e.g., templateId)&#xD;* Header constraints (e.g., document type, template id, participants)&#xD;* Required and optional section-level templates&#xD;"
+            />
         </grouping>
         <grouping id="section">
-            <name value="Section Templates" />
-			<description value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.&#13;Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).&#13;Each section-level template contains the following:&#13;* Template metadata (e.g., templateId, etc.)&#13;* Description and explanatory narrative&#13;* LOINC section code&#13;* Section title&#13;* Requirements for a text element&#13;* Entry-level template names and Ids for referenced templates (required and optional)&#13;Narrative Text&#13;The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.&#13;The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.&#13;As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.&#13;As for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.&#13;HL7 CDA R2.1 IG: Consolidated CDA Templates for Clinical Note (US Realm), DSTU R2—Vol. 2: Templates Page 251&#13;August 2015 © 2015 Health Level Seven, Inc. All rights reserved.&#13;By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.&#13;Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6." />
+            <name value="Section Templates"/>
+            <description
+                value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.&#xD;Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).&#xD;Each section-level template contains the following:&#xD;* Template metadata (e.g., templateId, etc.)&#xD;* Description and explanatory narrative&#xD;* LOINC section code&#xD;* Section title&#xD;* Requirements for a text element&#xD;* Entry-level template names and Ids for referenced templates (required and optional)&#xD;Narrative Text&#xD;The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.&#xD;The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.&#xD;As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.&#xD;As for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.&#xD;HL7 CDA R2.1 IG: Consolidated CDA Templates for Clinical Note (US Realm), DSTU R2—Vol. 2: Templates Page 251&#xD;August 2015 © 2015 Health Level Seven, Inc. All rights reserved.&#xD;By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.&#xD;Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6."
+            />
         </grouping>
         <grouping id="entry">
-            <name value="Entry Templates" />
-            <description value="This chapter describes the clinical statement entry templates used within the sections of the document types of this consolidated guide. Entry templates contain constraints that are required for conformance.&#13;Entry-level templates are always in sections.&#13;Each entry-level template description contains the following information:&#13;* Key template metadata (e.g., template identifier, etc.)&#13;* Description and explanatory narrative.&#13;* Required CDA acts, participants and vocabularies.&#13;* Optional CDA acts, participants and vocabularies.&#13;Several entry-level templates require an effectiveTime:&#13;The effectiveTime of an observation is the time interval over which the observation is known to be true. The low and high values should be as precise as possible, but no more precise than known. While CDA has multiple mechanisms to record this time interval (e.g., by low and high values, low and width, high and width, or center point and width), this guide constrains most to use only the low/high form. The low value is the earliest point for which the condition is known to have existed. The high value, when present, indicates the time at which the observation was no longer known to be true. The full description of effectiveTime and time intervals is contained in the CDA R2 normative edition.&#13;Provenance in entry templates:&#13;In this version of Consolidated CDA (C-CDA), we have added a &quot;SHOULD&quot; Author constraint on several entry-level templates. Authorship and Author timestamps must be explicitly asserted in these cases, unless the values propagated from the document header hold true.&#13;ID in entry templates:&#13;Entry-level templates may also describe an id element, which is an identifier for that entry. This id may be referenced within the document, or by the system receiving the document. The id assigned must be globally unique." />
+            <name value="Entry Templates"/>
+            <description
+                value="This chapter describes the clinical statement entry templates used within the sections of the document types of this consolidated guide. Entry templates contain constraints that are required for conformance.&#xD;Entry-level templates are always in sections.&#xD;Each entry-level template description contains the following information:&#xD;* Key template metadata (e.g., template identifier, etc.)&#xD;* Description and explanatory narrative.&#xD;* Required CDA acts, participants and vocabularies.&#xD;* Optional CDA acts, participants and vocabularies.&#xD;Several entry-level templates require an effectiveTime:&#xD;The effectiveTime of an observation is the time interval over which the observation is known to be true. The low and high values should be as precise as possible, but no more precise than known. While CDA has multiple mechanisms to record this time interval (e.g., by low and high values, low and width, high and width, or center point and width), this guide constrains most to use only the low/high form. The low value is the earliest point for which the condition is known to have existed. The high value, when present, indicates the time at which the observation was no longer known to be true. The full description of effectiveTime and time intervals is contained in the CDA R2 normative edition.&#xD;Provenance in entry templates:&#xD;In this version of Consolidated CDA (C-CDA), we have added a &quot;SHOULD&quot; Author constraint on several entry-level templates. Authorship and Author timestamps must be explicitly asserted in these cases, unless the values propagated from the document header hold true.&#xD;ID in entry templates:&#xD;Entry-level templates may also describe an id element, which is an identifier for that entry. This id may be referenced within the document, or by the system receiving the document. The id assigned must be globally unique."
+            />
         </grouping>
         <grouping id="other">
-            <name value="Participation &amp; Other Templates" />
-            <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template." />
+            <name value="Participation &amp; Other Templates"/>
+            <description
+                value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."
+            />
         </grouping>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
-				<display value="USRealmHeader"/>
-			</reference>
-            <groupingId value="document" />
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.10"/>
-				<display value="UnstructuredDocument"/>
-			</reference>
-            <groupingId value="document" />
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.13"/>
-				<display value="TransferSummary"/>
-			</reference>
-            <groupingId value="document" />
-		</resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
+                <display value="USRealmHeader"/>
+            </reference>
+            <exampleBoolean value="false"/>
+            <groupingId value="document"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.10"/>
+                <display value="UnstructuredDocument"/>
+            </reference>
+            <exampleBoolean value="false"/>
+            <groupingId value="document"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.13"/>
+                <display value="TransferSummary"/>
+            </reference>
+            <exampleBoolean value="false"/>
+            <groupingId value="document"/>
+        </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.14"/>
                 <display value="ReferralNote"/>
             </reference>
-            <groupingId value="document" />
+            <exampleBoolean value="false"/>
+            <groupingId value="document"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.10"/>
                 <display value="PlanofTreatmentSection"/>
             </reference>
-            <groupingId value="section" />
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.4"/>
                 <display value="USRealmDateandTimeDTMUSFIELDED"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
                 <display value="USRealmAddressADUSFIELDED"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.1"/>
                 <display value="USRealmPatientNamePTNUSFIELDED"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
                 <display value="USRealmPersonNamePNUSFIELDED"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.44"/>
                 <display value="PlannedObservation"/>
             </reference>
-            <groupingId value="entry" />
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
                 <display value="AuthorParticipation"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.121"/>
                 <display value="GoalObservation"/>
             </reference>
-            <groupingId value="entry" />
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
                 <display value="PriorityPreference"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
                 <display value="Indication"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
                 <display value="Instruction"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.129"/>
                 <display value="PlannedCoverage"/>
             </reference>
-            <groupingId value="other" />
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
         </resource>
-		<!--
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1"/>
-                <display value="ChiefComplaintSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
-                <display value="ReasonforReferralSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.18"/>
-                <display value="ReviewofSystemsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.26"/>
-                <display value="HospitalDischargePhysicalSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.33"/>
-                <display value="DischargeDietSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.4"/>
-                <display value="HistoryofPresentIllnessSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
-                <display value="HospitalCourseSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.1.19"/>
-                <display value="AuthorizationActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.15.3.1"/>
-                <display value="EstimatedDateofDelivery"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.15.3.8"/>
-                <display value="PregnancyObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.18.2.12"/>
-                <display value="ProcedureDispositionSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.18.2.9"/>
-                <display value="ProcedureEstimatedBloodLossSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.2.10"/>
-                <display value="PhysicalExamSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.2.5"/>
-                <display value="GeneralStatusSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.1"/>
-                <display value="ObjectiveSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.2"/>
-                <display value="SubjectiveSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
-                <display value="InterventionsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.15"/>
-                <display value="CarePlan"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.2"/>
-                <display value="ContinuityofCareDocumentCCD"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.3"/>
-                <display value="HistoryandPhysical"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.4"/>
-                <display value="ConsultationNote"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.5"/>
-                <display value="DiagnosticImagingReport"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.6"/>
-                <display value="ProcedureNote"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.7"/>
-                <display value="OperativeNote"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.8"/>
-                <display value="DischargeSummary"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.9"/>
-                <display value="ProgressNote"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.1.1"/>
-                <display value="MedicationsSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.1"/>
-                <display value="MedicationsSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.11.1"/>
-                <display value="DischargeMedicationsSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.11"/>
-                <display value="DischargeMedicationsSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.12"/>
-                <display value="ReasonforVisitSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.13"/>
-                <display value="ChiefComplaintandReasonforVisitSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.14"/>
-                <display value="FunctionalStatusSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.15"/>
-                <display value="FamilyHistorySection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.16"/>
-                <display value="HospitalDischargeStudiesSummarySection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.17"/>
-                <display value="SocialHistorySection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.18"/>
-                <display value="PayersSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.2.1"/>
-                <display value="ImmunizationsSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.2"/>
-                <display value="ImmunizationsSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.20"/>
-                <display value="PastMedicalHistory"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.21.1"/>
-                <display value="AdvanceDirectivesSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.21"/>
-                <display value="AdvanceDirectivesSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.22.1"/>
-                <display value="EncountersSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.22"/>
-                <display value="EncountersSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.23"/>
-                <display value="MedicalEquipmentSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.24"/>
-                <display value="DischargeDiagnosisSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.25"/>
-                <display value="AnesthesiaSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.26"/>
-                <display value="SurgeryDescriptionSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.27"/>
-                <display value="ProcedureDescriptionSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.28"/>
-                <display value="ProcedureFindingsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.29"/>
-                <display value="ProcedureIndicationsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.3.1"/>
-                <display value="ResultsSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.3"/>
-                <display value="ResultsSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.30"/>
-                <display value="PlannedProcedureSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.31"/>
-                <display value="ProcedureSpecimensTakenSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.33"/>
-                <display value="ImplantsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.34"/>
-                <display value="PreoperativeDiagnosisSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.35"/>
-                <display value="PostoperativeDiagnosisSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.36"/>
-                <display value="PostprocedureDiagnosisSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.37"/>
-                <display value="ComplicationsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.38"/>
-                <display value="MedicationsAdministeredSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.39"/>
-                <display value="MedicalGeneralHistorySection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.4.1"/>
-                <display value="VitalSignsSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.4"/>
-                <display value="VitalSignsSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.40"/>
-                <display value="ProcedureImplantsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.41"/>
-                <display value="HospitalDischargeInstructionsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.42"/>
-                <display value="HospitalConsultationsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.43"/>
-                <display value="AdmissionDiagnosisSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.44"/>
-                <display value="AdmissionMedicationsSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.45"/>
-                <display value="InstructionsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.5.1"/>
-                <display value="ProblemSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.5"/>
-                <display value="ProblemSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.56"/>
-                <display value="MentalStatusSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.57"/>
-                <display value="NutritionSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.58"/>
-                <display value="HealthConcernsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.6.1"/>
-                <display value="AllergiesandIntolerancesSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.6"/>
-                <display value="AllergiesandIntolerancesSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.60"/>
-                <display value="GoalsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.61"/>
-                <display value="HealthStatusEvaluationsandOutcomesSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.64"/>
-                <display value="CourseofCareSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.7.1"/>
-                <display value="ProceduresSectionentriesrequired"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.7"/>
-                <display value="ProceduresSectionentriesoptional"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.8"/>
-                <display value="AssessmentSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.9"/>
-                <display value="AssessmentandPlanSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.1"/>
-                <display value="ResultOrganizer"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.108"/>
-                <display value="AdvanceDirectiveOrganizer"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.109"/>
-                <display value="CharacteristicsofHomeEnvironment"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.110"/>
-                <display value="ProgressTowardGoalObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.111"/>
-                <display value="CulturalandReligiousObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.113"/>
-                <display value="PrognosisObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.114"/>
-                <display value="LongitudinalCareWoundObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.115"/>
-                <display value="ExternalDocumentReference"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.118"/>
-                <display value="SubstanceAdministeredAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.12"/>
-                <display value="ProcedureActivityAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.120"/>
-                <display value="PlannedImmunizationActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
-                <display value="EntryReference"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.123"/>
-                <display value="DrugMonitoringAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.124"/>
-                <display value="NutritionalStatusObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.127"/>
-                <display value="SensoryStatus"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.128"/>
-                <display value="SelfCareActivitiesADLandIADL"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
-                <display value="ProcedureActivityObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.130"/>
-                <display value="NutritionRecommendation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.131"/>
-                <display value="InterventionAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.132"/>
-                <display value="HealthConcernAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.133"/>
-                <display value="WoundMeasurementObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.134"/>
-                <display value="WoundCharacteristic"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.135"/>
-                <display value="MedicalEquipmentOrganizer"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.136"/>
-                <display value="RiskConcernAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.138"/>
-                <display value="NutritionAssessment"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
-                <display value="ProcedureActivityProcedure"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.140"/>
-                <display value="PatientReferralAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.141"/>
-                <display value="HandoffCommunicationParticipants"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.144"/>
-                <display value="OutcomeObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.145"/>
-                <display value="CriticalityObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.146"/>
-                <display value="PlannedInterventionAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.147"/>
-                <display value="MedicationFreeTextSig"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
-                <display value="MedicationActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.17"/>
-                <display value="MedicationSupplyOrder"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.18"/>
-                <display value="MedicationDispense"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.2"/>
-                <display value="ResultObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
-                <display value="MedicationInformation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.24"/>
-                <display value="DrugVehicle"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.25"/>
-                <display value="PreconditionforSubstanceAdministration"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.26"/>
-                <display value="VitalSignsOrganizer"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.27"/>
-                <display value="VitalSignObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.28"/>
-                <display value="AllergyStatusObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.3"/>
-                <display value="ProblemConcernAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.30"/>
-                <display value="AllergyConcernAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.31"/>
-                <display value="AgeObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.32"/>
-                <display value="ServiceDeliveryLocation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.33"/>
-                <display value="HospitalDischargeDiagnosis"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.34"/>
-                <display value="HospitalAdmissionDiagnosis"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.35"/>
-                <display value="DischargeMedication"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.36"/>
-                <display value="AdmissionMedication"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.37"/>
-                <display value="ProductInstance"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.38"/>
-                <display value="SocialHistoryObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.39"/>
-                <display value="PlannedAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.4"/>
-                <display value="ProblemObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.40"/>
-                <display value="PlannedEncounter"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
-                <display value="PlannedProcedure"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.42"/>
-                <display value="PlannedMedicationActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.43"/>
-                <display value="PlannedSupply"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.45"/>
-                <display value="FamilyHistoryOrganizer"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.46"/>
-                <display value="FamilyHistoryObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.47"/>
-                <display value="FamilyHistoryDeathObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.48"/>
-                <display value="AdvanceDirectiveObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.49"/>
-                <display value="EncounterActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.5"/>
-                <display value="HealthStatusObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.50"/>
-                <display value="NonMedicinalSupplyActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.51"/>
-                <display value="PostprocedureDiagnosis"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.52"/>
-                <display value="ImmunizationActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.53"/>
-                <display value="ImmunizationRefusalReason"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
-                <display value="ImmunizationMedicationInformation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.6"/>
-                <display value="ProblemStatus"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.60"/>
-                <display value="CoverageActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.61"/>
-                <display value="PolicyActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.63"/>
-                <display value="SeriesAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.64"/>
-                <display value="CommentActivity"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.65"/>
-                <display value="PreoperativeDiagnosis"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.66"/>
-                <display value="FunctionalStatusOrganizer"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.67"/>
-                <display value="FunctionalStatusObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.68"/>
-                <display value="FunctionalStatusProblemObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
-                <display value="AssessmentScaleObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.7"/>
-                <display value="AllergyIntoleranceObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.70"/>
-                <display value="PressureUlcerObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.72"/>
-                <display value="CaregiverCharacteristics"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.73"/>
-                <display value="CognitiveStatusProblemObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.74"/>
-                <display value="MentalStatusObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.75"/>
-                <display value="MentalStatusOrganizer"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.76"/>
-                <display value="NumberofPressureUlcersObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.77"/>
-                <display value="HighestPressureUlcerStage"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.78"/>
-                <display value="SmokingStatusMeaningfulUse"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.79"/>
-                <display value="DeceasedObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.8"/>
-                <display value="SeverityObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.80"/>
-                <display value="EncounterDiagnosis"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.85"/>
-                <display value="TobaccoUse"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.86"/>
-                <display value="AssessmentScaleSupportingObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
-                <display value="ReactionObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.5.3"/>
-                <display value="USRealmDateandTimeDTUSFIELDED"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.24.3.90"/>
-                <display value="SubstanceorDeviceAllergyIntoleranceObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.29.1"/>
-                <display value="USRealmHeaderforPatientGeneratedDocument"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.1.1"/>
-                <display value="DICOMObjectCatalogSectionDCM121181"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.1.2"/>
-                <display value="FindingsSectionDIR"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.1"/>
-                <display value="PhysicianReadingStudyPerformer"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
-                <display value="ReferencedFramesObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.11"/>
-                <display value="BoundaryObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
-                <display value="TextObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
-                <display value="CodeObservations"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
-                <display value="QuantityMeasurementObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.2"/>
-                <display value="PhysicianofRecordParticipant"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.3"/>
-                <display value="FetusSubjectContext"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.4"/>
-                <display value="ObserverContext"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
-                <display value="ProcedureContext"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.6"/>
-                <display value="StudyAct"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
-                <display value="SOPInstanceObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.9"/>
-                <display value="PurposeofReferenceObservation"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.7.12"/>
-                <display value="OperativeNoteFluidsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.7.13"/>
-                <display value="SurgicalDrainsSection"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.7.14"/>
-                <display value="OperativeNoteSurgicalProcedureSection"/>
-            </reference>
-        </resource>
-        -->
         <page>
+            <extension
+                url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-filename">
+                <valueUri value="index.md"/>
+            </extension>
+            <extension
+                url="https://trifolia-on-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-content">
+                <valueMarkdown
+                    value="### Purpose&#xA;&#xA;This two-volume implementation guide (IG) contains an overview of Clinical Document Architecture (CDA) markup standards, design, and use (Volume 1) and a consolidated library of CDA templates for clinical notes applicable to the US Realm (Volume 2). These two volumes comprise a Draft Standard for Trial Use (DSTU).&#xA;It has been adapted from the Release 2.0 version of the Consolidated CDA Templates for Clinical Notes to support backward compatibility “on the wire” with the 1.1 Release of the templates described in this guide. This will enable implementers of systems conforming to this guide to produce documents that can be understood by systems which only support the C-CDA Release 1.1 specification.&#xA;The consolidated library incorporates previous efforts from Health Level Seven (HL7), Integrating the Healthcare Enterprise (IHE), the Health Information Technology Standards Panel (HITSP), the HL7 Health Story guides, HITSP C32, and related components of IHE Patient Care Coordination (IHE PCC). It has additional or enhanced document types for greater expressivity and decrease ambiguity (see Volume 2 Summary of Changes). Volume 1 adds new general guidance (see Summary of Changes).&#xA;This guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to be used for implementing the following CDA documents and header constraints for clinical notes.&#xA;&#xA;* Care Plan including Home Health Plan of Care (HHPoC)&#xA;* Consultation Note&#xA;* Continuity of Care Document (CCD)&#xA;* Diagnostic Imaging Reports (DIR)&#xA;* Discharge Summary&#xA;* History and Physical (H&amp;P)&#xA;* Operative Note&#xA;* Procedure Note&#xA;* Progress Note&#xA;* &lt;a href=&quot;StructureDefinition-2.16.840.1.113883.10.20.22.1.14.html&quot;&gt;Referral Note&lt;/a&gt;&#xA;* &lt;a href=&quot;StructureDefinition-2.16.840.1.113883.10.20.22.1.13.html&quot;&gt;Transfer Summary&lt;/a&gt;&#xA;* &lt;a href=&quot;StructureDefinition-2.16.840.1.113883.10.20.22.1.10.html&quot;&gt;Unstructured Document&lt;/a&gt;&#xA;* Patient Generated Document (&lt;a href=&quot;StructureDefinition-2.16.840.1.113883.10.20.22.1.1.html&quot;&gt;US Realm Header&lt;/a&gt;)&#xA;&#xA;### Audience&#xA;&#xA;The audience for this implementation guide includes architects and developers of healthcare information technology (HIT) systems in the US Realm that exchange patient clinical data. Business analysts and policy managers can also benefit from a basic understanding of the use of CDA templates across multiple implementation use cases.&#xA;&#xA;### Organization of the Guide&#xA;&#xA;This implementation guide is organized into two volumes. Volume 1 contains primarily narrative text describing the Consolidated CDA Release 2 (C-CDA R2) guide, whereas Volume 2 contains normative CDA template definitions.&#xA;&#xA;### Acknowledgments&#xA;&#xA;This R2.1 guide was developed and produced through the efforts of Health Level Seven (HL7).&#xA;&#xA;The editors appreciate the support and sponsorship of the HL7 Structured Documents Working Group (SDWG), the HL7 Patient Care Work Group, the HL7 Child Health Work Group, and all volunteers and staff associated with the creation of this document. This guide would not have been possible without the support of the Department of Defense/Department of Veterans Affairs Interagency Program Office (DoD/VA IPO).&#xA;&#xA;This material contains content from SNOMED CT® (http://www.ihtsdo.org/snomed-ct/). SNOMED CT is a registered trademark of the International Health Terminology Standard Development Organisation (IHTSDO).&#xA;&#xA;This material contains content from the Logical Observation Identifiers Names and Codes (LOINC) organization (http://loinc.org). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.&#xA;&#xA;### Authors&#xA;&#xA;| Primary Editor / Co-Chair: | Rick Geimer&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[rick.geimer@lantanagroup.com](mailto:rick.geimer@lantanagroup.com) | Co-Editor: | Benjamin Flessner&lt;br/&gt;[Epic](http://www.epic.com)&lt;br /&gt;[Benjamin@epic.com](mailto:Benjamin@epic.com) |&#xA;| Primary Editor / Co-Chair: | Brett Marquard&lt;br/&gt;[River Rock Associates](http://www.riverrockassociates.com)&lt;br/&gt;[brett@riverrockassociates.com](mailto:brett@riverrockassociates.com) | Co-Editor: | Larry Garber, MD&lt;br/&gt;[Reliant Medical Group](http://www.reliantmedicalgroup.org)&lt;br/&gt;[Lawrence.Garber@ReliantMedicalGroup.org](mailto:Lawrence.Garber@ReliantMedicalGroup.org) |&#xA;| Co-Chair: | Calvin Beebe&lt;br/&gt;[Mayo Clinic](http://www.mayo.edu)&lt;br/&gt;[cbeebe@mayo.edu](mailto:cbeebe@mayo.edu) | Co-Editor: | Jennie Harvell, M.Ed US Health and Human Services&lt;br/&gt;[Jennie.harvell@hhs.gov](mailto:Jennie.harvell@hhs.gov) |&#xA;| Co-Chair: | Diana Behling&lt;br/&gt;[Iatric Systems](http://iatric.com)&lt;br/&gt;[Diana.Behling@iatric.com](mailto:Diana.Behling@iatric.com) | Co-Editor: | Laura Heermann Langford, RN, PhD&lt;br/&gt;Intermountain Healthcare&lt;br/&gt;[Laura.Heermann@imail.org](mailto:Laura.Heermann@imail.org) |&#xA;| Co-Chair: | Austin Kreisler&lt;br/&gt;SAIC Consultant to CDC/NHSN&lt;br/&gt;[duz1@cdc.gov](mailto:duz1@cdc.gov) | Co-Editor: | Emma Jones RN-BC, MSN&lt;br/&gt;Allscripts&lt;br/&gt;[emma.jones@allscripts.com](mailto:emma.jones@allscripts.com) |&#xA;| Co-Chair: | Patrick Lloyd&lt;br/&gt;Icode Solutions&lt;br/&gt;[patrick.e.loyd@gmail.com](mailto:patrick.e.loyd@gmail.com) | Co-Editor: | Josh Mandel, MD&lt;br/&gt;Harvard Medical School / Boston Children's Hospital&lt;br/&gt;[Joshua.Mandel@childrens.harvard.edu](mailto:Joshua.Mandel@childrens.harvard.edu) |&#xA;| Primary Editor / Co-Chair: | Gaye Dolin, MSN, RN&lt;br/&gt;[Intelligent Medical Objects, Inc.](http://www.imo-online.com)&lt;br/&gt;[gdolin@imo-online.com](mailto:gdolin@imo-online.com) | Co-Editor: | Susan Matney, MSN, RN 3M&lt;br/&gt;Health Information Systems&lt;br/&gt;[samatney@mmm.com](mailto:samatney@mmm.com) |&#xA;| Primary Editor: | Sarah Gaunt&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[sarah.gaunt@lantanagroup.com](mailto:sarah.gaunt@lantanagroup.com) | Co-Editor: | Sean McIlvenna&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[sean.mcilvenna@lantanagroup.com](mailto:sean.mcilvenna@lantanagroup.com) |&#xA;| Primary Editor: | Zabrina Gonzaga&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[zabrina.gonzaga@lantanagroup.com](mailto:zabrina.gonzaga@lantanagroup.com) | Co-Editor: | Dale Nelson&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[dale.nelson@lantanagroup.com](mailto:dale.nelson@lantanagroup.com) |&#xA;| Co-Editor: | Liora Alschuler&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[liora.alschuler@lantanagroup.com](mailto:liora.alschuler@lantanagroup.com) | Co-Editor: | Lisa Nelson&lt;br/&gt;Life Over Time Solutions&lt;br/&gt;[LisaRNelson@cox.net](mailto:LisaRNelson@cox.net) |&#xA;| Co-Editor: | Virinder Batra&lt;br/&gt;Intuit Health&lt;br/&gt;[virinder.batra@gmail.com](mailto:virinder.batra@gmail.com) | Co-Editor: | Terrence A. O'Malley, MD&lt;br/&gt;Partners Healthcare&lt;br/&gt;[tomalley@partners.org](mailto:tomalley@partners.org) |&#xA;| Co-Editor: | Keith W. Boone&lt;br/&gt;GE Healthcare&lt;br/&gt;[keith.boone@ge.com](mailto:keith.boone@ge.com) | Co-Editor: | Eric Parapini&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[eric.parapini@lantanagroup.com](mailto:eric.parapini@lantanagroup.com) |&#xA;| Co-Editor: | Stephen Chu, MD, PhD, FACS&lt;br/&gt;National E-Health Transition, Australia&lt;br/&gt;[stephen.chu@nehta.gov.au](mailto:stephen.chu@nehta.gov.au) | Co-Editor: | David Tao, D.Sc.&lt;br/&gt;ICSA Labs&lt;br/&gt;[dtao12@gmail.com](mailto:dtao12@gmail.com) |&#xA;| Co-Editor: | John D'Amore&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[john.damore@lantanagroup.com](mailto:john.damore@lantanagroup.com) | Technical Editor: | Adrienne Giannone&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[adrienne.giannone@lantanagroup.com](mailto:adrienne.giannone@lantanagroup.com) |&#xA;| Co-Editor: | Robert H. Dolin, MD&lt;br/&gt;[bobdolin@gmail.com](mailto:bobdolin@gmail.com) | Technical Editor: | Diana Wright&lt;br/&gt;[Lantana Consulting Group](http://www.lantanagroup.com)&lt;br/&gt;[diana.wright@lantanagroup.com](mailto:diana.wright@lantanagroup.com) |&#xA;| Co-Editor: | Susan Campbell, PhD, RN&lt;br/&gt;[bostoncampbell@mindspring.com](mailto:bostoncampbell@mindspring.com) | Technical Editor: | Veronica Kwok&lt;br/&gt;Deloitte&lt;br/&gt;[vkwok@deloitte.com](mailto:vkwok@deloitte.com) |"
+                />
+            </extension>
             <nameUrl value="index.html"/>
             <title value="IG Home Page"/>
             <generation value="markdown"/>
             <page>
+                <extension
+                    url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-filename">
+                    <valueUri value="background.md"/>
+                </extension>
+                <extension
+                    url="https://trifolia-on-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-content">
+                    <valueMarkdown
+                        value="CDA R2 is “… a document markup standard that specifies the structure and semantics of ‘clinical documents’ for the purpose of exchange” [CDA R2, Section 1.1]1. Clinical documents, according to CDA, have the following characteristics:&#xA;&#xA;* Persistence&#xA;* Stewardship&#xA;* Potential for authentication&#xA;* Context&#xA;* Wholeness&#xA;* Human readability&#xA;&#xA;CDA defines a header for classification and management and a document body that carries the clinical record. While the header metadata are prescriptive and designed for consistency across all instances, the body is highly generic, leaving the designation of semantic requirements to implementation.&#xA;&#xA;### Templated CDA&#xA;&#xA;CDA R2 can be constrained by mechanisms defined in the “Refinement and Localization”2 section of the HL7 Version 3 Interoperability Standards. The mechanism most commonly used to constrain CDA is referred to as a “CDA template.” The “templated CDA” approach uses a library of modular CDA template definitions. Templates can be reused across any number of CDA document types, as shown in the following figure. Each template meets a defined purpose. Templates are managed over time through versioning. A template version is a specific set of conformance constraints designed to meet the template’s purpose.&#xA;&#xA;&lt;img src=&quot;templated-cda.png&quot; style=&quot;float: none; display: block; margin-left: auto; margin-right: auto;&quot; /&gt;&#xA;&#xA;There are many kinds of templates that might be created. Among them, the most common are:&#xA;&#xA;* Document-level templates: These templates constrain fields in the CDA header, and define containment relationships to CDA sections. For example, a History and Physical document-level template might require that the patient’s name be present, and that the document contain a Physical Exam section.&#xA;* Section-level templates: These templates constrain fields in the CDA section, and define containment relationships to CDA entries. For example, a Physical Exam section-level template might require that the section/code be fixed to a particular LOINC code, and that the section contains a Systolic Blood Pressure observation.&#xA;* Entry-level templates: These templates constrain the CDA clinical statement model in accordance with real-world observations and acts. For example, a Systolic Blood Pressure entry-level template defines how the CDA Observation class is constrained (how to populate observation/code, how to populate observation/value, etc.) to represent the notion of a systolic blood pressure.&#xA;* Other templates: Templates that exist to establish a set of constraints that are reused in the CDA document. These other templates are only used within another template, rather than on their own as a complete clinical statement. For example, US Realm Date and Time (DTM.US.FIELDED) includes a set of common constraints for recording time. This template is referenced several times with other templates used in the implementation guide. They reduce the need to repeat constraints in templates that use the common set.&#xA;&#xA;A CDA implementation guide (such as this one) includes references to those template versions that are applicable.&#xA;&#xA;Regarding implementation, a CDA instance populates the template identifier (templateId) field where it wants to assert conformance to a given template version. On the receiving side, the recipient can then not only test the instance for conformance against the CDA Extensible Markup Language (XML) schema, but also test the instance for conformance against asserted templates.&#xA;&#xA;#### Status of a Template Version&#xA;&#xA;Each version of a template has a status. For example, a template version can be draft, active, or deprecated, etc. The HL7 Templates DSTU describes the various status states that may apply to a template version over the course of its lifecycle. Each version of a template has an associated status. Thus, one version of a template may be deprecated, while a newer version of that template may be draft or active.&#xA;&#xA;##### Use of Deprecated Template Versions&#xA;&#xA;Several templates used in C-CDA 1.1 were deprecated as of C-CDA R2. The status for these templates remains deprecated in this guide. Deprecation of a template version does not prohibit its use in a document; rather, it is a signal to implementers this version of the template may be permanently retired (terminated) in the future, which will end the lifecycle for the template. The list of deprecated templates appears below:&#xA;&#xA;* Discharge Diet Section&#xA;* Implants Section&#xA;* Surgery Description Section&#xA;* Allergy Status Observation&#xA;* Cognitive Status Problem Observation&#xA;* Functional Status Problem Observation&#xA;* Pressure Ulcer Observation&#xA;* Problem Status&#xA;&#xA;### Current Project&#xA;&#xA;This R2.1 guide was developed and produced by the HL7 Structured Documents Workgroup. It updates the C-CDA R2 (2014) guide to support “on-the-wire” compatibility with R1.1 systems.&#xA;&#xA;The C-CDA Release 2.0 implementation guide was developed and produced through the joint efforts of HL7, two Sub-Work Groups of the Office of the National Coordinator (ONC) Standards and Interoperability (S&amp;I) Framework — Longitudinal Care Plan (LCP) and Long-Term Post-Acute Care (LTPAC) Transition) — and through the SMART C-CDA Collaborative hosted by ONC and Harvard Medical School. This guide builds off of two earlier versions: C-CDA R1 (2011) and C-CDA R1.1 (2012)3.&#xA;&#xA;The ONC Longitudinal Care Coordination Standards and Interoperability (LCC S&amp;I) Work Group and community providers identified a set of priority data elements for shared care and transfer of care for a patient moving from one setting to another. These data elements identified gaps in the existing CDA document types. The current project incorporates these data elements into this implementation guide. Three new document types (Referral Note, Transfer Summary, and Care Plan) and one existing document type (Consultation Note) address the gaps.&#xA;&#xA;The S&amp;I Framework’s LCC Long-Term Post-Acute Care (LTPAC) Transition Sub Work Group (SWG) defined the data elements and assisted in the design of the CDA templates to properly express the concepts in the CDA representation of the Referral Note, Transfer Summary, and Consultation Note. The group’s related work products can be found at the LCC Long-Term Post-Acute Care (LTPAC) Transition SWG website.4&#xA;&#xA;The S&amp;I Framework’s LCC Longitudinal Care Plan (LCP) SWG defined the data elements and assisted in the design of the CDA templates to properly express the concepts in the CDA representation of the Care Plan. The group’s related work can be found at the LCC Longitudinal Care Plan (LCP) SWG website.5 In addition, the LCP SWG worked with the HL7 Patient Care Work Group (PCWG) during development of the HL7 Care Plan Domain Analysis Model (DAM). The HL7 PCWG’s related work can be found at the HL7 Care Plan DAM website.6 The IHE PCC Work Group products were reviewed and many participants in the Work Group also participated in the S&amp;I design sessions. The key work reviewed can be found in the IHE Patient Care Plan Content Profile.7 All of these works and group discussions created the design of the CDA Care Plan, which is a static reflection of a dynamic care plan at a point in time.&#xA;&#xA;Diverse document types meet varied types of patient care and coordination needs. The Transfer Summary document is exchanged by healthcare providers in instances when a patient moves between health care settings and care teams temporarily or permanently (e.g., long term care facility to hospital, hospital to skilled nursing facility or home health agency, or from one Primary Care Physician to a new Primary Care Physician). The Transfer Summary provides comprehensive information regarding the patient's history, current status, and care plan.&#xA;&#xA;The Continuity of Care Document (CCD) is a subset of the Transfer Summary and contains just the most clinically important patient information. It is a snapshot in time and may be generated for a single visit or a set of visits. The CCD can be used as an alternative to the Transfer Summary when minimal information needs to be conveyed, or for reporting updates to clinical registries and centralized data repositories.&#xA;&#xA;In cases when a provider requests consultation from another provider, a Referral Note document is exchanged to communicate the referral request and pertinent patient information. When the consultation is completed, the consulting provider may generate a Consultation Note to inform the requesting clinician of her opinion or advice. A patient with complex needs requires the care of multiple providers in various settings. In this situation, a Care Plan document provides a snapshot in time of current health concerns, goals, interventions and care coordination activities amongst providers, the patient, and the patient’s caregivers.&#xA;&#xA;The ONC-sponsored SMART (Substitutable Medical Apps and Reusable Technologies) project8, in an effort to make C-CDA instances more reliably consumable by SMART applications for mobile devices, has analyzed real world C-CDA instances and identified common sources of ambiguity and misinterpretation. Many of the clarifications to C-CDA R1.1 templates, included here as C-CDA R2, are as a direct result of the SMART analysis."
+                    />
+                </extension>
                 <nameUrl value="background.html"/>
                 <title value="Background"/>
                 <generation value="markdown"/>
             </page>
             <page>
+                <extension
+                    url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-filename">
+                    <valueUri value="designconsiderations.md"/>
+                </extension>
+                <extension
+                    url="https://trifolia-on-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-content">
+                    <valueMarkdown
+                        value="Design considerations describe overarching principles that have been developed and applied across the CDA templates in this guide. Material in this section can be thought of as “heuristics,” as opposed to the formal, testable constraints found in Volume 2 of this guide.&#xA;&#xA;### Compatibility&#xA;&#xA;This release contains new versions of templates included in C-CDA Release 2.0. Templates in this specification provide compatibility for software that supports template versions in the C-CDA R1.1 Implementation Guide. The new compatible template versions contain constraint modifications which enable compatibility with C-CDA 1.1. The constraints updated for C-CDA R2.1 are identified in the appendix Volume 2 Summary of Changes.&#xA;&#xA;C-CDA Release 2.0 includes several templates not previously present in C-CDA Release 1.1. Software designed to support C-CDA Release 1.1 template versions may not support the new templates introduced in C-CDA Release 2.0. Except where explicitly prohibited by the C-CDA 1.1 specification, use of templates first released as part of C-CDA Release 2.0 is permitted.&#xA;&#xA;New systems that wish to support C-CDA R1.1, R2.0, and R2.1, should review all specifications. A system developed strictly to the R2.1 version might not automatically support receiving R1.1 documents without additional development. Support for R2.0 conformant documents will require additional generation and import effort since different vocabulary requirements apply in several places.&#xA;&#xA;Compatibility Principles&#xA;&#xA;The baseline for C-CDA Release 2.1 is C-CDA Release 2.0. HL7 has applied these principles against templates present in C-CDA Release 1.1 and C-CDA R2.0 to create compatible template versions:&#xA;&#xA;1. When a SHALL constraint present in C-CDA R1.1 is relaxed to SHOULD or MAY in C-CDA R2.0, the C-CDA R2.1 specification will increase the strength of that constraint to SHALL when compatibility is asserted.&#xA;2. When a SHALL constraint present is C-CDA R1.1 is removed in C-CDA R2.0, the C-CDA R2.1 specification will add that constraint when supporting compatibility.&#xA;3. When a SHOULD or MAY constraint present in C-CDA R1.1 is relaxed or removed in C-CDA R2.0, the C-CDA R2.1 specification will remain silent. As these constraints are not strictly required in a C-CDA R1.1 instance, they are not necessary for backwards compatibility. Implementers who wish to continue to convey data elements with a SHOULD or MAY constraint in C-CDA R1.1 can still report this information as it was done in C-CDA R1.1, so long as these are also conformant with this specification.&#xA;4. A SHALL, SHOULD or MAY constraint added in C-CDA R2.0 that is not explicitly prohibited in C-CDA R1.1 will be added to C-CDA R2.1.&#xA;5. When a vocabulary or value set binding has changed for an element to a new coding system in C-CDA R2.0, C-CDA R2.1 will — when supporting backwards compatibility — require the use of the old value set or vocabulary in element/code, the new value set or vocabulary in element/translation, and otherwise require the use of the new value set or vocabulary in code as it was constrained (with the same strength appearing) in C-CDA R2.0.&#xA;&#xA;#### Support for specifications with dependencies on C-CDA Release 2.0&#xA;&#xA;There are two options for other specifications that have built upon C-CDA Release 2.0:&#xA;&#xA;1. Reference the C-CDA R2.1 implementation guide and the template versions defined herein, in order to ensure backward compatibility for software compliant with C-CDA R1.1.&#xA;2. Reference the C-CDA R2.0 implementation guide and the templates contained therein to support software that does not require backward compatibility. Software designed to receive documents conformant to C-CDA R2.0 or C-CDA R2.1 template versions will need to support vocabulary bindings that allow value set concepts to appear in either the code or the translation element.&#xA;&#xA;The SDWG strongly encourages specifications built on C-CDA R2.0 to adopt option 1 since option 2 increases variability across implementations. After final publication of R2.1 SDWG will contact developers of prior specifications, which reference C-CDA R2.0, to discuss migration plans.&#xA;&#xA;#### Assertion of Compatibility&#xA;&#xA;Volume 2 of this guide includes a requirement that all C-CDA R2.1 conformant instances:&#xA;&#xA;* Include a C-CDA R2.1 templateId,&#xA;* Additionally, when the C-CDA R2.1 templateId includes an extension, the C-CDA R1.1 templateId must also be included.&#xA;&#xA;By including both templateIds the sending application is asserting conformance with C-CDA R2.1 and C-CDA R1.1. This requirement (CONF:32936) is included in the US Realm Header (V3):&#xA;&#xA;  *SHALL* contain exactly one [1..1] templateId (CONF:1198-5252) such that it&#xA;  a. *SHALL* contain exactly one [1..1] *@root*=&quot;2.16.840.1.113883.10.20.22.1.1&quot; (CONF:1198-10036).&#xA;  b. *SHALL* contain exactly one [1..1] *@extension*=&quot;2015-08-01&quot; (CONF:1198-32503).&#xA;  c. When asserting this templateId, all document, section, and entry templates *SHALL* include a templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32936).&#xA;  &#xA;**C-CDA R2.1 Discharge Summary header example**&#xA;&#xA;```&#xA;&lt;ClinicalDocument
+                        xmlns=&quot;urn:hl7-org:v3&quot;
+                        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+                        xmlns:cda=&quot;urn:hl7-org:v3&quot;
+                        xmlns:sdtc=&quot;urn:hl7-org:sdtc&quot;&gt;&#xA; &lt;!-- ** CDA Header ** --&gt;&#xA; &lt;realmCode code=&quot;US&quot;/&gt;&#xA; &lt;typeId root=&quot;2.16.840.1.113883.1.3&quot; extension=&quot;POCD_HD000040&quot;/&gt;&#xA; &lt;!-- US General Header Template --&gt;&#xA; &lt;templateId root=&quot;2.16.840.1.113883.10.20.22.1.1&quot; extension=&quot;2015-08-01&quot;/&gt;&#xA; &lt;!--Critical Change for backwards compatibility--&gt;&#xA; &lt;templateId root=&quot;2.16.840.1.113883.10.20.22.1.1&quot;/&gt;&#xA; &lt;!-- *** Note: The next templateId, code and title will differ depending on what type of document is being sent. *** --&gt;&#xA; &lt;templateId root=&quot;2.16.840.1.113883.10.20.22.1.8&quot; extension=&quot;2015-08-01&quot;/&gt;&#xA; &lt;!--For backwards compatibility--&gt;&#xA; &lt;templateId root=&quot;2.16.840.1.113883.10.20.22.1.8&quot;/&gt;&#xA;...&#xA;```&#xA;&#xA;**C-CDA R2.1 Problem List Section example**&#xA;&#xA;```&#xA;&lt;section&gt;&#xA; &lt;templateId root=&quot;2.16.840.1.113883.10.20.22.2.5.1&quot; extension=&quot;2014-06-09&quot;/&gt;&#xA; &lt;!--For backwards compatibility--&gt;&#xA; &lt;templateId root=&quot;2.16.840.1.113883.10.20.22.2.5.1&quot;/&gt;&#xA; &lt;code code=&quot;11450-4&quot; codeSystem=&quot;2.16.840.1.113883.6.1&quot; displayName=&quot;Problem List&quot;/&gt;&#xA; &lt;title&gt;Problem List&lt;/title&gt;&#xA;...&#xA;```&#xA;&#xA;**C-CDA R2.1 Problem Concern Entry example**&#xA;&#xA;```&#xA;&lt;entry&gt;&#xA; &lt;act classCode=&quot;ACT&quot; moodCode=&quot;EVN&quot;&gt;&#xA; &lt;templateId root=&quot;2.16.840.1.113883.10.20.22.4.3&quot; extension=&quot;2014-06-09&quot;/&gt;&#xA; &lt;!--For backwards compatibility--&gt;&#xA; &lt;templateId root=&quot;2.16.840.1.113883.10.20.22.4.3&quot;/&gt;&#xA; &lt;id root=&quot;102ca2e9-884c-4523-a2b4-1b6c3469c397&quot;/&gt;&#xA; &lt;code code=&quot;CONC&quot; codeSystem=&quot;2.16.840.1.113883.5.6&quot;/&gt;&#xA;...&#xA;```&#xA;&#xA;### CDA Participations&#xA;&#xA;A CDA participant (e.g., Author, Informant), per the Reference Information Model (RIM), is “an association between an Act and a Role with an Entity playing that Role. Each Entity (in a Role) involved in an Act in a certain way is linked to the Act by one Participation-instance. The kind of involvement in the Act is specified by the Participation.typeCode.”&#xA;&#xA;CDA principles when asserting participations include:&#xA;&#xA;* Participation persistence: An object's participations (and participation time stamps) don't change just because that object is reused. For instance, authorship of an object doesn't change just because that object is now included in a summary document.&#xA;* Participation evolution: Additional participations (and participation time stamps) can be ascribed to an object over its lifetime. (In some cases, an electronic health record (EHR) system will create a new object instead of adding participants to an existing object, such as when an EHR has imported a CCD and the receiving clinician chooses to create a local problem list entry corresponding to a problem in the CCD).&#xA;* Device participation: Devices do not participate as legally responsible entities, but can participate as authors in some scenarios.&#xA;&#xA;Meaningful Use Stage 29 criterion §170.314(b)(4) Clinical Information Reconciliation requires a system to “simultaneously display (i.e., in a single view) the data from at least two list sources in a manner that allows a user to view the data and their attributes, which must include, at a minimum, the source and last modification date.”&#xA;&#xA;CDA addresses this requirement via the Author Participation and its time stamp. CDA requires that Author and Author time stamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden. Thus, all entries in CDA implicitly include Author and Author time stamp.&#xA;&#xA;In this version of CDA, we have added a new Author Participation template (templateId 2.16.840.1.113883.10.20.22.4.119) to better ensure consistent representation. This template should be used to explicitly assert authorship and author time stamps, unless the values propagated from the document header hold true.&#xA;&#xA;### Determining the Status of Clinical Statement&#xA;&#xA;A recipient must be able to determine whether the status of an entry — which can include a problem, a medication administration, etc. — is active, completed, or in some other state. Determination of the exact status is dependent on the interplay between an act’s various components (such as statusCode and effectiveTime), and inconsistent modeling between different objects.&#xA;&#xA;The following principles apply when representing or interpreting a clinical statement’s status.&#xA;&#xA;* The Act.statusCode of the clinical statement specifies the state of the entry: Per the RIM, the statusCode “reflects the state of the activity. In the case of an Observation, this is the status of the activity of observing, not the status of what is being observed.”&#xA;* Act.statusCode and Act.moodCode are inter-related: Generally, an act in EVN (event) mood is a discrete event (a user looks, listens, measures; records what was done or observed), so generally an act in EVN mood will have a statusCode of “completed.” A prolonged period of observation is an exception, in which a user would potentially have an observation in EVN mood that is “active.” For an Observation in RQO (request) mood, the statusCode generally remains “active” until the request is complete, at which time the statusCode changes to “completed.” For an Observation in GOL (goal) mood, the statusCode generally remains “active” as long as the observation in question is still an active goal for the patient.&#xA;* Act.statusCode and Act.effectiveTime are inter-related: Per the RIM, the effectiveTime, also referred to as the “biologically relevant time,” is the time at which the act holds for the patient. So, whereas the effectiveTime is the biologically relevant time, the statusCode is the state of the activity. For a provider seeing a patient in a clinic and observing a history of heart attack that occurred 5 years ago, the status of the observation is completed, and the effectiveTime is five years ago.&#xA;&#xA;The Problem Concern Act (V2) (templateId 2.16.840.1.113883.10.20.22.4.3:2014-06-09) reflects an ongoing concern on behalf of the provider who placed the concern on a patient’s problem list. So long as the provider has an ongoing concern — meaning that the provider is monitoring the condition, whether it includes problems that have resolved or not — the statusCode of the Problem Concern Act is “active.” When the underlying condition is no longer an active concern, the statusCode of the Problem Concern Act is set to “completed.” The effectiveTime of a Problem Concern Act reflects the time that the concern about an underlying condition — as such, the effectiveTime of the concern may not correspond to the effectiveTime of the condition. For example, a patient may have suffered a heart attack 5 years ago, but a physician may continue to have an active concern about the patient’s cardiac condition.&#xA;&#xA;A Problem Concern Act can contain one or more Problem Observations (templateId 2.16.840.1.113883.10.20.22.4.4:2014-06-09). Each Problem Observation is a discrete observation of a condition and therefore has a statusCode of “completed.” The statusCode of the Problem Concern Act is the definitive indication of the status of the concern. The effectiveTime of the Problem Observation is the definitive indication of whether the underlying condition is resolved. This is shown graphically in the following figure.&#xA;&#xA;&lt;img src=&quot;problem-concern-act.png&quot; style=&quot;float: none; display: block; margin-left: auto; margin-right: auto;&quot; /&gt;&#xA;&#xA;C-CDA 1.1 included several optional “status” observation templates such as Problem Status Observation and Allergy Status Observation. These “status” observation templates were deprecated when C-CDA R2.0 was released. (For more about deprecated templates, see the section titled Use of Deprecated Template Versions). In C-CDA R2.1, the “status” observation templates remain deprecated. To support backward compatibility, systems that consume CDA documents need to address the possibility that a “status” observation template may also be present. The following guidance should be followed if a CDA document includes a deprecated status observation:&#xA;&#xA;| Deprecated “status” observation template | Implementer Guidance |&#xA;| ---------------------------------------- | -------------------- |&#xA;| A status of “active” | If the parent Observation has an effectiveTime/high, the content contains conflicting information. |&#xA;| A status of “resolved” | If the parent Observation does not have an effectiveTime/high, the content contains conflicting information. |&#xA;| A status of “inactive” | If the parent Observation does not have an effectiveTime/high, the content has the potential to contain conflicting information. |&#xA;&#xA;### Rendering Header Information for Human Presentation&#xA;&#xA;Metadata carried in the header may already be available for rendering from EHRs or other sources external to the document. An example of this would be a doctor using an EHR that already contains the patient’s name, date of birth, current address, and phone number. When a CDA document is rendered within that EHR, those pieces of information may not need to be displayed since they are already known and displayed within the EHR’s user interface.&#xA;&#xA;Good practice recommends that the following be present whenever the document is viewed:&#xA;&#xA;* Document title and document dates&#xA;* Service and encounter types, and date ranges as appropriate&#xA;* Names of all persons along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information&#xA;* Names of selected organizations along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information&#xA;* Date of birth for recordTarget(s)&#xA;* Patient identifying information&#xA;&#xA;In Operative and Procedure Notes, the following information is typically displayed in the EHR and/or rendered directly in the document:&#xA;&#xA;* The performers of the surgery or procedure, including any assistants&#xA;* The surgery or procedure performed (serviceEvent)&#xA;* The date of the surgery or procedure&#xA;&#xA;### Narrative Reference&#xA;&#xA;The C-CDA R1.1 release recommended that clinical statements include a link between the narrative (section.text) and coded clinical data (entry). Rather than repeat these constraints in every applicable entry, SDWG agreed in R2.0 to apply the following constraint to all entry templates, unless explicitly prohibited.&#xA;&#xA;  *SHOULD* contain zero or one [0..1] text (CONF:XXXX).&#xA;    a. The text, if present, *SHOULD* contain zero or one [0..1] reference/@value (CONF: XXXX).&#xA;      i. This reference/@value *SHALL* begin with a '#' and *SHALL* point to its corresponding narrative (using the approach defined in CDA R2.0, section 4.3.5.1) (CONF: XXXX).&#xA;  *MAY* contain zero or one [0..1] originalText (CONF:XXXX).&#xA;    a. The originalText, if present, *SHOULD* contain zero or one [0..1] reference/@value (CONF:XXXX).&#xA;   i. This reference/@value *SHALL* begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA R2.0, section 4.3.5.1) (CONF:XXXX).&#xA;   &#xA;### Unknown and No Known Information&#xA;&#xA;Information technology solutions store and manage data, but sometimes data are not available. An item may be unknown, not relevant, or not computable or measureable, such as where a patient arrives at an emergency department unconscious and with no identification.&#xA;&#xA;In many cases, the C-CDA standard will stipulate that a piece of information is required (e.g., via a SHALL conformance verb). However, in most of these cases, the standard provides an “out”, allowing the sender to indicate that the information isn’t known.&#xA;&#xA;Here, we provide guidance on representing unknown information. Further details can be found in the HL7 V3 Data Types Release 1 specification that accompanies the CDA R2 normative standard. However, it should be noted that the focus of Consolidated CDA is on the unambiguous representation of known data, and that in general, the often subtle nuances of unknown information representation are less relevant to the recipient.&#xA;&#xA;Many fields in C-CDA contain a “@nullFlavor” attribute, used to indicate an exceptional value. Some flavors of Null are used to indicate that the known information falls outside of value set binding constraints. Not all uses of the @nullFlavor attribute are associated with a case in which information is unknown. Allowable values for populating the attribute give details about the reason the information is unknown, as shown in the following example.&#xA;&#xA;**nullFlavor Example**&#xA;&#xA;```&#xA;&lt;birthTime nullFlavor=”UNK”/&gt; &lt;!--Sender does not know the birthTime, but a proper value is applicable --&gt;&#xA;```&#xA;&#xA;Use null flavors for unknown, required, or optional attributes:&#xA;&#xA;| NI | No information. This is the most general and default null flavor. |&#xA;| NA | Not applicable. Known to have no proper value (e.g., last menstrual period for a male). |&#xA;| UNK | Unknown. A proper value is applicable, but is not known. |&#xA;| ASKU | Asked, but not known. Information was sought, but not found (e.g., the patient was asked but did not know). |&#xA;| NAV | Temporarily unavailable. The information is not available, but is expected to be available later. |&#xA;| NASK | Not asked. The patient was not asked. |&#xA;| MSK | There is information on this item available but it has not been provided by the sender due to security, privacy, or other reasons. There may be an alternate mechanism for gaining access to this information. |&#xA;| OTH | The actual value is not an element in the value domain of a variable. (e.g., concept not provided by required code system). |&#xA;&#xA;The list above contains those null flavors that are commonly used in clinical documents. For the full list and descriptions, see the nullFlavor vocabulary domain in the CDA R2 normative edition.10&#xA;&#xA;Any SHALL, SHOULD or MAY conformance statement may use nullFlavor, unless the nullFlavor is explicitly disallowed (e.g., through another conformance statement which includes a SHALL conformance for a vocabulary binding to the @code attribute, or through an explicit SHALL NOT allow use of nullFlavor conformance).&#xA;&#xA;**Attribute Required (nullFlavor not allowed)**&#xA;&#xA;1. *SHALL* contain exactly one [1..1] code (CONF:15407).&#xA;  a. This code *SHALL* contain exactly one [1..1] @code=&quot;11450-4&quot; Problem List (CodeSystem: LOINC 2.16.840.1.113883.6.1) (CONF:15408).&#xA;  or&#xA;2. *SHALL* contain exactly one [1..1] *effectiveTime/@value* (CONF:5256).&#xA;&#xA;**Allowed nullFlavors When Element is Required (with xml examples)**&#xA;&#xA;1. *SHALL* contain at least one [1..*] id&#xA;2. *SHALL* contain exactly one [1..1] code&#xA;3. *SHALL* contain exactly one [1..1] effectiveTime&#xA;&#xA;```&#xA;&lt;entry&gt;&#xA; &lt;observation classCode=&quot;OBS&quot; moodCode=&quot;EVN&quot;&gt;&#xA;  &lt;id nullFlavor=&quot;NI&quot;/&gt;&#xA;  &lt;code nullFlavor=&quot;OTH&quot;&gt;&#xA;   &lt;originalText&gt;New Grading system&lt;/originalText&gt;&#xA;  &lt;/code&gt;&#xA;  &lt;statusCode code=&quot;completed&quot;/&gt;&#xA;  &lt;effectiveTime nullFlavor=&quot;UNK&quot;/&gt;&#xA;  &lt;value xsi:type=&quot;CD&quot; nullFlavor=&quot;OTH&quot;&gt;&#xA;   &lt;originalText&gt;Spiculated mass grade 5&lt;/originalText&gt;&#xA;  &lt;/value&gt;&#xA; &lt;/observation&gt;&#xA;&lt;/entry&gt;&#xA;```&#xA;&#xA;If a sender wants to state that a piece of information is unknown, the following principles apply:&#xA;&#xA;1. If the sender doesn’t know an attribute of an act, that attribute can be null.&#xA;&#xA;**Unknown Medication Example**&#xA;&#xA;1. *SHALL* contain exactly one [1..1] code&#xA;&#xA;```&#xA;&lt;entry&gt;&#xA; &lt;text&gt;patient was given a medication but I do not know what it was&lt;/text&gt;&#xA; &lt;substanceAdministration moodCode=&quot;EVN&quot; classCode=&quot;SBADM&quot;&gt;&#xA;  &lt;consumable&gt;&#xA;   &lt;manufacturedProduct&gt;&#xA;    &lt;manufacturedLabeledDrug&gt;&#xA;     &lt;code nullFlavor=&quot;NI&quot;/&gt;&#xA;    &lt;/manufacturedLabeledDrug&gt;&#xA;   &lt;/manufacturedProduct&gt;&#xA;  &lt;/consumable&gt;&#xA; &lt;/substanceAdministration&gt;&#xA;&lt;/entry&gt;&#xA;```&#xA;&#xA;2. If the sender doesn’t know if an act occurred, the nullFlavor is on the act (detail could include specific allergy, drug, etc.).&#xA;&#xA;**Unknown Medication Use of Anticoagulant Drug Example**&#xA;&#xA;```&#xA;&lt;entry&gt;&#xA; &lt;substanceAdministration moodCode=&quot;EVN&quot; classCode=&quot;SBADM&quot; nullFlavor=&quot;NI&quot;&gt;&#xA;  &lt;text&gt;I do not know whether or not patient received an anticoagulant drug&lt;/text&gt;&#xA;  &lt;consumable&gt;&#xA;   &lt;manufacturedProduct&gt;&#xA;    &lt;manufacturedLabeledDrug&gt;&#xA;     &lt;code code=&quot;81839001&quot; displayName=&quot;anticoagulant drug&quot; codeSystem=&quot;2.16.840.1.113883.6.96&quot; codeSystemName=&quot;SNOMED CT&quot;/&gt;&#xA;    &lt;/manufacturedLabeledDrug&gt;&#xA;   &lt;/manufacturedProduct&gt;&#xA;  &lt;/consumable&gt;&#xA; &lt;/substanceAdministration&gt;&#xA;&lt;/entry&gt;&#xA;```&#xA;&#xA;3. If the sender wants to state &quot;no known&quot;, a negationInd can be used on the corresponding act (substanceAdministration, Procedure, etc.) Previously, CCD, IHE, and HITSP recommended using specific codes to assert no known content, for example 160244002 No known allergies or 160245001 No current problems or disability. Specific codes are still allowed; however, use of these codes is not recommended. These next examples illustrate nuances of representing information in coded fields when information is a negative assertion, for example it is not the case that the patient has an allergy or it is not the case that a patient takes a medication. The phrases &quot;no known allergies&quot; or &quot;no known medications&quot; are typically associated with this type of negative assertion.&#xA;&#xA;**No Known Medications Example**&#xA;&#xA;```&#xA;&lt;entry&gt;&#xA; &lt;substanceAdministration moodCode=&quot;EVN&quot; classCode=&quot;SBADM&quot; negationInd=”true”&gt;&#xA;  &lt;text&gt;No known medications&lt;/text&gt;&#xA;  &lt;consumable&gt;&#xA;   &lt;manufacturedProduct&gt;&#xA;    &lt;manufacturedLabeledDrug&gt;&#xA;     &lt;code code=&quot;410942007&quot; displayName=&quot;drug or medication&quot; codeSystem=&quot;2.16.840.1.113883.6.96&quot; codeSystemName=&quot;SNOMED CT&quot;/&gt;&#xA;    &lt;/manufacturedLabeledDrug&gt;&#xA;   &lt;/manufacturedProduct&gt;&#xA;  &lt;/consumable&gt;&#xA; &lt;/substanceAdministration&gt;&#xA;&lt;/entry&gt;&#xA;```&#xA;&#xA;**Value Known, Code for Value Not Known**&#xA;&#xA;```&#xA;&lt;entry&gt;&#xA; &lt;observation classCode=&quot;OBS&quot; moodCode=&quot;EVN&quot;&gt;&#xA;  …&#xA;  &lt;value xsi:type=&quot;CD&quot; nullFlavor=&quot;OTH&quot;&gt;&#xA;   &lt;originalText&gt;Spiculated mass grade 5&lt;/originalText&gt;&#xA;  &lt;/value&gt;&#xA; &lt;/observation&gt;&#xA;&lt;/entry&gt;&#xA;```&#xA;&#xA;**Value Completely Unknown**&#xA;&#xA;```&#xA;&lt;entry&gt;&#xA; &lt;observation classCode=&quot;OBS&quot; moodCode=&quot;EVN&quot;&gt;&#xA;  …&#xA;  &lt;value xsi:type=&quot;CD&quot; nullFlavor=&quot;UNK&quot;/&gt;&#xA; &lt;/observation&gt;&#xA;&lt;/entry&gt;&#xA;```&#xA;&#xA;**Value Known, Code in Required Code System Not Known But Code from Another Code System is Known**&#xA;&#xA;```&#xA;&lt;entry&gt;&#xA; &lt;observation classCode=&quot;OBS&quot; moodCode=&quot;EVN&quot;&gt;&#xA;  …&#xA;  &lt;value xsi:type=&quot;CD&quot; nullFlavor=&quot;OTH&quot;&gt;&#xA;   &lt;originalText&gt;Spiculated mass grade 5&lt;/originalText&gt;&#xA;   &lt;translation code=&quot;129742005&quot; displayName=&quot;spiculated lesion&quot; codeSystem=&quot;2.16.840.1.113883.6.96&quot; codeSystemName=&quot;SNOMED CT&quot;/&gt;&#xA;  &lt;/value&gt;&#xA; &lt;/observation&gt;&#xA;&lt;/entry&gt;&#xA;```"
+                    />
+                </extension>
                 <nameUrl value="designconsiderations.html"/>
                 <title value="Design Considerations"/>
                 <generation value="markdown"/>
             </page>
             <page>
+                <extension
+                    url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-filename">
+                    <valueUri value="using.md"/>
+                </extension>
+                <extension
+                    url="https://trifolia-on-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-content">
+                    <valueMarkdown
+                        value="This chapter describes the rules and formalisms used to constrain the CDA R2 standard. It describes the formal representation of CDA templates, the mechanism by which templates are bound to vocabulary, and additional information necessary to understand and correctly implement the normative content found in Volume 2 of this guide.&#xA;&#xA;### Levels of Constraint&#xA;&#xA;The CDA standard describes conformance requirements in terms of three general levels corresponding to three different, incremental types of conformance statements:&#xA;&#xA;* Level 1 requirements impose constraints upon the CDA Header. The body of a Level 1 document may be XML or an alternate allowed format. If XML, it must be CDA-conformant markup.&#xA;* Level 2 requirements specify constraints at the section level of a CDA XML document: most critically, the section code and the cardinality of the sections themselves, whether optional or required.&#xA;* Level 3 requirements specify constraints at the entry level within a section. A specification is considered “Level 3” if it requires any entry-level templates.&#xA;&#xA;Note that these levels are rough indications of what a recipient can expect in terms of machine-processable coding and content reuse. They do not reflect the level or type of clinical content, and many additional levels of reusability could be defined.&#xA;&#xA;The contexts table for each document type lists the sections defined in the document template.&#xA;&#xA;### Optional and Required with Cardinality&#xA;&#xA;The terms optional and required describe the lower bound of cardinality as follows:&#xA;&#xA;Optional means that the number of allowable occurrences of an element may be 0; the cardinality will be expressed as [0..1] or [0..*] or similar. In these cases, the element may not be present in the instance. Conformances formulated with MAY or SHOULD are both considered &quot;optional&quot; conformances.&#xA;&#xA;Required means that the number of allowable occurrences of an element must be at least 1; the cardinality will be expressed as [m..n], where m &gt;=1 and n &gt;=1 (for example, [1..1] or [1..*]). In these cases, the element must be present in the instance. Conformance statements formulated with SHALL are required conformances. If an element is required but it is not known, the @nullFlavor attribute must be used.&#xA;&#xA;### Data Types&#xA;&#xA;All data types used in a CDA document are described in the CDA R2 normative edition. All attributes of a data type are allowed unless explicitly prohibited by this specification.&#xA;&#xA;### XML Conventions Used in This Guide&#xA;&#xA;#### XPath Notation&#xA;&#xA;Instead of the traditional dotted notation used by HL7 to represent RIM classes, this document uses XML Path Language (XPath) notation14 in conformance statements and elsewhere to identify the XML elements and attributes within the CDA document instance to which various constraints are applied. The implicit context of these expressions is the root of the document. This notation provides a mechanism that will be familiar to developers for identifying parts of an XML document.&#xA;&#xA;XPath syntax selects nodes from an XML document using a path containing the context of the node(s). The path is constructed from node names and attribute names (prefixed by a ‘@’) and catenated with a ‘/’ symbol.&#xA;&#xA;**XML Document Example**&#xA;&#xA;```&#xA;&lt;author&gt;&#xA;  &lt;assignedAuthor&gt;&#xA;    ...&#xA;    &lt;code codeSystem='2.16.840.1.113883.6.96' codeSystemName='SNOMED CT' code='17561000' displayName='Cardiologist' /&gt;&#xA;    ...&#xA;  &lt;/assignedAuthor&gt;&#xA;&lt;/author&gt;&#xA;```&#xA;&#xA;In the above example, the `code` attribute of the code could be selected with the XPath expression in the next figure.&#xA;&#xA;**XPath Expression Example**&#xA;&#xA;`author/assignedAuthor/code/@code`"
+                    />
+                </extension>
                 <nameUrl value="using.html"/>
                 <title value="Using this Implementation Guide"/>
                 <generation value="markdown"/>
             </page>
             <page>
+                <extension
+                    url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-filename">
+                    <valueUri value="references.md"/>
+                </extension>
+                <extension
+                    url="https://trifolia-on-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-content">
+                    <valueMarkdown
+                        value="* American Recovery And Reinvestment Act of 2009, US Public Law 111-5, 123 Stat. 115, 516 (Feb. 19, 2009). http://www.gpo.gov/fdsys/pkg/PLAW-111publ5/content-detail.html&#xA;* CDC. (May 2012). Epidemiology and Prevention of Vaccine-Preventable Diseases (The Pink Book), Appendix D: Vaccine Administration Guidelines. http://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/D/vacc_admin.pdf&#xA;* Electronic Health Record Incentive Program; Final Rule (Stage 1 Meaningful Use), (July 28, 2010), http://edocket.access.gpo.gov/2010/pdf/2010-17207.pdf&#xA;* GS1 website. http://www.gs1.org/&#xA;* Health Industry Business Communications Council (HIBBCC) website. http://www.hibcc.org/&#xA;* Health Information Technology: Initial Set of Standards, Implementation Specifications, and Certification Criteria for Electronic Health Record Technology; 45 CFR Part 170, Final Rule, (July 28, 2010). http://edocket.access.gpo.gov/2010/pdf/2010-17210.pdf&#xA;* Health Information Technology: Standards, Implementation Specifications, and Certification Criteria for Electronic Health Record Technology, 2014 Edition; Revisions to the Permanent Certification Program for Health Information Technology. 45 CFR Part 170, Final rule, (September 4, 2012).. http://www.gpo.gov/fdsys/pkg/FR-2012-09-04/pdf/2012-20982.pdf&#xA;* HITSP Summary Documents Using HL7 Continuity of Care Document (CCD) Component (HITSP/C32) webpage, Versions 2.1, 2.2, 2.3, 2.5. (December 13, 2007 - July 8, 2009). http://www.hitsp.org/ConstructSet_Details.aspx?&amp;PrefixAlpha=4&amp;PrefixNumeric=32&#xA;* HL7 Ballot Desk Top webpage. http://www.hl7.org/ctl.cfm?action=ballots.loginchoice (Must be an HL7 member to view.)&#xA;* HL7 Care Plan webpage. http://wiki.hl7.org/index.php?title=Care_Plan&#xA;* HL7 Clinical Document Architecture, Release 2 (CDA R2). (May 2005). http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7&#xA;* HL7 Implementation Guide for CDA Release 2: Additional Information Specification Implementation Guide, Release 3.0. (July 31, 2007). http://www.hl7.org/documentcenter/public/wg/ca/CDAR2AIS0000R030_ImplementationGuideDraft.pdf&#xA;* HL7 Implementation Guide for CDA Release 2: Consultation Notes, (U.S. Realm), Draft Standard for Trial Use, Release 1, Levels 1, 2, and 3, DSTU Updated: January 2010. http://www.hl7.org/documentcenter/public/standards/dstu/CDAR2_CONSNOTE_DSTU_R1_2010JAN.zip&#xA;* HL7 Implementation Guide for CDA Release 2: History and Physical (H&amp;P) Notes (U.S. Realm) Draft Standard for Trial Use, Release 1, Levels 1, 2, and 3 A CDA Implementation guide for History and Physical Notes, DSTU Updated: January 2010. http://www.hl7.org/implement/standards/product_brief.cfm?product_id=19&#xA;* HL7 Implementation Guide for CDA Release 2: Imaging Integration, Levels 1, 2, and 3, Basic Imaging Reports in CDA and DICOM Diagnostic Imaging Reports (DIR) – Universal Realm, Release 1.0. (March 2009). http://www.hl7.org/documentcenter/private/standards/cda/igs/cdar2_ii_bimgrpts_r1_inf_2009mar.zip&#xA;* HL7 Implementation Guide for CDA Release 2: Procedure Note (Universal Realm), Draft Standard for Trial Use, Release 1, Levels 1, 2, and 3, July 2010. http://www.hl7.org/documentcenter/public/standards/dstu/CDAR2_IG_PROCNOTE_DSTU_R1_2010JUL.zip&#xA;* HL7 Implementation Guide for CDA Release 2: Unstructured Documents, Release 1, Level 1 (Universal Realm), Draft Standard for Trial Use, September 2010. http://www.hl7.org/implement/standards/product_brief.cfm?product_id=259&#xA;* HL7 Implementation Guide for CDA Release 2.0 Operative Note, (U.S. Realm), Draft Standard for Trial Use, Release 1, Levels 1, 2 and 3, Published. (March 2009).&#xA;* HL7 Implementation Guide for CDA Release 2.0, Care Record Summary Release 2, Discharge Summary, (U.S. Realm) Draft Standard for Trial Use, Levels 1, 2 and 3. (December 2009). http://www.hl7.org/implement/standards/product_brief.cfm?product_id=233&#xA;* HL7 Implementation Guide for CDA Release 2.0, Progress Note (U.S. Realm), Draft Standard for Trial Use, Levels 1, 2, and 3. (January 2011). http://www.hl7.org/implement/standards/product_brief.cfm?product_id=188 * HL7 Implementation Guide for CDA® Release 2: IHE Health Story Consolidation (US Realm), Release 1.1. (July 2012). http://www.hl7.org/documentcenter/private/standards/cda/CDAR2_IG_IHE_CONSOL_DSTU_R1dot1_2012JUL.zip&#xA;* HL7 Implementation Guide: CDA Release 2 – Continuity of Care Document (CCD), Release 1, A CDA implementation of ASTM E2369-05 Standard Specification for Continuity of Care Record© (CCR). (April 01, 2007). http://www.hl7.org/documentcenter/private/standards/cda/igs/HL7_CCD_final.zip&#xA;* HL7 Version 3 Domain Analysis Model: Pressure Ulcer Prevention, Release 1. (August 2013). http://www.hl7.org/documentcenter/private/standards/v3/V3_DAM_PRULCERPREV_R1_INFORM_2013AUG.pdf&#xA;* HL7 Version 3 Interoperability Standards, Normative Edition 2010. http://www.hl7.org/memonly/downloads/v3edition.cfm - V32010&#xA;* HL7 Version 3 Publishing Facilitator's Guide, Release 1. (2005). http://www.hl7.org/v3ballot/html/help/pfg/pfg.htm&#xA;* HL7 Version 3 Standard: Refinement, Constraint and Localization to Version 3 Messages, Release 2. (September 2012). http://www.hl7.org/v3ballot/html/infrastructure/conformance/conformance.htm&#xA;* IHE Patient Care Coordination (PCC) Technical Framework Supplement, Patient Care Plan Content Profile (PtCP), Trial Implementation (October 4, 2013). http://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_PtCP.pdf&#xA;* IHE. (2009). Cross Transaction Specifications and Content Specifications. IHE ITI Technical Framework, Volume 3 (ITI TF-3) (see 5.2 Scanned Documents Content Model). http://www.ihe.net/Technical_Framework/upload/IHE_ITI_TF_6-0_Vol3_FT_2009-08-10.pdf&#xA;* International Council for Commonality in Blood Bank Automation (ICCBBA) website. http://iccbba.org/&#xA;* Joint Commission Requirements for Discharge Summary (JCAHO IM.6.10 EP7).&#xA;* Mosby's Medical Dictionary, 8th edition. © 2009, Elsevier.&#xA;* Pressure Ulcer Prevention Domain Analysis Model, current, accessed May 2, 2012.&#xA;* S&amp;I Framework, LCC Long-Term Post-Acute Care (LTPAC) Transition SWG webpage. http://wiki.siframework.org/LCC+Long-Term+Post-Acute+Care+%28LTPAC%29+Transition+SWG&#xA;* S&amp;I Framework, LCC Longitudinal Care Plan (LCP) SWG web page. http://wiki.siframework.org/LCC+Longitudinal+Care+Plan+%28LCP%29+SWG&#xA;* SMART Platforms website. http://smartplatforms.org&#xA;* Taber's Cyclopedic Medical Dictionary, 21st Edition, F.A. Davis Company. http://www.tabers.com&#xA;* Terminfo. http://www.hl7.org/special/committees/terminfo/index.cfm&#xA;* Trifolia Workbench (Consolidation Project Edition). Open source template database. https://trifolia.lantanagroup.com/&#xA;* W3C, Extensible Markup Language (XML) 1.0 (Fifth Edition), http://www.w3.org/TR/2008/REC-xml-20081126/&#xA;* W3C, XML Path Language (XPath), Version 1.0, (1999). http://www.w3.org/TR/xpath/"
+                    />
+                </extension>
                 <nameUrl value="references.html"/>
                 <title value="References"/>
                 <generation value="markdown"/>
             </page>
             <page>
+                <extension
+                    url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-filename">
+                    <valueUri value="appendix.md"/>
+                </extension>
+                <extension
+                    url="https://trifolia-on-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-content">
+                    <valueMarkdown
+                        value="### A - Acronyms and Abbreviations&#xA;&#xA;| Acronym | Description |&#xA;| ------- | ----------- |&#xA;| ADL | Activities of Daily Living |&#xA;| C-CDA R1, R1.1, R2 | Consolidated CDA (Release 1, 1.1, and 2) |&#xA;| CCD | Continuity of Care Document |&#xA;| CDA, CDA R2 | Clinical Document Architecture (Release 2) |&#xA;| CDC | Centers for Disease Control and Prevention |&#xA;| CFR | Code of Federal Regulations |&#xA;| CID | content identifier |&#xA;| CPT | Current Procedural Terminology |&#xA;| CVX | Codes for Vaccine Administered |&#xA;| DAM | Domain Analysis Model |&#xA;| DI | device identifier |&#xA;| DICOM | Digital Imaging and Communications in Medicine |&#xA;| CMET | Common Message Element Type |&#xA;| DIR | Diagnostic Imaging Report |&#xA;| DME | durable medical equipment |&#xA;| DRIV | is derived from |&#xA;| DSTU | Draft Standard for Trial Use |&#xA;| EHR | electronic health record |&#xA;| EMR | electronic medical record |&#xA;| EVN | event |&#xA;| FDA | Food and Drug Administration |&#xA;| FIPS | Federal Information Processing Standards |&#xA;| GOL | goal |&#xA;| H&amp;P | History and Physical |&#xA;| HCT/P | Human Cell &amp; Tissue Products |&#xA;| HHPoC | Home Health Plan of Care |&#xA;| HIBCC | Health Industry Business Communications Council |&#xA;| HIE | health information exchange |&#xA;| HISP | health information service provider |&#xA;| HIT | healthcare information technology |&#xA;| HITSP | Health Information Technology Standards Panel |&#xA;| HL7 | Health Level Seven |&#xA;| HTML | Hypertext Markup Language |&#xA;| IADL | Instrumental Activities of Daily Living |&#xA;| ICCBBA | International Council for Commonality in Blood Banking Automation, Inc. |&#xA;| ICD | International Classification of Diseases |&#xA;| ICF | International Classification of Functioning, Disability and Health |&#xA;| IG | implementation guide |&#xA;| IHE | Integrating the Healthcare Enterprise |&#xA;| PCC | Patient Care Coordination |&#xA;| IHTSDO | International Health Terminology Standard Development Organisation |&#xA;| RFC | Request for Comments |&#xA;| ITI | information technology infrastructure |&#xA;| LCC | Longitudinal Care Coordination |&#xA;| LCP | Longitudinal Care Plan |&#xA;| LOINC | Logical Observation Identifiers Names and Codes |&#xA;| LTPAC | Long-Term Post-Acute Care |&#xA;| MHTML | MIME HTML |&#xA;| MIME | Multipurpose Internet Mail Extensions |&#xA;| MPHO | Medical Products of Human Origin |&#xA;| NA | not applicable |&#xA;| NDC | National Drug Code |&#xA;| NDFRT | National Drug File Reference Terminology |&#xA;| NEMA | National Electrical Manufacturers Association |&#xA;| NHSN | National Healthcare Safety Network |&#xA;| NI | no information |&#xA;| NLM | National Library of Medicine |&#xA;| NPI | National Provider Identifier |&#xA;| NPO | nothing by mouth |&#xA;| NPP | non-physician provider |&#xA;| NUBC | National Uniform Billing Committee |&#xA;| NUCC | National Uniform Claim Committee |&#xA;| OID | object identifier |&#xA;| ONC | Office of National Coordinator |&#xA;| OTH | not an element in the value domain |&#xA;| PCDATA | Parsed Character Data |&#xA;| PCWG | Patient Care Work Group |&#xA;| PDF | Portable Document Format |&#xA;| PGD | Patient Generated Document |&#xA;| PGP | Pretty Good Privacy |&#xA;| PHQ | Patient Health Questionnaire |&#xA;| PHR | personal health record |&#xA;| PI | Production Identifier |&#xA;| PKCS#7 | public-key cryptography standard seven (Cryptographic Message Syntax Standard |&#xA;| RFC | request for comment |&#xA;| RIM | Reference Information Model |&#xA;| RMIM | Refined Message Information Model |&#xA;| RQO | request |&#xA;| RSNA | Radiological Society of North America |&#xA;| S&amp;I | Standards and Interoperability |&#xA;| sdtc | Standard Duty Title Code |&#xA;| SDWG | Structured Documents Working Group |&#xA;| SMART | Substitutable Medical Applications &amp; Reusable Technology |&#xA;| SNF | Skilled Nursing Facility |&#xA;| SNOMED CT | Systemized Nomenclature for Medicine – Clinical Terms |&#xA;| SOP | Service Object Pair |&#xA;| SPL | Structured Product Labeling |&#xA;| SR | Structured Report |&#xA;| SSN | Social Security Number |&#xA;| SWG | Sub Work Group |&#xA;| TPN | Total Parenteral Nutrition |&#xA;| UCUM | Unified Code for Units of Measure |&#xA;| UD | Unstructured Document |&#xA;| UDI | Unique Device Identification |&#xA;| UML | Unified Modeling Language |&#xA;| UNII | Unique Ingredient identifier |&#xA;| UNK | unknown |&#xA;| URL | uniform resource locator |&#xA;| URN | uniform resource name |&#xA;| UUID | universally unique identifier |&#xA;| VIS | Vaccine Information Statement |&#xA;| WADO | Web Access to Persistent DICOM Objects |&#xA;| XDS-SD | Cross Enterprise Sharing of Scanned Documents |&#xA;| XML | eXtensible Markup language |&#xA;| XML-DSIG | XML digital signature |&#xA;| XPath | XML Path Language |&#xA;&#xA;### B - High-Level Change Log&#xA;&#xA;This implementation guide builds on HL7 Implementation Guide for CDA® Release 2: Consolidated CDA Templates for Clinical Notes (US Realm), Release 2.0. (NOV 2014).&#xA;&#xA;### C - Extensions to CDA R2&#xA;&#xA;Where there is a need to communicate information for which there is no suitable representation in CDA R2, extensions to CDA R2 have been developed. These extensions are described above in the context of the section where they are used. This section serves to summarize the extensions and provide implementation guidance.&#xA;Extensions created for this guide include:&#xA;&#xA;* sdtc:raceCode - The raceCode extension allows for multiple races to be reported for a patient.&#xA;* sdtc:ethnicGroupCode - The ethnicGroupCode extension allows for additional ethnicity groups for the recordTarget or subjectPerson.&#xA;* sdtc:id - The id extension in the family history organizer on the related subject allows for unique identification of the family member(s).&#xA;* sdtc:deceasedInd - The deceasedIndextension (= “true” or “false”) in the family history organizer on the related subject is used inside to indicate if a family member is deceased.&#xA;* sdtc:deceasedTime - The deceasedTime extension in the family history organizer on the related subject allows for reporting the date and time a family member died.&#xA;* sdtc:birthTime - The birthTime extension allows for the birth date of any person to be recorded. The purpose of this extension is to allow the recording of the subscriber or member of a health plan in cases where the health plan eligibility system has different information on file than the provider does for the patient.&#xA;* sdtc:dischargeDispositionCode - The dischargeDispositionCode extension allows the provider to record a discharge disposition in an encounter activity.&#xA;* sdtc:signatureText - The signatureText extension provides a location in CDA for a textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. Details of what goes in the field are described in the HL7 Implementation Guide for CDA® Release 2: Digital Signatures and Delegation of Rights, Release 1.&#xA;&#xA;To resolve issues that need to be addressed by extension, the developers of this guide chose to approach extensions as follows:&#xA;&#xA;* An extension is a collection of element or attribute declarations and rules for their application to the CDA Release 2.0.&#xA;* All extensions are optional. An extension may be used, but need not be under this guide.&#xA;* A single namespace for all extension elements or attributes that may be used by this guide will be defined.&#xA;* The namespace for extensions created by the HL7 Structured Documents Working Group (formerly Structured Documents Technical Committee) shall be urn:hl7-org:sdtc.&#xA;* This namespace shall be used as the namespace for any extension elements or attributes that are defined by this implementation guide.&#xA;* Each extension element shall use the same HL7 vocabularies and data types used by CDA Release 2.0.&#xA;* Each extension element shall use the same conventions for order and naming as is used by the current HL7 tooling.&#xA;* An extension element shall appear in the XML where the expected RIM element of the same name would have appeared had that element not been otherwise constrained from appearing in the CDA XML schema.&#xA;&#xA;### D - Mime Multipart/Related Messages&#xA;&#xA;The following text is taken from the Claims Attachments Implementation Guide (AIS00000) in Section 2.4.15 For up-to-date guidance, refer to the latest edition of that specification.&#xA;&#xA;**MIME Multipart/Related Messages**&#xA;&#xA;An attachment is comprised of the CDA document, including any supporting files necessary to render the attested content of the document. Two Internet request for comments (RFCs) are needed to properly construct the mime multipart message. When supporting files are needed, the collection of information shall be organized using a MIME multipart/related package constructed according to RFC 2557. Within the MIME package, supporting files must be encoded using Base-64. RFC-4648 should be used when encoding the contents of the MIME package using Base-64. Finally, RFC-2392 may be used to reference other content that appears in the same X12 transaction to use the same content to answer multiple questions for a single claim. Internet RFCs can be downloaded from the RFC editor page at http://www.rfc-editor.org.&#xA;&#xA;**RFC-2557 MIME Encapsulation of Aggregate Documents, Such as HTML (MHTML)**&#xA;&#xA;This RFC describes how to construct a MIME multipart/related package, and how URLs are resolved within content items of that package. RFC-2557 can be obtained at: http://www.rfc-editor.org/rfc/rfc2557.txt&#xA;&#xA;A MIME multipart/related package is made up of individual content items. Each content item has a MIME header identifying the item. Each content item is delimited from other content items using a string of application specified text. In addition, there must be an ending boundary. The actual content is recorded between these delimiter strings using a BASE-64 encoding of the content item. There is also a MIME header for the entire package.&#xA;&#xA;The first content item of a multipart/related message supporting attachments is the CDA document, containing the header and structured or non-structured body. Subsequent content items included in this package will contain additional content that appears within the body of the document. The CDA document will reference these additional content items by their URLs.&#xA;&#xA;**Referencing Supporting Files in Multipart/Related Messages**&#xA;&#xA;Because the CDA document and its supporting files may have already existed in a clinical information system, references may already exist within the CDA document to URLs that are not accessible outside of the clinical information system that created the document. When the CDA document is sent via attachments, these URLs may no longer be accessible by the receiving information system. Therefore, each content item that is referenced by a URL within the CDA document must be included as a content item in the MIME package. Each content item may specify the URL by which it is known using the Content-Location header. The receiver of this MIME package shall translate URL references according the RFC-2557. This will ensure resolution of the original URL to the correct content item within the MIME package. Thus, URL references contained within an original document need not be rewritten when the CDA package is transmitted. Instead, these URLs are simply supplied as the value of the Content-Location header in the MIME package.&#xA;&#xA;This capability allows for the same content item to be referred to more than once in a MIME multipart/related package without requiring the content item to be supplied twice. However, it does not allow a separate MIME multipart/related package to contain references to information sent in a previously recorded package.&#xA;&#xA;**Referencing Documents from Other Multiparts within the Same X12 Transactions**&#xA;&#xA;RFC-2392 is used when referencing content across MIME package boundaries, but still contained within the same X12 transaction (ST to SE). This can occur when the same document answers multiple questions for a single claim. Each component of a MIME package may be assigned a content identifier using the Content-ID header for the content item. For example, this header would appear as:&#xA;&#xA;`Content-ID: &lt;07EE4DAC-76C4-4a98-967E-F6EF9667DED1&gt;`&#xA;&#xA;This content identifier is a unique identifier for the content item, which means it must never be used to refer to any other content item. RFC-2392 defines the cid: URL scheme (http: and ftp: are two other URL schemes). This URL scheme allows for references by the Content-ID header to be resolved. The URL for the content item identified above would be:&#xA;&#xA;`cid:07EE4DAC-76C4-4a98-967E-F6EF9667DED1`&#xA;&#xA;Receivers of the MIME multipart message must be able to resolve a cid: URL to the content item that it identifies. Senders must ensure that they only refer to items that have already been transmitted to the receiver by their cid: URL. Thus, this implementation guide prohibits forward URL references using the cid: URL scheme.&#xA;&#xA;Content items shall not be referenced across X12 transactions using the cid: URL scheme. For example, if the payer previously requested information using a 277, and the provider returned that information in a MIME multipart/related package in a 275, and then the payer requested additional information in another 277, the provider may not refer to the content item previously returned in the prior 275 transaction.&#xA;"
+                    />
+                </extension>
                 <nameUrl value="appendix.html"/>
                 <title value="Appendix"/>
                 <generation value="markdown"/>
             </page>
             <page>
+                <extension
+                    url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-filename">
+                    <valueUri value="downloads.md"/>
+                </extension>
+                <extension
+                    url="https://trifolia-on-fhir.lantanagroup.com/StructureDefinition/extension-ig-page-content">
+                    <valueMarkdown
+                        value="**Full Implementation Guide**&#xA;&#xA;The entire implementation guide (including the HTML files, definitions, validation information, etc.) may be downloaded [here](full-ig.zip).&#xA;&#xA;**Validator Pack and Definitions**&#xA;&#xA;The validator.pack file is a zip file that contains all the value sets, profiles, extensions, list of pages and urls in the IG, etc defined as part of the this Implementation Guides.&#xA;&#xA;It is used:&#xA;&#xA;* by the validator if you refer to the IG directly by it’s canonical URL&#xA;* by the IG publisher if you declare that one IG depends on another&#xA;* by a FHIR server, if you add the IG to server load list&#xA;&#xA;You may [download the validator.pack](validator.pack) file here.&#xA;&#xA;In addition there are format specific definitions files.&#xA;&#xA;* [XML](definitions.xml.zip)&#xA;* [JSON](definitions.json.zip)&#xA;* [TTL](definitions.ttl.zip)&#xA;&#xA;**Examples:** all the examples that are used in this Implementation Guide available for download:&#xA;&#xA;* [XML](examples.xml.zip)&#xA;* [JSON](examples.json.zip)&#xA;* [TTl](examples.ttl.zip)"
+                    />
+                </extension>
                 <nameUrl value="downloads.html"/>
                 <title value="Downloads"/>
                 <generation value="markdown"/>
             </page>
         </page>
-		<parameter>
-			<code value="releaselabel" />
-			<value value="CI Build" />
-		</parameter>
-		<parameter>
-			<code value="copyrightyear" />
-			<value value="2019+" />
-		</parameter>
+        <parameter>
+            <code value="releaselabel"/>
+            <value value="CI Build"/>
+        </parameter>
+        <parameter>
+            <code value="copyrightyear"/>
+            <value value="2019+"/>
+        </parameter>
     </definition>
 </ImplementationGuide>
