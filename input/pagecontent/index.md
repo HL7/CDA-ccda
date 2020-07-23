@@ -7,7 +7,7 @@ This guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to b
 
 * Care Plan including Home Health Plan of Care (HHPoC)
 * Consultation Note
-* Continuity of Care Document (CCD)
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.2.html">Continuity of Care Document (CCD)</a>
 * Diagnostic Imaging Reports (DIR)
 * Discharge Summary
 * History and Physical (H&P)
