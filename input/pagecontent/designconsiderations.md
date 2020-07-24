@@ -1,3 +1,5 @@
+[Previous Page - Background](background.html)
+
 Design considerations describe overarching principles that have been developed and applied across the CDA templates in this guide. Material in this section can be thought of as “heuristics,” as opposed to the formal, testable constraints found in Volume 2 of this guide.
 
 ### Compatibility
@@ -44,18 +46,18 @@ By including both templateIds the sending application is asserting conformance w
 **C-CDA R2.1 Discharge Summary header example**
 
 ```
-<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cda="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
-	<!-- ** CDA Header ** -->
-	<realmCode code="US"/>
-	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
-	<!-- US General Header Template -->
-	<templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
-	<!--Critical Change for backwards compatibility-->
-	<templateId root="2.16.840.1.113883.10.20.22.1.1"/>
-	<!-- *** Note: The next templateId, code and title will differ depending on what type of document is being sent. *** -->
-	<templateId root="2.16.840.1.113883.10.20.22.1.8" extension="2015-08-01"/>
-	<!--For backwards compatibility-->
-	<templateId root="2.16.840.1.113883.10.20.22.1.8"/>
+<ClinicalDocument xmlns="urn:hl7-org:v3">
+ <!-- ** CDA Header ** -->
+ <realmCode code="US"/>
+ <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+ <!-- US General Header Template -->
+ <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
+ <!--Critical Change for backwards compatibility-->
+ <templateId root="2.16.840.1.113883.10.20.22.1.1"/>
+ <!-- *** Note: The next templateId, code and title will differ depending on what type of document is being sent. *** -->
+ <templateId root="2.16.840.1.113883.10.20.22.1.8" extension="2015-08-01"/>
+ <!--For backwards compatibility-->
+ <templateId root="2.16.840.1.113883.10.20.22.1.8"/>
 ...
 ```
 
@@ -63,11 +65,11 @@ By including both templateIds the sending application is asserting conformance w
 
 ```
 <section>
-	<templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2014-06-09"/>
-	<!--For backwards compatibility-->
-	<templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
-	<code code="11450-4" codeSystem="2.16.840.1.113883.6.1" displayName="Problem List"/>
-	<title>Problem List</title>
+ <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2014-06-09"/>
+ <!--For backwards compatibility-->
+ <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
+ <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" displayName="Problem List"/>
+ <title>Problem List</title>
 ...
 ```
 
@@ -75,12 +77,12 @@ By including both templateIds the sending application is asserting conformance w
 
 ```
 <entry>
-	<act classCode="ACT" moodCode="EVN">
-	<templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2014-06-09"/>
-	<!--For backwards compatibility-->
-	<templateId root="2.16.840.1.113883.10.20.22.4.3"/>
-	<id root="102ca2e9-884c-4523-a2b4-1b6c3469c397"/>
-	<code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+ <act classCode="ACT" moodCode="EVN">
+ <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2014-06-09"/>
+ <!--For backwards compatibility-->
+ <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+ <id root="102ca2e9-884c-4523-a2b4-1b6c3469c397"/>
+ <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
 ...
 ```
 
@@ -152,8 +154,8 @@ The C-CDA R1.1 release recommended that clinical statements include a link betwe
       i. This reference/@value *SHALL* begin with a '#' and *SHALL* point to its corresponding narrative (using the approach defined in CDA R2.0, section 4.3.5.1) (CONF: XXXX).
   *MAY* contain zero or one [0..1] originalText (CONF:XXXX).
     a. The originalText, if present, *SHOULD* contain zero or one [0..1] reference/@value (CONF:XXXX).
-	  i. This reference/@value *SHALL* begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA R2.0, section 4.3.5.1) (CONF:XXXX).
-	  
+   i. This reference/@value *SHALL* begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA R2.0, section 4.3.5.1) (CONF:XXXX).
+   
 ### Unknown and No Known Information
 
 Information technology solutions store and manage data, but sometimes data are not available. An item may be unknown, not relevant, or not computable or measureable, such as where a patient arrives at an emergency department unconscious and with no identification.
@@ -200,17 +202,17 @@ Any SHALL, SHOULD or MAY conformance statement may use nullFlavor, unless the nu
 
 ```
 <entry>
-	<observation classCode="OBS" moodCode="EVN">
-		<id nullFlavor="NI"/>
-		<code nullFlavor="OTH">
-			<originalText>New Grading system</originalText>
-		</code>
-		<statusCode code="completed"/>
-		<effectiveTime nullFlavor="UNK"/>
-		<value xsi:type="CD" nullFlavor="OTH">
-			<originalText>Spiculated mass grade 5</originalText>
-		</value>
-	</observation>
+ <observation classCode="OBS" moodCode="EVN">
+  <id nullFlavor="NI"/>
+  <code nullFlavor="OTH">
+   <originalText>New Grading system</originalText>
+  </code>
+  <statusCode code="completed"/>
+  <effectiveTime nullFlavor="UNK"/>
+  <value xsi:type="CD" nullFlavor="OTH">
+   <originalText>Spiculated mass grade 5</originalText>
+  </value>
+ </observation>
 </entry>
 ```
 
@@ -224,16 +226,16 @@ If a sender wants to state that a piece of information is unknown, the following
 
 ```
 <entry>
-	<text>patient was given a medication but I do not know what it was</text>
-	<substanceAdministration moodCode="EVN" classCode="SBADM">
-		<consumable>
-			<manufacturedProduct>
-				<manufacturedLabeledDrug>
-					<code nullFlavor="NI"/>
-				</manufacturedLabeledDrug>
-			</manufacturedProduct>
-		</consumable>
-	</substanceAdministration>
+ <text>patient was given a medication but I do not know what it was</text>
+ <substanceAdministration moodCode="EVN" classCode="SBADM">
+  <consumable>
+   <manufacturedProduct>
+    <manufacturedLabeledDrug>
+     <code nullFlavor="NI"/>
+    </manufacturedLabeledDrug>
+   </manufacturedProduct>
+  </consumable>
+ </substanceAdministration>
 </entry>
 ```
 
@@ -243,16 +245,16 @@ If a sender wants to state that a piece of information is unknown, the following
 
 ```
 <entry>
-	<substanceAdministration moodCode="EVN" classCode="SBADM" nullFlavor="NI">
-		<text>I do not know whether or not patient received an anticoagulant drug</text>
-		<consumable>
-			<manufacturedProduct>
-				<manufacturedLabeledDrug>
-					<code code="81839001" displayName="anticoagulant drug" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
-				</manufacturedLabeledDrug>
-			</manufacturedProduct>
-		</consumable>
-	</substanceAdministration>
+ <substanceAdministration moodCode="EVN" classCode="SBADM" nullFlavor="NI">
+  <text>I do not know whether or not patient received an anticoagulant drug</text>
+  <consumable>
+   <manufacturedProduct>
+    <manufacturedLabeledDrug>
+     <code code="81839001" displayName="anticoagulant drug" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+    </manufacturedLabeledDrug>
+   </manufacturedProduct>
+  </consumable>
+ </substanceAdministration>
 </entry>
 ```
 
@@ -262,16 +264,16 @@ If a sender wants to state that a piece of information is unknown, the following
 
 ```
 <entry>
-	<substanceAdministration moodCode="EVN" classCode="SBADM" negationInd=”true”>
-		<text>No known medications</text>
-		<consumable>
-			<manufacturedProduct>
-				<manufacturedLabeledDrug>
-					<code code="410942007" displayName="drug or medication" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
-				</manufacturedLabeledDrug>
-			</manufacturedProduct>
-		</consumable>
-	</substanceAdministration>
+ <substanceAdministration moodCode="EVN" classCode="SBADM" negationInd=”true”>
+  <text>No known medications</text>
+  <consumable>
+   <manufacturedProduct>
+    <manufacturedLabeledDrug>
+     <code code="410942007" displayName="drug or medication" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+    </manufacturedLabeledDrug>
+   </manufacturedProduct>
+  </consumable>
+ </substanceAdministration>
 </entry>
 ```
 
@@ -279,12 +281,12 @@ If a sender wants to state that a piece of information is unknown, the following
 
 ```
 <entry>
-	<observation classCode="OBS" moodCode="EVN">
-		…
-		<value xsi:type="CD" nullFlavor="OTH">
-			<originalText>Spiculated mass grade 5</originalText>
-		</value>
-	</observation>
+ <observation classCode="OBS" moodCode="EVN">
+  …
+  <value xsi:type="CD" nullFlavor="OTH">
+   <originalText>Spiculated mass grade 5</originalText>
+  </value>
+ </observation>
 </entry>
 ```
 
@@ -292,10 +294,10 @@ If a sender wants to state that a piece of information is unknown, the following
 
 ```
 <entry>
-	<observation classCode="OBS" moodCode="EVN">
-		…
-		<value xsi:type="CD" nullFlavor="UNK"/>
-	</observation>
+ <observation classCode="OBS" moodCode="EVN">
+  …
+  <value xsi:type="CD" nullFlavor="UNK"/>
+ </observation>
 </entry>
 ```
 
@@ -303,12 +305,14 @@ If a sender wants to state that a piece of information is unknown, the following
 
 ```
 <entry>
-	<observation classCode="OBS" moodCode="EVN">
-		…
-		<value xsi:type="CD" nullFlavor="OTH">
-			<originalText>Spiculated mass grade 5</originalText>
-			<translation code="129742005" displayName="spiculated lesion" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
-		</value>
-	</observation>
+ <observation classCode="OBS" moodCode="EVN">
+  …
+  <value xsi:type="CD" nullFlavor="OTH">
+   <originalText>Spiculated mass grade 5</originalText>
+   <translation code="129742005" displayName="spiculated lesion" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+  </value>
+ </observation>
 </entry>
 ```
+
+[Next Page - Using this Implementation Guide](using.html)

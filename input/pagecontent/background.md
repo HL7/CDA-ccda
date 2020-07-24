@@ -1,3 +1,5 @@
+[Previous Page - IG Home Page](index.html)
+
 CDA R2 is “… a document markup standard that specifies the structure and semantics of ‘clinical documents’ for the purpose of exchange” [CDA R2, Section 1.1]1. Clinical documents, according to CDA, have the following characteristics:
 
 * Persistence
@@ -62,3 +64,5 @@ The Continuity of Care Document (CCD) is a subset of the Transfer Summary and co
 In cases when a provider requests consultation from another provider, a Referral Note document is exchanged to communicate the referral request and pertinent patient information. When the consultation is completed, the consulting provider may generate a Consultation Note to inform the requesting clinician of her opinion or advice. A patient with complex needs requires the care of multiple providers in various settings. In this situation, a Care Plan document provides a snapshot in time of current health concerns, goals, interventions and care coordination activities amongst providers, the patient, and the patient’s caregivers.
 
 The ONC-sponsored SMART (Substitutable Medical Apps and Reusable Technologies) project8, in an effort to make C-CDA instances more reliably consumable by SMART applications for mobile devices, has analyzed real world C-CDA instances and identified common sources of ambiguity and misinterpretation. Many of the clarifications to C-CDA R1.1 templates, included here as C-CDA R2, are as a direct result of the SMART analysis.
+
+[Next Page - Design Considerations](designconsiderations.html)

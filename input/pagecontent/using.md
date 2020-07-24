@@ -1,3 +1,5 @@
+[Previous Page - Design Considerations](designconsiderations.html)
+
 This chapter describes the rules and formalisms used to constrain the CDA R2 standard. It describes the formal representation of CDA templates, the mechanism by which templates are bound to vocabulary, and additional information necessary to understand and correctly implement the normative content found in Volume 2 of this guide.
 
 ### Levels of Constraint
@@ -49,3 +51,5 @@ In the above example, the `code` attribute of the code could be selected with th
 **XPath Expression Example**
 
 `author/assignedAuthor/code/@code`
+
+[Next Page - References](references.html)
