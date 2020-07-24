@@ -60,15 +60,15 @@
             </slicing>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-32918) such that it"/>
         </element>
-        <element id="Observation.templateId:templateId1">
+        <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
-            <sliceName value="templateId1"/>
+            <sliceName value="primary"/>
             <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-32918) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1.root">
+        <element id="Observation.templateId:primary.root">
             <path value="Observation.templateId.root"/>
             <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.145&quot; (CONF:81-32923)."/>
@@ -120,6 +120,9 @@
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Criticality Observation urn:oid:2.16.840.1.113883.1.11.20549 DYNAMIC (CONF:81-32928)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/CD" />
+            </type>
             <binding>
                 <strength value="required"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20549"/>

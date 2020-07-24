@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="MedicationDispense"/>
-    <title value="Medication Dispense (V2)"/>
+    <title value="Medication Dispense"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -69,15 +69,15 @@
             </slicing>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7453) such that it"/>
         </element>
-        <element id="Supply.templateId:templateId1">
+        <element id="Supply.templateId:primary">
             <path value="Supply.templateId"/>
-            <sliceName value="templateId1"/>
+            <sliceName value="primary"/>
             <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7453) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Supply.templateId:templateId1.root">
+        <element id="Supply.templateId:primary.root">
             <path value="Supply.templateId.root"/>
             <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.18&quot; (CONF:1098-10505)."/>
@@ -85,7 +85,7 @@
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.18"/>
         </element>
-        <element id="Supply.templateId:templateId1.extension">
+        <element id="Supply.templateId:primary.extension">
             <path value="Supply.templateId.extension"/>
             <short value="extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32580)."/>
@@ -195,26 +195,22 @@
             <path value="Supply.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="supply"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7473) such that it"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1">
+        <element id="Supply.entryRelationship:supplyOrder">
             <path value="Supply.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="supplyOrder"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7473) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1.typeCode">
+        <element id="Supply.entryRelationship:supplyOrder.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7474)."/>
@@ -222,7 +218,7 @@
             <max value="1"/>
             <patternString value="REFR"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1.supply">
+        <element id="Supply.entryRelationship:supplyOrder.supply">
             <path value="Supply.entryRelationship.supply"/>
             <short value="supply"/>
             <definition value="SHALL contain exactly one [1..1] Medication Supply Order (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09) (CONF:1098-15606)."/>

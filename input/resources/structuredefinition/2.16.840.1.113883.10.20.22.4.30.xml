@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="AllergyConcernAct"/>
-    <title value="Allergy Concern Act (V3)"/>
+    <title value="Allergy Concern Act"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -65,15 +65,15 @@
             </slicing>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7471) such that it"/>
         </element>
-        <element id="Act.templateId:templateId1">
+        <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
-            <sliceName value="templateId1"/>
+            <sliceName value="primary"/>
             <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7471) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:templateId1.root">
+        <element id="Act.templateId:primary.root">
             <path value="Act.templateId.root"/>
             <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.30&quot; (CONF:1198-10489)."/>
@@ -81,7 +81,7 @@
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.30"/>
         </element>
-        <element id="Act.templateId:templateId1.extension">
+        <element id="Act.templateId:primary.extension">
             <path value="Act.templateId.extension"/>
             <short value="extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32543)."/>
@@ -173,22 +173,22 @@
                     <path value="typeCode"/>
                 </discriminator>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-7509) such that it"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:allergyObs">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="allergyObs"/>
             <short value="entryRelationship"/>
             <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-7509) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:allergyObs.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-7915)."/>
@@ -196,7 +196,7 @@
             <max value="1"/>
             <patternString value="SUBJ"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation">
+        <element id="Act.entryRelationship:allergyObs.observation">
             <path value="Act.entryRelationship.observation"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Allergy - Intolerance Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09) (CONF:1198-14925)."/>

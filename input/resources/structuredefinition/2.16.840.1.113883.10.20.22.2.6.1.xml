@@ -7,8 +7,8 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="AllergiesandIntolerancesSectionentriesrequired"/>
-    <title value="Allergies and Intolerances Section (entries required) (V3)"/>
+    <name value="AllergiesAndIntolerancesSectionEntriesRequired"/>
+    <title value="Allergies and Intolerances Section (entries required)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -122,22 +122,22 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="act"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <definition value="SHALL contain at least one [1..*] entry (CONF:1198-7531) such that it"/>
         </element>
-        <element id="Section.entry:entry1">
+        <element id="Section.entry:allergyConcern">
             <path value="Section.entry"/>
-            <sliceName value="entry1"/>
+            <sliceName value="allergyConcern"/>
             <short value="entry"/>
             <definition value="SHALL contain at least one [1..*] entry (CONF:1198-7531) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:entry1.act">
+        <element id="Section.entry:allergyConcern.act">
             <path value="Section.entry.act"/>
             <short value="act"/>
             <definition value="SHALL contain exactly one [1..1] Allergy Concern Act (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.30:2015-08-01) (CONF:1198-15446)."/>

@@ -8,7 +8,7 @@
     </identifier>
     <version value="2014-06-09"/>
     <name value="ProcedureActivityProcedure"/>
-    <title value="Procedure Activity Procedure (V2)"/>
+    <title value="Procedure Activity Procedure"/>
     <status value="active"/>
     <contact>
         <name value="Gaye Dolin"/>
@@ -64,15 +64,15 @@
             </slicing>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7654) such that it"/>
         </element>
-        <element id="Procedure.templateId:templateId1">
+        <element id="Procedure.templateId:primary">
             <path value="Procedure.templateId"/>
-            <sliceName value="templateId1"/>
+            <sliceName value="primary"/>
             <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7654) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Procedure.templateId:templateId1.root">
+        <element id="Procedure.templateId:primary.root">
             <path value="Procedure.templateId.root"/>
             <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.14&quot; (CONF:1098-10521)."/>
@@ -80,7 +80,7 @@
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.14"/>
         </element>
-        <element id="Procedure.templateId:templateId1.extension">
+        <element id="Procedure.templateId:primary.extension">
             <path value="Procedure.templateId.extension"/>
             <short value="extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32506)."/>
@@ -324,22 +324,22 @@
                     <path value="typeCode"/>
                 </discriminator>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="participantRole"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1098-7765) such that it"/>
         </element>
-        <element id="Procedure.participant:participant1">
+        <element id="Procedure.participant:product">
             <path value="Procedure.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="product"/>
             <short value="participant"/>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1098-7751) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.participant:participant1.typeCode">
+        <element id="Procedure.participant:product.typeCode">
             <path value="Procedure.participant.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7752)."/>
@@ -347,7 +347,7 @@
             <max value="1"/>
             <patternString value="DEV"/>
         </element>
-        <element id="Procedure.participant:participant1.participantRole">
+        <element id="Procedure.participant:product.participantRole">
             <path value="Procedure.participant.participantRole"/>
             <short value="participantRole"/>
             <definition value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-15911)."/>
@@ -358,15 +358,15 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.37"/>
             </type>
         </element>
-        <element id="Procedure.participant:participant2">
+        <element id="Procedure.participant:location">
             <path value="Procedure.participant"/>
-            <sliceName value="participant2"/>
+            <sliceName value="location"/>
             <short value="participant"/>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1098-7765) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.participant:participant2.typeCode">
+        <element id="Procedure.participant:location.typeCode">
             <path value="Procedure.participant.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-7766)."/>
@@ -374,7 +374,7 @@
             <max value="1"/>
             <patternString value="LOC"/>
         </element>
-        <element id="Procedure.participant:participant2.participantRole">
+        <element id="Procedure.participant:location.participantRole">
             <path value="Procedure.participant.participantRole"/>
             <short value="participantRole"/>
             <definition value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1098-15912)."/>
@@ -389,26 +389,30 @@
             <path value="Procedure.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
+                    <type value="profile"/>
+                    <path value="observation"/>
                 </discriminator>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="observation"/>
+                    <type value="profile"/>
+                    <path value="act"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="substanceAdministration"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32473) such that it"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship1">
+        <element id="Procedure.entryRelationship:encounter">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="encounter"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7768) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship1.typeCode">
+        <element id="Procedure.entryRelationship:encounter.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7769)."/>
@@ -416,7 +420,7 @@
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship1.inversionInd">
+        <element id="Procedure.entryRelationship:encounter.inversionInd">
             <path value="Procedure.entryRelationship.inversionInd"/>
             <short value="inversionInd"/>
             <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8009)."/>
@@ -424,14 +428,14 @@
             <max value="1"/>
             <patternString value="true"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship1.encounter">
+        <element id="Procedure.entryRelationship:encounter.encounter">
             <path value="Procedure.entryRelationship.encounter"/>
             <short value="encounter"/>
             <definition value="SHALL contain exactly one [1..1] encounter (CONF:1098-7770)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship1.encounter.classCode">
+        <element id="Procedure.entryRelationship:encounter.encounter.classCode">
             <path value="Procedure.entryRelationship.encounter.classCode"/>
             <short value="classCode"/>
             <definition value="This encounter SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; Encounter (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7771)."/>
@@ -439,7 +443,7 @@
             <max value="1"/>
             <patternString value="ENC"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship1.encounter.moodCode">
+        <element id="Procedure.entryRelationship:encounter.encounter.moodCode">
             <path value="Procedure.entryRelationship.encounter.moodCode"/>
             <short value="moodCode"/>
             <definition value="This encounter SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7772)."/>
@@ -447,7 +451,7 @@
             <max value="1"/>
             <patternString value="EVN"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship1.encounter.id">
+        <element id="Procedure.entryRelationship:encounter.encounter.id">
             <path value="Procedure.entryRelationship.encounter.id"/>
             <short value="id"/>
             <definition value="This encounter SHALL contain exactly one [1..1] id (CONF:1098-7773)."/>
@@ -459,15 +463,15 @@
                 <human value="Set the encounter ID to the ID of an encounter in another section to signify they are the same encounter (CONF:1098-16843)."/>
             </constraint>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship2">
+        <element id="Procedure.entryRelationship:instruction">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="instruction"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7775) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship2.typeCode">
+        <element id="Procedure.entryRelationship:instruction.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7776)."/>
@@ -475,7 +479,7 @@
             <max value="1"/>
             <patternString value="SUBJ"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship2.inversionInd">
+        <element id="Procedure.entryRelationship:instruction.inversionInd">
             <path value="Procedure.entryRelationship.inversionInd"/>
             <short value="inversionInd"/>
             <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-7777)."/>
@@ -483,7 +487,7 @@
             <max value="1"/>
             <patternString value="true"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship2.act">
+        <element id="Procedure.entryRelationship:instruction.act">
             <path value="Procedure.entryRelationship.act"/>
             <short value="act"/>
             <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31395)."/>
@@ -494,15 +498,15 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
             </type>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship3">
+        <element id="Procedure.entryRelationship:indication">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="indication"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7779) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship3.typeCode">
+        <element id="Procedure.entryRelationship:indication.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7780)."/>
@@ -510,7 +514,7 @@
             <max value="1"/>
             <patternString value="RSON"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship3.observation">
+        <element id="Procedure.entryRelationship:indication.observation">
             <path value="Procedure.entryRelationship.observation"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-15914)."/>
@@ -521,15 +525,15 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
             </type>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship4">
+        <element id="Procedure.entryRelationship:medication">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="medication"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7886) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship4.typeCode">
+        <element id="Procedure.entryRelationship:medication.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7887)."/>
@@ -537,7 +541,7 @@
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship4.substanceAdministration">
+        <element id="Procedure.entryRelationship:medication.substanceAdministration">
             <path value="Procedure.entryRelationship.substanceAdministration"/>
             <short value="substanceAdministration"/>
             <definition value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-15915)."/>
@@ -548,15 +552,15 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
             </type>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship5">
+        <element id="Procedure.entryRelationship:reaction">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="entryRelationship5"/>
+            <sliceName value="reaction"/>
             <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32473) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship5.typeCode">
+        <element id="Procedure.entryRelationship:reaction.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
             <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32474)."/>
@@ -564,7 +568,7 @@
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
-        <element id="Procedure.entryRelationship:entryRelationship5.observation">
+        <element id="Procedure.entryRelationship:reaction.observation">
             <path value="Procedure.entryRelationship.observation"/>
             <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-32475)."/>
