@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir file:/C:/Users/sean.mcilvenna/OneDrive%20-%20Lantana%20Consulting%20Group/Standards/FHIR%20R4/fhir-all.xsd"
- xmlns="http://hl7.org/fhir">
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.2.21"/>
     <url value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.21"/>
     <identifier>
@@ -53,14 +52,12 @@
         <element id="Section.templateId:templateId1">
             <path value="Section.templateId"/>
             <sliceName value="templateId1"/>
-            <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7928) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:templateId1.root">
             <path value="Section.templateId.root"/>
-            <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.21&quot; (CONF:1198-10376)."/>
             <min value="1"/>
             <max value="1"/>
@@ -68,7 +65,6 @@
         </element>
         <element id="Section.templateId:templateId1.extension">
             <path value="Section.templateId.extension"/>
-            <short value="extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32497)."/>
             <min value="1"/>
             <max value="1"/>
@@ -76,14 +72,12 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="code"/>
             <definition value="SHALL contain exactly one [1..1] code (CONF:1198-15340)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <short value="code"/>
             <definition value="This code SHALL contain exactly one [1..1] @code=&quot;42348-3&quot; Advance Directives (CONF:1198-15342)."/>
             <min value="1"/>
             <max value="1"/>
@@ -91,7 +85,6 @@
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <short value="codeSystem"/>
             <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30812)."/>
             <min value="1"/>
             <max value="1"/>
@@ -99,14 +92,12 @@
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <short value="title"/>
             <definition value="SHALL contain exactly one [1..1] title (CONF:1198-7930)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <short value="text"/>
             <definition value="SHALL contain exactly one [1..1] text (CONF:1198-7931)."/>
             <min value="1"/>
             <max value="1"/>
@@ -115,23 +106,21 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="exists" />
-                    <path value="*" />
+                    <type value="exists"/>
+                    <path value="*"/>
                 </discriminator>
-                <rules value="open" />
+                <rules value="open"/>
             </slicing>
-            <short value="entry"/>
             <definition value="MAY contain zero or more [0..*] entry (CONF:1198-7957)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:observation">
-            <path value="Section.entry" />
-            <sliceName value="observation" />
+            <path value="Section.entry"/>
+            <sliceName value="observation"/>
         </element>
         <element id="Section.entry:observation.observation">
             <path value="Section.entry.observation"/>
-            <short value="observation"/>
             <definition value="The entry, if present, SHALL contain exactly one [1..1] Advance Directive Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-15443)."/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
@@ -139,12 +128,11 @@
             </type>
         </element>
         <element id="Section.entry:organizer">
-            <path value="Section.entry" />
-            <sliceName value="organizer" />
+            <path value="Section.entry"/>
+            <sliceName value="organizer"/>
         </element>
         <element id="Section.entry:organizer.organizer">
             <path value="Section.entry.organizer"/>
-            <short value="organizer"/>
             <definition value="The entry, if present, SHALL contain exactly one [1..1] Advance Directive Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-15443)."/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Organizer"/>

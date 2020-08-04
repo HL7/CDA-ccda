@@ -36,7 +36,6 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <short value="classCode"/>
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31012)."/>
             <min value="1"/>
             <max value="1"/>
@@ -44,7 +43,6 @@
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <short value="moodCode"/>
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-31013)."/>
             <min value="1"/>
             <max value="1"/>
@@ -68,14 +66,12 @@
         <element id="Observation.templateId:templateId1">
             <path value="Observation.templateId"/>
             <sliceName value="templateId1"/>
-            <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-32947) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:templateId1.root">
             <path value="Observation.templateId.root"/>
-            <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.114&quot; (CONF:1198-29474)."/>
             <min value="1"/>
             <max value="1"/>
@@ -83,7 +79,6 @@
         </element>
         <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
-            <short value="extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32913)."/>
             <min value="1"/>
             <max value="1"/>
@@ -91,14 +86,12 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <short value="code"/>
             <definition value="SHALL contain exactly one [1..1] code (CONF:1198-29476)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <short value="code"/>
             <definition value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; assertion (CONF:1198-29477)."/>
             <min value="1"/>
             <max value="1"/>
@@ -106,7 +99,6 @@
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <short value="codeSystem"/>
             <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-31010)."/>
             <min value="1"/>
             <max value="1"/>
@@ -114,7 +106,6 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="value"/>
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Wound Type urn:oid:2.16.840.1.113883.1.11.20.2.6 DYNAMIC (CONF:1198-29485)."/>
             <min value="1"/>
             <max value="1"/>
@@ -133,7 +124,6 @@
         <element id="Observation.targetSiteCode:targetSiteCode1">
             <path value="Observation.targetSiteCode"/>
             <sliceName value="targetSiteCode1"/>
-            <short value="targetSiteCode"/>
             <definition value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/>
             <min value="0"/>
             <max value="1"/>
@@ -144,21 +134,18 @@
         </element>
         <element id="Observation.targetSiteCode:targetSiteCode1.qualifier">
             <path value="Observation.targetSiteCode.qualifier"/>
-            <short value="qualifier"/>
             <definition value="MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name">
             <path value="Observation.targetSiteCode.qualifier.name"/>
-            <short value="name"/>
             <definition value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1198-29491)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name.code">
             <path value="Observation.targetSiteCode.qualifier.name.code"/>
-            <short value="code"/>
             <definition value="This name SHALL contain exactly one [1..1] @code=&quot;272741003&quot; laterality (CONF:1198-29492)."/>
             <min value="1"/>
             <max value="1"/>
@@ -166,7 +153,6 @@
         </element>
         <element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name.codeSystem">
             <path value="Observation.targetSiteCode.qualifier.name.codeSystem"/>
-            <short value="codeSystem"/>
             <definition value="This name SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."/>
             <min value="1"/>
             <max value="1"/>
@@ -174,14 +160,12 @@
         </element>
         <element id="Observation.targetSiteCode:targetSiteCode1.qualifier.value">
             <path value="Observation.targetSiteCode.qualifier.value"/>
-            <short value="value"/>
             <definition value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode:targetSiteCode1.qualifier.value.code">
             <path value="Observation.targetSiteCode.qualifier.value.code"/>
-            <short value="code"/>
             <definition value="This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."/>
             <min value="1"/>
             <max value="1"/>
@@ -192,7 +176,6 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <short value="author"/>
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31542)."/>
             <min value="0"/>
             <max value="*"/>
@@ -219,14 +202,12 @@
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <short value="entryRelationship"/>
             <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-29495) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-29496)."/>
             <min value="1"/>
             <max value="1"/>
@@ -234,7 +215,6 @@
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Wound Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.133) (CONF:1198-29497)."/>
             <min value="1"/>
             <max value="1"/>
@@ -246,14 +226,12 @@
         <element id="Observation.entryRelationship:entryRelationship2">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
-            <short value="entryRelationship"/>
             <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-29503) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1198-29504)."/>
             <min value="1"/>
             <max value="1"/>
@@ -261,7 +239,6 @@
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Wound Characteristic (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.134) (CONF:1198-29505)."/>
             <min value="1"/>
             <max value="1"/>
@@ -273,14 +250,12 @@
         <element id="Observation.entryRelationship:entryRelationship3">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
-            <short value="entryRelationship"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31890) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31891)."/>
             <min value="1"/>
             <max value="1"/>
@@ -288,7 +263,6 @@
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Number of Pressure Ulcers Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.76:2015-08-01) (CONF:1198-31892)."/>
             <min value="1"/>
             <max value="1"/>
@@ -300,14 +274,12 @@
         <element id="Observation.entryRelationship:entryRelationship4">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
-            <short value="entryRelationship"/>
             <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-31893) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship4.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31894)."/>
             <min value="1"/>
             <max value="1"/>
@@ -315,7 +287,6 @@
         </element>
         <element id="Observation.entryRelationship:entryRelationship4.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <short value="observation"/>
             <definition value="SHALL contain exactly one [1..1] Highest Pressure Ulcer Stage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.77) (CONF:1198-31919)."/>
             <min value="1"/>
             <max value="1"/>
