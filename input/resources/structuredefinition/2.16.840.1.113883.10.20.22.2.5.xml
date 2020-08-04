@@ -7,7 +7,7 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.5:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="ProblemSectionentriesoptional"/>
+    <name value="ProblemSectionEntriesOptional"/>
     <title value="Problem Section (entries optional)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
@@ -52,14 +52,12 @@
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
             <sliceName value="primary"/>
-            <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7877) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
-            <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.5&quot; (CONF:1198-10440)."/>
             <min value="1"/>
             <max value="1"/>
@@ -67,7 +65,6 @@
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
-            <short value="extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32511)."/>
             <min value="1"/>
             <max value="1"/>
@@ -75,14 +72,12 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="code"/>
             <definition value="SHALL contain exactly one [1..1] code (CONF:1198-15407)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <short value="code"/>
             <definition value="This code SHALL contain exactly one [1..1] @code=&quot;11450-4&quot; Problem List (CONF:1198-15408)."/>
             <min value="1"/>
             <max value="1"/>
@@ -90,7 +85,6 @@
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <short value="codeSystem"/>
             <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-31141)."/>
             <min value="1"/>
             <max value="1"/>
@@ -98,14 +92,12 @@
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <short value="title"/>
             <definition value="SHALL contain exactly one [1..1] title (CONF:1198-7879)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <short value="text"/>
             <definition value="SHALL contain exactly one [1..1] text (CONF:1198-7880)."/>
             <min value="1"/>
             <max value="1"/>
@@ -119,7 +111,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="entry"/>
             <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-7881)."/>
             <min value="0"/>
             <max value="*"/>
@@ -130,8 +121,7 @@
         </element>
         <element id="Section.entry:act.act">
             <path value="Section.entry.act"/>
-            <short value="act"/>
-            <definition value="The entry, if present, SHALL contain exactly one [1..1] Problem Concern Act (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15505)."/>
+            <definition value="SHALL contain exactly one [1..1] Problem Concern Act (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15505)"/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -142,11 +132,11 @@
         <element id="Section.entry:observation">
             <path value="Section.entry"/>
             <sliceName value="observation" />
+            <max value="1" />
         </element>
         <element id="Section.entry:observation.observation">
             <path value="Section.entry.observation"/>
-            <short value="act"/>
-            <definition value="The entry, if present, SHALL contain exactly one [1..1] Problem Concern Act (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15505)."/>
+            <definition value="SHALL contain exactly one [1..1] Health Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30482)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

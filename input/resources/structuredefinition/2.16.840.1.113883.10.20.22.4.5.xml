@@ -35,7 +35,6 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <short value="classCode"/>
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-9057)."/>
             <min value="1"/>
             <max value="1"/>
@@ -43,7 +42,6 @@
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <short value="moodCode"/>
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-9072)."/>
             <min value="1"/>
             <max value="1"/>
@@ -67,14 +65,12 @@
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
             <sliceName value="primary"/>
-            <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-16756) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:primary.root">
             <path value="Observation.templateId.root"/>
-            <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.5&quot; (CONF:1098-16757)."/>
             <min value="1"/>
             <max value="1"/>
@@ -82,7 +78,6 @@
         </element>
         <element id="Observation.templateId:primary.extension">
             <path value="Observation.templateId.extension"/>
-            <short value="extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32558)."/>
             <min value="1"/>
             <max value="1"/>
@@ -90,21 +85,18 @@
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <short value="id"/>
             <definition value="SHALL contain at least one [1..*] id (CONF:1098-32486)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <short value="code"/>
             <definition value="SHALL contain exactly one [1..1] code (CONF:1098-19143)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <short value="code"/>
             <definition value="This code SHALL contain exactly one [1..1] @code=&quot;11323-3&quot; Health status (CONF:1098-19144)."/>
             <min value="1"/>
             <max value="1"/>
@@ -112,7 +104,6 @@
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <short value="codeSystem"/>
             <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32161)."/>
             <min value="1"/>
             <max value="1"/>
@@ -120,14 +111,12 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <short value="statusCode"/>
             <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-9074)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <short value="code"/>
             <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19103)."/>
             <min value="1"/>
             <max value="1"/>
@@ -135,10 +124,12 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="value"/>
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet HealthStatus urn:oid:2.16.840.1.113883.1.11.20.12 DYNAMIC (CONF:1098-9075)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/CD" />
+            </type>
             <binding>
                 <strength value="required"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.12"/>
