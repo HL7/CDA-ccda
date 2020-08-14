@@ -70,21 +70,21 @@
             </slicing>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7499) such that it"/>
         </element>
-        <element id="SubstanceAdministration.templateId:templateId1">
+        <element id="SubstanceAdministration.templateId:primary">
             <path value="SubstanceAdministration.templateId"/>
-            <sliceName value="templateId1"/>
+            <sliceName value="primary"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7499) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.templateId:templateId1.root">
+        <element id="SubstanceAdministration.templateId:primary.root">
             <path value="SubstanceAdministration.templateId.root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.16&quot; (CONF:1098-10504)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.16"/>
         </element>
-        <element id="SubstanceAdministration.templateId:templateId1.extension">
+        <element id="SubstanceAdministration.templateId:primary.extension">
             <path value="SubstanceAdministration.templateId.extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32498)."/>
             <min value="1"/>
@@ -132,21 +132,24 @@
             </slicing>
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime2">
+        <element id="SubstanceAdministration.effectiveTime:duration">
             <path value="SubstanceAdministration.effectiveTime"/>
-            <sliceName value="effectiveTime2"/>
+            <sliceName value="duration"/>
             <label value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."/>
             <short value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."/>
             <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/IVL-TS"/>
+            </type>
             <constraint>
                 <key value="1098-32890"/>
                 <severity value="error"/>
                 <human value="This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."/>
             </constraint>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime2.value">
+        <element id="SubstanceAdministration.effectiveTime:duration.value">
             <path value="SubstanceAdministration.effectiveTime.value"/>
             <label value="indicates a single-administration timestamp"/>
             <short value="indicates a single-administration timestamp"/>
@@ -154,7 +157,7 @@
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime2.low">
+        <element id="SubstanceAdministration.effectiveTime:duration.low">
             <path value="SubstanceAdministration.effectiveTime.low"/>
             <label value="indicates when medication started"/>
             <short value="indicates when medication started"/>
@@ -162,7 +165,7 @@
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime2.high">
+        <element id="SubstanceAdministration.effectiveTime:duration.high">
             <path value="SubstanceAdministration.effectiveTime.high"/>
             <label value="indicates when medication stopped"/>
             <short value="indicates when medication stopped"/>
@@ -170,9 +173,9 @@
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime1">
+        <element id="SubstanceAdministration.effectiveTime:frequency">
             <path value="SubstanceAdministration.effectiveTime"/>
-            <sliceName value="effectiveTime1"/>
+            <sliceName value="frequency"/>
             <label value="This effectiveTime represents the medication frequency (e.g., administration times per day)."/>
             <short value="This effectiveTime represents the medication frequency (e.g., administration times per day)."/>
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it"/>
@@ -184,7 +187,7 @@
                 <human value="**SHALL** contain exactly one [1..1] @xsi:type=&quot;PIVL_TS&quot; or &quot;EIVL_TS&quot; (CONF:1098-28499)."/>
             </constraint>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:effectiveTime1.operator">
+        <element id="SubstanceAdministration.effectiveTime:frequency.operator">
             <path value="SubstanceAdministration.effectiveTime.operator"/>
             <definition value="SHALL contain exactly one [1..1] @operator=&quot;A&quot; (CONF:1098-9106)."/>
             <min value="1"/>
@@ -332,21 +335,21 @@
             </slicing>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1098-7523) such that it"/>
         </element>
-        <element id="SubstanceAdministration.participant:participant1">
+        <element id="SubstanceAdministration.participant:drugVehicle">
             <path value="SubstanceAdministration.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="drugVehicle"/>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1098-7523) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="SubstanceAdministration.participant:participant1.typeCode">
+        <element id="SubstanceAdministration.participant:drugVehicle.typeCode">
             <path value="SubstanceAdministration.participant.typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;CSM&quot; (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-7524)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="CSM"/>
         </element>
-        <element id="SubstanceAdministration.participant:participant1.participantRole">
+        <element id="SubstanceAdministration.participant:drugVehicle.participantRole">
             <path value="SubstanceAdministration.participant.participantRole"/>
             <definition value="SHALL contain exactly one [1..1] Drug Vehicle (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.24) (CONF:1098-16086)."/>
             <min value="1"/>
