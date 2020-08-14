@@ -8,7 +8,7 @@
     </identifier>
     <version value="2015-08-01"/>
     <name value="CarePlan"/>
-    <title value="Care Plan (V2)"/>
+    <title value="Care Plan"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -49,9 +49,9 @@
             </slicing>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-28741) such that it"/>
         </element>
-        <element id="ClinicalDocument.templateId:templateId1">
+        <element id="ClinicalDocument.templateId:secondary">
             <path value="ClinicalDocument.templateId"/>
-            <sliceName value="templateId1"/>
+            <sliceName value="secondary"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-28741) such that it"/>
             <min value="1"/>
             <max value="1"/>
@@ -61,14 +61,14 @@
                 <human value="When asserting this templateId, all C-CDA 2.1 section and entry templates that had a previous version in C-CDA R1.1 **SHALL** include both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32934)."/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.templateId:templateId1.root">
+        <element id="ClinicalDocument.templateId:secondary.root">
             <path value="ClinicalDocument.templateId.root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.15&quot; (CONF:1198-28742)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.15"/>
         </element>
-        <element id="ClinicalDocument.templateId:templateId1.extension">
+        <element id="ClinicalDocument.templateId:secondary.extension">
             <path value="ClinicalDocument.templateId.extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32877)."/>
             <min value="1"/>

@@ -147,6 +147,9 @@
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1198-9058)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/CD"/>
+            </type>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.4"/>
@@ -171,14 +174,14 @@
             </slicing>
             <definition value="This value MAY contain zero or more [0..*] translation (CONF:1198-16749) such that it"/>
         </element>
-        <element id="value.Observation.value.translation:translation1">
+        <element id="value.Observation.value.translation:alt">
             <path value="Observation.value.translation"/>
-            <sliceName value="translation1"/>
+            <sliceName value="alt"/>
             <definition value="This value MAY contain zero or more [0..*] translation (CONF:1198-16749) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="value.Observation.value.translation:translation1.code">
+        <element id="value.Observation.value.translation:alt.code">
             <path value="Observation.value.translation.code"/>
             <definition value="MAY contain zero or one [0..1] @code (CodeSystem: ICD-10-CM urn:oid:2.16.840.1.113883.6.90 STATIC) (CONF:1198-16750)."/>
             <min value="0"/>
