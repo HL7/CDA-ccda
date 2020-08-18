@@ -41,31 +41,31 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-32017) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-32017) such that it"/>
         </element>
         <element id="Author.templateId:primary">
             <path value="Author.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-32017) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-32017) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Author.templateId:primary.root">
             <path value="Author.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.119&quot; (CONF:1098-32018)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.119&quot; (CONF:1098-32018)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.119"/>
         </element>
         <element id="Author.time">
             <path value="Author.time"/>
-            <definition value="SHALL contain exactly one [1..1] time (CONF:1098-31471)."/>
+            <requirements value="SHALL contain exactly one [1..1] time (CONF:1098-31471)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Author.assignedAuthor">
             <path value="Author.assignedAuthor"/>
-            <definition value="SHALL contain exactly one [1..1] assignedAuthor (CONF:1098-31472)."/>
+            <requirements value="SHALL contain exactly one [1..1] assignedAuthor (CONF:1098-31472)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -73,7 +73,7 @@
             <path value="Author.assignedAuthor.id"/>
             <label value="This id may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here. If the id is pointing to a participant already described elsewhere in the document, assignedAuthor/id is sufficient to identify this participant and none of the remaining details of assignedAuthor are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. This id must be a pointer to another author participant."/>
             <short value="This id may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here. If the id is pointing to a participant already described elsewhere in the document, assignedAuthor/id is sufficient to identify this participant and none of the remaining details of assignedAuthor are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. This id must be a pointer to another author participant."/>
-            <definition value="This assignedAuthor SHALL contain at least one [1..*] id (CONF:1098-31473)."/>
+            <requirements value="This assignedAuthor SHALL contain at least one [1..*] id (CONF:1098-31473)."/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -84,7 +84,7 @@
         </element>
         <element id="Author.assignedAuthor.code">
             <path value="Author.assignedAuthor.code"/>
-            <definition value="This assignedAuthor SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31671)."/>
+            <requirements value="This assignedAuthor SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31671)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -99,43 +99,43 @@
         </element>
         <element id="Author.assignedAuthor.assignedPerson">
             <path value="Author.assignedAuthor.assignedPerson"/>
-            <definition value="This assignedAuthor MAY contain zero or one [0..1] assignedPerson (CONF:1098-31474)."/>
+            <requirements value="This assignedAuthor MAY contain zero or one [0..1] assignedPerson (CONF:1098-31474)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Author.assignedAuthor.assignedPerson.name">
             <path value="Author.assignedAuthor.assignedPerson.name"/>
-            <definition value="The assignedPerson, if present, MAY contain zero or more [0..*] name (CONF:1098-31475)."/>
+            <requirements value="The assignedPerson, if present, MAY contain zero or more [0..*] name (CONF:1098-31475)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization">
             <path value="Author.assignedAuthor.representedOrganization"/>
-            <definition value="This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:1098-31476)."/>
+            <requirements value="This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:1098-31476)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization.id">
             <path value="Author.assignedAuthor.representedOrganization.id"/>
-            <definition value="The representedOrganization, if present, MAY contain zero or more [0..*] id (CONF:1098-31478)."/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] id (CONF:1098-31478)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization.name">
             <path value="Author.assignedAuthor.representedOrganization.name"/>
-            <definition value="The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:1098-31479)."/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:1098-31479)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization.telecom">
             <path value="Author.assignedAuthor.representedOrganization.telecom"/>
-            <definition value="The representedOrganization, if present, MAY contain zero or more [0..*] telecom (CONF:1098-31480)."/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] telecom (CONF:1098-31480)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization.addr">
             <path value="Author.assignedAuthor.representedOrganization.addr"/>
-            <definition value="The representedOrganization, if present, MAY contain zero or more [0..*] addr (CONF:1098-31481)."/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] addr (CONF:1098-31481)."/>
             <min value="0"/>
             <max value="*"/>
         </element>

@@ -34,22 +34,22 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14383)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14383)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14384)."/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14384)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
         </element>
         <element id="Observation.negationInd">
             <path value="Observation.negationInd"/>
-            <definition value="MAY contain zero or one [0..1] @negationInd (CONF:1098-14385)."/>
-            <requirements value="Use negationInd=&quot;true&quot; to indicate that the problem was not observed."/>
+            <definition value="Use negationInd=&quot;true&quot; to indicate that the problem was not observed."/>
+            <requirements value="MAY contain zero or one [0..1] @negationInd (CONF:1098-14385)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -66,63 +66,63 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-14387) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-14387) such that it"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-14387) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-14387) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:primary.root">
             <path value="Observation.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.70&quot; (CONF:1098-14388)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.70&quot; (CONF:1098-14388)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.70"/>
         </element>
         <element id="Observation.templateId:primary.extension">
             <path value="Observation.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32594)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32594)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:1098-14389)."/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-14389)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:1098-14759)."/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-14759)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; Assertion (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4 STATIC) (CONF:1098-14760)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; Assertion (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4 STATIC) (CONF:1098-14760)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ASSERTION"/>
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
-            <definition value="SHOULD contain zero or one [0..1] text (CONF:1098-14391)."/>
+            <requirements value="SHOULD contain zero or one [0..1] text (CONF:1098-14391)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.text.reference">
             <path value="Observation.text.reference"/>
-            <definition value="The text, if present, SHOULD contain zero or one [0..1] reference (CONF:1098-14392)."/>
+            <requirements value="The text, if present, SHOULD contain zero or one [0..1] reference (CONF:1098-14392)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.text.reference.value">
             <path value="Observation.text.reference.value"/>
-            <definition value="The reference, if present, SHALL contain exactly one [1..1] @value (CONF:1098-15585)."/>
+            <requirements value="The reference, if present, SHALL contain exactly one [1..1] @value (CONF:1098-15585)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -133,26 +133,26 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-14394)."/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-14394)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19111)."/>
+            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19111)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-14395)."/>
+            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-14395)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Pressure Ulcer Stage urn:oid:2.16.840.1.113883.11.20.9.35 STATIC 2014-09-01 (CONF:1098-14396)."/>
+            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Pressure Ulcer Stage urn:oid:2.16.840.1.113883.11.20.9.35 STATIC 2014-09-01 (CONF:1098-14396)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="Pressure Ulcer Stage"/>
@@ -163,13 +163,13 @@
         </element>
         <element id="Observation.targetSiteCode">
             <path value="Observation.targetSiteCode"/>
-            <definition value="SHOULD contain zero or more [0..*] targetSiteCode (CONF:1098-14797)."/>
+            <requirements value="SHOULD contain zero or more [0..*] targetSiteCode (CONF:1098-14797)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.targetSiteCode.code">
             <path value="Observation.targetSiteCode.code"/>
-            <definition value="The targetSiteCode, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Pressure Point  urn:oid:2.16.840.1.113883.11.20.9.36 STATIC (CONF:1098-14798)."/>
+            <requirements value="The targetSiteCode, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Pressure Point  urn:oid:2.16.840.1.113883.11.20.9.36 STATIC (CONF:1098-14798)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -179,32 +179,32 @@
         </element>
         <element id="Observation.targetSiteCode.qualifier">
             <path value="Observation.targetSiteCode.qualifier"/>
-            <definition value="The targetSiteCode, if present, SHOULD contain zero or one [0..1] qualifier (CONF:1098-14799)."/>
+            <requirements value="The targetSiteCode, if present, SHOULD contain zero or one [0..1] qualifier (CONF:1098-14799)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.name">
             <path value="Observation.targetSiteCode.qualifier.name"/>
-            <definition value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1098-14800)."/>
+            <requirements value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1098-14800)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.name.code">
             <path value="Observation.targetSiteCode.qualifier.name.code"/>
-            <definition value="This name SHOULD contain zero or one [0..1] @code=&quot;272741003&quot; laterality (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14801)."/>
+            <requirements value="This name SHOULD contain zero or one [0..1] @code=&quot;272741003&quot; laterality (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14801)."/>
             <min value="0"/>
             <max value="1"/>
             <patternString value="272741003"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.value">
             <path value="Observation.targetSiteCode.qualifier.value"/>
-            <definition value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1098-14802)."/>
+            <requirements value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1098-14802)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.value.code">
             <path value="Observation.targetSiteCode.qualifier.value.code"/>
-            <definition value="This value SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 STATIC 2014-09-01 (CONF:1098-14803)."/>
+            <requirements value="This value SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 STATIC 2014-09-01 (CONF:1098-14803)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -225,164 +225,164 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-14605) such that it"/>
+            <requirements value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-14605) such that it"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-14410) such that it"/>
+            <requirements value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-14410) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-14411)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-14411)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] observation (CONF:1098-14619)."/>
+            <requirements value="SHALL contain exactly one [1..1] observation (CONF:1098-14619)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation.classCode">
             <path value="Observation.entryRelationship.observation.classCode"/>
-            <definition value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14685)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14685)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="OBS"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation.moodCode">
             <path value="Observation.entryRelationship.observation.moodCode"/>
-            <definition value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14686)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14686)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation.code">
             <path value="Observation.entryRelationship.observation.code"/>
-            <definition value="This observation SHALL contain exactly one [1..1] code (CONF:1098-14620)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] code (CONF:1098-14620)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation.code.code">
             <path value="Observation.entryRelationship.observation.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;401238003&quot; Length of Wound (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14621)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;401238003&quot; Length of Wound (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14621)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="401238003"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation.value">
             <path value="Observation.entryRelationship.observation.value"/>
-            <definition value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:1098-14622)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:1098-14622)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
-            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-14601) such that it"/>
+            <requirements value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-14601) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1098-14602)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1098-14602)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] observation (CONF:1098-14623)."/>
+            <requirements value="SHALL contain exactly one [1..1] observation (CONF:1098-14623)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation.classCode">
             <path value="Observation.entryRelationship.observation.classCode"/>
-            <definition value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14687)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14687)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="OBS"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation.moodCode">
             <path value="Observation.entryRelationship.observation.moodCode"/>
-            <definition value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14688)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14688)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation.code">
             <path value="Observation.entryRelationship.observation.code"/>
-            <definition value="This observation SHALL contain exactly one [1..1] code (CONF:1098-14624)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] code (CONF:1098-14624)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation.code.code">
             <path value="Observation.entryRelationship.observation.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;401239006&quot; Width of Wound (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14625)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;401239006&quot; Width of Wound (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14625)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="401239006"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation.value">
             <path value="Observation.entryRelationship.observation.value"/>
-            <definition value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:1098-14626)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:1098-14626)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
-            <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-14605) such that it"/>
+            <requirements value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-14605) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1098-14606)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1098-14606)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] observation (CONF:1098-14627)."/>
+            <requirements value="SHALL contain exactly one [1..1] observation (CONF:1098-14627)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation.classCode">
             <path value="Observation.entryRelationship.observation.classCode"/>
-            <definition value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14689)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14689)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="OBS"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation.moodCode">
             <path value="Observation.entryRelationship.observation.moodCode"/>
-            <definition value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14690)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14690)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation.code">
             <path value="Observation.entryRelationship.observation.code"/>
-            <definition value="This observation SHALL contain exactly one [1..1] code (CONF:1098-14628)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] code (CONF:1098-14628)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation.code.code">
             <path value="Observation.entryRelationship.observation.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;425094009&quot; Depth of Wound (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14629)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;425094009&quot; Depth of Wound (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14629)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="425094009"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation.value">
             <path value="Observation.entryRelationship.observation.value"/>
-            <definition value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:1098-14630)."/>
+            <requirements value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:1098-14630)."/>
             <min value="1"/>
             <max value="1"/>
         </element>

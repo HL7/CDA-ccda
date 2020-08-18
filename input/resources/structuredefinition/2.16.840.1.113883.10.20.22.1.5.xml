@@ -47,12 +47,12 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8404) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8404) such that it"/>
         </element>
         <element id="ClinicalDocument.templateId:secondary">
             <path value="ClinicalDocument.templateId"/>
             <sliceName value="secondary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8404) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8404) such that it"/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -63,27 +63,27 @@
         </element>
         <element id="ClinicalDocument.templateId:secondary.root">
             <path value="ClinicalDocument.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.5&quot; (CONF:1198-10042)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.5&quot; (CONF:1198-10042)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.5"/>
         </element>
         <element id="ClinicalDocument.templateId:secondary.extension">
             <path value="ClinicalDocument.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1198-32515)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1198-32515)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="ClinicalDocument.id">
             <path value="ClinicalDocument.id"/>
-            <definition value="SHALL contain exactly one [1..1] id (CONF:1198-30932)."/>
+            <requirements value="SHALL contain exactly one [1..1] id (CONF:1198-30932)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.id.root">
             <path value="ClinicalDocument.id.root"/>
-            <definition value="This id SHALL contain exactly one [1..1] @root (CONF:1198-30933)."/>
+            <requirements value="This id SHALL contain exactly one [1..1] @root (CONF:1198-30933)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -99,14 +99,14 @@
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:1198-14833)."/>
-            <requirements value="Preferred code is 18748-4 LOINC Diagnostic Imaging Report"/>
+            <definition value="Preferred code is 18748-4 LOINC Diagnostic Imaging Report"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-14833)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.code.code">
             <path value="ClinicalDocument.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet LOINC Imaging Document Codes http://hl7.org/fhir/ccda/ValueSet/1.3.6.1.4.1.12009.10.2.5 DYNAMIC (CONF:1198-14834)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet LOINC Imaging Document Codes http://hl7.org/fhir/ccda/ValueSet/1.3.6.1.4.1.12009.10.2.5 DYNAMIC (CONF:1198-14834)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -116,13 +116,13 @@
         </element>
         <element id="ClinicalDocument.informant">
             <path value="ClinicalDocument.informant"/>
-            <definition value="SHALL NOT contain [0..0] informant (CONF:1198-8410)."/>
+            <requirements value="SHALL NOT contain [0..0] informant (CONF:1198-8410)."/>
             <min value="0"/>
             <max value="0"/>
         </element>
         <element id="ClinicalDocument.informationRecipient">
             <path value="ClinicalDocument.informationRecipient"/>
-            <definition value="MAY contain zero or more [0..*] informationRecipient (CONF:1198-8411)."/>
+            <requirements value="MAY contain zero or more [0..*] informationRecipient (CONF:1198-8411)."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
@@ -145,31 +145,31 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or one [0..1] participant (CONF:1198-8414) such that it"/>
-            <requirements value="If participant is present, the associatedEntity/associatedPerson element SHALL be present and SHALL represent the physician requesting the imaging procedure (the referring physician AssociatedEntity that is the target of ClincalDocument/participant@typeCode=REF)."/>
+            <definition value="If participant is present, the associatedEntity/associatedPerson element SHALL be present and SHALL represent the physician requesting the imaging procedure (the referring physician AssociatedEntity that is the target of ClincalDocument/participant@typeCode=REF)."/>
+            <requirements value="MAY contain zero or one [0..1] participant (CONF:1198-8414) such that it"/>
         </element>
         <element id="ClinicalDocument.participant:participant1">
             <path value="ClinicalDocument.participant"/>
             <sliceName value="participant1"/>
-            <definition value="MAY contain zero or one [0..1] participant (CONF:1198-8414) such that it"/>
+            <requirements value="MAY contain zero or one [0..1] participant (CONF:1198-8414) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
-            <definition value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31198)."/>
+            <requirements value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31198)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
-            <definition value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31199)."/>
+            <requirements value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31199)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson.name">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
-            <definition value="This associatedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-31200)."/>
+            <requirements value="This associatedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-31200)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -179,14 +179,14 @@
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>
-            <definition value="MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-30936)."/>
-            <requirements value="An inFulfillmentOf element represents the Placer Order that is either a group of orders (modeled as PlacerGroup in the Placer Order RMIM of the Orders &amp; Observations domain) or a single order item (modeled as ObservationRequest in the same RMIM). This optionality reflects two major approaches to the grouping of procedures as implemented in the installed base of imaging information systems. These approaches differ in their handling of grouped procedures and how they are mapped to identifiers in the Digital Imaging and Communications in Medicine (DICOM) image and structured reporting data. The example of a CT examination covering chest, abdomen, and pelvis will be used in the discussion below. In the IHE Scheduled Workflow model, the Chest CT, Abdomen CT, and Pelvis CT each represent a Requested Procedure, and all three procedures are grouped under a single Filler Order. The Filler Order number maps directly to the DICOM Accession Number in the DICOM imaging and report data. A widely deployed alternative approach maps the requested procedure identifiers directly to the DICOM Accession Number. The Requested Procedure ID in such implementations may or may not be different from the Accession Number, but is of little identifying importance because there is only one Requested Procedure per Accession Number. There is no identifier that formally connects the requested procedures ordered in this group."/>
+            <definition value="An inFulfillmentOf element represents the Placer Order that is either a group of orders (modeled as PlacerGroup in the Placer Order RMIM of the Orders &amp; Observations domain) or a single order item (modeled as ObservationRequest in the same RMIM). This optionality reflects two major approaches to the grouping of procedures as implemented in the installed base of imaging information systems. These approaches differ in their handling of grouped procedures and how they are mapped to identifiers in the Digital Imaging and Communications in Medicine (DICOM) image and structured reporting data. The example of a CT examination covering chest, abdomen, and pelvis will be used in the discussion below. In the IHE Scheduled Workflow model, the Chest CT, Abdomen CT, and Pelvis CT each represent a Requested Procedure, and all three procedures are grouped under a single Filler Order. The Filler Order number maps directly to the DICOM Accession Number in the DICOM imaging and report data. A widely deployed alternative approach maps the requested procedure identifiers directly to the DICOM Accession Number. The Requested Procedure ID in such implementations may or may not be different from the Accession Number, but is of little identifying importance because there is only one Requested Procedure per Accession Number. There is no identifier that formally connects the requested procedures ordered in this group."/>
+            <requirements value="MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-30936)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.inFulfillmentOf.order">
             <path value="ClinicalDocument.inFulfillmentOf.order"/>
-            <definition value="The inFulfillmentOf, if present, SHALL contain exactly one [1..1] order (CONF:1198-30937)."/>
+            <requirements value="The inFulfillmentOf, if present, SHALL contain exactly one [1..1] order (CONF:1198-30937)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -194,7 +194,7 @@
             <path value="ClinicalDocument.inFulfillmentOf.order.id"/>
             <label value="DICOM Accession Number in the DICOM imaging and report data"/>
             <short value="DICOM Accession Number in the DICOM imaging and report data"/>
-            <definition value="This order SHALL contain at least one [1..*] id (CONF:1198-30938)."/>
+            <requirements value="This order SHALL contain at least one [1..*] id (CONF:1198-30938)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
@@ -207,13 +207,13 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] documentationOf (CONF:1198-8416) such that it"/>
-            <requirements value="Each serviceEvent indicates an imaging procedure that the provider describes and interprets in the content of the DIR. The main activity being described by this document is the interpretation of the imaging procedure. This is shown by setting the value of the @classCode attribute of the serviceEvent element to ACT, and indicating the duration over which care was provided in the effectiveTime element. Within each documentationOf element, there is one serviceEvent element. This event is the unit imaging procedure corresponding to a billable item. The type of imaging procedure may be further described in the serviceEvent/code element. This guide makes no specific recommendations about the vocabulary to use for describing this event. In IHE Scheduled Workflow environments, one serviceEvent/id element contains the DICOM Study Instance UID from the Modality Worklist, and the second serviceEvent/id element contains the DICOM Requested Procedure ID from the Modality Worklist. These two ids are in a single serviceEvent. The effectiveTime for the serviceEvent covers the duration of the imaging procedure being reported. This event should have one or more performers, which may participate at the same or different periods of time. Service events map to DICOM Requested Procedures. That is, serviceEvent/id is the ID of the Requested Procedure."/>
+            <definition value="Each serviceEvent indicates an imaging procedure that the provider describes and interprets in the content of the DIR. The main activity being described by this document is the interpretation of the imaging procedure. This is shown by setting the value of the @classCode attribute of the serviceEvent element to ACT, and indicating the duration over which care was provided in the effectiveTime element. Within each documentationOf element, there is one serviceEvent element. This event is the unit imaging procedure corresponding to a billable item. The type of imaging procedure may be further described in the serviceEvent/code element. This guide makes no specific recommendations about the vocabulary to use for describing this event. In IHE Scheduled Workflow environments, one serviceEvent/id element contains the DICOM Study Instance UID from the Modality Worklist, and the second serviceEvent/id element contains the DICOM Requested Procedure ID from the Modality Worklist. These two ids are in a single serviceEvent. The effectiveTime for the serviceEvent covers the duration of the imaging procedure being reported. This event should have one or more performers, which may participate at the same or different periods of time. Service events map to DICOM Requested Procedures. That is, serviceEvent/id is the ID of the Requested Procedure."/>
+            <requirements value="SHALL contain exactly one [1..1] documentationOf (CONF:1198-8416) such that it"/>
         </element>
         <element id="ClinicalDocument.documentationOf:documentationOf1">
             <path value="ClinicalDocument.documentationOf"/>
             <sliceName value="documentationOf1"/>
-            <definition value="SHALL contain exactly one [1..1] documentationOf (CONF:1198-8416) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] documentationOf (CONF:1198-8416) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -230,31 +230,31 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8431) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8431) such that it"/>
         </element>
         <element id="documentationOf.ClinicalDocument.documentationOf.serviceEvent:serviceEvent1">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
             <sliceName value="serviceEvent1"/>
-            <definition value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8431) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8431) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="documentationOf.ClinicalDocument.documentationOf.serviceEvent:serviceEvent1.classCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8430)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8430)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ACT"/>
         </element>
         <element id="documentationOf.ClinicalDocument.documentationOf.serviceEvent:serviceEvent1.id">
             <path value="ClinicalDocument.documentationOf.serviceEvent.id"/>
-            <definition value="SHOULD contain zero or more [0..*] id (CONF:1198-8418)."/>
+            <requirements value="SHOULD contain zero or more [0..*] id (CONF:1198-8418)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="documentationOf.ClinicalDocument.documentationOf.serviceEvent:serviceEvent1.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:1198-8419)."/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-8419)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -265,8 +265,8 @@
         </element>
         <element id="documentationOf.ClinicalDocument.documentationOf.serviceEvent:serviceEvent1.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
-            <definition value="SHOULD contain zero or more [0..*] Physician Reading Study Performer (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.6.2.1:2014-06-09) (CONF:1198-8422)."/>
-            <requirements value="The performer is the Physician Reading Study Performer defined in serviceEvent and is usually different from the attending physician. The reading physician interprets the images and evidence of the study (DICOM Definition)."/>
+            <definition value="The performer is the Physician Reading Study Performer defined in serviceEvent and is usually different from the attending physician. The reading physician interprets the images and evidence of the study (DICOM Definition)."/>
+            <requirements value="SHOULD contain zero or more [0..*] Physician Reading Study Performer (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.6.2.1:2014-06-09) (CONF:1198-8422)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -276,8 +276,8 @@
         </element>
         <element id="ClinicalDocument.relatedDocument">
             <path value="ClinicalDocument.relatedDocument"/>
-            <definition value="MAY contain zero or one [0..1] relatedDocument (CONF:1198-8432)."/>
-            <requirements value="A DIR may have three types of parent document: ? A superseded version that the present document wholly replaces (typeCode = RPLC). DIRs may go through stages of revision prior to being legally authenticated. Such early stages may be drafts from transcription, those created by residents, or other preliminary versions. Policies not covered by this specification may govern requirements for retention of such earlier versions. Except for forensic purposes, the latest version in a chain of revisions represents the complete and current report. ? An original version that the present document appends (typeCode = APND). When a DIR is legally authenticated, it can be amended by a separate addendum document that references the original. ? A source document from which the present document is transformed (typeCode = XFRM). A DIR may be created by transformation from a DICOM Structured Report (SR) document or from another DIR. An example of the latter case is the creation of a derived document for inclusion of imaging results in a clinical document."/>
+            <definition value="A DIR may have three types of parent document: ? A superseded version that the present document wholly replaces (typeCode = RPLC). DIRs may go through stages of revision prior to being legally authenticated. Such early stages may be drafts from transcription, those created by residents, or other preliminary versions. Policies not covered by this specification may govern requirements for retention of such earlier versions. Except for forensic purposes, the latest version in a chain of revisions represents the complete and current report. ? An original version that the present document appends (typeCode = APND). When a DIR is legally authenticated, it can be amended by a separate addendum document that references the original. ? A source document from which the present document is transformed (typeCode = XFRM). A DIR may be created by transformation from a DICOM Structured Report (SR) document or from another DIR. An example of the latter case is the creation of a derived document for inclusion of imaging results in a clinical document."/>
+            <requirements value="MAY contain zero or one [0..1] relatedDocument (CONF:1198-8432)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -288,13 +288,13 @@
         </element>
         <element id="ClinicalDocument.relatedDocument.parentDocument">
             <path value="ClinicalDocument.relatedDocument.parentDocument"/>
-            <definition value="The relatedDocument, if present, SHALL contain exactly one [1..1] parentDocument (CONF:1198-32089)."/>
+            <requirements value="The relatedDocument, if present, SHALL contain exactly one [1..1] parentDocument (CONF:1198-32089)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.relatedDocument.parentDocument.id">
             <path value="ClinicalDocument.relatedDocument.parentDocument.id"/>
-            <definition value="This parentDocument SHALL contain exactly one [1..1] id (CONF:1198-32090)."/>
+            <requirements value="This parentDocument SHALL contain exactly one [1..1] id (CONF:1198-32090)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -310,21 +310,21 @@
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
-            <definition value="MAY contain zero or one [0..1] componentOf (CONF:1198-30939)."/>
-            <requirements value="The id element of the encompassingEncounter represents the identifier for the encounter. When the diagnostic imaging procedure is performed in the context of a hospital stay or an outpatient visit for which there is an Encounter Number, that number should be present as the ID of the encompassingEncounter. The effectiveTime represents the time interval or point in time in which the encounter took place. The encompassing encounter might be that of the hospital or office visit in which the diagnostic imaging procedure was performed. If the effective time is unknown, a nullFlavor attribute can be used."/>
+            <definition value="The id element of the encompassingEncounter represents the identifier for the encounter. When the diagnostic imaging procedure is performed in the context of a hospital stay or an outpatient visit for which there is an Encounter Number, that number should be present as the ID of the encompassingEncounter. The effectiveTime represents the time interval or point in time in which the encounter took place. The encompassing encounter might be that of the hospital or office visit in which the diagnostic imaging procedure was performed. If the effective time is unknown, a nullFlavor attribute can be used."/>
+            <requirements value="MAY contain zero or one [0..1] componentOf (CONF:1198-30939)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter">
             <path value="ClinicalDocument.componentOf.encompassingEncounter"/>
-            <definition value="The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-30940)."/>
-            <requirements value="The id element of the encompassingEncounter represents the identifier for the encounter. When the diagnostic imaging procedure is performed in the context of a hospital stay or an outpatient visit for which there is an Encounter Number, that number should be present as the ID of the encompassingEncounter.&#xA;&#xA;The effectiveTime represents the time interval or point in time in which the encounter took place. The encompassing encounter might be that of the hospital or office visit in which the diagnostic imaging procedure was performed. If the effective time is unknown, a nullFlavor attribute can be used."/>
+            <definition value="The id element of the encompassingEncounter represents the identifier for the encounter. When the diagnostic imaging procedure is performed in the context of a hospital stay or an outpatient visit for which there is an Encounter Number, that number should be present as the ID of the encompassingEncounter.&#xA;&#xA;The effectiveTime represents the time interval or point in time in which the encounter took place. The encompassing encounter might be that of the hospital or office visit in which the diagnostic imaging procedure was performed. If the effective time is unknown, a nullFlavor attribute can be used."/>
+            <requirements value="The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-30940)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.id">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.id"/>
-            <definition value="This encompassingEncounter SHALL contain at least one [1..*] id (CONF:1198-30941)."/>
+            <requirements value="This encompassingEncounter SHALL contain at least one [1..*] id (CONF:1198-30941)."/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -335,7 +335,7 @@
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime"/>
-            <definition value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-30943)."/>
+            <requirements value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-30943)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -345,13 +345,13 @@
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty"/>
-            <definition value="This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-30945)."/>
+            <requirements value="This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-30945)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty.assignedEntity">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty.assignedEntity"/>
-            <definition value="The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-30946)."/>
+            <requirements value="The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-30946)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -362,7 +362,7 @@
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
-            <definition value="This encompassingEncounter SHOULD contain zero or one [0..1] Physician of Record Participant (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.6.2.2:2014-06-09) (CONF:1198-30948)."/>
+            <requirements value="This encompassingEncounter SHOULD contain zero or one [0..1] Physician of Record Participant (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.6.2.2:2014-06-09) (CONF:1198-30948)."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -372,13 +372,13 @@
         </element>
         <element id="ClinicalDocument.component">
             <path value="ClinicalDocument.component"/>
-            <definition value="SHALL contain exactly one [1..1] component (CONF:1198-14907)."/>
+            <requirements value="SHALL contain exactly one [1..1] component (CONF:1198-14907)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody">
             <path value="ClinicalDocument.component.structuredBody"/>
-            <definition value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30695)."/>
+            <requirements value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30695)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -391,18 +391,18 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This structuredBody MAY contain zero or more [0..*] component (CONF:1198-31055) such that it"/>
+            <requirements value="This structuredBody MAY contain zero or more [0..*] component (CONF:1198-31055) such that it"/>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="component1"/>
-            <definition value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30696) such that it"/>
+            <requirements value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30696) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <definition value="SHALL contain exactly one [1..1] Findings Section (DIR) (identifier: urn:oid:2.16.840.1.113883.10.20.6.1.2) (CONF:1198-30697)."/>
+            <requirements value="SHALL contain exactly one [1..1] Findings Section (DIR) (identifier: urn:oid:2.16.840.1.113883.10.20.6.1.2) (CONF:1198-30697)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -413,13 +413,13 @@
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component2">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="component2"/>
-            <definition value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30698) such that it"/>
+            <requirements value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30698) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component2.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <definition value="SHALL contain exactly one [1..1] DICOM Object Catalog Section - DCM 121181 (identifier: urn:oid:2.16.840.1.113883.10.20.6.1.1) (CONF:1198-30699)."/>
+            <requirements value="SHALL contain exactly one [1..1] DICOM Object Catalog Section - DCM 121181 (identifier: urn:oid:2.16.840.1.113883.10.20.6.1.1) (CONF:1198-30699)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -435,13 +435,13 @@
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="component3"/>
-            <definition value="This structuredBody MAY contain zero or more [0..*] component (CONF:1198-31055) such that it"/>
+            <requirements value="This structuredBody MAY contain zero or more [0..*] component (CONF:1198-31055) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <definition value="SHALL contain exactly one [1..1] section (CONF:1198-31056)."/>
+            <requirements value="SHALL contain exactly one [1..1] section (CONF:1198-31056)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -457,7 +457,7 @@
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.code">
             <path value="ClinicalDocument.component.structuredBody.component.section.code"/>
-            <definition value="This section SHALL contain exactly one [1..1] code (CONF:1198-31057)."/>
+            <requirements value="This section SHALL contain exactly one [1..1] code (CONF:1198-31057)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -465,8 +465,8 @@
             <path value="ClinicalDocument.component.structuredBody.component.section.code.code"/>
             <label value="The section/code SHOULD be selected from LOINC or DICOM for sections not listed in the DIR Section Type Codes table"/>
             <short value="The section/code SHOULD be selected from LOINC or DICOM for sections not listed in the DIR Section Type Codes table"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet DIRSectionTypeCodes http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.59 DYNAMIC (CONF:1198-31207)."/>
-            <requirements value="For sections listed in the DIR Section Type Codes table, the code element must contain a LOINC code or DCM code for sections that have no LOINC equivalent"/>
+            <definition value="For sections listed in the DIR Section Type Codes table, the code element must contain a LOINC code or DCM code for sections that have no LOINC equivalent"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet DIRSectionTypeCodes http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.59 DYNAMIC (CONF:1198-31207)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -476,14 +476,14 @@
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.title">
             <path value="ClinicalDocument.component.structuredBody.component.section.title"/>
-            <definition value="This section SHOULD contain zero or one [0..1] title (CONF:1198-31058)."/>
-            <requirements value="There is no equivalent to section/title in DICOM SR, so for a CDA to SR transformation, the section/code will be transferred and the title element will be dropped."/>
+            <definition value="There is no equivalent to section/title in DICOM SR, so for a CDA to SR transformation, the section/code will be transferred and the title element will be dropped."/>
+            <requirements value="This section SHOULD contain zero or one [0..1] title (CONF:1198-31058)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.text">
             <path value="ClinicalDocument.component.structuredBody.component.section.text"/>
-            <definition value="This section SHOULD contain zero or one [0..1] text (CONF:1198-31059)."/>
+            <requirements value="This section SHOULD contain zero or one [0..1] text (CONF:1198-31059)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -511,18 +511,18 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This section MAY contain zero or more [0..*] subject (CONF:1198-31215) such that it"/>
+            <requirements value="This section MAY contain zero or more [0..*] subject (CONF:1198-31215) such that it"/>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.subject:subject1">
             <path value="ClinicalDocument.component.structuredBody.component.section.subject"/>
             <sliceName value="subject1"/>
-            <definition value="This section MAY contain zero or more [0..*] subject (CONF:1198-31215) such that it"/>
+            <requirements value="This section MAY contain zero or more [0..*] subject (CONF:1198-31215) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.subject:subject1.relatedSubject">
             <path value="ClinicalDocument.component.structuredBody.component.section.subject.relatedSubject"/>
-            <definition value="SHALL contain exactly one [1..1] Fetus Subject Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.3) (CONF:1198-31216)."/>
+            <requirements value="SHALL contain exactly one [1..1] Fetus Subject Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.3) (CONF:1198-31216)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -539,19 +539,19 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This section MAY contain zero or more [0..*] author (CONF:1198-31217) such that it"/>
-            <requirements value="This author element is used when the author of a section is different from the author(s) listed in the Header"/>
+            <definition value="This author element is used when the author of a section is different from the author(s) listed in the Header"/>
+            <requirements value="This section MAY contain zero or more [0..*] author (CONF:1198-31217) such that it"/>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.author:author1">
             <path value="ClinicalDocument.component.structuredBody.component.section.author"/>
             <sliceName value="author1"/>
-            <definition value="This section MAY contain zero or more [0..*] author (CONF:1198-31217) such that it"/>
+            <requirements value="This section MAY contain zero or more [0..*] author (CONF:1198-31217) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.author:author1.assignedAuthor">
             <path value="ClinicalDocument.component.structuredBody.component.section.author.assignedAuthor"/>
-            <definition value="SHALL contain exactly one [1..1] Observer Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.4) (CONF:1198-31218)."/>
+            <requirements value="SHALL contain exactly one [1..1] Observer Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.4) (CONF:1198-31218)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -561,14 +561,14 @@
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.entry">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31213)."/>
-            <requirements value="If the service context of a section is different from the value specified in documentationOf/serviceEvent, then the section SHALL contain one or more entries containing Procedure Context (templateId 2.16.840.1.113883.10.20.6.2.5), which will reset the context for any clinical statements nested within those elements"/>
+            <definition value="If the service context of a section is different from the value specified in documentationOf/serviceEvent, then the section SHALL contain one or more entries containing Procedure Context (templateId 2.16.840.1.113883.10.20.6.2.5), which will reset the context for any clinical statements nested within those elements"/>
+            <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31213)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.entry.act">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.act"/>
-            <definition value="The entry, if present, SHALL contain exactly one [1..1] Procedure Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.5) (CONF:1198-31214)."/>
+            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Procedure Context (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.5) (CONF:1198-31214)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -595,13 +595,13 @@
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
             <sliceName value="entry2"/>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31357) such that it"/>
+            <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31357) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry2.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Text Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.12) (CONF:1198-31358)."/>
+            <requirements value="SHALL contain exactly one [1..1] Text Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.12) (CONF:1198-31358)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -612,13 +612,13 @@
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry3">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
             <sliceName value="entry3"/>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31359) such that it"/>
+            <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31359) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry3.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Code Observations (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.13) (CONF:1198-31360)."/>
+            <requirements value="SHALL contain exactly one [1..1] Code Observations (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.13) (CONF:1198-31360)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -629,13 +629,13 @@
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
             <sliceName value="entry4"/>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31361) such that it"/>
+            <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31361) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry4.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Quantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:1198-31362)."/>
+            <requirements value="SHALL contain exactly one [1..1] Quantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:1198-31362)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -646,13 +646,13 @@
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
             <sliceName value="entry5"/>
-            <definition value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363) such that it"/>
+            <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.entry:entry5.observation">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
-            <definition value="SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:1198-31364)."/>
+            <requirements value="SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:1198-31364)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -662,7 +662,7 @@
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component3.section.component">
             <path value="ClinicalDocument.component.structuredBody.component.section.component"/>
-            <definition value="This section MAY contain zero or more [0..*] component (CONF:1198-31208)."/>
+            <requirements value="This section MAY contain zero or more [0..*] component (CONF:1198-31208)."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>

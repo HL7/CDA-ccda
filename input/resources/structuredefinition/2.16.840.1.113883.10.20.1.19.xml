@@ -34,14 +34,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8944)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8944)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8945)."/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8945)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
@@ -55,25 +55,25 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8946) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-8946) such that it"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-8946) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-8946) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:primary.root">
             <path value="Act.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.19&quot; (CONF:81-10529)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.19&quot; (CONF:81-10529)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.1.19"/>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>
-            <definition value="SHALL contain exactly one [1..1] id (CONF:81-8947)."/>
+            <requirements value="SHALL contain exactly one [1..1] id (CONF:81-8947)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -86,12 +86,12 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
+            <requirements value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
+            <requirements value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -107,7 +107,7 @@
         </element>
         <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-8949)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-8949)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="SUBJ"/>

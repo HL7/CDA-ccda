@@ -36,14 +36,14 @@
         </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; CLUSTER (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7279)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; CLUSTER (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7279)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="CLUSTER"/>
         </element>
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7280)."/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7280)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
@@ -61,52 +61,52 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7281) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7281) such that it"/>
         </element>
         <element id="Organizer.templateId:primary">
             <path value="Organizer.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-7281) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7281) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.templateId:primary.root">
             <path value="Organizer.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.26&quot; (CONF:1198-10528)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.26&quot; (CONF:1198-10528)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.26"/>
         </element>
         <element id="Organizer.templateId:primary.extension">
             <path value="Organizer.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32582)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32582)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:1198-7282)."/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-7282)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:1198-32740)."/>
-            <requirements value="Compatibility support for C-CDA R1.1 and C-CDA 2.1: A vitals organizer conformant to both C-CDA 1.1 and C-CDA 2.1 would contain the SNOMED code (46680005) from R1.1 in the root code and a LOINC code in the translation. A vitals organizer conformant to only C-CDA 2.1 would only contain the LOINC code in the root code."/>
+            <definition value="Compatibility support for C-CDA R1.1 and C-CDA 2.1: A vitals organizer conformant to both C-CDA 1.1 and C-CDA 2.1 would contain the SNOMED code (46680005) from R1.1 in the root code and a LOINC code in the translation. A vitals organizer conformant to only C-CDA 2.1 would only contain the LOINC code in the root code."/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-32740)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.code.code">
             <path value="Organizer.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;46680005&quot; Vital Signs (CONF:1198-32741)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;46680005&quot; Vital Signs (CONF:1198-32741)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="46680005"/>
         </element>
         <element id="Organizer.code.codeSystem">
             <path value="Organizer.code.codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; SNOMED CT (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32742)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; SNOMED CT (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32742)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
@@ -124,38 +124,38 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"/>
+            <requirements value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"/>
         </element>
         <element id="code.Organizer.code.translation:translation1">
             <path value="Organizer.code.translation"/>
             <sliceName value="translation1"/>
-            <definition value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"/>
+            <requirements value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="code.Organizer.code.translation:translation1.code">
             <path value="Organizer.code.translation.code"/>
-            <definition value="SHALL contain exactly one [1..1] @code=&quot;74728-7&quot; Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.CCDAr1.1 (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32744)."/>
+            <requirements value="SHALL contain exactly one [1..1] @code=&quot;74728-7&quot; Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.CCDAr1.1 (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32744)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="74728-7"/>
         </element>
         <element id="code.Organizer.code.translation:translation1.codeSystem">
             <path value="Organizer.code.translation.codeSystem"/>
-            <definition value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32746)."/>
+            <requirements value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32746)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1198-7284)."/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-7284)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19120)."/>
+            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19120)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="completed"/>
@@ -164,13 +164,13 @@
             <path value="Organizer.effectiveTime"/>
             <label value="The effectiveTime may be a timestamp or an interval that spans the effectiveTimes of the contained vital signs observations."/>
             <short value="The effectiveTime may be a timestamp or an interval that spans the effectiveTimes of the contained vital signs observations."/>
-            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7288)."/>
+            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7288)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>
-            <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31153)."/>
+            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31153)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -187,18 +187,18 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"/>
+            <requirements value="SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"/>
         </element>
         <element id="Organizer.component:component1">
             <path value="Organizer.component"/>
             <sliceName value="component1"/>
-            <definition value="SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"/>
+            <requirements value="SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.component:component1.observation">
             <path value="Organizer.component.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Vital Sign Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:1198-15946)."/>
+            <requirements value="SHALL contain exactly one [1..1] Vital Sign Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:1198-15946)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

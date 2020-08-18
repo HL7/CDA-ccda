@@ -34,7 +34,7 @@
         </element>
         <element id="ParticipantRole.classCode">
             <path value="ParticipantRole.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7490)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7490)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="MANU"/>
@@ -48,58 +48,58 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-7495) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-7495) such that it"/>
         </element>
         <element id="ParticipantRole.templateId:primary">
             <path value="ParticipantRole.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:81-7495) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-7495) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ParticipantRole.templateId:primary.root">
             <path value="ParticipantRole.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.24&quot; (CONF:81-10493)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.24&quot; (CONF:81-10493)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.24"/>
         </element>
         <element id="ParticipantRole.code">
             <path value="ParticipantRole.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:81-19137)."/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:81-19137)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ParticipantRole.code.code">
             <path value="ParticipantRole.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;412307009&quot; Drug Vehicle (CONF:81-19138)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;412307009&quot; Drug Vehicle (CONF:81-19138)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="412307009"/>
         </element>
         <element id="ParticipantRole.code.codeSystem">
             <path value="ParticipantRole.code.codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:81-26502)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:81-26502)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
         <element id="ParticipantRole.playingEntity">
             <path value="ParticipantRole.playingEntity"/>
-            <definition value="SHALL contain exactly one [1..1] playingEntity (CONF:81-7492)."/>
+            <requirements value="SHALL contain exactly one [1..1] playingEntity (CONF:81-7492)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ParticipantRole.playingEntity.code">
             <path value="ParticipantRole.playingEntity.code"/>
-            <definition value="This playingEntity SHALL contain exactly one [1..1] code (CONF:81-7493)."/>
-            <requirements value="This playingEntity/code is used to supply a coded term for the drug vehicle."/>
+            <definition value="This playingEntity/code is used to supply a coded term for the drug vehicle."/>
+            <requirements value="This playingEntity SHALL contain exactly one [1..1] code (CONF:81-7493)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ParticipantRole.playingEntity.name">
             <path value="ParticipantRole.playingEntity.name"/>
-            <definition value="This playingEntity MAY contain zero or one [0..1] name (CONF:81-7494)."/>
+            <requirements value="This playingEntity MAY contain zero or one [0..1] name (CONF:81-7494)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>

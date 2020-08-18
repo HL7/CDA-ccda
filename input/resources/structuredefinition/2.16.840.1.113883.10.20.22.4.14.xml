@@ -35,14 +35,14 @@
         </element>
         <element id="Procedure.classCode">
             <path value="Procedure.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; Procedure (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7652)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; Procedure (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7652)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="PROC"/>
         </element>
         <element id="Procedure.moodCode">
             <path value="Procedure.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7653)."/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7653)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
@@ -60,38 +60,38 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7654) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-7654) such that it"/>
         </element>
         <element id="Procedure.templateId:primary">
             <path value="Procedure.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-7654) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-7654) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Procedure.templateId:primary.root">
             <path value="Procedure.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.14&quot; (CONF:1098-10521)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.14&quot; (CONF:1098-10521)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.14"/>
         </element>
         <element id="Procedure.templateId:primary.extension">
             <path value="Procedure.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32506)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32506)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Procedure.id">
             <path value="Procedure.id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:1098-7655)."/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-7655)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Procedure.code">
             <path value="Procedure.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:1098-7656)."/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-7656)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -102,19 +102,19 @@
         </element>
         <element id="Procedure.code.originalText">
             <path value="Procedure.code.originalText"/>
-            <definition value="This code SHOULD contain zero or one [0..1] originalText (CONF:1098-19203)."/>
+            <requirements value="This code SHOULD contain zero or one [0..1] originalText (CONF:1098-19203)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Procedure.code.originalText.reference">
             <path value="Procedure.code.originalText.reference"/>
-            <definition value="The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1098-19204)."/>
+            <requirements value="The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1098-19204)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Procedure.code.originalText.reference.value">
             <path value="Procedure.code.originalText.reference.value"/>
-            <definition value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1098-19205)."/>
+            <requirements value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1098-19205)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -125,13 +125,13 @@
         </element>
         <element id="Procedure.statusCode">
             <path value="Procedure.statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-7661)."/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-7661)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Procedure.statusCode.code">
             <path value="Procedure.statusCode.code"/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:1098-32366)."/>
+            <requirements value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:1098-32366)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -141,13 +141,13 @@
         </element>
         <element id="Procedure.effectiveTime">
             <path value="Procedure.effectiveTime"/>
-            <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7662)."/>
+            <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7662)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Procedure.priorityCode">
             <path value="Procedure.priorityCode"/>
-            <definition value="MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-7668)."/>
+            <requirements value="MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-7668)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -157,7 +157,7 @@
         </element>
         <element id="Procedure.methodCode">
             <path value="Procedure.methodCode"/>
-            <definition value="MAY contain zero or one [0..1] methodCode (CONF:1098-7670)."/>
+            <requirements value="MAY contain zero or one [0..1] methodCode (CONF:1098-7670)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -168,8 +168,8 @@
         </element>
         <element id="Procedure.targetSiteCode">
             <path value="Procedure.targetSiteCode"/>
-            <definition value="SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-7683)."/>
-            <requirements value="In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."/>
+            <definition value="In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."/>
+            <requirements value="SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-7683)."/>
             <min value="0"/>
             <max value="*"/>
             <binding>
@@ -179,7 +179,7 @@
         </element>
         <element id="Procedure.specimen">
             <path value="Procedure.specimen"/>
-            <definition value="MAY contain zero or more [0..*] specimen (CONF:1098-7697)."/>
+            <requirements value="MAY contain zero or more [0..*] specimen (CONF:1098-7697)."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
@@ -190,13 +190,13 @@
         </element>
         <element id="Procedure.specimen.specimenRole">
             <path value="Procedure.specimen.specimenRole"/>
-            <definition value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:1098-7704)."/>
+            <requirements value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:1098-7704)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Procedure.specimen.specimenRole.id">
             <path value="Procedure.specimen.specimenRole.id"/>
-            <definition value="This specimenRole SHOULD contain zero or more [0..*] id (CONF:1098-7716)."/>
+            <requirements value="This specimenRole SHOULD contain zero or more [0..*] id (CONF:1098-7716)."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
@@ -214,72 +214,72 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHOULD contain zero or more [0..*] performer (CONF:1098-7718) such that it"/>
+            <requirements value="SHOULD contain zero or more [0..*] performer (CONF:1098-7718) such that it"/>
         </element>
         <element id="Procedure.performer:performer1">
             <path value="Procedure.performer"/>
             <sliceName value="performer1"/>
-            <definition value="SHOULD contain zero or more [0..*] performer (CONF:1098-7718) such that it"/>
+            <requirements value="SHOULD contain zero or more [0..*] performer (CONF:1098-7718) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity">
             <path value="Procedure.performer.assignedEntity"/>
-            <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-7720)."/>
+            <requirements value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-7720)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.id">
             <path value="Procedure.performer.assignedEntity.id"/>
-            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1098-7722)."/>
+            <requirements value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1098-7722)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.addr">
             <path value="Procedure.performer.assignedEntity.addr"/>
-            <definition value="This assignedEntity SHALL contain at least one [1..*] addr (CONF:1098-7731)."/>
+            <requirements value="This assignedEntity SHALL contain at least one [1..*] addr (CONF:1098-7731)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.telecom">
             <path value="Procedure.performer.assignedEntity.telecom"/>
-            <definition value="This assignedEntity SHALL contain at least one [1..*] telecom (CONF:1098-7732)."/>
+            <requirements value="This assignedEntity SHALL contain at least one [1..*] telecom (CONF:1098-7732)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization">
             <path value="Procedure.performer.assignedEntity.representedOrganization"/>
-            <definition value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:1098-7733)."/>
+            <requirements value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:1098-7733)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.id">
             <path value="Procedure.performer.assignedEntity.representedOrganization.id"/>
-            <definition value="The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1098-7734)."/>
+            <requirements value="The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1098-7734)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.name">
             <path value="Procedure.performer.assignedEntity.representedOrganization.name"/>
-            <definition value="The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:1098-7735)."/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:1098-7735)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.telecom">
             <path value="Procedure.performer.assignedEntity.representedOrganization.telecom"/>
-            <definition value="The representedOrganization, if present, SHALL contain exactly one [1..1] telecom (CONF:1098-7737)."/>
+            <requirements value="The representedOrganization, if present, SHALL contain exactly one [1..1] telecom (CONF:1098-7737)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.addr">
             <path value="Procedure.performer.assignedEntity.representedOrganization.addr"/>
-            <definition value="The representedOrganization, if present, SHALL contain exactly one [1..1] addr (CONF:1098-7736)."/>
+            <requirements value="The representedOrganization, if present, SHALL contain exactly one [1..1] addr (CONF:1098-7736)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Procedure.author">
             <path value="Procedure.author"/>
-            <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32479)."/>
+            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32479)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -300,25 +300,25 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] participant (CONF:1098-7765) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] participant (CONF:1098-7765) such that it"/>
         </element>
         <element id="Procedure.participant:product">
             <path value="Procedure.participant"/>
             <sliceName value="product"/>
-            <definition value="MAY contain zero or more [0..*] participant (CONF:1098-7751) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] participant (CONF:1098-7751) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.participant:product.typeCode">
             <path value="Procedure.participant.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7752)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7752)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="DEV"/>
         </element>
         <element id="Procedure.participant:product.participantRole">
             <path value="Procedure.participant.participantRole"/>
-            <definition value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-15911)."/>
+            <requirements value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-15911)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -329,20 +329,20 @@
         <element id="Procedure.participant:location">
             <path value="Procedure.participant"/>
             <sliceName value="location"/>
-            <definition value="MAY contain zero or more [0..*] participant (CONF:1098-7765) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] participant (CONF:1098-7765) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.participant:location.typeCode">
             <path value="Procedure.participant.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-7766)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-7766)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="LOC"/>
         </element>
         <element id="Procedure.participant:location.participantRole">
             <path value="Procedure.participant.participantRole"/>
-            <definition value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1098-15912)."/>
+            <requirements value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1098-15912)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -367,52 +367,52 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32473) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32473) such that it"/>
         </element>
         <element id="Procedure.entryRelationship:encounter">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="encounter"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7768) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7768) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.entryRelationship:encounter.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7769)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7769)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
         <element id="Procedure.entryRelationship:encounter.inversionInd">
             <path value="Procedure.entryRelationship.inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8009)."/>
+            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8009)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="true"/>
         </element>
         <element id="Procedure.entryRelationship:encounter.encounter">
             <path value="Procedure.entryRelationship.encounter"/>
-            <definition value="SHALL contain exactly one [1..1] encounter (CONF:1098-7770)."/>
+            <requirements value="SHALL contain exactly one [1..1] encounter (CONF:1098-7770)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Procedure.entryRelationship:encounter.encounter.classCode">
             <path value="Procedure.entryRelationship.encounter.classCode"/>
-            <definition value="This encounter SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; Encounter (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7771)."/>
+            <requirements value="This encounter SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; Encounter (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7771)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ENC"/>
         </element>
         <element id="Procedure.entryRelationship:encounter.encounter.moodCode">
             <path value="Procedure.entryRelationship.encounter.moodCode"/>
-            <definition value="This encounter SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7772)."/>
+            <requirements value="This encounter SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7772)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
         </element>
         <element id="Procedure.entryRelationship:encounter.encounter.id">
             <path value="Procedure.entryRelationship.encounter.id"/>
-            <definition value="This encounter SHALL contain exactly one [1..1] id (CONF:1098-7773)."/>
+            <requirements value="This encounter SHALL contain exactly one [1..1] id (CONF:1098-7773)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -424,27 +424,27 @@
         <element id="Procedure.entryRelationship:instruction">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="instruction"/>
-            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7775) such that it"/>
+            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-7775) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Procedure.entryRelationship:instruction.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7776)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7776)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="SUBJ"/>
         </element>
         <element id="Procedure.entryRelationship:instruction.inversionInd">
             <path value="Procedure.entryRelationship.inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-7777)."/>
+            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-7777)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="true"/>
         </element>
         <element id="Procedure.entryRelationship:instruction.act">
             <path value="Procedure.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31395)."/>
+            <requirements value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31395)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -455,20 +455,20 @@
         <element id="Procedure.entryRelationship:indication">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="indication"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7779) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7779) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.entryRelationship:indication.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7780)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7780)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="RSON"/>
         </element>
         <element id="Procedure.entryRelationship:indication.observation">
             <path value="Procedure.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-15914)."/>
+            <requirements value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-15914)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -479,20 +479,20 @@
         <element id="Procedure.entryRelationship:medication">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="medication"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7886) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7886) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.entryRelationship:medication.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7887)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7887)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
         <element id="Procedure.entryRelationship:medication.substanceAdministration">
             <path value="Procedure.entryRelationship.substanceAdministration"/>
-            <definition value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-15915)."/>
+            <requirements value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-15915)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -503,20 +503,20 @@
         <element id="Procedure.entryRelationship:reaction">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="reaction"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32473) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32473) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.entryRelationship:reaction.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32474)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32474)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
         <element id="Procedure.entryRelationship:reaction.observation">
             <path value="Procedure.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-32475)."/>
+            <requirements value="SHALL contain exactly one [1..1] Reaction Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-32475)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

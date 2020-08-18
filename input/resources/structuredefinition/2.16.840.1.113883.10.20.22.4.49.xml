@@ -36,14 +36,14 @@
         </element>
         <element id="Encounter.classCode">
             <path value="Encounter.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8710)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8710)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ENC"/>
         </element>
         <element id="Encounter.moodCode">
             <path value="Encounter.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
@@ -61,38 +61,38 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8712) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8712) such that it"/>
         </element>
         <element id="Encounter.templateId:primary">
             <path value="Encounter.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-8712) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8712) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Encounter.templateId:primary.root">
             <path value="Encounter.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.49&quot; (CONF:1198-26353)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.49&quot; (CONF:1198-26353)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.49"/>
         </element>
         <element id="Encounter.templateId:primary.extension">
             <path value="Encounter.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32546)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32546)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Encounter.id">
             <path value="Encounter.id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:1198-8713)."/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-8713)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Encounter.code">
             <path value="Encounter.code"/>
-            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."/>
+            <requirements value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -102,19 +102,19 @@
         </element>
         <element id="Encounter.code.originalText">
             <path value="Encounter.code.originalText"/>
-            <definition value="This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)."/>
+            <requirements value="This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Encounter.code.originalText.reference">
             <path value="Encounter.code.originalText.reference"/>
-            <definition value="The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)."/>
+            <requirements value="The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Encounter.code.originalText.reference.value">
             <path value="Encounter.code.originalText.reference.value"/>
-            <definition value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1198-15971)."/>
+            <requirements value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1198-15971)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -125,14 +125,14 @@
         </element>
         <element id="Encounter.code.translation">
             <path value="Encounter.code.translation"/>
-            <definition value="This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."/>
-            <requirements value="The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."/>
+            <definition value="The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."/>
+            <requirements value="This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Encounter.effectiveTime">
             <path value="Encounter.effectiveTime"/>
-            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8715)."/>
+            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8715)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -140,7 +140,7 @@
             <path value="Encounter.sdtc:dischargeDispositionCode"/>
             <label value="The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the dischargeDispositionCode element"/>
             <short value="The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the dischargeDispositionCode element"/>
-            <definition value="MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."/>
+            <requirements value="MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -156,19 +156,19 @@
         </element>
         <element id="Encounter.performer">
             <path value="Encounter.performer"/>
-            <definition value="MAY contain zero or more [0..*] performer (CONF:1198-8725)."/>
+            <requirements value="MAY contain zero or more [0..*] performer (CONF:1198-8725)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Encounter.performer.assignedEntity">
             <path value="Encounter.performer.assignedEntity"/>
-            <definition value="The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-8726)."/>
+            <requirements value="The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-8726)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Encounter.performer.assignedEntity.code">
             <path value="Encounter.performer.assignedEntity.code"/>
-            <definition value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8727)."/>
+            <requirements value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8727)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -189,25 +189,25 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8738) such that it"/>
+            <requirements value="SHOULD contain zero or more [0..*] participant (CONF:1198-8738) such that it"/>
         </element>
         <element id="Encounter.participant:participant1">
             <path value="Encounter.participant"/>
             <sliceName value="participant1"/>
-            <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8738) such that it"/>
+            <requirements value="SHOULD contain zero or more [0..*] participant (CONF:1198-8738) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Encounter.participant:participant1.typeCode">
             <path value="Encounter.participant.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8740)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8740)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="LOC"/>
         </element>
         <element id="Encounter.participant:participant1.participantRole">
             <path value="Encounter.participant.participantRole"/>
-            <definition value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1198-14903)."/>
+            <requirements value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1198-14903)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -224,25 +224,25 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"/>
         </element>
         <element id="Encounter.entryRelationship:entryRelationship1">
             <path value="Encounter.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-8722) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-8722) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Encounter.entryRelationship:entryRelationship1.typeCode">
             <path value="Encounter.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8723)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8723)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="RSON"/>
         </element>
         <element id="Encounter.entryRelationship:entryRelationship1.observation">
             <path value="Encounter.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1198-14899)."/>
+            <requirements value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1198-14899)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -253,13 +253,13 @@
         <element id="Encounter.entryRelationship:entryRelationship2">
             <path value="Encounter.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Encounter.entryRelationship:entryRelationship2.act">
             <path value="Encounter.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Encounter Diagnosis (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:1198-15973)."/>
+            <requirements value="SHALL contain exactly one [1..1] Encounter Diagnosis (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:1198-15973)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

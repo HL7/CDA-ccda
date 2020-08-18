@@ -35,14 +35,14 @@
         </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-14355)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-14355)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="CLUSTER"/>
         </element>
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14357)."/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14357)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="EVN"/>
@@ -60,39 +60,39 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-14361) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-14361) such that it"/>
         </element>
         <element id="Organizer.templateId:primary">
             <path value="Organizer.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-14361) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-14361) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.templateId:primary.root">
             <path value="Organizer.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.66&quot; (CONF:1098-14362)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.66&quot; (CONF:1098-14362)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.66"/>
         </element>
         <element id="Organizer.templateId:primary.extension">
             <path value="Organizer.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32569)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32569)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:1098-14363)."/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-14363)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:1098-14364)."/>
-            <requirements value="The code selected should indicate the category that groups the contained functional status evaluation observations (e.g., mobility, self-care, communication)."/>
+            <definition value="The code selected should indicate the category that groups the contained functional status evaluation observations (e.g., mobility, self-care, communication)."/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-14364)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -103,20 +103,20 @@
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1098-14358)."/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-14358)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31434)."/>
+            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31434)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="completed"/>
         </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>
-            <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31585)."/>
+            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31585)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -126,13 +126,13 @@
         </element>
         <element id="Organizer.component">
             <path value="Organizer.component"/>
-            <definition value="SHALL contain at least one [1..*] component (CONF:1098-14359)."/>
+            <requirements value="SHALL contain at least one [1..*] component (CONF:1098-14359)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.component.observation">
             <path value="Organizer.component.observation"/>
-            <definition value="Such components SHALL contain exactly one [1..1] Functional Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:1098-14368)."/>
+            <requirements value="Such components SHALL contain exactly one [1..1] Functional Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:1098-14368)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

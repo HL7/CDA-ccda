@@ -35,7 +35,7 @@
         </element>
         <element id="ManufacturedProduct.classCode">
             <path value="ManufacturedProduct.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="MANU"/>
@@ -53,44 +53,44 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-9004) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-9004) such that it"/>
         </element>
         <element id="ManufacturedProduct.templateId:primary">
             <path value="ManufacturedProduct.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-9004) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-9004) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ManufacturedProduct.templateId:primary.root">
             <path value="ManufacturedProduct.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.54&quot; (CONF:1098-10499)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.54&quot; (CONF:1098-10499)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.54"/>
         </element>
         <element id="ManufacturedProduct.templateId:primary.extension">
             <path value="ManufacturedProduct.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32602)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32602)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="ManufacturedProduct.id">
             <path value="ManufacturedProduct.id"/>
-            <definition value="MAY contain zero or more [0..*] id (CONF:1098-9005)."/>
+            <requirements value="MAY contain zero or more [0..*] id (CONF:1098-9005)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial">
             <path value="ManufacturedProduct.manufacturedMaterial"/>
-            <definition value="SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-9006)."/>
+            <requirements value="SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-9006)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code">
             <path value="ManufacturedProduct.manufacturedMaterial.code"/>
-            <definition value="This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered Vaccine Set urn:oid:2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)."/>
+            <requirements value="This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered Vaccine Set urn:oid:2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -111,7 +111,7 @@
         <element id="ManufacturedProduct.manufacturedMaterial.code.translation:vaccine">
             <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
             <sliceName value="vaccine"/>
-            <definition value="This code MAY contain zero or more [0..*] translation, which MAY be selected from ValueSet Vaccine Clinical Drug urn:oid:2.16.840.1.113762.1.4.1010.8 DYNAMIC (CONF:1098-31543)."/>
+            <requirements value="This code MAY contain zero or more [0..*] translation, which MAY be selected from ValueSet Vaccine Clinical Drug urn:oid:2.16.840.1.113762.1.4.1010.8 DYNAMIC (CONF:1098-31543)."/>
             <min value="0"/>
             <max value="*"/>
             <binding>
@@ -122,7 +122,7 @@
         <element id="ManufacturedProduct.manufacturedMaterial.code.translation:specificVaccine">
             <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
             <sliceName value="specificVaccine"/>
-            <definition value="This code MAY contain zero or more [0..*] translation (CONF:1098-31881)."/>
+            <requirements value="This code MAY contain zero or more [0..*] translation (CONF:1098-31881)."/>
             <min value="0"/>
             <max value="*"/>
             <binding>
@@ -132,14 +132,14 @@
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.lotNumberText">
             <path value="ManufacturedProduct.manufacturedMaterial.lotNumberText"/>
-            <definition value="This manufacturedMaterial SHOULD contain zero or one [0..1] lotNumberText (CONF:1098-9014)."/>
-            <requirements value="lotNumberText should be included if known. It may not be known for historical immunizations, planned immunizations, or refused/deferred immunizations. "/>
+            <definition value="lotNumberText should be included if known. It may not be known for historical immunizations, planned immunizations, or refused/deferred immunizations. "/>
+            <requirements value="This manufacturedMaterial SHOULD contain zero or one [0..1] lotNumberText (CONF:1098-9014)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ManufacturedProduct.manufacturerOrganization">
             <path value="ManufacturedProduct.manufacturerOrganization"/>
-            <definition value="SHOULD contain zero or one [0..1] manufacturerOrganization (CONF:1098-9012)."/>
+            <requirements value="SHOULD contain zero or one [0..1] manufacturerOrganization (CONF:1098-9012)."/>
             <min value="0"/>
             <max value="1"/>
         </element>

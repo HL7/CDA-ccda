@@ -36,7 +36,7 @@
         </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
-            <definition value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32800)."/>
+            <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32800)."/>
             <min value="0"/>
             <max value="1"/>
             <patternString value="NI"/>
@@ -54,58 +54,58 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-30227) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-30227) such that it"/>
         </element>
         <element id="Section.templateId:secondary">
             <path value="Section.templateId"/>
             <sliceName value="secondary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1198-30227) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-30227) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:secondary.root">
             <path value="Section.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.21.1&quot; (CONF:1198-30228)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.21.1&quot; (CONF:1198-30228)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.21.1"/>
         </element>
         <element id="Section.templateId:secondary.extension">
             <path value="Section.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32512)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32512)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:1198-32929)."/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-32929)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;42348-3&quot; Advance Directives (CONF:1198-32930)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;42348-3&quot; Advance Directives (CONF:1198-32930)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="42348-3"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32931)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32931)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <definition value="SHALL contain exactly one [1..1] title (CONF:1198-32932)."/>
+            <requirements value="SHALL contain exactly one [1..1] title (CONF:1198-32932)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <definition value="SHALL contain exactly one [1..1] text (CONF:1198-32933)."/>
+            <requirements value="SHALL contain exactly one [1..1] text (CONF:1198-32933)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -122,13 +122,13 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"/>
-            <requirements value="If section/@nullFlavor is not present *SHALL* contain an Advance Directive Observation *OR* an Advance Directive Organizer:"/>
+            <definition value="If section/@nullFlavor is not present *SHALL* contain an Advance Directive Observation *OR* an Advance Directive Organizer:"/>
+            <requirements value="SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"/>
         </element>
         <element id="Section.entry:entry1">
             <path value="Section.entry"/>
             <sliceName value="entry1"/>
-            <definition value="SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"/>
+            <requirements value="SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -139,7 +139,7 @@
         </element>
         <element id="Section.entry:entry1.observation">
             <path value="Section.entry.observation"/>
-            <definition value="MAY contain zero or one [0..1] Advance Directive Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-30236)."/>
+            <requirements value="MAY contain zero or one [0..1] Advance Directive Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-30236)."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -149,7 +149,7 @@
         </element>
         <element id="Section.entry:entry1.organizer">
             <path value="Section.entry.organizer"/>
-            <definition value="MAY contain zero or one [0..1] Advance Directive Organizer (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2015-08-01) (CONF:1198-32420)."/>
+            <requirements value="MAY contain zero or one [0..1] Advance Directive Organizer (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2015-08-01) (CONF:1198-32420)."/>
             <min value="0"/>
             <max value="1"/>
             <type>

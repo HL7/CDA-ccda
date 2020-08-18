@@ -34,7 +34,7 @@
         </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
-            <definition value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-32819)."/>
+            <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-32819)."/>
             <min value="0"/>
             <max value="1"/>
             <patternString value="NI"/>
@@ -48,51 +48,51 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-29584) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-29584) such that it"/>
         </element>
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-29584) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-29584) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.60&quot; (CONF:1098-29585)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.60&quot; (CONF:1098-29585)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.60"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:1098-29586)."/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-29586)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;61146-7&quot; Goals (CONF:1098-29587)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;61146-7&quot; Goals (CONF:1098-29587)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="61146-7"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-29588)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-29588)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <definition value="SHALL contain exactly one [1..1] title (CONF:1098-30721)."/>
+            <requirements value="SHALL contain exactly one [1..1] title (CONF:1098-30721)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <definition value="SHALL contain exactly one [1..1] text (CONF:1098-30722)."/>
+            <requirements value="SHALL contain exactly one [1..1] text (CONF:1098-30722)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -105,19 +105,19 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain at least one [1..*] entry (CONF:1098-30719) such that it"/>
-            <requirements value="If section/@nullFlavor is not present:"/>
+            <definition value="If section/@nullFlavor is not present:"/>
+            <requirements value="SHALL contain at least one [1..*] entry (CONF:1098-30719) such that it"/>
         </element>
         <element id="Section.entry:entry1">
             <path value="Section.entry"/>
             <sliceName value="entry1"/>
-            <definition value="SHALL contain at least one [1..*] entry (CONF:1098-30719) such that it"/>
+            <requirements value="SHALL contain at least one [1..*] entry (CONF:1098-30719) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:entry1.observation">
             <path value="Section.entry.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:1098-30720)."/>
+            <requirements value="SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:1098-30720)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

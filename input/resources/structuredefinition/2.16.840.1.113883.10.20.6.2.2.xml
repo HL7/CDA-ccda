@@ -35,7 +35,7 @@
         </element>
         <element id="EncounterParticipant.typeCode">
             <path value="EncounterParticipant.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;ATND&quot; Attender (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8881)."/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;ATND&quot; Attender (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8881)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ATND"/>
@@ -53,38 +53,38 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-16072) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-16072) such that it"/>
         </element>
         <element id="EncounterParticipant.templateId:primary">
             <path value="EncounterParticipant.templateId"/>
             <sliceName value="primary"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:1098-16072) such that it"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-16072) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="EncounterParticipant.templateId:primary.root">
             <path value="EncounterParticipant.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.2.2&quot; (CONF:1098-16073)."/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.2.2&quot; (CONF:1098-16073)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.6.2.2"/>
         </element>
         <element id="EncounterParticipant.templateId:primary.extension">
             <path value="EncounterParticipant.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32586)."/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32586)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="EncounterParticipant.assignedEntity">
             <path value="EncounterParticipant.assignedEntity"/>
-            <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-8886)."/>
+            <requirements value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-8886)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="EncounterParticipant.assignedEntity.id">
             <path value="EncounterParticipant.assignedEntity.id"/>
-            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1098-8887)."/>
+            <requirements value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1098-8887)."/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -95,7 +95,7 @@
         </element>
         <element id="EncounterParticipant.assignedEntity.code">
             <path value="EncounterParticipant.assignedEntity.code"/>
-            <definition value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:1098-8888)."/>
+            <requirements value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:1098-8888)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -106,13 +106,13 @@
         </element>
         <element id="EncounterParticipant.assignedEntity.assignedPerson">
             <path value="EncounterParticipant.assignedEntity.assignedPerson"/>
-            <definition value="This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:1098-30928)."/>
+            <requirements value="This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:1098-30928)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="EncounterParticipant.assignedEntity.assignedPerson.name">
             <path value="EncounterParticipant.assignedEntity.assignedPerson.name"/>
-            <definition value="The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1098-30929)."/>
+            <requirements value="The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1098-30929)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -122,13 +122,13 @@
         </element>
         <element id="EncounterParticipant.assignedEntity.representedOrganization">
             <path value="EncounterParticipant.assignedEntity.representedOrganization"/>
-            <definition value="This assignedEntity MAY contain zero or one [0..1] representedOrganization (CONF:1098-16074)."/>
+            <requirements value="This assignedEntity MAY contain zero or one [0..1] representedOrganization (CONF:1098-16074)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="EncounterParticipant.assignedEntity.representedOrganization.name">
             <path value="EncounterParticipant.assignedEntity.representedOrganization.name"/>
-            <definition value="The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:1098-16075)."/>
+            <requirements value="The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:1098-16075)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
