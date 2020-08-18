@@ -7,7 +7,7 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.2:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="ImmunizationsSectionentriesoptional"/>
+    <name value="ImmunizationsSectionEntriesOptional"/>
     <title value="Immunizations Section (entries optional)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
@@ -106,21 +106,21 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="substanceAdministration"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <requirements value="SHOULD contain zero or more [0..*] entry (CONF:1198-7969) such that it"/>
         </element>
-        <element id="Section.entry:entry1">
+        <element id="Section.entry:activity">
             <path value="Section.entry"/>
-            <sliceName value="entry1"/>
+            <sliceName value="activity"/>
             <requirements value="SHOULD contain zero or more [0..*] entry (CONF:1198-7969) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:entry1.substanceAdministration">
+        <element id="Section.entry:activity.substanceAdministration">
             <path value="Section.entry.substanceAdministration"/>
             <requirements value="SHALL contain exactly one [1..1] Immunization Activity (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01) (CONF:1198-15494)."/>
             <min value="1"/>

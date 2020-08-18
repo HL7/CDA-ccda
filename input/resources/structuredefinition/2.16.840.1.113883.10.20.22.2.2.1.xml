@@ -7,7 +7,7 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.2.1:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="ImmunizationsSectionentriesrequired"/>
+    <name value="ImmunizationsSectionEntriesRequired"/>
     <title value="Immunizations Section (entries required)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
@@ -113,30 +113,19 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="substanceAdministration"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="If section/@nullFlavor is not present:"/>
-            <requirements value="SHALL contain at least one [1..*] entry (CONF:1198-9019) such that it"/>
+            <definition value="If section/@nullFlavor is not present..."/>
         </element>
-        <element id="Section.entry:entry1">
+        <element id="Section.entry:activity">
             <path value="Section.entry"/>
-            <sliceName value="entry1"/>
+            <sliceName value="activity"/>
             <requirements value="SHALL contain at least one [1..*] entry (CONF:1198-9019) such that it"/>
             <min value="1"/>
             <max value="*"/>
-        </element>
-        <element id="Section.entry:entry1.substanceAdministration">
-            <path value="Section.entry.substanceAdministration"/>
-            <requirements value="SHALL contain exactly one [1..1] Immunization Activity (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01) (CONF:1198-15495)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.52"/>
-            </type>
         </element>
     </differential>
 </StructureDefinition>
