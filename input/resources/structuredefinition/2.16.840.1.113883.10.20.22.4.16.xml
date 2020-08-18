@@ -138,6 +138,7 @@
             <label value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."/>
             <short value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."/>
             <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"/>
+            <requirements value="The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., &quot;10 days&quot;), the frequency of administration (e.g., &quot;every 8 hours&quot;), and more. Here, we require that there **SHALL** be an effectiveTime documentation of the duration (or single-administration timestamp), and that there **SHOULD** be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -197,6 +198,7 @@
         <element id="SubstanceAdministration.repeatNumber">
             <path value="SubstanceAdministration.repeatNumber"/>
             <definition value="MAY contain zero or one [0..1] repeatNumber (CONF:1098-7555)."/>
+            <requirements value="In &quot;INT&quot; (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of &quot;3&quot; means that the substance can be administered up to 3 times. In &quot;EVN&quot; (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of &quot;3&quot; in a substance administration event means that the current administration is the 3rd in a series."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -281,6 +283,7 @@
         <element id="SubstanceAdministration.administrationUnitCode">
             <path value="SubstanceAdministration.administrationUnitCode"/>
             <definition value="MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519)."/>
+            <requirements value="administrationUnitCode@code describes the units of medication administration for an item using a code that is pre-coordinated to include a physical unit form (ointment, powder, solution, etc.) which differs from the units used in administering the consumable (capful, spray, drop, etc.). For example when recording medication administrations, ?metric drop (C48491)? would be appropriate to accompany the RxNorm code of 198283 (Timolol 0.25% Ophthalmic Solution) where the number of drops would be specified in doseQuantity@value."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -537,6 +540,7 @@
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="substanceAdministered"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31515) such that it"/>
+            <requirements value="The following entryRelationship is used to indicate a given medication's order in a series. The nested Substance Administered Act identifies an administration in the series. The entryRelationship/sequenceNumber shows the order of this particular administration in that series."/>
             <min value="0"/>
             <max value="*"/>
         </element>

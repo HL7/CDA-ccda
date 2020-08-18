@@ -119,18 +119,21 @@
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30433)."/>
+            <requirements value="The effectiveTime in a planned act represents the time that the act should occur."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.performer">
             <path value="Act.performer"/>
             <definition value="MAY contain zero or more [0..*] performer (CONF:1098-30435)."/>
+            <requirements value="The clinician who is expected to carry out the act could be identified using act/performer. "/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
             <definition value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32020)."/>
+            <requirements value="The author in a planned act represents the clinician who is requesting or planning the act."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -152,11 +155,13 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it"/>
+            <requirements value="The following entryRelationship captures any instructions associated with the planned act."/>
         </element>
         <element id="Act.entryRelationship:entryRelationship3">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31067) such that it"/>
+            <requirements value="The following entryRelationship represents the priority that a patient or a provider places on the activity."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -181,6 +186,7 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32021) such that it"/>
+            <requirements value="The following entryRelationship represents the indication for the act."/>
             <min value="0"/>
             <max value="*"/>
         </element>

@@ -92,6 +92,7 @@
         <element id="Observation.value">
             <path value="Observation.value"/>
             <definition value="SHOULD contain zero or one [0..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet DICOMPurposeOfReference urn:oid:2.16.840.1.113883.11.20.9.28 DYNAMIC (CONF:81-9273)."/>
+            <requirements value="The value element is a SHOULD to allow backwards compatibility with the DICOM CMET. Note that the use of ASSERTION for the code differs from the DICOM CMET. This is intentional. The DICOM CMET was created before the Term Info guidelines describing the use of the assertion pattern were released. It was determined that this IG should follow the latest Term Info guidelines. Implementers using both this IG and the DICOM CMET should be aware of this difference and apply appropriate transformations."/>
             <min value="0"/>
             <max value="1"/>
             <binding>

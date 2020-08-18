@@ -119,18 +119,21 @@
         <element id="Procedure.effectiveTime">
             <path value="Procedure.effectiveTime"/>
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30447)."/>
+            <requirements value="The effectiveTime in a planned procedure represents the time that the procedure should occur."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Procedure.methodCode">
             <path value="Procedure.methodCode"/>
             <definition value="MAY contain zero or more [0..*] methodCode (CONF:1098-31980)."/>
+            <requirements value="In a planned procedure the provider may suggest that a procedure should be performed using a particular method.&#xA;&#xA;MethodCode *SHALL NOT* conflict with the method inherent in Procedure / code."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.targetSiteCode">
             <path value="Procedure.targetSiteCode"/>
             <definition value="MAY contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-31981)."/>
+            <requirements value="The targetSiteCode is used to identify the part of the body of concern for the planned procedure."/>
             <min value="0"/>
             <max value="*"/>
             <binding>
@@ -141,12 +144,14 @@
         <element id="Procedure.performer">
             <path value="Procedure.performer"/>
             <definition value="MAY contain zero or more [0..*] performer (CONF:1098-30449)."/>
+            <requirements value="The clinician who is expected to perform the procedure could be identified using procedure/performer. "/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.author">
             <path value="Procedure.author"/>
             <definition value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31979)."/>
+            <requirements value="The author in a planned procedure represents the clinician who is requesting or planning the procedure."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -168,11 +173,13 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31990) such that it"/>
+            <requirements value="The following entryRelationship represents the insurance coverage the patient may have for the procedure."/>
         </element>
         <element id="Procedure.entryRelationship:entryRelationship4">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31079) such that it"/>
+            <requirements value="The following entryRelationship represents the priority that a patient or a provider places on the procedure."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -197,6 +204,7 @@
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31982) such that it"/>
+            <requirements value="The following entryRelationship represents the indication for the procedure."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -221,6 +229,7 @@
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31985) such that it"/>
+            <requirements value="The following entryRelationship captures any instructions associated with the planned procedure."/>
             <min value="0"/>
             <max value="*"/>
         </element>

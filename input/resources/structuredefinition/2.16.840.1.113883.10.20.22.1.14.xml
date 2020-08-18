@@ -78,6 +78,7 @@
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
             <definition value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet ReferralDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.3 DYNAMIC (CONF:1198-28949)."/>
+            <requirements value="The Referral Note recommends use of the document type code 57133-1 &quot;Referral Note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Referral note would not be authored by a Pediatric Cardiologist.  The type of referral and the target of the referral are specified via the participant (and not via the author)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -135,6 +136,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"/>
+            <requirements value="This participant represents the clinician to contact for questions about the referral note.  This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."/>
         </element>
         <element id="ClinicalDocument.participant:participant1">
             <path value="ClinicalDocument.participant"/>

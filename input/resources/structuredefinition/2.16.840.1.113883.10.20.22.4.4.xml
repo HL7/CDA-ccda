@@ -51,6 +51,7 @@
         <element id="Observation.negationInd">
             <path value="Observation.negationInd"/>
             <definition value="MAY contain zero or one [0..1] @negationInd (CONF:1198-10139)."/>
+            <requirements value="The negationInd is used to indicate the absence of the condition in observation/value. A negationInd of &quot;true&quot; coupled with an observation/value of SNOMED code 64572001 &quot;Disease (disorder)&quot; indicates that the patient has no known conditions."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -127,18 +128,21 @@
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-9050)."/>
+            <requirements value="If the problem is known to be resolved, but the date of resolution is not known, then the high element **SHALL** be present, and the nullFlavor attribute **SHALL** be set to 'UNK'. Therefore, the existence of a high element within a problem does indicate that the problem has been resolved."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
             <definition value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-15603)."/>
+            <requirements value="The effectiveTime/low (a.k.a. &quot;onset date&quot;) asserts when the condition became biologically active."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
             <definition value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-15604)."/>
+            <requirements value="The effectiveTime/high (a.k.a. &quot;resolution date&quot;) asserts when the condition became biologically resolved."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -158,12 +162,14 @@
         <element id="Observation.value.code">
             <path value="Observation.value.code"/>
             <definition value="This value MAY contain zero or one [0..1] @code (CONF:1198-31871)."/>
+            <requirements value="A negationInd of &quot;true&quot; coupled with an observation/value/@code of SNOMED code 64572001 &quot;Disease (disorder)&quot; indicates that the patient has no known conditions."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.value.qualifier">
             <path value="Observation.value.qualifier"/>
             <definition value="This value MAY contain zero or more [0..*] qualifier (CONF:1198-31870)."/>
+            <requirements value="The observation/value and all the qualifiers together (often referred to as a post-coordinated expression) make up one concept. Qualifiers constrain the meaning of the primary code, and cannot negate it or change its meaning. Qualifiers can only be used according to well-defined rules of post-coordination and only if the underlying code system defines the use of such qualifiers or if there is a third code system that specifies how other code systems may be combined.&#xA;&#xA;For example, SNOMED CT allows constructing concepts as a combination of multiple codes. SNOMED CT defines a concept &quot;pneumonia (disorder)&quot; (233604007) an attribute &quot;finding site&quot; (363698007) and another concept &quot;left lower lobe of lung (body structure)&quot; (41224006). SNOMED CT allows one to combine these codes in a code phrase, as shown in the sample XML."/>
             <min value="0"/>
             <max value="*"/>
         </element>

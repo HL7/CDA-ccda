@@ -78,6 +78,7 @@
         <element id="ClinicalDocument.recordTarget">
             <path value="ClinicalDocument.recordTarget"/>
             <definition value="SHALL contain exactly one [1..1] recordTarget (CONF:1198-28460)."/>
+            <requirements value="The recordTarget records the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element. &#xA;&#xA;If the document receiver is interested in setting up a translator for the encounter with the patient, the receiver of the document will have to infer the need for a translator, based upon the language skills identified for the patient, the patient?s language of preference and the predominant language used by the organization receiving the CDA.&#xA;&#xA;HL7 Vocabulary simply describes guardian as a relationship to a ward.  This need not be a formal legal relationship. When a guardian relationship exists for the patient, it can be represented, regardless of who is present at the time the document is generated. This need not be a formal legal relationship. A child?s parent can be represented in the guardian role.  In this case, the guardian/code element would encode the personal relationship of &quot;mother&quot; for the child?s mom or &quot;father&quot; for the child?s dad. An elderly person's child can be represented in the guardian role. In this case, the guardian/code element would encode the personal relationship of &quot;daughter&quot; or &quot;son&quot;, or if a legal relationship existed, the relationship of &quot;legal guardian&quot; could be encoded."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -140,12 +141,14 @@
             <label value="If present, this organization represents the provider organization where the person is claiming to be a patient."/>
             <short value="If present, this organization represents the provider organization where the person is claiming to be a patient."/>
             <definition value="This patientRole MAY contain zero or one [0..1] providerOrganization (CONF:1198-28476)."/>
+            <requirements value="If present, this organization represents the provider organization where the person is claiming to be a patient."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.author">
             <path value="ClinicalDocument.author"/>
             <definition value="SHALL contain at least one [1..*] author (CONF:1198-28477)."/>
+            <requirements value="The author element represents the creator of the clinical document.  The author may be a device, or a person. The person is the patient or the patient?s advocate."/>
             <min value="1"/>
             <max value="*"/>
         </element>
@@ -164,6 +167,7 @@
         <element id="ClinicalDocument.author.assignedAuthor.code">
             <path value="ClinicalDocument.author.assignedAuthor.code"/>
             <definition value="This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-28481)."/>
+            <requirements value="When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -180,6 +184,7 @@
         <element id="ClinicalDocument.dataEnterer">
             <path value="ClinicalDocument.dataEnterer"/>
             <definition value="MAY contain zero or one [0..1] dataEnterer (CONF:1198-28678)."/>
+            <requirements value="The dataEnterer element represents the person who transferred the content, written or dictated by someone else, into the clinical document. The guiding rule of thumb is that an author provides the content found within the header or body of the document, subject to their own interpretation, and the dataEnterer adds that information to the electronic system. In other words, a dataEnterer transfers information from one source to another (e.g., transcription from paper form to electronic system). If the dataEnterer is missing, this role is assumed to be played by the author."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -209,6 +214,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] informant (CONF:1198-28681) such that it"/>
+            <requirements value="The informant element describes the source of the information in a medical document.&#xA;&#xA;Assigned health care providers may be a source of information when a document is created. (e.g., a nurse's aide who provides information about a recent significant health care event that occurred within an acute care facility.) In these cases, the assignedEntity element is used.&#xA;&#xA;When the informant is a personal relation, that informant is represented in the relatedEntity element, even if the personal relation is a medical professional.  The code element of the relatedEntity describes the relationship between the informant and the patient. The relationship between the informant and the patient  needs to be described to help the receiver of the clinical document understand the information in the document. &#xA;&#xA;Each informant can be either an assignedEntity (a clinician serving the patient) OR a relatedEntity (a person with a personal or legal relationship with the patient). The constraints here apply to relatedEntity."/>
         </element>
         <element id="ClinicalDocument.informant:informant1">
             <path value="ClinicalDocument.informant"/>
@@ -242,6 +248,7 @@
         <element id="ClinicalDocument.custodian">
             <path value="ClinicalDocument.custodian"/>
             <definition value="SHALL contain exactly one [1..1] custodian (CONF:1198-28685)."/>
+            <requirements value="The custodian element represents the organization or person that is in charge of maintaining the document. The custodian is the steward that is entrusted with the care of the document. Every CDA document has exactly one custodian. The custodian participation satisfies the CDA definition of Stewardship. Because CDA is an exchange standard and may not represent the original form of the authenticated document (e.g., CDA could include scanned copy of original), the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party. Also, the custodian may be the patient or an organization acting on behalf of the patient, such as a PHR organization."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -254,18 +261,21 @@
         <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization">
             <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization"/>
             <definition value="This assignedCustodian SHALL contain exactly one [1..1] representedCustodianOrganization (CONF:1198-28687)."/>
+            <requirements value="The representedCustodianOrganization may be the person when the document is not maintained by an organization. "/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id">
             <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id"/>
             <definition value="This representedCustodianOrganization SHALL contain at least one [1..*] id (CONF:1198-28688)."/>
+            <requirements value="The combined @root and @extension attributes record the custodian organization?s identity in a secure, trusted, and unique way."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.informationRecipient">
             <path value="ClinicalDocument.informationRecipient"/>
             <definition value="MAY contain zero or more [0..*] informationRecipient (CONF:1198-28690)."/>
+            <requirements value="The informationRecipient element records the intended recipient of the information at the time the document is created. For example, in cases where the intended recipient of the document is the patient's health chart, set the receivedOrganization to be the scoping organization for that chart."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -278,18 +288,21 @@
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.id">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.id"/>
             <definition value="This intendedRecipient SHOULD contain zero or more [0..*] id (CONF:1198-28692)."/>
+            <requirements value="The combined @root and @extension  attributes to record the information recipient?s identity in a secure, trusted, and unique way."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.id.root">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.id.root"/>
             <definition value="The id, if present, SHOULD contain zero or one [0..1] @root (CONF:1198-28693)."/>
+            <requirements value="For a provider, the id/@root =&quot;2.16.840.1.113883.4.6&quot; indicates the National Provider Identifier where id/@extension is the NPI number for the provider.&#xA;&#xA;The ids MAY reference the id of a person or organization entity specified elsewhere in the document."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.legalAuthenticator">
             <path value="ClinicalDocument.legalAuthenticator"/>
             <definition value="MAY contain zero or one [0..1] legalAuthenticator (CONF:1198-28694)."/>
+            <requirements value="In a patient authored document, the legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. (Note that per the following section, there may also be one or more document authenticators.) &#xA;&#xA;Based on local practice, patient authored documents may be provided without legal authentication. This implies that a patient authored document that does not contain this element has not been legally authenticated.&#xA;&#xA;The act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. All patient documents have the potential for legal authentication, given the appropriate legal authority.&#xA;&#xA;Local policies MAY choose to delegate the function of legal authentication to a device or system that generates the document. In these cases, the legal authenticator is the person accepting responsibility for the document, not the generating device or system.&#xA;&#xA;Note that the legal authenticator, if present, must be a person."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -302,6 +315,7 @@
         <element id="ClinicalDocument.legalAuthenticator.assignedEntity.id">
             <path value="ClinicalDocument.legalAuthenticator.assignedEntity.id"/>
             <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-28696)."/>
+            <requirements value="The combined @root and @extension  attributes to record the information recipient?s identity in a secure, trusted, and unique way."/>
             <min value="1"/>
             <max value="*"/>
         </element>
@@ -336,6 +350,7 @@
         <element id="ClinicalDocument.authenticator.assignedEntity.id">
             <path value="ClinicalDocument.authenticator.assignedEntity.id"/>
             <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-28701)."/>
+            <requirements value="The combined @root and @extension  attributes to record the authenticator?s identity in a secure, trusted, and unique way. "/>
             <min value="1"/>
             <max value="*"/>
         </element>
@@ -352,12 +367,14 @@
         <element id="ClinicalDocument.participant">
             <path value="ClinicalDocument.participant"/>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1198-28703)."/>
+            <requirements value="The participant element identifies other supporting participants, including parents, relatives, caregivers, insurance policyholders, guarantors, and other participants related in some way to the patient. &#xA;&#xA;A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.participant.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <definition value="The participant, if present, SHALL contain exactly one [1..1] @typeCode (CONF:1198-28704)."/>
+            <requirements value="Unless otherwise specified by the document specific header constraints, when participant/@typeCode is IND, associatedEntity/@classCode SHALL be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30"/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -392,6 +409,7 @@
         <element id="ClinicalDocument.inFulfillmentOf.order.id">
             <path value="ClinicalDocument.inFulfillmentOf.order.id"/>
             <definition value="This order SHALL contain at least one [1..*] id (CONF:1198-28709)."/>
+            <requirements value="A scheduled appointment or service event in a practice management system may be represented using this id element."/>
             <min value="1"/>
             <max value="*"/>
         </element>
@@ -410,6 +428,7 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.code"/>
             <definition value="This serviceEvent SHOULD contain zero or one [0..1] code (CONF:1198-28712)."/>
+            <requirements value="The code should be selected from a value set established by the document-level template for a specific type of Patient Generated Document."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -422,6 +441,7 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
             <definition value="The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:1198-28714)."/>
+            <requirements value="The functionCode SHALL be selected from value set ParticipationType 2.16.840.1.113883.1.11.10901 &#xA;&#xA;When indicating the performer was the primary care physician the functionCode shall be =?PCP?"/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -434,12 +454,14 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
             <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-28716)."/>
+            <requirements value="The combined @root and @extension  attributes record the performer?s identity in a secure, trusted, and unique way."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
             <definition value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28718)."/>
+            <requirements value="If the assignedEntity is an individual, the code SHOULD be selected from value set PersonalandLegalRelationshipRoleType value set"/>
             <min value="0"/>
             <max value="1"/>
             <binding>

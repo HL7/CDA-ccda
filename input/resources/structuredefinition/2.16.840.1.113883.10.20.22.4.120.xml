@@ -96,12 +96,14 @@
         <element id="SubstanceAdministration.effectiveTime">
             <path value="SubstanceAdministration.effectiveTime"/>
             <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-32103)."/>
+            <requirements value="The effectiveTime in a planned immunization activity represents the time that the immunization activity should occur."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.repeatNumber">
             <path value="SubstanceAdministration.repeatNumber"/>
             <definition value="MAY contain zero or one [0..1] repeatNumber (CONF:1098-32126)."/>
+            <requirements value="In a Planned Immunization Activity, repeatNumber defines the number of allowed administrations. For example, a repeatNumber of &quot;3&quot; means that the substance can be administered up to 3 times. "/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -170,12 +172,14 @@
         <element id="SubstanceAdministration.performer">
             <path value="SubstanceAdministration.performer"/>
             <definition value="MAY contain zero or more [0..*] performer (CONF:1098-32104)."/>
+            <requirements value="The clinician who is expected to perform the planned immunization activity could be identified using substanceAdministration/performer. "/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="SubstanceAdministration.author">
             <path value="SubstanceAdministration.author"/>
             <definition value="MAY contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32105)."/>
+            <requirements value="The author in a planned immunization activity represents the clinician who is requesting or planning the immunization activity."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -197,11 +201,13 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32117) such that it"/>
+            <requirements value="The following entryRelationship captures any instructions associated with the planned immunization activity."/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship3">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32108) such that it"/>
+            <requirements value="The following entryRelationship represents the priority that a patient or a provider places on the immunization activity."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -226,6 +232,7 @@
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32114) such that it"/>
+            <requirements value="The following entryRelationship represents the indication for the immunization activity."/>
             <min value="0"/>
             <max value="*"/>
         </element>

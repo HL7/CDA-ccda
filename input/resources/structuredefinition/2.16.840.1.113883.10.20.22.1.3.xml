@@ -78,6 +78,7 @@
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
             <definition value="SHALL contain exactly one [1..1] code (CONF:1198-17185)."/>
+            <requirements value="The H&amp;P Note recommends use of a single document type code, 34117-2 &quot;History and physical note?, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. "/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -106,23 +107,26 @@
         <element id="ClinicalDocument.participant">
             <path value="ClinicalDocument.participant"/>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1198-8286)."/>
+            <requirements value="The participant element in the H&amp;P header follows the General Header Constraints for participants. H&amp;P Note does not specify any use for functionCode for participants. Local policies will determine how this element should be used in implementations."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
                 <key value="1198-8333"/>
                 <severity value="warning"/>
-                <human value="When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes *STATIC* 2011-09-30 (CONF:1198-8333)."/>
+                <human value="When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes *STATIC* 2011-09-30 (CONF:1198-8333).&#xA;A special class of participant is the supporting person or organization:  an individual or an organization that has a relationship to the patient, including  parents, relatives, caregivers, insurance policyholders, and guarantors. In the case of a supporting person who is also an emergency contact or next-of-kin, a participant element should be present for each role recorded."/>
             </constraint>
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>
             <definition value="MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-8336)."/>
+            <requirements value="inFulfillmentOf elements describe the prior orders that are fulfilled (in whole or part) by the service events described in this document. For example, the prior order might be a referral and the H&amp;P Note may be in partial fulfillment of that referral."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
             <definition value="SHALL contain exactly one [1..1] componentOf (CONF:1198-8338)."/>
+            <requirements value="The H&amp;P Note is always associated with an encounter."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -141,6 +145,7 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime"/>
             <definition value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8341)."/>
+            <requirements value="The effectiveTime represents the time interval or point in time in which the encounter took place."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -151,6 +156,7 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty"/>
             <definition value="This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-8345)."/>
+            <requirements value="The responsibleParty element records only the party responsible for the encounter, not necessarily the entire episode of care."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -162,6 +168,7 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
             <definition value="This encompassingEncounter MAY contain zero or more [0..*] encounterParticipant (CONF:1198-8342)."/>
+            <requirements value="The encounterParticipant elements represent only those participants in the encounter, not necessarily the entire episode of care."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
@@ -185,6 +192,7 @@
         <element id="ClinicalDocument.component.structuredBody">
             <path value="ClinicalDocument.component.structuredBody"/>
             <definition value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30570)."/>
+            <requirements value="In this template (templateId 2.16.840.1.113883.10.20.22.1.3.2), coded entries are optional."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>

@@ -142,6 +142,7 @@
         <element id="SubstanceAdministration.repeatNumber">
             <path value="SubstanceAdministration.repeatNumber"/>
             <definition value="MAY contain zero or one [0..1] repeatNumber (CONF:1198-8838)."/>
+            <requirements value="In &quot;INT&quot; (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of &quot;3&quot; means that the substance can be administered up to 3 times. In &quot;EVN&quot; (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of &quot;3&quot; in a substance administration event means that the current administration is the 3rd in a series."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -290,6 +291,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-31510) such that it"/>
+            <requirements value="The following entryRelationship is used to indicate a given immunization's order in a series. The nested Substance Administered Act identifies an administration in the series. The entryRelationship/sequenceNumber shows the order of this particular administration in that series."/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship1">
             <path value="SubstanceAdministration.entryRelationship"/>

@@ -216,11 +216,13 @@
                 <rules value="open"/>
             </slicing>
             <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"/>
+            <requirements value="This custodian (CST) participant identifies a legal representative for the patient's advance directive. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  If there is more than one  legal representative, a qualifier may be used to designate the  legal representative as primary or secondary."/>
         </element>
         <element id="Observation.participant:participant1">
             <path value="Observation.participant"/>
             <sliceName value="participant1"/>
             <definition value="SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"/>
+            <requirements value="The participant &quot;VRF&quot; represents the clinician(s) who verified the patient advance directive observation. "/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -381,6 +383,7 @@
         <element id="Observation.participant:participant2.participantRole.playingEntity.name">
             <path value="Observation.participant.participantRole.playingEntity.name"/>
             <definition value="This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."/>
+            <requirements value="Record the name of the agent who can provide a copy of the Advance Directive in the name element."/>
             <min value="1"/>
             <max value="1"/>
         </element>

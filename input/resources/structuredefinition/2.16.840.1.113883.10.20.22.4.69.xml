@@ -91,6 +91,7 @@
         <element id="Observation.derivationExpr">
             <path value="Observation.derivationExpr"/>
             <definition value="MAY contain zero or one [0..1] derivationExpr (CONF:81-14637)."/>
+            <requirements value="Such derivation expression can contain a text calculation of how the components total up to the summed score "/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -110,6 +111,7 @@
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:81-14445)."/>
+            <requirements value="Represents clinically effective time of the measurement, which may be when the measurement was performed (e.g., a BP measurement), or may be when sample was taken (and measured some time afterwards) "/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -179,6 +181,7 @@
         <element id="Observation.referenceRange">
             <path value="Observation.referenceRange"/>
             <definition value="MAY contain zero or more [0..*] referenceRange (CONF:81-16799)."/>
+            <requirements value="The referenceRange/observationRange/text, if present, MAY contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain) "/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -191,6 +194,7 @@
         <element id="Observation.referenceRange.observationRange.text">
             <path value="Observation.referenceRange.observationRange.text"/>
             <definition value="This observationRange SHOULD contain zero or one [0..1] text (CONF:81-16801)."/>
+            <requirements value="The text may contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain) "/>
             <min value="0"/>
             <max value="1"/>
         </element>

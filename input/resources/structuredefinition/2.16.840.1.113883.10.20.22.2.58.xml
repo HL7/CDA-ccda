@@ -111,11 +111,23 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
-            <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-30483)."/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation.resolve()"/>
+                </discriminator>
+            </slicing>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry.observation">
+        <element id="Section.entry:healthStatus">
+            <path value="Section.entry"/>
+            <sliceName value="healthStatus"/>
+            <definition value="SHOULD contain zero or more [0..*] entry (CONF:1198-30483)"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:healthStatus.observation">
             <path value="Section.entry.observation"/>
             <definition value="The entry, if present, SHALL contain exactly one [1..1] Health Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30484)."/>
             <min value="1"/>
@@ -124,13 +136,45 @@
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.5"/>
             </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.136"/>
-            </type>
+        </element>
+        <element id="Section.entry:healthConcern">
+            <path value="Section.entry"/>
+            <sliceName value="healthConcern"/>
+            <definition value="SHALL contain at least one [1..*] entry (CONF:1198-30768)"/>
+            <requirements value="If section/@nullFlavor is not present:"/>
+            <min value="0"/>
+            <max value="*"/>
+            <constraint>
+                <key value="sectionNullFlavorNotPresent"/>
+                <severity value="error"/>
+                <human value="Required when section/@nullFlavor is not present."/>
+            </constraint>
+        </element>
+        <element id="Section.entry:healthConcern.act">
+            <path value="Section.entry.act"/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] Health Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30484)."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.132"/>
+            </type>
+        </element>
+        <element id="Section.entry:riskConcern">
+            <path value="Section.entry"/>
+            <sliceName value="riskConcern"/>
+            <definition value="MAY contain zero or more [0..*] entry (CONF:1198-32308)"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:riskConcern.act">
+            <path value="Section.entry.act"/>
+            <definition value="The entry, if present, SHALL contain exactly one [1..1] Health Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30484)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.136"/>
             </type>
         </element>
     </differential>

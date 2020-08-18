@@ -108,12 +108,14 @@
         <element id="Supply.effectiveTime">
             <path value="Supply.effectiveTime"/>
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)."/>
+            <requirements value="The effectiveTime in a planned supply represents the time that the supply should occur."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Supply.repeatNumber">
             <path value="Supply.repeatNumber"/>
             <definition value="MAY contain zero or one [0..1] repeatNumber (CONF:1098-32063)."/>
+            <requirements value="In a Planned Supply, repeatNumber indicates the number of times the supply event can occur. For example, if a medication is filled at a pharmacy and the prescription may be refilled 3 more times, the supply RepeatNumber equals 4."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -125,7 +127,8 @@
         </element>
         <element id="Supply.product">
             <path value="Supply.product"/>
-            <definition value="MAY contain zero or one [0..1] product (CONF:1098-32049)."/>
+            <definition value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/>
+            <requirements value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -151,6 +154,7 @@
         <element id="Supply.performer">
             <path value="Supply.performer"/>
             <definition value="MAY contain zero or more [0..*] performer (CONF:1098-32048)."/>
+            <requirements value="The clinician who is expected to perform the supply could be identified using supply/performer. "/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -160,6 +164,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)."/>
+            <requirements value="The author in a supply represents the clinician who is requesting or planning the supply."/>
         </element>
         <element id="Supply.author:author1">
             <path value="Supply.author"/>
@@ -182,6 +187,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"/>
+            <requirements value="This participant represents a device that is ordered, requested or intended for the patient."/>
         </element>
         <element id="Supply.participant:participant1">
             <path value="Supply.participant"/>
@@ -219,11 +225,13 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"/>
+            <requirements value="The following entryRelationship represents the insurance coverage the patient may have for the supply."/>
         </element>
         <element id="Supply.entryRelationship:entryRelationship1">
             <path value="Supply.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31110) such that it"/>
+            <requirements value="The following entryRelationship represents the priority that a patient or a provider places on the supply."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -248,6 +256,7 @@
             <path value="Supply.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32054) such that it"/>
+            <requirements value="The following entryRelationship represents the indication for the supply."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -272,6 +281,7 @@
             <path value="Supply.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32057) such that it"/>
+            <requirements value="The following entryRelationship captures any instructions associated with the planned supply."/>
             <min value="0"/>
             <max value="*"/>
         </element>

@@ -87,6 +87,7 @@
         <element id="Act.id">
             <path value="Act.id"/>
             <definition value="SHALL contain at least one [1..*] id (CONF:1198-8901)."/>
+            <requirements value="This id is a unique identifier for the policy or program providing the coverage"/>
             <min value="1"/>
             <max value="*"/>
         </element>
@@ -145,11 +146,13 @@
                 <rules value="open"/>
             </slicing>
             <definition value="SHOULD contain zero or more [0..*] performer=&quot;PRF&quot; Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8961) such that it"/>
+            <requirements value="This performer represents the Guarantor."/>
         </element>
         <element id="Act.performer:performer1">
             <path value="Act.performer"/>
             <sliceName value="performer1"/>
             <definition value="SHALL contain exactly one [1..1] performer (CONF:1198-8906) such that it"/>
+            <requirements value="This performer represents the Payer."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -321,6 +324,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="SHOULD contain zero or one [0..1] participant (CONF:1198-8934) such that it"/>
+            <requirements value="When the Subscriber is the patient, the participant element describing the subscriber *SHALL NOT* be present. This information will be recorded instead in the data elements used to record member information."/>
         </element>
         <element id="Act.participant:participant1">
             <path value="Act.participant"/>
@@ -420,12 +424,14 @@
         <element id="Act.participant:participant1.participantRole.playingEntity.name">
             <path value="Act.participant.participantRole.playingEntity.name"/>
             <definition value="The playingEntity, if present, SHALL contain at least one [1..*] name (CONF:1198-8930)."/>
+            <requirements value="If the covered party?s name is recorded differently in the health plan and in the registration/pharmacy benefit summary (due to marriage or for other reasons), use the name as it is recorded in the health plan."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity.sdtc:birthTime">
             <path value="Act.participant.participantRole.playingEntity.sdtc:birthTime"/>
             <definition value="The playingEntity, if present, SHALL contain exactly one [1..1] sdtc:birthTime (CONF:1198-31344)."/>
+            <requirements value="If the covered party?s date of birth is recorded differently in the health plan and in the registration/pharmacy benefit summary, use the date of birth as it is recorded in the health plan."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>

@@ -95,6 +95,7 @@
         <element id="Encounter.code">
             <path value="Encounter.code"/>
             <definition value="SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Encounter Planned urn:oid:2.16.840.1.113883.11.20.9.52 DYNAMIC (CONF:1098-31032)."/>
+            <requirements value="Records the type of encounter ordered or recommended."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -131,6 +132,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"/>
+            <requirements value="Performers represent clinicians who are responsible for assessing and treating the patient."/>
         </element>
         <element id="Encounter.performer:performer1">
             <path value="Encounter.performer"/>
@@ -148,6 +150,7 @@
         <element id="Encounter.author">
             <path value="Encounter.author"/>
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32045)."/>
+            <requirements value="The author in a planned encounter represents the clinician who is requesting or planning the encounter."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -169,6 +172,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1098-30443) such that it"/>
+            <requirements value="This location participation captures where the planned or ordered encounter may take place."/>
         </element>
         <element id="Encounter.participant:participant1">
             <path value="Encounter.participant"/>
@@ -204,11 +208,13 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31877) such that it"/>
+            <requirements value="The following entryRelationship captures the reason for the planned or ordered encounter"/>
         </element>
         <element id="Encounter.entryRelationship:entryRelationship1">
             <path value="Encounter.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-31033) such that it"/>
+            <requirements value="The following entryRelationship represents the priority that a patient or a provider places on the encounter."/>
             <min value="0"/>
             <max value="1"/>
         </element>

@@ -80,6 +80,7 @@
         <element id="Act.id.root">
             <path value="Act.id.root"/>
             <definition value="Such ids SHALL contain exactly one [1..1] @root (CONF:81-9225)."/>
+            <requirements value="The @root contains the OID of the study instance UID since DICOM study ids consist only of an OID"/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -144,12 +145,14 @@
         <element id="Act.text">
             <path value="Act.text"/>
             <definition value="MAY contain zero or one [0..1] text (CONF:81-9233)."/>
+            <requirements value="If present, the text element contains the description of the series"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
             <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:81-9235)."/>
+            <requirements value="If present, the effectiveTime contains the time the series was started"/>
             <min value="0"/>
             <max value="1"/>
         </element>

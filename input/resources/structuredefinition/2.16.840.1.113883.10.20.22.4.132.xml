@@ -135,6 +135,7 @@
         <element id="Act.author">
             <path value="Act.author"/>
             <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31546)."/>
+            <requirements value="A health concern may be a patient or provider concern. If the author is set to the recordTarget (patient), this is a patient concern. If the author is set to a provider, this is a provider concern. If both patient and provider are set as authors, this is a concern of both the patient and the provider."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -156,6 +157,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31549) such that it"/>
+            <requirements value="Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1">
             <path value="Act.entryRelationship"/>
@@ -209,6 +211,7 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31157) such that it"/>
+            <requirements value="The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern REFERS TO Health Concern).  For example, a patient has 2 health concerns identified in a CARE Plan: Failure to Thrive and Poor Feeding, while it could be that one may have caused the other, at the time of care planning and documentation it is not necessary, nor desirable to have to assert what caused what. The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -238,6 +241,7 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31160) such that it"/>
+            <requirements value="The following entryRelationship represents the relationship between two Health Concern Acts where the target is a component of the source (Health Concern HAS COMPONENT Health Concern). For example, a patient has an Impaired Mobility Health Concern. There may then be the need to document several component health concerns, such as &quot;Unable to Transfer Bed to Chair&quot;, &quot;Unable to Rise from Commode&quot;, &quot;Short of Breath Walking with Walker&quot;. The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -747,6 +751,7 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship25"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31365) such that it"/>
+            <requirements value="The following entryRelationship represents the relationship Health Concern HAS SUPPORT Observation."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -891,6 +896,7 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship31"/>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31442) such that it"/>
+            <requirements value="The following entryRelationship represents the priority that the patient or a provider puts on the health concern."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -962,6 +968,7 @@
         <element id="Act.reference">
             <path value="Act.reference"/>
             <definition value="MAY contain zero or more [0..*] reference (CONF:1198-32757)."/>
+            <requirements value="Where it is necessary to reference an external clinical document such a Referral document, Discharge Summary document etc., the External Document Reference template can be used to reference this document.  However, if this Care Plan document is replacing or appending another Care Plan document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."/>
             <min value="0"/>
             <max value="*"/>
         </element>

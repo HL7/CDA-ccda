@@ -112,7 +112,7 @@
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <short value="The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved." />
+            <short value="The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved."/>
             <definition value="SHALL contain exactly one [1..1] statusCode (CONF:1198-9029)."/>
             <min value="1"/>
             <max value="1"/>
@@ -120,6 +120,7 @@
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
             <definition value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:1198-31525)."/>
+            <requirements value="The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -169,6 +170,7 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31638) such that it"/>
+            <requirements value="The following entryRelationship represents the importance of the concern to a provider."/>
         </element>
         <element id="Act.entryRelationship:problem">
             <path value="Act.entryRelationship"/>

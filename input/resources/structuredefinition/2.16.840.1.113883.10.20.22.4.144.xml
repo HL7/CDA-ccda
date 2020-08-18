@@ -118,11 +118,13 @@
                 <rules value="open"/>
             </slicing>
             <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"/>
+            <requirements value="Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry."/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"/>
+            <requirements value="The following entryRelationship represents the relationship between an Outcome Observation and a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
@@ -152,6 +154,7 @@
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
             <definition value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-31427) such that it"/>
+            <requirements value="The following entryRelationship represents the relationship between an Outcome Observation and a Progress Toward Goal Observation (Outcome Observation SUPPORTS Progress Toward Goal Observation). In the Care Planning workflow, the judgment about how well the person is progressing towards the goal is based on the observations made about the status of the patient with respect to interventions performed in the pursuit of achieving that goal."/>
             <min value="0"/>
             <max value="1"/>
         </element>

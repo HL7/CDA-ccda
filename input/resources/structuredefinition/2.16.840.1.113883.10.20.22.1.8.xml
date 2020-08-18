@@ -78,6 +78,7 @@
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
             <definition value="SHALL contain exactly one [1..1] code (CONF:1198-17178)."/>
+            <requirements value="The Discharge Summary recommends use of a single document type code, 18842-5 &quot;Discharge summary&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. "/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -94,6 +95,7 @@
         <element id="ClinicalDocument.participant">
             <path value="ClinicalDocument.participant"/>
             <definition value="MAY contain zero or more [0..*] participant (CONF:1198-8467)."/>
+            <requirements value="The participant element in the Discharge Summary header follows the General Header Constraints for participants. Discharge Summary does not specify any use for functionCode for participants. Local policies will determine how this element should be used in implementations."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
@@ -105,6 +107,7 @@
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
             <definition value="SHALL contain exactly one [1..1] componentOf (CONF:1198-8471)."/>
+            <requirements value="The Discharge Summary is always associated with a Hospital Admission using the encompassingEncounter element in the header."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -123,18 +126,21 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime.low">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime.low"/>
             <definition value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-8473)."/>
+            <requirements value="The admission date is recorded in the componentOf/encompassingEncounter/effectiveTime/low."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime.high">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime.high"/>
             <definition value="This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-8475)."/>
+            <requirements value="The discharge date is recorded in the componentOf/encompassingEncounter/effectiveTime/high."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.dischargeDispositionCode">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.dischargeDispositionCode"/>
             <definition value="This encompassingEncounter SHALL contain exactly one [1..1] dischargeDispositionCode, which SHOULD be selected from ValueSet NUBC UB-04 FL17 Patient Status urn:oid:2.16.840.1.113883.3.88.12.80.33 DYNAMIC (CONF:1198-8476)."/>
+            <requirements value="The dischargeDispositionCode records the disposition of the patient at time of discharge. Access to the National Uniform Billing Committee (NUBC) code system requires a membership. The following conformance statement aligns with HITSP C80 requirements. &#xA;&#xA;The dischargeDispositionCode, @displayName, or NUBC UB-04 Print Name, must be displayed when the document is rendered."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -145,6 +151,7 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty"/>
             <definition value="This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-8479)."/>
+            <requirements value="The responsibleParty element represents only the party responsible for the encounter, not necessarily the entire episode of care."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -162,6 +169,7 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
             <definition value="This encompassingEncounter MAY contain zero or more [0..*] encounterParticipant (CONF:1198-8478)."/>
+            <requirements value="The encounterParticipant element represents persons who participated in the encounter and not necessarily the entire episode of care."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -185,6 +193,7 @@
         <element id="ClinicalDocument.component.structuredBody">
             <path value="ClinicalDocument.component.structuredBody"/>
             <definition value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30518)."/>
+            <requirements value="In this template (templateId 2.16.840.1.113883.10.20.22.1.8.2), coded entries are optional."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>

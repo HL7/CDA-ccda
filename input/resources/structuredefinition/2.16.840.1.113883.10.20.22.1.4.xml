@@ -78,6 +78,7 @@
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
             <definition value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet ConsultDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.31 DYNAMIC (CONF:1198-17176)."/>
+            <requirements value="The Consultation Note recommends use of  the document type code 11488-4 &quot;Consult Note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -170,6 +171,7 @@
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>
             <definition value="SHALL contain at least one [1..*] inFulfillmentOf (CONF:1198-8382)."/>
+            <requirements value="The inFulfillmentOf element describes prior orders that are fulfilled (in whole or part) by the service events described in the Consultation Note. For example, a prior order might be the consultation that is being reported in the note."/>
             <min value="1"/>
             <max value="*"/>
         </element>
@@ -182,12 +184,14 @@
         <element id="ClinicalDocument.inFulfillmentOf.order.id">
             <path value="ClinicalDocument.inFulfillmentOf.order.id"/>
             <definition value="This order SHALL contain at least one [1..*] id (CONF:1198-29924)."/>
+            <requirements value="Where a referral is being fulfilled by this consultation, this id would be the same as the id in the Patient Referral Act template."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
             <definition value="SHALL contain exactly one [1..1] componentOf (CONF:1198-8386)."/>
+            <requirements value="A Consultation Note is always associated with an encounter; the id element of the encompassingEncounter is required to be present and represents the identifier for the encounter."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -233,6 +237,7 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
             <definition value="This encompassingEncounter MAY contain zero or more [0..*] encounterParticipant (CONF:1198-8392)."/>
+            <requirements value="The encounterParticipant element represents persons who participated in the encounter and not necessarily the entire episode of care."/>
             <min value="0"/>
             <max value="*"/>
         </element>
