@@ -135,22 +135,22 @@
             <definition value="Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31559) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship5">
+        <element id="Observation.entryRelationship:healthConcern">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship5"/>
-            <definition value="The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in entryRelationship to refer the template."/>
+            <sliceName value="healthConcern"/>
+            <short value="The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in entryRelationship to refer the template."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-30701) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship5.typeCode">
+        <element id="Observation.entryRelationship:healthConcern.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-30702)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="REFR"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship5.act">
+        <element id="Observation.entryRelationship:healthConcern.act">
             <path value="Observation.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-30703)."/>
             <min value="1"/>
@@ -160,22 +160,22 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4">
+        <element id="Observation.entryRelationship:plannedComponent">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship4"/>
-            <definition value="The following entryRelationship represents a planned component of the goal such as Planned Encounter (V2), Planned Observation (V2), Planned Procedure (V2), Planned Medication Activity (V2), Planned Supply (V2), Planned Act (V2) or Planned Immunization Activity. Because these entries are already described in the Interventions Section of the CDA document instance, rather than repeating the full content of the entries, the Entry Reference template may be used to reference the entries."/>
+            <sliceName value="plannedComponent"/>
+            <short value="The following entryRelationship represents a planned component of the goal such as Planned Encounter (V2), Planned Observation (V2), Planned Procedure (V2), Planned Medication Activity (V2), Planned Supply (V2), Planned Act (V2) or Planned Immunization Activity. Because these entries are already described in the Interventions Section of the CDA document instance, rather than repeating the full content of the entries, the Entry Reference template may be used to reference the entries."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-30704) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4.typeCode">
+        <element id="Observation.entryRelationship:plannedComponent.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-30705)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4.act">
+        <element id="Observation.entryRelationship:plannedComponent.act">
             <path value="Observation.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-32879)."/>
             <min value="1"/>
@@ -185,22 +185,22 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:priority">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
-            <definition value="The following entryRelationship represents the priority that the patient or a provider puts on the goal."/>
+            <sliceName value="priority"/>
+            <short value="The following entryRelationship represents the priority that the patient or a provider puts on the goal."/>
             <requirements value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-30785) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:priority.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-30786)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="REFR"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:priority.observation">
             <path value="Observation.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-30787)."/>
             <min value="1"/>
@@ -210,22 +210,22 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2">
+        <element id="Observation.entryRelationship:goal">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
-            <definition value="The following entryRelationship represents the relationship between two Goal Observations where the target is a component of the source (Goal Observation HAS COMPONENT Goal Observation). The component goal (target) is a Milestone."/>
+            <sliceName value="goal"/>
+            <short value="The following entryRelationship represents the relationship between two Goal Observations where the target is a component of the source (Goal Observation HAS COMPONENT Goal Observation). The component goal (target) is a Milestone."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31448) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.typeCode">
+        <element id="Observation.entryRelationship:goal.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31449)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.observation">
+        <element id="Observation.entryRelationship:goal.observation">
             <path value="Observation.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:1098-32880)."/>
             <min value="1"/>
@@ -235,21 +235,21 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.121"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3">
+        <element id="Observation.entryRelationship:entryReference">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="entryReference"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31559) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.typeCode">
+        <element id="Observation.entryRelationship:entryReference.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31560)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="REFR"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.act">
+        <element id="Observation.entryRelationship:entryReference.act">
             <path value="Observation.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-31588)."/>
             <min value="1"/>
