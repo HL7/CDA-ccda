@@ -116,14 +116,17 @@
             </slicing>
             <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15143) such that it"/>
         </element>
-        <element id="Supply.effectiveTime:effectiveTime1">
+        <element id="Supply.effectiveTime:when">
             <path value="Supply.effectiveTime"/>
-            <sliceName value="effectiveTime1"/>
+            <sliceName value="when"/>
             <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15143) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/IVL-TS" />
+            </type>
         </element>
-        <element id="Supply.effectiveTime:effectiveTime1.high">
+        <element id="Supply.effectiveTime:when.high">
             <path value="Supply.effectiveTime.high"/>
             <requirements value="SHALL contain exactly one [1..1] high (CONF:1098-15144)."/>
             <min value="1"/>
