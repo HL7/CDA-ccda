@@ -77,7 +77,7 @@
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <definition value="The Progress Note recommends use of a single document type code, 11506-3 &quot;Subsequent evaluation note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. "/>
+            <short value="The Progress Note recommends use of a single document type code, 11506-3 &quot;Subsequent evaluation note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. "/>
             <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-17189)."/>
             <min value="1"/>
             <max value="1"/>
@@ -94,7 +94,7 @@
         </element>
         <element id="ClinicalDocument.documentationOf">
             <path value="ClinicalDocument.documentationOf"/>
-            <definition value="A documentationOf can contain a serviceEvent to further specialize the act inherent in the ClinicalDocument/code. In a Progress Note, a serviceEvent can represent the event of writing the Progress Note. The serviceEvent/effectiveTime is the time period the note documents."/>
+            <short value="A documentationOf can contain a serviceEvent to further specialize the act inherent in the ClinicalDocument/code. In a Progress Note, a serviceEvent can represent the event of writing the Progress Note. The serviceEvent/effectiveTime is the time period the note documents."/>
             <requirements value="SHOULD contain zero or one [0..1] documentationOf (CONF:1198-7603)."/>
             <min value="0"/>
             <max value="1"/>
@@ -159,7 +159,7 @@
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
-            <definition value="The Progress Note is always associated with an encounter by the componentOf/encompassingEncounter element in the header. The effectiveTime element for an encompassingEncounter represents the time or time interval in which the encounter took place. A single encounter may contain multiple Progress Notes; hence the effectiveTime elements for a Progress Note (recorded in serviceEvent) and for an encounter (recorded in encompassingEncounter) represent different time intervals. For outpatient encounters that are a point in time, set effectiveTime/high, effectiveTime/low, and effectiveTime/@value to the same time. All visits take place at a specific location. When available, the location ID is included in the encompassingEncounter/location/healthCareFacility/id element."/>
+            <short value="The Progress Note is always associated with an encounter by the componentOf/encompassingEncounter element in the header. The effectiveTime element for an encompassingEncounter represents the time or time interval in which the encounter took place. A single encounter may contain multiple Progress Notes; hence the effectiveTime elements for a Progress Note (recorded in serviceEvent) and for an encounter (recorded in encompassingEncounter) represent different time intervals. For outpatient encounters that are a point in time, set effectiveTime/high, effectiveTime/low, and effectiveTime/@value to the same time. All visits take place at a specific location. When available, the location ID is included in the encompassingEncounter/location/healthCareFacility/id element."/>
             <requirements value="SHALL contain exactly one [1..1] componentOf (CONF:1198-7595)."/>
             <min value="1"/>
             <max value="1"/>
@@ -218,7 +218,7 @@
         </element>
         <element id="ClinicalDocument.component.structuredBody">
             <path value="ClinicalDocument.component.structuredBody"/>
-            <definition value="In this template (templateId 2.16.840.1.113883.10.20.22.1.9.2), coded entries are optional"/>
+            <short value="In this template (templateId 2.16.840.1.113883.10.20.22.1.9.2), coded entries are optional"/>
             <requirements value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30617)."/>
             <min value="1"/>
             <max value="1"/>

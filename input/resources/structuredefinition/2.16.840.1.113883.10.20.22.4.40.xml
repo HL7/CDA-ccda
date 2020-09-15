@@ -94,7 +94,7 @@
         </element>
         <element id="Encounter.code">
             <path value="Encounter.code"/>
-            <definition value="Records the type of encounter ordered or recommended."/>
+            <short value="Records the type of encounter ordered or recommended."/>
             <requirements value="SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Encounter Planned urn:oid:2.16.840.1.113883.11.20.9.52 DYNAMIC (CONF:1098-31032)."/>
             <min value="0"/>
             <max value="1"/>
@@ -131,7 +131,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="Performers represent clinicians who are responsible for assessing and treating the patient."/>
+            <short value="Performers represent clinicians who are responsible for assessing and treating the patient."/>
             <requirements value="MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"/>
         </element>
         <element id="Encounter.performer:performer1">
@@ -149,7 +149,7 @@
         </element>
         <element id="Encounter.author">
             <path value="Encounter.author"/>
-            <definition value="The author in a planned encounter represents the clinician who is requesting or planning the encounter."/>
+            <short value="The author in a planned encounter represents the clinician who is requesting or planning the encounter."/>
             <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32045)."/>
             <min value="0"/>
             <max value="*"/>
@@ -171,7 +171,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This location participation captures where the planned or ordered encounter may take place."/>
+            <short value="This location participation captures where the planned or ordered encounter may take place."/>
             <requirements value="MAY contain zero or more [0..*] participant (CONF:1098-30443) such that it"/>
         </element>
         <element id="Encounter.participant:participant1">
@@ -207,13 +207,13 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="The following entryRelationship captures the reason for the planned or ordered encounter"/>
+            <short value="The following entryRelationship captures the reason for the planned or ordered encounter"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31877) such that it"/>
         </element>
         <element id="Encounter.entryRelationship:entryRelationship1">
             <path value="Encounter.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <definition value="The following entryRelationship represents the priority that a patient or a provider places on the encounter."/>
+            <short value="The following entryRelationship represents the priority that a patient or a provider places on the encounter."/>
             <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-31033) such that it"/>
             <min value="0"/>
             <max value="1"/>

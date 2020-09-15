@@ -110,7 +110,7 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <definition value="If the author is the recordTarget (patient), this is a patient goal.  If the author is a provider, this is a provider goal. If both patient and provider are authors, this is a negotiated goal. If no author is present, it is assumed the document or section author(s) is the author of this goal."/>
+            <short value="If the author is the recordTarget (patient), this is a patient goal.  If the author is a provider, this is a provider goal. If both patient and provider are authors, this is a negotiated goal. If no author is present, it is assumed the document or section author(s) is the author of this goal."/>
             <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-30995)."/>
             <min value="0"/>
             <max value="*"/>
@@ -132,7 +132,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."/>
+            <short value="Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31559) such that it"/>
         </element>
         <element id="Observation.entryRelationship:healthConcern">
@@ -261,7 +261,7 @@
         </element>
         <element id="Observation.reference">
             <path value="Observation.reference"/>
-            <definition value="Where it is necessary to reference an external clinical document such a Referral document, Discharge Summary document etc., the External Document Reference template can be used to reference this document.  However, if this Care Plan document is replacing or appending another Care Plan document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."/>
+            <short value="Where it is necessary to reference an external clinical document such a Referral document, Discharge Summary document etc., the External Document Reference template can be used to reference this document.  However, if this Care Plan document is replacing or appending another Care Plan document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."/>
             <requirements value="MAY contain zero or more [0..*] reference (CONF:1098-32754)."/>
             <min value="0"/>
             <max value="*"/>

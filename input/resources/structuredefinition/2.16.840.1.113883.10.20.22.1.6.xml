@@ -77,7 +77,7 @@
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <definition value="The Procedure Note recommends use of a single document type code, 28570-0 &quot;Procedure Note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. "/>
+            <short value="The Procedure Note recommends use of a single document type code, 28570-0 &quot;Procedure Note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. "/>
             <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-17182)."/>
             <min value="1"/>
             <max value="1"/>
@@ -109,7 +109,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="The participant element in the Procedure Note header follows the General Header Constraints for participants."/>
+            <short value="The participant element in the Procedure Note header follows the General Header Constraints for participants."/>
             <requirements value="MAY contain zero or more [0..*] participant (CONF:1198-8504) such that it"/>
         </element>
         <element id="ClinicalDocument.participant:participant1">
@@ -154,7 +154,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="A serviceEvent is required in the Procedure Note to represent the main act, such as a colonoscopy or a cardiac stress study, being documented. It must be equivalent to or further specialize the value inherent in the ClinicalDocument/@code (such as where the ClinicalDocument/@code is simply &quot;Procedure Note&quot; and the procedure is &quot;colonoscopy&quot;), and it shall not conflict with the value inherent in the ClinicalDocument/@code, as such a conflict would create ambiguity. A serviceEvent/effectiveTime element indicates the time the actual event (as opposed to the encounter surrounding the event) took place. serviceEvent/effectiveTime may be represented two different ways in the Procedure Note. For accuracy to the second, the best method is effectiveTime/low together with effectiveTime/high. If a more general time, such as minutes or hours, is acceptable OR if the duration is unknown, an effectiveTime/low with a width element may be used. If the duration is unknown, the appropriate HL7 null value such as &quot;NI&quot; or &quot;NA&quot; must be used for the width element."/>
+            <short value="A serviceEvent is required in the Procedure Note to represent the main act, such as a colonoscopy or a cardiac stress study, being documented. It must be equivalent to or further specialize the value inherent in the ClinicalDocument/@code (such as where the ClinicalDocument/@code is simply &quot;Procedure Note&quot; and the procedure is &quot;colonoscopy&quot;), and it shall not conflict with the value inherent in the ClinicalDocument/@code, as such a conflict would create ambiguity. A serviceEvent/effectiveTime element indicates the time the actual event (as opposed to the encounter surrounding the event) took place. serviceEvent/effectiveTime may be represented two different ways in the Procedure Note. For accuracy to the second, the best method is effectiveTime/low together with effectiveTime/high. If a more general time, such as minutes or hours, is acceptable OR if the duration is unknown, an effectiveTime/low with a width element may be used. If the duration is unknown, the appropriate HL7 null value such as &quot;NI&quot; or &quot;NA&quot; must be used for the width element."/>
             <requirements value="SHALL contain at least one [1..*] documentationOf (CONF:1198-8510) such that it"/>
         </element>
         <element id="ClinicalDocument.documentationOf:documentationOf1">
@@ -219,13 +219,13 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="This performer identifies any assistants."/>
+            <short value="This performer identifies any assistants."/>
             <requirements value="This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32732) such that it"/>
         </element>
         <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <sliceName value="performer1"/>
-            <definition value="This performer participant represents clinicians who actually and principally carry out the serviceEvent. Typically, these are clinicians who have the appropriate privileges in their institutions such as gastroenterologists, interventional radiologists, and family practice physicians. Performers may also be non-physician providers (NPPs) who have other significant roles in the procedure such as a radiology technician, dental assistant, or nurse. Any assistants are identified as a secondary performer (SPRF) in a second performer participant."/>
+            <short value="This performer participant represents clinicians who actually and principally carry out the serviceEvent. Typically, these are clinicians who have the appropriate privileges in their institutions such as gastroenterologists, interventional radiologists, and family practice physicians. Performers may also be non-physician providers (NPPs) who have other significant roles in the procedure such as a radiology technician, dental assistant, or nurse. Any assistants are identified as a secondary performer (SPRF) in a second performer participant."/>
             <requirements value="This serviceEvent SHALL contain exactly one [1..1] performer (CONF:1198-8520) such that it"/>
             <min value="1"/>
             <max value="1"/>
@@ -285,7 +285,7 @@
         </element>
         <element id="ClinicalDocument.authorization">
             <path value="ClinicalDocument.authorization"/>
-            <definition value="Authorization represents consent. Consent, if present, shall be represented by authorization/consent."/>
+            <short value="Authorization represents consent. Consent, if present, shall be represented by authorization/consent."/>
             <requirements value="MAY contain zero or one [0..1] authorization (CONF:1198-32412)."/>
             <min value="0"/>
             <max value="1"/>

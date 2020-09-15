@@ -113,7 +113,7 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <definition value="The effectiveTime in a planned observation represents the time that the observation should occur."/>
+            <short value="The effectiveTime in a planned observation represents the time that the observation should occur."/>
             <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30454)."/>
             <min value="0"/>
             <max value="1"/>
@@ -126,14 +126,14 @@
         </element>
         <element id="Observation.methodCode">
             <path value="Observation.methodCode"/>
-            <definition value="In a planned observation the provider may suggest that an observation should be performed using a particular method."/>
+            <short value="In a planned observation the provider may suggest that an observation should be performed using a particular method."/>
             <requirements value="MAY contain zero or one [0..1] methodCode (CONF:1098-32043)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode">
             <path value="Observation.targetSiteCode"/>
-            <definition value="The targetSiteCode is used to identify the part of the body of concern for the planned observation."/>
+            <short value="The targetSiteCode is used to identify the part of the body of concern for the planned observation."/>
             <requirements value="SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32044)."/>
             <min value="0"/>
             <max value="*"/>
@@ -144,14 +144,14 @@
         </element>
         <element id="Observation.performer">
             <path value="Observation.performer"/>
-            <definition value="The clinician who is expected to perform the observation could be identified using procedure/performer. "/>
+            <short value="The clinician who is expected to perform the observation could be identified using procedure/performer. "/>
             <requirements value="MAY contain zero or more [0..*] performer (CONF:1098-30456)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <definition value="The author in a planned observation represents the clinician who is requesting or planning the observation."/>
+            <short value="The author in a planned observation represents the clinician who is requesting or planning the observation."/>
             <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32033)."/>
             <min value="0"/>
             <max value="*"/>
@@ -173,13 +173,13 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="The following entryRelationship represents the insurance coverage the patient may have for the observation."/>
+            <short value="The following entryRelationship represents the insurance coverage the patient may have for the observation."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32040) such that it"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <definition value="The following entryRelationship represents the priority that a patient or a provider places on the observation."/>
+            <short value="The following entryRelationship represents the priority that a patient or a provider places on the observation."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31073) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -204,7 +204,7 @@
         <element id="Observation.entryRelationship:entryRelationship2">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
-            <definition value="The following entryRelationship represents the indication for the observation."/>
+            <short value="The following entryRelationship represents the indication for the observation."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32034) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -229,7 +229,7 @@
         <element id="Observation.entryRelationship:entryRelationship3">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
-            <definition value="The following entryRelationship captures any instructions associated with the planned observation."/>
+            <short value="The following entryRelationship captures any instructions associated with the planned observation."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32037) such that it"/>
             <min value="0"/>
             <max value="*"/>

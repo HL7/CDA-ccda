@@ -77,7 +77,7 @@
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <definition value="The Transfer Summary recommends use of the document type code 18761-7 &quot;Provider Unspecified Transfer Summary&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Transfer Summary note would not be authored by a Pediatric Cardiologist.&#xA;&#xA;Pre-coordinated codes are those that indicate the specialty or service provided in the LOINC Long Common Name (Print Name in the TransferDocumentType valueSet table).&#xA;&#xA;When using a generic type of code such as 18761-7 (Provider - Unspecified Transfer Summary), the types of services involved in the care are handled in documentationOf/serviceEvent with the use of serviceEvent/code (e.g., use a SNOMED CT procedure code such as 69031006 (Excision of breast tissue) while performers/providers involved in the care can be identified using the functionCode (bound to Healthcare Provider Taxonomy role codes)."/>
+            <short value="The Transfer Summary recommends use of the document type code 18761-7 &quot;Provider Unspecified Transfer Summary&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Transfer Summary note would not be authored by a Pediatric Cardiologist.&#xA;&#xA;Pre-coordinated codes are those that indicate the specialty or service provided in the LOINC Long Common Name (Print Name in the TransferDocumentType valueSet table).&#xA;&#xA;When using a generic type of code such as 18761-7 (Provider - Unspecified Transfer Summary), the types of services involved in the care are handled in documentationOf/serviceEvent with the use of serviceEvent/code (e.g., use a SNOMED CT procedure code such as 69031006 (Excision of breast tissue) while performers/providers involved in the care can be identified using the functionCode (bound to Healthcare Provider Taxonomy role codes)."/>
             <requirements value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet TransferDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.4 DYNAMIC (CONF:1198-28243)."/>
             <min value="1"/>
             <max value="1"/>
@@ -216,7 +216,7 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
-            <definition value="The serviceEvent in a Transfer Note contains the representation of providers who are wholly or partially responsible for the safety and well-being of a subject of care."/>
+            <short value="The serviceEvent in a Transfer Note contains the representation of providers who are wholly or partially responsible for the safety and well-being of a subject of care."/>
             <requirements value="This documentationOf SHALL contain exactly one [1..1] serviceEvent (CONF:1198-31571)."/>
             <min value="1"/>
             <max value="1"/>
@@ -230,7 +230,7 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.code"/>
-            <definition value="Use serviceEvent/code when using a generic document type code such as 18761-7 (Provider-Unspecified Transfer Summary) to represent the service."/>
+            <short value="Use serviceEvent/code when using a generic document type code such as 18761-7 (Provider-Unspecified Transfer Summary) to represent the service."/>
             <requirements value="This serviceEvent MAY contain zero or one [0..1] code (CONF:1198-32650)."/>
             <min value="0"/>
             <max value="1"/>
@@ -262,7 +262,7 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
-            <definition value="Use performer/functionCode when using a generic document type code such as 18761-7 (Provider-Unspecified Transfer Summary) to represent the provider."/>
+            <short value="Use performer/functionCode when using a generic document type code such as 18761-7 (Provider-Unspecified Transfer Summary) to represent the provider."/>
             <requirements value="MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32651)."/>
             <min value="0"/>
             <max value="1"/>

@@ -186,7 +186,7 @@
         </element>
         <element id="ClinicalDocument.recordTarget">
             <path value="ClinicalDocument.recordTarget"/>
-            <definition value="The recordTarget records the administrative and demographic data of the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element"/>
+            <short value="The recordTarget records the administrative and demographic data of the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element"/>
             <requirements value="SHALL contain at least one [1..*] recordTarget (CONF:1198-5266)."/>
             <min value="1"/>
             <max value="*"/>
@@ -507,7 +507,7 @@
         </element>
         <element id="ClinicalDocument.author">
             <path value="ClinicalDocument.author"/>
-            <definition value="The author element represents the creator of the clinical document.  The author may be a device or a person. "/>
+            <short value="The author element represents the creator of the clinical document.  The author may be a device or a person. "/>
             <requirements value="SHALL contain at least one [1..*] author (CONF:1198-5444)."/>
             <min value="1"/>
             <max value="*"/>
@@ -542,7 +542,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="If this assignedAuthor is an assignedPerson"/>
+            <short value="If this assignedAuthor is an assignedPerson"/>
             <requirements value="This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:1198-32882) such that it"/>
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.id">
@@ -560,7 +560,7 @@
         </element>
         <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1.nullFlavor">
             <path value="ClinicalDocument.author.assignedAuthor.id.nullFlavor"/>
-            <definition value="If id with @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier is unknown then"/>
+            <short value="If id with @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier is unknown then"/>
             <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;UNK&quot; Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32883)."/>
             <min value="0"/>
             <max value="1"/>
@@ -581,7 +581,7 @@
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.code">
             <path value="ClinicalDocument.author.assignedAuthor.code"/>
-            <definition value="Only if this assignedAuthor is an assignedPerson should the assignedAuthor contain a code."/>
+            <short value="Only if this assignedAuthor is an assignedPerson should the assignedAuthor contain a code."/>
             <requirements value="This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-16787)."/>
             <min value="0"/>
             <max value="1"/>
@@ -658,7 +658,7 @@
         </element>
         <element id="ClinicalDocument.dataEnterer">
             <path value="ClinicalDocument.dataEnterer"/>
-            <definition value="The dataEnterer element represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content found within the header or body of a document, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."/>
+            <short value="The dataEnterer element represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content found within the header or body of a document, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."/>
             <requirements value="MAY contain zero or one [0..1] dataEnterer (CONF:1198-5441)."/>
             <min value="0"/>
             <max value="1"/>
@@ -743,13 +743,13 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="The informant element describes an information source (who is not a provider) for any content within the clinical document. This informant would be used when the source of information has a personal relationship with the patient or is the patient."/>
+            <short value="The informant element describes an information source (who is not a provider) for any content within the clinical document. This informant would be used when the source of information has a personal relationship with the patient or is the patient."/>
             <requirements value="MAY contain zero or more [0..*] informant (CONF:1198-31355) such that it"/>
         </element>
         <element id="ClinicalDocument.informant:informant1">
             <path value="ClinicalDocument.informant"/>
             <sliceName value="informant1"/>
-            <definition value="The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."/>
+            <short value="The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."/>
             <requirements value="MAY contain zero or more [0..*] informant (CONF:1198-8001) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -822,7 +822,7 @@
         </element>
         <element id="ClinicalDocument.custodian">
             <path value="ClinicalDocument.custodian"/>
-            <definition value="The custodian element represents the organization that is in charge of maintaining and is entrusted with the care of the document.&#xA;&#xA;There is only one custodian per CDA document. Allowing that a CDA document may not represent the original form of the authenticated document, the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party."/>
+            <short value="The custodian element represents the organization that is in charge of maintaining and is entrusted with the care of the document.&#xA;&#xA;There is only one custodian per CDA document. Allowing that a CDA document may not represent the original form of the authenticated document, the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party."/>
             <requirements value="SHALL contain exactly one [1..1] custodian (CONF:1198-5519)."/>
             <min value="1"/>
             <max value="1"/>
@@ -886,7 +886,7 @@
         </element>
         <element id="ClinicalDocument.informationRecipient">
             <path value="ClinicalDocument.informationRecipient"/>
-            <definition value="The informationRecipient element records the intended recipient of the information at the time the document was created. In cases where the intended recipient of the document is the patient's health chart, set the receivedOrganization to the scoping organization for that chart."/>
+            <short value="The informationRecipient element records the intended recipient of the information at the time the document was created. In cases where the intended recipient of the document is the patient's health chart, set the receivedOrganization to the scoping organization for that chart."/>
             <requirements value="MAY contain zero or more [0..*] informationRecipient (CONF:1198-5565)."/>
             <min value="0"/>
             <max value="*"/>
@@ -933,7 +933,7 @@
         </element>
         <element id="ClinicalDocument.legalAuthenticator">
             <path value="ClinicalDocument.legalAuthenticator"/>
-            <definition value="The legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. A clinical document that does not contain this element has not been legally authenticated.&#xA;&#xA;The act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. Based on local practice, clinical documents may be released before legal authentication.  &#xA;&#xA;All clinical documents have the potential for legal authentication, given the appropriate credentials.&#xA;&#xA;Local policies MAY choose to delegate the function of legal authentication to a device or system that generates the clinical document. In these cases, the legal authenticator is a person accepting responsibility for the document, not the generating device or system.&#xA;&#xA;Note that the legal authenticator, if present, must be a person."/>
+            <short value="The legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. A clinical document that does not contain this element has not been legally authenticated.&#xA;&#xA;The act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. Based on local practice, clinical documents may be released before legal authentication.  &#xA;&#xA;All clinical documents have the potential for legal authentication, given the appropriate credentials.&#xA;&#xA;Local policies MAY choose to delegate the function of legal authentication to a device or system that generates the clinical document. In these cases, the legal authenticator is a person accepting responsibility for the document, not the generating device or system.&#xA;&#xA;Note that the legal authenticator, if present, must be a person."/>
             <requirements value="SHOULD contain zero or one [0..1] legalAuthenticator (CONF:1198-5579)."/>
             <min value="0"/>
             <max value="1"/>
@@ -967,8 +967,7 @@
             </extension>
             <path value="ClinicalDocument.legalAuthenticator.signatureText"/>
             <label value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
-            <short value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
-            <definition value="The sdtc:signatureText extension provides a location in CDA for a textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. Details of what goes in the field are described in the HL7 CDA Digital Signature Standard balloted in Fall 2013."/>
+            <short value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;&#xA;&#xA;undefined"/>
             <requirements value="The legalAuthenticator, if present, MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-30810)."/>
             <min value="0"/>
             <max value="1"/>
@@ -1053,7 +1052,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="The authenticator identifies a participant or participants who attest to the accuracy of the information in the document."/>
+            <short value="The authenticator identifies a participant or participants who attest to the accuracy of the information in the document."/>
             <requirements value="MAY contain zero or more [0..*] authenticator (CONF:1198-5607) such that it"/>
         </element>
         <element id="ClinicalDocument.authenticator:authenticator1">
@@ -1091,8 +1090,7 @@
             </extension>
             <path value="ClinicalDocument.authenticator.signatureText"/>
             <label value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
-            <short value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
-            <definition value="The sdtc:signatureText extension provides a location in CDA for a textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. Details of what goes in the field are described in the HL7 CDA Digital Signature Standard balloted in Fall of 2013."/>
+            <short value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;&#xA;&#xA;undefined"/>
             <requirements value="MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-30811)."/>
             <min value="0"/>
             <max value="1"/>
@@ -1179,7 +1177,7 @@
             <slicing>
                 <rules value="open"/>
             </slicing>
-            <definition value="The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. &#xA;&#xA;A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."/>
+            <short value="The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. &#xA;&#xA;A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."/>
             <requirements value="MAY contain zero or more [0..*] participant (CONF:1198-10003) such that it"/>
         </element>
         <element id="ClinicalDocument.participant:participant1">
@@ -1207,7 +1205,7 @@
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>
-            <definition value="The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists? report of an x-ray."/>
+            <short value="The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists? report of an x-ray."/>
             <requirements value="MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-9952)."/>
             <min value="0"/>
             <max value="*"/>
@@ -1232,7 +1230,7 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
-            <definition value="A serviceEvent represents the main act being documented, such as a colonoscopy or a cardiac stress study. In a provision of healthcare serviceEvent, the care providers, PCP, or other longitudinal providers, are recorded within the serviceEvent. If the document is about a single encounter, the providers associated can be recorded in the componentOf/encompassingEncounter template."/>
+            <short value="A serviceEvent represents the main act being documented, such as a colonoscopy or a cardiac stress study. In a provision of healthcare serviceEvent, the care providers, PCP, or other longitudinal providers, are recorded within the serviceEvent. If the document is about a single encounter, the providers associated can be recorded in the componentOf/encompassingEncounter template."/>
             <requirements value="The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-14836)."/>
             <min value="1"/>
             <max value="1"/>
@@ -1251,7 +1249,7 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
-            <definition value="The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient?s key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."/>
+            <short value="The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient?s key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."/>
             <requirements value="This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-14839)."/>
             <min value="0"/>
             <max value="*"/>
@@ -1320,7 +1318,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="The authorization element represents information about the patient?s consent.&#xA;&#xA;The type of consent is conveyed in consent/code. Consents in the header have been finalized (consent/statusCode must equal Completed) and should be on file. This specification does not address how 'Privacy Consent' is represented, but does not preclude the inclusion of ?Privacy Consent?.&#xA;&#xA;The authorization consent is used for referring to consents that are documented elsewhere in the EHR or medical record for a health condition and/or treatment that is described in the CDA document."/>
+            <short value="The authorization element represents information about the patient?s consent.&#xA;&#xA;The type of consent is conveyed in consent/code. Consents in the header have been finalized (consent/statusCode must equal Completed) and should be on file. This specification does not address how 'Privacy Consent' is represented, but does not preclude the inclusion of ?Privacy Consent?.&#xA;&#xA;The authorization consent is used for referring to consents that are documented elsewhere in the EHR or medical record for a health condition and/or treatment that is described in the CDA document."/>
             <requirements value="MAY contain zero or more [0..*] authorization (CONF:1198-16792) such that it"/>
         </element>
         <element id="ClinicalDocument.authorization:authorization1">
@@ -1365,7 +1363,7 @@
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
-            <definition value="The encompassing encounter represents the setting of the clinical encounter during which the document act(s) or ServiceEvent(s) occurred. In order to represent providers associated with a specific encounter, they are recorded within the encompassingEncounter as participants. In a CCD, the encompassingEncounter may be used when documenting a specific encounter and its participants. All relevant encounters in a CCD may be listed in the encounters section."/>
+            <short value="The encompassing encounter represents the setting of the clinical encounter during which the document act(s) or ServiceEvent(s) occurred. In order to represent providers associated with a specific encounter, they are recorded within the encompassingEncounter as participants. In a CCD, the encompassingEncounter may be used when documenting a specific encounter and its participants. All relevant encounters in a CCD may be listed in the encounters section."/>
             <requirements value="MAY contain zero or one [0..1] componentOf (CONF:1198-9955)."/>
             <min value="0"/>
             <max value="1"/>

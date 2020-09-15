@@ -118,21 +118,21 @@
         </element>
         <element id="Procedure.effectiveTime">
             <path value="Procedure.effectiveTime"/>
-            <definition value="The effectiveTime in a planned procedure represents the time that the procedure should occur."/>
+            <short value="The effectiveTime in a planned procedure represents the time that the procedure should occur."/>
             <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30447)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Procedure.methodCode">
             <path value="Procedure.methodCode"/>
-            <definition value="In a planned procedure the provider may suggest that a procedure should be performed using a particular method.&#xA;&#xA;MethodCode *SHALL NOT* conflict with the method inherent in Procedure / code."/>
+            <short value="In a planned procedure the provider may suggest that a procedure should be performed using a particular method.&#xA;&#xA;MethodCode *SHALL NOT* conflict with the method inherent in Procedure / code."/>
             <requirements value="MAY contain zero or more [0..*] methodCode (CONF:1098-31980)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.targetSiteCode">
             <path value="Procedure.targetSiteCode"/>
-            <definition value="The targetSiteCode is used to identify the part of the body of concern for the planned procedure."/>
+            <short value="The targetSiteCode is used to identify the part of the body of concern for the planned procedure."/>
             <requirements value="MAY contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-31981)."/>
             <min value="0"/>
             <max value="*"/>
@@ -143,14 +143,14 @@
         </element>
         <element id="Procedure.performer">
             <path value="Procedure.performer"/>
-            <definition value="The clinician who is expected to perform the procedure could be identified using procedure/performer. "/>
+            <short value="The clinician who is expected to perform the procedure could be identified using procedure/performer. "/>
             <requirements value="MAY contain zero or more [0..*] performer (CONF:1098-30449)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.author">
             <path value="Procedure.author"/>
-            <definition value="The author in a planned procedure represents the clinician who is requesting or planning the procedure."/>
+            <short value="The author in a planned procedure represents the clinician who is requesting or planning the procedure."/>
             <requirements value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31979)."/>
             <min value="0"/>
             <max value="1"/>
@@ -172,13 +172,13 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="The following entryRelationship represents the insurance coverage the patient may have for the procedure."/>
+            <short value="The following entryRelationship represents the insurance coverage the patient may have for the procedure."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31990) such that it"/>
         </element>
         <element id="Procedure.entryRelationship:entryRelationship4">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
-            <definition value="The following entryRelationship represents the priority that a patient or a provider places on the procedure."/>
+            <short value="The following entryRelationship represents the priority that a patient or a provider places on the procedure."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31079) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -203,7 +203,7 @@
         <element id="Procedure.entryRelationship:entryRelationship3">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
-            <definition value="The following entryRelationship represents the indication for the procedure."/>
+            <short value="The following entryRelationship represents the indication for the procedure."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31982) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -228,7 +228,7 @@
         <element id="Procedure.entryRelationship:entryRelationship2">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
-            <definition value="The following entryRelationship captures any instructions associated with the planned procedure."/>
+            <short value="The following entryRelationship captures any instructions associated with the planned procedure."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31985) such that it"/>
             <min value="0"/>
             <max value="*"/>
