@@ -542,38 +542,35 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="If this assignedAuthor is an assignedPerson"/>
             <requirements value="This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:1198-32882) such that it"/>
+            <constraint>
+                <key value="1198-5449" />
+                <human value="If this assignedAuthor is not an assignedPerson, this assignedAuthor SHALL contain at least one [1..*] id (CONF:1198-5449)." />
+            </constraint>
         </element>
-        <element id="ClinicalDocument.author.assignedAuthor.id">
-            <path value="ClinicalDocument.author.assignedAuthor.id"/>
-            <requirements value="This assignedAuthor SHALL contain at least one [1..*] id (CONF:1198-5449)."/>
-            <min value="1"/>
-            <max value="*"/>
-        </element>
-        <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1">
+        <element id="ClinicalDocument.author.assignedAuthor.id:id1">
             <path value="ClinicalDocument.author.assignedAuthor.id"/>
             <sliceName value="id1"/>
             <requirements value="This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:1198-32882) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1.nullFlavor">
+        <element id="ClinicalDocument.author.assignedAuthor.id:id1.nullFlavor">
             <path value="ClinicalDocument.author.assignedAuthor.id.nullFlavor"/>
             <short value="If id with @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier is unknown then"/>
             <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;UNK&quot; Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32883)."/>
             <min value="0"/>
             <max value="1"/>
-            <patternString value="UNK"/>
+            <patternCode value="UNK"/>
         </element>
-        <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1.root">
+        <element id="ClinicalDocument.author.assignedAuthor.id:id1.root">
             <path value="ClinicalDocument.author.assignedAuthor.id.root"/>
             <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32884)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.4.6"/>
         </element>
-        <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1.extension">
+        <element id="ClinicalDocument.author.assignedAuthor.id:id1.extension">
             <path value="ClinicalDocument.author.assignedAuthor.id.extension"/>
             <requirements value="SHOULD contain zero or one [0..1] @extension (CONF:1198-32885)."/>
             <min value="0"/>
