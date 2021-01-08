@@ -168,9 +168,19 @@
         <element id="Procedure.targetSiteCode">
             <path value="Procedure.targetSiteCode"/>
             <short value="In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."/>
-            <requirements value="SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-7683)."/>
+            <requirements value="SHOULD contain zero or more [0..*] targetSiteCode (CONF:1098-7683)."/>
             <min value="0"/>
             <max value="*"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
+            </binding>
+        </element>
+        <element id="Procedure.targetSiteCode.code">
+            <path value="Procedure.targetSiteCode.code"/>
+            <requirements value="The targetSiteCode, if present, SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Body Site urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-16082)."/>
+            <min value="1"/>
+            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>

@@ -144,7 +144,13 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Tobacco Use urn:oid:2.16.840.1.113883.11.20.9.41 DYNAMIC (CONF:1098-16562)."/>
+            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot; (CONF-1098-16562)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value.code">
+            <path value="Observation.value.code"/>
+            <requirements value="This value SHALL contain exactly one [1..1] @code,  which SHALL be selected from ValueSet Tobacco Use urn:oid:2.16.840.1.113883.11.20.9.41 DYNAMIC (CONF:1098-16563)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
