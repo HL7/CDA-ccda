@@ -276,6 +276,18 @@
                 <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (V2) (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (V2) (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-29103)."/>
             </constraint>
         </element>
+        <element id="ClinicalDocument.component.structuredBody.component">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="section.code"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="planOfTreatment"/>
