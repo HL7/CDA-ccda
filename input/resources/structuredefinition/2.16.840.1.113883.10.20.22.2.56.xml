@@ -104,26 +104,79 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="organizer"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <requirements value="MAY contain zero or more [0..*] entry (CONF:1198-28301)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry.organizer">
+
+        <!-- Mental Status Organizer -->
+        <element id="Section.entry:mentalStatusOrganizer">
+            <path value="Section.entry"/>
+            <sliceName value="mentalStatusOrganizer"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1198-28301) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:mentalStatusOrganizer.organizer">
             <path value="Section.entry.organizer"/>
-            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Mental Status Organizer (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.75:2015-08-01) (CONF:1198-28302)."/>
+            <requirements value="SHALL contain exactly one [1..1] Mental Status Organizer (V3) (identifier: urn:hl7ii:2.
+                16.840.1.113883.10.20.22.4.75:2015-08-01) (CONF:1198-28302)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Organizer"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.75"/>
             </type>
-            <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
-            </type>
+        </element>
+        
+        <!-- Mental Status Observation -->
+        <element id="Section.entry:mentalStatusObs">
+            <path value="Section.entry"/>
+            <sliceName value="mentalStatusObs"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1198-28305) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:mentalStatusObs.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Mental Status Observation (V3) (identifier: urn:hl7ii:
+                2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:1198-28306)."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.74"/>
+            </type>
+        </element>
+        
+        <!-- Assessment Scale Observation -->
+        <element id="Section.entry:assessmentScale">
+            <path value="Section.entry"/>
+            <sliceName value="assessmentScale"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1198-28313) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:assessmentScale.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16
+                .840.1.113883.10.20.22.4.69) (CONF:1198-28314)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
             </type>
         </element>
     </differential>

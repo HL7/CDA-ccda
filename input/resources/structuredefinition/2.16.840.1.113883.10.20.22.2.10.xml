@@ -103,11 +103,46 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
-            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-7726)."/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="encounter"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="act"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="procedure"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="substanceAdministration"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="supply"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry.observation">
+        
+        <!-- Planned Observation -->
+        <element id="Section.entry:planned">
+            <path value="Section.entry"/>
+            <sliceName value="plannedObs"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-7726) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:plannedObs.observation">
             <path value="Section.entry.observation"/>
             <requirements value="The entry, if present, SHALL contain exactly one [1..1] Planned Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1098-14751)."/>
             <min value="1"/>
@@ -116,6 +151,192 @@
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.44"/>
             </type>
+        </element>
+        
+        <!-- Planned Encounter -->
+        <element id="Section.entry:plannedEnc">
+            <path value="Section.entry"/>
+            <sliceName value="plannedEnc"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-8805) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:plannedEnc.encounter">
+            <path value="Section.entry.encounter"/>
+            <requirements value="SHALL contain exactly one [1..1] Planned Encounter (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.40:2014-06-09) (CONF:1098-30472)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Encounter"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.40"/>
+            </type>
+        </element>
+        
+        <!-- Planned Act -->
+        <element id="Section.entry:plannedAct">
+            <path value="Section.entry"/>
+            <sliceName value="plannedAct"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-8807) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:plannedAct.act">
+            <path value="Section.entry.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Planned Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1098-30473)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.39"/>
+            </type>
+        </element>
+        
+        <!-- Planned Procedure -->
+        <element id="Section.entry:plannedProc">
+            <path value="Section.entry"/>
+            <sliceName value="plannedProc"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-8809) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:plannedProc.procedure">
+            <path value="Section.entry.procedure"/>
+            <requirements value="SHALL contain exactly one [1..1] Planned Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09) (CONF:1098-30474)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
+            </type>
+        </element>
+        
+        <!-- Planned Medication -->
+        <element id="Section.entry:plannedMed">
+            <path value="Section.entry"/>
+            <sliceName value="plannedMed"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-8811) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:plannedMed.substanceAdministration">
+            <path value="Section.entry.substanceAdministration"/>
+            <requirements value="SHALL contain exactly one [1..1] Planned Medication Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1098-30475)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.42"/>
+            </type>
+        </element>
+        
+        <!-- Planned Supply -->
+        <element id="Section.entry:plannedSupply">
+            <path value="Section.entry"/>
+            <sliceName value="plannedSupply"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-8813) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:plannedSupply.supply">
+            <path value="Section.entry.supply"/>
+            <requirements value="SHALL contain exactly one [1..1] Planned Supply (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09) (CONF:1098-30476)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.43"/>
+            </type>
+        </element>
+        
+        <!-- Instruction -->
+        <element id="Section.entry:instruction">
+            <path value="Section.entry"/>
+            <sliceName value="instruction"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-14695) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:instruction.act">
+            <path value="Section.entry.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31397)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+            </type>
+        </element>
+        
+        <!-- Handoff Communication Participants -->
+        <element id="Section.entry:handoffCommParticipants">
+            <path value="Section.entry"/>
+            <sliceName value="handoffCommParticipants"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-29621) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:handoffCommParticipants.act">
+            <path value="Section.entry.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Handoff Communication Participants (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.141) (CONF:1098-30868)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.141"/>
+            </type>
+        </element>
+        
+        <!-- Nutrition Recommendation -->
+        <element id="Section.entry:nutrition">
+            <path value="Section.entry"/>
+            <sliceName value="nutrition"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-31841) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:nutrition.act">
+            <path value="Section.entry.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Nutrition Recommendation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.130) (CONF:1098-31864)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.130"/>
+            </type>
+        </element>
+        
+        <!-- Planned Immunization -->
+        <element id="Section.entry:plannedImmunization">
+            <path value="Section.entry"/>
+            <sliceName value="plannedImmunization"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-32353) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:plannedImmunization.substanceAdministration">
+            <path value="Section.entry.substanceAdministration"/>
+            <requirements value="SHALL contain exactly one [1..1] Planned Immunization Activity (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.120) (CONF:1098-32354)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.120"/>
+            </type>
+        </element>
+        
+        <!-- Goal Observation -->
+        <element id="Section.entry:goal">
+            <path value="Section.entry"/>
+            <sliceName value="goal"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-32887) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:goal.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:1098-32888)."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.121"/>
