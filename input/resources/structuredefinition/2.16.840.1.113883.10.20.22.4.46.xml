@@ -102,14 +102,6 @@
         </element>
         <element id="Observation.code.translation">
             <path value="Observation.code.translation"/>
-            <slicing>
-                <rules value="open"/>
-            </slicing>
-            <requirements value="This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 DYNAMIC (CONF:1198-32847)."/>
-        </element>
-        <element id="code.Observation.code.translation:translation1">
-            <path value="Observation.code.translation"/>
-            <sliceName value="translation1"/>
             <requirements value="This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 DYNAMIC (CONF:1198-32847)."/>
             <min value="1"/>
             <max value="*"/>
@@ -142,6 +134,9 @@
             <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1198-8591)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/CD"/>
+            </type>
             <binding>
                 <strength value="required"/>
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.4"/>
@@ -151,39 +146,35 @@
             <path value="Observation.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8678) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:ageObservation">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="ageObservation"/>
             <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8675) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:ageObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Subject (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8676)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="SUBJ"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.inversionInd">
+        <element id="Observation.entryRelationship:ageObservation.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1198-8677)."/>
             <min value="1"/>
             <max value="1"/>
             <patternBoolean value="true"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:ageObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Age Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.31) (CONF:1198-15526)."/>
             <min value="1"/>
@@ -193,21 +184,21 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.31"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2">
+        <element id="Observation.entryRelationship:deathObservation">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="deathObservation"/>
             <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8678) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.typeCode">
+        <element id="Observation.entryRelationship:deathObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CAUS&quot; Causal or Contributory (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8679)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="CAUS"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.observation">
+        <element id="Observation.entryRelationship:deathObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Family History Death Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.47) (CONF:1198-15527)."/>
             <min value="1"/>
