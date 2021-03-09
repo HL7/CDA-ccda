@@ -145,34 +145,29 @@
             <path value="Act.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="act"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="The following entryRelationship captures any instructions associated with the planned act."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3">
+        <element id="Act.entryRelationship:priorityPreference">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="priorityPreference"/>
             <short value="The following entryRelationship represents the priority that a patient or a provider places on the activity."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31067) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.typeCode">
+        <element id="Act.entryRelationship:priorityPreference.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31068)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.observation">
+        <element id="Act.entryRelationship:priorityPreference.observation">
             <path value="Act.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31069)."/>
             <min value="1"/>
@@ -182,22 +177,22 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:hasReason">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="hasReason"/>
             <short value="The following entryRelationship represents the indication for the act."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32021) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:hasReason.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32022)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="RSON"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation">
+        <element id="Act.entryRelationship:hasReason.observation">
             <path value="Act.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32023)."/>
             <min value="1"/>
@@ -207,21 +202,21 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2">
+        <element id="Act.entryRelationship:hasSubject">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="hasSubject"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.typeCode">
+        <element id="Act.entryRelationship:hasSubject.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32025)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="SUBJ"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.act">
+        <element id="Act.entryRelationship:hasSubject.act">
             <path value="Act.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32026)."/>
             <min value="1"/>

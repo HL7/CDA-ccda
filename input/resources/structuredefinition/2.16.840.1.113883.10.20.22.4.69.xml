@@ -143,34 +143,30 @@
             <path value="Observation.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="observation"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <requirements value="SHOULD contain zero or more [0..*] entryRelationship (CONF:81-14451) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:supporting">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="supporting"/>
             <requirements value="SHOULD contain zero or more [0..*] entryRelationship (CONF:81-14451) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:supporting.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CONF:81-16741)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:supporting.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] observationAssessment Scale Supporting Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.86) (CONF:81-16742)."/>
+            <requirements value="SHALL contain exactly one [1..1] Assessment Scale Supporting Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.86) (CONF:81-16742)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

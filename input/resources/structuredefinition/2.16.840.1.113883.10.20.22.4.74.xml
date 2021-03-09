@@ -125,21 +125,21 @@
             </slicing>
             <requirements value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32790) such that it"/>
         </element>
-        <element id="code.Observation.code.translation:translation1">
+        <element id="code.Observation.code.translation:cognitiveFunction">
             <path value="Observation.code.translation"/>
-            <sliceName value="translation1"/>
+            <sliceName value="cognitiveFunction"/>
             <requirements value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32790) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="code.Observation.code.translation:translation1.code">
+        <element id="code.Observation.code.translation:cognitiveFunction.code">
             <path value="Observation.code.translation.code"/>
             <requirements value="SHALL contain exactly one [1..1] @code=&quot;75275-8&quot; Cognitive Function (CONF:1198-32791)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="75275-8"/>
         </element>
-        <element id="code.Observation.code.translation:translation1.codeSystem">
+        <element id="code.Observation.code.translation:cognitiveFunction.codeSystem">
             <path value="Observation.code.translation.codeSystem"/>
             <requirements value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-32792)."/>
             <min value="1"/>
@@ -201,21 +201,21 @@
             </slicing>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-14469) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:assessmentScale">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="assessmentScale"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-14469) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:assessmentScale.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14595)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:assessmentScale.observation">
             <path value="Observation.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1198-14470)."/>
             <min value="1"/>
