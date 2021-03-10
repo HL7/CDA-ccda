@@ -104,32 +104,28 @@
             <path value="Observation.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9327) such that it"/>
+            
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:instance">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="instance"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9327) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:instance.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9328)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="SPRT"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:instance.observation">
             <path value="Observation.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] observationSOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:81-15916)."/>
             <min value="1"/>
