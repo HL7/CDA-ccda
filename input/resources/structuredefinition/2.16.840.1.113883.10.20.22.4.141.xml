@@ -55,7 +55,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-30834) such that it"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -132,35 +131,34 @@
                 <rules value="open"/>
             </slicing>
             <short value="Documentation of the Information Recipient's name and address verifies that the information was exchanged."/>
-            <requirements value="SHALL contain at least one [1..*] participant (CONF:1098-31673) such that it"/>
         </element>
-        <element id="Act.participant:participant1">
+        <element id="Act.participant:infoRecipient">
             <path value="Act.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="infoRecipient"/>
             <requirements value="SHALL contain at least one [1..*] participant (CONF:1098-31673) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Act.participant:participant1.typeCode">
+        <element id="Act.participant:infoRecipient.typeCode">
             <path value="Act.participant.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;IRCP&quot; Information Recipient (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1098-31674)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="IRCP"/>
         </element>
-        <element id="Act.participant:participant1.participantRole">
+        <element id="Act.participant:infoRecipient.participantRole">
             <path value="Act.participant.participantRole"/>
             <requirements value="SHALL contain exactly one [1..1] participantRole (CONF:1098-31675)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.participant:participant1.participantRole.id">
+        <element id="Act.participant:infoRecipient.participantRole.id">
             <path value="Act.participant.participantRole.id"/>
             <requirements value="This participantRole SHALL contain at least one [1..*] id (CONF:1098-32422)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Act.participant:participant1.participantRole.code">
+        <element id="Act.participant:infoRecipient.participantRole.code">
             <path value="Act.participant.participantRole.code"/>
             <requirements value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31676)."/>
             <min value="0"/>
@@ -170,19 +168,19 @@
                 <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
             </binding>
         </element>
-        <element id="Act.participant:participant1.participantRole.addr">
+        <element id="Act.participant:infoRecipient.participantRole.addr">
             <path value="Act.participant.participantRole.addr"/>
             <requirements value="This participantRole SHALL contain at least one [1..*] addr (CONF:1098-32392)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Act.participant:participant1.participantRole.playingEntity">
+        <element id="Act.participant:infoRecipient.participantRole.playingEntity">
             <path value="Act.participant.participantRole.playingEntity"/>
             <requirements value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1098-32393)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Act.participant:participant1.participantRole.playingEntity.name">
+        <element id="Act.participant:infoRecipient.participantRole.playingEntity.name">
             <path value="Act.participant.participantRole.playingEntity.name"/>
             <requirements value="The playingEntity, if present, SHALL contain at least one [1..*] name (CONF:1098-32394)."/>
             <min value="1"/>

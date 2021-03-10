@@ -62,7 +62,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-30463) such that it"/>
         </element>
         <element id="Supply.templateId:primary">
             <path value="Supply.templateId"/>
@@ -159,15 +158,7 @@
         </element>
         <element id="Supply.author">
             <path value="Supply.author"/>
-            <slicing>
-                <rules value="open"/>
-            </slicing>
             <short value="The author in a supply represents the clinician who is requesting or planning the supply."/>
-            <requirements value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)."/>
-        </element>
-        <element id="Supply.author:author1">
-            <path value="Supply.author"/>
-            <sliceName value="author1"/>
             <requirements value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)."/>
             <min value="0"/>
             <max value="1"/>
@@ -180,17 +171,16 @@
             <path value="Supply.participant"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="participantRole"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="This participant represents a device that is ordered, requested or intended for the patient."/>
-            <requirements value="MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"/>
         </element>
-        <element id="Supply.participant:participant1">
+        <element id="Supply.participant:productInstance">
             <path value="Supply.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="productInstance"/>
             <requirements value="MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"/>
             <min value="0"/>
             <max value="1"/>
@@ -200,7 +190,7 @@
                 <human value="If the participant is Product Instance then the product **SHALL NOT** be Medication Information (V2) (2.16.840.1.113883.10.20.22.4.23.2) and the product **SHALL NOT** be Immunization Medication Information (V2) (2.16.840.1.113883.10.20.22.4.54.2) (CONF:1098-32096)."/>
             </constraint>
         </element>
-        <element id="Supply.participant:participant1.participantRole">
+        <element id="Supply.participant:productInstance.participantRole">
             <path value="Supply.participant.participantRole"/>
             <requirements value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-32095)."/>
             <min value="1"/>
@@ -214,34 +204,33 @@
             <path value="Supply.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
+                    <type value="profile"/>
+                    <path value="act"/>
                 </discriminator>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="act"/>
+                    <type value="profile"/>
+                    <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="The following entryRelationship represents the insurance coverage the patient may have for the supply."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1">
+        <element id="Supply.entryRelationship:priorityPreference">
             <path value="Supply.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="priorityPreference"/>
             <short value="The following entryRelationship represents the priority that a patient or a provider places on the supply."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31110) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1.typeCode">
+        <element id="Supply.entryRelationship:priorityPreference.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31111)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="REFR"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1.observation">
+        <element id="Supply.entryRelationship:priorityPreference.observation">
             <path value="Supply.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31112)."/>
             <min value="1"/>
@@ -251,22 +240,22 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
             </type>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship2">
+        <element id="Supply.entryRelationship:indication">
             <path value="Supply.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="indication"/>
             <short value="The following entryRelationship represents the indication for the supply."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32054) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship2.typeCode">
+        <element id="Supply.entryRelationship:indication.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32055)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="RSON"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship2.observation">
+        <element id="Supply.entryRelationship:indication.observation">
             <path value="Supply.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32056)."/>
             <min value="1"/>
@@ -276,22 +265,22 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
             </type>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship3">
+        <element id="Supply.entryRelationship:instruction">
             <path value="Supply.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="instruction"/>
             <short value="The following entryRelationship captures any instructions associated with the planned supply."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32057) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship3.typeCode">
+        <element id="Supply.entryRelationship:instruction.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32058)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="SUBJ"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship3.act">
+        <element id="Supply.entryRelationship:instruction.act">
             <path value="Supply.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32059)."/>
             <min value="1"/>
@@ -301,21 +290,21 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
             </type>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship4">
+        <element id="Supply.entryRelationship:plannedCoverage">
             <path value="Supply.entryRelationship"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="plannedCoverage"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship4.typeCode">
+        <element id="Supply.entryRelationship:plannedCoverage.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32061)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="COMP"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship4.act">
+        <element id="Supply.entryRelationship:plannedCoverage.act">
             <path value="Supply.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:1098-32062)."/>
             <min value="1"/>
