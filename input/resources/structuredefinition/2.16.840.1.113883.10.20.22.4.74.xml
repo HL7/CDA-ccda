@@ -61,7 +61,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -123,7 +122,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="code.Observation.code.translation:cognitiveFunction">
             <path value="Observation.code.translation"/>
@@ -190,16 +188,11 @@
             <path value="Observation.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Observation.entryRelationship:assessmentScale">
             <path value="Observation.entryRelationship"/>

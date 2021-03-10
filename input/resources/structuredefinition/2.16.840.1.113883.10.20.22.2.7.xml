@@ -46,7 +46,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
@@ -102,22 +101,19 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
-			<slicing>
-				<discriminator>
-					<type value="profile" />
-					<path value="procedure" />
-					<path value="act"/>
-					<path value="observation"/>
-				</discriminator>
-				<rules value="open"/>
-			</slicing>
-            
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:entryProcedure">
             <path value="Section.entry"/>
-			<sliceName value="entryProcedure"/>
+            <sliceName value="entryProcedure"/>
             <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15509)."/>
         </element>
         <element id="Section.entry:entryProcedure.procedure">
@@ -131,7 +127,7 @@
         </element>
         <element id="Section.entry:entryAct">
             <path value="Section.entry"/>
-			<sliceName value="entryAct"/>
+            <sliceName value="entryAct"/>
             <requirements value="SHALL contain exactly one [1..1] Procedure Activity Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09) (CONF:1098-15511)."/>
         </element>
         <element id="Section.entry:entryAct.act">
@@ -145,7 +141,7 @@
         </element>
         <element id="Section.entry:entryObservation">
             <path value="Section.entry"/>
-			<sliceName value="entryObservation"/>
+            <sliceName value="entryObservation"/>
             <requirements value="SHALL contain exactly one [1..1] Procedure Activity Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09) (CONF:1098-15510)."/>
         </element>
         <element id="Section.entry:entryObservation.observation">

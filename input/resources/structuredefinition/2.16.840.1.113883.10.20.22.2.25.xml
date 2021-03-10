@@ -46,7 +46,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
@@ -117,8 +116,6 @@
             <min value="0"/>
             <max value="*"/>
         </element>
-
-        <!-- Procedure Activity Procedure -->
         <element id="Section.entry:procedure">
             <path value="Section.entry"/>
             <sliceName value="procedure"/>
@@ -128,8 +125,7 @@
         </element>
         <element id="Section.entry:procedure.procedure">
             <path value="Section.entry.procedure"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7
-                ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15447)."/>
+            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7&#xA;                ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15447)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -137,8 +133,6 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
             </type>
         </element>
-        
-        <!-- Medication Activity -->
         <element id="Section.entry:medication">
             <path value="Section.entry"/>
             <sliceName value="medication"/>
@@ -148,8 +142,7 @@
         </element>
         <element id="Section.entry:medication.substanceAdministration">
             <path value="Section.entry.substanceAdministration"/>
-            <requirements value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.8
-                40.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-31127)."/>
+            <requirements value="SHALL contain exactly one [1..1] Medication Activity (V2) (identifier: urn:hl7ii:2.16.8&#xA;                40.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-31127)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -157,6 +150,5 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
             </type>
         </element>
-        
     </differential>
 </StructureDefinition>

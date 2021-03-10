@@ -61,7 +61,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Observation.templateId:secondary">
             <path value="Observation.templateId"/>
@@ -119,7 +118,6 @@
             <slicing>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Observation.targetSiteCode:targetSiteCode1">
             <path value="Observation.targetSiteCode"/>
@@ -189,17 +187,12 @@
             <path value="Observation.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="When the wound observed is a type of pressure ulcer, then this template SHOULD contain an entry for the Highest Pressure Ulcer Stage."/>
-            
         </element>
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>

@@ -47,7 +47,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="ClinicalDocument.templateId:secondary">
             <path value="ClinicalDocument.templateId"/>
@@ -146,7 +145,6 @@
                 <rules value="open"/>
             </slicing>
             <short value="If participant is present, the associatedEntity/associatedPerson element SHALL be present and SHALL represent the physician requesting the imaging procedure (the referring physician AssociatedEntity that is the target of ClincalDocument/participant@typeCode=REF)."/>
-            
         </element>
         <element id="ClinicalDocument.participant:participant1">
             <path value="ClinicalDocument.participant"/>
@@ -208,7 +206,6 @@
                 <rules value="open"/>
             </slicing>
             <short value="Each serviceEvent indicates an imaging procedure that the provider describes and interprets in the content of the DIR. The main activity being described by this document is the interpretation of the imaging procedure. This is shown by setting the value of the @classCode attribute of the serviceEvent element to ACT, and indicating the duration over which care was provided in the effectiveTime element. Within each documentationOf element, there is one serviceEvent element. This event is the unit imaging procedure corresponding to a billable item. The type of imaging procedure may be further described in the serviceEvent/code element. This guide makes no specific recommendations about the vocabulary to use for describing this event. In IHE Scheduled Workflow environments, one serviceEvent/id element contains the DICOM Study Instance UID from the Modality Worklist, and the second serviceEvent/id element contains the DICOM Requested Procedure ID from the Modality Worklist. These two ids are in a single serviceEvent. The effectiveTime for the serviceEvent covers the duration of the imaging procedure being reported. This event should have one or more performers, which may participate at the same or different periods of time. Service events map to DICOM Requested Procedures. That is, serviceEvent/id is the ID of the Requested Procedure."/>
-            
         </element>
         <element id="ClinicalDocument.documentationOf:documentationOf1">
             <path value="ClinicalDocument.documentationOf"/>
@@ -230,7 +227,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="documentationOf.ClinicalDocument.documentationOf.serviceEvent:serviceEvent1">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
@@ -391,7 +387,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="component.structuredBody.ClinicalDocument.component.structuredBody.component:component1">
             <path value="ClinicalDocument.component.structuredBody.component"/>
@@ -510,7 +505,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.subject:subject1">
             <path value="ClinicalDocument.component.structuredBody.component.section.subject"/>
@@ -539,7 +533,6 @@
                 <rules value="open"/>
             </slicing>
             <short value="This author element is used when the author of a section is different from the author(s) listed in the Header"/>
-            
         </element>
         <element id="component.structuredBody.component.section.ClinicalDocument.component.structuredBody.component.section.author:author1">
             <path value="ClinicalDocument.component.structuredBody.component.section.author"/>

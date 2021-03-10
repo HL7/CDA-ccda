@@ -60,7 +60,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -235,7 +234,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Act.participant:location">
             <path value="Act.participant"/>
@@ -265,12 +263,23 @@
             <path value="Act.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
+                    <type value="profile"/>
+                    <path value="encounter"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="act"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="substanceAdministration"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Act.entryRelationship:encounter">
             <path value="Act.entryRelationship"/>

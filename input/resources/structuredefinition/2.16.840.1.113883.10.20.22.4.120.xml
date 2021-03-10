@@ -57,7 +57,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="SubstanceAdministration.templateId:primary">
             <path value="SubstanceAdministration.templateId"/>
@@ -190,17 +189,16 @@
             <path value="SubstanceAdministration.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="act"/>
+                    <type value="profile"/>
+                    <path value="observation"/>
                 </discriminator>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
+                    <type value="profile"/>
+                    <path value="act"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="The following entryRelationship captures any instructions associated with the planned immunization activity."/>
-            
         </element>
         <element id="SubstanceAdministration.entryRelationship:entryRelationship3">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -289,7 +287,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="SubstanceAdministration.precondition:precondition1">
             <path value="SubstanceAdministration.precondition"/>

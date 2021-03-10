@@ -55,7 +55,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -86,11 +85,10 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:target">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="target"/>
             <requirements value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
             <min value="1"/>
             <max value="*"/>
@@ -105,7 +103,7 @@
                 <human value="The target of an authorization activity MAY contain one or more performer, to indicate the providers that have been authorized to provide treatment (CONF:81-8952)."/>
             </constraint>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:target.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-8949)."/>
             <min value="1"/>

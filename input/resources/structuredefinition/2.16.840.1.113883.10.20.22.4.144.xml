@@ -60,7 +60,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -108,17 +107,16 @@
             <path value="Observation.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
+                    <type value="profile"/>
+                    <path value="act"/>
                 </discriminator>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="act"/>
+                    <type value="profile"/>
+                    <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry."/>
-            
         </element>
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>
