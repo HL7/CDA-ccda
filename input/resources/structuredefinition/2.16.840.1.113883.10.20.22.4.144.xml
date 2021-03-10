@@ -118,9 +118,9 @@
             </slicing>
             <short value="Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry."/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:entryReference">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="entryReference"/>
             <short value="The following entryRelationship represents the relationship between an Outcome Observation and a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry."/>
             <requirements value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"/>
             <min value="0"/>
@@ -131,14 +131,14 @@
                 <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1098-32461)."/>
             </constraint>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:entryReference.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;GEVL&quot; Evaluates goal (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31225)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="GEVL"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.act">
+        <element id="Observation.entryRelationship:entryReference.act">
             <path value="Observation.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-32465)."/>
             <min value="1"/>
@@ -148,29 +148,29 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2">
+        <element id="Observation.entryRelationship:progressTowardGoalObservation">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="progressTowardGoalObservation"/>
             <short value="The following entryRelationship represents the relationship between an Outcome Observation and a Progress Toward Goal Observation (Outcome Observation SUPPORTS Progress Toward Goal Observation). In the Care Planning workflow, the judgment about how well the person is progressing towards the goal is based on the observations made about the status of the patient with respect to interventions performed in the pursuit of achieving that goal."/>
             <requirements value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-31427) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.typeCode">
+        <element id="Observation.entryRelationship:progressTowardGoalObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31428)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="SPRT"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.inversionInd">
+        <element id="Observation.entryRelationship:progressTowardGoalObservation.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1098-31429)."/>
             <min value="1"/>
             <max value="1"/>
             <patternBoolean value="true"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.observation">
+        <element id="Observation.entryRelationship:progressTowardGoalObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110) (CONF:1098-31430)."/>
             <min value="1"/>
@@ -180,9 +180,9 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.110"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3">
+        <element id="Observation.entryRelationship:entryReference">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="entryReference"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -192,14 +192,14 @@
                 <human value="This entryReference template **SHALL** reference an instance of a Intervention Act template (CONF:1098-32462)."/>
             </constraint>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.typeCode">
+        <element id="Observation.entryRelationship:entryReference.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31689)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="RSON"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.act">
+        <element id="Observation.entryRelationship:entryReference.act">
             <path value="Observation.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-31690)."/>
             <min value="1"/>
