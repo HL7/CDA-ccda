@@ -47,7 +47,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8404) such that it"/>
+            
         </element>
         <element id="ClinicalDocument.templateId:secondary">
             <path value="ClinicalDocument.templateId"/>
@@ -208,7 +208,7 @@
                 <rules value="open"/>
             </slicing>
             <short value="Each serviceEvent indicates an imaging procedure that the provider describes and interprets in the content of the DIR. The main activity being described by this document is the interpretation of the imaging procedure. This is shown by setting the value of the @classCode attribute of the serviceEvent element to ACT, and indicating the duration over which care was provided in the effectiveTime element. Within each documentationOf element, there is one serviceEvent element. This event is the unit imaging procedure corresponding to a billable item. The type of imaging procedure may be further described in the serviceEvent/code element. This guide makes no specific recommendations about the vocabulary to use for describing this event. In IHE Scheduled Workflow environments, one serviceEvent/id element contains the DICOM Study Instance UID from the Modality Worklist, and the second serviceEvent/id element contains the DICOM Requested Procedure ID from the Modality Worklist. These two ids are in a single serviceEvent. The effectiveTime for the serviceEvent covers the duration of the imaging procedure being reported. This event should have one or more performers, which may participate at the same or different periods of time. Service events map to DICOM Requested Procedures. That is, serviceEvent/id is the ID of the Requested Procedure."/>
-            <requirements value="SHALL contain exactly one [1..1] documentationOf (CONF:1198-8416) such that it"/>
+            
         </element>
         <element id="ClinicalDocument.documentationOf:documentationOf1">
             <path value="ClinicalDocument.documentationOf"/>
@@ -230,7 +230,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <requirements value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8431) such that it"/>
+            
         </element>
         <element id="documentationOf.ClinicalDocument.documentationOf.serviceEvent:serviceEvent1">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
