@@ -125,19 +125,47 @@
         </element>
         <element id="Organizer.component">
             <path value="Organizer.component"/>
-            <requirements value="MAY contain zero or more [0..*] component (CONF:1098-31027)."/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="supply"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="procedure"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Organizer.component:nonMedicalSupply">
+            <path value="Organizer.component"/>
+            <sliceName value="nonMedicalSupply"/>
+            <requirements value="MAY contain zero or more [0..*] component (CONF:1098-31027) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Organizer.component.supply">
+        <element id="Organizer.component:nonMedicalSupply.supply">
             <path value="Organizer.component.supply"/>
-            <requirements value="The component, if present, SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-31862)."/>
+            <requirements value="SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-31862)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.50"/>
             </type>
+        </element>
+        <element id="Organizer.component:procedureActivity">
+            <path value="Organizer.component"/>
+            <sliceName value="procedureActivity"/>
+            <requirements value="MAY contain zero or more [0..*] component (CONF:1098-31887) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Organizer.component:procedureActivity.supply">
+            <path value="Organizer.component.supply"/>
+            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-31888)."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
