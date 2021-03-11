@@ -118,12 +118,6 @@
                 <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-15969)."/>
             </constraint>
         </element>
-        <element id="Act.text.reference/value">
-            <path value="Act.text.reference/value"/>
-            <requirements value="This text SHALL contain exactly one [1..1] reference/@value (CONF:81-9431)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
         <element id="Act.author">
             <path value="Act.author"/>
             <requirements value="SHOULD contain zero or one [0..1] authorAuthor Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:81-9433)."/>
@@ -133,6 +127,45 @@
                 <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
             </type>
+        </element>
+        <element id="Act.author.time">
+            <path value="Act.author.time"/>
+            <requirements value="The author, if present, SHALL contain exactly one [1..1] time (CONF:81-9434)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.author.assignedAuthor">
+            <path value="Act.author.assignedAuthor"/>
+            <requirements value="The author, if present, SHALL contain exactly one [1..1] assignedAuthor (CONF:81-9435)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <constraint>
+                <key value="81-9438"/>
+                <severity value="error"/>
+                <human value="SHALL include assignedPerson/name or representedOrganization/name (CONF:81-9438)."/>
+            </constraint>
+            <constraint>
+                <key value="81-9439"/>
+                <severity value="error"/>
+                <human value="An assignedPerson/name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1) (CONF:81-9439)."/>
+            </constraint>
+        </element>
+        <element id="Act.author.assignedAuthor.id">
+            <path value="Act.author.assignedAuthor.id"/>
+            <requirements value="This assignedAuthor SHALL contain exactly one [1..1] id (CONF:81-9436)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.author.assignedAuthor.addr">
+            <path value="Act.author.assignedAuthor.addr"/>
+            <requirements value="This assignedAuthor SHALL contain exactly one [1..1] addr (CONF:81-9437)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <constraint>
+                <key value="81-10480"/>
+                <severity value="error"/>
+                <human value="The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2) (CONF:81-10480)."/>
+            </constraint>
         </element>
     </differential>
 </StructureDefinition>
