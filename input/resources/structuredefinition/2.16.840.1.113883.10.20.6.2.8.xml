@@ -129,20 +129,20 @@
             <path value="Observation.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="profile"/>
-                    <path value="observation"/>
+                    <type value="value"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:subject">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="subject"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9254) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:subject.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9255)."/>
             <min value="1"/>
