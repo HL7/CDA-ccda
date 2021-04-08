@@ -197,57 +197,62 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1">
+        <element id="ClinicalDocument.authenticator:authenticator2">
             <path value="ClinicalDocument.authenticator"/>
-            <sliceName value="authenticator1"/>
+            <sliceName value="authenticator2"/>
             <requirements value="SHOULD contain zero or one [0..1] authenticator (CONF:1198-31910) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.time">
+        <element id="ClinicalDocument.authenticator:authenticator2.time">
             <path value="ClinicalDocument.authenticator.time"/>
             <requirements value="SHALL contain exactly one [1..1] time (CONF:1198-31911)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.signatureCode">
+        <element id="ClinicalDocument.authenticator:authenticator2.signatureCode">
             <path value="ClinicalDocument.authenticator.signatureCode"/>
             <requirements value="SHALL contain exactly one [1..1] signatureCode (CONF:1198-31912)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.sdtc:signatureText">
-            <path value="ClinicalDocument.authenticator.sdtc:signatureText"/>
+        <element id="ClinicalDocument.authenticator:authenticator2.signatureText">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:sdtc"/>
+            </extension>
+            <path value="ClinicalDocument.authenticator.signatureText"/>
+            <label value="The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the signatureText element"/>
+            <short value="The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the signatureText element"/>
             <requirements value="MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-31913)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity">
+        <element id="ClinicalDocument.authenticator:authenticator2.assignedEntity">
             <path value="ClinicalDocument.authenticator.assignedEntity"/>
             <requirements value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31914)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.id">
+        <element id="ClinicalDocument.authenticator:authenticator2.assignedEntity.id">
             <path value="ClinicalDocument.authenticator.assignedEntity.id"/>
             <requirements value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-31915)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code">
+        <element id="ClinicalDocument.authenticator:authenticator2.assignedEntity.code">
             <path value="ClinicalDocument.authenticator.assignedEntity.code"/>
             <requirements value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:1198-31916)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code.code">
+        <element id="ClinicalDocument.authenticator:authenticator2.assignedEntity.code.code">
             <path value="ClinicalDocument.authenticator.assignedEntity.code.code"/>
             <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;ONESELF&quot; Self (CONF:1198-31917)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ONESELF"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code.codeSystem">
+        <element id="ClinicalDocument.authenticator:authenticator2.assignedEntity.code.codeSystem">
             <path value="ClinicalDocument.authenticator.assignedEntity.code.codeSystem"/>
             <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.111&quot; (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111) (CONF:1198-31918)."/>
             <min value="1"/>
