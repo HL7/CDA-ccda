@@ -1044,12 +1044,17 @@
                     <type value="value"/>
                     <path value="signatureCode"/>
                 </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="assignedEntity"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="The authenticator identifies a participant or participants who attest to the accuracy of the information in the document."/>
         </element>
         <element id="ClinicalDocument.authenticator:authenticator1">
             <path value="ClinicalDocument.authenticator"/>
+            <sliceName value="authenticator1"/>
             <requirements value="MAY contain zero or more [0..*] authenticator (CONF:1198-5607) such that it"/>
             <min value="0"/>
             <max value="*"/>

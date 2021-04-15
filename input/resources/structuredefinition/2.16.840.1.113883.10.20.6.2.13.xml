@@ -53,11 +53,22 @@
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Observation.templateId:primary">
+            <path value="Observation.templateId"/>
+            <sliceName value="primary"/>
             <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-15523)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId.root">
+        <element id="Observation.templateId:primary.root">
             <path value="Observation.templateId.root"/>
             <requirements value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.6.2.13&quot; (CONF:81-15524)."/>
             <min value="1"/>
