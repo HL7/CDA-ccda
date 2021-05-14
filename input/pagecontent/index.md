@@ -5,15 +5,15 @@ It has been adapted from the Release 2.0 version of the Consolidated CDA Templat
 The consolidated library incorporates previous efforts from Health Level Seven (HL7), Integrating the Healthcare Enterprise (IHE), the Health Information Technology Standards Panel (HITSP), the HL7 Health Story guides, HITSP C32, and related components of IHE Patient Care Coordination (IHE PCC). It has additional or enhanced document types for greater expressivity and decrease ambiguity (see Volume 2 Summary of Changes). Volume 1 adds new general guidance (see Summary of Changes).
 This guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to be used for implementing the following CDA documents and header constraints for clinical notes.
 
-* Care Plan including Home Health Plan of Care (HHPoC)
-* Consultation Note
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.15.html">Care Plan</a> including Home Health Plan of Care (HHPoC)
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.4.html">Consultation Note</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.2.html">Continuity of Care Document (CCD)</a>
-* Diagnostic Imaging Reports (DIR)
-* Discharge Summary
-* History and Physical (H&P)
-* Operative Note
-* Procedure Note
-* Progress Note
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.5.html">Diagnostic Imaging Reports (DIR)</a>
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.8.html">Discharge Summary</a>
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.3.html">History and Physical (H&P)</a>
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.7.html">Operative Note</a>
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.6.html">Procedure Note</a>
+* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.9.html">Progress Note</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.14.html">Referral Note</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.13.html">Transfer Summary</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.10.html">Unstructured Document</a>
