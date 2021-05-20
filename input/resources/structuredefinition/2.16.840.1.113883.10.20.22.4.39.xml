@@ -176,22 +176,22 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:hasReason">
+        <element id="Act.entryRelationship:indication">
             <path value="Act.entryRelationship"/>
-            <sliceName value="hasReason"/>
+            <sliceName value="indication"/>
             <short value="The following entryRelationship represents the indication for the act."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32021) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:hasReason.typeCode">
+        <element id="Act.entryRelationship:indication.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32022)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="RSON"/>
         </element>
-        <element id="Act.entryRelationship:hasReason.observation">
+        <element id="Act.entryRelationship:indication.observation">
             <path value="Act.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32023)."/>
             <min value="1"/>
@@ -201,21 +201,21 @@
                 <profile value="http://hl7.org/fhir/cda/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:hasSubject">
+        <element id="Act.entryRelationship:instruction">
             <path value="Act.entryRelationship"/>
-            <sliceName value="hasSubject"/>
+            <sliceName value="instruction"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:hasSubject.typeCode">
+        <element id="Act.entryRelationship:instruction.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32025)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="SUBJ"/>
         </element>
-        <element id="Act.entryRelationship:hasSubject.act">
+        <element id="Act.entryRelationship:instruction.act">
             <path value="Act.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32026)."/>
             <min value="1"/>
