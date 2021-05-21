@@ -41,35 +41,21 @@
             <max value="1"/>
             <patternCode value="NI"/>
         </element>
-        <element id="Section.templateId">
+        <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="extension"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Section.templateId:secondary">
-            <path value="Section.templateId"/>
-            <sliceName value="secondary"/>
+            <sliceName value="primary"/>
             <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7822) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Section.templateId:secondary.root">
+        <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
             <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.11.1&quot; (CONF:1198-10397)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.11.1"/>
         </element>
-        <element id="Section.templateId:secondary.extension">
+        <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
             <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32562)."/>
             <min value="1"/>
