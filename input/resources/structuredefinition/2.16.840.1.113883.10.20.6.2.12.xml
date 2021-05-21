@@ -110,6 +110,9 @@
             <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;ED&quot; (CONF:81-9292)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/fhir/cda/StructureDefinition/ED"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship">
             <path value="Observation.entryRelationship"/>
@@ -121,23 +124,23 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="Observation.entryRelationship:sOPInstanceObservation">
+        <element id="Observation.entryRelationship:SOPInstanceObservation">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="sOPInstanceObservation"/>
+            <sliceName value="SOPInstanceObservation"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9298) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:sOPInstanceObservation.typeCode">
+        <element id="Observation.entryRelationship:SOPInstanceObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9299)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="SPRT"/>
         </element>
-        <element id="Observation.entryRelationship:sOPInstanceObservation.observation">
+        <element id="Observation.entryRelationship:SOPInstanceObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] observationSOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:81-15941)."/>
+            <requirements value="SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:81-15941)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -161,7 +164,7 @@
         </element>
         <element id="Observation.entryRelationship:quantityMeasurementObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] observationQuantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:81-15942)."/>
+            <requirements value="SHALL contain exactly one [1..1] Quantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:81-15942)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
