@@ -103,23 +103,23 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="Observation.entryRelationship:sOPInstanceObservation">
+        <element id="Observation.entryRelationship:SOPInstanceObservation">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="sOPInstanceObservation"/>
+            <sliceName value="SOPInstanceObservation"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:81-9311) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:sOPInstanceObservation.typeCode">
+        <element id="Observation.entryRelationship:SOPInstanceObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9312)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="SPRT"/>
         </element>
-        <element id="Observation.entryRelationship:sOPInstanceObservation.observation">
+        <element id="Observation.entryRelationship:SOPInstanceObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] observationSOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:81-16083)."/>
+            <requirements value="SHALL contain exactly one [1..1] SOP Instance Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.8) (CONF:81-16083)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -143,7 +143,7 @@
         </element>
         <element id="Observation.entryRelationship:quantityMeasurementObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] observationQuantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:81-16084)."/>
+            <requirements value="SHALL contain exactly one [1..1] Quantity Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.6.2.14) (CONF:81-16084)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
