@@ -28,11 +28,12 @@ const updateResource = (id, resource) => __awaiter(void 0, void 0, void 0, funct
                 'Content-Type': 'application/xml',
                 'Accept': 'application/json'
             },
-            data: resource
+            body: resource
+                .replace(/\r/g, '')
         };
         request(options, (err, response, body) => {
-            if (err) {
-                reject();
+            if (err || response.statusCode >= 300) {
+                reject(body);
             }
             else {
                 resolve();
@@ -55,6 +56,6 @@ updateNext()
     console.log('done');
 })
     .catch((err) => {
-    console.error(err);
+    console.log(err);
 });
 //# sourceMappingURL=update-trifolia.js.map
