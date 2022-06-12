@@ -1,7 +1,6 @@
 # Overview
 
 This is the repository for C-CDA R2.2.
-
 The repository contains all artifacts required to publish C-CDA R2.2 using the FHIR IG Publisher.
 
 The initial commits are based on exports of the C-CDA R2.1 implementation guide from Trifolia Workbench (https://trifolia.lantanagroup.com).
