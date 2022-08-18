@@ -14,7 +14,9 @@ Note that these levels are rough indications of what a recipient can expect in t
 
 The contexts table for each document type lists the sections defined in the document template.
 
-### Optional and Required with Cardinality
+### Conformence Conventions Used in this Guide
+
+#### Optional and Required with Cardinality
 
 The terms optional and required describe the lower bound of cardinality as follows:
 
@@ -22,7 +24,7 @@ Optional means that the number of allowable occurrences of an element may be 0; 
 
 Required means that the number of allowable occurrences of an element must be at least 1; the cardinality will be expressed as [m..n], where m >=1 and n >=1 (for example, [1..1] or [1..*]). In these cases, the element must be present in the instance. Conformance statements formulated with SHALL are required conformances. If an element is required but it is not known, the @nullFlavor attribute must be used.
 
-### Data Types
+#### Data Types
 
 All data types used in a CDA document are described in the CDA R2 normative edition. All attributes of a data type are allowed unless explicitly prohibited by this specification.
 
