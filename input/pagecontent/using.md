@@ -45,6 +45,7 @@ is optional or required in the containing template. The "Contains" column indica
 templates that the template uses.
 
 **Table 2: Contexts Table Example—Allergy Concern Act (V2)**
+
 | **Contained By:**                                                     | **Contains:**                          |
 |-----------------------------------------------------------------------|----------------------------------------|
 | Allergies and Intolerances Section (entries optional) (V2) (optional) | Allergy - Intolerance Observation (V2) |
@@ -54,6 +55,7 @@ Each entry template also includes a constraints overview table to summarize the
 constraints in the template.
 
 **Table 3: Constraints Overview Example—Allergy Concern Act (V2)**
+
 | **XPath**                                                              | **Card.** | **Verb** | **Data Type** | **CONF#**   | Value                                     |
 |------------------------------------------------------------------------|-----------|----------|---------------|-------------|-------------------------------------------|
 | act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.30:2014-06-09)                                                                                                  |
