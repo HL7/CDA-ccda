@@ -36,20 +36,64 @@
     <definition>
         <grouping id="document">
             <name value="Document Templates"/>
-            <description value="Document-level templates describe the purpose and rules for constructing a conforming CDA document. Document templates include constraints on the CDA header and indicate contained section-level templates.&#xD;Each document-level template contains the following information:&#xD;* Scope and intended use of the document type&#xD;* Description and explanatory narrative&#xD;* Template metadata (e.g., templateId)&#xD;* Header constraints (e.g., document type, template id, participants)&#xD;* Required and optional section-level templates&#xD;"/>
+            <description value="Document-level templates describe the purpose and rules for constructing a conforming CDA document. Document templates include constraints on the CDA header and indicate contained section-level templates.
+							Each document-level template contains the following information:
+							* Scope and intended use of the document type
+							* Description and explanatory narrative
+							* Template metadata (e.g., templateId)
+							* Header constraints (e.g., document type, template id, participants)
+							* Required and optional section-level templates"/>
         </grouping>
         <grouping id="section">
             <name value="Section Templates"/>
-            <description value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.&#xD;Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).&#xD;Each section-level template contains the following:&#xD;* Template metadata (e.g., templateId, etc.)&#xD;* Description and explanatory narrative&#xD;* LOINC section code&#xD;* Section title&#xD;* Requirements for a text element&#xD;* Entry-level template names and Ids for referenced templates (required and optional)&#xD;Narrative Text&#xD;The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.&#xD;The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.&#xD;As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.&#xD;As for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.&#xD;HL7 CDA R2.1 IG: Consolidated CDA Templates for Clinical Note (US Realm), DSTU R2—Vol. 2: Templates Page 251&#xD;August 2015 © 2015 Health Level Seven, Inc. All rights reserved.&#xD;By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.&#xD;Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6."/>
+            <description value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.
+							Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).
+							Each section-level template contains the following:
+							* Template metadata (e.g., templateId, etc.)
+							* Description and explanatory narrative
+							* LOINC section code
+							* Section title
+							* Requirements for a text element
+							* Entry-level template names and Ids for referenced templates (required and optional)
+							Narrative Text
+							The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.
+							The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.
+							As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.
+							As for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.
+							By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.
+							Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6."/>
         </grouping>
         <grouping id="entry">
             <name value="Entry Templates"/>
-            <description value="This chapter describes the clinical statement entry templates used within the sections of the document types of this consolidated guide. Entry templates contain constraints that are required for conformance.&#xD;Entry-level templates are always in sections.&#xD;Each entry-level template description contains the following information:&#xD;* Key template metadata (e.g., template identifier, etc.)&#xD;* Description and explanatory narrative.&#xD;* Required CDA acts, participants and vocabularies.&#xD;* Optional CDA acts, participants and vocabularies.&#xD;Several entry-level templates require an effectiveTime:&#xD;The effectiveTime of an observation is the time interval over which the observation is known to be true. The low and high values should be as precise as possible, but no more precise than known. While CDA has multiple mechanisms to record this time interval (e.g., by low and high values, low and width, high and width, or center point and width), this guide constrains most to use only the low/high form. The low value is the earliest point for which the condition is known to have existed. The high value, when present, indicates the time at which the observation was no longer known to be true. The full description of effectiveTime and time intervals is contained in the CDA R2 normative edition.&#xD;Provenance in entry templates:&#xD;In this version of Consolidated CDA (C-CDA), we have added a &quot;SHOULD&quot; Author constraint on several entry-level templates. Authorship and Author timestamps must be explicitly asserted in these cases, unless the values propagated from the document header hold true.&#xD;ID in entry templates:&#xD;Entry-level templates may also describe an id element, which is an identifier for that entry. This id may be referenced within the document, or by the system receiving the document. The id assigned must be globally unique."/>
+            <description value="This chapter describes the clinical statement entry templates used within the sections of the document types of this consolidated guide. Entry templates contain constraints that are required for conformance.
+							Entry-level templates are always in sections.
+							Each entry-level template description contains the following information:
+
+* Key template metadata (e.g., template identifier, etc.)
+* Description and explanatory narrative.
+* Required CDA acts, participants and vocabularies.
+* Optional CDA acts, participants and vocabularies.
+
+Several entry-level templates require an effectiveTime:
+							The effectiveTime of an observation is the time interval over which the observation is known to be true. The low and high values should be as precise as possible, but no more precise than known. While CDA has multiple mechanisms to record this time interval (e.g., by low and high values, low and width, high and width, or center point and width), this guide constrains most to use only the low/high form. The low value is the earliest point for which the condition is known to have existed. The high value, when present, indicates the time at which the observation was no longer known to be true. The full description of effectiveTime and time intervals is contained in the CDA R2 normative edition.
+							Provenance in entry templates:
+							In this version of Consolidated CDA (C-CDA), we have added a &quot;SHOULD&quot; Author constraint on several entry-level templates. Authorship and Author timestamps must be explicitly asserted in these cases, unless the values propagated from the document header hold true.
+							ID in entry templates:
+							Entry-level templates may also describe an id element, which is an identifier for that entry. This id may be referenced within the document, or by the system receiving the document. The id assigned must be globally unique."/>
         </grouping>
         <grouping id="other">
             <name value="Participation &amp; Other Templates"/>
             <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."/>
         </grouping>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
+                <display value="USRealmHeader"/>
+            </reference>
+            <name value="US Realm Header"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="document"/>
+        </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.43"/>
@@ -1894,15 +1938,6 @@
             <name value="US Realm Date and Time (DTM.US.FIELDED)"/>
             <exampleBoolean value="false"/>
             <groupingId value="other"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.1"/>
-                <display value="USRealmHeader"/>
-            </reference>
-            <name value="US Realm Header"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="document"/>
         </resource>
         <resource>
             <reference>
