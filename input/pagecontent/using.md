@@ -45,15 +45,18 @@ is optional or required in the containing template. The "Contains" column indica
 templates that the template uses.
 
 **Table 2: Contexts Table Example—Allergy Concern Act (V2)**
+
 | **Contained By:**                                                     | **Contains:**                          |
 |-----------------------------------------------------------------------|----------------------------------------|
 | Allergies and Intolerances Section (entries optional) (V2) (optional) | Allergy - Intolerance Observation (V2) |
 | Allergies and Intolerances Section (entries required) (V2) (required) | Author Participation                   |
+{: .grid }
 
 Each entry template also includes a constraints overview table to summarize the
 constraints in the template.
 
 **Table 3: Constraints Overview Example—Allergy Concern Act (V2)**
+
 | **XPath**                                                              | **Card.** | **Verb** | **Data Type** | **CONF#**   | Value                                     |
 |------------------------------------------------------------------------|-----------|----------|---------------|-------------|-------------------------------------------|
 | act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.30:2014-06-09)                                                                                                  |
@@ -63,6 +66,7 @@ constraints in the template.
 | @root                                                                  | 1..1      | SHALL    |               | 1098-10489  | 2.16.840.1.113883.10.20.22.4.30           |
 | @extension                                                             | 1..1      | SHALL    |               | 1098-32543  | 2014-06-09                                |
 | ...                                                                                                                                                                     |
+{: .grid }
 
 The expression "such that it" at the end of one conformance statement links that
 conformance statement to the following subordinate conformance statement to further
@@ -325,7 +329,7 @@ The above example would be properly expressed as follows.
 ```
 
 A full discussion of the representation of vocabulary is outside the scope of this
-document; for more information, see the HL7 V3 Normative Edition 2010[^12] sections on
+document; for more information, see the [HL7 V3 Normative Edition 2010](http://www.hl7.org/memonly/downloads/v3edition.cfm) sections on
 Abstract Data Types and XML Data Types R1.
 
 There is a discrepancy between the HL7 R1 Data Types and this guide in the in the
@@ -359,8 +363,6 @@ If a value set binding has a DYNAMIC stability, implementers creating a CDA docu
 must go to the location in the URL to check for the most current version of the value set
 expansion.
 
-[^12]: HL7 Version 3 Interoperability Standards, http://www.hl7.org/memonly/downloads/v3edition.cfm -
-V32010
 
 **Table 4: Example Value Set Table (Referral Types)**
 
@@ -378,19 +380,21 @@ V32010
 | 306140002 | SNOMED CT       | 2.16.840.1.113883.6.96 | Referral to clinical oncology service (procedure) |
 | 396150002 | SNOMED CT       | 2.16.840.1.113883.6.96 | Referral for substance abuse (procedure)          |
 | ...                                                                                                      |
+{: .grid }
 
 #### Data Types
 
-All data types used in a CDA document are described in the CDA R2 normative edition[^13]. All attributes of a data type are allowed unless 
+All data types used in a CDA document are described in the [CDA R2 normative edition](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7). All attributes of a data type are allowed unless 
 explicitly prohibited by this specification.
-[^13]: HL7 CDA Release 2. http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7
+
+#### Document-Level Templates "Properties" Heading
+In Volume 2 of this implementation guide, each document-level template has a "Properties" heading for ease of navigation. The Properties heading is an organizational construct, underneath which relevant CDA act-relationships and roles are called out as headings in the document.
 
 ### XML Conventions Used in This Guide
 
 #### XPath Notation
 
-Instead of the traditional dotted notation used by HL7 to represent RIM classes, this document uses XML Path Language (XPath) notation[^14] in conformance statements and elsewhere to identify the XML elements and attributes within the CDA document instance to which various constraints are applied. The implicit context of these expressions is the root of the document. This notation provides a mechanism that will be familiar to developers for identifying parts of an XML document.
-[^14]: W3C, XML Path Language. http://www.w3.org/TR/xpath/
+Instead of the traditional dotted notation used by HL7 to represent RIM classes, this document uses [XML Path Language (XPath) notation](http://www.w3.org/TR/xpath/) in conformance statements and elsewhere to identify the XML elements and attributes within the CDA document instance to which various constraints are applied. The implicit context of these expressions is the root of the document. This notation provides a mechanism that will be familiar to developers for identifying parts of an XML document.
 
 XPath syntax selects nodes from an XML document using a path containing the context of the node(s). The path is constructed from node names and attribute names (prefixed by a ‘@’) and catenated with a '/' symbol.
 
