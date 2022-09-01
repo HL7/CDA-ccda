@@ -366,21 +366,20 @@ expansion.
 
 **Table 4: Example Value Set Table (Referral Types)**
 
-| Value Set: Referral Types 2.16.840.1.113883.11.20.9.56                                                   |
-| A value set of SNOMED-CT codes descending from "3457005" patient referral (procedure).                   |
-| Value Set Source:                                                                                        |
-| http://vtsl.vetmed.vt.edu/TerminologyMgt/RF2Browser/ISA.cfm?SCT_ConceptID=345                            |
-| 7005                                                                                                     |
-|-----------|-----------------|------------------------|---------------------------------------------------|
-| **Code**  | **Code System** | **Code System OID**    | **Print Name**                                    |
-| 44383000  | SNOMED CT       | 2.16.840.1.113883.6.96 | Patient referral for consultation                 |
-| 391034007 | SNOMED CT       | 2.16.840.1.113883.6.96 | Refer for falls assessment (procedure)            |
-| 86395003  | SNOMED CT       | 2.16.840.1.113883.6.96 | Patient referral for family planning (procedure)  |
-| 306106002 | SNOMED CT       | 2.16.840.1.113883.6.96 | Referral to intensive care service (procedure)    |
-| 306140002 | SNOMED CT       | 2.16.840.1.113883.6.96 | Referral to clinical oncology service (procedure) |
-| 396150002 | SNOMED CT       | 2.16.840.1.113883.6.96 | Referral for substance abuse (procedure)          |
-| ...                                                                                                      |
-{: .grid }
+| Value Set: Referral Types |                 |                        |                                                   |
+| A value set of SNOMED-CT codes descending from "3457005" patient referral (procedure).                                   |
+| Value Set Source:                                                                                                        |
+| http://vtsl.vetmed.vt.edu/TerminologyMgt/RF2Browser/ISA.cfm?SCT_ConceptID=345                                            |
+| 7005                                                                                                                     |
+|---------------------------|-----------------|------------------------|---------------------------------------------------|
+| **Code**                  | **Code System** | **Code System OID**    | **Print Name**                                    |
+| 44383000                  | SNOMED CT       | 2.16.840.1.113883.6.96 | Patient referral for consultation                 |
+| 391034007                 | SNOMED CT       | 2.16.840.1.113883.6.96 | Refer for falls assessment (procedure)            |
+| 86395003                  | SNOMED CT       | 2.16.840.1.113883.6.96 | Patient referral for family planning (procedure)  |
+| 306106002                 | SNOMED CT       | 2.16.840.1.113883.6.96 | Referral to intensive care service (procedure)    |
+| 306140002                 | SNOMED CT       | 2.16.840.1.113883.6.96 | Referral to clinical oncology service (procedure) |
+| 396150002                 | SNOMED CT       | 2.16.840.1.113883.6.96 | Referral for substance abuse (procedure)          |
+| ...                       |                 |                        |                                                   |
 
 #### Data Types
 
