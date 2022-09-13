@@ -111,6 +111,7 @@
         </element>
         <element id="SubstanceAdministration.statusCode.code">
             <path value="SubstanceAdministration.statusCode.code"/>
+            <short value="The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., &quot;10 days&quot;), the frequency of administration (e.g., &quot;every 8 hours&quot;), and more. Here, we require that there SHALL be an effectiveTime documentation of the duration (or single-administration timestamp), and that there SHOULD be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included."/>
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Medication Status urn:oid:2.16.840.1.113762.1.4.1099.11 DYNAMIC (CONF:1098-32360)."/>
             <min value="1"/>
             <max value="1"/>
@@ -133,7 +134,7 @@
             <path value="SubstanceAdministration.effectiveTime"/>
             <sliceName value="duration"/>
             <label value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."/>
-            <short value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp.&#xA;&#xA;undefined"/>
+            <short value="This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."/>
             <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"/>
             <min value="1"/>
             <max value="1"/>
