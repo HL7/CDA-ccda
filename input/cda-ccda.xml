@@ -22,16 +22,16 @@
         </coding>
     </jurisdiction>
     <packageId value="hl7.cda.us.ccda"/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0-ballot"/>
     <dependsOn id="cda">
-        <uri value="http://hl7.org/fhir/cda/ImplementationGuide/cda-ig"/>
+        <uri value="http://hl7.org/fhir/cda/ImplementationGuide/hl7.fhir.cda"/>
         <packageId value="hl7.fhir.cda"/>
         <version value="dev"/>
     </dependsOn>
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
-        <version value="0.7.0"/>
+        <version value="0.9.0"/>
     </dependsOn>
     <definition>
         <grouping id="document">
@@ -368,9 +368,9 @@
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.145"/>
-                <display value="Criticality Observation "/>
+                <display value="Criticality Observation"/>
             </reference>
-            <name value="Criticality Observation "/>
+            <name value="Criticality Observation"/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -2852,7 +2852,7 @@
             <reference>
                 <reference value="Binary/Hospital-Course-Section-Example" />
             </reference>
-            <name value="Hospital Course Section "/>
+            <name value="Hospital Course Section"/>
             <description value="Hospital Course Section example"/>
             <exampleCanonical value="http://hl7.org/fhir/cda/ccda/StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
         </resource>
@@ -4453,51 +4453,65 @@
         </resource>
         
         <page>
-            <nameUrl value="index.html"/>
+            <sourceUrl value="index.html"/>
+            <name value="index.html"/>
             <title value="IG Home Page"/>
             <generation value="markdown"/>
             <page>
-                <nameUrl value="background.html"/>
+                <sourceUrl value="background.html"/>
+                <name value="background.html"/>
                 <title value="Background"/>
                 <generation value="markdown"/>
             </page>
             <page>
-                <nameUrl value="designconsiderations.html"/>
+                <sourceUrl value="designconsiderations.html"/>
+                <name value="designconsiderations.html"/>
                 <title value="Design Considerations"/>
                 <generation value="markdown"/>
             </page>
             <page>
-                <nameUrl value="using.html"/>
+                <sourceUrl value="using.html"/>
+                <name value="using.html"/>
                 <title value="Using this Implementation Guide"/>
                 <generation value="markdown"/>
             </page>
             <page>
-                <nameUrl value="references.html"/>
+                <sourceUrl value="references.html"/>
+                <name value="references.html"/>
                 <title value="References"/>
                 <generation value="markdown"/>
             </page>
             <page>
-                <nameUrl value="appendix.html"/>
+                <sourceUrl value="appendix.html"/>
+                <name value="appendix.html"/>
                 <title value="Appendix"/>
                 <generation value="markdown"/>
             </page>
             <page>
-                <nameUrl value="validation.html"/>
+                <sourceUrl value="validation.html"/>
+                <name value="validation.html"/>
                 <title value="Validation"/>
                 <generation value="markdown"/>
             </page>
             <page>
-                <nameUrl value="downloads.html"/>
+                <sourceUrl value="downloads.html"/>
+                <name value="downloads.html"/>
                 <title value="Downloads"/>
                 <generation value="markdown"/>
             </page>
         </page>
         <parameter>
-            <code value="releaselabel"/>
+            <code>
+               <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+               <code value="releaselabel"/>
+            </code>
             <value value="CI Build"/>
         </parameter>
         <parameter>
-            <code value="copyrightyear"/>
+            <code>
+              <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+              <code value="copyrightyear"/>
+            </code>
             <value value="2019+"/>
         </parameter>
     </definition>
