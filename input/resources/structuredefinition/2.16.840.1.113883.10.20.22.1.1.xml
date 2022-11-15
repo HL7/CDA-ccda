@@ -309,14 +309,20 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
                 <valueUri value="urn:hl7-org:sdtc"/>
             </extension>
-            <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode"/>
-            <requirements value="This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:1198-7263)."/>
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode"/>        
+            <requirements value="This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:1198-7263). "/>
+            <short value="Note: The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="1198-31347"/>
+                <severity value="error"/>
+                <human value="If sdtc:raceCode is present, then the patient SHALL contain [1..1] raceCode (CONF:1198-31347)."/>
+            </constraint>
             <binding>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914"/>
             </binding>
-        </element>
+        </element>        
         <element id="ClinicalDocument.recordTarget.patientRole.patient.ethnicGroupCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.ethnicGroupCode"/>
             <requirements value="This patient SHALL contain exactly one [1..1] ethnicGroupCode, which SHALL be selected from ValueSet Ethnicity urn:oid:2.16.840.1.114222.4.11.837 DYNAMIC (CONF:1198-5323)."/>
@@ -417,7 +423,7 @@
             <constraint>
                 <key value="1198-5402"/>
                 <severity value="warning"/>
-                <human value="If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet StateValueSet 2.16.840.1.113883.3.88.12.80.1 *DYNAMIC* (CONF:1198-5402)."/>
+                <human value="If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet StateValueSet 2.16.840.1.113883.3.88.12.80.1 *DYNAMIC* (CONF:1198-5402). Note: A nullFlavor of ' UNK' may be used if the state is unknown."/>
             </constraint>
             <constraint>
                 <key value="1198-5403"/>
@@ -986,7 +992,7 @@
             <path value="ClinicalDocument.legalAuthenticator.signatureText"/>
             <label value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;"/>
             <short value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA;&#xA;&#xA;undefined"/>
-            <requirements value="The legalAuthenticator, if present, MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-30810)."/>
+            <requirements value="The legalAuthenticator, if present, MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-30810). Note: The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are: 1) Electronic signature: this attribute can represent virtually any electronic signature scheme. 2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -1226,7 +1232,7 @@
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>
-            <short value="The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists? report of an x-ray."/>
+            <short value="The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists' report of an x-ray."/>
             <requirements value="MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-9952)."/>
             <min value="0"/>
             <max value="*"/>
@@ -1270,7 +1276,7 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
-            <short value="The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient?s key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."/>
+            <short value="The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."/>
             <requirements value="This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-14839)."/>
             <min value="0"/>
             <max value="*"/>
@@ -1339,7 +1345,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="The authorization element represents information about the patient?s consent.&#xA;&#xA;The type of consent is conveyed in consent/code. Consents in the header have been finalized (consent/statusCode must equal Completed) and should be on file. This specification does not address how 'Privacy Consent' is represented, but does not preclude the inclusion of ?Privacy Consent?.&#xA;&#xA;The authorization consent is used for referring to consents that are documented elsewhere in the EHR or medical record for a health condition and/or treatment that is described in the CDA document."/>
+            <short value="The authorization element represents information about the patient's consent.&#xA;&#xA;The type of consent is conveyed in consent/code. Consents in the header have been finalized (consent/statusCode must equal Completed) and should be on file. This specification does not address how 'Privacy Consent' is represented, but does not preclude the inclusion of 'Privacy Consent'.&#xA;&#xA;The authorization consent is used for referring to consents that are documented elsewhere in the EHR or medical record for a health condition and/or treatment that is described in the CDA document."/>
         </element>
         <element id="ClinicalDocument.authorization:authorization1">
             <path value="ClinicalDocument.authorization"/>
