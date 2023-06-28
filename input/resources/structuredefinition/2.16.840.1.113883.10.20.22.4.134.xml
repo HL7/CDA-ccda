@@ -23,10 +23,10 @@
         </telecom>
     </contact>
     <description value="This template represents characteristics of a wound (e.g., integrity of suture line, odor, erythema)."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Observation">
@@ -120,7 +120,7 @@
             <sliceName value="woundCharacteristic"/>
             <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Wound Characteristic urn:oid:2.16.840.1.113883.11.20.9.58 DYNAMIC (CONF:1098-29947)."/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/CD"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
             <min value="1"/>
             <max value="1"/>

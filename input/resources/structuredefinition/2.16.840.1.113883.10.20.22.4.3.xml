@@ -25,10 +25,10 @@
         </telecom>
     </contact>
     <description value="This template reflects an ongoing concern on behalf of the provider that placed the concern on a patient's problem list. So long as the underlying condition is of concern to the provider (i.e., as long as the condition, whether active or resolved, is of ongoing concern and interest to the provider), the statusCode is &quot;active&quot;. Only when the underlying condition is no longer of concern is the statusCode set to &quot;completed&quot;. The effectiveTime reflects the time that the underlying condition was felt to be a concern; it may or may not correspond to the effectiveTime of the condition (e.g., even five years later, the clinician may remain concerned about a prior heart attack).&#xA;&#xA;The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved.&#xA;&#xA;The effectiveTime/low of the Problem Concern Act asserts when the concern became active. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition).&#xA;&#xA;A Problem Concern Act can contain many Problem Observations (templateId 2.16.840.1.113883.10.20.22.4.4). Each Problem Observation is a discrete observation of a condition, and therefore will have a statusCode of &quot;completed&quot;. The many Problem Observations nested under a Problem Concern Act reflect the change in the clinical understanding of a condition over time. For instance, a Concern may initially contain a Problem Observation of &quot;chest pain&quot;:&#xA; - Problem Concern 1&#xA;   --- Problem Observation: Chest Pain &#xA;Later, a new Problem Observation of &quot;esophagitis&quot; will be added, reflecting a better understanding of the nature of the chest pain. The later problem observation will have a more recent author time stamp. &#xA; - Problem Concern 1&#xA;   --- Problem Observation (author/time Jan 3, 2012): Chest Pain &#xA;   --- Problem Observation (author/time Jan 6, 2012): Esophagitis&#xA;Many systems display the nested Problem Observation with the most recent author time stamp, and provide a mechanism for viewing prior observations."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Act"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Act">
@@ -155,7 +155,7 @@
             <min value="0"/>
             <max value="*"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
             </type>
         </element>
@@ -190,7 +190,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.4"/>
             </type>
         </element>
@@ -214,7 +214,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
             </type>
         </element>

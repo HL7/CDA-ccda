@@ -24,10 +24,10 @@
         </telecom>
     </contact>
     <description value="This clinical statement represents the gravity of the problem, such as allergy or reaction, in terms of its actual or potential impact on the patient. The Severity Observation can be associated with an Allergy - Intolerance Observation, Substance or Device Allergy - Intolerance Observation, Reaction Observation or all. When the Severity Observation is associated directly with an allergy it characterizes the allergy. When the Severity Observation is associated with a Reaction Observation it characterizes a reaction. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Observation">
@@ -121,7 +121,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/CD"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
             <binding>
                 <strength value="required"/>

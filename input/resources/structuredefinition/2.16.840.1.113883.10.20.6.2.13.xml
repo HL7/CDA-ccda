@@ -23,10 +23,10 @@
         </telecom>
     </contact>
     <description value="DICOM Template 2000 specifies that Imaging Report Elements of Value Type Code are contained in sections. The Imaging Report Elements are inferred from Basic Diagnostic Imaging Report Observations that consist of image references and measurements (linear, area, volume, and numeric). Coded DICOM Imaging Report Elements in this context are mapped to CDA-coded observations that are section components and are related to the SOP Instance Observations (templateId 2.16.840.1.113883.10.20.6.2.8) or Quantity Measurement Observations (templateId 2.16.840.1.113883.10.20.6.2.14) by the SPRT (Support) act relationship."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Observation">
@@ -123,7 +123,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
             </type>
         </element>
@@ -147,7 +147,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
             </type>
         </element>

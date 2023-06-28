@@ -24,9 +24,9 @@
         </telecom>
     </contact>
     <description value="This template reflects a discrete observation about a patient's allergy or intolerance. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the &quot;biologically relevant time&quot; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of penicillin allergy that developed five years ago, the effectiveTime is five years ago. &#xA;&#xA;The effectiveTime of the Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;.&#xA;&#xA;The agent responsible for an allergy or adverse reaction is not always a manufactured material (for example, food allergies), nor is it necessarily consumed. The following constraints reflect limitations in the base CDA R2 specification, and should be used to represent any type of responsible agent, i.e., use playingEntity classCode = &quot;MMAT&quot; for all agents, manufactured or not."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Observation"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.24.3.90"/>
     <derivation value="constraint"/>
     <differential>
@@ -161,7 +161,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/CD"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
             <binding>
                 <strength value="required"/>
@@ -174,7 +174,7 @@
             <min value="0"/>
             <max value="*"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
             </type>
         </element>
@@ -215,7 +215,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.145"/>
             </type>
         </element>

@@ -23,10 +23,10 @@
         </telecom>
     </contact>
     <description value="This clinical statement represents a particular device that was placed in a patient or used as part of a procedure or other act. This provides a record of the identifier and other details about the given product that was used. For example, it is important to have a record that indicates not just that a hip prostheses was placed in a patient but that it was a particular hip prostheses number with a unique identifier.&#xA;&#xA;The FDA Amendments Act specifies the creation of a Unique Device Identification (UDI) System that requires the label of devices to bear a unique identifier that will standardize device identification and identify the device through distribution and use. &#xA;&#xA;The FDA permits an issuing agency to designate that their Device Identifier (DI) + Production Identifier (PI) format qualifies as a UDI through a process of accreditation. Currently, there are three FDA-accredited issuing agencies that are allowed to call their format a UDI. These organizations are GS1, HIBCC, and ICCBBA. For additional information on technical formats that qualify as UDI from each of the issuing agencies see the UDI Appendix.&#xA;&#xA;When communicating only the issuing agency device identifier (i.e., subcomponent of the UDI), the use of the issuing agency OID is appropriate. However, when communicating the unique device identifier (DI + PI), the FDA OID (2.16.840.1.113883.3.3719) must be used. &#xA;When sending a UDI, populate the participantRole/id/@root with the FDA OID (2.16.840.1.113883.3.3719) and participantRole/id/@extension with the UDI.&#xA;&#xA;When sending a DI, populate the participantRole/id/@root with the appropriate assigning agency OID and participantRole/id/@extension with the DI.&#xA;The scopingEntity/id should correspond to FDA or the appropriate issuing agency."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="ParticipantRole"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/ParticipantRole"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
     <derivation value="constraint"/>
     <differential>
         <element id="ParticipantRole">

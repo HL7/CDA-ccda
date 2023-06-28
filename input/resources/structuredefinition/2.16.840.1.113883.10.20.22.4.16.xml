@@ -24,10 +24,10 @@
         </telecom>
     </contact>
     <description value="A Medication Activity describes substance administrations that have actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &quot;take 2 tablets twice a day for the next 10 days&quot;). Medication activities in &quot;INT&quot; mood are reflections of what a clinician intends a patient to be taking. For example, a clinician may intend that a patient be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &quot;EVN&quot; mood would reflect actual use.&#xA;&#xA;A moodCode of INT is allowed, but it is recommended that the Planned Medication Activity (V2) template be used for moodCodes other than EVN if the document type contains a section that includes Planned Medication Activity (V2) (for example a Care Plan document with Plan of Treatment, Intervention, or Goal sections).&#xA;&#xA;At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="SubstanceAdministration"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
     <differential>
         <element id="SubstanceAdministration">
@@ -139,7 +139,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/IVL-TS"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
             </type>
             <constraint>
                 <key value="1098-32890"/>
@@ -300,7 +300,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/ManufacturedProduct"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
             </type>
         </element>
@@ -316,7 +316,7 @@
             <min value="0"/>
             <max value="*"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
             </type>
         </element>
@@ -354,7 +354,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/ParticipantRole"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.24"/>
             </type>
         </element>
@@ -400,7 +400,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
             </type>
         </element>
@@ -431,7 +431,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
             </type>
         </element>
@@ -455,7 +455,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.17"/>
             </type>
         </element>
@@ -479,7 +479,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.18"/>
             </type>
         </element>
@@ -503,7 +503,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
             </type>
         </element>
@@ -527,7 +527,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.123"/>
             </type>
         </element>
@@ -565,7 +565,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.118"/>
             </type>
         </element>
@@ -589,7 +589,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.147"/>
             </type>
         </element>
@@ -612,7 +612,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Criterion"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Criterion"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.25"/>
             </type>
         </element>

@@ -24,10 +24,10 @@
         </telecom>
     </contact>
     <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure (V2) is for procedures that alter the physical condition of a patient (e.g., splenectomy). Procedure Activity Observation (V2) is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Procedure Activity Act (V2) is for all other types of procedures (e.g., dressing change)."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Section"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Section">
@@ -121,7 +121,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
             </type>
         </element>
@@ -135,7 +135,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.12"/>
             </type>
         </element>
@@ -149,7 +149,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
             </type>
         </element>

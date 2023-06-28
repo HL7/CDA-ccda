@@ -25,10 +25,10 @@
         </telecom>
     </contact>
     <description value="This template reflects an ongoing concern on behalf of the provider that placed the allergy on a patient's allergy list. As long as the underlying condition is of concern to the provider (i.e., as long as the allergy, whether active or resolved, is of ongoing concern and interest to the provider), the statusCode is &quot;active&quot;. Only when the underlying allergy is no longer of concern is the statusCode set to &quot;completed&quot;. The effectiveTime reflects the time that the underlying allergy was felt to be a concern.&#xA;&#xA;The statusCode of the Allergy Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy is resolved. &#xA;&#xA;The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Act"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Act">
@@ -147,7 +147,7 @@
             <min value="0"/>
             <max value="*"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Author"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
             </type>
         </element>
@@ -181,7 +181,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.7"/>
             </type>
         </element>

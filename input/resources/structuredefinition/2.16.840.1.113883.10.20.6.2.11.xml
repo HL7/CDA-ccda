@@ -23,10 +23,10 @@
         </telecom>
     </contact>
     <description value="A Boundary Observation contains a list of integer values for the referenced frames of a DICOM multiframe image SOP instance. It identifies the frame numbers within the referenced SOP instance to which the reference applies. The CDA Boundary Observation numbers frames using the same convention as DICOM, with the first frame in the referenced object being Frame 1. A Boundary Observation must be used if a referenced DICOM SOP instance is a multiframe image and the reference does not apply to all frames."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Observation">
@@ -66,7 +66,7 @@
             <min value="1"/>
             <max value="*"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/INT"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/INT"/>
             </type>
         </element>
     </differential>

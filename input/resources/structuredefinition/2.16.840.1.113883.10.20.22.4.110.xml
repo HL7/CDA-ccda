@@ -23,10 +23,10 @@
         </telecom>
     </contact>
     <description value="This template represents a patient's progress toward a goal. It can describe whether a goal has been achieved or not and can also describe movement a patient is making toward the achievement of a goal (e.g., &quot;Goal not achieved - no discernible change&quot;, &quot;Goal not achieved - progressing toward goal&quot;, &quot;Goal not achieved - declining from goal&quot;).&#xA;&#xA;In the Care Planning workflow, the judgment about how well the person is progressing towards the goal is based on the observations made about the status of the patient with respect to interventions performed in the pursuit of achieving that goal.&#xA;&#xA;For example, an observation outcome of a blood oxygen saturation level of 95% is related to the goal of &quot;Maintain Pulse Ox greater than 92&quot; and in this case the Progress Toward Goal Observation template would record that the related goal has been achieved."/>
-    <kind value="resource"/>
+    <kind value="logical"/>
     <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Observation">
@@ -112,7 +112,7 @@
         <element id="Observation.value">
             <path value="Observation.value"/>
             <type>
-                <code value="http://hl7.org/fhir/cda/StructureDefinition/CD"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
             <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Goal Achievement urn:oid:2.16.840.1.113883.11.20.9.55 DYNAMIC (CONF:1098-31426)."/>
             <min value="1"/>
