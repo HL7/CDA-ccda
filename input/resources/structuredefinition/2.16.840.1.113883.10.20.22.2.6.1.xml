@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This section lists and describes any medication allergies, adverse reactions, idiosyncratic reactions, anaphylaxis/anaphylactoid reactions to food items, and metabolic variations or adverse reactions/allergies to other substances (such as latex, iodine, tape adhesives). At a minimum, it should list currently active and any relevant historical allergies and adverse reactions."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -54,6 +55,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="2"/>
         </element>
         <element id="Section.templateId:secondary">
             <path value="Section.templateId"/>
@@ -118,6 +120,7 @@
                 <rules value="open"/>
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
+            <min value="1"/>
         </element>
         <element id="Section.entry:allergyConcern">
             <path value="Section.entry"/>

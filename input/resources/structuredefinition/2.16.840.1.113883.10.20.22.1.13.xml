@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This document describes constraints on the Clinical Document Architecture (CDA) header and body elements for a Transfer Summary. The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings. &#xA;&#xA;Standardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
@@ -47,6 +48,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="ClinicalDocument.templateId:primary">
             <path value="ClinicalDocument.templateId"/>
@@ -242,6 +244,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>

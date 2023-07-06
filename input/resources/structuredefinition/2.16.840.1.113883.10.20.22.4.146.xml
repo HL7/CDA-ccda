@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This template represents a Planned Intervention Act. It is a wrapper for planned intervention-type activities considered to be parts of the same intervention. For example, an activity such as &quot;elevate head of bed&quot; combined with &quot;provide humidified O2 per nasal cannula&quot; may be the interventions planned for a health concern of &quot;respiratory insufficiency&quot; in order to attempt to achieve a goal of &quot;pulse oximetry greater than 92%&quot;. These intervention activities may be newly described or derived from a variety of sources within an EHR.&#xA;&#xA;Interventions are actions taken to increase the likelihood of achieving the patient's or providers' goals. An Intervention Act should contain a reference to a Goal Observation representing the reason for the intervention.&#xA;&#xA;Planned Intervention Acts can be related to each other or to Intervention Acts. (E.g., a Planned Intervention Act with moodCode of INT could be related to a series of Intervention Acts with moodCode of EVN, each having an effectiveTime containing the time of the intervention.) &#xA;&#xA;All interventions referenced in a Planned Intervention Act must have moodCodes indicating that that are planned (have not yet occurred)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -64,6 +65,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -170,6 +172,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.entryRelationship:advanceDirectiveObservation">
             <path value="Act.entryRelationship"/>
@@ -598,9 +601,9 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryReference">
+        <element id="Act.entryRelationship:entryReference2">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryReference"/>
+            <sliceName value="entryReference2"/>
             <short value="An Intervention Act SHALL reference a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry. The following entryRelationship represents an Entry Reference to Goal Observation."/>
             <requirements value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-32673) such that it"/>
             <min value="1"/>
@@ -611,14 +614,14 @@
                 <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1198-32722)."/>
             </constraint>
         </element>
-        <element id="Act.entryRelationship:entryReference.typeCode">
+        <element id="Act.entryRelationship:entryReference2.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32720)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="RSON"/>
         </element>
-        <element id="Act.entryRelationship:entryReference.act">
+        <element id="Act.entryRelationship:entryReference2.act">
             <path value="Act.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32721)."/>
             <min value="1"/>

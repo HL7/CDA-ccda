@@ -14,7 +14,7 @@ Note that these levels are rough indications of what a recipient can expect in t
 
 The contexts table for each document type lists the sections defined in the document template.
 
-### Conformence Conventions Used in this Guide
+### Conformance Conventions Used in this Guide
 
 #### Templates and Conformance Statements
 

@@ -4,26 +4,28 @@
     <id value="2.16.840.1.113883.10.20.22.4.19"/>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2023-05-01"/>
     </identifier>
-    <version value="2014-06-09"/>
-    <name value="Indication"/>
-    <title value="Indication"/>
-    <status value="active"/>
+    <version value="2023-05-01"/>
+    <name value="IndicationV3"/>
+    <title value="Indication (V3)"/>
+    <status value="draft"/>
+    <publisher value="Namaste Informatics"/>
     <contact>
-        <name value="Gaye Dolin"/>
+        <name value="Gay Dolin"/>
         <telecom>
             <system value="phone"/>
-            <value value="714-744-4152"/>
+            <value value="9493028082"/>
             <use value="work"/>
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
+            <value value="gdolin@NamasteInformatics.com"/>
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration (V2) [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met."/>
+    <description value="This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration (V2) [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met.&#xA;&#xA;Many templates in C-CDA R2.1 reference the Indications V2 Template. In the next C-CDA release we will update those templates to reference the Indications V3 template.&#xA;&#xA;The Reason 2.16.840.1.113883.10.20.24.3.88:2023-05-01 should used to represent the justification for an action, or for not performing an action, such as patient, system, or non-problem/diagnosis medical-related reasons&#xA;Immunization Refusal Reason 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -35,14 +37,16 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7480)."/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7480)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7481)."/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7481)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="EVN"/>
@@ -60,39 +64,45 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-7482) such that it"/>
+            <min value="1"/>
         </element>
-        <element id="Observation.templateId:primary">
+        <element id="Observation.templateId:templateId1">
             <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-7482) such that it"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-7482) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:primary.root">
+        <element id="Observation.templateId:templateId1.root">
             <path value="Observation.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.19&quot; (CONF:1098-10502)."/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.19&quot; (CONF:4537-10502)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.19"/>
         </element>
-        <element id="Observation.templateId:primary.extension">
+        <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32570)."/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32570)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2014-06-09"/>
+            <patternString value="2023-05-01"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
             <label value="If the id element is used to reference a problem recorded elsewhere in the document then this id must equal another entry/id in the same document instance. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. Its purpose is to obviate the need to repeat the complete XML representation of the referred to entry when relating one entry to another."/>
             <short value="If the id element is used to reference a problem recorded elsewhere in the document then this id must equal another entry/id in the same document instance. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. Its purpose is to obviate the need to repeat the complete XML representation of the referred to entry when relating one entry to another."/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-7483)."/>
+            <definition value="SHALL contain at least one [1..*] id (CONF:4537-7483)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Problem Type (SNOMEDCT) urn:oid:2.16.840.1.113883.3.88.12.3221.7.2 DYNAMIC (CONF:1098-31229)."/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Problem Type (SNOMEDCT) urn:oid:2.16.840.1.113883.3.88.12.3221.7.2 DYNAMIC (CONF:4537-31229)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -102,33 +112,34 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-7487)."/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4537-7487)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19105)."/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19105)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7488)."/>
+            <short value="effectiveTime"/>
+            <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7488)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <requirements value="MAY contain zero or one [0..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1098-7489)."/>
+            <short value="value"/>
+            <definition value="MAY contain zero or one [0..1] value with @xsi:type=&quot;CD&quot;, where the code MAY be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:4537-7489)."/>
             <min value="0"/>
             <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
-            </type>
             <binding>
-                <strength value="preferred"/>
+                <strength value="example"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.4"/>
             </binding>
         </element>

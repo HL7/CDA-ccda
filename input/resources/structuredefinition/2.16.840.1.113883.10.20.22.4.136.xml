@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This template represents a risk concern. &#xD;&#xA;&#xD;&#xA;It is a wrapper for a single risk concern which may be derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). &#xD;&#xA;&#xD;&#xA;A Risk Concern Act represents a health concern that is a risk. A risk is a clinical or socioeconomic condition that the patient does not currently have, but the probability of developing that condition rises to the level of concern such that an intervention and/or monitoring is needed."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -61,6 +62,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -233,22 +235,22 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryReference">
+        <element id="Act.entryRelationship:entryReference2">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryReference"/>
+            <sliceName value="entryReference2"/>
             <short value="The following entryRelationship represents the relationship between two Health Concern Acts where the target is a component of the source (Health Concern HAS COMPONENT Health Concern). The Enry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32183) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryReference.typeCode">
+        <element id="Act.entryRelationship:entryReference2.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32232)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="COMP"/>
         </element>
-        <element id="Act.entryRelationship:entryReference.act">
+        <element id="Act.entryRelationship:entryReference2.act">
             <path value="Act.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32233)."/>
             <min value="1"/>
@@ -981,21 +983,21 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.3"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryReference">
+        <element id="Act.entryRelationship:entryReference3">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryReference"/>
+            <sliceName value="entryReference3"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32217) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryReference.typeCode">
+        <element id="Act.entryRelationship:entryReference3.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32301)."/>
             <min value="1"/>
             <max value="1"/>
             <patternCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryReference.act">
+        <element id="Act.entryRelationship:entryReference3.act">
             <path value="Act.entryRelationship.act"/>
             <requirements value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32302)."/>
             <min value="1"/>

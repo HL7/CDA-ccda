@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This template represents a patient's clinical status during a hospitalization, outpatient visit, treatment with a LTPAC provider, or other healthcare encounter.&#xA;&#xA;Taber's medical dictionary defines a Progress Note as &quot;An ongoing record of a patient's illness and treatment. Physicians, nurses, consultants, and therapists record their notes concerning the progress or lack of progress made by the patient between the time of the previous note and the most recent note.&quot;&#xA;&#xA;Mosby's medical dictionary defines a Progress Note as &quot;Notes made by a nurse, physician, social worker, physical therapist, and other health care professionals that describe the patient's condition and the treatment given or planned.&quot;&#xA;&#xA;A Progress Note is not a re-evaluation note. A Progress Note is not intended to be a Progress Report for Medicare. Medicare B Section 1833(e) defines the requirements of a Medicare Progress Report."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
@@ -47,6 +48,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="2"/>
         </element>
         <element id="ClinicalDocument.templateId:secondary">
             <path value="ClinicalDocument.templateId"/>
@@ -120,6 +122,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.templateId:secondary">
             <path value="ClinicalDocument.documentationOf.serviceEvent.templateId"/>

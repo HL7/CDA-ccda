@@ -4,26 +4,28 @@
     <id value="2.16.840.1.113883.10.20.22.4.41"/>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2022-06-01"/>
     </identifier>
-    <version value="2014-06-09"/>
-    <name value="PlannedProcedure"/>
-    <title value="Planned Procedure"/>
+    <version value="2022-06-01"/>
+    <name value="PlannedProcedureV3"/>
+    <title value="Planned Procedure (V3)"/>
     <status value="active"/>
+    <publisher value="Namaste Informatics"/>
     <contact>
-        <name value="Gaye Dolin"/>
+        <name value="Gay Dolin"/>
         <telecom>
             <system value="phone"/>
-            <value value="714-744-4152"/>
+            <value value="9493028082"/>
             <use value="work"/>
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
+            <value value="gdolin@NamasteInformatics.com"/>
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure."/>
+    <description value="This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure.&#xA;&#xA;Planned Procedure V3 Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;.&#xA;"/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
@@ -35,14 +37,16 @@
         </element>
         <element id="Procedure.classCode">
             <path value="Procedure.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8568)."/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-8568)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="PROC"/>
+            <patternString value="PROC"/>
         </element>
         <element id="Procedure.moodCode">
             <path value="Procedure.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2011-09-30 (CONF:1098-8569)."/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2011-09-30 (CONF:4515-8569)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -63,76 +67,89 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
-        <element id="Procedure.templateId:primary">
+        <element id="Procedure.templateId:templateId1">
             <path value="Procedure.templateId"/>
-            <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-30444) such that it"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-30444) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Procedure.templateId:primary.root">
+        <element id="Procedure.templateId:templateId1.root">
             <path value="Procedure.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.41&quot; (CONF:1098-30445)."/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.41&quot; (CONF:4515-30445)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.41"/>
         </element>
-        <element id="Procedure.templateId:primary.extension">
+        <element id="Procedure.templateId:templateId1.extension">
             <path value="Procedure.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32554)."/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-32554)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2014-06-09"/>
+            <patternString value="2022-06-01"/>
         </element>
         <element id="Procedure.id">
             <path value="Procedure.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-8571)."/>
+            <short value="id"/>
+            <definition value="SHALL contain at least one [1..*] id (CONF:4515-8571)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Procedure.code">
             <path value="Procedure.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-31976)."/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:4515-31976)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
-                <key value="1098-31977"/>
+                <key value="4515-31977"/>
                 <severity value="warning"/>
-                <human value="The procedure/code in a planned procedure **SHOULD** be selected from LOINC (codeSystem 2.16.840.1.113883.6.1) *OR* SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96), and **MAY** be selected from CPT-4 (CodeSystem: 2.16.840.1.113883.6.12) **OR** ICD10 PCS (CodeSystem: 2.16.840.1.113883.6.4) (CONF:1098-31977)."/>
+                <human value="This @code SHOULD be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) or CPT (CodeSystem: 2.16.840.1.113883.6.12) or ICD-10-PCS (CodeSystem: 2.16.840.1.113883.6.4) or HCPCS (Code System: 2.16.840.1.113762.1.4.1247.9) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:4515-31977)."/>
+            </constraint>
+            <constraint>
+                <key value="4515-32993"/>
+                <severity value="warning"/>
+                <human value="If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Service Request](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.790/expansion/) **DYNAMIC** (CONF:4515-32993)."/>
             </constraint>
         </element>
         <element id="Procedure.statusCode">
             <path value="Procedure.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-30446)."/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4515-30446)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Procedure.statusCode.code">
             <path value="Procedure.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31978)."/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4515-31978)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="active"/>
         </element>
         <element id="Procedure.effectiveTime">
             <path value="Procedure.effectiveTime"/>
-            <short value="The effectiveTime in a planned procedure represents the time that the procedure should occur."/>
-            <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30447)."/>
+            <short value="effectiveTime"/>
+            <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-30447)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Procedure.methodCode">
             <path value="Procedure.methodCode"/>
-            <short value="In a planned procedure the provider may suggest that a procedure should be performed using a particular method.&#xA;&#xA;MethodCode *SHALL NOT* conflict with the method inherent in Procedure / code."/>
-            <requirements value="MAY contain zero or more [0..*] methodCode (CONF:1098-31980)."/>
+            <short value="methodCode"/>
+            <definition value="MAY contain zero or more [0..*] methodCode (CONF:4515-31980)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.targetSiteCode">
             <path value="Procedure.targetSiteCode"/>
-            <short value="The targetSiteCode is used to identify the part of the body of concern for the planned procedure."/>
-            <requirements value="MAY contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-31981)."/>
+            <short value="targetSiteCode"/>
+            <definition value="MAY contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-31981)."/>
             <min value="0"/>
             <max value="*"/>
             <binding>
@@ -142,15 +159,15 @@
         </element>
         <element id="Procedure.performer">
             <path value="Procedure.performer"/>
-            <short value="The clinician who is expected to perform the procedure could be identified using procedure/performer."/>
-            <requirements value="MAY contain zero or more [0..*] performer (CONF:1098-30449)."/>
+            <short value="performer"/>
+            <definition value="MAY contain zero or more [0..*] performer (CONF:4515-30449)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Procedure.author">
             <path value="Procedure.author"/>
-            <short value="The author in a planned procedure represents the clinician who is requesting or planning the procedure."/>
-            <requirements value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31979)."/>
+            <short value="author"/>
+            <definition value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31979)."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -165,28 +182,34 @@
                     <type value="value"/>
                     <path value="act"/>
                 </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="The following entryRelationship represents the insurance coverage the patient may have for the procedure."/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32996) such that it"/>
         </element>
-        <element id="Procedure.entryRelationship:priorityPreference">
+        <element id="Procedure.entryRelationship:entryRelationship1">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="priorityPreference"/>
-            <short value="The following entryRelationship represents the priority that a patient or a provider places on the procedure."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31079) such that it"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31079) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.entryRelationship:priorityPreference.typeCode">
+        <element id="Procedure.entryRelationship:entryRelationship1.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31080)."/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31080)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <patternString value="REFR"/>
         </element>
-        <element id="Procedure.entryRelationship:priorityPreference.observation">
+        <element id="Procedure.entryRelationship:entryRelationship1.observation">
             <path value="Procedure.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31081)."/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-31081)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -194,24 +217,26 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
             </type>
         </element>
-        <element id="Procedure.entryRelationship:indication">
+        <element id="Procedure.entryRelationship:entryRelationship2">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="indication"/>
-            <short value="The following entryRelationship represents the indication for the procedure."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31982) such that it"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31982) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.entryRelationship:indication.typeCode">
+        <element id="Procedure.entryRelationship:entryRelationship2.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31983)."/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31983)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="RSON"/>
+            <patternString value="RSON"/>
         </element>
-        <element id="Procedure.entryRelationship:indication.observation">
+        <element id="Procedure.entryRelationship:entryRelationship2.observation">
             <path value="Procedure.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-31984)."/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:4515-31984)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -219,31 +244,34 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
             </type>
         </element>
-        <element id="Procedure.entryRelationship:instruction">
+        <element id="Procedure.entryRelationship:entryRelationship3">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="instruction"/>
-            <short value="The following entryRelationship captures any instructions associated with the planned procedure."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31985) such that it"/>
+            <sliceName value="entryRelationship3"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31985) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.entryRelationship:instruction.typeCode">
+        <element id="Procedure.entryRelationship:entryRelationship3.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31986)."/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31986)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <patternString value="SUBJ"/>
         </element>
-        <element id="Procedure.entryRelationship:instruction.inversionInd">
+        <element id="Procedure.entryRelationship:entryRelationship3.inversionInd">
             <path value="Procedure.entryRelationship.inversionInd"/>
-            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-31987)."/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:4515-31987)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternBoolean value="true"/>
+            <patternString value="true"/>
         </element>
-        <element id="Procedure.entryRelationship:instruction.act">
+        <element id="Procedure.entryRelationship:entryRelationship3.act">
             <path value="Procedure.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31989)."/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Instruction (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:4515-31989)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -251,28 +279,85 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
             </type>
         </element>
-        <element id="Procedure.entryRelationship:plannedCoverage">
+        <element id="Procedure.entryRelationship:entryRelationship4">
             <path value="Procedure.entryRelationship"/>
-            <sliceName value="plannedCoverage"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31990) such that it"/>
+            <sliceName value="entryRelationship4"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31990) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Procedure.entryRelationship:plannedCoverage.typeCode">
+        <element id="Procedure.entryRelationship:entryRelationship4.typeCode">
             <path value="Procedure.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CONF:1098-31991)."/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CONF:4515-31991)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <patternString value="COMP"/>
         </element>
-        <element id="Procedure.entryRelationship:plannedCoverage.act">
+        <element id="Procedure.entryRelationship:entryRelationship4.act">
             <path value="Procedure.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:1098-31992)."/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:4515-31992)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.129"/>
+            </type>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship5">
+            <path value="Procedure.entryRelationship"/>
+            <sliceName value="entryRelationship5"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32994) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship5.typeCode">
+            <path value="Procedure.entryRelationship.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32998)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="RSON"/>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship5.observation">
+            <path value="Procedure.entryRelationship.observation"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32995)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.69"/>
+            </type>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship6">
+            <path value="Procedure.entryRelationship"/>
+            <sliceName value="entryRelationship6"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32996) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship6.typeCode">
+            <path value="Procedure.entryRelationship.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has reason (CONF:4515-32999)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="RSON"/>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship6.act">
+            <path value="Procedure.entryRelationship.act"/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32997)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
             </type>
         </element>
     </differential>

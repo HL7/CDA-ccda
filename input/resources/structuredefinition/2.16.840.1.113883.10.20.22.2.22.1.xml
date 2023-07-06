@@ -7,7 +7,7 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="EncountersSectionentriesrequired"/>
+    <name value="EncountersSectionEntriesRequired"/>
     <title value="Encounters Section (entries required)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This section lists and describes any healthcare encounters pertinent to the patient's current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patient's condition. It may include visits, appointments, as well as non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -54,6 +55,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="2"/>
         </element>
         <element id="Section.templateId:secondary">
             <path value="Section.templateId"/>
@@ -118,6 +120,7 @@
                 <rules value="open"/>
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
+            <min value="1"/>
         </element>
         <element id="Section.entry:encounter">
             <path value="Section.entry"/>

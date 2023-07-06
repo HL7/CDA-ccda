@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="A Medication Activity describes substance administrations that have actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &quot;take 2 tablets twice a day for the next 10 days&quot;). Medication activities in &quot;INT&quot; mood are reflections of what a clinician intends a patient to be taking. For example, a clinician may intend that a patient be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &quot;EVN&quot; mood would reflect actual use.&#xA;&#xA;A moodCode of INT is allowed, but it is recommended that the Planned Medication Activity (V2) template be used for moodCodes other than EVN if the document type contains a section that includes Planned Medication Activity (V2) (for example a Care Plan document with Plan of Treatment, Intervention, or Goal sections).&#xA;&#xA;At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
@@ -67,6 +68,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="SubstanceAdministration.templateId:primary">
             <path value="SubstanceAdministration.templateId"/>
@@ -129,6 +131,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="SubstanceAdministration.effectiveTime:duration">
             <path value="SubstanceAdministration.effectiveTime"/>
@@ -179,6 +182,9 @@
             <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SXCM-TS"/>
+            </type>
             <constraint>
                 <key value="1098-28499"/>
                 <severity value="error"/>
@@ -190,7 +196,7 @@
             <requirements value="SHALL contain exactly one [1..1] @operator=&quot;A&quot; (CONF:1098-9106)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="A"/>
+            <patternCode value="A"/>
         </element>
         <element id="SubstanceAdministration.repeatNumber">
             <path value="SubstanceAdministration.repeatNumber"/>

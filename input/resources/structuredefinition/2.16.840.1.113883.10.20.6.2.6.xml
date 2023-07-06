@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="A Study Act contains the DICOM study information that defines the characteristics of a referenced medical study performed on a patient. A study is a collection of one or more series of medical images, presentation states, SR documents, overlays, and/or curves that are logically related for the purpose of diagnosing a patient. Each study is associated with exactly one patient. A study may include composite instances that are created by a single modality, multiple modalities, or by multiple devices of the same modality. The study information is modality-independent. Study Act clinical statements are only instantiated in the DICOM Object Catalog section; in other sections, the SOP Instance Observation is included directly."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -149,6 +151,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.entryRelationship:seriesAct">
             <path value="Act.entryRelationship"/>

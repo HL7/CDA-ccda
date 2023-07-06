@@ -4,12 +4,12 @@
     <id value="2.16.840.1.113883.10.20.22.4.2"/>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.2"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2023-05-01"/>
     </identifier>
-    <version value="2015-08-01"/>
-    <name value="ResultObservation"/>
-    <title value="Result Observation"/>
-    <status value="active"/>
+    <version value="2023-05-01"/>
+    <name value="ResultObservationV4"/>
+    <title value="Result Observation (V4)"/>
+    <status value="draft"/>
     <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -36,79 +37,90 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7130)."/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7130)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <patternString value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7131)."/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7131)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <patternString value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-7136) such that it"/>
+            <min value="1"/>
         </element>
-        <element id="Observation.templateId:primary">
+        <element id="Observation.templateId:templateId1">
             <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7136) such that it"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-7136) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:primary.root">
+        <element id="Observation.templateId:templateId1.root">
             <path value="Observation.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.2&quot; (CONF:1198-9138)."/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.2&quot; (CONF:4537-9138)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.2"/>
         </element>
-        <element id="Observation.templateId:primary.extension">
+        <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32575)."/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32575)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2015-08-01"/>
+            <patternString value="2023-05-01"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-7137)."/>
+            <short value="id"/>
+            <definition value="SHALL contain at least one [1..*] id (CONF:4537-7137)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:1198-7133)."/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
-                <key value="1198-19212"/>
+                <key value="4537-19212"/>
                 <severity value="warning"/>
-                <human value="This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:1198-19212)."/>
+                <human value="This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."/>
             </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-7134)."/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4537-7134)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Result Status urn:oid:2.16.840.1.113883.11.20.9.39 STATIC (CONF:1198-14849)."/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Result Status urn:oid:2.16.840.1.113883.11.20.9.39 STATIC (CONF:4537-14849)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -118,44 +130,40 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <label value="Represents the biologically relevant time of the measurement (e.g., the time a blood pressure reading is obtained, the time the blood sample was obtained for a chemistry test)."/>
-            <short value="Represents the biologically relevant time of the measurement (e.g., the time a blood pressure reading is obtained, the time the blood sample was obtained for a chemistry test)."/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7140)."/>
+            <label value="Represents the clinically relevant time of the measurement (e.g., the time a blood pressure reading is obtained, the time the blood sample was obtained for a chemistry test)."/>
+            <short value="Represents the clinically relevant time of the measurement (e.g., the time a blood pressure reading is obtained, the time the blood sample was obtained for a chemistry test)."/>
+            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-7140)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <requirements value="SHALL contain exactly one [1..1] value (CONF:1198-7143)."/>
+            <short value="value"/>
+            <definition value="SHALL contain exactly one [1..1] value (CONF:4537-7143)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
-                <key value="1198-32610"/>
+                <key value="4537-31484"/>
                 <severity value="warning"/>
-                <human value="If Observation/value is a CD (**xsi:type=&quot;CD&quot;**) the value **SHOULD** be SNOMED-CT (CONF:1198-32610)."/>
+                <human value="If Observation/value is a physical quantity (**xsi:type=&quot;PQ&quot;**), the unit of measure **SHOULD** be selected from ValueSet **UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC** (CONF:4537-31484)."/>
             </constraint>
             <constraint>
-                <key value="1198-31866"/>
+                <key value="4537-31866"/>
                 <severity value="warning"/>
-                <human value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:1198-31866)."/>
+                <human value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866)."/>
             </constraint>
             <constraint>
-                <key value="1198-31484"/>
-                <severity value="error"/>
-                <human value="If Observation/value is a physical quantity (**xsi:type=&quot;PQ&quot;**), the unit of measure **SHALL** be selected from ValueSet UnitsOfMeasureCaseSensitive 2.16.840.1.113883.1.11.12839 **DYNAMIC** (CONF:1198-31484)."/>
+                <key value="4537-32610"/>
+                <severity value="warning"/>
+                <human value="If Observation/value is a CD (**xsi:type=&quot;CD&quot;**) the value **SHOULD** be SNOMED-CT (CONF:4537-32610)."/>
             </constraint>
         </element>
         <element id="Observation.interpretationCode">
             <path value="Observation.interpretationCode"/>
-            <requirements value="SHOULD contain zero or more [0..*] interpretationCode (CONF:1198-7147)."/>
+            <short value="interpretationCode"/>
+            <definition value="SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."/>
             <min value="0"/>
             <max value="*"/>
-        </element>
-        <element id="Observation.interpretationCode.code">
-            <path value="Observation.interpretationCode.code"/>
-            <requirements value="The interpretationCode, if present, SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:1198-32476)."/>
-            <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.78"/>
@@ -163,19 +171,54 @@
         </element>
         <element id="Observation.methodCode">
             <path value="Observation.methodCode"/>
-            <requirements value="MAY contain zero or one [0..1] methodCode (CONF:1198-7148)."/>
+            <short value="methodCode"/>
+            <definition value="MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode">
             <path value="Observation.targetSiteCode"/>
-            <requirements value="MAY contain zero or one [0..1] targetSiteCode (CONF:1198-7153)."/>
+            <short value="targetSiteCode"/>
+            <definition value="MAY contain zero or one [0..1] targetSiteCode (CONF:4537-7153)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
+        <element id="Observation.specimen">
+            <path value="Observation.specimen"/>
+            <short value="specimen"/>
+            <definition value="MAY contain zero or more [0..*] specimen (CONF:4537-32611)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.specimen.specimenRole">
+            <path value="Observation.specimen.specimenRole"/>
+            <short value="specimenRole"/>
+            <definition value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32612)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.specimen.specimenRole.specimenPlayingEntity">
+            <path value="Observation.specimen.specimenRole.specimenPlayingEntity"/>
+            <short value="specimenPlayingEntity"/>
+            <definition value="This specimenRole SHALL contain exactly one [1..1] specimenPlayingEntity (CONF:4537-32613)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.specimen.specimenRole.specimenPlayingEntity.code">
+            <path value="Observation.specimen.specimenRole.specimenPlayingEntity.code"/>
+            <short value="code"/>
+            <definition value="This specimenPlayingEntity SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Specimen type urn:oid:2.16.840.1.113762.1.4.1099.54 DYNAMIC (CONF:4537-32614)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.54"/>
+            </binding>
+        </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-7149)."/>
+            <short value="author"/>
+            <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -185,25 +228,29 @@
         </element>
         <element id="Observation.referenceRange">
             <path value="Observation.referenceRange"/>
-            <requirements value="SHOULD contain zero or more [0..*] referenceRange (CONF:1198-7150)."/>
+            <short value="referenceRange"/>
+            <definition value="SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.referenceRange.observationRange">
             <path value="Observation.referenceRange.observationRange"/>
-            <requirements value="The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:1198-7151)."/>
+            <short value="observationRange"/>
+            <definition value="The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4537-7151)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.referenceRange.observationRange.code">
             <path value="Observation.referenceRange.observationRange.code"/>
-            <requirements value="This observationRange SHALL NOT contain [0..0] code (CONF:1198-7152)."/>
+            <short value="code"/>
+            <definition value="This observationRange SHALL NOT contain [0..0] code (CONF:4537-7152)."/>
             <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Observation.referenceRange.observationRange.value">
             <path value="Observation.referenceRange.observationRange.value"/>
-            <requirements value="This observationRange SHALL contain exactly one [1..1] value (CONF:1198-32175)."/>
+            <short value="value"/>
+            <definition value="This observationRange SHALL contain exactly one [1..1] value (CONF:4537-32175)."/>
             <min value="1"/>
             <max value="1"/>
         </element>

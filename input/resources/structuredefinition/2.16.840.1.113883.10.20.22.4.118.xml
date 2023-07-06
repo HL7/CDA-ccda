@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents the administration course in a series. The entryRelationship/sequenceNumber in the containing template shows the order of this particular administration in that medication series."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -98,6 +100,12 @@
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31505)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.statusCode.code">
+            <path value="Act.statusCode.code"/>
             <requirements value="SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31505)."/>
             <min value="1"/>
             <max value="1"/>

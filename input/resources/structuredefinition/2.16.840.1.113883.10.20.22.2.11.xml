@@ -7,7 +7,7 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.11:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="DischargeMedicationsSectionentriesoptional"/>
+    <name value="DischargeMedicationsSectionEntriesOptional"/>
     <title value="Discharge Medications Section (entries optional)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This section contains the medications the patient is intended to take or stop after discharge. Current, active medications must be listed. The section may also include a patient's prescription history and indicate the source of the medication list."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -47,6 +48,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
@@ -102,6 +104,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="code.Section.code.translation:translation1">
             <path value="Section.code.translation"/>

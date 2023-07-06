@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.4.308"/>
+    <meta>
+        <versionId value="2"/>
+        <lastUpdated value="2023-06-29T20:25:15.735Z"/>
+    </meta>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.308"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.308:2019-06-21"/>
+    </identifier>
+    <version value="2019-06-21"/>
+    <name value="DistinctIdentificationCodeObservation"/>
+    <title value="Distinct Identification Code Observation"/>
+    <status value="active"/>
+    <publisher value="Eversolve"/>
+    <contact>
+        <name value="Ioana Singureanu"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="603-870-9739"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="ioana.singureanu@gmail.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Distinct Identification Code** for an HCT/P product regulated as a device as cited in 21 CFR 1271.290(c). The distinct identification code is parsed from the UDI value, if present.&#xA;&#xA;The distinct identification code may be equivalent to the serial number, lot or batch number, or the donation identification number. The appropriate value should be provided as the distinct identification code."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4437-3348)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId.root">
+            <path value="Observation.templateId.root"/>
+            <label value="template oid"/>
+            <short value="template oid"/>
+            <definition value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.308&quot; (CONF:4437-3350)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.308"/>
+        </element>
+        <element id="Observation.templateId.extension">
+            <path value="Observation.templateId.extension"/>
+            <short value="extension"/>
+            <definition value="This templateId SHALL contain exactly one [1..1] @extension=&quot;2019-06-21&quot; (CONF:4437-3351)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2019-06-21"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <label value="Distinct Identification Code from NCIt"/>
+            <short value="Distinct Identification Code from NCIt"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:4437-3349)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;C113843&quot; Distinct Identification Code  (CodeSystem: NCI Thesaurus (NCIt) urn:oid:2.16.840.1.113883.3.26.1.1 STATIC) (CONF:4437-3355)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="C113843"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.3.26.1.1&quot; (CONF:4437-3352)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.3.26.1.1"/>
+        </element>
+        <element id="Observation.code.codeSystemName">
+            <path value="Observation.code.codeSystemName"/>
+            <short value="codeSystemName"/>
+            <definition value="This code MAY contain zero or one [0..1] @codeSystemName=&quot;NCI Thesaurus&quot; (CONF:4437-3353)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="NCI Thesaurus"/>
+        </element>
+        <element id="Observation.code.displayName">
+            <path value="Observation.code.displayName"/>
+            <short value="displayName"/>
+            <definition value="This code MAY contain zero or one [0..1] @displayName=&quot;Distinct Identification Code&quot; (CONF:4437-3354)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="Distinct Identification Code"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <short value="value"/>
+            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;ED&quot; (CONF:4437-3340)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

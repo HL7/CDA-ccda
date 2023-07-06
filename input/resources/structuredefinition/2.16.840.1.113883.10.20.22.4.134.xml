@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents characteristics of a wound (e.g., integrity of suture line, odor, erythema)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -114,16 +116,17 @@
             <slicing>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.value:woundCharacteristic">
             <path value="Observation.value"/>
             <sliceName value="woundCharacteristic"/>
             <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Wound Characteristic urn:oid:2.16.840.1.113883.11.20.9.58 DYNAMIC (CONF:1098-29947)."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
-            <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.58"/>

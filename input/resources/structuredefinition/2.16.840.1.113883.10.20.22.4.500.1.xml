@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.4.500.1"/>
+    <meta>
+        <versionId value="3"/>
+        <lastUpdated value="2023-06-29T20:25:18.661Z"/>
+    </meta>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.500.1"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.1:2022-06-01"/>
+    </identifier>
+    <version value="2022-06-01"/>
+    <name value="CareTeamMemberActV2"/>
+    <title value="Care Team Member Act (V2)"/>
+    <status value="active"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template is used to represent a member of the care team. Care team members can include healthcare and community services providers, caregivers, relatives, the patient themselves, etc. A care team member can be another care team or an organization. &#xA;Care team member attributes include the following:&#xA;	Care team member status on the care team&#xA;	Care team member time (e.g. duration, point-in-time, etc.) on the care team&#xA;	Schedule of the care team member describing when the care team member usually participates on the care team&#xA;	Care team member function on the care team such as the care team member specialty, relationship to the patient, and also role on the care team&#xA;	Care team member name, address, telecom, organization, etc. &#xA;	Care team member information (narrative description about the care team member)&#xA;&#xA;The performer/assignedEntity/id may be set equal to (a pointer to) an id on a performer elsewhere in the document (header or entries) or a new performer can be described here. If the id is pointing to a performer already described elsewhere in the document, assignedEntity/id is sufficient to identify this performer and none of the remaining details of assignedEntity are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text.&#xA;&#xA;This id must be a pointer to another Performer."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Act">
+            <path value="Act"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Provision of Care (CONF:4515-53)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="PCPR"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CONF:4515-54)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="EVN"/>
+        </element>
+        <element id="Act.templateId">
+            <path value="Act.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-45) such that it"/>
+            <min value="1"/>
+        </element>
+        <element id="Act.templateId:templateId1">
+            <path value="Act.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-45) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.templateId:templateId1.root">
+            <path value="Act.templateId.root"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.500.1&quot; (CONF:4515-66)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.500.1"/>
+        </element>
+        <element id="Act.templateId:templateId1.extension">
+            <path value="Act.templateId.extension"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-67)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2022-06-01"/>
+        </element>
+        <element id="Act.code">
+            <path value="Act.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:4515-27)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.code.code">
+            <path value="Act.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;85847-2&quot; Patient Care team information (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-48)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="85847-2"/>
+        </element>
+        <element id="Act.code.codeSystem">
+            <path value="Act.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:4515-49)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Act.statusCode">
+            <path value="Act.statusCode"/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4515-62)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.statusCode.code">
+            <path value="Act.statusCode.code"/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 STATIC 2019-05-27 (CONF:4515-68)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15933"/>
+            </binding>
+        </element>
+        <element id="Act.effectiveTime">
+            <path value="Act.effectiveTime"/>
+            <short value="effectiveTime"/>
+            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-33)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.effectiveTime.low">
+            <path value="Act.effectiveTime.low"/>
+            <short value="low"/>
+            <definition value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:4515-167)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.effectiveTime.high">
+            <path value="Act.effectiveTime.high"/>
+            <short value="high"/>
+            <definition value="This effectiveTime MAY contain zero or one [0..1] high (CONF:4515-168)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.performer">
+            <path value="Act.performer"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="sdtcFunctionCode"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="assignedEntity"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] performer (CONF:4515-160) such that it"/>
+            <min value="1"/>
+        </element>
+        <element id="Act.performer:performer1">
+            <path value="Act.performer"/>
+            <sliceName value="performer1"/>
+            <short value="performer"/>
+            <definition value="SHALL contain exactly one [1..1] performer (CONF:4515-160) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.performer:performer1.sdtcFunctionCode">
+            <path value="Act.performer.sdtcFunctionCode"/>
+            <label value="	This sdtc:functionCode represents the function or role of the member on the care team. For example, the care team member roles on the care team can be a caregiver and a professional nurse or a primary care provider and the care coordinator."/>
+            <short value="	This sdtc:functionCode represents the function or role of the member on the care team. For example, the care team member roles on the care team can be a caregiver and a professional nurse or a primary care provider and the care coordinator."/>
+            <definition value="MAY contain zero or one [0..1] sdtc:functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-161)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.30"/>
+            </binding>
+        </element>
+        <element id="Act.performer:performer1.assignedEntity">
+            <path value="Act.performer.assignedEntity"/>
+            <short value="assignedEntity"/>
+            <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:4515-175)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.performer:performer1.assignedEntity.id">
+            <path value="Act.performer.assignedEntity.id"/>
+            <short value="id"/>
+            <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-176)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <constraint>
+                <key value="4515-180"/>
+                <severity value="error"/>
+                <human value="If the assignedEntity/id is not referencing a Performer elsewhere in the document with an assignedPerson populated, this assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4515-180)."/>
+            </constraint>
+        </element>
+        <element id="Act.performer:performer1.assignedEntity.id.root">
+            <path value="Act.performer.assignedEntity.id.root"/>
+            <short value="root"/>
+            <definition value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4515-177)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="Act.performer:performer1.assignedEntity.addr">
+            <path value="Act.performer.assignedEntity.addr"/>
+            <short value="addr"/>
+            <definition value="This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer:performer1.assignedEntity.telecom">
+            <path value="Act.performer.assignedEntity.telecom"/>
+            <short value="telecom"/>
+            <definition value="This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4515-183)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer:performer1.assignedEntity.assignedPerson">
+            <path value="Act.performer.assignedEntity.assignedPerson"/>
+            <label value="This assignedPerson must be present on at least one performer in this document for each unique assignedEntity/id."/>
+            <short value="This assignedPerson must be present on at least one performer in this document for each unique assignedEntity/id."/>
+            <definition value="This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-178)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.performer:performer1.assignedEntity.assignedPerson.name">
+            <path value="Act.performer.assignedEntity.assignedPerson.name"/>
+            <short value="name"/>
+            <definition value="The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4515-179)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="Act.performer:performer1.assignedEntity.representedOrganization">
+            <path value="Act.performer.assignedEntity.representedOrganization"/>
+            <short value="representedOrganization"/>
+            <definition value="This assignedEntity MAY contain zero or one [0..1] representedOrganization (CONF:4515-181)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <constraint>
+                <key value="4515-184"/>
+                <severity value="error"/>
+                <human value="When a provider is working on behalf of an organization an addr &amp; telecom **SHALL** be present in representedOrganization (CONF:4515-184)."/>
+            </constraint>
+        </element>
+        <element id="Act.participant">
+            <path value="Act.participant"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="participantRole"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"/>
+        </element>
+        <element id="Act.participant:participant2">
+            <path value="Act.participant"/>
+            <sliceName value="participant2"/>
+            <short value="participant"/>
+            <definition value="MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.participant:participant2.typeCode">
+            <path value="Act.participant.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-174)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="LOC"/>
+        </element>
+        <element id="Act.participant:participant2.participantRole">
+            <path value="Act.participant.participantRole"/>
+            <short value="participantRole"/>
+            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:4515-173)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.participant:participant1">
+            <path value="Act.participant"/>
+            <sliceName value="participant1"/>
+            <short value="participant"/>
+            <definition value="MAY contain zero or more [0..*] participant (CONF:4515-76) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+            <constraint>
+                <key value="4515-172"/>
+                <severity value="error"/>
+                <human value="This participantRole SHALL contain exactly one [1..1] @nullFlavor=&quot;NI&quot; No Information. (CONF:4515-172)."/>
+            </constraint>
+        </element>
+        <element id="Act.participant:participant1.typeCode">
+            <path value="Act.participant.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect Target (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-78)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="IND"/>
+        </element>
+        <element id="Act.participant:participant1.sdtcFunctionCode">
+            <path value="Act.participant.sdtcFunctionCode"/>
+            <short value="sdtc:functionCode"/>
+            <definition value="SHALL contain exactly one [1..1] sdtc:functionCode, which SHALL be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-169)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.30"/>
+            </binding>
+        </element>
+        <element id="Act.entryRelationship">
+            <path value="Act.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-86) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-87)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="REFR"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <short value="encounter"/>
+            <definition value="SHALL contain exactly one [1..1] encounter (CONF:4515-88)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.encounter.id">
+            <path value="Act.entryRelationship.encounter.id"/>
+            <short value="id"/>
+            <definition value="This encounter SHALL contain exactly one [1..1] id (CONF:4515-89)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <constraint>
+                <key value="4515-90"/>
+                <severity value="error"/>
+                <human value="If the id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor=NA, then this entry SHALL conform to the Encounter Activity (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4515-90)."/>
+            </constraint>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship2">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="entryRelationship2"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-91) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship2.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-92)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="REFR"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship2.act">
+            <path value="Act.entryRelationship.act"/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-93)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.202"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship3">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="entryRelationship3"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship3.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-96)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="REFR"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship3.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Care Team Member Schedule Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.3:2022-06-01) (CONF:4515-95)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.500.3"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

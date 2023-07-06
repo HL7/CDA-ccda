@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents a patient's daily self-care ability. These activities are called Activities of Daily Living (ADL) and Instrumental Activities of Daily Living (IADL). ADLs involve caring for and moving of the body (e.g., dressing, bathing, eating). IADLs support an independent life style (e.g., cooking, managing medications, driving, shopping)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -105,6 +107,7 @@
             <slicing>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.value:ability">
             <path value="Observation.value"/>

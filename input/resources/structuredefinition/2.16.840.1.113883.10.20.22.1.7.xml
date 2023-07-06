@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory agencies. &#xA;&#xA;The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
@@ -47,6 +48,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="2"/>
         </element>
         <element id="ClinicalDocument.templateId:secondary">
             <path value="ClinicalDocument.templateId"/>
@@ -152,6 +154,7 @@
                 <rules value="open"/>
             </slicing>
             <short value="This performer represents any assistants."/>
+            <min value="1"/>
         </element>
         <element id="documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
@@ -295,6 +298,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component1">
             <path value="ClinicalDocument.component.structuredBody.component"/>

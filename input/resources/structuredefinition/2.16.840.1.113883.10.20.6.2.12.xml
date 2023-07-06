@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="DICOM Template 2000 specifies that Imaging Report Elements of Value Type Text are contained in sections. The Imaging Report Elements are inferred from Basic Diagnostic Imaging Report Observations that consist of image references and measurements (linear, area, volume, and numeric). Text DICOM Imaging Report Elements in this context are mapped to CDA text observations that are section components and are related to the SOP Instance Observations (templateId 2.16.840.1.113883.10.20.6.2.8) or Quantity Measurement Observations (templateId 2.16.840.1.113883.10.20.6.2.14) by the SPRT (Support) act relationship.&#xD;&#xA;&#xD;&#xA;A Text Observation is required if the findings in the section text are represented as inferred from SOP Instance Observations."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>

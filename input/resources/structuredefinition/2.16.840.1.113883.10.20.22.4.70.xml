@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="The pressure ulcer observation contains details about the pressure ulcer such as the stage of the ulcer, location, and dimensions. If the pressure ulcer is a diagnosis, you may find this on the problem list. An example of how this would appear is in the Problem Section.&#xA;&#xA;THIS TEMPLATE HAS BEEN DEPRECATED IN C-CDA R2 AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for deprecation*: This template has been replaced by Longitudinal Care Wound Observation (2.16.840.1.113883.10.20.22.4.114)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -66,6 +67,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -154,10 +156,10 @@
             <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Pressure Ulcer Stage urn:oid:2.16.840.1.113883.11.20.9.35 STATIC 2014-09-01 (CONF:1098-14396)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="Pressure Ulcer Stage"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
+            <patternString value="Pressure Ulcer Stage"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.35"/>

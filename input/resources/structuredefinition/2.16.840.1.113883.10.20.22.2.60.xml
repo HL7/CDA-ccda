@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents patient Goals. A goal is a defined outcome or condition to be achieved in the process of patient care. Goals include patient-defined over-arching goals (e.g., alleviation of health concerns, desired/intended positive outcomes from interventions, longevity, function, symptom management, comfort) and health concern-specific or intervention-specific goals to achieve desired outcomes."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -48,6 +49,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
@@ -105,6 +107,7 @@
                 <rules value="open"/>
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
+            <min value="1"/>
         </element>
         <element id="Section.entry:goal">
             <path value="Section.entry"/>

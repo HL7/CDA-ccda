@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="An Authorization Activity represents authorizations or pre-authorizations currently active for the patient for the particular payer. &#xA;&#xA;Authorizations are represented using an act subordinate to the policy or program that provided it. The authorization refers to the policy or program. Authorized treatments can be grouped into an organizer class, where common properties, such as the reason for the authorization, can be expressed. Subordinate acts represent what was authorized."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -85,6 +87,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.entryRelationship:target">
             <path value="Act.entryRelationship"/>

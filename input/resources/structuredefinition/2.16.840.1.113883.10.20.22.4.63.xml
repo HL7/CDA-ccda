@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="A Series Act contains the DICOM series information for referenced DICOM composite objects. The series information defines the attributes that are used to group composite instances into distinct logical sets. Each series is associated with exactly one study. Series Act clinical statements are only instantiated in the DICOM Object Catalog section inside a Study Act, and thus do not require a separate templateId; in other sections, the SOP Instance Observation is included directly."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -164,6 +166,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.entryRelationship:SOPInstanceObservation">
             <path value="Act.entryRelationship"/>

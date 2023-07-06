@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="A Quantity Measurement Observation records quantity measurements based on image data such as linear, area, volume, and numeric measurements. The codes in DIRQuantityMeasurementTypeCodes (ValueSet: 2.16.840.1.113883.11.20.9.29) are from the qualifier hierarchy of SNOMED CT and are not valid for observation/code according to the Term Info guidelines. These codes can be used for backwards compatibility, but going forward, codes from the observable entity hierarchy will be requested and used."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>

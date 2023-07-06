@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.5.8"/>
+    <meta>
+        <versionId value="2"/>
+        <lastUpdated value="2023-06-29T20:26:56.850Z"/>
+    </meta>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.8"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.5.8:2023-05-01"/>
+    </identifier>
+    <version value="2023-05-01"/>
+    <name value="RelatedPersonRelationshipAndNameParticipant"/>
+    <title value="Related Person Relationship and Name Participant"/>
+    <status value="draft"/>
+    <publisher value="Namaste Informatics"/>
+    <contact>
+        <name value="Gay Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="9493028082"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gdolin@NamasteInformatics.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template represents a generic participant person that has a relationship to the patient. (e.g., parent, next-of-kin, neighbor). The related person's name is required and it is recommended that the person's contact information is present. The more specific CDA participant of Guardian (recordTarget/patientRole/patient/guardian) can be used to represent a legally responsible guardian of the patient within the header. This template may be used to represent a person with any relationship to the patient within the header, or at the entry level when pertinent to a particular clinical statement."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Participant1">
+            <path value="Participant1"/>
+        </element>
+        <element id="Participant1.typeCode">
+            <path value="Participant1.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4537-32982)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternCode value="IND"/>
+        </element>
+        <element id="Participant1.templateId">
+            <path value="Participant1.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="Participant1.root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="Participant1.extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Participant1.templateId:templateId1">
+            <path value="Participant1.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-32977) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.templateId:templateId1.root">
+            <path value="Participant1.templateId.root"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.5.8&quot; (CONF:4537-32983)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.5.8"/>
+        </element>
+        <element id="Participant1.templateId:templateId1.extension">
+            <path value="Participant1.templateId.extension"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32984)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2023-05-01"/>
+        </element>
+        <element id="Participant1.associatedEntity">
+            <path value="Participant1.associatedEntity"/>
+            <short value="associatedEntity"/>
+            <definition value="SHALL contain exactly one [1..1] associatedEntity (CONF:4537-32978)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.associatedEntity.classCode">
+            <path value="Participant1.associatedEntity.classCode"/>
+            <short value="classCode"/>
+            <definition value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;PRS&quot; Person (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111) (CONF:4537-33076)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternCode value="PRS"/>
+        </element>
+        <element id="Participant1.associatedEntity.code">
+            <path value="Participant1.associatedEntity.code"/>
+            <short value="code"/>
+            <definition value="This associatedEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-32985)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
+            </binding>
+        </element>
+        <element id="Participant1.associatedEntity.addr">
+            <path value="Participant1.associatedEntity.addr"/>
+            <short value="addr"/>
+            <definition value="This associatedEntity SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-32979)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+        <element id="Participant1.associatedEntity.telecom">
+            <path value="Participant1.associatedEntity.telecom"/>
+            <short value="telecom"/>
+            <definition value="This associatedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-32986)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Participant1.associatedEntity.associatedPerson">
+            <path value="Participant1.associatedEntity.associatedPerson"/>
+            <short value="associatedPerson"/>
+            <definition value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:4537-32980)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.associatedEntity.associatedPerson.name">
+            <path value="Participant1.associatedEntity.associatedPerson.name"/>
+            <short value="name"/>
+            <definition value="This associatedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-32987)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

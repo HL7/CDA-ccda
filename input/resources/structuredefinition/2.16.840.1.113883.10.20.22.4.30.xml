@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This template reflects an ongoing concern on behalf of the provider that placed the allergy on a patient's allergy list. As long as the underlying condition is of concern to the provider (i.e., as long as the allergy, whether active or resolved, is of ongoing concern and interest to the provider), the statusCode is &quot;active&quot;. Only when the underlying allergy is no longer of concern is the statusCode set to &quot;completed&quot;. The effectiveTime reflects the time that the underlying allergy was felt to be a concern.&#xA;&#xA;The statusCode of the Allergy Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy is resolved. &#xA;&#xA;The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -61,6 +62,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -160,6 +162,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.entryRelationship:allergyObs">
             <path value="Act.entryRelationship"/>

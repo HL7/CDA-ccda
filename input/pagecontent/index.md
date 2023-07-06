@@ -1,5 +1,3 @@
-{% include note-to-balloters.md %}
-
 ### Purpose
 
 This two-volume implementation guide (IG) contains an overview of Clinical Document Architecture (CDA) markup standards, design, and use (Volume 1) and a consolidated library of CDA templates for clinical notes applicable to the US Realm (Volume 2). These two volumes comprise a Draft Standard for Trial Use (DSTU).

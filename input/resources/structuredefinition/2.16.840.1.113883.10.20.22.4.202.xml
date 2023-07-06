@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.4.202"/>
+    <meta>
+        <versionId value="2"/>
+        <lastUpdated value="2023-06-29T20:25:20.640Z"/>
+    </meta>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.202"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01"/>
+    </identifier>
+    <version value="2016-11-01"/>
+    <name value="Note Activity"/>
+    <title value="Note Activity"/>
+    <status value="active"/>
+    <publisher value="Redox"/>
+    <contact>
+        <name value="Benjamin Flessner"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="6085748236"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="digimuzik@gmail.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Note Activity represents a clinical note. Notes require authorship, authentication, timing information, and references to other discrete data such as encounters. Similar to the Comment Activity, the Note Activity permits a more specific code to characterize the type of information available in the note. The Note Activity template SHOULD NOT be used in place of a more specific C-CDA entry. Note information included needs to be relevant and pertinent to the information being communicated in the document.&#xA;When the note information augments data represented in a more specific entry template, the Note Activity can be used in an entryRelationship to the associated standard C-CDA entry. For example, a Procedure Note added as an entryRelationship to a Procedure Activity Procedure entry). &#xA;The Note Activity template can be used as a standalone entry within a standard C-CDA section (e.g., a note about various procedures which have occurred during a visit as an entry in the Procedures Section) when it does not augment another standard entry. It may also be used to provide additional data about the source of a currently narrative-only section, such as Hospital Course.&#xA;Finally, if the type of data in the note is not known or no single C-CDA section is appropriate enough, the Note Activity should be placed in a Notes Section. (e.g., a free-text consultation note or a note which includes subjective, objective, assessment, and plan information combined).&#xA;An alternative is to place the Note Activity as an entryRelationship to an Encounter Activity entry in the Encounters Section, but implementers may wish to group notes categorically into a separate location in CDA documents rather than overloading the Encounters Section."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Act">
+            <path value="Act"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CONF:3250-16899)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CONF:3250-16900)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="EVN"/>
+        </element>
+        <element id="Act.templateId">
+            <path value="Act.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:3250-16933) such that it"/>
+            <min value="1"/>
+        </element>
+        <element id="Act.templateId:templateId1">
+            <path value="Act.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:3250-16933) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.templateId:templateId1.root">
+            <path value="Act.templateId.root"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.202&quot; (CONF:3250-16934)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.202"/>
+        </element>
+        <element id="Act.templateId:templateId1.extension">
+            <path value="Act.templateId.extension"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2016-11-01&quot; (CONF:3250-16937)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2016-11-01"/>
+        </element>
+        <element id="Act.code">
+            <path value="Act.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:3250-16895)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.code.code">
+            <path value="Act.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;34109-9&quot; Note (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="34109-9"/>
+        </element>
+        <element id="Act.code.codeSystem">
+            <path value="Act.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:3250-16941)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Act.code.translation">
+            <path value="Act.code.translation"/>
+            <short value="translation"/>
+            <definition value="This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <constraint>
+                <key value="3250-16942"/>
+                <severity value="warning"/>
+                <human value="If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."/>
+            </constraint>
+            <constraint>
+                <key value="3250-16943"/>
+                <severity value="warning"/>
+                <human value="If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943)."/>
+            </constraint>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68"/>
+            </binding>
+        </element>
+        <element id="Act.text">
+            <path value="Act.text"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:3250-16896)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.text.mediaType">
+            <path value="Act.text.mediaType"/>
+            <short value="mediaType"/>
+            <definition value="This text MAY contain zero or one [0..1] @mediaType, which SHOULD be selected from ValueSet SupportedFileFormats urn:oid:2.16.840.1.113883.11.20.7.1 DYNAMIC (CONF:3250-16906)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <constraint>
+                <key value="3250-16912"/>
+                <severity value="error"/>
+                <human value="If @mediaType is present, the text SHALL contain exactly one [1..1] @representation=&quot;B64&quot; and mixed content corresponding to the contents of the note (CONF:3250-16912)."/>
+            </constraint>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.7.1"/>
+            </binding>
+        </element>
+        <element id="Act.text.reference">
+            <path value="Act.text.reference"/>
+            <short value="reference"/>
+            <definition value="This text SHALL contain exactly one [1..1] reference (CONF:3250-16897)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.text.reference.nullFlavor">
+            <path value="Act.text.reference.nullFlavor"/>
+            <short value="nullFlavor"/>
+            <definition value="This reference SHALL NOT contain [0..0] @nullFlavor (CONF:3250-16920)."/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.text.reference.value">
+            <path value="Act.text.reference.value"/>
+            <short value="value"/>
+            <definition value="This reference SHALL contain exactly one [1..1] @value (CONF:3250-16898)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <constraint>
+                <key value="3250-16902"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:3250-16902)."/>
+            </constraint>
+        </element>
+        <element id="Act.statusCode">
+            <path value="Act.statusCode"/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:3250-16916)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.effectiveTime">
+            <path value="Act.effectiveTime"/>
+            <short value="effectiveTime"/>
+            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:3250-16903)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.effectiveTime.value">
+            <path value="Act.effectiveTime.value"/>
+            <short value="value"/>
+            <definition value="This effectiveTime SHOULD contain zero or one [0..1] @value (CONF:3250-16917)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.author">
+            <path value="Act.author"/>
+            <short value="author"/>
+            <definition value="SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:3250-16913)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+            </type>
+        </element>
+        <element id="Act.participant">
+            <path value="Act.participant"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="participantRole"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"/>
+        </element>
+        <element id="Act.participant:participant1">
+            <path value="Act.participant"/>
+            <sliceName value="participant1"/>
+            <short value="participant"/>
+            <definition value="MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.participant:participant1.typeCode">
+            <path value="Act.participant.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;LA&quot; Legal Authenticator (CONF:3250-16925)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="LA"/>
+        </element>
+        <element id="Act.participant:participant1.time">
+            <path value="Act.participant.time"/>
+            <short value="time"/>
+            <definition value="SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:3250-16926)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <!--SG 2023-06-02 Updated this from IVL_TS to IVL-TS-->
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.3"/>
+            </type>
+        </element>
+        <element id="Act.participant:participant1.participantRole">
+            <path value="Act.participant.participantRole"/>
+            <short value="participantRole"/>
+            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:3250-16924)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <constraint>
+                <key value="3250-16930"/>
+                <severity value="error"/>
+                <human value="If no id matches an author or participant elsewhere in the document, then playingEntity SHALL be present (CONF:3250-16930)."/>
+            </constraint>
+        </element>
+        <element id="Act.participant:participant1.participantRole.id">
+            <path value="Act.participant.participantRole.id"/>
+            <short value="id"/>
+            <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:3250-16927)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.participant:participant1.participantRole.playingEntity">
+            <path value="Act.participant.participantRole.playingEntity"/>
+            <short value="playingEntity"/>
+            <definition value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:3250-16928)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.participant:participant1.participantRole.playingEntity.name">
+            <path value="Act.participant.participantRole.playingEntity.name"/>
+            <short value="name"/>
+            <definition value="The playingEntity, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:3250-16929)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship">
+            <path value="Act.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="encounter"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="inversionInd"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="entryRelationship1"/>
+            <short value="entryRelationship"/>
+            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:3250-16921)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="COMP"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.inversionInd">
+            <path value="Act.entryRelationship.inversionInd"/>
+            <short value="inversionInd"/>
+            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:3250-16922)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="true"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.negationInd">
+            <path value="Act.entryRelationship.negationInd"/>
+            <short value="negationInd"/>
+            <definition value="MAY contain zero or one [0..1] @negationInd (CONF:3250-16931)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <short value="encounter"/>
+            <definition value="SHALL contain exactly one [1..1] encounter (CONF:3250-16908)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship1.encounter.id">
+            <path value="Act.entryRelationship.encounter.id"/>
+            <short value="id"/>
+            <definition value="This encounter SHALL contain at least one [1..*] id (CONF:3250-16909)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <constraint>
+                <key value="3250-16914"/>
+                <severity value="error"/>
+                <human value="If the id does not match an encounter/id from the Encounters Section or encompassingEncounter within the same document and the id does not contain @nullFlavor=&quot;NA&quot;, then this entry SHALL conform to the Encounter Activity (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:3250-16914)."/>
+            </constraint>
+        </element>
+        <element id="Act.reference">
+            <path value="Act.reference"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="externalDocument"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"/>
+        </element>
+        <element id="Act.reference:reference1">
+            <path value="Act.reference"/>
+            <sliceName value="reference1"/>
+            <short value="reference"/>
+            <definition value="MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.reference:reference1.externalDocument">
+            <path value="Act.reference.externalDocument"/>
+            <short value="externalDocument"/>
+            <definition value="SHALL contain exactly one [1..1] externalDocument (CONF:3250-16911)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.reference:reference1.externalDocument.id">
+            <path value="Act.reference.externalDocument.id"/>
+            <short value="id"/>
+            <definition value="This externalDocument SHALL contain exactly one [1..1] id (CONF:3250-16915)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.reference:reference1.externalDocument.code">
+            <path value="Act.reference.externalDocument.code"/>
+            <short value="code"/>
+            <definition value="This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>
