@@ -540,8 +540,10 @@
                 <rules value="open"/>
             </slicing>
         </element>
+        <!-- SG 20230709: Adding missing sliceName -->
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.entry:act">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
+            <sliceName value="act"/>
             <short value="If the service context of a section is different from the value specified in documentationOf/serviceEvent, then the section SHALL contain one or more entries containing Procedure Context (templateId 2.16.840.1.113883.10.20.6.2.5), which will reset the context for any clinical statements nested within those elements"/>
             <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31213)."/>
             <min value="0"/>
@@ -557,8 +559,8 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
             </type>
         </element>
-        <!-- SG 2023-09-06: Added :component3 slice to all the following until the end - this is a really
-             odd way of doing this in CDA - these are all defined inside the document rathern than in a section 
+        <!-- SG 20230906: Added :component3 slice to all the following until the end - this is a really
+             odd way of doing this in CDA - these are all defined inside the document rather than in a section 
              hopefully it translates ok into FHIR -->
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.entry:textObs">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
@@ -579,7 +581,7 @@
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.entry:codeObs">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry3"/>
+            <sliceName value="codeObs"/>
             <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31359) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -596,7 +598,7 @@
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.entry:quantityObs">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry4"/>
+            <sliceName value="quantityObs"/>
             <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31361) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -613,7 +615,7 @@
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.entry:instanceObs">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
-            <sliceName value="entry5"/>
+            <sliceName value="instanceObs"/>
             <requirements value="This section MAY contain zero or more [0..*] entry (CONF:1198-31363) such that it"/>
             <min value="0"/>
             <max value="*"/>
