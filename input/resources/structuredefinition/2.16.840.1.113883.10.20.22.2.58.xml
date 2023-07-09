@@ -40,7 +40,7 @@
             <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32802)."/>
             <min value="0"/>
             <max value="1"/>
-            <patternCode value="NI"/>
+            <fixedCode value="NI"/>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
@@ -117,6 +117,7 @@
                     <type value="profile"/>
                     <path value="observation.resolve()"/>
                 </discriminator>
+                <rules value="open"/>
             </slicing>
             <min value="1"/>
             <max value="*"/>

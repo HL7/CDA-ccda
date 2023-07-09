@@ -99,6 +99,7 @@
                 <key value="81-8951"/>
                 <severity value="warning"/>
                 <human value="The target of an authorization activity with act/entryRelationship/@typeCode=&quot;SUBJ&quot; SHALL be a clinical statement with moodCode=&quot;PRMS&quot; Promise (CONF:81-8951)."/>
+                <expression value="act or observation or procedure or substanceAdministration or supply"/>
             </constraint>
             <constraint>
                 <key value="81-8952"/>
@@ -111,7 +112,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-8949)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <fixedCode value="SUBJ"/>
         </element>
     </differential>
 </StructureDefinition>

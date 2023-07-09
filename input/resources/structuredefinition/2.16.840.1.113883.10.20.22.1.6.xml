@@ -124,7 +124,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Individual (CodeSystem: HL7ParticipationFunction urn:oid:2.16.840.1.113883.5.88 STATIC) (CONF:1198-8505)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="IND"/>
+            <fixedCode value="IND"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.functionCode">
             <path value="ClinicalDocument.participant.functionCode"/>
@@ -237,7 +237,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;PPRF&quot; Primary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8521)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="PPRF"/>
+            <fixedCode value="PPRF"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
@@ -267,7 +267,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRF&quot; Secondary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32734)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SPRF"/>
+            <fixedCode value="SPRF"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
@@ -297,7 +297,7 @@
             <requirements value="The authorization, if present, SHALL contain exactly one [1..1] @typeCode=&quot;AUTH&quot; authorized by (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32413)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="AUTH"/>
+            <fixedCode value="AUTH"/>
         </element>
         <element id="ClinicalDocument.authorization.consent">
             <path value="ClinicalDocument.authorization.consent"/>
@@ -337,10 +337,12 @@
             <min value="1"/>
             <max value="1"/>
         </element>
+        <!-- SG 20230709: EncompassingEncounter.id is required in US Realm Header -->
         <element id="ClinicalDocument.componentOf.encompassingEncounter.id">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.id"/>
+            <short value="SG 20230709: EncompassingEncounter.id is required in US Realm Header - this is an illegal constraint - deleted min=0"/>
             <requirements value="This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)."/>
-            <min value="0"/>
+            <!--<min value="0"/>-->
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.code">
@@ -371,13 +373,15 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REF&quot; Referrer (CONF:1198-30875)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REF"/>
+            <fixedCode value="REF"/>
         </element>
+        <!-- SG 20230709: EncompassingEncounter.location can have a maximum of 1 (CDA Base) -->
         <element id="ClinicalDocument.componentOf.encompassingEncounter.location">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.location"/>
+            <short value="SG 20230709: EncompassingEncounter.location can have a maximum of 1 (CDA Base) - this is an illegal constraint - deleted max=*"/>
             <requirements value="This encompassingEncounter SHALL contain at least one [1..*] location (CONF:1198-30876)."/>
             <min value="1"/>
-            <max value="*"/>
+            <!--<max value="*"/>-->
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility"/>

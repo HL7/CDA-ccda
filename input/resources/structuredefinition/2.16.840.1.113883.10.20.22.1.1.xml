@@ -41,6 +41,10 @@
             <definition value="SHALL contain exactly one [1..1] realmCode=&quot;US&quot; (CONF:4537-16791)."/>
             <min value="1"/>
             <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.realmCode.code">
+            <path value="ClinicalDocument.realmCode.code"/>
+            <min value="1"/>
             <patternString value="US"/>
         </element>
         <element id="ClinicalDocument.typeId">
@@ -319,8 +323,8 @@
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.recordTarget.patientRole.patient.deceasedTime.value">
-            <path value="ClinicalDocument.recordTarget.patientRole.patient.deceasedTime.value"/>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime.value">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime.value"/>
             <short value="value"/>
             <definition value="The sdtc:deceasedTime, if present, SHOULD contain zero or one [0..1] @value (CONF:4537-32989)."/>
             <min value="0"/>
@@ -678,7 +682,7 @@
             <definition value="MAY contain zero or one [0..1] @nullFlavor=&quot;UNK&quot; Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4537-32883)."/>
             <min value="0"/>
             <max value="1"/>
-            <patternString value="UNK"/>
+            <fixedCode value="UNK"/>
         </element>
         <element id="author.assignedAuthor.ClinicalDocument.author.assignedAuthor.id:id1.root">
             <path value="ClinicalDocument.author.assignedAuthor.id.root"/>
@@ -1556,7 +1560,7 @@
             <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-16798)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>

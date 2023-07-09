@@ -115,7 +115,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31872)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="IND"/>
+            <fixedCode value="IND"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
@@ -157,7 +157,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; Call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31627)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="CALLBCK"/>
+            <fixedCode value="CALLBCK"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
@@ -258,7 +258,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;PRF&quot; Participation of Physical Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31575)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="PRF"/>
+            <fixedCode value="PRF"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
@@ -293,8 +293,11 @@
                 <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (V2) (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (V2) (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-31583)."/>
             </constraint>
         </element>
+        <!-- SG 20230708: This is wrong in C-CDA - it's a should 0..1 which causes an error because CDA says you have to have 1
+             deleted min=0 -->
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>
+            <short value="SG 20230708: This is wrong in C-CDA - it's a should 0..1 which causes an error because CDA says you have to have 1 - deleted min=0"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
@@ -302,7 +305,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:advanceDirectives">

@@ -137,19 +137,21 @@
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
+        <!-- SG 20230706: constraint not entered "properly" deleted fixedString="Completed" here - it's already in the
+             next element and shoudln't be here - entered weird/wrong in TWB-->
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
+            <short value="SG 20230706: constraint not entered 'properly' deleted fixedString='Completed here - it's already in the next element and shoudln't be here - entered weird/wrong in TWB"/>
             <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="Completed"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19082)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -231,7 +233,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;VRF&quot; Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="VRF"/>
+            <fixedCode value="VRF"/>
         </element>
         <element id="Observation.participant.templateId">
             <path value="Observation.participant.templateId"/>
@@ -323,7 +325,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CST&quot; Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="CST"/>
+            <fixedCode value="CST"/>
         </element>
         <element id="Observation.participant:participant2.participantRole">
             <path value="Observation.participant.participantRole"/>
@@ -414,7 +416,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8694)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Observation.reference:reference1.externalDocument">
             <path value="Observation.reference.externalDocument"/>

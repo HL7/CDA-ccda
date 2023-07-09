@@ -45,7 +45,7 @@
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:4515-33010)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
@@ -53,7 +53,7 @@
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-33011)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -118,13 +118,21 @@
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
+        <!-- SG 20230706: constraint not entered "properly" in TWB (or at least not best practice way and not translating 
+             to fhir - added Observation.statusCode.code element and moved patternString to that element -->
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
             <short value="statusCode"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <short value="SG 20230706: constraint not entered 'properly' in TWB (or at least not best practice way and not translating to fhir - added Observation.statusCode.code element and moved patternString to that element"/>
             <definition value="SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4515-33006)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>

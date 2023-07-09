@@ -169,12 +169,14 @@
             <requirements value="The performer, if present, SHALL contain exactly one [1..1] @typeCode=&quot;PRF&quot; Participation physical performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8458)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="PRF"/>
+            <fixedCode value="PRF"/>
         </element>
+        <!-- SG 20230709: Illegal constraint - base has min = 1 (deleted min=0) -->
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
+            <short value="SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"/>
             <requirements value="The performer, if present, MAY contain zero or one [0..1] assignedEntity (CONF:1198-8459)."/>
-            <min value="0"/>
+            <!--<min value="0"/>-->
             <max value="1"/>
         </element>
         <!--SG 2023-06-01 Not really a slice-->

@@ -1,5 +1,3 @@
-[Previous Page - Background](background.html)
-
 Design considerations describe overarching principles that have been developed and applied across the CDA templates in this guide. Material in this section can be thought of as “heuristics,” as opposed to the formal, testable constraints found in Volume 2 of this guide.
 
 ### Compatibility
@@ -314,5 +312,3 @@ If a sender wants to state that a piece of information is unknown, the following
  </observation>
 </entry>
 ```
-
-[Next Page - Using this Implementation Guide](using.html)
