@@ -153,12 +153,16 @@
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
+        <!-- SG 20230709: Add missing type declaration -->
         <element id="Observation.value">
             <path value="Observation.value"/>
             <short value="value"/>
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;IVL_TS&quot; (CONF:4515-14)."/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+            </type>
         </element>
         <element id="Observation.value.low">
             <path value="Observation.value.low"/>
