@@ -174,9 +174,14 @@
             <min value="0"/>
             <max value="*"/>
         </element>
+        <!-- SG 20230709: Fix bad slicing due to erroneous TWB entry -->
         <element id="Observation.value.translation">
             <path value="Observation.value.translation"/>
             <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
         </element>
