@@ -40,14 +40,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32220)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-32221)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -308,21 +308,22 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.74"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:self-CareActivities(ADLandIADL)">
+        <!-- SG 20230709: Slice names can't contain (), removing -->
+        <element id="Act.entryRelationship:self-CareActivitiesADLandIADL">
             <path value="Act.entryRelationship"/>
-            <sliceName value="self-CareActivities(ADLandIADL)"/>
+            <sliceName value="self-CareActivitiesADLandIADL"/>
             <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32186) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:self-CareActivities(ADLandIADL).typeCode">
+        <element id="Act.entryRelationship:self-CareActivitiesADLandIADL.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32238)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:self-CareActivities(ADLandIADL).observation">
+        <element id="Act.entryRelationship:self-CareActivitiesADLandIADL.observation">
             <path value="Act.entryRelationship.observation"/>
             <requirements value="SHALL contain exactly one [1..1] Self-Care Activities (ADL and IADL) (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.128) (CONF:1198-32239)."/>
             <min value="1"/>

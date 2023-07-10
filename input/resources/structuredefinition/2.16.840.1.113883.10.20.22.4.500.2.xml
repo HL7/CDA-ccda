@@ -133,7 +133,8 @@
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
-        <element id="Observation.value">
+        <!-- SG 20230709: Fixed messed up slicing -->
+        <!--<element id="Observation.value">
             <path value="Observation.value"/>
             <slicing>
                 <discriminator>
@@ -144,16 +145,20 @@
             </slicing>
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot; (CONF:4435-98) such that it"/>
             <min value="1"/>
-        </element>
-        <element id="Observation.value:value1">
+        </element>-->
+        <element id="Observation.value">
             <path value="Observation.value"/>
-            <sliceName value="value1"/>
+<!--            <sliceName value="value1"/>-->
             <short value="value"/>
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot; (CONF:4435-98) such that it"/>
             <min value="1"/>
             <max value="1"/>
+            <!-- SG 20230709: added type -->
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
         </element>
-        <element id="Observation.value:value1.code">
+        <element id="Observation.value.code">
             <path value="Observation.value.code"/>
             <short value="code"/>
             <definition value="SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Care Team Category urn:oid:2.16.840.1.113883.4.642.3.155 DYNAMIC (CONF:4435-109)."/>
