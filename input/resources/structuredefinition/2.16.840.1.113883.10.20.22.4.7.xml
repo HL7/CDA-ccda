@@ -180,9 +180,18 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
             </type>
         </element>
+        <!-- SG 20230709: added missing slicing discriminators -->
         <element id="Observation.entryRelationship">
             <path value="Observation.entryRelationship"/>
             <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
         </element>
