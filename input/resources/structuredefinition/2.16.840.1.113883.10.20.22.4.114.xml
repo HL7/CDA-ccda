@@ -115,13 +115,71 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.2.6"/>
             </binding>
         </element>
-        <element id="Observation.targetSiteCode">
+        <!-- SG 20230709: This is entered wrong in TWB, is has the root box checked but no identifier, so there is no disciminator
+             thinking the root was checked by accident, so removing slice (none of the other targetSiteCodes in C-CDA are sliced -->
+        <!--<element id="Observation.targetSiteCode">
             <path value="Observation.targetSiteCode"/>
             <slicing>
                 <rules value="open"/>
             </slicing>
+        </element>-->
+        <!-- SG 20230709: Removing slices -->
+        <element id="Observation.targetSiteCode">
+            <path value="Observation.targetSiteCode"/>
+            <!--<sliceName value="targetSiteCode1"/>-->
+            <requirements value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
+            </binding>
         </element>
-        <element id="Observation.targetSiteCode:targetSiteCode1">
+        <element id="Observation.targetSiteCode.qualifier">
+            <path value="Observation.targetSiteCode.qualifier"/>
+            <short value="If targetSite/qualifierCode name/value pairs are used, care must be taken to avoid conflict with the SNOMED-CT body structure code used in observation/value.  SNOMED-CT body structure codes are often pre-coordinated with laterality."/>
+            <requirements value="MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier.name">
+            <path value="Observation.targetSiteCode.qualifier.name"/>
+            <requirements value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1198-29491)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier.name.code">
+            <path value="Observation.targetSiteCode.qualifier.name.code"/>
+            <requirements value="This name SHALL contain exactly one [1..1] @code=&quot;272741003&quot; laterality (CONF:1198-29492)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="272741003"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier.name.codeSystem">
+            <path value="Observation.targetSiteCode.qualifier.name.codeSystem"/>
+            <requirements value="This name SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.96"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier.value">
+            <path value="Observation.targetSiteCode.qualifier.value"/>
+            <requirements value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier.value.code">
+            <path value="Observation.targetSiteCode.qualifier.value.code"/>
+            <requirements value="This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.37"/>
+            </binding>
+        </element>
+        <!-- SG 20230709: Keeping commented out original code in case this really should be a slice -->
+        <!--<element id="Observation.targetSiteCode:targetSiteCode1">
             <path value="Observation.targetSiteCode"/>
             <sliceName value="targetSiteCode1"/>
             <requirements value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/>
@@ -174,7 +232,8 @@
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.37"/>
             </binding>
-        </element>
+        </element>-->
+        
         <element id="Observation.author">
             <path value="Observation.author"/>
             <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31542)."/>
