@@ -520,7 +520,11 @@ to the C-CDA US Realm Header template and then uses standard LOINC codes for the
 narrative sections.
 
 ```
-<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:cda="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc"> <realmCode code="US"/> <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/> <!-- US Realm Header --> <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/> <id root="2.16.840.1.113883.3.3208.101.1" extension="20130607100315-CCDA-CCD"/> <code code="90371-6" displayName="Clinical pathology Note" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/> <title>Pathology Note</title>
+<ClinicalDocument
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xmlns="urn:hl7-org:v3"
+                            xmlns:cda="urn:hl7-org:v3"
+                            xmlns:sdtc="urn:hl7-org:sdtc"> <realmCode code="US"/> <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/> <!-- US Realm Header --> <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/> <id root="2.16.840.1.113883.3.3208.101.1" extension="20130607100315-CCDA-CCD"/> <code code="90371-6" displayName="Clinical pathology Note" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/> <title>Pathology Note</title>
     …
     The rest of the header here.
     …
@@ -1695,8 +1699,11 @@ Discharge Summary may be sent later to communicate the updated information.
 
 **Example 2: Discharge Summary with no Hospital Course information (see replacement document below).**
 ```
-<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdtc="urn:hl7-
-    org:sdtc" classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3">
+<ClinicalDocument
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xmlns:sdtc="urn:hl7-
+    org:sdtc" classCode="DOCCLIN" moodCode="EVN"
+                            xmlns="urn:hl7-org:v3">
     <realmCode code="US" />
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
     <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08- 01" />
@@ -1729,8 +1736,11 @@ Discharge Summary may be sent later to communicate the updated information.
 > The addition of Hospital Course information is not an errata correction, so it does not generate a new
 version of the document. The new document is indicated to wholly replace the prior document.
 ```
-<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdtc="urn:hl7-
-    org:sdtc" classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3">
+<ClinicalDocument
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xmlns:sdtc="urn:hl7-
+    org:sdtc" classCode="DOCCLIN" moodCode="EVN"
+                            xmlns="urn:hl7-org:v3">
     <realmCode code="US" />
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
     <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08- 01" />

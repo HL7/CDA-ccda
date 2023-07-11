@@ -44,7 +44,8 @@ By including both templateIds the sending application is asserting conformance w
 **C-CDA R2.1 Discharge Summary header example**
 
 ```
-<ClinicalDocument xmlns="urn:hl7-org:v3">
+<ClinicalDocument
+                        xmlns="urn:hl7-org:v3">
  <!-- ** CDA Header ** -->
  <realmCode code="US"/>
  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>

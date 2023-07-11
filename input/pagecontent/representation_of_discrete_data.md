@@ -433,7 +433,8 @@ element entirely). Most other nullFlavors in this example (NI – no information
         <high nullFlavor="UNK"/>
     </effectiveTime>
     <value code="77176002" codeSystem="2.16.840.1.113883.6.96" displayName="Smoker"
-        xsi:type="CD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        xsi:type="CD"
+                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
 </observation>
 ```
 
@@ -451,7 +452,8 @@ element entirely). Most other nullFlavors in this example (NI – no information
         <high nullFlavor="NASK"/>
     </effectiveTime>
     <value code="77176002" codeSystem="2.16.840.1.113883.6.96" displayName="Smoker"
-        xsi:type="CD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        xsi:type="CD"
+                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
 </observation>
 ```
 This is also conveyed in Chapter 3.3 of volume one of C-CDA 2.1. If the resolution to a problem is not known, its
@@ -1390,12 +1392,14 @@ https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.1.11.15933/expansion-->
                     <!--Attributes about the provider member - name-->
                     <performer typeCode="PRF">
                         <functionCode 
-                            xmlns="urn:hl7-org:sdtc" code="PCP"
+
+                                    xmlns="urn:hl7-org:sdtc" code="PCP"
                             displayName="primary care physician"
                             codeSystem="2.16.840.1.113883.5.88"
                             codeSystemName="ParticipationFunction">
                             <originalText
-                                xmlns="urn:hl7-org:v3">
+
+                                    xmlns="urn:hl7-org:v3">
                                 <reference value="#CT1_M01"/>
                             </originalText>
                         </functionCode>
@@ -1793,7 +1797,8 @@ author(s) for the contained Problem Observation(s). -->
                     </effectiveTime>
                     <value code="396275006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                         displayName="Osteoarthritis"
-                        xsi:type="CD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        xsi:type="CD"
+                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                         <originalText>
                             <reference value="#ProblemObs_1_P1"/>
                         </originalText>
@@ -1844,7 +1849,8 @@ author(s) for the contained Problem Observation(s). -->
                             </effectiveTime>
                             <value code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"
                                 xsi:type="CD"
-                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+
+                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                         </observation>
                     </entryRelationship>
                 </observation>
@@ -3731,7 +3737,8 @@ Authorship conducts down into the component observations. -->
                     <statusCode code="completed"/>
                     <effectiveTime value="20160625123300-0500"/>
                     <value xsi:type="PQ" unit="mm[Hg]" value="140"
-                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+
+                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                 </observation>
             </component>
             <component>
@@ -3747,7 +3754,8 @@ Authorship conducts down into the component observations. -->
                     <statusCode code="completed"/>
                     <effectiveTime value="20160625123300-0500"/>
                     <value xsi:type="PQ" unit="mm[Hg]" value="90"
-                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+
+                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                 </observation>
             </component>
             <component>
@@ -3762,7 +3770,8 @@ Authorship conducts down into the component observations. -->
                     <statusCode code="completed"/>
                     <effectiveTime value="20160625123300-0500"/>
                     <value xsi:type="PQ" unit="kg" value="83.915"
-                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+
+                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                 </observation>
             </component>
         </organizer>

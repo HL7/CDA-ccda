@@ -211,21 +211,16 @@ patient identifier, similar to a Social Security Number, but used for healthcare
                                                 bgcolor="#C5D9F0"><p class="s80"
                                                 style="padding-left: 41pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
                                                 >C-CDA Content Creators who choose to include a
-                                                non-null patient address SHOULD follow the <a
-                                                  href="https://oncprojectracking.healthit.gov/wiki/pages/viewpage.action?pageId=180486153&amp;preview=/180486153/237306191/Project%20US%40%20FINAL%20Technical%20Specification%20Version%201.0.pdf"
-                                                  style=" color: #5E6C84; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10pt;"
-                                                  target="_blank">guidance in the </a><span
-                                                  class="s153">Project US@ Technical
-                                                  Specification</span><span class="s81">. </span><a
-                                                  href="#bookmark195"
-                                                  style=" color: #5E6C84; font-family:Calibri, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 10pt;"
-                                                  >[BP-099]</a><a href="#bookmark195" class="s84"
-                                                  >59</a></p></td>
+                                                non-null patient address SHOULD follow the
+                                                 guidance in the <a href="https://oncprojectracking.healthit.gov/wiki/pages/viewpage.action?pageId=180486153&amp;preview=/180486153/237306191/Project%20US%40%20FINAL%20Technical%20Specification%20Version%201.0.pdf">
+                                                 Project US@ Technical Specification</a>
+                                                <b>[BP-099]</b>
+                                                  ^59</p></td>
                                     </tr>
                                 </table>
 
 
-**Example 5: recordTarget with demographic data**
+**Example 5: <a name="example-5:-recordTarget-with-demographic-data">recordTarget with demographic data</a>**
 ```
 <recordTarget>
     <patientRole>
@@ -285,7 +280,7 @@ National Provider ID -->
 </recordTarget>
 ```
 
-**Example 6: recordTarget including the provider organization context for the clinical documentation**
+**Example 6: <a name="recordTarget-including-the-provider-organization">recordTarget including the provider organization context for the clinical documentation</a>**
 ```
 <recordTarget>
     <patientRole>
@@ -492,7 +487,8 @@ and in this instance represents patient's current address -->
             <state>VT</state>
             <postalCode>05455</postalCode>
             <country>US</country>
-            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            <useablePeriod
+                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:type="IVL_TS">
                 <low value="20110822"/>
             </useablePeriod>
@@ -505,7 +501,8 @@ and in this instance represents patient's current address -->
             <state>VT</state>
             <postalCode>05422</postalCode>
             <country>US</country>
-            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            <useablePeriod
+                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:type="IVL_TS">
                 <low value="20110131"/>
                 <high value="20110821"/>
@@ -517,7 +514,8 @@ and in this instance represents patient's current address -->
             <state>IL</state>
             <postalCode>60613</postalCode>
             <country>US</country>
-            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            <useablePeriod
+                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:type="IVL_TS">
                 <low value="20070513"/>
                 <high value="20110130"/>
@@ -837,8 +835,8 @@ within the recordTarget represents the provider organization to which the medica
                                             </tr>
                                         </table>
                                         
-**Reference:** [Example 5: recordTarget with demographic data](document_level_guidance.html#example-5:-recordTarget-with-demographic-data) **,** [Example 6: recordTarget including the provider
-organization context for the clinical documentation](document_level_guidance.html#example-6:-recordTarget-including-the-provider-organization-context-for-the-clinical-documentation)
+**Reference:** [Example 5: recordTarget with demographic data](#example-5:-recordTarget-with-demographic-data) **,** [Example 6: recordTarget including the provider
+organization context for the clinical documentation](#recordTarget-including-the-provider-organization)
 
 #### Authors Versus Performers
 
