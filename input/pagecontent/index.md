@@ -55,5 +55,3 @@ This material contains content from the Logical Observation Identifiers Names an
 | Co-Editor: | John D'Amore<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[john.damore@lantanagroup.com](mailto:john.damore@lantanagroup.com) | Technical Editor: | Adrienne Giannone<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[adrienne.giannone@lantanagroup.com](mailto:adrienne.giannone@lantanagroup.com) |
 | Co-Editor: | Robert H. Dolin, MD<br/>[bobdolin@gmail.com](mailto:bobdolin@gmail.com) | Technical Editor: | Diana Wright<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[diana.wright@lantanagroup.com](mailto:diana.wright@lantanagroup.com) |
 | Co-Editor: | Susan Campbell, PhD, RN<br/>[bostoncampbell@mindspring.com](mailto:bostoncampbell@mindspring.com) | Technical Editor: | Veronica Kwok<br/>Deloitte<br/>[vkwok@deloitte.com](mailto:vkwok@deloitte.com) |
-
-[Next Page - Background](background.html)

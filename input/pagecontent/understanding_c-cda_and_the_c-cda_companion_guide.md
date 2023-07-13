@@ -120,7 +120,7 @@ To perform schema validation on a CDA document instance properly, it is necessar
 includes the CDA R2 schema extensions. All extensions will use the namespace **urn:hl7-org:sdtc**. As a document
 consumer, the possibility of schema extensions needs to be considered.
 
-**Reference:** [CDA Schema, C-CDA Schematrons, Sample Stylesheet](resources.html#cda-schema,-c-cda-schematrons,-sample-stylesheet)
+**Reference:** [CDA Schema, C-CDA Schematrons, Sample Stylesheet](resources.html#cda-schema-c-cda-schematrons-sample-stylesheet)
 
 #### CDA R2 Schema Extensions Used by C-CDA
 
@@ -170,8 +170,8 @@ expectation that the associated XML conforms to the rules defined by that templa
 **Figure 3: Template Structure of C-CDA**
 
 CDA documents may declare template conformance at the header level to express conformance expectations for
-the content before the `<structuredBody>` tag in a structured CDA document or before the `<nonXMLBody>` tag in an unstructured CDA document. A CDA document also may declare template conformance at the document level to
-express conformance expectations for the sections that will be included within the `<structuredBody>` tag.
+the content before the <structuredBody> tag in a structured CDA document or before the <nonXMLBody> tag in an unstructured CDA document. A CDA document also may declare template conformance at the document level to
+express conformance expectations for the sections that will be included within the <structuredBody> tag.
 
 A structured CDA document additionally may declare template conformance at the section level. A template
 declaration at the section-level establishes conformance expectations for the section itself and for the discrete
@@ -520,11 +520,7 @@ to the C-CDA US Realm Header template and then uses standard LOINC codes for the
 narrative sections.
 
 ```
-<ClinicalDocument
-                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                            xmlns="urn:hl7-org:v3"
-                            xmlns:cda="urn:hl7-org:v3"
-                            xmlns:sdtc="urn:hl7-org:sdtc"> <realmCode code="US"/> <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/> <!-- US Realm Header --> <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/> <id root="2.16.840.1.113883.3.3208.101.1" extension="20130607100315-CCDA-CCD"/> <code code="90371-6" displayName="Clinical pathology Note" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/> <title>Pathology Note</title>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:cda="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc"> <realmCode code="US"/> <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/> <!-- US Realm Header --> <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/> <id root="2.16.840.1.113883.3.3208.101.1" extension="20130607100315-CCDA-CCD"/> <code code="90371-6" displayName="Clinical pathology Note" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/> <title>Pathology Note</title>
     …
     The rest of the header here.
     …
@@ -616,14 +612,12 @@ planning, and transitions of care.
 
 | **Encounter Summary Documents**   | **Patient Summary Documents**    | **Other Categories of Clinical and Patient-Generated Documents**    |
 | ---- | ------ | ------ |
-| Consultation Note<br />Discharge Summary<br />History and Physical Note<br />Progress Note   | Continuity of Care Document (CCD)<br />Transfer Summary  | Care Plan<br />Diagnostic Imaging Report<br />Operative Note<br />Procedure Note<br />Referral Note<br />Patient Generated Document  | 
-|<td colspan="3">**NOTE: Unstructured Documents are classified based upon the document type associated with the LOINC code in the ClinicalDocument/code element in the header of the document.**|
-
+| Consultation Note<br />Discharge Summary<br />History and Physical Note<br />Progress Note   | Continuity of Care Document (CCD)<br />Transfer Summary  | Care Plan<br />Diagnostic Imaging Report<br />Operative Note<br />Procedure Note<br />Referral Note<br />Patient Generated Document  |
 {:.grid}
 **Table 6: Document templates defined in C-CDA R2.1, sorted by category.**<br />
+**NOTE: Unstructured Documents are classified based upon the document type associated with the LOINC code in the ClinicalDocument/code element in the header of the document.**
 
-
-A great deal of clarity was added in the recent Car*e*quality CommonWell Joint Document Content Work Group
+A great deal of clarity was added in the recent Car _e_ quality CommonWell Joint Document Content Work Group
 implementation guide to explain the difference between an Encounter Summary document and a Patient
 Summary document.
 
@@ -653,7 +647,7 @@ HL7 CDA does not specify the creation or management of documents, only their exc
 management is critically interdependent with the CDA specifications, but the specification of document
 management messages is outside the scope of the CDA.^26
 
-In a chapter titled “Smart Senders and Resilient Receivers”, the Car*e*quality CommonWell Joint Workgroup’s
+In a chapter titled “Smart Senders and Resilient Receivers”, the Car _e_ quality CommonWell Joint Workgroup’s
 Concise Consolidated CDA implementation guide states:
 
 
@@ -676,7 +670,7 @@ CDA document Content Consumers (Receivers).
 
 #### Content Creator Responsibilities
 
-> Volume 1 of C-CDA R2.1 includes an explicit requirement to support narrative text linking, which states:
+Volume 1 of C-CDA R2.1 includes an explicit requirement to support narrative text linking, which states:
 The C-CDA R1.1 release recommended that clinical statements include a link between the narrative
 (section.text) and coded clinical data (entry). Rather than repeat these constraints in every applicable
 entry, SDWG agreed in C- CDA R2.0 to apply the following constraint to all entry templates, unless
@@ -714,7 +708,7 @@ explicitly prohibited.
                                                 >i. This reference/@value SHALL begin with a
                                                 &#39;#&#39; and SHALL point to its corresponding
                                                 narrative (using the approach defined in CDA
-                                                R2.0, section 4.3.5.1)^27 (CONF:XXXX).
+                                                R2.0, section 4.3.5.1) (CONF:XXXX).
                                                 <b>[CONF-011]</b></p></td>
                                     </tr>
                                 </table>
@@ -811,15 +805,16 @@ Chapter 7 of the HL7 CDA R2 Attachment IG: Exchange of C-CDA Based Documents, R1
 conformance requirements when using C-CDA documents for attachments shared with Payers.^36 Chapter 7.5
 establishes this conformance rule which applies to Content Consumers for handling document succession:
 
-^31 [http://cdasearch.hl7.org/](http://cdasearch.hl7.org/)
-^32 [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and
-CommonWell Work Groups. 2018. Page 26.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf)
-^33 [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and CommonWell Work](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf)
+(^31) [http://cdasearch.hl7.org/](http://cdasearch.hl7.org/)
+(^32) Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and
+CommonWell Work Groups. 2018. Page 26.
+(^33) Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and CommonWell Work
 Groups Chapter 5.1.2 Maintain act/observation IDs across documents.
-^34 [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and CommonWell Work Groups.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf)
-2018. Page 26.
-^35 [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and CommonWell Work Groups.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf) 2018. Page 27.
-^36 https://www.hl7.org/implement/standards/product_matrix.cfm
+(^34) Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and CommonWell Work
+Groups. 2018. Page 26.
+(^35) Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and CommonWell Work
+Groups. 2018. Page 27.
+(^36) https://www.hl7.org/implement/standards/product_matrix.cfm
 
 <table
                                     style="border-collapse:collapse;margin-left:24.01pt"
@@ -887,7 +882,7 @@ reconciled the list. This should not be included if a clinician simply reviewed 
                                     </tr>
                                 </table>
 
-**Reference:** [Declaring Business Rules that Limit Section Content](section_level_guidance.html#declaring-business-rules-that-limit-section-content);  [Specifying Time Intervals for Sections with Limits](representation_of_discrete_data.html#specifying-time-interval-for-sections-with-limits);
+**Reference:** [Declaring Business Rules that Limit Section Content](section_level_guidance.html#declaring-business-rules-that-limit-section-content);  [Specifying Time Intervals for Sections with Limits](representation_of_discrete_data.html#specifying-time-intervals-for-sections-with-limits-on-the-included-discrete-data);
 with Limits
 
 #### Content Consumer Responsibilities
@@ -956,9 +951,10 @@ establishes these conformance rules which apply to Content Consumers for handlin
                                     </tr>
                                 </table>
 
-^37 [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf) Car*e*quality and CommonWell Work
+(^37) Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and CommonWell Work
 Groups. 2018. Page 28.
-^38 https://www.hl7.org/documentcenter/public_temp_E3F202CB-1C23-BA17-0C6B02F543752C9B/standards/dstu/CDAR2_AIG_CCDA_EXCHANGE_R1_STU_2017AUG.pdf Page 48.
+(^38) https://www.hl7.org/documentcenter/public_temp_E3F202CB-1C23-BA17-
+0C6B02F543752C9B/standards/dstu/CDAR2_AIG_CCDA_EXCHANGE_R1_STU_2017AUG.pdf Page 48.
 
 
 Previously some implementer communities took a different stance suggesting that any C-CDA document that
@@ -1063,7 +1059,7 @@ how Content Consumers should handle document succession:
                                                 style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
                                                 >Document recipients SHOULD apply any document
                                                 retention policies to all versions of a document as
-                                                defined by setId and version.><b>[AIGEX-DS3]</b><a href="#bookmark113"
+                                                defined by setId and version.><b>[AIGEX-DS3]</b><a
                                                   class="s57">41</a></p></td>
                                     </tr>
                                 </table>
@@ -1095,10 +1091,13 @@ how Content Consumers should handle document succession:
                                     </tr>
                                 </table>
 
-^39 80 FR 62634
-^40 [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf) Car*e*quality and CommonWell Work
+(^39) 80 FR 62634
+(^40) Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Car _e_ quality and CommonWell Work
 Groups. 2018. Page 27.
-
+(^41) [https://www.hl7.org/documentcenter/public/standards/dstu/CDAR2_AIG_CCDA_EXCHANGE_R1_STU_2017AUG.pdf](https://www.hl7.org/documentcenter/public/standards/dstu/CDAR2_AIG_CCDA_EXCHANGE_R1_STU_2017AUG.pdf) Page 49
+(^42) [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf) Carequality and CommonWell Work Groups. 2018. Page 31.
+(^43) [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf) Carequality and CommonWell Work Groups. 2018. Page 30-31.
+(^44) While this section focuses on query/retrieve, documents received via Direct SHOULD follow the recommended metadata for display
 
 The Joint Document Content Work Group implementation guide states, “The base CDA standard is designed so
 that every section’s section.text element is displayable in a basic browser using the base CDA stylesheet, cda.xsl.
@@ -1114,22 +1113,13 @@ When presenting users with a list of available documents, implementer best pract
 based on guidance included in the Sequoia Project - [eHealth Exchange Content Testing Program Guide](https://s3.amazonaws.com/seqprojectehex/wp-content/uploads/2018/09/12194149/eHealthExchange-Content-Testing-Guide-2018v1.pdf) with the
 additions of Date and Title by the Joint Document Content Work Group.
 
-Shown below is “Figure 18 Document Information Available during the IHE Query and in the stored C-CDA from the Joint Work Group implementation guide which summarizes key data elements available in the IHE Document Query transaction (ITI-18) and in the C-CDA document header^43
+Shown below is “Figure 18 Document Information Available during the IHE Query and in the stored C-CDA from the Joint Work Group implementation guide which summarizes key data elements available in the IHE Document Query transaction (ITI-18) and in the C-CDA document header:43
 
-> When displaying available documents for retrieval or retrieved documents, systems
+When displaying available documents for retrieval or retrieved documents, systems
 should display corresponding document information. This information may be
 obtained from the IHE query/retrieve transaction (i.e., the same as what was
 displayed in the “list of available documents” during the query) or may be obtained
 (parsed) from within the C-CDA document header^44.
-
-^41 https://www.hl7.org/documentcenter/public_temp_E3F202CB-1C23-BA17-0C6B02F543752C9B/standards/dstu/CDAR2_AIG_CCDA_EXCHANGE_R1_STU_2017AUG.pdf Page 49
-^42 [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf) Car*e*quality and CommonWell Work
-Groups. 2018. Page 31.
-^43 [Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes.](http://www.commonwellalliance.org/wp-content/uploads/2018/07/Carequality_CommonWell_Improve_C-CDA_06-15-2018_V1.pdf) Car*e*quality and CommonWell Work
-Groups. 2018. Page 30-31.
-^44 While this section focuses on query/retrieve, documents received via Direct **SHOULD** follow the recommended metadata for display
-
-
 
 <table
                                     style="border-collapse:collapse;margin-left:24.01pt"
@@ -1560,7 +1550,7 @@ This layered approach to representing clinical notes in C-CDA enables the wide r
 EHR systems to represented and shared via a CDA Document. Narrative note information as well as discrete data
 can be included and encoded in a structure way that facilitates both human readability and machine processing.
 
-**Reference:** [Clinical Note](representation_of_discrete_data.html#clinical-note); [The Joint Document Content Work Group](resources.html#the-joint-document-content-work-group); [Appendix A: Templates Defined in C-CDA R2.1 Companion Guide](resources.html#appendix-a:-templates-defined-in-c-cda-r2.1-companion-guide)
+**Reference:** [Clinical Note](representation_of_discrete_data.html#clinical-note); [The Joint Document Content Work Group](resources.html#the-joint-document-content-work-group); Appendix A: Templates Defined in C-CDA R2.1 Companion Guide
 
 #### LOINC Coding for Clinical Notes
 
@@ -1585,13 +1575,6 @@ value sets use LOINC document codes, are maintained by Regenstrief Institute, an
 National Library of Medicine Value Set Authority Center (VSAC).^50 Each value set is identified by a unique object
 identifier (OID). These value sets  are included in the C-CDA value set expansion package available as a VSAC
 downloadable resource.^51
-
-^46 For more information on LOINC, visit https://loinc.org
-^47 [HL7 CDA R2 Attachments IG: Exchange of C-CDA Based Documents, R1](https://www.hl7.org/implement/standards/product_matrix.cfm) – US Realm, Page 22.
-^48 LOINC website Regenstrief administers: https://loinc.org/
-^49 Concise Consolidated CDA: Deploying Encounter Summary Documents with Clinical Notes. Carequality and CommonWell Work Groups. 2018. Page 14.
-^50 https://vsac.nlm.nih.gov/
-^51 https://vsac.nlm.nih.gov/valueset/expansions?pr=ccda
 
 | **Clinical Note Type**   | **Most General LOINC Code**    | **LOINC Long Name**    | **Complete Note Type Value Set**    |
 | ---- | ------ | ------ | ------ |
@@ -1667,7 +1650,7 @@ the Notes Section and the Note Activity entry.
                                 </table>
 
 
-**Reference:** [Sections Defined in C-CDA (ordered using SOAP framework)](section_level_guidance.html#sections-defined-in-c-cda-(ordered-using-soap-framework)); [Clinical Note](representation_of_discrete_data.html#clinical-note);
+**Reference:** [Sections Defined in C-CDA (ordered using SOAP framework)](section_level_guidance.html#sections-defined-in-c-cda-ordered-using-soap-framework); [Clinical Note](representation_of_discrete_data.html#clinical-note);
 
 ### Options for Temporarily Unavailable Data
 
@@ -1699,11 +1682,8 @@ Discharge Summary may be sent later to communicate the updated information.
 
 **Example 2: Discharge Summary with no Hospital Course information (see replacement document below).**
 ```
-<ClinicalDocument
-                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                            xmlns:sdtc="urn:hl7-
-    org:sdtc" classCode="DOCCLIN" moodCode="EVN"
-                            xmlns="urn:hl7-org:v3">
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdtc="urn:hl7-
+    org:sdtc" classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3">
     <realmCode code="US" />
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
     <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08- 01" />
@@ -1733,14 +1713,11 @@ Discharge Summary may be sent later to communicate the updated information.
 
 **Example 3: Replacement Discharge Summary document with Hospital Course information.**
 
-> The addition of Hospital Course information is not an errata correction, so it does not generate a new
+The addition of Hospital Course information is not an errata correction, so it does not generate a new
 version of the document. The new document is indicated to wholly replace the prior document.
 ```
-<ClinicalDocument
-                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                            xmlns:sdtc="urn:hl7-
-    org:sdtc" classCode="DOCCLIN" moodCode="EVN"
-                            xmlns="urn:hl7-org:v3">
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdtc="urn:hl7-
+    org:sdtc" classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3">
     <realmCode code="US" />
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
     <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08- 01" />

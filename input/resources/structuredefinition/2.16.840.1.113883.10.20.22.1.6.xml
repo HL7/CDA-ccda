@@ -140,7 +140,7 @@
             <max value="1"/>
             <fixedCode value="PROV"/>
         </element>
-        <!-- SG 20230709: Messed up path -->
+        <!--SG 20230709: Messed up path-->
         <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
             <requirements value="This associatedEntity/@classCode SHALL contain exactly one [1..1] associatedPerson (CONF:1198-8508)."/>
@@ -338,7 +338,7 @@
             <min value="1"/>
             <max value="1"/>
         </element>
-        <!-- SG 20230709: EncompassingEncounter.id is required in US Realm Header -->
+        <!--SG 20230709: EncompassingEncounter.id is required in US Realm Header-->
         <element id="ClinicalDocument.componentOf.encompassingEncounter.id">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.id"/>
             <short value="SG 20230709: EncompassingEncounter.id is required in US Realm Header - this is an illegal constraint - deleted min=0"/>
@@ -376,13 +376,12 @@
             <max value="1"/>
             <fixedCode value="REF"/>
         </element>
-        <!-- SG 20230709: EncompassingEncounter.location can have a maximum of 1 (CDA Base) -->
+        <!--SG 20230709: EncompassingEncounter.location can have a maximum of 1 (CDA Base)-->
         <element id="ClinicalDocument.componentOf.encompassingEncounter.location">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.location"/>
             <short value="SG 20230709: EncompassingEncounter.location can have a maximum of 1 (CDA Base) - this is an illegal constraint - deleted max=*"/>
             <requirements value="This encompassingEncounter SHALL contain at least one [1..*] location (CONF:1198-30876)."/>
             <min value="1"/>
-            <!--<max value="*"/>-->
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility"/>

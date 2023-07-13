@@ -126,7 +126,7 @@
             <min value="0"/>
             <max value="1"/>
         </element>
-        <!-- SG 20230709: Adding slice, this is weird -->
+        <!--SG 20230709: Adding slice, this is weird-->
         <element id="Supply.product">
             <path value="Supply.product"/>
             <slicing>
@@ -178,32 +178,7 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
             </type>
         </element>
-        <!--<element id="Supply.product">
-            <path value="Supply.product"/>
-            <short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/>
-            <requirements value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/>
-            <min value="0"/>
-            <max value="1"/>
-            <constraint>
-                <key value="1098-32092"/>
-                <severity value="error"/>
-                <human value="If the product is Medication Information (V2) (2.16.840.1.113883.10.20.22.4.23.2) then the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) and the participant **SHALL NOT** be Product Instance (CONF:1098-32092)."/>
-            </constraint>
-        </element>
-        <element id="Supply.product.manufacturedProduct">
-            <path value="Supply.product.manufacturedProduct"/>
-            <requirements value="The product, if present, SHALL contain exactly one [1..1] Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/>
-            </type>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/>
-            </type>
-        </element>-->
+        <!--<element id="Supply.product"><path value="Supply.product"/><short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/><requirements value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/><min value="0"/><max value="1"/><constraint><key value="1098-32092"/><severity value="error"/><human value="If the product is Medication Information (V2) (2.16.840.1.113883.10.20.22.4.23.2) then the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) and the participant **SHALL NOT** be Product Instance (CONF:1098-32092)."/></constraint></element><element id="Supply.product.manufacturedProduct"><path value="Supply.product.manufacturedProduct"/><requirements value="The product, if present, SHALL contain exactly one [1..1] Medication Information (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/><min value="1"/><max value="1"/><type><code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/><profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.23"/></type><type><code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/><profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.54"/></type></element>-->
         <element id="Supply.performer">
             <path value="Supply.performer"/>
             <short value="The clinician who is expected to perform the supply could be identified using supply/performer."/>

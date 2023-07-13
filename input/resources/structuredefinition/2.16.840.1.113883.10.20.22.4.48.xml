@@ -137,7 +137,7 @@
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
-        <!-- SG 20230706: constraint not entered "properly" deleted fixedString="Completed" here - it's already in the
+        <!--SG 20230706: constraint not entered "properly" deleted fixedString="Completed" here - it's already in the
              next element and shoudln't be here - entered weird/wrong in TWB-->
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -176,14 +176,8 @@
                 <human value="If the Advance Directive does not have a specified ending time, the &lt;high&gt; element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."/>
             </constraint>
         </element>
-        <!-- SG 20230709: Not a slice - bad entry in TWB (identifier check box checked) -->
-        <!--<element id="Observation.value">
-            <path value="Observation.value"/>
-            <slicing>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>-->
+        <!--SG 20230709: Not a slice - bad entry in TWB (identifier check box checked)-->
+        <!--<element id="Observation.value"><path value="Observation.value"/><slicing><rules value="open"/></slicing><min value="1"/></element>-->
         <element id="Observation.value">
             <path value="Observation.value"/>
             <!--<sliceName value="value1"/>-->

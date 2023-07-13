@@ -487,8 +487,7 @@ and in this instance represents patient's current address -->
             <state>VT</state>
             <postalCode>05455</postalCode>
             <country>US</country>
-            <useablePeriod
-                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:type="IVL_TS">
                 <low value="20110822"/>
             </useablePeriod>
@@ -501,8 +500,7 @@ and in this instance represents patient's current address -->
             <state>VT</state>
             <postalCode>05422</postalCode>
             <country>US</country>
-            <useablePeriod
-                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:type="IVL_TS">
                 <low value="20110131"/>
                 <high value="20110821"/>
@@ -514,8 +512,7 @@ and in this instance represents patient's current address -->
             <state>IL</state>
             <postalCode>60613</postalCode>
             <country>US</country>
-            <useablePeriod
-                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:type="IVL_TS">
                 <low value="20070513"/>
                 <high value="20110130"/>
@@ -972,10 +969,10 @@ Direct Address. It includes how to indicate the preferred telecom addresses for 
 
 **Example 13: How to represent a provider and the provider’s organization in the role of author**
 
-> This representation pattern is applicable for other roles such as performer, authenticator, legal
+This representation pattern is applicable for other roles such as performer, authenticator, legal
 authenticator, etc. The example shows how to represent NPI information for the provider and for the
 provider organization. It also shows how to represent Direct address information and how to indicate the
-preferred telecom address to use.
+preferred telecom address to use.</br>
 ```
 <!-- an appropriate participation such as author/assignedAuthor -->
 <author>
@@ -1040,7 +1037,7 @@ Direct Trust's Covered Entity addresses "DT.org CE" -->
 If a provider’s NPI number is not known, it can be represented using a nullFlavor of UNK. However, is it important
 to note the id’s populated with a nullFlavor cannot me used as a globally unique identifier.
 
-## Example 14: Provider with an unknown NPI number.
+**Example 14: Provider with an unknown NPI number.**
 ```
 <assignedAuthor>
     <!-- This is a public id where the root is registered to indicate the National Provider ID -->
@@ -1096,7 +1093,7 @@ coordination for the patient. Business rules are used to determine which care te
 encounter or services represented and documented in the header. Care team members established in the header
 should be included in the care team section template as well as any others who are relevant to the patient’s care.
 
-**Reference:** [Care Team](representation_of_discrete_data.html#care_team)
+**Reference:** [Care Team](representation_of_discrete_data.html#care-team)
 
 Because of the variability of how care team members are represented in the header, and because there is a lack of
 normative guidance on which header items must be rendered, it is recommended that receiving systems should
@@ -1202,7 +1199,7 @@ performing care services.
                                     </tr>
                                 </table>
 
-**Reference:** [Care Team](representation_of_discrete_data.html#care_team)
+**Reference:** [Care Team](representation_of_discrete_data.html#care-team)
 
 #### sdtc:signatureText in Authenticator and legalAuthenticator
 
@@ -1433,7 +1430,7 @@ replaced by using a [replace relationship (typeCode=”RPLC”)](https://www.com
                                         <text>The patient was admitted
                                         </text>
 ```
-**Reference:** [Content Creator Responsibilities](document_level_guidance.html#content_creator_responsibilities)
+**Reference:** [Content Creator Responsibilities](understanding_c-cda_and_the_c-cda_companion_guide.html#content-creator-responsibilities)
 
 #### C-CDA R2.1 Document Templates
 
@@ -1860,7 +1857,7 @@ https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492
 The Joint Document Content Work Group recommends all sections include the Section Time Range Observation to
 describe the range of time used to limit the range of information contained in a section.^79
 
-**Reference:** [Declaring Business Rules that Limit Section Content](section_level_guidance.html#declaring-business-rules-that-limit-section-content);  [Specifying Time Intervals for Sections with Limits](representation_of_discrete_data.html#specifying-time-interval-for-sections-with-limits);
+**Reference:** [Declaring Business Rules that Limit Section Content](section_level_guidance.html#declaring-business-rules-that-limit-section-content);  [Specifying Time Intervals for Sections with Limits](representation_of_discrete_data.html#specifying-time-intervals-for-sections-with-limits-on-the-included-discrete-data);
 
 The Joint Document Content Work Group also recommends use of the Progress Note document template to
 represent an encounter summary for a non-inpatient setting.^80 The Progress Note document template does not

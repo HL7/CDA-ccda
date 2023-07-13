@@ -323,7 +323,7 @@ An expressed desired health state to be achieved by a subject of care (or family
 
 The updated Goals Observation template includes a value set for conveying SDOH goals.
 
-For SDOH value sets, see Section 6.1.2 [Social Determinant of Health Vocabulary Design Notes](uscdi_guidance.html#social-determinant-of-health -vocabulary-design-notes)
+For SDOH value sets, see Section 6.1.2 [Social Determinant of Health Vocabulary Design Notes](uscdi_guidance.html#social-determinant-of-health-vocabulary-design-notes)
 
 #### Health Insurance Information
 
@@ -618,161 +618,178 @@ Sex concept in USCDI V3
 
 Information about a condition, diagnosis, or other event, situation, issue, or clinical concept that is documented.
 
-<table
-                                    style="border-collapse:collapse;margin-left:18.61pt"
-                                    cellspacing="0">
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:91pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            ><p class="s17"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                ><b>USCDI v2 DATA ELEMENT</b></p></td>
-                                        <td
-                                            style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            ><p class="s17"
-                                                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                ><b>USCDI Vocabulary Requirement</b></p></td>
-                                        <td
-                                            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            ><p class="s17"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                ><b>Template</b></p></td>
-                                        <td
-                                            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            ><p class="s17"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                ><b>XPath</b></p></td>
-                                    </tr>
-                                    <tr style="height:48pt">
-                                        <td
-                                            style="width:91pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            rowspan="3"><p
-                                                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                  ><a
-                                                  href="https://www.healthit.gov/isa/taxonomy/term/1806/uscdi-v2"
-                                                  class="s82">SDOH Problems/Health Concerns</a></p><p
-                                                class="s128"
-                                                style="padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
-                                                >An identified Social Determinants of Health-related
-                                                condition (e.g., Homelessness (finding), Lack of
-                                                adequate food Z59.41, Transport too expensive
-                                                (finding)). SDOH data relate to conditions in which
-                                                people live, learn, work, and play and their effects
-                                                on health risks and outcomes.</p></td>
-                                        <td
-                                            style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            rowspan="3"><p class="s128"
-                                                style="padding-left: 5pt;padding-right: 4pt;text-indent: 0pt;text-align: left;"
-                                                >- SNOMED International, Systematized Nomenclature of
-                                                Medicine Clinical Terms (SNOMED CT®) U.S. Edition, March 2021 Release</p>
-                                                <p class="s128"
-                                                style="padding-left: 5pt;padding-right: 4pt;text-indent: 0pt;text-align: left;"
-                                                >- International Classification of Diseases ICD-10- CM 2021</p></td>
-                                        <td
-                                            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s128"
-                                                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                >For SDOH Problems<span style=" color: #000;"
-                                                  >:</span></p><p
-                                                style="text-indent: 0pt;text-align: left;"
-                                                ><br /></p><p class="s19"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >Problem Observation</p></td>
-                                        <td
-                                            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s130"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >/observation/value/@code</p></td>
-                                    </tr>
-                                    <tr style="height:65pt">
-                                        <td
-                                            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s128"
-                                                style="padding-left: 5pt;padding-right: 7pt;text-indent: 0pt;text-align: left;"
-                                                >For SDOH Problems in Social History:</p><p
-                                                style="text-indent: 0pt;text-align: left;"
-                                                ><br /></p><p class="s19"
-                                                style="padding-left: 5pt;padding-right: 37pt;text-indent: 0pt;text-align: left;"
-                                                >Social History Observation</p></td>
-                                        <td
-                                            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s130"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >/observation/value/@code</p></td>
-                                    </tr>
-                                    <tr style="height:132pt">
-                                        <td
-                                            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s128"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >For SDOH Problems that are Health Concerns:</p><p
-                                                style="text-indent: 0pt;text-align: left;"
-                                                ><br /></p><p class="s19"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >Health Concern Act</p></td>
-                                        <td
-                                            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s130"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >/entry/act/entryRelationship</p><p class="s128"
-                                                style="padding-top: 7pt;padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >Primitive conformance statement above first
-                                                entryRelationship or after last (see H&amp;P
-                                                Document)</p><p class="s130"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >/entry/act/entryRelationship/observation</p></td>
-                                    </tr>
-                                    <tr style="height:62pt">
-                                        <td
-                                            style="width:91pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s153"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                ><a href="https://www.healthit.gov/isa/taxonomy/term/1241/uscdi-v2">Date of Diagnosis</a><span class="s127"> </span><span
-                                                  class="s128">Date of first determination by a
-                                                  qualified professional of the presence of a problem or condition affecting a patient. </p></td>
-                                        <td
-                                            style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p style="text-indent: 0pt;text-align: left;"
-                                                ><br /></p></td>
-                                        <td
-                                            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s19"
-                                                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                >Problem Observation</p><p class="s128"
-                                                style="padding-left: 5pt;text-indent: 2pt;text-align: left;"
-                                                >-&gt; Date of Diagnosis Act</p></td>
-                                        <td
-                                            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s130"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >/act/effectiveTime/@value</p></td>
-                                    </tr>
-                                     <tr style="height:74pt">
-                                        <td
-                                            style="width:91pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s153"
-                                                style="padding-left: 5pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
-                                                  ><a
-                                                  href="https://www.healthit.gov/isa/taxonomy/term/1251/uscdi-v2"
-                                                  class="s82" target="_blank">Date of Resolution</a><span class="s127"> </span><span
-                                                  class="s128">Date of subsiding or termination of a
-                                                  symptom, problem, or condition.</p></td>
-                                        <td
-                                            style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p style="text-indent: 0pt;text-align: left;"
-                                                ><br /></p></td>
-                                        <td
-                                            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s19"
-                                                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                >Problem Observation</p></td>
-                                        <td
-                                            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                ><p class="s130"
-                                                style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
-                                                >/observation/effectiveTime/high</p></td>
-                                    </tr>
-                                </table><p style="text-indent: 0pt;text-align: left;">
+<table style="border-collapse:collapse;margin-left:18.61pt" cellspacing="0">
+    <tr style="height:37pt">
+        <td
+            style="width:91pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s17" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                <b>USCDI v2 DATA ELEMENT</b>
+            </p>
+        </td>
+        <td
+            style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s17"
+                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                <b>USCDI Vocabulary Requirement</b>
+            </p>
+        </td>
+        <td
+            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s17" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                <b>Template</b>
+            </p>
+        </td>
+        <td
+            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s17" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                <b>XPath</b>
+            </p>
+        </td>
+    </tr>
+    <tr style="height:48pt">
+        <td
+            style="width:91pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            rowspan="3">
+            <p style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                <a href="https://www.healthit.gov/isa/taxonomy/term/1806/uscdi-v2" class="s82">SDOH
+                    Problems/Health Concerns</a>
+            </p>
+            <p class="s128"
+                style="padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;text-align: left;">An
+                identified Social Determinants of Health-related condition (e.g., Homelessness
+                (finding), Lack of adequate food Z59.41, Transport too expensive (finding)). SDOH
+                data relate to conditions in which people live, learn, work, and play and their
+                effects on health risks and outcomes.</p>
+        </td>
+        <td
+            style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            rowspan="3">
+            <p class="s128"
+                style="padding-left: 5pt;padding-right: 4pt;text-indent: 0pt;text-align: left;">-
+                SNOMED International, Systematized Nomenclature of Medicine Clinical Terms (SNOMED
+                CT®) U.S. Edition, March 2021 Release</p>
+            <p class="s128"
+                style="padding-left: 5pt;padding-right: 4pt;text-indent: 0pt;text-align: left;">-
+                International Classification of Diseases ICD-10- CM 2021</p>
+        </td>
+        <td
+            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s128"
+                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">For
+                SDOH Problems<span style=" color: #000;">:</span></p>
+            <p style="text-indent: 0pt;text-align: left;">
+                <br/>
+            </p>
+            <p class="s19" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">Problem
+                Observation</p>
+        </td>
+        <td
+            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s130" style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
+                >/observation/value/@code</p>
+        </td>
+    </tr>
+    <tr style="height:65pt">
+        <td
+            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s128"
+                style="padding-left: 5pt;padding-right: 7pt;text-indent: 0pt;text-align: left;">For
+                SDOH Problems in Social History:</p>
+            <p style="text-indent: 0pt;text-align: left;">
+                <br/>
+            </p>
+            <p class="s19"
+                style="padding-left: 5pt;padding-right: 37pt;text-indent: 0pt;text-align: left;"
+                >Social History Observation</p>
+        </td>
+        <td
+            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s130" style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
+                >/observation/value/@code</p>
+        </td>
+    </tr>
+    <tr style="height:132pt">
+        <td
+            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s128" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">For SDOH
+                Problems that are Health Concerns:</p>
+            <p style="text-indent: 0pt;text-align: left;">
+                <br/>
+            </p>
+            <p class="s19" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">Health
+                Concern Act</p>
+        </td>
+        <td
+            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s130" style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
+                >/entry/act/entryRelationship</p>
+            <p class="s128"
+                style="padding-top: 7pt;padding-left: 5pt;text-indent: 0pt;text-align: left;"
+                >Primitive conformance statement above first entryRelationship or after last (see
+                H&amp;P Document)</p>
+            <p class="s130" style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
+                >/entry/act/entryRelationship/observation</p>
+        </td>
+    </tr>
+    <tr style="height:62pt">
+        <td
+            style="width:91pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s153" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                <a href="https://www.healthit.gov/isa/taxonomy/term/1241/uscdi-v2">Date of
+                    Diagnosis</a>
+                <a>Date of first determination by a qualified professional of the presence of a
+                    problem or condition affecting a patient. </a>
+            </p>
+        </td>
+        <td
+            style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p style="text-indent: 0pt;text-align: left;"/>
+        </td>
+        <td
+            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s19"
+                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+                >Problem Observation</p>
+            <p class="s128" style="padding-left: 5pt;text-indent: 2pt;text-align: left;">-&gt; Date
+                of Diagnosis Act</p>
+        </td>
+        <td
+            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s130" style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
+                >/act/effectiveTime/@value</p>
+        </td>
+    </tr>
+    <tr style="height:74pt">
+        <td
+            style="width:91pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s153"
+                style="padding-left: 5pt;padding-right: 6pt;text-indent: 0pt;text-align: left;">
+                <a href="https://www.healthit.gov/isa/taxonomy/term/1251/uscdi-v2" class="s82"
+                    target="_blank">Date of Resolution</a>
+                <span class="s127"> </span>
+                <span class="s128">Date of subsiding or termination of a symptom, problem, or
+                    condition.</span>
+            </p>
+        </td>
+        <td
+            style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p style="text-indent: 0pt;text-align: left;">
+                <br/>
+            </p>
+        </td>
+        <td
+            style="width:99pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s19"
+                style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+                >Problem Observation</p>
+        </td>
+        <td
+            style="width:227pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+            <p class="s130" style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
+                >/observation/effectiveTime/high</p>
+        </td>
+    </tr>
+</table>
                                 
 **Table 75: USCDI v2 Data Elements - Problems**
 
@@ -830,9 +847,7 @@ No additional guidance
                                                 style="padding-top: 7pt;padding-left: 5pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
                                                 >A service offered to a patient to address
                                                 identified Social Determinants of Health concerns,
-                                                problems, or diagnoses (e.g.,</p><p class="s128"
-                                                style="padding-top: 7pt;padding-left: 5pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
-                                                >Education about Meals on Wheels Program, Referral
+                                                problems, or diagnoses (e.g., Education about Meals on Wheels Program, Referral
                                                 to transportation support programs). SDOH data
                                                 relate to conditions in which people live, learn,
                                                 work, and play and their effects on health risks and

@@ -3020,7 +3020,7 @@ FOR EXAMPLES TO COMMON CHALLENGES WITH ENTRIES IN THIS SECTION -->
 
 The Social History Observation template is a general template designed to represent a full range of social history
 observations. The Social History Observation Template has been updated to leverage Gravity Value Sets covering
-multiple social risk domains. See 6.1.2 Social Determinant of Health Vocabulary Design Notes. In addition, a new Sexual Orientation Observation Template 2.16.840.1.113883.10.20.22.4.501:2022-06-01 was developed for this
+multiple social risk domains. See 6.1.2 [Social Determinant of Health Vocabulary Design Notes](uscdi_guidance.html#social-determinant-of-health-vocabulary-design-notes). In addition, a new Sexual Orientation Observation Template 2.16.840.1.113883.10.20.22.4.501:2022-06-01 was developed for this
 USCDI V2 ballot update.
 
 The Social History Observation template remains open to represent any SDOH observation related to conditions in

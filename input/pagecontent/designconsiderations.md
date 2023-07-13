@@ -45,6 +45,8 @@ By including both templateIds the sending application is asserting conformance w
 
 ```
 <ClinicalDocument
+
+
                         xmlns="urn:hl7-org:v3">
  <!-- ** CDA Header ** -->
  <realmCode code="US"/>

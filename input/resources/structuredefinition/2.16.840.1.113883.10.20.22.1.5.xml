@@ -476,14 +476,13 @@
                 <human value="The text elements (and their children) **MAY** contain Web Access to DICOM Persistent Object (WADO) references to DICOM objects by including a linkHtml element where @href is a valid WADO URL and the text content of linkHtml is the visible text of the hyperlink (CONF:1198-31062)."/>
             </constraint>
         </element>
-        <!-- SG 20230709: Moved subject, author up from middle of entry -->
-        <!-- SG 20230709: base max is 1, deleting max=* -->
+        <!--SG 20230709: Moved subject, author up from middle of entry-->
+        <!--SG 20230709: base max is 1, deleting max=*-->
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.subject">
             <path value="ClinicalDocument.component.structuredBody.component.section.subject"/>
             <short value="SG 20230709: base max is 1, deleting max=*"/>
             <requirements value="This section MAY contain zero or more [0..*] subject (CONF:1198-31215) such that it"/>
             <min value="0"/>
-            <!--<max value="*"/>-->
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.subject.relatedSubject">
             <path value="ClinicalDocument.component.structuredBody.component.section.subject.relatedSubject"/>
@@ -528,11 +527,10 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <!-- SG 20230709: Path wrong -->
+                    <!--SG 20230709: Path wrong-->
                     <path value="act"/>
-                    <!--<path value="ClinicalDocument.section.structuredBody.component.section.entry"/>-->
                 </discriminator>
-                <!-- SG 20230709: Added discriminator -->
+                <!--SG 20230709: Added discriminator-->
                 <discriminator>
                     <type value="value"/>
                     <path value="observation"/>
@@ -540,7 +538,7 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <!-- SG 20230709: Adding missing sliceName -->
+        <!--SG 20230709: Adding missing sliceName-->
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.entry:act">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
             <sliceName value="act"/>
@@ -559,9 +557,9 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
             </type>
         </element>
-        <!-- SG 20230906: Added :component3 slice to all the following until the end - this is a really
+        <!--SG 20230906: Added :component3 slice to all the following until the end - this is a really
              odd way of doing this in CDA - these are all defined inside the document rather than in a section 
-             hopefully it translates ok into FHIR -->
+             hopefully it translates ok into FHIR-->
         <element id="ClinicalDocument.component.structuredBody.component:component3.section.entry:textObs">
             <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
             <sliceName value="textObs"/>
@@ -630,7 +628,7 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
             </type>
         </element>
-        <!-- SG 20230709: Moved this to here from the middle of the component3 slice -->
+        <!--SG 20230709: Moved this to here from the middle of the component3 slice-->
         <element id="ClinicalDocument.component.structuredBody.component.component3.section.component">
             <path value="ClinicalDocument.component.structuredBody.component.section.component"/>
             <requirements value="This section MAY contain zero or more [0..*] component (CONF:1198-31208)."/>

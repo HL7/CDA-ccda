@@ -33,7 +33,7 @@ CDA R2.0 is the currently release normative version of the HL7 CDA standard. How
 encouraged to begin educating themselves about the improvements offered by the new CDA R2.1. CDA R2.1 is a
 minor enhancement of the base Clinical Document Architecture standard that is backward compatible to the
 existing CDA R2.0 standard and provides optional improvements which natively support most previous extensions
-used in implementation guides worldwide.
+used in implementation guides world-wide.
 
 Notable extensions have been added to the patient reference and classes in the clinical statement model used for
 machine process-ability. The documentation has been improved and updated to explain how CDA can be
@@ -197,7 +197,7 @@ Below are brief descriptions of additional specifications relevant for C-CDA bas
 
 The Joint Document Content Work Group was established in 2018 as a cooperative effort between Car _e_ quality and
 CommonWell initiatives.^141 The outcome was the white paper “Concise Consolidated CDA: Deploying Encounter
-Summary CDA Documents with Clinical Notes” which provides recommendations to improve content in C-CDA for
+Summary CDA Documents with Clinical Notes _”_ which provides recommendations to improve content in C-CDA for
 document-based information exchange including the following topics: inclusion of Encounter Summary
 Documents, best practices for Clinical Notes, and document display guidance for Smart Senders and Resilient
 Receivers.
