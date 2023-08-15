@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template's moodCode can only be INT. If an instruction was already given, the Procedure Activity Act template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -38,14 +39,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7391)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;INT&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7392)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="INT"/>
+            <fixedCode value="INT"/>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -60,6 +61,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -103,7 +105,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19106)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
     </differential>
 </StructureDefinition>

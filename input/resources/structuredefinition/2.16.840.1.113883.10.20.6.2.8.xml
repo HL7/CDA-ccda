@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="A SOP Instance Observation contains the DICOM Service Object Pair (SOP) Instance information for referenced DICOM composite objects. The SOP Instance act class is used to reference both image and non-image DICOM instances. The text attribute contains the DICOM WADO reference."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;DGIMG&quot; Diagnostic Image (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9240)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="DGIMG"/>
+            <fixedCode value="DGIMG"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9241)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -88,7 +89,7 @@
             <requirements value="The text, if present, SHALL contain exactly one [1..1] @mediaType=&quot;application/dicom&quot; (CONF:81-9247)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="application/dicom"/>
+            <fixedCode value="application/dicom"/>
         </element>
         <element id="Observation.text.reference">
             <path value="Observation.text.reference"/>
@@ -147,7 +148,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9255)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <fixedCode value="SUBJ"/>
         </element>
         <element id="Observation.entryRelationship:purposeofReferenceObservation">
             <path value="Observation.entryRelationship"/>
@@ -161,7 +162,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9258)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="RSON"/>
+            <fixedCode value="RSON"/>
         </element>
         <element id="Observation.entryRelationship:purposeofReferenceObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
@@ -190,7 +191,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9261)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:referencedFramesObservation.observation">
             <path value="Observation.entryRelationship.observation"/>

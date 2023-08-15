@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents the sender (author) and receivers (participants) of a handoff communication in a plan of treatment. It does not convey details about the communication. The &quot;handoff&quot; process involves senders, those transmitting the patient's information and releasing the care of that patient to the next clinician, and receivers, those who accept the patient information and care of that patient."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-30832)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-30833)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -101,7 +103,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31669)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
@@ -131,6 +133,7 @@
                 <rules value="open"/>
             </slicing>
             <short value="Documentation of the Information Recipient's name and address verifies that the information was exchanged."/>
+            <min value="1"/>
         </element>
         <element id="Act.participant:infoRecipient">
             <path value="Act.participant"/>
@@ -144,7 +147,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;IRCP&quot; Information Recipient (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1098-31674)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="IRCP"/>
+            <fixedCode value="IRCP"/>
         </element>
         <element id="Act.participant:infoRecipient.participantRole">
             <path value="Act.participant.participantRole"/>

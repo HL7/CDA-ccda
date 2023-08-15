@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure (V2) is for procedures that alter the physical condition of a patient (e.g., splenectomy). Procedure Activity Observation (V2) is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Procedure Activity Act (V2) is for all other types of procedures (e.g., dressing change)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -46,6 +47,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>

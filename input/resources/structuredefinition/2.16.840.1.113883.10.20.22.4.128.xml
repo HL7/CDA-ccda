@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents a patient's daily self-care ability. These activities are called Activities of Daily Living (ADL) and Instrumental Activities of Daily Living (IADL). ADLs involve caring for and moving of the body (e.g., dressing, bathing, eating). IADLs support an independent life style (e.g., cooking, managing medications, driving, shopping)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31389)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31390)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -92,7 +94,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32491)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -100,15 +102,11 @@
             <min value="1"/>
             <max value="1"/>
         </element>
+        <!--SG 20230709: Remove bad slicing due to erroneous TWB entry-->
+        <!--<element id="Observation.value"><path value="Observation.value"/><slicing><rules value="open"/></slicing><min value="1"/></element>-->
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <slicing>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.value:ability">
-            <path value="Observation.value"/>
-            <sliceName value="ability"/>
+            <!--<sliceName value="ability"/>-->
             <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Ability urn:oid:2.16.840.1.113883.11.20.9.46 DYNAMIC (CONF:1098-28042)."/>
             <min value="1"/>
             <max value="1"/>

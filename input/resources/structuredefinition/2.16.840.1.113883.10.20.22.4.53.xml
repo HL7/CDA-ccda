@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="The Immunization Refusal Reason documents the rationale for the patient declining an immunization."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8991)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-8992)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -97,7 +99,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19104)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
     </differential>
 </StructureDefinition>

@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="This template groups related functional status observations into categories (e.g., mobility, self-care)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
@@ -38,14 +39,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-14355)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="CLUSTER"/>
+            <fixedCode value="CLUSTER"/>
         </element>
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14357)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
@@ -60,6 +61,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Organizer.templateId:primary">
             <path value="Organizer.templateId"/>
@@ -111,7 +113,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31434)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>
@@ -130,7 +132,9 @@
                     <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
+                <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Organizer.component:functionalStatus">
             <path value="Organizer.component"/>

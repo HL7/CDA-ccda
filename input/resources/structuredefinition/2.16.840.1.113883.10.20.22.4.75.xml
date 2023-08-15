@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="The Mental Status Organizer template may be used to group related Mental Status Observations (e.g., results of mental tests) and associated Assessment Scale Observations into subcategories and/or groupings by time. Subcategories can be things such as Mood and Affect, Behavior, Thought Process, Perception, Cognition, etc."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
@@ -39,7 +40,7 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-14369)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="CLUSTER"/>
+            <fixedCode value="CLUSTER"/>
         </element>
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
@@ -60,6 +61,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Organizer.templateId:primary">
             <path value="Organizer.templateId"/>
@@ -117,7 +119,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19093)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Organizer.effectiveTime">
             <path value="Organizer.effectiveTime"/>
@@ -140,6 +142,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Organizer.component:mentalStatus">
             <path value="Organizer.component"/>

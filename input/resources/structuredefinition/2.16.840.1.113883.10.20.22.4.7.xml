@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="This template reflects a discrete observation about a patient's allergy or intolerance. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the &quot;biologically relevant time&quot; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of penicillin allergy that developed five years ago, the effectiveTime is five years ago. &#xA;&#xA;The effectiveTime of the Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;.&#xA;&#xA;The agent responsible for an allergy or adverse reaction is not always a manufactured material (for example, food allergies), nor is it necessarily consumed. The following constraints reflect limitations in the base CDA R2 specification, and should be used to represent any type of responsible agent, i.e., use playingEntity classCode = &quot;MMAT&quot; for all agents, manufactured or not."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -38,14 +39,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7379)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7380)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.negationInd">
             <path value="Observation.negationInd"/>
@@ -68,6 +69,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="2"/>
         </element>
         <element id="Observation.templateId:secondary">
             <path value="Observation.templateId"/>
@@ -127,7 +129,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19085)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -178,9 +180,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
             </type>
         </element>
+        <!--SG 20230709: added missing slicing discriminators-->
         <element id="Observation.entryRelationship">
             <path value="Observation.entryRelationship"/>
             <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
                 <discriminator>
                     <type value="profile"/>
                     <path value="observation"/>
@@ -200,14 +207,14 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32911)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <fixedCode value="SUBJ"/>
         </element>
         <element id="Observation.entryRelationship:criticality.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-32912)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternBoolean value="true"/>
+            <fixedBoolean value="true"/>
         </element>
         <element id="Observation.entryRelationship:criticality.observation">
             <path value="Observation.entryRelationship.observation"/>

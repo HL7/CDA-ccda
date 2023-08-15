@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents priority preferences chosen by a patient or a care provider. Priority preferences are choices made by care providers or patients or both relative to options for care or treatment (including scheduling, care experience, and meeting of personal health goals), the sharing and disclosure of health information, and the prioritization of concerns and problems."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-30949)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-30950)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>

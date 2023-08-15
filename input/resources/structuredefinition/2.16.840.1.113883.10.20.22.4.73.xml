@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="A cognitive status problem observation is a clinical statement that describes a patient's cognitive condition, findings, or symptoms. Examples of cognitive problem observations are inability to recall, amnesia, dementia, and aggressive behavior. &#xA;&#xA;A cognitive problem observation is a finding or medical condition. This is different from a cognitive result observation, which is a response to a question that provides insight into the patient's cognitive status, judgement, comprehension ability, or response speed.&#xA;&#xA;THIS TEMPLATE HAS BEEN DEPRECATED AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for deprecation*: Cognitive Status Problem Observation has been merged, without loss of expressivity, into Mental Status Observation (2.16.840.1.113883.10.20.22.4.74)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14319)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14320)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.negationInd">
             <path value="Observation.negationInd"/>
@@ -66,6 +67,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -141,7 +143,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19091)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>

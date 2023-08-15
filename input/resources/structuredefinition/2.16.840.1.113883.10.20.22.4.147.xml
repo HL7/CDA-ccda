@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="The template is available to explicitly identify the free text Sig within each medication. &#xA;&#xA;An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
@@ -60,6 +61,7 @@
                 </discriminator>
                 <rules value="closed"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="SubstanceAdministration.templateId:primary">
             <path value="SubstanceAdministration.templateId"/>
@@ -142,7 +144,7 @@
             <requirements value="This manufacturedLabeledDrug SHALL contain exactly one [1..1] @nullFlavor=&quot;NA&quot; Not Applicable (CONF:81-32779)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="NA"/>
+            <fixedCode value="NA"/>
         </element>
     </differential>
 </StructureDefinition>

@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="For reports on mothers and their fetus(es), information on a mother is mapped to recordTarget, PatientRole, and Patient. Information on the fetus is mapped to subject, relatedSubject, and SubjectPerson at the CDA section level. Both context information on the mother and fetus must be included in the document if observations on fetus(es) are contained in the document."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/RelatedSubject"/>
@@ -41,6 +42,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="RelatedSubject.templateId:primary">
             <path value="RelatedSubject.templateId"/>

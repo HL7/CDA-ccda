@@ -1,5 +1,3 @@
-[Previous Page - Design Considerations](designconsiderations.html)
-
 This chapter describes the rules and formalisms used to constrain the CDA R2 standard. It describes the formal representation of CDA templates, the mechanism by which templates are bound to vocabulary, and additional information necessary to understand and correctly implement the normative content found in Volume 2 of this guide.
 
 ### Levels of Constraint
@@ -14,7 +12,7 @@ Note that these levels are rough indications of what a recipient can expect in t
 
 The contexts table for each document type lists the sections defined in the document template.
 
-### Conformence Conventions Used in this Guide
+### Conformance Conventions Used in this Guide
 
 #### Templates and Conformance Statements
 

@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents nutrition regimens (e.g., fluid restrictions, calorie minimum), interventions (e.g., NPO, nutritional supplements), and procedures (e.g., G-Tube by bolus, TPN by central line). It may also depict the need for nutrition education."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -37,7 +38,7 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-30385)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
@@ -58,6 +59,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -94,7 +96,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31698)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="active"/>
+            <fixedString value="active"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
@@ -146,7 +148,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32928)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedEncounter.encounter">
             <path value="Act.entryRelationship.encounter"/>
@@ -171,7 +173,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32929)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedMedActivity.substanceAdministration">
             <path value="Act.entryRelationship.substanceAdministration"/>
@@ -196,7 +198,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32930)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedObs.observation">
             <path value="Act.entryRelationship.observation"/>
@@ -221,7 +223,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32931)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedProc.procedure">
             <path value="Act.entryRelationship.procedure"/>
@@ -246,7 +248,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32932)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedSupply.supply">
             <path value="Act.entryRelationship.supply"/>
@@ -271,7 +273,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32933)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedAct.act">
             <path value="Act.entryRelationship.act"/>

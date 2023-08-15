@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents the act of referencing another entry in the same CDA document instance. Its purpose is to remove the need to repeat the complete XML representation of the referred entry when relating one entry to another. This template can be used to reference many types of Act class derivations, such as encounters, observations, procedures etc., as it is often necessary when authoring CDA documents to repeatedly reference other Acts of these types. For example, in a Care Plan it is necessary to repeatedly relate Health Concerns, Goals, Interventions and Outcomes.&#xA;&#xA;The id is required and must be the same id as the entry/id it is referencing. The id cannot be a null value. Act/Code is set to nullFlavor=&quot;NP&quot; (Not Present). This means the value is not present in the message (in act/Code)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31485)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31486)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -88,7 +90,7 @@
             <requirements value="This code SHALL contain exactly one [1..1] @nullFlavor=&quot;NP&quot; Not Present (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-31491)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="NP"/>
+            <fixedCode value="NP"/>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
@@ -101,7 +103,7 @@
             <requirements value="This statusCode MAY contain zero or one [0..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31499)."/>
             <min value="0"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
     </differential>
 </StructureDefinition>

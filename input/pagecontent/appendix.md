@@ -1,5 +1,3 @@
-[Previous Page - References](references.html)
-
 ### A - Acronyms and Abbreviations
 
 | Acronym | Description |
@@ -175,6 +173,3 @@ This content identifier is a unique identifier for the content item, which means
 Receivers of the MIME multipart message must be able to resolve a cid: URL to the content item that it identifies. Senders must ensure that they only refer to items that have already been transmitted to the receiver by their cid: URL. Thus, this implementation guide prohibits forward URL references using the cid: URL scheme.
 
 Content items shall not be referenced across X12 transactions using the cid: URL scheme. For example, if the payer previously requested information using a 277, and the provider returned that information in a MIME multipart/related package in a 275, and then the payer requested additional information in another 277, the provider may not refer to the content item previously returned in the prior 275 transaction.
-
-
-[Next Page - Validation](validation.html)

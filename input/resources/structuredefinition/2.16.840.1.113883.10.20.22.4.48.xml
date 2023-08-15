@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This clinical statement represents Advance Directive Observation findings (e.g., &quot;resuscitation status is Full Code&quot;) rather than orders. It should not be considered a legal document or a substitute for the actual Advance Directive document. The related legal documents are referenced using the reference/externalReference element.&#xA;&#xA;The Advance Directive Observation describes the patient's directives, including but not limited to:&#xA;*  Medications&#xA;*  Transfer of Care to Hospital&#xA;*  Treatment&#xA;*  Procedures&#xA;*  Intubation and Ventilation&#xA;*  Diagnostic Tests&#xA;*  Tests&#xA;&#xA;The observation/value element contains the detailed patient directive which may be coded or text. For example, a category directive may be antibiotics, and the details would be intravenous antibiotics only.&#xA;"/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -39,14 +40,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8648)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8649)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -61,6 +62,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -112,6 +114,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="code.Observation.code.translation:advanceDirective">
             <path value="Observation.code.translation"/>
@@ -134,19 +137,21 @@
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
+        <!--SG 20230706: constraint not entered "properly" deleted fixedString="Completed" here - it's already in the
+             next element and shoudln't be here - entered weird/wrong in TWB-->
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
+            <short value="SG 20230706: constraint not entered 'properly' deleted fixedString='Completed here - it's already in the next element and shoudln't be here - entered weird/wrong in TWB"/>
             <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="Completed"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19082)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -171,15 +176,11 @@
                 <human value="If the Advance Directive does not have a specified ending time, the &lt;high&gt; element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."/>
             </constraint>
         </element>
+        <!--SG 20230709: Not a slice - bad entry in TWB (identifier check box checked)-->
+        <!--<element id="Observation.value"><path value="Observation.value"/><slicing><rules value="open"/></slicing><min value="1"/></element>-->
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <slicing>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.value:value1">
-            <path value="Observation.value"/>
-            <sliceName value="value1"/>
+            <!--<sliceName value="value1"/>-->
             <requirements value="SHALL contain exactly one [1..1] value (CONF:1198-30804)."/>
             <min value="1"/>
             <max value="1"/>
@@ -227,7 +228,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;VRF&quot; Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="VRF"/>
+            <fixedCode value="VRF"/>
         </element>
         <element id="Observation.participant.templateId">
             <path value="Observation.participant.templateId"/>
@@ -238,6 +239,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="participant.Observation.participant.templateId:primary">
             <path value="Observation.participant.templateId"/>
@@ -318,7 +320,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CST&quot; Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="CST"/>
+            <fixedCode value="CST"/>
         </element>
         <element id="Observation.participant:participant2.participantRole">
             <path value="Observation.participant.participantRole"/>
@@ -331,7 +333,7 @@
             <requirements value="This participantRole SHALL contain exactly one [1..1] @classCode=&quot;AGNT&quot; Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="AGNT"/>
+            <fixedCode value="AGNT"/>
         </element>
         <element id="Observation.participant:participant2.participantRole.code">
             <path value="Observation.participant.participantRole.code"/>
@@ -395,6 +397,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.reference:reference1">
             <path value="Observation.reference"/>
@@ -408,7 +411,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8694)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Observation.reference:reference1.externalDocument">
             <path value="Observation.reference.externalDocument"/>

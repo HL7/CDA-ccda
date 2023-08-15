@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="A Boundary Observation contains a list of integer values for the referenced frames of a DICOM multiframe image SOP instance. It identifies the frame numbers within the referenced SOP instance to which the reference applies. The CDA Boundary Observation numbers frames using the same convention as DICOM, with the first frame in the referenced object being Frame 1. A Boundary Observation must be used if a referenced DICOM SOP instance is a multiframe image and the reference does not apply to all frames."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9282)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9283)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>

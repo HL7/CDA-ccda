@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This section lists and describes all relevant clinical problems at the time the document is generated. At a minimum, all pertinent current and historical problems should be listed. Overall health status may be represented in this section."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -39,7 +40,7 @@
             <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32864)."/>
             <min value="0"/>
             <max value="1"/>
-            <patternCode value="NI"/>
+            <fixedCode value="NI"/>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
@@ -54,6 +55,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>

@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="DICOM Template 2000 specifies that Imaging Report Elements of Value Type Code are contained in sections. The Imaging Report Elements are inferred from Basic Diagnostic Imaging Report Observations that consist of image references and measurements (linear, area, volume, and numeric). Coded DICOM Imaging Report Elements in this context are mapped to CDA-coded observations that are section components and are related to the SOP Instance Observations (templateId 2.16.840.1.113883.10.20.6.2.8) or Quantity Measurement Observations (templateId 2.16.840.1.113883.10.20.6.2.14) by the SPRT (Support) act relationship."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -42,14 +43,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9304)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9305)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -60,6 +61,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -115,7 +117,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9312)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SPRT"/>
+            <fixedCode value="SPRT"/>
         </element>
         <element id="Observation.entryRelationship:SOPInstanceObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
@@ -139,7 +141,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9315)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SPRT"/>
+            <fixedCode value="SPRT"/>
         </element>
         <element id="Observation.entryRelationship:quantityMeasurementObservation.observation">
             <path value="Observation.entryRelationship.observation"/>

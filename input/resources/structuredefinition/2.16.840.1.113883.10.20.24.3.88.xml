@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.24.3.88"/>
+    <meta>
+        <versionId value="4"/>
+        <lastUpdated value="2023-07-11T23:42:06.692Z"/>
+    </meta>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.24.3.88"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.24.3.88:2023-05-01"/>
+    </identifier>
+    <version value="2023-05-01"/>
+    <name value="ReasonV4"/>
+    <title value="Reason (V4)"/>
+    <status value="draft"/>
+    <publisher value="Namaste Informatics"/>
+    <contact>
+        <name value="Gay Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="9493028082"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gdolin@NamasteInformatics.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template describes the thought process or justification for an action or for not performing an action. Examples include patient, system, or non-problem/diagnosis medical-related reasons for declining to perform specific actions, or any reason for performing an action. Note that the parent template that calls this template can be asserted to have occurred or to not have occurred. Therefore, this template simply adds a reason to some other (possibly negated) act. As such, there is nothing in this template that says whether the parent act did or did not occur. It is expected that the primary use of this template within C-CDA is to provide the rationale for why something was not done. If this template is called by a template that is not negated, the Reason template should contain something other than a problem or a diagnosis, such as a patient preference.&#xA;The	Indication (V3) observation: 2.16.840.1.113883.10.20.22.4.19 should be used to represent a diagnosis or problem to indicate the diagnosis or problem is the rationale for an action.&#xA;Immunization Refusal Reason: 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.&#xA;&#xA;"/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-11357)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-11358)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:templateId1">
+            <path value="Observation.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-11359) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId:templateId1.root">
+            <path value="Observation.templateId.root"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.24.3.88&quot; (CONF:4537-11360)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.24.3.88"/>
+        </element>
+        <element id="Observation.templateId:templateId1.extension">
+            <path value="Observation.templateId.extension"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-27027)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2023-05-01"/>
+        </element>
+        <element id="Observation.id">
+            <path value="Observation.id"/>
+            <short value="id"/>
+            <definition value="SHALL contain at least one [1..*] id (CONF:4537-26998)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:4537-11361)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;77301-0&quot; Reason care action performed or not (CONF:4537-11362)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="77301-0"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4537-27028)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4537-11364)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-11365)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedString value="completed"/>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <short value="effectiveTime"/>
+            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-11366)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.effectiveTime.low">
+            <path value="Observation.effectiveTime.low"/>
+            <short value="low"/>
+            <definition value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-27551)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.effectiveTime.high">
+            <path value="Observation.effectiveTime.high"/>
+            <short value="high"/>
+            <definition value="This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-27552)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <short value="value"/>
+            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot; (CONF:4537-11367)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -4,25 +4,28 @@
     <id value="2.16.840.1.113883.10.20.22.4.86"/>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.86"/>
     <identifier>
-        <value value="urn:oid:2.16.840.1.113883.10.20.22.4.86"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.86:2022-06-01"/>
     </identifier>
-    <name value="AssessmentScaleSupportingObservation"/>
-    <title value="Assessment Scale Supporting Observation"/>
+    <version value="2022-06-01"/>
+    <name value="AssessmentScaleSupportingObservationV2"/>
+    <title value="Assessment Scale Supporting Observation (V2)"/>
     <status value="active"/>
+    <publisher value="WaveOne Associates"/>
     <contact>
-        <name value="Gaye Dolin"/>
+        <name value="Brett Marquard"/>
         <telecom>
             <system value="phone"/>
-            <value value="714-744-4152"/>
+            <value value="4135496886"/>
             <use value="work"/>
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
+            <value value="brett@waveoneassociates.com"/>
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="An Assessment Scale Supporting Observation represents the components of a scale used in an Assessment Scale Observation. The individual parts that make up the component may be a group of cognitive or functional status observations."/>
+    <description value="An Assessment Scale Supporting Observation represents the components of a scale used in an Assessment Scale Observation. The individual parts that make up the component may be a group of physical, cognitive, functional status, social observations or answers to questions."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -34,17 +37,19 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-16715)."/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-16715)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-16716)."/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-16716)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -53,68 +58,78 @@
                     <type value="value"/>
                     <path value="root"/>
                 </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-16722) such that it"/>
+            <min value="1"/>
         </element>
-        <element id="Observation.templateId:primary">
+        <element id="Observation.templateId:templateId1">
             <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-16722) such that it"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-16722) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:primary.root">
+        <element id="Observation.templateId:templateId1.root">
             <path value="Observation.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.86&quot; (CONF:81-16723)."/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.86&quot; (CONF:4515-16723)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.86"/>
         </element>
+        <element id="Observation.templateId:templateId1.extension">
+            <path value="Observation.templateId.extension"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-33036)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2022-06-01"/>
+        </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:81-16724)."/>
+            <short value="id"/>
+            <definition value="SHALL contain at least one [1..*] id (CONF:4515-16724)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:81-19178)."/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code, which SHALL be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) DYNAMIC (CONF:4515-19178)."/>
             <min value="1"/>
             <max value="1"/>
-        </element>
-        <element id="Observation.code.code">
-            <path value="Observation.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code (CONF:81-19179)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <constraint>
-                <key value="81-19180"/>
-                <severity value="error"/>
-                <human value="Such that the @code SHALL be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) and represents components of the scale (CONF:81-19180)."/>
-            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:81-16720)."/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4515-16720)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19089)."/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-19089)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <requirements value="SHALL contain at least one [1..*] value (CONF:81-16754)."/>
+            <short value="value"/>
+            <definition value="SHALL contain at least one [1..*] value (CONF:4515-16754)."/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
-                <key value="81-16755"/>
+                <key value="4515-16755"/>
                 <severity value="warning"/>
-                <human value="If xsi:type=&quot;CD&quot;, MAY have a translation code to further specify the source if the instrument has an applicable code system and value set for the integer (CONF:14639) (CONF:81-16755)."/>
+                <human value="If xsi:type=&quot;CD&quot;, MAY have a translation code to further specify the source if the instrument has an applicable code system and value set for the integer (CONF:14639) (CONF:4515-16755)."/>
             </constraint>
         </element>
     </differential>

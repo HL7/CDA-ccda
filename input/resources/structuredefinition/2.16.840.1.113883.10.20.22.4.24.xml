@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="This template represents the vehicle (e.g., saline, dextrose) for administering a medication."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
@@ -37,7 +38,7 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7490)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="MANU"/>
+            <fixedCode value="MANU"/>
         </element>
         <element id="ParticipantRole.templateId">
             <path value="ParticipantRole.templateId"/>
@@ -48,6 +49,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="ParticipantRole.templateId:primary">
             <path value="ParticipantRole.templateId"/>

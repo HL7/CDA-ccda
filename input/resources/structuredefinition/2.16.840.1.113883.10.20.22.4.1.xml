@@ -4,12 +4,12 @@
     <id value="2.16.840.1.113883.10.20.22.4.1"/>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.1"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2023-05-01"/>
     </identifier>
-    <version value="2015-08-01"/>
-    <name value="ResultOrganizer"/>
-    <title value="Result Organizer"/>
-    <status value="active"/>
+    <version value="2023-05-01"/>
+    <name value="ResultOrganizerV4"/>
+    <title value="Result Organizer (V4)"/>
+    <status value="draft"/>
     <publisher value="WaveOne Associates"/>
     <contact>
         <name value="Brett Marquard"/>
@@ -24,7 +24,8 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., &quot;Hematology&quot;, &quot;Chemistry&quot;, &quot;Nuclear Medicine&quot;). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;."/>
+    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
@@ -36,15 +37,18 @@
         </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7121)."/>
+            <short value="classCode"/>
+            <definition value="SHALL contain exactly one [1..1] @classCode (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7121)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7122)."/>
+            <short value="moodCode"/>
+            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7122)."/>
             <min value="1"/>
             <max value="1"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
@@ -59,59 +63,68 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-7126) such that it"/>
+            <min value="1"/>
         </element>
-        <element id="Organizer.templateId:primary">
+        <element id="Organizer.templateId:templateId1">
             <path value="Organizer.templateId"/>
-            <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7126) such that it"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-7126) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Organizer.templateId:primary.root">
+        <element id="Organizer.templateId:templateId1.root">
             <path value="Organizer.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.1&quot; (CONF:1198-9134)."/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.1&quot; (CONF:4537-9134)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.1"/>
         </element>
-        <element id="Organizer.templateId:primary.extension">
+        <element id="Organizer.templateId:templateId1.extension">
             <path value="Organizer.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32588)."/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32588)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="2015-08-01"/>
+            <patternString value="2023-05-01"/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-7127)."/>
+            <short value="id"/>
+            <definition value="SHALL contain at least one [1..*] id (CONF:4537-7127)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-7128)."/>
+            <short value="code"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:4537-7128)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
-                <key value="1198-19218"/>
+                <key value="4537-19218"/>
                 <severity value="warning"/>
-                <human value="**SHOULD** be selected from LOINC (codeSystem 2.16.840.1.113883.6.1) **OR** SNOMED CT (codeSystem 2.16.840.1.113883.6.96), and **MAY** be selected from CPT-4 (codeSystem 2.16.840.1.113883.6.12) (CONF:1198-19218)."/>
+                <human value="**SHOULD** be selected from LOINC (codeSystem 2.16.840.1.113883.6.1) **OR** SNOMED CT (codeSystem 2.16.840.1.113883.6.96), and **MAY** be selected from CPT (codeSystem 2.16.840.1.113883.6.12) (CONF:4537-19218)."/>
             </constraint>
             <constraint>
-                <key value="1198-19219"/>
+                <key value="4537-19219"/>
                 <severity value="warning"/>
-                <human value="Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:1198-19219)."/>
+                <human value="Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:4537-19219)."/>
             </constraint>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-7123)."/>
+            <short value="statusCode"/>
+            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4537-7123)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Result Status urn:oid:2.16.840.1.113883.11.20.9.39 STATIC (CONF:1198-14848)."/>
+            <short value="code"/>
+            <definition value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Result Status urn:oid:2.16.840.1.113883.11.20.9.39 STATIC (CONF:4537-14848)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -123,25 +136,60 @@
             <path value="Organizer.effectiveTime"/>
             <label value="The effectiveTime is an interval that spans the effectiveTimes of the contained result observations. Because all contained result observations have a required time stamp, it is not required that this effectiveTime be populated."/>
             <short value="The effectiveTime is an interval that spans the effectiveTimes of the contained result observations. Because all contained result observations have a required time stamp, it is not required that this effectiveTime be populated."/>
-            <requirements value="MAY contain zero or one [0..1] effectiveTime (CONF:1198-31865)."/>
+            <definition value="MAY contain zero or one [0..1] effectiveTime (CONF:4537-31865)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Organizer.effectiveTime.low">
             <path value="Organizer.effectiveTime.low"/>
-            <requirements value="The effectiveTime, if present, SHALL contain exactly one [1..1] low (CONF:1198-32488)."/>
+            <short value="low"/>
+            <definition value="The effectiveTime, if present, SHALL contain exactly one [1..1] low (CONF:4537-32488)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.effectiveTime.high">
             <path value="Organizer.effectiveTime.high"/>
-            <requirements value="The effectiveTime, if present, SHALL contain exactly one [1..1] high (CONF:1198-32489)."/>
+            <short value="high"/>
+            <definition value="The effectiveTime, if present, SHALL contain exactly one [1..1] high (CONF:4537-32489)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
+        <element id="Organizer.specimen">
+            <path value="Organizer.specimen"/>
+            <short value="specimen"/>
+            <definition value="MAY contain zero or more [0..*] specimen (CONF:4537-32615)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Organizer.specimen.specimenRole">
+            <path value="Organizer.specimen.specimenRole"/>
+            <short value="specimenRole"/>
+            <definition value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32616)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.specimen.specimenRole.specimenPlayingEntity">
+            <path value="Organizer.specimen.specimenRole.specimenPlayingEntity"/>
+            <short value="specimenPlayingEntity"/>
+            <definition value="This specimenRole SHALL contain exactly one [1..1] specimenPlayingEntity (CONF:4537-32617)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.specimen.specimenRole.specimenPlayingEntity.code">
+            <path value="Organizer.specimen.specimenRole.specimenPlayingEntity.code"/>
+            <short value="code"/>
+            <definition value="This specimenPlayingEntity SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Specimen type urn:oid:2.16.840.1.113762.1.4.1099.54 DYNAMIC (CONF:4537-32618)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.54"/>
+            </binding>
+        </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>
-            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31149)."/>
+            <short value="author"/>
+            <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-31149)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -158,17 +206,21 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <definition value="SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"/>
+            <min value="1"/>
         </element>
-        <element id="Organizer.component:result">
+        <element id="Organizer.component:component1">
             <path value="Organizer.component"/>
-            <sliceName value="result"/>
-            <requirements value="SHALL contain at least one [1..*] component (CONF:1198-7124) such that it"/>
+            <sliceName value="component1"/>
+            <short value="component"/>
+            <definition value="SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Organizer.component:result.observation">
+        <element id="Organizer.component:component1.observation">
             <path value="Organizer.component.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Result Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:1198-14850)."/>
+            <short value="observation"/>
+            <definition value="SHALL contain exactly one [1..1] Result Observation (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:4537-14850)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

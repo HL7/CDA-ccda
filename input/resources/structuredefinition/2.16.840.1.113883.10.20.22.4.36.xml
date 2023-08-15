@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="This template represents the medications taken by the patient prior to and at the time of admission."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -38,14 +39,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7698)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7699)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -60,6 +61,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -111,6 +113,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.entryRelationship:medicationActivity">
             <path value="Act.entryRelationship"/>
@@ -124,7 +127,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7702)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <fixedCode value="SUBJ"/>
         </element>
         <element id="Act.entryRelationship:medicationActivity.substanceAdministration">
             <path value="Act.entryRelationship.substanceAdministration"/>

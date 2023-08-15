@@ -7,7 +7,7 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.44:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="AdmissionMedicationsSectionentriesoptional"/>
+    <name value="AdmissionMedicationsSectionEntriesOptional"/>
     <title value="Admission Medications Section (entries optional)"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="The section contains the medications taken by the patient prior to and at the time of admission to the facility."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -47,6 +48,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>

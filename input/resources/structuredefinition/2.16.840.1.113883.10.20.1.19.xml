@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="An Authorization Activity represents authorizations or pre-authorizations currently active for the patient for the particular payer. &#xA;&#xA;Authorizations are represented using an act subordinate to the policy or program that provided it. The authorization refers to the policy or program. Authorized treatments can be grouped into an organizer class, where common properties, such as the reason for the authorization, can be expressed. Subordinate acts represent what was authorized."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8944)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8945)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -55,6 +56,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -85,6 +87,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.entryRelationship:target">
             <path value="Act.entryRelationship"/>
@@ -96,6 +99,7 @@
                 <key value="81-8951"/>
                 <severity value="warning"/>
                 <human value="The target of an authorization activity with act/entryRelationship/@typeCode=&quot;SUBJ&quot; SHALL be a clinical statement with moodCode=&quot;PRMS&quot; Promise (CONF:81-8951)."/>
+                <expression value="act or observation or procedure or substanceAdministration or supply"/>
             </constraint>
             <constraint>
                 <key value="81-8952"/>
@@ -108,7 +112,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-8949)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <fixedCode value="SUBJ"/>
         </element>
     </differential>
 </StructureDefinition>

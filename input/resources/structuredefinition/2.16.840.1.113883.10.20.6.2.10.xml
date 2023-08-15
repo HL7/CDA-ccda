@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="A Referenced Frames Observation is used if the referenced DICOM SOP instance is a multiframe image and the reference does not apply to all frames. The list of integer values for the referenced frames of a DICOM multiframe image SOP instance is contained in a Boundary Observation nested inside this class."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ROIBND&quot; Bounded Region of Interest (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9276)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ROIBND"/>
+            <fixedCode value="ROIBND"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9277)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
@@ -70,7 +71,7 @@
             <requirements value="This entryRelationship SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-9280)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship.observation">
             <path value="Observation.entryRelationship.observation"/>

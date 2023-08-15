@@ -1,5 +1,3 @@
-[Previous Page - Using this Implementation Guide](using.html)
-
 * American Recovery And Reinvestment Act of 2009, US Public Law 111-5, 123 Stat. 115, 516 (Feb. 19, 2009). http://www.gpo.gov/fdsys/pkg/PLAW-111publ5/content-detail.html
 * CDC. (May 2012). Epidemiology and Prevention of Vaccine-Preventable Diseases (The Pink Book), Appendix D: Vaccine Administration Guidelines. http://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/D/vacc_admin.pdf
 * Electronic Health Record Incentive Program; Final Rule (Stage 1 Meaningful Use), (July 28, 2010), http://edocket.access.gpo.gov/2010/pdf/2010-17207.pdf
@@ -39,5 +37,3 @@
 * Trifolia Workbench (Consolidation Project Edition). Open source template database. https://trifolia.lantanagroup.com/
 * W3C, Extensible Markup Language (XML) 1.0 (Fifth Edition), http://www.w3.org/TR/2008/REC-xml-20081126/
 * W3C, XML Path Language (XPath), Version 1.0, (1999). http://www.w3.org/TR/xpath/
-
-[Next Page - Appendix](appendix.html)

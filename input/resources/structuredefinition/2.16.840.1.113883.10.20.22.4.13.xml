@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="The common notion of procedure is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Therefore procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy). &#xA;&#xA;This template represents procedures that result in new information about the patient that cannot be classified as a procedure according to the HL7 RIM. Examples of these procedures are diagnostic imaging procedures, EEGs, and EKGs."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -38,14 +39,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8282)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-8237)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -60,6 +61,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -285,7 +287,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8262)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="LOC"/>
+            <fixedCode value="LOC"/>
         </element>
         <element id="Observation.participant:location.participantRole">
             <path value="Observation.participant.participantRole"/>
@@ -331,14 +333,14 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8265)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:encounter.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8266)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternBoolean value="true"/>
+            <fixedBoolean value="true"/>
         </element>
         <element id="Observation.entryRelationship:encounter.encounter">
             <path value="Observation.entryRelationship.encounter"/>
@@ -351,14 +353,14 @@
             <requirements value="This encounter SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; Encounter (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8268)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ENC"/>
+            <fixedCode value="ENC"/>
         </element>
         <element id="Observation.entryRelationship:encounter.encounter.moodCode">
             <path value="Observation.entryRelationship.encounter.moodCode"/>
             <requirements value="This encounter SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-8269)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.entryRelationship:encounter.encounter.id">
             <path value="Observation.entryRelationship.encounter.id"/>
@@ -383,14 +385,14 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8273)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <fixedCode value="SUBJ"/>
         </element>
         <element id="Observation.entryRelationship:instruction.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8274)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternBoolean value="true"/>
+            <fixedBoolean value="true"/>
         </element>
         <element id="Observation.entryRelationship:instruction.act">
             <path value="Observation.entryRelationship.act"/>
@@ -414,7 +416,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8277)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="RSON"/>
+            <fixedCode value="RSON"/>
         </element>
         <element id="Observation.entryRelationship:indication.observation">
             <path value="Observation.entryRelationship.observation"/>
@@ -438,7 +440,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8280)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:medication.substanceAdministration">
             <path value="Observation.entryRelationship.substanceAdministration"/>
@@ -462,7 +464,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32471)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:reaction.observation">
             <path value="Observation.entryRelationship.observation"/>

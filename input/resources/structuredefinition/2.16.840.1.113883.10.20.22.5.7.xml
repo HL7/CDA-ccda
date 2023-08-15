@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.10.20.22.5.7"/>
+    <meta>
+        <versionId value="4"/>
+        <lastUpdated value="2023-07-11T23:42:05.979Z"/>
+    </meta>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.7"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.5.7:2020-05-19"/>
+    </identifier>
+    <version value="2020-05-19"/>
+    <name value="ProvenanceAssemblerParticipationV2"/>
+    <title value="Provenance - Assembler Participation (V2)"/>
+    <status value="draft"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template represents the organization that supported generation of a CDA document. The Assembler Organization may be different than the Author Organization, and may be different from the Organization that developed the software used to generate the document. &#xA;&#xA;This Participation is only for use in the CDA Header because it applies to the entire content in the document.&#xA;&#xA;This template is consistent with the prior Assembler Document Participant  (2.16.840.1.113883.3.5019.1.1) in the 2016 HL7 Data Provenance guide, however, makes no claim about representing the software organization. All constraints for conformance are defined in this template.&#xA;&#xA;Note: The CDA Participant does not support a software device or the organization that created the software. The Assembler role can only be expressed at the level of organization. This is a known issue with the current CDA R2 model.&#xA;Note: The Provenance template title includes a version 2 to support moving from the 'Basic Provenance' guide to the this Companion Guide, so the templateId has not changed."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Participant1">
+            <path value="Participant1"/>
+        </element>
+        <element id="Participant1.typeCode">
+            <path value="Participant1.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CONF:4537-55)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="DEV"/>
+        </element>
+        <element id="Participant1.templateId">
+            <path value="Participant1.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-40) such that it"/>
+            <min value="1"/>
+        </element>
+        <element id="Participant1.templateId:templateId1">
+            <path value="Participant1.templateId"/>
+            <sliceName value="templateId1"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-40) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.templateId:templateId1.root">
+            <path value="Participant1.templateId.root"/>
+            <short value="root"/>
+            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.5.7&quot; (CONF:4537-44)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.5.7"/>
+        </element>
+        <element id="Participant1.templateId:templateId1.extension">
+            <path value="Participant1.templateId.extension"/>
+            <short value="extension"/>
+            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2020-05-19&quot; (CONF:4537-33025)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2020-05-19"/>
+        </element>
+        <element id="Participant1.functionCode">
+            <path value="Participant1.functionCode"/>
+            <short value="functionCode"/>
+            <definition value="SHALL contain exactly one [1..1] functionCode (CONF:4537-38)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.functionCode.code">
+            <path value="Participant1.functionCode.code"/>
+            <short value="code"/>
+            <definition value="This functionCode SHALL contain exactly one [1..1] @code=&quot;assembler&quot; Assembler (CONF:4537-32972)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="assembler"/>
+        </element>
+        <element id="Participant1.functionCode.codeSystem">
+            <path value="Participant1.functionCode.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This functionCode SHALL contain exactly one [1..1] @codeSystem (CodeSystem: ProvenanceParticipantType urn:oid:2.16.840.1.113883.4.642.4.1131) (CONF:4537-41)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.time">
+            <path value="Participant1.time"/>
+            <short value="time"/>
+            <definition value="SHALL contain exactly one [1..1] time (CONF:4537-42)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.associatedEntity">
+            <path value="Participant1.associatedEntity"/>
+            <label value="The template does not require any elements from the associatedEntity since the information is recorded in the scopingOrganization."/>
+            <short value="The template does not require any elements from the associatedEntity since the information is recorded in the scopingOrganization."/>
+            <definition value="SHALL contain exactly one [1..1] associatedEntity (CONF:4537-39)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.associatedEntity.classCode">
+            <path value="Participant1.associatedEntity.classCode"/>
+            <short value="classCode"/>
+            <definition value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;OWN&quot; Owned Entity (CONF:4537-32973)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="OWN"/>
+        </element>
+        <element id="Participant1.associatedEntity.scopingOrganization">
+            <path value="Participant1.associatedEntity.scopingOrganization"/>
+            <short value="scopingOrganization"/>
+            <definition value="This associatedEntity SHALL contain exactly one [1..1] scopingOrganization (CONF:4537-43)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Participant1.associatedEntity.scopingOrganization.id">
+            <path value="Participant1.associatedEntity.scopingOrganization.id"/>
+            <short value="id"/>
+            <definition value="This scopingOrganization SHALL contain at least one [1..*] id (CONF:4537-50)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Participant1.associatedEntity.scopingOrganization.name">
+            <path value="Participant1.associatedEntity.scopingOrganization.name"/>
+            <short value="name"/>
+            <definition value="This scopingOrganization SHALL contain at least one [1..*] name (CONF:4537-51)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Participant1.associatedEntity.scopingOrganization.telecom">
+            <path value="Participant1.associatedEntity.scopingOrganization.telecom"/>
+            <short value="telecom"/>
+            <definition value="This scopingOrganization SHOULD contain zero or more [0..*] telecom (CONF:4537-52)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Participant1.associatedEntity.scopingOrganization.addr">
+            <path value="Participant1.associatedEntity.scopingOrganization.addr"/>
+            <short value="addr"/>
+            <definition value="This scopingOrganization SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-47)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.2"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -25,6 +25,7 @@
         </telecom>
     </contact>
     <description value="This document describes constraints on the Clinical Document Architecture (CDA) header and body elements for a Transfer Summary. The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings. &#xA;&#xA;Standardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
@@ -47,6 +48,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="ClinicalDocument.templateId:primary">
             <path value="ClinicalDocument.templateId"/>
@@ -113,7 +115,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31872)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="IND"/>
+            <fixedCode value="IND"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
@@ -155,7 +157,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; Call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31627)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="CALLBCK"/>
+            <fixedCode value="CALLBCK"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
@@ -168,7 +170,7 @@
             <requirements value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;ASSIGNED&quot; assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-31641)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ASSIGNED"/>
+            <fixedCode value="ASSIGNED"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.id">
             <path value="ClinicalDocument.participant.associatedEntity.id"/>
@@ -224,7 +226,7 @@
             <requirements value="This serviceEvent SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Care Provision (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31572)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="PCPR"/>
+            <fixedCode value="PCPR"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.code"/>
@@ -242,6 +244,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
@@ -255,7 +258,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;PRF&quot; Participation of Physical Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31575)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="PRF"/>
+            <fixedCode value="PRF"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
@@ -290,6 +293,8 @@
                 <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (V2) (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (V2) (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-31583)."/>
             </constraint>
         </element>
+        <!--SG 20230708: This is wrong in C-CDA - it's a should 0..1 which causes an error because CDA says you have to have 1
+             deleted min=0-->
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
@@ -299,7 +304,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <min value="0"/>
+            <short value="SG 20230708: This is wrong in C-CDA - it's a should 0..1 which causes an error because CDA says you have to have 1 - deleted min=0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:advanceDirectives">

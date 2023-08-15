@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="This template records the intent to supply a patient with medications."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
@@ -44,7 +45,7 @@
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;INT&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7428)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="INT"/>
+            <fixedCode value="INT"/>
         </element>
         <element id="Supply.templateId">
             <path value="Supply.templateId"/>
@@ -59,6 +60,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Supply.templateId:primary">
             <path value="Supply.templateId"/>
@@ -176,14 +178,14 @@
             <requirements value="The entryRelationship, if present, SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7444)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <fixedCode value="SUBJ"/>
         </element>
         <element id="Supply.entryRelationship.inversionInd">
             <path value="Supply.entryRelationship.inversionInd"/>
             <requirements value="The entryRelationship, if present, SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-7445)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternBoolean value="true"/>
+            <fixedBoolean value="true"/>
         </element>
         <element id="Supply.entryRelationship.act">
             <path value="Supply.entryRelationship.act"/>

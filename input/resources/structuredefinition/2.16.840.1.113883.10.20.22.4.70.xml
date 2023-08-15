@@ -23,6 +23,7 @@
         </telecom>
     </contact>
     <description value="The pressure ulcer observation contains details about the pressure ulcer such as the stage of the ulcer, location, and dimensions. If the pressure ulcer is a diagnosis, you may find this on the problem list. An example of how this would appear is in the Problem Section.&#xA;&#xA;THIS TEMPLATE HAS BEEN DEPRECATED IN C-CDA R2 AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for deprecation*: This template has been replaced by Longitudinal Care Wound Observation (2.16.840.1.113883.10.20.22.4.114)."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -37,14 +38,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14383)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14384)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.negationInd">
             <path value="Observation.negationInd"/>
@@ -66,6 +67,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
@@ -141,7 +143,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19111)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="completed"/>
+            <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -154,7 +156,6 @@
             <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Pressure Ulcer Stage urn:oid:2.16.840.1.113883.11.20.9.35 STATIC 2014-09-01 (CONF:1098-14396)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="Pressure Ulcer Stage"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
@@ -236,7 +237,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-14411)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation">
             <path value="Observation.entryRelationship.observation"/>
@@ -249,14 +250,14 @@
             <requirements value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14685)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation.moodCode">
             <path value="Observation.entryRelationship.observation.moodCode"/>
             <requirements value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14686)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation.code">
             <path value="Observation.entryRelationship.observation.code"/>
@@ -269,7 +270,7 @@
             <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;401238003&quot; Length of Wound (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-14621)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="401238003"/>
+            <fixedString value="401238003"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation.value">
             <path value="Observation.entryRelationship.observation.value"/>
@@ -292,7 +293,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1098-14602)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation">
             <path value="Observation.entryRelationship.observation"/>
@@ -305,14 +306,14 @@
             <requirements value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14687)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation.moodCode">
             <path value="Observation.entryRelationship.observation.moodCode"/>
             <requirements value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14688)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship2.observation.code">
             <path value="Observation.entryRelationship.observation.code"/>
@@ -348,7 +349,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1098-14606)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="COMP"/>
+            <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation">
             <path value="Observation.entryRelationship.observation"/>
@@ -361,14 +362,14 @@
             <requirements value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14689)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="OBS"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation.moodCode">
             <path value="Observation.entryRelationship.observation.moodCode"/>
             <requirements value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14690)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship3.observation.code">
             <path value="Observation.entryRelationship.observation.code"/>

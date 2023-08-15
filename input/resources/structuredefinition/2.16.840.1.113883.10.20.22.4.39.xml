@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="This template represents planned acts that are not classified as an observation or a procedure according to the HL7 RIM. Examples of these acts are a dressing change, the teaching or feeding of a patient or the providing of comfort measures. &#xD;&#xA;The priority of the activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the activity is intended to take place."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -38,7 +39,7 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8538)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="ACT"/>
+            <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
@@ -63,6 +64,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
@@ -113,7 +115,7 @@
             <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32019)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="active"/>
+            <fixedString value="active"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
@@ -164,7 +166,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31068)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="REFR"/>
+            <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:priorityPreference.observation">
             <path value="Act.entryRelationship.observation"/>
@@ -189,7 +191,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32022)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="RSON"/>
+            <fixedCode value="RSON"/>
         </element>
         <element id="Act.entryRelationship:indication.observation">
             <path value="Act.entryRelationship.observation"/>
@@ -213,7 +215,7 @@
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32025)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="SUBJ"/>
+            <fixedCode value="SUBJ"/>
         </element>
         <element id="Act.entryRelationship:instruction.act">
             <path value="Act.entryRelationship.act"/>

@@ -24,6 +24,7 @@
         </telecom>
     </contact>
     <description value="Where it is necessary to reference an external clinical document, the External Document Reference template can be used to reference this external document. However, if the containing document is appending to or replacing another document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."/>
+    <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ExternalDocument"/>
@@ -38,14 +39,14 @@
             <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;DOCCLIN&quot; Clinical Document (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31931)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="DOCCLIN"/>
+            <fixedCode value="DOCCLIN"/>
         </element>
         <element id="ExternalDocument.moodCode">
             <path value="ExternalDocument.moodCode"/>
             <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31932)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternCode value="EVN"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="ExternalDocument.templateId">
             <path value="ExternalDocument.templateId"/>
@@ -60,6 +61,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="ExternalDocument.templateId:primary">
             <path value="ExternalDocument.templateId"/>
