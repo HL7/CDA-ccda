@@ -1612,7 +1612,7 @@ Consultation Note (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Consultation Note**   | History of Present Illness Section<br />Allergies and Intolerances Section (entries required) (V3)<br />Problem Section (entries required) (V3)  | Assessment Section<br />Assessment and Plan Section (V2)<br />Plan of Treatment Section (V2)<br />Reason for Visit Section<br />Physical Exam Section (V3)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Family History Section (V3)<br />General Status Section<br />Past Medical History (V3)<br />Immunizations Section (entries optional) (V3) Medications Section (entries required) (V2) Procedures Section (entries optional) (V2)<br />Results Section (entries required) (V3)<br />Social History Section (V3)<br />Vital Signs Section (entries required) (V3)<br />Functional Status Section (V2)<br />Review of Systems Section<br />Medical Equipment Section  |
+| **Consultation Note**   | History of Present Illness Section<br />Allergies and Intolerances Section (V3)<br />Problem Section (V3)  | Assessment Section<br />Assessment and Plan Section (V2)<br />Plan of Treatment Section (V2)<br />Reason for Visit Section<br />Physical Exam Section (V3)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Family History Section (V3)<br />General Status Section<br />Past Medical History (V3)<br />Immunizations Section (V3)<br /> Medications Section (V2<br />) Procedures Section (V2)<br />Results Section (V3)<br />Social History Section (V3)<br />Vital Signs Section (V3)<br />Functional Status Section (V2)<br />Review of Systems Section<br />Medical Equipment Section  |
 {:.grid}
 **Table 17: Consultation Note: Document Template.**
 
@@ -1639,28 +1639,9 @@ urn:hl7ii:2.16.840.1.113883.10.20.22.1.2:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Continuity of Care Document (CCD)**   | Allergies and Intolerances Section (entries required) (V3)<br />Medications Section (entries required) (V2)<br />Problem Section (entries required) (V3)<br />Results Section (entries required) (V3)<br />Social History Section (V3)<br />Vital Signs Section (entries required) (V3)  | Procedures Section (entries required) (V2)<br />Encounters Section (entries optional) (V3)<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Immunizations Section (entries required) (V3)<br />Medical Equipment Section (V2)<br />Payers Section (V3)<br />Plan of Treatment Section (V2)<br />Mental Status Section (V2)<br />Nutrition Section<br />Advance Directives Section (entries optional) (V3)<br />Goals Section<br />Health Concerns Section (V2)  |
+| **Continuity of Care Document (CCD)**   | Allergies and Intolerances Section (V3)<br />Medications Section (V2)<br />Problem Section (V3)<br />Results Section (V3)<br />Social History Section (V3)<br />Vital Signs Section (V3)  | Procedures Section (V2)<br />Encounters Section (V3)<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Immunizations Section (V3)<br />Medical Equipment Section (V2)<br />Payers Section (V3)<br />Plan of Treatment Section (V2)<br />Mental Status Section (V2)<br />Nutrition Section<br />Advance Directives Section (V3)<br />Goals Section<br />Health Concerns Section (V2)  |
 {:.grid}
 **Table 18: Continuity of Care Document: Document Template.**
-
-#### Diagnostic Imaging Report: Document Template
-
-A Diagnostic Imaging Report (DIR) is a document that contains a consulting specialist’s interpretation of image
-data. It conveys the interpretation to the referring (ordering) physician and becomes part of the patient’s medical
-record. It is for use in Radiology, Endoscopy, Cardiology, and other imaging specialties.
-
-#### Structured Sections
-
-The table below describes the required and optional sections in a Diagnostic Imaging Report document template:
-Diagnostic Imaging Report (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.5:2015- 08 -01
-(open)]
-
-
-| **Document Type**   | **Required Sections**    | **Optional Sections** |
-| -- | -------- | ------ |
-| **Diagnostic Imaging Report**   | Finding Sections (DIR)  | DICOM Object Catalog Section – DCM 121181  |
-{:.grid}
-**Table 19: Diagnostic Imaging Report: Document Template.**
 
 #### Discharge Summary: Document Template
 
@@ -1684,7 +1665,7 @@ Discharge Summary (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Discharge Summary**   | Allergies and Intolerances Section (entries optional) (V3)Hospital Course Section<br />Discharge Diagnosis Section (V3)<br />Plan of Treatment Section (V2) (DIR)  | Discharge Medications Section (entries optional) (V3)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Nutrition Section<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Past Medical History (V3)<br />History of Present Illness Section<br />Admission Diagnosis Section (V3)<br />Admission Medications Section (entries optional) (V3)<br />Hospital Consultations Section<br />Hospital Discharge Instructions Section<br />Hospital Discharge Studies Summary Section<br />Immunizations Section (entries optional) (V3)<br />Procedures Section (entries optional) (V2)<br />Reason for Visit Section<br />Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (entries optional) (V3)<br />Discharge Medications Section (entries required) (V3)<br />Goals Section<br />Health Concerns Section (V2)  |
+| **Discharge Summary**   | Allergies and Intolerances Section (V3)Hospital Course Section<br />Discharge Diagnosis Section (V3)<br />Plan of Treatment Section (V2) (DIR)  | Discharge Medications Section (V3)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Nutrition Section<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Past Medical History (V3)<br />History of Present Illness Section<br />Admission Diagnosis Section (V3)<br />Admission Medications Section (V3)<br />Hospital Consultations Section<br />Hospital Discharge Instructions Section<br />Hospital Discharge Studies Summary Section<br />Immunizations Section (V3)<br />Procedures Section (V2)<br />Reason for Visit Section<br />Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (V3)<br />Discharge Medications Section (V3)<br />Goals Section<br />Health Concerns Section (V2)  |
 | **Example**   | DischargeSummary.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 20: Discharge Summary: Document Template.**
@@ -1711,7 +1692,7 @@ and Physical (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **History and Physical**   | Allergies and Intolerances Section (entries optional) (V3)Family History Section (V3)<br />General Status Section<br />Past Medical History (V3)<br />Medications Section (entries optional) (V2)<br />Physical Exam Section (V3)<br />Results Section (entries optional) (V3) Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (entries optional) (V3)  | Assessment Section<br />Plan of Treatment Section (V2)<br />Assessment and Plan Section (V2)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />History of Present Illness Section<br />Immunizations Section (entries optional) (V3)<br />Instructions Section (V2)<br />Problem Section (entries optional) (V3)<br />Procedures Section (entries optional) (V2)<br />Reason for Visit Section  |
+| **History and Physical**   | Allergies and Intolerances Section (V3)Family History Section (V3)<br />General Status Section<br />Past Medical History (V3)<br />Medications Section (V2)<br />Physical Exam Section (V3)<br />Results Section (V3) Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (V3)  | Assessment Section<br />Plan of Treatment Section (V2)<br />Assessment and Plan Section (V2)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />History of Present Illness Section<br />Immunizations Section (V3)<br />Instructions Section (V2)<br />Problem Section (V3)<br />Procedures Section (V2)<br />Reason for Visit Section  |
 {:.grid}
 **Table 21: History and Physical: Document Template.**
 
@@ -1751,7 +1732,7 @@ Note (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.6:
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Procedure Note**   | Complications Section (V3)<br />Procedure Description Section<br />Procedure Indications Section (V2)<br />Postprocedure Diagnosis Section (V3)  | Assessment Section<br />Assessment and Plan Section (V2)<br />Plan of Treatment Section (V2)<br />Allergies and Intolerances Section (entries optional) (V3)<br />Anesthesia Section (V2)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Family History Section (V3)<br />Past Medical History (V3)<br />History of Present Illness Section<br />Medical (General) History Section<br />Medications Section (entries optional) (V2)<br />Medications Administered Section (V2)<br />Physical Exam Section (V3)<br />Planned Procedure Section (V2)<br />Procedure Disposition Section<br />Procedure Estimated Blood Loss Section<br />Procedure Findings Section (V3)<br />Procedure Implants Section<br />Procedure Specimens Taken Section<br />Procedures Section (entries optional) (V2)<br />Reason for Visit Section<br />Review of Systems Section<br />Social History Section (V3)  |
+| **Procedure Note**   | Complications Section (V3)<br />Procedure Description Section<br />Procedure Indications Section (V2)<br />Postprocedure Diagnosis Section (V3)  | Assessment Section<br />Assessment and Plan Section (V2)<br />Plan of Treatment Section (V2)<br />Allergies and Intolerances Section (V3)<br />Anesthesia Section (V2)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Family History Section (V3)<br />Past Medical History (V3)<br />History of Present Illness Section<br />Medical (General) History Section<br />Medications Section (V2)<br />Medications Administered Section (V2)<br />Physical Exam Section (V3)<br />Planned Procedure Section (V2)<br />Procedure Disposition Section<br />Procedure Estimated Blood Loss Section<br />Procedure Findings Section (V3)<br />Procedure Implants Section<br />Procedure Specimens Taken Section<br />Procedures Section (V2)<br />Reason for Visit Section<br />Review of Systems Section<br />Social History Section (V3)  |
 {:.grid}
 **Table 23: Procedure Note: Document Template.**
 
@@ -1774,7 +1755,7 @@ Note (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.9:
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Progress Note**   |   | Assessment Section<br />Plan of Treatment Section (V2)<br />Assessment and Plan Section (V2)<br />Allergies and Intolerances Section (entries optional) (V3)<br />Chief Complaint Section<br />Interventions Section (V3)<br />Instructions Section (V2)<br /><br />Medications Section (entries optional) (V2)Objective Section<br />Physical Exam Section (V3)<br />Problem Section (entries optional) (V3)<br />Results Section (entries optional) (V3)<br />Review of Systems Section<br />Subjective Section<br />Vital Signs Section (entries optional) (V3)<br />Nutrition Section  |
+| **Progress Note**   |   | Assessment Section<br />Plan of Treatment Section (V2)<br />Assessment and Plan Section (V2)<br />Allergies and Intolerances Section (V3)<br />Chief Complaint Section<br />Interventions Section (V3)<br />Instructions Section (V2)<br /><br />Medications Section (V2)<br />Objective Section<br />Physical Exam Section (V3)<br />Problem Section (V3)<br />Results Section (V3)<br />Review of Systems Section<br />Subjective Section<br />Vital Signs Section (V3)<br />Nutrition Section  |
 | **Example**   | ProgressNote.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 24 Progress Note: Document Template.**
@@ -1800,7 +1781,7 @@ The table below describes the required and optional sections in a Referral Note 
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Referral Note**   | Problem Section (entries required) (V3)<br />Allergies and Intolerances Section (entries required) (V3)<br />Medications Section (entries required) (V2)<br />Reason for Referral Section (V2)  | Plan of Treatment Section (V2)<br />History of Present Illness Section<br />Family History Section (V3)<br />Immunizations Section (entries required) (V3)<br />Procedures Section (entries optional) (V2)<br />Results Section (entries required) (V3)<br />Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (entries required) (V3)Functional Status Section (V2)<br />Physical Exam Section (V3)<br />Nutrition Section<br />Mental Status Section (V2)<br />Medical Equipment Section (V2)<br />Assessment Section<br />Assessment and Plan Section (V2)<br />Past Medical History (V3)<br />General Status Section<br />Advance Directives Section<br />Health Concerns Section (V2)<br />Goals Section  |
+| **Referral Note**   | Problem Section (V3)<br />Allergies and Intolerances Section (V3)<br />Medications Section (V2)<br />Reason for Referral Section (V2)  | Plan of Treatment Section (V2)<br />History of Present Illness Section<br />Family History Section (V3)<br />Immunizations Section (V3)<br />Procedures Section (V2)<br />Results Section (V3)<br />Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (V3)Functional Status Section (V2)<br />Physical Exam Section (V3)<br />Nutrition Section<br />Mental Status Section (V2)<br />Medical Equipment Section (V2)<br />Assessment Section<br />Assessment and Plan Section (V2)<br />Past Medical History (V3)<br />General Status Section<br />Advance Directives Section<br />Health Concerns Section (V2)<br />Goals Section  |
 | **Example**   | ReferralNote.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 25: Referral Note: Document Template.**
@@ -1820,7 +1801,7 @@ Summary (V2)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Transfer Summary**   | Allergies and Intolerances Section (entries required) (V3)<br />Medications Section (entries required) (V2)<br />Problem Section (entries required) (V3)<br />Results Section (entries required) (V3)<br />Vital Signs Section (entries required) (V3)<br />Reason for Referral Section (V2)  | Physical Exam Section (V3)<br />Encounters Section (entries required) (V3)<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Discharge Diagnosis Section (V3)<br />Immunizations Section (entries optional) (V3)<br />Medical Equipment Section (V2)<br />Payers Section (V3)<br />Plan of Treatment Section (V2)<br />Procedures Section (entries required) (V2)<br />Social History Section (V3)<br />Mental Status Section (V2)<br />General Status Section<br />Review of Systems Section<br />Nutrition Section<br />Past Medical History (V3)<br />History of Present Illness Section<br />Assessment and Plan Section (V2)<br />Assessment Section<br />Admission Medications Section (entries optional) (V3)<br />Admission Diagnosis Section (V3)<br />Course of Care Section
+| **Transfer Summary**   | Allergies and Intolerances Section (V3)<br />Medications Section (V2)<br />Problem Section (V3)<br />Results Section (V3)<br />Vital Signs Section (V3)<br />Reason for Referral Section (V2)  | Physical Exam Section (V3)<br />Encounters Section (V3)<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Discharge Diagnosis Section (V3)<br />Immunizations Section (V3)<br />Medical Equipment Section (V2)<br />Payers Section (V3)<br />Plan of Treatment Section (V2)<br />Procedures Section (V2)<br />Social History Section (V3)<br />Mental Status Section (V2)<br />General Status Section<br />Review of Systems Section<br />Nutrition Section<br />Past Medical History (V3)<br />History of Present Illness Section<br />Assessment and Plan Section (V2)<br />Assessment Section<br />Admission Medications Section (V3)<br />Admission Diagnosis Section (V3)<br />Course of Care Section
 {:.grid}
 **Table 26: Transfer Summary: Document Template.**
 

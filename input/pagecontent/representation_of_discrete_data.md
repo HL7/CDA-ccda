@@ -524,8 +524,8 @@ that the information is unknown.
 <component>
     <!-- nullFlavor of NI indicates No Information.-->
     <section nullFlavor="NI">
-        <!-- conforms to Problems section with entries optional -->
-        <templateId root="2.16.840.1.113883.10.20.22.2.5" extension="2015-08- 01"/>
+        <!-- conforms to Problems section -->
+        <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08- 01"/>
         <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
             displayName="PROBLEM LIST"/>
         <title>PROBLEMS</title>
@@ -561,10 +561,7 @@ in a future version of C-CDA.
 <!-- ************************* ALLERGY LIST ****************************** -->
 <component>
     <section>
-        <!-- conforms to Allergies section with entries optional -->
-        <templateId root="2.16.840.1.113883.10.20.22.2.6" extension="2015-08- 01"/>
-        <templateId root="2.16.840.1.113883.10.20.22.2.6"/>
-        <!-- Allergies section with entries required -->
+        <!-- Allergies section-->
         <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
         <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
         <code code="48765-2" codeSystem="2.16.840.1.113883.6.1"/>
@@ -644,10 +641,7 @@ narrative text for the notions of “no information” and “masked information
 <component>
     <!-- nullFlavor of NI indicates No Information.-->
     <section nullFlavor="NI">
-        <!-- conforms to Allergies section with entries optional -->
-        <templateId root="2.16.840.1.113883.10.20.22.2.6" extension="2015-08- 01"/>
-        <templateId root="2.16.840.1.113883.10.20.22.2.6"/>
-        <!-- Allergies section with entries required -->
+        <!-- Allergies section-->
         <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
         <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
         <code code="48765-2" codeSystem="2.16.840.1.113883.6.1"/>
@@ -669,9 +663,6 @@ Entire section excluded because business rules of the author determine the secti
 <br/>
 ```
 <section nullFlavor="MSK">
-    <templateId root="2.16.840.1.113883.10.20.22.2.7"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.7" extension="2014-06- 09"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.7.1"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06- 09"/>
     <id root="4536582C-018F-11E6-9EF4-0050568B1D1B"/>
     <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
@@ -687,8 +678,6 @@ Entire section excluded because business rules of the author determine the secti
 **Example 32: Procedures Section with Excluded Information, example of locally selected wording**
 ```
 <section nullFlavor="MSK">
-    <templateId root="2.16.840.1.113883.10.20.22.2.7"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.7" extension="2014-06- 09"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.7.1"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06- 09"/>
     <id root="4536582C-018F-11E6-9EF4-0050568B1D1B"/>
@@ -1128,7 +1117,7 @@ information and supports clinical information reconciliation and incorporation.
 
 ```
 <section>
-    <!-- *** Allergies and Intolerances Section (entries required) (V3) *** -->
+    <!-- *** Allergies and Intolerances Section (V3) *** -->
 <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
 <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
 <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
@@ -1882,9 +1871,9 @@ author(s) for the contained Problem Observation(s). -->
 ```
 <section>
     <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
-    <!-- Problem Section with Coded Entries Required -->
+    <!-- Problem Section -->
     <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08- 01"/>
-    <!-- Problem Section with Coded Entries Required -->
+    <!-- Problem Section -->
     <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
         displayName="Problem List"/>
     <title>PROBLEMS</title>
@@ -2126,8 +2115,6 @@ Structured Documents workgroups jointly assessed issues with the Allergy Concern
 <section>
     <!-- PLEASE REFER TO THE EXAMPLE TASK FORCE <https://cdasearch.hl7.org/sections/Allergies>
 PAGE FOR EXAMPLES TO COMMON CHALLENGES WITH ENTRIES IN THIS SECTION -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.6"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.6" extension="2015-08- 01"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
     <id root="0937FF9A-00CE-11E6-B4C5-0050568B000B"/>
@@ -2354,7 +2341,7 @@ has been removed due to lack of industry use
 **Example 41: No known allergies**
 ```
 <section>
-    <!-- *** Allergies and Intolerances Section (entries required) (V3) *** -->
+    <!-- *** Allergies and Intolerances Section (V3) *** -->
 <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
 <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
 <code code="4876 5 - 2" codeSystem="2.16.840.1.113883. 6 .1" codeSystemName="LOINC"/>
@@ -3465,7 +3452,7 @@ Result Organizer must also have a statusCode of "active."
 <section>
     <!-- PLEASE REFER TO THE EXAMPLE TASK FORCE <https://cdasearch.hl7.org/sections/Results> PAGE
 FOR EXAMPLES TO COMMON CHALLENGES WITH ENTRIES IN THIS SECTION -->
-    <!-- Results Section (entries required) (V3) -->
+    <!-- Results Section (V3) -->
     <!-- This example shows that laboratory results more recent than the inpatient encounter are
 available at Good Health Hospital at the time the CCD is generated. This is a Patient Summary,
 not an Encounter Document. It covers a span of time.-->
@@ -3669,8 +3656,8 @@ PAGE FOR EXAMPLES TO COMMON CHALLENGES WITH ENTRIES IN THIS SECTION -->
 recording it in the discrete data using a UTC offset. -->
     <!-- Note that in June, UTC offset -0500 is Central time. and Eastern Timezone is the local
 time for this example. -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.4"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.4" extension="2015- 08 - 01"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.4.1"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015- 08 - 01"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.4.1"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08- 01"/>
     <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
@@ -3987,9 +3974,7 @@ date 2.
 **Example 62: [Influenza Vaccination^134](http://hl7-c-cda-examples.herokuapp.com/examples/view/Guide%20Examples/Immunizations%20Section%20(entries%20required)%20(V3)_2.16.840.1.113883.10.20.22.2.2.1)**
 ```
 <section>
-    <!-- conforms to Immunizations section with entries optional -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.2"/>
-    <!-- Immunizations section with entries required -->
+    <!-- Immunizations section -->
     <templateId root="2.16.840.1.113883.10.20.22.2.2.1"/>
     <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
         displayName="History of immunizations"/>
@@ -4289,8 +4274,8 @@ corresponding human readable narrative note information to be more machine proce
 ```
 <section>
     <!-- C-CDA 2.1 Procedures Section, entries optional -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.7"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.7" extension="2014-06- 09"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.7.1"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06- 09"/>
     <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
         displayName="HISTORY OF PROCEDURES"/>
     <title>Procedures</title>
