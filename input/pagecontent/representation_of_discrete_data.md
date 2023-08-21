@@ -1693,8 +1693,6 @@ Care and Structured Documents workgroups jointly assessed issues with the Proble
 <section>
     <!-- PLEASE REFER TO THE EXAMPLE TASK FORCE <https://cdasearch.hl7.org/sections/Problems> PAGE
 FOR EXAMPLES TO COMMON CHALLENGES WITH ENTRIES IN THIS SECTION -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.5"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.5" extension="2015-08- 01"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
     <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08- 01"/>
     <id root="093A5380-00CE-11E6-B4C5-0050568B000B"/>
