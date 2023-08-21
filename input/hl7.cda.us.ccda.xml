@@ -100,23 +100,13 @@
             <description value="This clinical statement groups a set of advance directive observations."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.21"/>
-                <display value="Advance Directives Section (entries optional)"/>
-            </reference>
-            <name value="Advance Directives Section (entries optional)"/>
-            <description value="This section contains data defining the patient's advance directives and any reference to supporting documentation, including living wills, healthcare proxies, and CPR and resuscitation status. If the referenced documents are available, they can be included in the exchange package. &#xA;&#xA;The most recent directives are required, if known, and should be listed in as much detail as possible. &#xA;&#xA;This section differentiates between &quot;advance directives&quot; and &quot;advance directive documents&quot;. The former is the directions to be followed whereas the latter refers to a legal document containing those directions.&#xA;"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
+        </resource>        
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.21.1"/>
-                <display value="Advance Directives Section (entries required)"/>
+                <display value="Advance Directives Section"/>
             </reference>
-            <name value="Advance Directives Section (entries required)"/>
+            <name value="Advance Directives Section"/>
             <description value="This section contains data defining the patient's advance directives and any reference to supporting documentation, including living wills, healthcare proxies, and CPR and resuscitation status. If the referenced documents are available, they can be included in the exchange package.&#xA;&#xA;The most recent directives are required, if known, and should be listed in as much detail as possible.&#xA;&#xA;This section differentiates between &quot;advance directives&quot; and &quot;advance directive documents&quot;. The former is the directions to be followed whereas the latter refers to a legal document containing those directions.&#xA;"/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -133,20 +123,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.6"/>
-                <display value="Allergies and Intolerances Section (entries optional)"/>
-            </reference>
-            <name value="Allergies and Intolerances Section (entries optional)"/>
-            <description value="This section lists and describes any medication allergies, adverse reactions, idiosyncratic reactions, anaphylaxis/anaphylactoid reactions to food items, and metabolic variations or adverse reactions/allergies to other substances (such as latex, iodine, tape adhesives). At a minimum, it should list currently active and any relevant historical allergies and adverse reactions."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.6.1"/>
-                <display value="Allergies and Intolerances Section (entries required)"/>
+                <display value="Allergies and Intolerances Section"/>
             </reference>
-            <name value="Allergies and Intolerances Section (entries required)"/>
+            <name value="Allergies and Intolerances Section"/>
             <description value="This section lists and describes any medication allergies, adverse reactions, idiosyncratic reactions, anaphylaxis/anaphylactoid reactions to food items, and metabolic variations or adverse reactions/allergies to other substances (such as latex, iodine, tape adhesives). At a minimum, it should list currently active and any relevant historical allergies and adverse reactions."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -283,16 +263,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.11"/>
-                <display value="Boundary Observation"/>
-            </reference>
-            <name value="Boundary Observation"/>
-            <description value="A Boundary Observation contains a list of integer values for the referenced frames of a DICOM multiframe image SOP instance. It identifies the frame numbers within the referenced SOP instance to which the reference applies. The CDA Boundary Observation numbers frames using the same convention as DICOM, with the first frame in the referenced object being Frame 1. A Boundary Observation must be used if a referenced DICOM SOP instance is a multiframe image and the reference does not apply to all frames."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.301"/>
                 <display value="Brand Name Observation"/>
             </reference>
@@ -410,16 +380,6 @@
             <description value="This section records the patient's chief complaint (the patient's own description)."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
-                <display value="Code Observations"/>
-            </reference>
-            <name value="Code Observations"/>
-            <description value="DICOM Template 2000 specifies that Imaging Report Elements of Value Type Code are contained in sections. The Imaging Report Elements are inferred from Basic Diagnostic Imaging Report Observations that consist of image references and measurements (linear, area, volume, and numeric). Coded DICOM Imaging Report Elements in this context are mapped to CDA-coded observations that are section components and are related to the SOP Instance Observations (templateId 2.16.840.1.113883.10.20.6.2.8) or Quantity Measurement Observations (templateId 2.16.840.1.113883.10.20.6.2.14) by the SPRT (Support) act relationship."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>
@@ -553,26 +513,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.5"/>
-                <display value="Diagnostic Imaging Report"/>
-            </reference>
-            <name value="Diagnostic Imaging Report"/>
-            <description value="A Diagnostic Imaging Report (DIR) is a document that contains a consulting specialist's interpretation of image data. It conveys the interpretation to the referring (ordering) physician and becomes part of the patient's medical record. It is for use in Radiology, Endoscopy, Cardiology, and other imaging specialties."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="document"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.1.1"/>
-                <display value="DICOM Object Catalog Section - DCM 121181"/>
-            </reference>
-            <name value="DICOM Object Catalog Section - DCM 121181"/>
-            <description value="DICOM Object Catalog lists all referenced objects and their parent Series and Studies, plus other DICOM attributes required for retrieving the objects.&#xD;&#xA;&#xD;&#xA;DICOM Object Catalog sections are not intended for viewing and contain empty section text."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.505"/>
                 <display value="Disability Status Observation"/>
             </reference>
@@ -613,20 +553,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.11"/>
-                <display value="Discharge Medications Section (entries optional)"/>
-            </reference>
-            <name value="Discharge Medications Section (entries optional)"/>
-            <description value="This section contains the medications the patient is intended to take or stop after discharge. Current, active medications must be listed. The section may also include a patient's prescription history and indicate the source of the medication list."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.11.1"/>
-                <display value="Discharge Medications Section (entries required)"/>
+                <display value="Discharge Medications Section"/>
             </reference>
-            <name value="Discharge Medications Section (entries required)"/>
+            <name value="Discharge Medications Section"/>
             <description value="This section contains the medications the patient is intended to take or stop after discharge. Current, active medications must be listed. The section may also include a patient's prescription history and indicate the source of the medication list."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -693,20 +623,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.22"/>
-                <display value="Encounters Section (entries optional)"/>
-            </reference>
-            <name value="Encounters Section (entries optional)"/>
-            <description value="This section lists and describes any healthcare encounters pertinent to the patient's current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patient's condition. It may include visits, appointments, or non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.22.1"/>
-                <display value="Encounters Section (entries required)"/>
+                <display value="Encounters Section"/>
             </reference>
-            <name value="Encounters Section (entries required)"/>
+            <name value="Encounters Section"/>
             <description value="This section lists and describes any healthcare encounters pertinent to the patient's current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patient's condition. It may include visits, appointments, as well as non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -788,26 +708,6 @@
             </reference>
             <name value="Family History Section"/>
             <description value="This section contains data defining the patient's genetic relatives in terms of possible or relevant health risk factors that have a potential impact on the patient's healthcare risk profile."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.3"/>
-                <display value="Fetus Subject Context"/>
-            </reference>
-            <name value="Fetus Subject Context"/>
-            <description value="For reports on mothers and their fetus(es), information on a mother is mapped to recordTarget, PatientRole, and Patient. Information on the fetus is mapped to subject, relatedSubject, and SubjectPerson at the CDA section level. Both context information on the mother and fetus must be included in the document if observations on fetus(es) are contained in the document."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="other"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.1.2"/>
-                <display value="Findings Section (DIR)"/>
-            </reference>
-            <name value="Findings Section (DIR)"/>
-            <description value="The Findings section contains the main narrative body of the report. While not an absolute requirement for transformed DICOM SR reports, it is suggested that Diagnostic Imaging Reports authored in CDA follow Term Info guidelines for the codes in the various observations and procedures recorded in this section."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
         </resource>
@@ -1073,20 +973,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.2"/>
-                <display value="Immunizations Section (entries optional)"/>
-            </reference>
-            <name value="Immunizations Section (entries optional)"/>
-            <description value="The Immunizations Section defines a patient's current immunization status and pertinent immunization history. The primary use case for the Immunization Section is to enable communication of a patient's immunization status. The section should include current immunization status, and may contain the entire immunization history that is relevant to the period of time being summarized."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.2.1"/>
-                <display value="Immunizations Section (entries required)"/>
+                <display value="Immunizations Section"/>
             </reference>
-            <name value="Immunizations Section (entries required)"/>
+            <name value="Immunizations Section"/>
             <description value="The Immunizations Section defines a patient's current immunization status and pertinent immunization history. The primary use case for the Immunization Section is to enable communication of a patient's immunization status. The section should include current immunization status, and may contain the entire immunization history that is relevant to the period of time being summarized."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -1293,20 +1183,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.1"/>
-                <display value="Medications Section (entries optional)"/>
-            </reference>
-            <name value="Medications Section (entries optional)"/>
-            <description value="The Medications Section contains a patient's current medications and pertinent medication history. At a minimum, the currently active medications are listed. An entire medication history is an option. The section can describe a patient's prescription and dispense history and information about intended drug monitoring. &#xD;&#xA;"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.1.1"/>
-                <display value="Medications Section (entries required)"/>
+                <display value="Medications Section"/>
             </reference>
-            <name value="Medications Section (entries required)"/>
+            <name value="Medications Section"/>
             <description value="The Medications Section contains a patient's current medications and pertinent medication history. At a minimum, the currently active medications are listed. An entire medication history is an option. The section can describe a patient's prescription and dispense history and information about intended drug monitoring. &#xD;&#xA;&#xD;&#xA;This section requires either an entry indicating the subject is not known to be on any medications or entries summarizing the subject's medications."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -1453,16 +1333,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.4"/>
-                <display value="Observer Context"/>
-            </reference>
-            <name value="Observer Context"/>
-            <description value="The Observer Context is used to override the author specified in the CDA Header. It is valid as a direct child element of a section."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="other"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.1.7"/>
                 <display value="Operative Note"/>
             </reference>
@@ -1540,26 +1410,6 @@
             <description value="The section includes direct observations made by a clinician. The examination may include the use of simple instruments and may also describe simple maneuvers performed directly on the patient's body.&#xA;&#xA;It also includes observations made by the examining clinician using only inspection, palpation, auscultation, and percussion. It does not include laboratory or imaging findings.&#xA;&#xA;The exam may be limited to pertinent body systems based on the patient's chief complaint or it may include a comprehensive examination. The examination may be reported as a collection of random clinical statements or it may be reported categorically.&#xA;&#xA;The Physical Exam Section may contain multiple nested subsections."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.2"/>
-                <display value="Physician of Record Participant"/>
-            </reference>
-            <name value="Physician of Record Participant"/>
-            <description value="This encounterParticipant is the attending physician and is usually different from the Physician Reading Study Performer defined in documentationOf/serviceEvent."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="other"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.1"/>
-                <display value="Physician Reading Study Performer"/>
-            </reference>
-            <name value="Physician Reading Study Performer"/>
-            <description value="This participant is the Physician Reading Study Performer defined in documentationOf/serviceEvent. It is usually different from the attending physician. The reading physician interprets the images and evidence of the study (DICOM Definition)."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
@@ -1803,20 +1653,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.5"/>
-                <display value="Problem Section (entries optional)"/>
-            </reference>
-            <name value="Problem Section (entries optional)"/>
-            <description value="This section lists and describes all relevant clinical problems at the time the document is generated. At a minimum, all pertinent current and historical problems should be listed. Overall health status may be represented in this section."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.5.1"/>
-                <display value="Problem Section (entries required)"/>
+                <display value="Problem Section"/>
             </reference>
-            <name value="Problem Section (entries required)"/>
+            <name value="Problem Section"/>
             <description value="This section lists and describes all relevant clinical problems at the time the document is generated. At a minimum, all pertinent current and historical problems should be listed. Overall health status may be represented in this section."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -1860,16 +1700,6 @@
             <description value="The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Therefore procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy). &#xA;This template represents procedures whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient. Examples of these procedures are an appendectomy, hip replacement, and a creation of a gastrostomy.&#xA;This template can be used with a contained Product Instance template to represent a device in or on a patient. In this case, targetSiteCode is used to record the location of the device in or on the patient's body. Equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs) is represented by the Non-Medicinal Supply Activity (V2) template.&#xA;Procedure Activity Procedure V3 Usage Note: Common practice in the industry has shown that Procedure Activity Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot; or not. As a result, it is recommended to use Procedure Activity Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
-                <display value="Procedure Context"/>
-            </reference>
-            <name value="Procedure Context"/>
-            <description value="The ServiceEvent Procedure Context of the document header may be overridden in the CDA structured body if there is a need to refer to multiple imaging procedures or acts. The selection of the Procedure or Act entry from the clinical statement choice box depends on the nature of the imaging service that has been performed. The Procedure entry shall be used for image-guided interventions and minimally invasive imaging services, whereas the Act entry shall be used for diagnostic imaging services."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
@@ -1953,20 +1783,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.7"/>
-                <display value="Procedures Section (entries optional)"/>
-            </reference>
-            <name value="Procedures Section (entries optional)"/>
-            <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure (V2) is for procedures that alter the physical condition of a patient (e.g., splenectomy). Procedure Activity Observation (V2) is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Procedure Activity Act (V2) is for all other types of procedures (e.g., dressing change)."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.7.1"/>
-                <display value="Procedures Section (entries required)"/>
+                <display value="Procedures Section"/>
             </reference>
-            <name value="Procedures Section (entries required)"/>
+            <name value="Procedures Section"/>
             <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act. Observation, and Procedure. Procedure act is for procedures that alter the physical condition of a patient (e.g., splenectomy). Observation act is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Act is for all other types of procedures (e.g., dressing change)."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -2033,26 +1853,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.9"/>
-                <display value="Purpose of Reference Observation"/>
-            </reference>
-            <name value="Purpose of Reference Observation"/>
-            <description value="A Purpose of Reference Observation describes the purpose of the DICOM composite object reference. Appropriate codes, such as externally defined DICOM codes, may be used to specify the semantics of the purpose of reference. When this observation is absent, it implies that the reason for the reference is unknown."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
-                <display value="Quantity Measurement Observation"/>
-            </reference>
-            <name value="Quantity Measurement Observation"/>
-            <description value="A Quantity Measurement Observation records quantity measurements based on image data such as linear, area, volume, and numeric measurements. The codes in DIRQuantityMeasurementTypeCodes (ValueSet: 2.16.840.1.113883.11.20.9.29) are from the qualifier hierarchy of SNOMED CT and are not valid for observation/code according to the Term Info guidelines. These codes can be used for backwards compatibility, but going forward, codes from the observable entity hierarchy will be requested and used."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.9"/>
                 <display value="Reaction Observation"/>
             </reference>
@@ -2090,16 +1890,6 @@
             <description value="This section records the patient's reason for the patient's visit (as documented by the provider). Local policy determines whether Reason for Visit and Chief Complaint are in separate or combined sections."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
-                <display value="Referenced Frames Observation"/>
-            </reference>
-            <name value="Referenced Frames Observation"/>
-            <description value="A Referenced Frames Observation is used if the referenced DICOM SOP instance is a multiframe image and the reference does not apply to all frames. The list of integer values for the referenced frames of a DICOM multiframe image SOP instance is contained in a Boundary Observation nested inside this class."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>
@@ -2143,20 +1933,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.3"/>
-                <display value="Results Section (entries optional)"/>
-            </reference>
-            <name value="Results Section (entries optional)"/>
-            <description value="This section contains the results of observations generated by laboratories, imaging and other procedures. The scope includes observations of hematology, chemistry, serology, virology, toxicology, microbiology, plain x-ray, ultrasound, CT, MRI, angiography, echocardiography, nuclear medicine, pathology, and procedure observations. &#xA;&#xA;This section often includes notable results such as abnormal values or relevant trends. It can contain all results for the period of time being documented.&#xA;&#xA;Laboratory results are typically generated by laboratories providing analytic services in areas such as chemistry, hematology, serology, histology, cytology, anatomic pathology, microbiology, and/or virology. These observations are based on analysis of specimens obtained from the patient and submitted to the laboratory.&#xA;&#xA;Imaging results are typically generated by a clinician reviewing the output of an imaging procedure, such as where a cardiologist reports the left ventricular ejection fraction based on the review of a cardiac echocardiogram.&#xA;&#xA;Procedure results are typically generated by a clinician to provide more granular information about component observations made during a procedure, such as where a gastroenterologist reports the size of a polyp observed during a colonoscopy."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.3.1"/>
-                <display value="Results Section (entries required)"/>
+                <display value="Results Section"/>
             </reference>
-            <name value="Results Section (entries required)"/>
+            <name value="Results Section"/>
             <description value="The Results Section contains observations of results generated by laboratories, imaging procedures, and other procedures. These coded result observations are contained within a Results Organizer in the Results Section. The scope includes observations such as hematology, chemistry, serology, virology, toxicology, microbiology, plain x-ray, ultrasound, CT, MRI, angiography, echocardiography, nuclear medicine, pathology, and procedure observations. The section often includes notable results such as abnormal values or relevant trends, and could contain all results for the period of time being documented.&#xA;&#xA;Laboratory results are typically generated by laboratories providing analytic services in areas such as chemistry, hematology, serology, histology, cytology, anatomic pathology, microbiology, and/or virology. These observations are based on analysis of specimens obtained from the patient and submitted to the laboratory.&#xA;&#xA;Imaging results are typically generated by a clinician reviewing the output of an imaging procedure, such as where a cardiologist reports the left ventricular ejection fraction based on the review of a cardiac echocardiogram.&#xA;&#xA;Procedure results are typically generated by a clinician to provide more granular information about component observations made during a procedure, such as where a gastroenterologist reports the size of a polyp observed during a colonoscopy."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -2218,16 +1998,6 @@
             </reference>
             <name value="Serial Number Observation"/>
             <description value="This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Serial Number** of the device.  The serial number is parsed from the UDI value, if present."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.63"/>
-                <display value="Series Act"/>
-            </reference>
-            <name value="Series Act"/>
-            <description value="A Series Act contains the DICOM series information for referenced DICOM composite objects. The series information defines the attributes that are used to group composite instances into distinct logical sets. Each series is associated with exactly one study. Series Act clinical statements are only instantiated in the DICOM Object Catalog section inside a Study Act, and thus do not require a separate templateId; in other sections, the SOP Instance Observation is included directly."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -2303,26 +2073,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
-                <display value="SOP Instance Observation"/>
-            </reference>
-            <name value="SOP Instance Observation"/>
-            <description value="A SOP Instance Observation contains the DICOM Service Object Pair (SOP) Instance information for referenced DICOM composite objects. The SOP Instance act class is used to reference both image and non-image DICOM instances. The text attribute contains the DICOM WADO reference."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.6"/>
-                <display value="Study Act"/>
-            </reference>
-            <name value="Study Act"/>
-            <description value="A Study Act contains the DICOM study information that defines the characteristics of a referenced medical study performed on a patient. A study is a collection of one or more series of medical images, presentation states, SR documents, overlays, and/or curves that are logically related for the purpose of diagnosing a patient. Each study is associated with exactly one patient. A study may include composite instances that are created by a single modality, multiple modalities, or by multiple devices of the same modality. The study information is modality-independent. Study Act clinical statements are only instantiated in the DICOM Object Catalog section; in other sections, the SOP Instance Observation is included directly."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.2"/>
                 <display value="Subjective Section"/>
             </reference>
@@ -2370,16 +2120,6 @@
             <description value="The Surgical Drains Section may be used to record drains placed during the surgical procedure. Optionally, surgical drain placement may be represented with a text element in the Procedure Description Section."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
-                <display value="Text Observation"/>
-            </reference>
-            <name value="Text Observation"/>
-            <description value="DICOM Template 2000 specifies that Imaging Report Elements of Value Type Text are contained in sections. The Imaging Report Elements are inferred from Basic Diagnostic Imaging Report Observations that consist of image references and measurements (linear, area, volume, and numeric). Text DICOM Imaging Report Elements in this context are mapped to CDA text observations that are section components and are related to the SOP Instance Observations (templateId 2.16.840.1.113883.10.20.6.2.8) or Quantity Measurement Observations (templateId 2.16.840.1.113883.10.20.6.2.14) by the SPRT (Support) act relationship.&#xD;&#xA;&#xD;&#xA;A Text Observation is required if the findings in the section text are represented as inferred from SOP Instance Observations."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>
@@ -2523,20 +2263,10 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.4"/>
-                <display value="Vital Signs Section (entries optional)"/>
-            </reference>
-            <name value="Vital Signs Section (entries optional)"/>
-            <description value="The Vital Signs Section contains relevant vital signs for the context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight, body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends.&#xA;&#xA;Vital signs are represented in the same way as other results, but are aggregated into their own section to follow clinical conventions."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.4.1"/>
-                <display value="Vital Signs Section (entries required)"/>
+                <display value="Vital Signs Section"/>
             </reference>
-            <name value="Vital Signs Section (entries required)"/>
+            <name value="Vital Signs Section"/>
             <description value="The Vital Signs Section contains relevant vital signs for the context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight, body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends.&#xD;&#xA;Vital signs are represented in the same way as other results, but are aggregated into their own section to follow clinical conventions."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
@@ -2628,7 +2358,7 @@
             <reference>
                 <reference value="Binary/advance-directives-section-v3-example"/></reference>
             <name value="Advance Directives Section Example"/>
-            <description value="Advance Directives Section - entries required example"/>
+            <description value="Advance Directives Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.21.1"/>
         </resource>
@@ -2648,9 +2378,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/allergies-and-intolerances-section-entries-required-v3-example"/></reference>
-            <name value="Allergies and Intolerances Section Example - entries required"/>
-            <description value="Allergies and Intolerances Section - entries required example"/>
+                <reference value="Binary/allergies-and-intolerances-section-v3-example"/></reference>
+            <name value="Allergies and Intolerances Section Example"/>
+            <description value="Allergies and Intolerances Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.6.1"/>
         </resource>
@@ -2758,17 +2488,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/boundary-observation-example"/></reference>
-            <name value="Boundary Observation Example"/>
-            <description value="Boundary Observation example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.11"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
                 <reference value="Binary/care-plan-caregiver-participant-example"/></reference>
             <name value="Care Plan Caregiver participant Example"/>
             <description value="Care Plan Caregiver participant example"/>
@@ -2862,17 +2581,6 @@
             <description value="Chief Complaint Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/code-observations-example"/></reference>
-            <name value="Code Observations Example"/>
-            <description value="Code Observations example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.13"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
@@ -3033,28 +2741,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/dicom-object-catalog-section-dcm-121181-example"/></reference>
-            <name value="DICOM Object Catalog Section DCM 121181 Example"/>
-            <description value="DICOM Object Catalog Section - DCM 121181 example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.1.1"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/dir-participant-example"/></reference>
-            <name value="Diagnostic Imaging Report Example"/>
-            <description value="Diagnostic Imaging Report (participant) example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.1.5"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
                 <reference value="Binary/discharge-diagnosis-section-v3-example"/></reference>
             <name value="Discharge Diagnosis Example"/>
             <description value="Discharge Diagnosis example"/>
@@ -3066,9 +2752,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/discharge-medication-section-v3-entries-required-example"/></reference>
-            <name value="Discharge Medications Section Example - entries required"/>
-            <description value="Discharge Medications Section - entries required example"/>
+                <reference value="Binary/discharge-medication-section-v3-example"/></reference>
+            <name value="Discharge Medications Section Example"/>
+            <description value="Discharge Medications Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.11.1"/>
         </resource>
@@ -3143,9 +2829,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/encounters-section-entries-required-v3-example"/></reference>
-            <name value="Encounters Section Example - entries required"/>
-            <description value="Encounters Section - entries required example"/>
+                <reference value="Binary/encounters-section-v3-example"/></reference>
+            <name value="Encounters Section Example"/>
+            <description value="Encounters Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.22.1"/>
         </resource>
@@ -3225,28 +2911,6 @@
             <description value="Family History Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.15"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/fetus-subject-context-example"/></reference>
-            <name value="Fetus Subject Context Example"/>
-            <description value="Fetus Subject Context example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.3"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/findings-section-dir-example"/></reference>
-            <name value="Findings Section Example (DIR)"/>
-            <description value="Findings Section (DIR) example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.1.2"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
@@ -3517,9 +3181,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/immunizations-section-entries-required-v3-example"/></reference>
-            <name value="Immunizations Section Example - entries required"/>
-            <description value="Immunizations Section - entries required example"/>
+                <reference value="Binary/immunizations-section-v3-example"/></reference>
+            <name value="Immunizations Section Example"/>
+            <description value="Immunizations Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.2.1"/>
         </resource>
@@ -3682,9 +3346,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/medications-section-entries-required-v2-example"/></reference>
-            <name value="Medications Section Example - entries required"/>
-            <description value="Medications Section - entries required example"/>
+                <reference value="Binary/medications-section-v2-example"/></reference>
+            <name value="Medications Section Example"/>
+            <description value="Medications Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.1.1"/>
         </resource>
@@ -3852,17 +3516,6 @@
             <description value="Objective Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.21.2.1"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/observer-context-example"/></reference>
-            <name value="Observer Context Example"/>
-            <description value="Observer Context example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.4"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
@@ -4100,28 +3753,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/physician-of-record-participant-v2-example"/></reference>
-            <name value="Physician Of Record Participant Example"/>
-            <description value="Physician Of Record Participant example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.2"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/physician-reading-study-performer-v2-example"/></reference>
-            <name value="Physician Reading Study Performer Example"/>
-            <description value="Physician Reading Study Performer example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.1"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
                 <reference value="Binary/plan-of-treatment-section-v2-example"/></reference>
             <name value="Plan of Treatment Section Example"/>
             <description value="Plan of Treatment Section example"/>
@@ -4353,9 +3984,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/problem-section-entries-required-v3-example"/></reference>
-            <name value="Problem Section Example - entries required"/>
-            <description value="Problem Section - entries required example"/>
+                <reference value="Binary/problem-section-v3-example"/></reference>
+            <name value="Problem Section Example"/>
+            <description value="Problem Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.5"/>
         </resource>
@@ -4413,17 +4044,6 @@
             <description value="Procedure Activity Procedure example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/procedure-context-example"/></reference>
-            <name value="Procedure Content"/>
-            <description value="Procedure Content example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.5"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
@@ -4507,9 +4127,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/procedures-section-entries-required-v2-example"/></reference>
-            <name value="Procedures Section Entries Required Example"/>
-            <description value="Procedures Section - entries required example"/>
+                <reference value="Binary/procedures-section-v2-example"/></reference>
+            <name value="Procedures Section Example"/>
+            <description value="Procedures Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.7.1"/>
         </resource>
@@ -4584,28 +4204,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/purpose-of-reference-observation-example"/></reference>
-            <name value="Purpose of Reference Observation Example"/>
-            <description value="Purpose of Reference Observation example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.9"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/quantity-measurement-observation-example"/></reference>
-            <name value="Quantity Measurement Observation Example"/>
-            <description value="Quantity Measurement Observation example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.14"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
                 <reference value="Binary/reaction-observation-v2-example"/></reference>
             <name value="Reaction Observation Example"/>
             <description value="Reaction Observation example"/>
@@ -4633,17 +4231,6 @@
             <description value="Reason for Visit Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.12"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/referenced-frames-observation-example"/></reference>
-            <name value="Referenced Frames Observation Example"/>
-            <description value="Referenced Frames Observation example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.10"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
@@ -4705,9 +4292,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/results-section-entries-required-v3-example"/></reference>
-            <name value="Results Section Example - entries required"/>
-            <description value="Results Section - entries required example"/>
+                <reference value="Binary/results-section-v3-example"/></reference>
+            <name value="Results Section Example"/>
+            <description value="Results Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.3.1"/>
         </resource>
@@ -4754,17 +4341,6 @@
             <description value="Sensory Status example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.127"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/series-act-example"/></reference>
-            <name value="Series Act Example"/>
-            <description value="Series Act example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.63"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
@@ -4826,28 +4402,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/sop-instance-observation-example"/></reference>
-            <name value="SOP Instance Observation Example"/>
-            <description value="SOP Instance Observation example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.8"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/study-act-example"/></reference>
-            <name value="Study Act Example"/>
-            <description value="Study Act example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.6"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
                 <reference value="Binary/subjective-section-example"/></reference>
             <name value="Subjective Section Example"/>
             <description value="Subjective Section example"/>
@@ -4875,17 +4429,6 @@
             <description value="Surgical Drains Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.7.13"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/text-observation-example"/></reference>
-            <name value="Text Observation Example"/>
-            <description value="Text Observation example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.6.2.12"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
@@ -5002,9 +4545,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/vital-signs-section-entries-required-v3-example"/></reference>
-            <name value="Vital Signs Section Example - entries required"/>
-            <description value="Vital Signs Section - entries required example"/>
+                <reference value="Binary/vital-signs-section-v3-example"/></reference>
+            <name value="Vital Signs Section Example"/>
+            <description value="Vital Signs Section example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.4.1"/>
         </resource>

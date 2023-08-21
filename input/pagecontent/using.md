@@ -38,16 +38,15 @@ identifier includes both the @root and @extension value for the templateId (for
 example, identifier urn:hl7ii:2.16.840.1.113883.10.20.5.5.41:2014-06-09).
 
 Each section and entry template in Volume 2 of this guide includes a context table. The
-"Contained By" column indicates which templates use this template, and if the template
-is optional or required in the containing template. The "Contains" column indicates any
+"Contained By" column indicates which templates use this template. The "Contains" column indicates any
 templates that the template uses.
 
 **Table 2: Contexts Table Example—Allergy Concern Act (V2)**
 
-| **Contained By:**                                                     | **Contains:**                          |
-|-----------------------------------------------------------------------|----------------------------------------|
-| Allergies and Intolerances Section (entries optional) (V2) (optional) | Allergy - Intolerance Observation (V2) |
-| Allergies and Intolerances Section (entries required) (V2) (required) | Author Participation                   |
+| **Contained By:**                   | **Contains:**                          |
+|-------------------------------------|----------------------------------------|
+| Allergies and Intolerances Section  | Allergy - Intolerance Observation (V2) |
+|                                     | Author Participation                   |
 {: .grid }
 
 Each entry template also includes a constraints overview table to summarize the
@@ -270,7 +269,7 @@ conformant.
 All other constraints are direct and do not allow an indirect containment relationship,
 for example:
     1. SHALL contain exactly one [1..1]
-       templateId/@root="2.16.840.1.113883.10.20.22.2.21" (CONF:7928).
+       templateId/@root="2.16.840.1.113883.10.20.22.2.21.1" (CONF:7928).
 The templateId must be a direct child of the section (i.e., section/templateId).
 
 #### Vocabulary Conformance
