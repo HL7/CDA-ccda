@@ -1508,38 +1508,26 @@
         </element>
         <element id="ClinicalDocument.authorization">
             <path value="ClinicalDocument.authorization"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="consent"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="MAY contain zero or more [0..*] authorization (CONF:4537-16792) such that it"/>
-        </element>
-        <element id="ClinicalDocument.authorization:authorization1">
-            <path value="ClinicalDocument.authorization"/>
-            <sliceName value="authorization1"/>
             <short value="authorization"/>
             <definition value="MAY contain zero or more [0..*] authorization (CONF:4537-16792) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.authorization:authorization1.consent">
+        <element id="ClinicalDocument.authorization.consent">
             <path value="ClinicalDocument.authorization.consent"/>
             <short value="consent"/>
             <definition value="SHALL contain exactly one [1..1] consent (CONF:4537-16793)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authorization:authorization1.consent.id">
+        <element id="ClinicalDocument.authorization.consent.id">
             <path value="ClinicalDocument.authorization.consent.id"/>
             <short value="id"/>
             <definition value="This consent MAY contain zero or more [0..*] id (CONF:4537-16794)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.authorization:authorization1.consent.code">
+        <element id="ClinicalDocument.authorization.consent.code">
             <path value="ClinicalDocument.authorization.consent.code"/>
             <label value="The type of consent (e.g., a consent to perform the related serviceEvent) is conveyed in consent/code."/>
             <short value="The type of consent (e.g., a consent to perform the related serviceEvent) is conveyed in consent/code."/>
@@ -1547,14 +1535,14 @@
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authorization:authorization1.consent.statusCode">
+        <element id="ClinicalDocument.authorization.consent.statusCode">
             <path value="ClinicalDocument.authorization.consent.statusCode"/>
             <short value="statusCode"/>
             <definition value="This consent SHALL contain exactly one [1..1] statusCode (CONF:4537-16797)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.authorization:authorization1.consent.statusCode.code">
+        <element id="ClinicalDocument.authorization.consent.statusCode.code">
             <path value="ClinicalDocument.authorization.consent.statusCode.code"/>
             <short value="code"/>
             <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-16798)."/>
