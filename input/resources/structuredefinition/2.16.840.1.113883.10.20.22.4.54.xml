@@ -98,38 +98,6 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6"/>
             </binding>
         </element>
-        <element id="ManufacturedProduct.manufacturedMaterial.code.translation">
-            <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="$this"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="ManufacturedProduct.manufacturedMaterial.code.translation:vaccine">
-            <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
-            <sliceName value="vaccine"/>
-            <requirements value="This code MAY contain zero or more [0..*] translation, which MAY be selected from ValueSet Vaccine Clinical Drug urn:oid:2.16.840.1.113762.1.4.1010.8 DYNAMIC (CONF:1098-31543)."/>
-            <min value="0"/>
-            <max value="*"/>
-            <binding>
-                <strength value="example"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.8"/>
-            </binding>
-        </element>
-        <element id="ManufacturedProduct.manufacturedMaterial.code.translation:specificVaccine">
-            <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
-            <sliceName value="specificVaccine"/>
-            <requirements value="This code MAY contain zero or more [0..*] translation (CONF:1098-31881)."/>
-            <min value="0"/>
-            <max value="*"/>
-            <binding>
-                <strength value="example"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.10"/>
-            </binding>
-        </element>
         <element id="ManufacturedProduct.manufacturedMaterial.lotNumberText">
             <path value="ManufacturedProduct.manufacturedMaterial.lotNumberText"/>
             <short value="lotNumberText should be included if known. It may not be known for historical immunizations, planned immunizations, or refused/deferred immunizations."/>
