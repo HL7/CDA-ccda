@@ -101,12 +101,12 @@
         <element id="Act.code">
             <path value="Act.code"/>
             <short value="code"/>
-            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Health Insurance Type urn:oid:2.16.840.1.113883.3.88.12.3221.5.2 DYNAMIC (CONF:4537-8903)."/>
+            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem X12N Insurance Type urn:oid:2.16.840.1.113883.6.255.1336 DYNAMIC (CONF:4537-8903)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.5.2"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.6.255.1336"/>
             </binding>
         </element>
         <element id="Act.code.translation">
@@ -194,7 +194,7 @@
         <element id="Act.performer:performer1.templateId">
             <path value="Act.performer.templateId"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16808)."/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16808), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -289,7 +289,7 @@
         <element id="Act.performer:performer2.templateId">
             <path value="Act.performer.templateId"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16810)."/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16810), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -400,7 +400,7 @@
         <element id="Act.participant:participant1.templateId">
             <path value="Act.participant.templateId"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16812)."/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16812), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -531,7 +531,7 @@
         <element id="Act.participant:participant2.templateId">
             <path value="Act.participant.templateId"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16813)."/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16813), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -589,15 +589,13 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:4537-8939) such that it"/>
-            <min value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <short value="entryRelationship"/>
-            <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:4537-8939) such that it"/>
-            <min value="1"/>
+            <definition value="MAY contain one [0..*] entryRelationship (CONF:4537-8939) such that it"/>
+            <min value="0"/>
             <max value="*"/>
             <constraint>
                 <key value="4537-8942"/>

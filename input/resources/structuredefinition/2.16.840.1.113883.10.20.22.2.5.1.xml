@@ -7,8 +7,8 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="ProblemSectionEntriesRequired"/>
-    <title value="Problem Section (entries required)"/>
+    <name value="ProblemSection"/>
+    <title value="Problem Section"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -29,7 +29,7 @@
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
-    <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.5"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Section">
@@ -112,6 +112,13 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="exists"/>
+                    <path value="*"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <short value="If section/@nullFlavor is not present:"/>
             <requirements value="SHALL contain at least one [1..*] entry (CONF:1198-9183)"/>
             <min value="1"/>
@@ -122,6 +129,31 @@
             <sliceName value="act"/>
             <requirements value="SHALL contain exactly one [1..1] Problem Concern Act (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15506)"/>
             <min value="0"/>
+        </element>
+        <element id="Section.entry:act.act">
+            <path value="Section.entry.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Problem Concern Act (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15505)"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.3"/>
+            </type>
+        </element>
+        <element id="Section.entry:observation">
+            <path value="Section.entry"/>
+            <sliceName value="observation"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry:observation.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Health Status Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30482)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.5"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

@@ -56,11 +56,6 @@
             <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8496) such that it"/>
             <min value="1"/>
             <max value="1"/>
-            <constraint>
-                <key value="1198-32941"/>
-                <severity value="error"/>
-                <human value="When asserting this templateId, all C-CDA 2.1 section and entry templates that had a previous version in C-CDA R1.1 **SHALL** include both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32941)."/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.templateId:secondary.root">
             <path value="ClinicalDocument.templateId.root"/>
@@ -131,6 +126,11 @@
             <requirements value="SHALL contain exactly one [1..1] functionCode=&quot;PCP&quot; Primary Care Physician (CodeSystem: HL7ParticipationFunction urn:oid:2.16.840.1.113883.5.88 STATIC) (CONF:1198-8506)."/>
             <min value="1"/>
             <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant:participant1.functionCode.code">
+            <path value="ClinicalDocument.participant.functionCode.code"/>
+            <min value="1"/>
+            <max value="1"/>
             <patternString value="PCP"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.classCode">
@@ -174,7 +174,7 @@
             <constraint>
                 <key value="1198-8511"/>
                 <severity value="error"/>
-                <human value="The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), CPT-4 (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."/>
+                <human value="The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), CPT-4 (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."/>
             </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime">
@@ -560,12 +560,12 @@
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component8.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Allergies and Intolerances Section (entries optional) (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6:2015-08-01) (CONF:1198-30368)."/>
+            <requirements value="SHALL contain exactly one [1..1] Allergies and Intolerances Section (V3) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01) (CONF:1198-30368)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.6"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.6.1"/>
             </type>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component9">
@@ -696,12 +696,12 @@
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component16.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Medications Section (entries optional) (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.1:2014-06-09) (CONF:1198-30384)."/>
+            <requirements value="SHALL contain exactly one [1..1] Medications Section (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.1.1:2014-06-09) (CONF:1198-30384)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.1"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.1.1"/>
             </type>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component17">
@@ -849,12 +849,12 @@
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component25.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedures Section (entries optional) (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7:2014-06-09) (CONF:1198-30405)."/>
+            <requirements value="SHALL contain exactly one [1..1] Procedures Section (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30405)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.7"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.2.7.1"/>
             </type>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component26">

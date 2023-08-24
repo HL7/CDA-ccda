@@ -56,11 +56,6 @@
             <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-28741) such that it"/>
             <min value="1"/>
             <max value="1"/>
-            <constraint>
-                <key value="1198-32934"/>
-                <severity value="error"/>
-                <human value="When asserting this templateId, all C-CDA 2.1 section and entry templates that had a previous version in C-CDA R1.1 **SHALL** include both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32934)."/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.templateId:secondary.root">
             <path value="ClinicalDocument.templateId.root"/>
@@ -327,8 +322,8 @@
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.code.code">
             <path value="ClinicalDocument.participant.associatedEntity.code.code"/>
-            <requirements value="The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-32367)."/>
-            <min value="1"/>
+            <requirements value="The code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-32367)."/>
+            <min value="0"/>
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
@@ -619,8 +614,8 @@
         <element id="ClinicalDocument.component.structuredBody.component:component3">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="component3"/>
-            <requirements value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28763) such that it"/>
-            <min value="0"/>
+            <requirements value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28763) such that it"/>
+            <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:component3.section">

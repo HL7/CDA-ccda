@@ -8,7 +8,6 @@ This guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to b
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.15.html">Care Plan including Home Health Plan of Care (HHPoC)</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.4.html">Consultation Note</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.2.html">Continuity of Care Document (CCD)</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.5.html">Diagnostic Imaging Reports (DIR)</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.8.html">Discharge Summary</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.3.html">History and Physical (H&P)</a>
 * <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.7.html">Operative Note</a>
