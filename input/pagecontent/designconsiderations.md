@@ -119,14 +119,6 @@ A Problem Concern Act can contain one or more Problem Observations (templateId 2
 
 <img src="problem-concern-act.png" style="float: none; display: block; margin-left: auto; margin-right: auto;" />
 
-C-CDA 1.1 included several optional “status” observation templates such as Problem Status Observation and Allergy Status Observation. These “status” observation templates were deprecated when C-CDA R2.0 was released. (For more about deprecated templates, see the section titled Use of Deprecated Template Versions). In C-CDA R2.1, the “status” observation templates remain deprecated. To support backward compatibility, systems that consume CDA documents need to address the possibility that a “status” observation template may also be present. The following guidance should be followed if a CDA document includes a deprecated status observation:
-
-| Deprecated “status” observation template | Implementer Guidance |
-| ---------------------------------------- | -------------------- |
-| A status of “active” | If the parent Observation has an effectiveTime/high, the content contains conflicting information. |
-| A status of “resolved” | If the parent Observation does not have an effectiveTime/high, the content contains conflicting information. |
-| A status of “inactive” | If the parent Observation does not have an effectiveTime/high, the content has the potential to contain conflicting information. |
-
 ### Rendering Header Information for Human Presentation
 
 Metadata carried in the header may already be available for rendering from EHRs or other sources external to the document. An example of this would be a doctor using an EHR that already contains the patient’s name, date of birth, current address, and phone number. When a CDA document is rendered within that EHR, those pieces of information may not need to be displayed since they are already known and displayed within the EHR’s user interface.

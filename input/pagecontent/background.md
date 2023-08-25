@@ -30,19 +30,6 @@ Regarding implementation, a CDA instance populates the template identifier (temp
 
 Each version of a template has a status. For example, a template version can be draft, active, or deprecated, etc. The HL7 Templates DSTU describes the various status states that may apply to a template version over the course of its lifecycle. Each version of a template has an associated status. Thus, one version of a template may be deprecated, while a newer version of that template may be draft or active.
 
-##### Use of Deprecated Template Versions
-
-Several templates used in C-CDA 1.1 were deprecated as of C-CDA R2. The status for these templates remains deprecated in this guide. Deprecation of a template version does not prohibit its use in a document; rather, it is a signal to implementers this version of the template may be permanently retired (terminated) in the future, which will end the lifecycle for the template. The list of deprecated templates appears below:
-
-* Discharge Diet Section
-* Implants Section
-* Surgery Description Section
-* Allergy Status Observation
-* Cognitive Status Problem Observation
-* Functional Status Problem Observation
-* Pressure Ulcer Observation
-* Problem Status
-
 ### Current Project
 
 This R2.1 guide was developed and produced by the HL7 Structured Documents Workgroup. It updates the C-CDA R2 (2014) guide to support “on-the-wire” compatibility with R1.1 systems.
