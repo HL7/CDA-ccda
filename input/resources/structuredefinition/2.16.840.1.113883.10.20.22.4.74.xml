@@ -99,50 +99,14 @@
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;373930000&quot; Cognitive function (CONF:1198-32788)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;8693-4&quot; Cognitive function (CONF:1198-32788)."/>
             <min value="1"/>
             <max value="1"/>
-            <patternString value="373930000"/>
+            <patternString value="8693-4"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32789)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="2.16.840.1.113883.6.96"/>
-        </element>
-        <element id="Observation.code.translation">
-            <path value="Observation.code.translation"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="codeSystem"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="code.Observation.code.translation:cognitiveFunction">
-            <path value="Observation.code.translation"/>
-            <sliceName value="cognitiveFunction"/>
-            <requirements value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32790) such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="code.Observation.code.translation:cognitiveFunction.code">
-            <path value="Observation.code.translation.code"/>
-            <requirements value="SHALL contain exactly one [1..1] @code=&quot;75275-8&quot; Cognitive Function (CONF:1198-32791)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <patternString value="75275-8"/>
-        </element>
-        <element id="code.Observation.code.translation:cognitiveFunction.codeSystem">
-            <path value="Observation.code.translation.codeSystem"/>
-            <requirements value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-32792)."/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32789)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
