@@ -308,6 +308,33 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
             </type>
         </element>
+        <element id="Observation.entryRelationship:entryRelationship6">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="entryRelationship6"/>
+            <short value="entryRelationship"/>
+            <definition value="MAY contain zero or more [0..*] entryRelationship such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship6.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <short value="typeCode"/>
+            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31560)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="REFR"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship6.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <short value="act"/>
+            <definition value="SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.110"/>
+            </type>
+        </element>
         <element id="Observation.reference">
             <path value="Observation.reference"/>
             <short value="reference"/>
