@@ -27,3 +27,4 @@ The changes in this version of Consolidated CDA have been made from STU comments
 14. CDA-20543 - Change guidance on Supply repeatNumber
 15. CDA-20565 - Remove requirement to send R1.1 template IDs
 16. CDA-20664 - Remove Entries Optional section templates
+17. CDA-1240 - Added assignedPerson with US Realm Person Name to Procedure Activity Procedure template.
