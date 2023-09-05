@@ -28,3 +28,4 @@ The changes in this version of Consolidated CDA have been made from STU comments
 15. CDA-20565 - Remove requirement to send R1.1 template IDs
 16. CDA-20664 - Remove Entries Optional section templates
 17. CDA-1240 - Added assignedPerson with US Realm Person Name to Procedure Activity Procedure template.
+18. CDA-1273 - Changed Problem Observation in Problem Concern Act from 1..* to 1..1.
