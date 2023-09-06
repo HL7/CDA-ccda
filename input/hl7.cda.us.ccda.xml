@@ -50,6 +50,16 @@
           <name value="Participation &amp; Other Templates"/>
           <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."/>
       </grouping>
+      <resource>
+          <reference>
+              <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
+              <display value="Activities Section"/>
+          </reference>
+          <name value="Activities Section"/>
+          <description value="This template represents Activities. Activities are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Activities can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Activities Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
+          <exampleBoolean value="false"/>
+          <groupingId value="section"/>
+      </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.43"/>
@@ -999,16 +1009,6 @@
             <description value="This template represents an Intervention Act. It is a wrapper for intervention-type activities considered to be parts of the same intervention. For example, an activity such as &quot;elevate head of bed&quot; combined with &quot;provide humidified O2 per nasal cannula&quot; may be the interventions performed for a health concern of &quot;respiratory insufficiency&quot; to achieve a goal of &quot;pulse oximetry greater than 92%&quot;. These intervention activities may be newly described or derived from a variety of sources within an EHR.&#xA;&#xA;Interventions are actions taken to increase the likelihood of achieving the patient's or providers' goals. An Intervention Act should contain a reference to a Goal Observation representing the reason for the intervention.&#xA;&#xA;Intervention Acts can be related to each other, or to Planned Intervention Acts. (E.g., a Planned Intervention Act with moodCode of INT could be related to a series of Intervention Acts with moodCode of EVN, each having an effectiveTime containing the time of the intervention.) &#xA;&#xA;All interventions referenced in an Intervention Act must have a moodCode of EVN, indicating that they have occurred."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
-                <display value="Interventions Section"/>
-            </reference>
-            <name value="Interventions Section"/>
-            <description value="This template represents Interventions. Interventions are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Interventions can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Interventions Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
         </resource>
         <resource>
             <reference>

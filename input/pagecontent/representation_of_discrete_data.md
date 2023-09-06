@@ -932,7 +932,7 @@ Its purpose is to remove the need to repeat the complete XML representation of t
 one entry to another. This template can be used to reference many types of Act class derivations, such as 
 encounters, observations, procedures etc., as it is often necessary when authoring CDA documents to repeatedly
 reference other Acts of these types. For example, in a Care Plan it is necessary to repeatedly relate Health
-Concerns, Goals, Interventions and Outcomes.
+Concerns, Goals, Activities and Outcomes.
 
 The ID is required and must be the same ID as the entry/id it is referencing. The ID cannot be a null value. Act/Code
 is set to nullFlavor=“NP” (Not Present). This means the value is not present in the message (in act/Code).

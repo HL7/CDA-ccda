@@ -1592,7 +1592,7 @@ The table below describes the required and optional sections in a Care Plan docu
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Care Plan**   | Health Concerns Section (V2)<br />Goals Section  | Interventions Section (V3)<br />Health Status Evaluations and Outcomes Section  |
+| **Care Plan**   | Health Concerns Section (V2)<br />Goals Section  | Activities Section (V3)<br />Health Status Evaluations and Outcomes Section  |
 | **Sample**   | CarePlan.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 16: Care Plan: Document Template.**
@@ -1755,7 +1755,7 @@ Note (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.9:
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Progress Note**   |   | Assessment Section<br />Plan of Treatment Section (V2)<br />Assessment and Plan Section (V2)<br />Allergies and Intolerances Section (V3)<br />Chief Complaint Section<br />Interventions Section (V3)<br />Instructions Section (V2)<br /><br />Medications Section (V2)<br />Objective Section<br />Physical Exam Section (V3)<br />Problem Section (V3)<br />Results Section (V3)<br />Review of Systems Section<br />Subjective Section<br />Vital Signs Section (V3)<br />Nutrition Section  |
+| **Progress Note**   |   | Assessment Section<br />Plan of Treatment Section (V2)<br />Assessment and Plan Section (V2)<br />Allergies and Intolerances Section (V3)<br />Chief Complaint Section<br />Activities Section (V3)<br />Instructions Section (V2)<br /><br />Medications Section (V2)<br />Objective Section<br />Physical Exam Section (V3)<br />Problem Section (V3)<br />Results Section (V3)<br />Review of Systems Section<br />Subjective Section<br />Vital Signs Section (V3)<br />Nutrition Section  |
 | **Example**   | ProgressNote.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 24 Progress Note: Document Template.**
