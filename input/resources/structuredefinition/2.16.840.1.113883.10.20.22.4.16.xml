@@ -575,6 +575,31 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.118"/>
             </type>
         </element>
+        <element id="SubstanceAdministration.entryRelationship:adherence">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <sliceName value="adherence"/>
+            <short value="The following entryRelationship is used to indicate the patient's adherence to the medication order."/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:adherence.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="COMP"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:adherence.observation">
+            <path value="SubstanceAdministration.entryRelationship.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Medication Adherence (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.508)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.508"/>
+            </type>
+        </element>
         <element id="SubstanceAdministration.entryRelationship:signature">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="signature"/>
