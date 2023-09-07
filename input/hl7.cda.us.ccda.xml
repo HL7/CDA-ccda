@@ -50,6 +50,16 @@
           <name value="Participation &amp; Other Templates"/>
           <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."/>
       </grouping>
+      <resource>
+          <reference>
+              <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
+              <display value="Activities Section"/>
+          </reference>
+          <name value="Activities Section"/>
+          <description value="This template represents Activities. Activities are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Activities can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Activities Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
+          <exampleBoolean value="false"/>
+          <groupingId value="section"/>
+      </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.43"/>
@@ -1002,16 +1012,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
-                <display value="Interventions Section"/>
-            </reference>
-            <name value="Interventions Section"/>
-            <description value="This template represents Interventions. Interventions are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Interventions can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Interventions Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.314"/>
                 <display value="Latex Safety Observation"/>
             </reference>
@@ -1087,6 +1087,16 @@
             </reference>
             <name value="Medication Activity"/>
             <description value="A Medication Activity describes substance administrations that have actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &quot;take 2 tablets twice a day for the next 10 days&quot;). Medication activities in &quot;INT&quot; mood are reflections of what a clinician intends a patient to be taking. For example, a clinician may intend that a patient be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &quot;EVN&quot; mood would reflect actual use.&#xA;&#xA;A moodCode of INT is allowed, but it is recommended that the Planned Medication Activity (V2) template be used for moodCodes other than EVN if the document type contains a section that includes Planned Medication Activity (V2) (for example a Care Plan document with Plan of Treatment, Intervention, or Goal sections).&#xA;&#xA;At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.508"/>
+                <display value="Medication Adherence"/>
+            </reference>
+            <name value="Medication Adherence"/>
+            <description value="This profile represents whether a medication has been consumed according to instructions."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>

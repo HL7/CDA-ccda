@@ -278,6 +278,22 @@
             <min value="1"/>
             <max value="*"/>
         </element>
+        <element id="Procedure.performer:performer1.assignedEntity.assignedPerson">
+            <path value="Procedure.performer.assignedEntity.assignedPerson"/>
+            <definition value="This assignedEntity SHOULD contain zero or one [0..1] assignedPerson."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Procedure.performer:performer1.assignedEntity.assignedPerson.name">
+            <path value="Procedure.performer.assignedEntity.assignedPerson.name"/>
+            <definition value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.5.1.1"/>
+            </type>
+        </element>
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization">
             <path value="Procedure.performer.assignedEntity.representedOrganization"/>
             <short value="representedOrganization"/>

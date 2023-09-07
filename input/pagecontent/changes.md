@@ -27,3 +27,9 @@ The changes in this version of Consolidated CDA have been made from STU comments
 14. CDA-20543 - Change guidance on Supply repeatNumber
 15. CDA-20565 - Remove requirement to send R1.1 template IDs
 16. CDA-20664 - Remove Entries Optional section templates
+17. CDA-1240 - Added assignedPerson with US Realm Person Name to Procedure Activity Procedure template.
+18. CDA-1273 - Changed Problem Observation in Problem Concern Act from 1..* to 1..1.
+19. CDA-1274 - Changed Allergy Intolerance Observation in Allergy Concern Act from 1..* to 1..1.
+20. CDA-1277 - Added a Progress Towards Goal Observation to the Goal Observation template.
+21. CDA-1367 - Use proper LOINC code (8693-4) with no translations on Mental Status Observation template.
+22.	CDA-1693 - Change the name of the Interventions Section to Activities Section.
