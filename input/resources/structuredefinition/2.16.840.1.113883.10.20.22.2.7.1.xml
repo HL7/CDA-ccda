@@ -23,7 +23,7 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure (V2) is for procedures that alter the physical condition of a patient (e.g., splenectomy). Procedure Activity Observation (V2) is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Procedure Activity Act (V2) is for all other types of procedures (e.g., dressing change)."/>
+    <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure is for procedures that alter the physical condition of a patient (e.g., splenectomy). Procedure Activity Observation is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Procedure Activity Act is for all other types of procedures (e.g., dressing change)."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -120,14 +120,14 @@
             </slicing>
             <min value="0"/>
             <max value="*"/>
-            <short value="If section/@nullFlavor is not present there SHALL be at least one entry conformant to Procedure Activity Act (V2) (templateId 2.16.840.1.113883.10.20.22.4.12:2014-06-09) OR Procedure Activity Observation (V2) (templateId: 2.16.840.1.113883.10.20.22.4.13:2014-06-09) OR Procedure Activity Procedure (V2) (templateId: 2.16.840.1.113883.10.20.22.4.14:2014-06-09)"/>
+            <short value="If section/@nullFlavor is not present there SHALL be at least one entry conformant to Procedure Activity Act (templateId 2.16.840.1.113883.10.20.22.4.12:2014-06-09) OR Procedure Activity Observation (templateId: 2.16.840.1.113883.10.20.22.4.13:2014-06-09) OR Procedure Activity Procedure (templateId: 2.16.840.1.113883.10.20.22.4.14:2014-06-09)"/>
             <requirements value="SHALL contain at least one [1..*] entry (CONF:1098-7895) such that it"/>
             <min value="1"/>
         </element>
         <element id="Section.entry:entryProcedure">
             <path value="Section.entry"/>
             <sliceName value="entryProcedure"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15509)."/>
+            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15509)."/>
         </element>
         <element id="Section.entry:entryProcedure.procedure">
             <path value="Section.entry.procedure"/>
@@ -141,7 +141,7 @@
         <element id="Section.entry:entryAct">
             <path value="Section.entry"/>
             <sliceName value="entryAct"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09) (CONF:1098-15511)."/>
+            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09) (CONF:1098-15511)."/>
         </element>
         <element id="Section.entry:entryAct.act">
             <path value="Section.entry.act"/>
@@ -155,7 +155,7 @@
         <element id="Section.entry:entryObservation">
             <path value="Section.entry"/>
             <sliceName value="entryObservation"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Observation (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09) (CONF:1098-15510)."/>
+            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09) (CONF:1098-15510)."/>
         </element>
         <element id="Section.entry:entryObservation.observation">
             <path value="Section.entry.observation"/>

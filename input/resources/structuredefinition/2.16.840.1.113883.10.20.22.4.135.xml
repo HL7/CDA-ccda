@@ -22,7 +22,7 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This template represents a set of current or historical medical devices, supplies, aids and equipment used by the patient. Examples are hearing aids, orthotic devices, ostomy supplies, visual aids, diabetic supplies such as syringes and pumps, and wheelchairs. &#xA;&#xA;Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy tube, port catheter), whether permanent or temporary, are represented within the Procedure Activity Procedure (V2) template (templateId: 2.16.840.1.113883.10.20.22.4.14.2)."/>
+    <description value="This template represents a set of current or historical medical devices, supplies, aids and equipment used by the patient. Examples are hearing aids, orthotic devices, ostomy supplies, visual aids, diabetic supplies such as syringes and pumps, and wheelchairs. &#xA;&#xA;Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy tube, port catheter), whether permanent or temporary, are represented within the Procedure Activity Procedure template (templateId: 2.16.840.1.113883.10.20.22.4.14.2)."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -35,7 +35,7 @@
             <constraint>
                 <key value="1098-32380"/>
                 <severity value="error"/>
-                <human value="Either Non-Medicinal Supply Activity (V2) (templateId:2.16.840.1.113883.10.20.22.4.50:2014-06-09) **OR** Procedure Activity Procedure (V2) (templateId:2.16.840.1.113883.10.20.22.4.14:2014-06-09) **SHALL** be present (CONF:1098-32380)."/>
+                <human value="Either Non-Medicinal Supply Activity (templateId:2.16.840.1.113883.10.20.22.4.50:2014-06-09) **OR** Procedure Activity Procedure (templateId:2.16.840.1.113883.10.20.22.4.14:2014-06-09) **SHALL** be present (CONF:1098-32380)."/>
             </constraint>
         </element>
         <element id="Organizer.classCode">
@@ -148,7 +148,7 @@
         </element>
         <element id="Organizer.component:nonMedicalSupply.supply">
             <path value="Organizer.component.supply"/>
-            <requirements value="SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-31862)."/>
+            <requirements value="SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-31862)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -165,7 +165,7 @@
         </element>
         <element id="Organizer.component:procedureActivity.supply">
             <path value="Organizer.component.supply"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-31888)."/>
+            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-31888)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

@@ -1587,12 +1587,12 @@ diagram and a story board to explain its use.
 
 #### Structured Sections
 
-The table below describes the required and optional sections in a Care Plan document template: Care Plan (V2)
+The table below describes the required and optional sections in a Care Plan document template: Care Plan
 [ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.15:2015-08-01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Care Plan**   | Health Concerns Section (V2)<br />Goals Section  | Activities Section (V3)<br />Health Status Evaluations and Outcomes Section  |
+| **Care Plan**   | Health Concerns Section<br />Goals Section  | Activities Section<br />Health Status Evaluations and Outcomes Section  |
 | **Sample**   | CarePlan.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 16: Care Plan: Document Template.**
@@ -1608,11 +1608,11 @@ referral, history of present illness, physical examination, and decision-making 
 #### Structured Sections
 
 The table below describes the required and optional sections in a Consultation Note document template:
-Consultation Note (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.4:2015- 08 -01 (open)]
+Consultation Note[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.4:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Consultation Note**   | History of Present Illness Section<br />Allergies and Intolerances Section (V3)<br />Problem Section (V3)  | Assessment Section<br />Assessment and Plan Section (V2)<br />Plan of Treatment Section (V2)<br />Reason for Visit Section<br />Physical Exam Section (V3)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Family History Section (V3)<br />General Status Section<br />Past Medical History (V3)<br />Immunizations Section (V3)<br /> Medications Section (V2<br />) Procedures Section (V2)<br />Results Section (V3)<br />Social History Section (V3)<br />Vital Signs Section (V3)<br />Functional Status Section (V2)<br />Review of Systems Section<br />Medical Equipment Section  |
+| **Consultation Note**   | History of Present Illness Section<br />Allergies and Intolerances Section<br />Problem Section  | Assessment Section<br />Assessment and Plan Section<br />Plan of Treatment Section<br />Reason for Visit Section<br />Physical Exam Section<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Family History Section<br />General Status Section<br />Past Medical History<br />Immunizations Section<br /> Medications Section <br /> Procedures Section<br />Results Section<br />Social History Section<br />Vital Signs Section<br />Functional Status Section<br />Review of Systems Section<br />Medical Equipment Section  |
 {:.grid}
 **Table 17: Consultation Note: Document Template.**
 
@@ -1634,12 +1634,12 @@ Referral Note, Consultation Note, or Progress Note, are available as alternative
 #### Structured Sections
 
 The table below describes the required and optional sections in a Continuity of Care Document document
-template: Continuity of Care Document (CCD) (V3) [ClinicalDocument: identifier
+template: Continuity of Care Document (CCD) [ClinicalDocument: identifier
 urn:hl7ii:2.16.840.1.113883.10.20.22.1.2:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Continuity of Care Document (CCD)**   | Allergies and Intolerances Section (V3)<br />Medications Section (V2)<br />Problem Section (V3)<br />Results Section (V3)<br />Social History Section (V3)<br />Vital Signs Section (V3)  | Procedures Section (V2)<br />Encounters Section (V3)<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Immunizations Section (V3)<br />Medical Equipment Section (V2)<br />Payers Section (V3)<br />Plan of Treatment Section (V2)<br />Mental Status Section (V2)<br />Nutrition Section<br />Advance Directives Section (V3)<br />Goals Section<br />Health Concerns Section (V2)  |
+| **Continuity of Care Document (CCD)**   | Allergies and Intolerances Section<br />Medications Section<br />Problem Section<br />Results Section<br />Social History Section<br />Vital Signs Section  | Procedures Section<br />Encounters Section<br />Family History Section<br />Functional Status Section<br />Immunizations Section<br />Medical Equipment Section<br />Payers Section<br />Plan of Treatment Section<br />Mental Status Section<br />Nutrition Section<br />Advance Directives Section<br />Goals Section<br />Health Concerns Section  |
 {:.grid}
 **Table 18: Continuity of Care Document: Document Template.**
 
@@ -1661,11 +1661,11 @@ The best practice for a Discharge Summary is to include the discharge dispositio
 #### Structured Sections
 
 The table below describes the required and optional sections in a Discharge Summary document template:
-Discharge Summary (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.8:2015- 08 -01 (open)]
+Discharge Summary[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.8:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Discharge Summary**   | Allergies and Intolerances Section (V3)Hospital Course Section<br />Discharge Diagnosis Section (V3)<br />Plan of Treatment Section (V2) (DIR)  | Discharge Medications Section (V3)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Nutrition Section<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Past Medical History (V3)<br />History of Present Illness Section<br />Admission Diagnosis Section (V3)<br />Admission Medications Section (V3)<br />Hospital Consultations Section<br />Hospital Discharge Instructions Section<br />Hospital Discharge Studies Summary Section<br />Immunizations Section (V3)<br />Procedures Section (V2)<br />Reason for Visit Section<br />Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (V3)<br />Discharge Medications Section (V3)<br />Goals Section<br />Health Concerns Section (V2)  |
+| **Discharge Summary**   | Allergies and Intolerances SectionHospital Course Section<br />Discharge Diagnosis Section<br />Plan of Treatment Section (DIR)  | Discharge Medications Section<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Nutrition Section<br />Family History Section<br />Functional Status Section<br />Past Medical History<br />History of Present Illness Section<br />Admission Diagnosis Section<br />Admission Medications Section<br />Hospital Consultations Section<br />Hospital Discharge Instructions Section<br />Hospital Discharge Studies Summary Section<br />Immunizations Section<br />Procedures Section<br />Reason for Visit Section<br />Review of Systems Section<br />Social History Section<br />Vital Signs Section<br />Discharge Medications Section<br />Goals Section<br />Health Concerns Section  |
 | **Example**   | DischargeSummary.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 20: Discharge Summary: Document Template.**
@@ -1688,11 +1688,11 @@ evaluation in an ambulatory setting is often documented in the form of an H&P No
 #### Structured Sections
 
 The table below describes the required and optional sections in a History and Physical document template: History
-and Physical (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.3:2015- 08 -01 (open)]
+and Physical[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.3:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **History and Physical**   | Allergies and Intolerances Section (V3)Family History Section (V3)<br />General Status Section<br />Past Medical History (V3)<br />Medications Section (V2)<br />Physical Exam Section (V3)<br />Results Section (V3) Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (V3)  | Assessment Section<br />Plan of Treatment Section (V2)<br />Assessment and Plan Section (V2)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />History of Present Illness Section<br />Immunizations Section (V3)<br />Instructions Section (V2)<br />Problem Section (V3)<br />Procedures Section (V2)<br />Reason for Visit Section  |
+| **History and Physical**   | Allergies and Intolerances SectionFamily History Section<br />General Status Section<br />Past Medical History<br />Medications Section<br />Physical Exam Section<br />Results Section Review of Systems Section<br />Social History Section<br />Vital Signs Section  | Assessment Section<br />Plan of Treatment Section<br />Assessment and Plan Section<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />History of Present Illness Section<br />Immunizations Section<br />Instructions Section<br />Problem Section<br />Procedures Section<br />Reason for Visit Section  |
 {:.grid}
 **Table 21: History and Physical: Document Template.**
 
@@ -1707,11 +1707,11 @@ document the course of the procedure, and provide continuity of care.
 #### Structured Sections
 
 The table below describes the required and optional sections in an Operative Note document template: Operative
-Note (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.7:2015- 08 -01 (open)]
+Note[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.7:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Operative Note**   | Anesthesia Section (V2)Complications Section (V3)<br />Preoperative Diagnosis Section (V3)<br />Procedure Estimated Blood Loss Section Procedure Findings Section (V3)<br />Procedure Specimens Taken Section<br />Procedure Description Section<br />Postoperative Diagnosis Section  | Procedure Implants Section<br />Operative Note Fluids Section<br />Operative Note<br />Surgical Procedure Section<br />Plan of Treatment Section (V2)<br />Planned Procedure Section (V2)<br />Procedure Disposition Section<br />Procedure Indications Section (V2)<br />Surgical Drains Section  |
+| **Operative Note**   | Anesthesia SectionComplications Section<br />Preoperative Diagnosis Section<br />Procedure Estimated Blood Loss Section Procedure Findings Section<br />Procedure Specimens Taken Section<br />Procedure Description Section<br />Postoperative Diagnosis Section  | Procedure Implants Section<br />Operative Note Fluids Section<br />Operative Note<br />Surgical Procedure Section<br />Plan of Treatment Section<br />Planned Procedure Section<br />Procedure Disposition Section<br />Procedure Indications Section<br />Surgical Drains Section  |
 {:.grid}
 **Table 22 Operative Note: Document Template.**
 
@@ -1728,11 +1728,11 @@ procedure, and provide continuity of care.
 #### Structured Sections
 
 The table below describes the required and optional sections in a Procedure Note document template: Procedure
-Note (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.6:2015- 08 -01 (open)]
+Note[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.6:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Procedure Note**   | Complications Section (V3)<br />Procedure Description Section<br />Procedure Indications Section (V2)<br />Postprocedure Diagnosis Section (V3)  | Assessment Section<br />Assessment and Plan Section (V2)<br />Plan of Treatment Section (V2)<br />Allergies and Intolerances Section (V3)<br />Anesthesia Section (V2)<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Family History Section (V3)<br />Past Medical History (V3)<br />History of Present Illness Section<br />Medical (General) History Section<br />Medications Section (V2)<br />Medications Administered Section (V2)<br />Physical Exam Section (V3)<br />Planned Procedure Section (V2)<br />Procedure Disposition Section<br />Procedure Estimated Blood Loss Section<br />Procedure Findings Section (V3)<br />Procedure Implants Section<br />Procedure Specimens Taken Section<br />Procedures Section (V2)<br />Reason for Visit Section<br />Review of Systems Section<br />Social History Section (V3)  |
+| **Procedure Note**   | Complications Section<br />Procedure Description Section<br />Procedure Indications Section<br />Postprocedure Diagnosis Section  | Assessment Section<br />Assessment and Plan Section<br />Plan of Treatment Section<br />Allergies and Intolerances Section<br />Anesthesia Section<br />Chief Complaint Section<br />Chief Complaint and Reason for Visit Section<br />Family History Section<br />Past Medical History<br />History of Present Illness Section<br />Medical (General) History Section<br />Medications Section<br />Medications Administered Section<br />Physical Exam Section<br />Planned Procedure Section<br />Procedure Disposition Section<br />Procedure Estimated Blood Loss Section<br />Procedure Findings Section<br />Procedure Implants Section<br />Procedure Specimens Taken Section<br />Procedures Section<br />Reason for Visit Section<br />Review of Systems Section<br />Social History Section  |
 {:.grid}
 **Table 23: Procedure Note: Document Template.**
 
@@ -1751,11 +1751,11 @@ Report.
 #### Structured Sections
 
 The table below describes the required and optional sections in a Progress Note document template: Progress
-Note (V3)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.9:2015- 08 -01 (open)]
+Note[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.9:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Progress Note**   |   | Assessment Section<br />Plan of Treatment Section (V2)<br />Assessment and Plan Section (V2)<br />Allergies and Intolerances Section (V3)<br />Chief Complaint Section<br />Activities Section (V3)<br />Instructions Section (V2)<br /><br />Medications Section (V2)<br />Objective Section<br />Physical Exam Section (V3)<br />Problem Section (V3)<br />Results Section (V3)<br />Review of Systems Section<br />Subjective Section<br />Vital Signs Section (V3)<br />Nutrition Section  |
+| **Progress Note**   |   | Assessment Section<br />Plan of Treatment Section<br />Assessment and Plan Section<br />Allergies and Intolerances Section<br />Chief Complaint Section<br />Activities Section<br />Instructions Section<br /><br />Medications Section<br />Objective Section<br />Physical Exam Section<br />Problem Section<br />Results Section<br />Review of Systems Section<br />Subjective Section<br />Vital Signs Section<br />Nutrition Section  |
 | **Example**   | ProgressNote.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 24 Progress Note: Document Template.**
@@ -1777,11 +1777,11 @@ that would augment decision making and care delivery. Examples of referral situa
 #### Structured Sections
 
 The table below describes the required and optional sections in a Referral Note document template: Referral Note
-(V2)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.14:2015- 08 -01 (open)]
+[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.14:2015- 08 -01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Referral Note**   | Problem Section (V3)<br />Allergies and Intolerances Section (V3)<br />Medications Section (V2)<br />Reason for Referral Section (V2)  | Plan of Treatment Section (V2)<br />History of Present Illness Section<br />Family History Section (V3)<br />Immunizations Section (V3)<br />Procedures Section (V2)<br />Results Section (V3)<br />Review of Systems Section<br />Social History Section (V3)<br />Vital Signs Section (V3)Functional Status Section (V2)<br />Physical Exam Section (V3)<br />Nutrition Section<br />Mental Status Section (V2)<br />Medical Equipment Section (V2)<br />Assessment Section<br />Assessment and Plan Section (V2)<br />Past Medical History (V3)<br />General Status Section<br />Advance Directives Section<br />Health Concerns Section (V2)<br />Goals Section  |
+| **Referral Note**   | Problem Section<br />Allergies and Intolerances Section<br />Medications Section<br />Reason for Referral Section  | Plan of Treatment Section<br />History of Present Illness Section<br />Family History Section<br />Immunizations Section<br />Procedures Section<br />Results Section<br />Review of Systems Section<br />Social History Section<br />Vital Signs SectionFunctional Status Section<br />Physical Exam Section<br />Nutrition Section<br />Mental Status Section<br />Medical Equipment Section<br />Assessment Section<br />Assessment and Plan Section<br />Past Medical History<br />General Status Section<br />Advance Directives Section<br />Health Concerns Section<br />Goals Section  |
 | **Example**   | ReferralNote.xml Sample  | Included with this Companion Guide  |
 {:.grid}
 **Table 25: Referral Note: Document Template.**
@@ -1797,11 +1797,11 @@ measurement, public health, research, and for reimbursement.
 #### Structured Sections
 
 The table below describes the required and optional sections in a Transfer Summary document template Transfer
-Summary (V2)[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.13:2015-08-01 (open)]
+Summary[ClinicalDocument: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.1.13:2015-08-01 (open)]
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
-| **Transfer Summary**   | Allergies and Intolerances Section (V3)<br />Medications Section (V2)<br />Problem Section (V3)<br />Results Section (V3)<br />Vital Signs Section (V3)<br />Reason for Referral Section (V2)  | Physical Exam Section (V3)<br />Encounters Section (V3)<br />Family History Section (V3)<br />Functional Status Section (V2)<br />Discharge Diagnosis Section (V3)<br />Immunizations Section (V3)<br />Medical Equipment Section (V2)<br />Payers Section (V3)<br />Plan of Treatment Section (V2)<br />Procedures Section (V2)<br />Social History Section (V3)<br />Mental Status Section (V2)<br />General Status Section<br />Review of Systems Section<br />Nutrition Section<br />Past Medical History (V3)<br />History of Present Illness Section<br />Assessment and Plan Section (V2)<br />Assessment Section<br />Admission Medications Section (V3)<br />Admission Diagnosis Section (V3)<br />Course of Care Section
+| **Transfer Summary**   | Allergies and Intolerances Section<br />Medications Section<br />Problem Section<br />Results Section<br />Vital Signs Section<br />Reason for Referral Section  | Physical Exam Section<br />Encounters Section<br />Family History Section<br />Functional Status Section<br />Discharge Diagnosis Section<br />Immunizations Section<br />Medical Equipment Section<br />Payers Section<br />Plan of Treatment Section<br />Procedures Section<br />Social History Section<br />Mental Status Section<br />General Status Section<br />Review of Systems Section<br />Nutrition Section<br />Past Medical History<br />History of Present Illness Section<br />Assessment and Plan Section<br />Assessment Section<br />Admission Medications Section<br />Admission Diagnosis Section<br />Course of Care Section
 {:.grid}
 **Table 26: Transfer Summary: Document Template.**
 

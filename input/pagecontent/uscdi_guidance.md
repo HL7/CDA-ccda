@@ -61,14 +61,14 @@ patient.
 
 Assessment Screenings can represent a structured evaluation of risk (e.g., PRAPARE, Hunger Vital Sign, AHC-HRSN
 screening tool) for any Social Determinants of Health domain such as food, housing, or transportation security. The
-assessment scale responses are represented in C-CDA with the Assessment Scale Observation (V2)
+assessment scale responses are represented in C-CDA with the Assessment Scale Observation
 2.16.840.1.113883.10.20.22.4.69:2022- 06 -01 and its contained Assessment Scale Supporting Observation
 2.16.840.1.113883.10.20.22.4.86. The Social History Observation (V4) 2.16.840.1.113883.10.20.22.4.38:2022-06-
 01 is for simple observations made by an individual about a patient's social history status during the course of care.
 Both can contribute to the identification of SDOH Problems (Conditions) or Observations or can be the reason for
 Service Requests (Planned Procedures) or Procedures.
 
-Assessment Scale Observation (V2) 2.16.840.1.113883.10.20.22.4.69:2022- 06 -01 and its contained Assessment
+Assessment Scale Observation 2.16.840.1.113883.10.20.22.4.69:2022- 06 -01 and its contained Assessment
 Scale Supporting Observation 2.16.840.1.113883.10.20.22.4.86 are designed to represent [LOINC Panels](https://loinc.org/panels/) that are
 collections of LOINC terms that represent specific sets of information, intended for forms or assessments related
 to health that are completed by patients and/or providers.
@@ -266,7 +266,7 @@ related activities take place.
 
 ##### Encounter Diagnosis
 
-A Hospital Discharge Diagnosis [Hospital Discharge Diagnosis (V3) [act, 2.16.840.1.113883.10.20.22.4.33] “counts”
+A Hospital Discharge Diagnosis [Hospital Discharge Diagnosis [act, 2.16.840.1.113883.10.20.22.4.33] “counts”
 as an Encounter Diagnosis where the encounter is a hospital stay or the last day of a hospital stay. If there are
 other (ambulatory, for example) encounters included in the document, those other encounters would need to
 have a separate instance of a diagnosis for Encounter Diagnosis (using Encounter Diagnosis [act,
@@ -554,7 +554,7 @@ In Intent mood a Supply is the order/information sent to the pharmacy and is not
 | [Related Person's Relationship](https://www.healthit.gov/isa/taxonomy/term/2671/uscdi-v3)<br />Relationship of a person to a patient. (e.g., parent, next-of-kin, guardian, custodian)  | None (follow C-CDA)  | Related Person Relationship and Name Participant  | /ClinicalDocument/participant/associatedEntity/code (Personal And Legal Relationship Role Type Value Set)  |
 | [Occupation](https://www.healthit.gov/isa/taxonomy/term/3381/uscdi-v3)<br />Type of work of a person. (e.g., infantry, business analyst, social worker)  | - Occupational Data for Health, version 20201030  | Basic Occupation Observation  | observation[code/@code="11341-5"]/value  |
 | [Occupation Industry](https://www.healthit.gov/isa/taxonomy/term/3376/uscdi-v3)<br />Type of business that compensates for work or assigns work to an unpaid worker or volunteer. (e.g., U.S. Army, cement manufacturing, children and youth services)  | - Occupational Data for Health, version 20201030  | Basic Industry Observation  | observation[code/@code="86188-0"]/value  |
-| [Sex](https://www.healthit.gov/isa/taxonomy/term/731/uscdi-v3)<br />Documentation of a specific instance of sex and/or gender information.  | - SNOMED International, Systematized Nomenclature of Medicine Clinical Terms (SNOMED CT®) U.S. Edition, March 2022 Release  | Birth Sex Observation (V2)  | observation[code/@code="76689-9"]/value  |
+| [Sex](https://www.healthit.gov/isa/taxonomy/term/731/uscdi-v3)<br />Documentation of a specific instance of sex and/or gender information.  | - SNOMED International, Systematized Nomenclature of Medicine Clinical Terms (SNOMED CT®) U.S. Edition, March 2022 Release  | Birth Sex Observation  | observation[code/@code="76689-9"]/value  |
 {:.grid}
 **Table 74: USCDI Data Elements - Patient Demographics**
 
@@ -945,7 +945,7 @@ No additional guidance
                                                 ><p class="s130"
                                                 style="padding-left: 5pt;text-indent: 0pt;text-align: left;"
                                                 >Patient Referral Act (act 2.16.840.1.113883.10.20.22.4.140)</p><br/>
-                                                <p>+ <br/> Indication (V2) <br/> (observation, (observation, 2.16.840.1.113883.10.20.22.4.19, release 2014-06-09)</p>
+                                                <p>+ <br/> Indication <br/> (observation, (observation, 2.16.840.1.113883.10.20.22.4.19, release 2014-06-09)</p>
                                                 </td>
                                     </tr>
                                 </table>
