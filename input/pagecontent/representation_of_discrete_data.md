@@ -932,7 +932,7 @@ Its purpose is to remove the need to repeat the complete XML representation of t
 one entry to another. This template can be used to reference many types of Act class derivations, such as 
 encounters, observations, procedures etc., as it is often necessary when authoring CDA documents to repeatedly
 reference other Acts of these types. For example, in a Care Plan it is necessary to repeatedly relate Health
-Concerns, Goals, Interventions and Outcomes.
+Concerns, Goals, Activities and Outcomes.
 
 The ID is required and must be the same ID as the entry/id it is referencing. The ID cannot be a null value. Act/Code
 is set to nullFlavor=“NP” (Not Present). This means the value is not present in the message (in act/Code).
@@ -1117,7 +1117,7 @@ information and supports clinical information reconciliation and incorporation.
 
 ```
 <section>
-    <!-- *** Allergies and Intolerances Section (V3) *** -->
+    <!-- *** Allergies and Intolerances Section *** -->
 <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
 <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
 <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
@@ -1453,7 +1453,7 @@ a note on the Encounter, the entryRelationship should link to this new Note Acti
 
 ##### Encounter Activity
 
-| **Entry Template**   | **Encounter Activity (V3)<br />[encounter: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01 (open)]**    |
+| **Entry Template**   | **Encounter Activity<br />[encounter: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This clinical statement describes an interaction between a patient and clinician. Interactions may include in-person encounters, telephone conversations, and email exchanges.  |
@@ -1468,7 +1468,7 @@ a note on the Encounter, the entryRelationship should link to this new Note Acti
 
 ##### Encounter Diagnosis
 
-| **Entry Template**   | **Encounter Diagnosis (V3)<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01 (open)]**    |
+| **Entry Template**   | **Encounter Diagnosis<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit.  |
@@ -1483,7 +1483,7 @@ a note on the Encounter, the entryRelationship should link to this new Note Acti
 
 ##### Hospital Admission Diagnosis
 
-| **Entry Template**   | **Hospital Admission Diagnosis (V3)<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.34:2015-08-01 (open)]**    |
+| **Entry Template**   | **Hospital Admission Diagnosis<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.34:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template represents problems or diagnoses identified by the clinician at the time of the patient’s admission.  |
@@ -1512,7 +1512,7 @@ a note on the Encounter, the entryRelationship should link to this new Note Acti
 
 ##### Hospital Discharge Diagnosis
 
-| **Entry Template**   | **Hospital Discharge Diagnosis (V3)<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.33:2015-08-01 (open)]**    |
+| **Entry Template**   | **Hospital Discharge Diagnosis<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.33:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template represents problems or diagnoses present at the time of discharge which occurred during the hospitalization or need to be monitored after hospitalization.  |
@@ -1572,17 +1572,15 @@ this purpose.
 ##### Fulfilled Order
 
 See Chapter 5.2. 13 Medication and Chapter 5.2.15 Procedure of this document for more information about entry
-templates defined to represent performed service acts such as Intervention Act (V2), Procedure Activity Procedure
-(V3), Immunization Activity(V3), Encounter Activity (V3), Medication Activity (V2), Non-Medicinal Supply Activity
-(V2), etc. Templates types are discussed in the context of the data class used to categorize the type of service act.
+templates defined to represent performed service acts such as Intervention Act, Procedure Activity Procedure, Immunization Activity, Encounter Activity, Medication Activity, Non-Medicinal Supply Activity, etc. Templates types are discussed in the context of the data class used to categorize the type of service act.
 
 **Reference:** [Medication](representation_of_discrete_data.html#medication), [Procedure](representation_of_discrete_data.html#procedure)
 
 ##### Placed Order
 
 See Chapter 5.2.17 for more information about entry templates defined to represent ordered service acts such as
-Planned Encounter (V2), Planned Medication Activity (V2), Planned Observation (V2), Planned Procedure (V2),
-Planned Supply (V2), Planned Act (V2), etc.
+Planned Encounter, Planned Medication Activity, Planned Observation, Planned Procedure,
+Planned Supply, Planned Act, etc.
 
 **Reference:** [Plan of Treatment](representation_of_discrete_data.html#plan-of-treatment)
 
@@ -1640,7 +1638,7 @@ EHR systems do not organize the source problem data within the patient’s medic
 
 ##### Problem Concern
 
-| **Entry Template**   | **Problem Concern Act (V3)<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01 (open)]**    |
+| **Entry Template**   | **Problem Concern Act<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template reflects an ongoing concern on behalf of the provider who is managing the patient’s condition.  |
@@ -1862,7 +1860,7 @@ author(s) for the contained Problem Observation(s). -->
 {:.grid}
 **Table 44: Problem Observation Template**
 
-^119 HL7 C-CDA R2.1 2018Dec with errata. Problem Observation (V3). Page 21.
+^119 HL7 C-CDA R2.1 2018Dec with errata. Problem Observation. Page 21.
 ^120 HL7 C-CDA Examples Search. Problems. No Known Problems. http://cdasearch.hl7.org/examples/view/7353a215efda8dfe3fbacb19abbb90756ce14bab
 
 **Example 38: No Known Problems**
@@ -2010,7 +2008,7 @@ whereas the Act.code of a Health Concern template carries the LOINC concept 7531
 The two templates are otherwise identical. Implementer best practice guidelines for the Health
 Concern template should be applied to the Risk Concern template as well.
 
-| **Entry Template**   | **Health Concern (V3)<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.132:2022-06-01 (open)]**    |
+| **Entry Template**   | **Health Concern<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.132:2022-06-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template represents a single health concern which may be derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). A Health Concern is used to track non-optimal physical or psychological situations drawing the patient to the healthcare system. These may be from the perspective of the care team or from the perspective of the patient.  |
@@ -2064,7 +2062,7 @@ identified as being “on the patient’s allergy list.” The Allergy Concern A
 Allergy - Intolerance Observations.
 
 
-| **Entry Template**   | **Allergy Concern Act (V3)<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.30:2015-08-01 (open)]**    |
+| **Entry Template**   | **Allergy Concern Act<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.30:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template reflects an ongoing concern on behalf of the provider who is managing the patient’s care.  |
@@ -2339,7 +2337,7 @@ has been removed due to lack of industry use
 **Example 41: No known allergies**
 ```
 <section>
-    <!-- *** Allergies and Intolerances Section (V3) *** -->
+    <!-- *** Allergies and Intolerances Section *** -->
 <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
 <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
 <code code="4876 5 - 2" codeSystem="2.16.840.1.113883. 6 .1" codeSystemName="LOINC"/>
@@ -2439,7 +2437,7 @@ Patient Care workgroups. This analysis has resulted in recommendations for impro
 implementers with challenges previously encountered when using the Allergy Concern Act and Allergy-Intolerance
 Observation templates to exchange information about a patient’s allergies.
 
-| **Entry Template**   | **Allergy - Intolerance Observation (V2)<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09 (open)]**    |
+| **Entry Template**   | **Allergy - Intolerance Observation<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template reflects a discrete observation about a pati’nt's allergy or intolerance.  |
@@ -2451,7 +2449,7 @@ Observation templates to exchange information about a patient’s allergies.
 | **Example**   | Visit [HL7 CDA Example Search](http://hl7-c-cda-examples.herokuapp.com/sections/Problems) for additional examples for allergies |
 {:.grid}
 
-^123 HL7 C-CDA R2.1 2018Dec with errata. Problem Observation (V3). Page 21.
+^123 HL7 C-CDA R2.1 2018Dec with errata. Problem Observation. Page 21.
 ^124 HL7 C-CDA Examples Search. Problems. No Known Problems. http://cdasearch.hl7.org/examples/view/7353a215efda8dfe3fbacb19abbb90756ce14bab
 
 **Table 47: Allergy - Intolerance Observation Template**
@@ -2559,13 +2557,13 @@ UDI information is considered core data for interoperability. Content Creators s
 Organizer within a Procedure Activity Procedure to represent the parsed universal identifier information for an
 implanted device. Content Consumers should support processing of this information when it is received.
 
-| **Entry Template**   | **Procedure Activity Procedure (V2)<br/>[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09 (open)]**    |
+| **Entry Template**   | **Procedure Activity Procedure<br/>[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template is used to represent procedures whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient. It also is used with a contained Product Instance template to represent a device implanted in or on a patient. In this case, targetSiteCode is used to record the location of the device in or on the patient's body.  |
 | **ActStatus**   | This template includes a state model that includes: active, completed, aborted, and cancelled. When documenting an implanted medical device, the statusCode = “completed”.<br />The effectiveTime, also referred to as the “clinically relevant time” is the time at which the procedure was performed which implies the data the device was implanted. Best practice is to use the TS data type and record a single point in time to represent when the device was implanted. For implementers who must populate a time interval, effectiveTime/low MAY be populated. effectiveTime/high SHOULD NOT be populated. |
 | **Negation**   | In this template, the negationInd attribute is used to indicate the procedure was not performed.  |
-| **Other Considerations**   | The contained Product Instance template is used to represent a particular device that was placed in a patient or used as part of a procedure or other act.<br />To record the removal of an implanted device, use a separate Procedure Activity Procedure template with an appropriate code for the device removal procedure. Again, use the TS data type and record a single point in time to represent when the device was removed. Best practice includes linking the device removal procedure to the original implant procedure using the entry reference template. [act: identifier urn:oid:2.16.840.1.113883.10.20.22.4.122 (open)]<br />When representing that a procedure was not performed, the Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) template MAY be used to represent the rationale for not performing the procedure. More than one indication template may be contained within a Procedure template.<br />See example below for the representation of “No Implanted Devices”. The clinical statement pattern uses a combination of negation and nullFlavor to semantically represent “the patient has not had any procedures to implant any devices.” |
+| **Other Considerations**   | The contained Product Instance template is used to represent a particular device that was placed in a patient or used as part of a procedure or other act.<br />To record the removal of an implanted device, use a separate Procedure Activity Procedure template with an appropriate code for the device removal procedure. Again, use the TS data type and record a single point in time to represent when the device was removed. Best practice includes linking the device removal procedure to the original implant procedure using the entry reference template. [act: identifier urn:oid:2.16.840.1.113883.10.20.22.4.122 (open)]<br />When representing that a procedure was not performed, the Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) template MAY be used to represent the rationale for not performing the procedure. More than one indication template may be contained within a Procedure template.<br />See example below for the representation of “No Implanted Devices”. The clinical statement pattern uses a combination of negation and nullFlavor to semantically represent “the patient has not had any procedures to implant any devices.” |
 | **Example**   | Example 44: Implanted Device – known procedure details |
 | **Example**   | Example 45: Implanted Device - Procedure unknown |
 | **Example**   | Example 46: No Implanted Devices |
@@ -2715,7 +2713,7 @@ not had a procedure to implant anything.
             devices</paragraph></text>
         <entry>
             <procedure classCode="PROC" moodCode="EVN" negationInd="true">
-                <!-- Procedure Activity Procedure V2-->
+                <!-- Procedure Activity Procedure -->
                 <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
                 <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06- 09"/>
                 <id root="d5b614bd-01ce-410d-8726-e1fd01dcc72a" />
@@ -2923,7 +2921,7 @@ represented in the author structure of the entry.
 
 ##### Goal Observation
 
-| **Entry Template**   | **Goal Observation (V2)<br/>[observation: identifier urn:oid:2.16.840.1.113883.10.20.22.4.121:2022-06-01 (open)]**    |
+| **Entry Template**   | **Goal Observation<br/>[observation: identifier urn:oid:2.16.840.1.113883.10.20.22.4.121:2022-06-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1 Companion Guide  |
 | **Purpose**   | This template represents a patient health goal. A Goal Observation template may have related components that are acts, encounters, observations, procedures, substance administrations, or supplies.<br />A goal may be a patient or provider goal. If the author is set to the recordTarget (patient), this is a patient goal. If the author is set to a provider, this is a provider goal. If both patient and provider are set as authors, this is a negotiated goal.<br />A goal usually has a related health concern and/or risk.<br />A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships.  |
@@ -3006,7 +3004,7 @@ FOR EXAMPLES TO COMMON CHALLENGES WITH ENTRIES IN THIS SECTION -->
 The Social History Observation template is a general template designed to represent a full range of social history
 observations. The Social History Observation Template has been updated to leverage Gravity Value Sets covering
 multiple social risk domains. See 6.1.2 [Social Determinant of Health Vocabulary Design Notes](uscdi_guidance.html#social-determinant-of-health-vocabulary-design-notes). In addition, a new Sexual Orientation Observation Template 2.16.840.1.113883.10.20.22.4.501:2022-06-01 was developed for this
-USCDI V2 ballot update.
+USCDI ballot update.
 
 The Social History Observation template remains open to represent any SDOH observation related to conditions in
 which people live, learn, work, and play even if not defined in the [Social Determinants of Health Conditions Value
@@ -3111,13 +3109,13 @@ implementation guide.
                                                   bgcolor="#C5D9F0"><p class="s19"
                                                   style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
                                                   >C-CDA Content Creators SHALL NOT use the Smoking
-                                                  Status– Meaningful Use (V2) template to represent
+                                                  Status– Meaningful Use template to represent
                                                   when the current smoking status started.
                                                   <b>[BP-088]</b></p></td>
                                             </tr>
                                         </table>
 
-| **Entry Template**   | **Smoking Status – Meaningful Use (V2)<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09 (open)]**    |
+| **Entry Template**   | **Smoking Status – Meaningful Use<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template represents the current smoking status of the patient as specified in Meaningful Use (MU) Stage 2 requirements.  |
@@ -3125,7 +3123,7 @@ implementation guide.
 | **Negation**   | Not explicitly specified.  |
 | **Other Considerations**   | The 2019 ISA removes the value set requirements expected for these [data elements](https://www.healthit.gov/isa/representing-patient-tobacco-use-smoking-status)^129. Presently this template requires use of the following range of possible answers:<br />- Never smoked tobacco<br />- Occasional tobacco smoker<br />- Ex-smoker<br />- Heavy tobacco smoker<br />- Smokes tobacco daily<br />- Smoker<br />- Light tobacco smoker<br />- Tobacco smoking consumption unknown<br />Best practice implementation guidance allows alternate answers to be used.<br /><br />Within the Social History Section of a document there can be more than one Smoking Status observation recorded. The person’s “current” smoking status may have been recorded at several different points in time. |
 | **Example**   | Example 50: Unknown Smoking Status |
-| **Example**   | HL7 C-CDA R2.1 Figure 220 Smoking Status – Meaningful Use (V2) Example |
+| **Example**   | HL7 C-CDA R2.1 Figure 220 Smoking Status – Meaningful Use Example |
 {:.grid}
 **Table 54: Smoking Status**
 
@@ -3189,13 +3187,13 @@ implementation guide.
                                                   bgcolor="#C5D9F0"><p class="s19"
                                                   style="padding-left: 41pt;padding-right: 9pt;text-indent: 0pt;text-align: left;"
                                                   >C-CDA Content Creators SHALL use the Tobacco Use
-                                                  (V2) template to describe dates associated with
+                                                  template to describe dates associated with
                                                   the patient&#39;s tobacco use over time.
                                                   <b>[BP-089]</b></p></td>
                                             </tr>
                                         </table>
 
-| **Entry Template**   | **Tobacco Use (V2)<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09 (open)]**    |
+| **Entry Template**   | **Tobacco Use<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template contains information that describes a patient's tobacco use over time.  |
@@ -3434,7 +3432,7 @@ Result Organizer must also have a statusCode of "active."
                                             </tr>
                                         </table>
 
-| **Entry Template**   | **Result Organizer (V3)<br/>[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01 (open)]**    |
+| **Entry Template**   | **Result Organizer<br/>[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations.  |
@@ -3450,7 +3448,7 @@ Result Organizer must also have a statusCode of "active."
 <section>
     <!-- PLEASE REFER TO THE EXAMPLE TASK FORCE <https://cdasearch.hl7.org/sections/Results> PAGE
 FOR EXAMPLES TO COMMON CHALLENGES WITH ENTRIES IN THIS SECTION -->
-    <!-- Results Section (V3) -->
+    <!-- Results Section -->
     <!-- This example shows that laboratory results more recent than the inpatient encounter are
 available at Good Health Hospital at the time the CCD is generated. This is a Patient Summary,
 not an Encounter Document. It covers a span of time.-->
@@ -3520,7 +3518,7 @@ not an Encounter Document. It covers a span of time.-->
     </entry>
     <entry typeCode="DRIV">
         <organizer classCode="BATTERY" moodCode="EVN">
-            <!-- ** Result organizer (V3) ** -->
+            <!-- ** Result organizer ** -->
             <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08- 01"/>
             <templateId root="2.16.840.1.113883.10.20.22.4.1"/>
             <id root="7d5a02b0-67a4-11db-bd13-0800200c9a66"/>
@@ -3547,7 +3545,7 @@ not an Encounter Document. It covers a span of time.-->
             </author>
             <component>
                 <observation classCode="OBS" moodCode="EVN">
-                    <!-- ** Result observation (V3) ** -->
+                    <!-- ** Result observation ** -->
                     <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08- 01"/>
                     <templateId root="2.16.840.1.113883.10.20.22.4.2"/>
                     <id root="107c2dc0-67a5-11db-bd13-0800200c9a66"/>
@@ -3605,7 +3603,7 @@ not an Encounter Document. It covers a span of time.-->
 
 ##### Result Observation
 
-| **Entry Template**   | **Result Observation (V3)<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01 (open)]**    |
+| **Entry Template**   | **Result Observation<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template represents the results of a laboratory, radiology, or other study performed on a patient.  |
@@ -3634,7 +3632,7 @@ not an Encounter Document. It covers a span of time.-->
                                             </tr>
                                         </table>
 
-| **Entry Template**   | **Vital Signs Organizer (V3)<br/>[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01 (open)]**    |
+| **Entry Template**   | **Vital Signs Organizer<br/>[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template provides a mechanism for grouping vital signs (e.g., grouping systolic blood pressure and diastolic blood pressure, BMI, body height, body weight).  |
@@ -3766,7 +3764,7 @@ Authorship conducts down into the component observations. -->
 
 ##### Vital Sign Observation
 
-| **Entry Template**   | **Vital Sign Observation (V2)<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09 (open)]**    |
+| **Entry Template**   | **Vital Sign Observation<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template represents measurement of common vital signs.  |
@@ -3872,7 +3870,7 @@ patient to be taking. For example, a clinician may intend that a patient begin t
 pressure control. The Planned Medication Activity entry can also be used to record a medication that the physician
 intends the patient to take at some time in the future.
 
-**Example 60: [Medication Plan^132](http://hl7-c-cda-examples.herokuapp.com/examples/view/Guide%20Examples/Medication%20Activity%20(V2)_2.16.840.1.113883.10.20.22.4.16)**
+**Example 60: [Medication Plan^132](http://hl7-c-cda-examples.herokuapp.com/examples/view/Guide%20Examples/Medication%20Activity%20_2.16.840.1.113883.10.20.22.4.16)**
 ```
 <substanceAdministration classCode="SBADM" moodCode="INT">
     <!-- This medication use case is a medication that is to be administered.-->
@@ -4073,7 +4071,7 @@ categories of procedure as the RIM definition differentiation is not made in EHR
                                                   bgcolor="#C5D9F0"><p class="s19"
                                                   style="padding-left: 41pt;padding-right: 28pt;text-indent: 0pt;text-align: left;"
                                                   >When representing that a procedure was not
-                                                  performed, the Indication (V2) (identifier:
+                                                  performed, the Indication (identifier:
                                                   urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09
                                                   template MAY be used to represent the rationale
                                                   for not performing the procedure. More than one
@@ -4082,14 +4080,14 @@ categories of procedure as the RIM definition differentiation is not made in EHR
                                             </tr>
                                         </table>
 
-| **Entry Template**   | **Procedure Activity Procedure (V3)<br />[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2022-06-01 (open)]**    |
+| **Entry Template**   | **Procedure Activity Procedure<br />[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2022-06-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1, HL7 C-CDA R2.1 Companion Guide (Procedure Activity Procedure)  |
 | **Purpose**   | This template is used to describe all interventional, non-interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated.  |
 | **ActStatus**   | The template includes a state model that includes active, completed, aborted, and cancelled.<br />The effectiveTime, also referred to as the “clinically relevant time” is the time at which the procedure was performed. If the status of a procedure was active at the time a C-CDA document was created, the effectiveTime/low would indicate the date/time the procedure was started and the effectiveTime/high SHOULD not be present. If the status of a procedure was completed, aborted or cancelled, the effectiveTime/high SHOULD be populated. Implementer best practice would be use of the TS_IVL data type. For implementers who are not able to represent a time interval, effectiveTime/value MAY be populated. |
 | **Negation**   | In this template, the negationInd attribute is used to indicate the procedure was not performed. |
-| **Other Considerations**   | When representing that a procedure was not performed, the<br />Indication (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09 template MAY be used to represent the rationale for not performing the procedure. More than one indication template may be contained within a Procedure template. |
-| **Example**   | [Visit HL7 CDA Example Search](http://hl7-c-cda-examples.herokuapp.com/examples/view/Guide%20Examples/Procedure%20Activity%20Procedure%20(V2)_2.16.840.1.113883.10.20.22.4.14) |
+| **Other Considerations**   | When representing that a procedure was not performed, the<br />Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09 template MAY be used to represent the rationale for not performing the procedure. More than one indication template may be contained within a Procedure template. |
+| **Example**   | [Visit HL7 CDA Example Search](http://hl7-c-cda-examples.herokuapp.com/examples/view/Guide%20Examples/Procedure%20Activity%20Procedure%20_2.16.840.1.113883.10.20.22.4.14) |
 | **Example**   | How to represent [Procedure Activity Procedure](http://hl7-c-cda-examples.herokuapp.com/sections/Procedures) |
 {:.grid}
 **Table 63: Procedure, Observation, Act Template**
@@ -4121,7 +4119,7 @@ designed to represent both the question or type of information assessed as well 
 
 ##### Assessment Scale Observation
 
-| **Entry Template**   | **Assessment Scale Observation (V2)<br />[observation: identifier urn:oid:2.16.840.1.113883.10.20.22.4.69:2022-06-01 (open)]**    |
+| **Entry Template**   | **Assessment Scale Observation<br />[observation: identifier urn:oid:2.16.840.1.113883.10.20.22.4.69:2022-06-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1 Companion Guide  |
 | **Purpose**   | An assessment scale is a collection of observations that together yield a summary evaluation of a particular condition.  |
@@ -4379,7 +4377,7 @@ templates.
 | ---- | ------ |
 | **Advance Care Planning Intervention (V1)**<br />New Version:<br />[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.204:2017-05-01 (open)]   | The Advance Care Planning Intervention template is used to record a planned intervention that will involve reviewing and verifying a person’s directives or will involve educating and supporting a person on establishing or modifying his or her advance directives. It also can be used to record when the activity of reviewing and verifying a person’s directives has been completed or when educating and supporting a person to establish or update his or her advance directives has been completed.  |
 | **Advance Directive Observation (V4)**<br />New Version:<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2017-05-01 (open)]   | An Advance Directive Observation template is used to record information about a document authored by the person and containing goals, preferences, and priorities for care. The observation records that the document was available and may have been reviewed (verified). It records the kind (category) of advance directive document, where the document can be accessed, who verified it, and the type of content that was determined to be present. When a person has more than one advance directive document, each document is recorded using an Advance Directive Observation template. A set of Advance Directive Observations are grouped together using an Advance Directive Organizer.  |
-| **Advance Directive Organizer (V3)**<br />New Version:<br />[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2017-05-01 (open)]   | This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented.  |
+| **Advance Directive Organizer**<br />New Version:<br />[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2017-05-01 (open)]   | This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented.  |
 | **Obligation Instruction**<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.205:2018-01-01 (open)]   | The Obligation Instruction template represents a statement made by a patient regarding care services he or she wants to be performed.  |
 | **Prohibition Instruction**<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.206:2018-01-01 (open)]   | The Prohibition Instruction template represents a statement made by a patient regarding care services he or she does not want to be performed.  |
 {:.grid}
@@ -4565,7 +4563,7 @@ are non-compliant)-->
 In certain situations, clinicians need to record why something was or was not done. C-CDA provides three
 methods to record this information:
 ```
-- Indication (V3) observation2.16.840.1.113883.10.20.22.4.19 template is used to describe the problem or
+- Indication observation2.16.840.1.113883.10.20.22.4.19 template is used to describe the problem or
     diagnosis that is the reason for an action, such as an encounter order or occurrence, a medication
     administration, or an ordered or performed procedure.
 - The Reason 2.16.840.1.113883.10.20.24.3.88 template is used to represent the justification for an action

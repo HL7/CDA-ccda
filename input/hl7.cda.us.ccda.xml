@@ -50,6 +50,16 @@
           <name value="Participation &amp; Other Templates"/>
           <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."/>
       </grouping>
+      <resource>
+          <reference>
+              <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
+              <display value="Activities Section"/>
+          </reference>
+          <name value="Activities Section"/>
+          <description value="This template represents Activities. Activities are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Activities can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Activities Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
+          <exampleBoolean value="false"/>
+          <groupingId value="section"/>
+      </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.43"/>
@@ -176,7 +186,7 @@
                 <display value="Assessment and Plan Section"/>
             </reference>
             <name value="Assessment and Plan Section"/>
-            <description value="This section represents the clinician's conclusions and working assumptions that will guide treatment of the patient. The Assessment and Plan Section may be combined or separated to meet local policy requirements.&#xA;&#xA;See also the Assessment Section: templateId 2.16.840.1.113883.10.20.22.2.8 and Plan of Treatment Section (V2): templateId 2.16.840.1.113883.10.20.22.2.10:2014-06-09"/>
+            <description value="This section represents the clinician's conclusions and working assumptions that will guide treatment of the patient. The Assessment and Plan Section may be combined or separated to meet local policy requirements.&#xA;&#xA;See also the Assessment Section: templateId 2.16.840.1.113883.10.20.22.2.8 and Plan of Treatment Section: templateId 2.16.840.1.113883.10.20.22.2.10:2014-06-09"/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
         </resource>
@@ -382,16 +392,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.73"/>
-                <display value="Cognitive Status Problem Observation (DEPRECATED)"/>
-            </reference>
-            <name value="Cognitive Status Problem Observation (DEPRECATED)"/>
-            <description value="A cognitive status problem observation is a clinical statement that describes a patient's cognitive condition, findings, or symptoms. Examples of cognitive problem observations are inability to recall, amnesia, dementia, and aggressive behavior. &#xA;&#xA;A cognitive problem observation is a finding or medical condition. This is different from a cognitive result observation, which is a response to a question that provides insight into the patient's cognitive status, judgement, comprehension ability, or response speed.&#xA;&#xA;THIS TEMPLATE HAS BEEN DEPRECATED AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for deprecation*: Cognitive Status Problem Observation has been merged, without loss of expressivity, into Mental Status Observation (2.16.840.1.113883.10.20.22.4.74)."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.64"/>
                 <display value="Comment Activity"/>
             </reference>
@@ -516,7 +516,7 @@
                 <display value="Disability Status Observation"/>
             </reference>
             <name value="Disability Status Observation"/>
-            <description value="This template represents an assessment of patients perception of their physical, cognitive, intellectual, or psychiatric disabilities. It may contain an Assessment Scale Observation that holds the six-item set of questions used on the American Community Survey (ACS) to gauge disability, defined here: [HHS Implementation Guidance on Data Collection Standards for Race, Ethnicity, Sex, Primary Language, and Disability Status](https://aspe.hhs.gov/basic-report/hhs-implementation-guidance-data-collection-standards-race-ethnicity-sex-primary-language-and-disability-status)&#xA;This template SHOULD be included zero or more times [0..*] in the Functional Status Section V2 or the Functional Status Organizer (V2).&#xA;"/>
+            <description value="This template represents an assessment of patients perception of their physical, cognitive, intellectual, or psychiatric disabilities. It may contain an Assessment Scale Observation that holds the six-item set of questions used on the American Community Survey (ACS) to gauge disability, defined here: [HHS Implementation Guidance on Data Collection Standards for Race, Ethnicity, Sex, Primary Language, and Disability Status](https://aspe.hhs.gov/basic-report/hhs-implementation-guidance-data-collection-standards-race-ethnicity-sex-primary-language-and-disability-status)&#xA;This template SHOULD be included zero or more times [0..*] in the Functional Status Section or the Functional Status Organizer.&#xA;"/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -527,16 +527,6 @@
             </reference>
             <name value="Discharge Diagnosis Section"/>
             <description value="This template represents problems or diagnoses present at the time of discharge which occurred during the hospitalization. This section includes an optional entry to record patient diagnoses specific to this visit. Problems that need ongoing tracking should also be included in the Problem Section."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.33"/>
-                <display value="Discharge Diet Section (DEPRECATED)"/>
-            </reference>
-            <name value="Discharge Diet Section (DEPRECATED)"/>
-            <description value="This section records a narrative description of the expectations for diet and nutrition, including nutrition prescription, proposals, goals, and order requests for monitoring, tracking, or improving the nutritional status of the patient, used in a discharge from a facility such as an emergency department, hospital, or nursing home.&#xA;&#xA;THIS TEMPLATE HAS BEEN DEPRECATED IN C-CDA R2 AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for deprecation*: This template has been replaced by the Nutrition Section (2.16.840.1.113883.10.20.22.2.57)."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
         </resource>
@@ -732,16 +722,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.68"/>
-                <display value="Functional Status Problem Observation (DEPRECATED)"/>
-            </reference>
-            <name value="Functional Status Problem Observation (DEPRECATED)"/>
-            <description value="A functional status problem observation is a clinical statement that represents a patient's functional perfomance and ability.&#xA;&#xA;THIS TEMPLATE HAS BEEN DEPRECATED IN C-CDA R2 AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for deprecation*: Functional Status Problem Observation has been merged, without loss of expressivity, into Functional Status Observation (2.16.840.1.113883.10.20.22.4.67:2014-06-09)."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.14"/>
                 <display value="Functional Status Section"/>
             </reference>
@@ -803,9 +783,9 @@
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.132"/>
-                <display value="Health Concern Act (V3)"/>
+                <display value="Health Concern Act"/>
             </reference>
-            <name value="Health Concern Act (V3)"/>
+            <name value="Health Concern Act"/>
             <description value="This template represents a health concern. &#xA;&#xA;It is a wrapper for a single health concern which may be derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). &#xA;&#xA;A Health Concern Act is used to track non-optimal physical or psychological situations drawing the patient to the healthcare system. These may be from the perspective of the care team or from the perspective of the patient. &#xA;When the underlying condition is of concern (i.e., as long as the condition, whether active or resolved, is of ongoing concern and interest), the statusCode is active. Only when the underlying condition is no longer of concern is the statusCode set to completed. The effectiveTime reflects the time that the underlying condition was felt to be a concern; it may or may not correspond to the effectiveTime of the condition (e.g., even five years later, a prior heart attack may remain a concern).&#xA;Health concerns require intervention(s) to increase the likelihood of achieving the goals of care for the patient and they specify the condition oriented reasons for creating the plan."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
@@ -992,21 +972,11 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.33"/>
-                <display value="Implants Section (DEPRECATED)"/>
-            </reference>
-            <name value="Implants Section (DEPRECATED)"/>
-            <description value="THIS TEMPLATE HAS BEEN DEPRECATED IN C-CDA R2 AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for Deprecation*: Replaced by the Procedure Implants Section (2.16.840.1.113883.10.20.22.2.40)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.19"/>
-                <display value="Indication (V3)"/>
+                <display value="Indication"/>
             </reference>
-            <name value="Indication (V3)"/>
-            <description value="This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration (V2) [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met.&#xA;&#xA;Many templates in C-CDA R2.1 reference the Indications V2 Template. In the next C-CDA release we will update those templates to reference the Indications V3 template.&#xA;&#xA;The Reason 2.16.840.1.113883.10.20.24.3.88:2023-05-01 should used to represent the justification for an action, or for not performing an action, such as patient, system, or non-problem/diagnosis medical-related reasons&#xA;Immunization Refusal Reason 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case."/>
+            <name value="Indication"/>
+            <description value="This template represents the rationale for an action such as an encounter, a medication administration, or a procedure. The id element can be used to reference a problem recorded elsewhere in the document, or can be used with a code and value to record the problem. Indications for treatment are not laboratory results; rather the problem associated with the laboratory result should be cited (e.g., hypokalemia instead of a laboratory result of Potassium 2.0 mEq/L). Use the Drug Monitoring Act [templateId 2.16.840.1.113883.10.20.22.4.123] to indicate if a particular drug needs special monitoring (e.g., anticoagulant therapy). Use Precondition for Substance Administration [templateId 2.16.840.1.113883.10.20.22.4.25.2] to represent that a medication is to be administered only when the associated criteria are met.&#xA;&#xA;Many templates in C-CDA R2.1 reference the Indications Template. In the next C-CDA release we will update those templates to reference the Indications template.&#xA;&#xA;The Reason 2.16.840.1.113883.10.20.24.3.88:2023-05-01 should used to represent the justification for an action, or for not performing an action, such as patient, system, or non-problem/diagnosis medical-related reasons&#xA;Immunization Refusal Reason 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -1039,16 +1009,6 @@
             <description value="This template represents an Intervention Act. It is a wrapper for intervention-type activities considered to be parts of the same intervention. For example, an activity such as &quot;elevate head of bed&quot; combined with &quot;provide humidified O2 per nasal cannula&quot; may be the interventions performed for a health concern of &quot;respiratory insufficiency&quot; to achieve a goal of &quot;pulse oximetry greater than 92%&quot;. These intervention activities may be newly described or derived from a variety of sources within an EHR.&#xA;&#xA;Interventions are actions taken to increase the likelihood of achieving the patient's or providers' goals. An Intervention Act should contain a reference to a Goal Observation representing the reason for the intervention.&#xA;&#xA;Intervention Acts can be related to each other, or to Planned Intervention Acts. (E.g., a Planned Intervention Act with moodCode of INT could be related to a series of Intervention Acts with moodCode of EVN, each having an effectiveTime containing the time of the intervention.) &#xA;&#xA;All interventions referenced in an Intervention Act must have a moodCode of EVN, indicating that they have occurred."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.21.2.3"/>
-                <display value="Interventions Section"/>
-            </reference>
-            <name value="Interventions Section"/>
-            <description value="This template represents Interventions. Interventions are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Interventions can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Interventions Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
         </resource>
         <resource>
             <reference>
@@ -1106,7 +1066,7 @@
                 <display value="Medical Equipment Organizer"/>
             </reference>
             <name value="Medical Equipment Organizer"/>
-            <description value="This template represents a set of current or historical medical devices, supplies, aids and equipment used by the patient. Examples are hearing aids, orthotic devices, ostomy supplies, visual aids, diabetic supplies such as syringes and pumps, and wheelchairs. &#xA;&#xA;Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy tube, port catheter), whether permanent or temporary, are represented within the Procedure Activity Procedure (V2) template (templateId: 2.16.840.1.113883.10.20.22.4.14.2)."/>
+            <description value="This template represents a set of current or historical medical devices, supplies, aids and equipment used by the patient. Examples are hearing aids, orthotic devices, ostomy supplies, visual aids, diabetic supplies such as syringes and pumps, and wheelchairs. &#xA;&#xA;Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy tube, port catheter), whether permanent or temporary, are represented within the Procedure Activity Procedure template (templateId: 2.16.840.1.113883.10.20.22.4.14.2)."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -1116,7 +1076,7 @@
                 <display value="Medical Equipment Section"/>
             </reference>
             <name value="Medical Equipment Section"/>
-            <description value="This section defines a patient's implanted and external health and medical devices and equipment. This section lists any pertinent durable medical equipment (DME) used to help maintain the patient's health status. All equipment relevant to the diagnosis, care, or treatment of a patient should be included. &#xA;&#xA;Devices applied to, or placed in, the patient are represented with the Procedure Activity Procedure (V2) template. Equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs) is represented by the Non-Medicinal Supply Activity V2 template. &#xA;&#xA;These devices may be grouped together within a Medical Equipment Organizer. The organizer would probably not be used with devices applied in or on the patient but rather to organize a group of medical supplies the patient has been supplied with."/>
+            <description value="This section defines a patient's implanted and external health and medical devices and equipment. This section lists any pertinent durable medical equipment (DME) used to help maintain the patient's health status. All equipment relevant to the diagnosis, care, or treatment of a patient should be included. &#xA;&#xA;Devices applied to, or placed in, the patient are represented with the Procedure Activity Procedure template. Equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs) is represented by the Non-Medicinal Supply Activity template. &#xA;&#xA;These devices may be grouped together within a Medical Equipment Organizer. The organizer would probably not be used with devices applied in or on the patient but rather to organize a group of medical supplies the patient has been supplied with."/>
             <exampleBoolean value="false"/>
             <groupingId value="section"/>
         </resource>
@@ -1126,16 +1086,26 @@
                 <display value="Medication Activity"/>
             </reference>
             <name value="Medication Activity"/>
-            <description value="A Medication Activity describes substance administrations that have actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &quot;take 2 tablets twice a day for the next 10 days&quot;). Medication activities in &quot;INT&quot; mood are reflections of what a clinician intends a patient to be taking. For example, a clinician may intend that a patient be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &quot;EVN&quot; mood would reflect actual use.&#xA;&#xA;A moodCode of INT is allowed, but it is recommended that the Planned Medication Activity (V2) template be used for moodCodes other than EVN if the document type contains a section that includes Planned Medication Activity (V2) (for example a Care Plan document with Plan of Treatment, Intervention, or Goal sections).&#xA;&#xA;At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;."/>
+            <description value="A Medication Activity describes substance administrations that have actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &quot;take 2 tablets twice a day for the next 10 days&quot;). Medication activities in &quot;INT&quot; mood are reflections of what a clinician intends a patient to be taking. For example, a clinician may intend that a patient be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &quot;EVN&quot; mood would reflect actual use.&#xA;&#xA;A moodCode of INT is allowed, but it is recommended that the Planned Medication Activity template be used for moodCodes other than EVN if the document type contains a section that includes Planned Medication Activity (for example a Care Plan document with Plan of Treatment, Intervention, or Goal sections).&#xA;&#xA;At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.508"/>
+                <display value="Medication Adherence"/>
+            </reference>
+            <name value="Medication Adherence"/>
+            <description value="This profile represents whether a medication has been consumed according to instructions."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.18"/>
-                <display value="Medication Dispense (V3)"/>
+                <display value="Medication Dispense"/>
             </reference>
-            <name value="Medication Dispense (V3)"/>
+            <name value="Medication Dispense"/>
             <description value="This template records the act of supplying medications (i.e., dispensing). The moodCode equaling &quot;EVN&quot; (Event), signals that the &quot;supply&quot; has occurred and thus has been dispensed."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
@@ -1246,7 +1216,7 @@
                 <display value="Non-Medicinal Supply Activity"/>
             </reference>
             <name value="Non-Medicinal Supply Activity"/>
-            <description value="This template represents equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs). Devices applied to, or placed in, the patient are represented with the Product Instance entry contained within a Procedure Activity Procedure (V2) (identifier: urn:hl7ii: 2.16.840.1.113883.10.20.22.4.14)"/>
+            <description value="This template represents equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs). Devices applied to, or placed in, the patient are represented with the Product Instance entry contained within a Procedure Activity Procedure (identifier: urn:hl7ii: 2.16.840.1.113883.10.20.22.4.14)"/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -1493,10 +1463,10 @@
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.41"/>
-                <display value="Planned Procedure (V3)"/>
+                <display value="Planned Procedure"/>
             </reference>
-            <name value="Planned Procedure (V3)"/>
-            <description value="This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure.&#xA;&#xA;Planned Procedure V3 Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;.&#xA;"/>
+            <name value="Planned Procedure"/>
+            <description value="This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure.&#xA;&#xA;Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;.&#xA;"/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -1612,16 +1582,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.70"/>
-                <display value="Pressure Ulcer Observation (DEPRECATED)"/>
-            </reference>
-            <name value="Pressure Ulcer Observation (DEPRECATED)"/>
-            <description value="The pressure ulcer observation contains details about the pressure ulcer such as the stage of the ulcer, location, and dimensions. If the pressure ulcer is a diagnosis, you may find this on the problem list. An example of how this would appear is in the Problem Section.&#xA;&#xA;THIS TEMPLATE HAS BEEN DEPRECATED IN C-CDA R2 AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for deprecation*: This template has been replaced by Longitudinal Care Wound Observation (2.16.840.1.113883.10.20.22.4.114)."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.143"/>
                 <display value="Priority Preference"/>
             </reference>
@@ -1693,10 +1653,10 @@
         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
-                <display value="Procedure Activity Procedure (V3)"/>
+                <display value="Procedure Activity Procedure"/>
             </reference>
-            <name value="Procedure Activity Procedure (V3)"/>
-            <description value="The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Therefore procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy). &#xA;This template represents procedures whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient. Examples of these procedures are an appendectomy, hip replacement, and a creation of a gastrostomy.&#xA;This template can be used with a contained Product Instance template to represent a device in or on a patient. In this case, targetSiteCode is used to record the location of the device in or on the patient's body. Equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs) is represented by the Non-Medicinal Supply Activity (V2) template.&#xA;Procedure Activity Procedure V3 Usage Note: Common practice in the industry has shown that Procedure Activity Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot; or not. As a result, it is recommended to use Procedure Activity Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;."/>
+            <name value="Procedure Activity Procedure"/>
+            <description value="The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Therefore procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy). &#xA;This template represents procedures whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient. Examples of these procedures are an appendectomy, hip replacement, and a creation of a gastrostomy.&#xA;This template can be used with a contained Product Instance template to represent a device in or on a patient. In this case, targetSiteCode is used to record the location of the device in or on the patient's body. Equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs) is represented by the Non-Medicinal Supply Activity template.&#xA;Procedure Activity Procedure Usage Note: Common practice in the industry has shown that Procedure Activity Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot; or not. As a result, it is recommended to use Procedure Activity Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -1866,7 +1826,7 @@
                 <display value="Reason"/>
             </reference>
             <name value="Reason"/>
-            <description value="This template describes the thought process or justification for an action or for not performing an action. Examples include patient, system, or non-problem/diagnosis medical-related reasons for declining to perform specific actions, or any reason for performing an action. Note that the parent template that calls this template can be asserted to have occurred or to not have occurred. Therefore, this template simply adds a reason to some other (possibly negated) act. As such, there is nothing in this template that says whether the parent act did or did not occur. It is expected that the primary use of this template within C-CDA is to provide the rationale for why something was not done. If this template is called by a template that is not negated, the Reason template should contain something other than a problem or a diagnosis, such as a patient preference.&#xA;The	Indication (V3) observation: 2.16.840.1.113883.10.20.22.4.19 should be used to represent a diagnosis or problem to indicate the diagnosis or problem is the rationale for an action.&#xA;Immunization Refusal Reason: 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.&#xA;&#xA;"/>
+            <description value="This template describes the thought process or justification for an action or for not performing an action. Examples include patient, system, or non-problem/diagnosis medical-related reasons for declining to perform specific actions, or any reason for performing an action. Note that the parent template that calls this template can be asserted to have occurred or to not have occurred. Therefore, this template simply adds a reason to some other (possibly negated) act. As such, there is nothing in this template that says whether the parent act did or did not occur. It is expected that the primary use of this template within C-CDA is to provide the rationale for why something was not done. If this template is called by a template that is not negated, the Reason template should contain something other than a problem or a diagnosis, such as a patient preference.&#xA;The	Indication observation: 2.16.840.1.113883.10.20.22.4.19 should be used to represent a diagnosis or problem to indicate the diagnosis or problem is the rationale for an action.&#xA;Immunization Refusal Reason: 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.&#xA;&#xA;"/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -2102,16 +2062,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.20.22.2.26"/>
-                <display value="Surgery Description Section (DEPRECATED)"/>
-            </reference>
-            <name value="Surgery Description Section (DEPRECATED)"/>
-            <description value="THIS TEMPLATE HAS BEEN DEPRECATED IN C-CDA R2 AND MAY BE DELETED FROM A FUTURE RELEASE OF THIS IMPLEMENTATION GUIDE. USE OF THIS TEMPLATE IS NOT RECOMMENDED.&#xA;&#xA;*Reason for deprecation*: This template has been replaced by the Procedure Description Section (2.16.840.1.113883.10.20.22.2.27)."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.20.7.13"/>
                 <display value="Surgical Drains Section"/>
             </reference>
@@ -2126,7 +2076,7 @@
                 <display value="Tobacco Use"/>
             </reference>
             <name value="Tobacco Use"/>
-            <description value="This template represents a patient's tobacco use. &#xA;&#xA;All the types of tobacco use are represented using the codes from the tobacco use and exposure-finding hierarchy in SNOMED CT, including codes required for recording smoking status in Meaningful Use Stage 2. &#xA;&#xA;The effectiveTime element is used to describe dates associated with the patient's tobacco use. Whereas the Smoking Status - Meaningful Use (V2) template (2.16.840.1.113883.10.20.22.4.78:2014-06-09) represents a &quot;snapshot in time&quot; observation, simply reflecting what the patient's current smoking status is at the time of the observation, this Tobacco Use template uses effectiveTime to represent the biologically relevant time of the observation. Thus, to record a former smoker, an observation of &quot;cigarette smoker&quot; will have an effectiveTime/low defining the time the patient started to smoke cigarettes and an effectiveTime/high defining the time the patient ceased to smoke cigarettes. To record a current smoker, the effectiveTime/low will define the time the patient started smoking and will have no effectiveTime/high to indicated that the patient is still smoking."/>
+            <description value="This template represents a patient's tobacco use. &#xA;&#xA;All the types of tobacco use are represented using the codes from the tobacco use and exposure-finding hierarchy in SNOMED CT, including codes required for recording smoking status in Meaningful Use Stage 2. &#xA;&#xA;The effectiveTime element is used to describe dates associated with the patient's tobacco use. Whereas the Smoking Status - Meaningful Use template (2.16.840.1.113883.10.20.22.4.78:2014-06-09) represents a &quot;snapshot in time&quot; observation, simply reflecting what the patient's current smoking status is at the time of the observation, this Tobacco Use template uses effectiveTime to represent the biologically relevant time of the observation. Thus, to record a former smoker, an observation of &quot;cigarette smoker&quot; will have an effectiveTime/low defining the time the patient started to smoke cigarettes and an effectiveTime/high defining the time the patient ceased to smoke cigarettes. To record a current smoker, the effectiveTime/low will define the time the patient started smoking and will have no effectiveTime/high to indicated that the patient is still smoking."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -2216,7 +2166,7 @@
                 <display value="US Realm Header for Patient Generated Document"/>
             </reference>
             <name value="US Realm Header for Patient Generated Document"/>
-            <description value="This template is designed to be used in conjunction with the US Realm Header (V2). It includes additional conformances which further constrain the US Realm Header (V2). &#xD;&#xA;The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."/>
+            <description value="This template is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. &#xD;&#xA;The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."/>
             <exampleBoolean value="false"/>
             <groupingId value="document"/>
         </resource>
@@ -2307,8 +2257,8 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/admission-diagnosis-section-v3-example"/>
-                <display value="admission-diagnosis-section-v3-example"/>
+                <reference value="Binary/admission-diagnosis-section-example"/>
+                <display value="admission-diagnosis-section-example"/>
             </reference>
             <name value="Admission Diagnosis Section Example"/>
             <description value="Admission Diagnosis Section example"/>
@@ -2320,8 +2270,8 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/admission-medication-v2-example"/>
-                <display value="admission-medication-v2-example"/>
+                <reference value="Binary/admission-medication-example"/>
+                <display value="admission-medication-example"/>
             </reference>
             <name value="Admission Medication example"/>
             <description value="Admission Medication example"/>
@@ -2333,7 +2283,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/advance-directive-observation-v3-example"/></reference>
+                <reference value="Binary/advance-directive-observation-example"/></reference>
             <name value="Advance Directive Observation Example"/>
             <description value="Advance Directive Observation example"/>
             <exampleBoolean value="false"/>
@@ -2344,7 +2294,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/advance-directive-organizer-v2-example"/></reference>
+                <reference value="Binary/advance-directive-organizer-example"/></reference>
             <name value="Advance Directive Organizer Example"/>
             <description value="Advance Directive Organizer example"/>
             <exampleBoolean value="false"/>
@@ -2355,7 +2305,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/advance-directives-section-v3-example"/></reference>
+                <reference value="Binary/advance-directives-section-example"/></reference>
             <name value="Advance Directives Section Example"/>
             <description value="Advance Directives Section example"/>
             <exampleBoolean value="false"/>
@@ -2377,7 +2327,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/allergies-and-intolerances-section-v3-example"/></reference>
+                <reference value="Binary/allergies-and-intolerances-section-example"/></reference>
             <name value="Allergies and Intolerances Section Example"/>
             <description value="Allergies and Intolerances Section example"/>
             <exampleBoolean value="false"/>
@@ -2388,7 +2338,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/allergy-concern-act-v3-example"/></reference>
+                <reference value="Binary/allergy-concern-act-example"/></reference>
             <name value="Allergy Concern Act Example"/>
             <description value="Allergy Concern Act example"/>
             <exampleBoolean value="false"/>
@@ -2399,7 +2349,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/allergy-intolerance-observation-v2-example"/></reference>
+                <reference value="Binary/allergy-intolerance-observation-example"/></reference>
             <name value="Allergy Intolerance Observation Example"/>
             <description value="Allergy Intolerance Observation example"/>
             <exampleBoolean value="false"/>
@@ -2410,7 +2360,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/anesthesia-section-v2-example"/></reference>
+                <reference value="Binary/anesthesia-section-example"/></reference>
             <name value="Anesthesia Section Example"/>
             <description value="Anesthesia Section example"/>
             <exampleBoolean value="false"/>
@@ -2421,7 +2371,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/assessment-and-plan-section-v2-example"/></reference>
+                <reference value="Binary/assessment-and-plan-section-example"/></reference>
             <name value="Assessment and Plan Section Example"/>
             <description value="Assessment and Plan Section example"/>
             <exampleBoolean value="false"/>
@@ -2597,7 +2547,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/complications-section-v3-example"/></reference>
+                <reference value="Binary/complications-section-example"/></reference>
             <name value="Complications Section Example"/>
             <description value="Complications Section example"/>
             <exampleBoolean value="false"/>
@@ -2608,7 +2558,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/ccd-v2-author-example"/></reference>
+                <reference value="Binary/ccd-author-example"/></reference>
             <name value="Continuity Of Care Document Author Example"/>
             <description value="Continuity Of Care Document Author example"/>
             <exampleBoolean value="false"/>
@@ -2619,7 +2569,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/ccd-v2-performer-example"/></reference>
+                <reference value="Binary/ccd-performer-example"/></reference>
             <name value="Continuity Of Care Document Performer"/>
             <description value="Continuity Of Care Document Performer example"/>
             <exampleBoolean value="false"/>
@@ -2630,7 +2580,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/ccd-v2-serviceevent-example"/></reference>
+                <reference value="Binary/ccd-serviceevent-example"/></reference>
             <name value="Continuity Of Care Document serviceEvent Example"/>
             <description value="Continuity Of Care Document serviceEvent example"/>
             <exampleBoolean value="false"/>
@@ -2663,7 +2613,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/consultation-note-v2-infulfillmentof-example"/></reference>
+                <reference value="Binary/consultation-note-infulfillmentof-example"/></reference>
             <name value="Consultation Note inFulfillmentOf Example"/>
             <description value="Consultation Note inFulfillmentOf example"/>
             <exampleBoolean value="false"/>
@@ -2685,7 +2635,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/coverage-activity-v3-example"/></reference>
+                <reference value="Binary/coverage-activity-example"/></reference>
             <name value="Coverage Activity Example"/>
             <description value="Coverage Activity example"/>
             <exampleBoolean value="false"/>
@@ -2718,7 +2668,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/deceased-observation-v3-example"/></reference>
+                <reference value="Binary/deceased-observation-example"/></reference>
             <name value="Deceased Observation Example"/>
             <description value="Deceased Observation example"/>
             <exampleBoolean value="false"/>
@@ -2740,7 +2690,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/discharge-diagnosis-section-v3-example"/></reference>
+                <reference value="Binary/discharge-diagnosis-section-example"/></reference>
             <name value="Discharge Diagnosis Example"/>
             <description value="Discharge Diagnosis example"/>
             <exampleBoolean value="false"/>
@@ -2751,7 +2701,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/discharge-medication-section-v3-example"/></reference>
+                <reference value="Binary/discharge-medication-section-example"/></reference>
             <name value="Discharge Medications Section Example"/>
             <description value="Discharge Medications Section example"/>
             <exampleBoolean value="false"/>
@@ -2762,7 +2712,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/discharge-medication-v3-example"/></reference>
+                <reference value="Binary/discharge-medication-example"/></reference>
             <name value="Discharge Medication Example"/>
             <description value="Discharge Medication example"/>
             <exampleBoolean value="false"/>
@@ -2806,7 +2756,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/encounter-activity-v3-example"/></reference>
+                <reference value="Binary/encounter-activity-example"/></reference>
             <name value="Encounter Activity Example"/>
             <description value="Encounter Activity example"/>
             <exampleBoolean value="false"/>
@@ -2817,7 +2767,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/encounter-diagnosis-v3-example"/></reference>
+                <reference value="Binary/encounter-diagnosis-example"/></reference>
             <name value="Encounter Diagnosis Example"/>
             <description value="tEncounter Diagnosis example"/>
             <exampleBoolean value="false"/>
@@ -2828,7 +2778,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/encounters-section-v3-example"/></reference>
+                <reference value="Binary/encounters-section-example"/></reference>
             <name value="Encounters Section Example"/>
             <description value="Encounters Section example"/>
             <exampleBoolean value="false"/>
@@ -2883,7 +2833,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/family-history-observation-v3-example"/></reference>
+                <reference value="Binary/family-history-observation-example"/></reference>
             <name value="Family History Observation Example"/>
             <description value="Family History Observation example"/>
             <exampleBoolean value="false"/>
@@ -2894,7 +2844,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/family-history-organizer-v3-example"/></reference>
+                <reference value="Binary/family-history-organizer-example"/></reference>
             <name value="Family History Organizer Example"/>
             <description value="Family History Organizer example"/>
             <exampleBoolean value="false"/>
@@ -2905,7 +2855,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/family-history-section-v3-example"/></reference>
+                <reference value="Binary/family-history-section-example"/></reference>
             <name value="Family History Section Example"/>
             <description value="Family History Section example"/>
             <exampleBoolean value="false"/>
@@ -2916,7 +2866,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/functional-status-observation-v2-example"/></reference>
+                <reference value="Binary/functional-status-observation-example"/></reference>
             <name value="Functional Status Observation Example"/>
             <description value="Functional Status Observation example"/>
             <exampleBoolean value="false"/>
@@ -2927,7 +2877,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/functional-status-organizer-v2-example"/></reference>
+                <reference value="Binary/functional-status-organizer-example"/></reference>
             <name value="Functional Status Organizer Example"/>
             <description value="Functional Status Organizer example"/>
             <exampleBoolean value="false"/>
@@ -2938,7 +2888,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/functional-status-section-v2-example"/></reference>
+                <reference value="Binary/functional-status-section-example"/></reference>
             <name value="Functional Status Section Example"/>
             <description value="Functional Status Section example"/>
             <exampleBoolean value="false"/>
@@ -3026,7 +2976,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/health-status-observation-v2-example"/></reference>
+                <reference value="Binary/health-status-observation-example"/></reference>
             <name value="Health Status Observation Example"/>
             <description value="Health Status Observation example"/>
             <exampleBoolean value="false"/>
@@ -3070,7 +3020,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-admission-diagnosis-v3-example"/></reference>
+                <reference value="Binary/hospital-admission-diagnosis-example"/></reference>
             <name value="Hospital Admission Diagnosis Example"/>
             <description value="Hospital Admission Diagnosis example"/>
             <exampleBoolean value="false"/>
@@ -3103,7 +3053,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-discharge-diagnosis-v3-example"/></reference>
+                <reference value="Binary/hospital-discharge-diagnosis-example"/></reference>
             <name value="Hospital Discharge Diagnosis Example"/>
             <description value="Hospital Discharge Diagnosis example"/>
             <exampleBoolean value="false"/>
@@ -3147,7 +3097,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/immunization-activity-v3-example"/></reference>
+                <reference value="Binary/immunization-activity-example"/></reference>
             <name value="Immunization Activity Example"/>
             <description value="Immunization Activity example"/>
             <exampleBoolean value="false"/>
@@ -3158,7 +3108,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/immunization-medication-information-v2-example"/></reference>
+                <reference value="Binary/immunization-medication-information-example"/></reference>
             <name value="Immunization Medication Information Example"/>
             <description value="Immunization Medication Information example"/>
             <exampleBoolean value="false"/>
@@ -3180,7 +3130,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/immunizations-section-v3-example"/></reference>
+                <reference value="Binary/immunizations-section-example"/></reference>
             <name value="Immunizations Section Example"/>
             <description value="Immunizations Section example"/>
             <exampleBoolean value="false"/>
@@ -3191,7 +3141,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/indication-v2-example"/></reference>
+                <reference value="Binary/indication-example"/></reference>
             <name value="Indication Example"/>
             <description value="Indication example"/>
             <exampleBoolean value="false"/>
@@ -3202,7 +3152,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/instructions-section-v2-example"/></reference>
+                <reference value="Binary/instructions-section-example"/></reference>
             <name value="Instructions Section Example"/>
             <description value="Instructions Section example"/>
             <exampleBoolean value="false"/>
@@ -3213,7 +3163,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/instruction-v2-example"/></reference>
+                <reference value="Binary/instruction-example"/></reference>
             <name value="Instruction Example"/>
             <description value="Instruction example"/>
             <exampleBoolean value="false"/>
@@ -3235,7 +3185,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/interventions-section-v3-example"/></reference>
+                <reference value="Binary/interventions-section-example"/></reference>
             <name value="Interventions Section Example"/>
             <description value="Interventions Section example"/>
             <exampleBoolean value="false"/>
@@ -3268,7 +3218,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/medical-equipment-section-v2-example"/></reference>
+                <reference value="Binary/medical-equipment-section-example"/></reference>
             <name value="Medical Equipment Section Example"/>
             <description value="Medical Equipment Section example"/>
             <exampleBoolean value="false"/>
@@ -3279,7 +3229,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-activity-v2-example"/></reference>
+                <reference value="Binary/medication-activity-example"/></reference>
             <name value="Medication Activity Example"/>
             <description value="Medication Activity example"/>
             <exampleBoolean value="false"/>
@@ -3290,7 +3240,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-dispense-v2-example"/></reference>
+                <reference value="Binary/medication-dispense-example"/></reference>
             <name value="Medication Dispense Example"/>
             <description value="Medication Dispense example"/>
             <exampleBoolean value="false"/>
@@ -3312,7 +3262,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-information-v2-example"/></reference>
+                <reference value="Binary/medication-information-example"/></reference>
             <name value="Medication Information Example"/>
             <description value="Medication Information example"/>
             <exampleBoolean value="false"/>
@@ -3323,7 +3273,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-supply-order-v2-example"/></reference>
+                <reference value="Binary/medication-supply-order-example"/></reference>
             <name value="Medication Supply Order Example"/>
             <description value="Medication Supply Order example"/>
             <exampleBoolean value="false"/>
@@ -3334,7 +3284,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/medications-administered-section-v2-example"/></reference>
+                <reference value="Binary/medications-administered-section-example"/></reference>
             <name value="Medications Administered Section Example"/>
             <description value="Medications Administered Section example"/>
             <exampleBoolean value="false"/>
@@ -3345,7 +3295,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/medications-section-v2-example"/></reference>
+                <reference value="Binary/medications-section-example"/></reference>
             <name value="Medications Section Example"/>
             <description value="Medications Section example"/>
             <exampleBoolean value="false"/>
@@ -3356,7 +3306,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/mental-status-observation-v3-example"/></reference>
+                <reference value="Binary/mental-status-observation-example"/></reference>
             <name value="Mental Status Organizer Example"/>
             <description value="Mental Status Organizer example"/>
             <exampleBoolean value="false"/>
@@ -3367,9 +3317,9 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/mental-status-organizer-v3-example"/></reference>
-            <name value="Mental Status Organizer Example - V3"/>
-            <description value="Mental Status Organizer example (V3)"/>
+                <reference value="Binary/mental-status-organizer-example"/></reference>
+            <name value="Mental Status Organizer Example"/>
+            <description value="Mental Status Organizer example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.75"/>
         </resource>
@@ -3411,7 +3361,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/non-medicinal-supply-activity-v2-example"/></reference>
+                <reference value="Binary/non-medicinal-supply-activity-example"/></reference>
             <name value="Non-Medicinal Supply Activity Example"/>
             <description value="Non-Medicinal Supply Activity example"/>
             <exampleBoolean value="false"/>
@@ -3455,7 +3405,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/number-of-pressure-ulcers-observation-v3-example"/></reference>
+                <reference value="Binary/number-of-pressure-ulcers-observation-example"/></reference>
             <name value="Number of Pressure Ulcers Observation Example"/>
             <description value="Number of Pressure Ulcers Observation example"/>
             <exampleBoolean value="false"/>
@@ -3576,7 +3526,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/past-medical-history-v3-example"/></reference>
+                <reference value="Binary/past-medical-history-example"/></reference>
             <name value="Past Medical History Example"/>
             <description value="Past Medical History example"/>
             <exampleBoolean value="false"/>
@@ -3730,7 +3680,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/payers-section-v3-example"/></reference>
+                <reference value="Binary/payers-section-example"/></reference>
             <name value="Payers Section Example"/>
             <description value="Payers Section example"/>
             <exampleBoolean value="false"/>
@@ -3741,7 +3691,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/physical-exam-section-v3-example"/></reference>
+                <reference value="Binary/physical-exam-section-example"/></reference>
             <name value="Physical Exam Section Example"/>
             <description value="Physical Exam Section example"/>
             <exampleBoolean value="false"/>
@@ -3752,7 +3702,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/plan-of-treatment-section-v2-example"/></reference>
+                <reference value="Binary/plan-of-treatment-section-example"/></reference>
             <name value="Plan of Treatment Section Example"/>
             <description value="Plan of Treatment Section example"/>
             <exampleBoolean value="false"/>
@@ -3763,7 +3713,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-act-v2-example"/></reference>
+                <reference value="Binary/planned-act-example"/></reference>
             <name value="Planned Act Example"/>
             <description value="Planned Act example Example"/>
             <exampleBoolean value="false"/>
@@ -3785,7 +3735,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-encounter-v2-example"/></reference>
+                <reference value="Binary/planned-encounter-example"/></reference>
             <name value="Planned Encounter Example"/>
             <description value="Planned Encounter example"/>
             <exampleBoolean value="false"/>
@@ -3807,7 +3757,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-medication-activity-v2-example"/></reference>
+                <reference value="Binary/planned-medication-activity-example"/></reference>
             <name value="Planned Medication Activity Example"/>
             <description value="Planned Medication Activity example"/>
             <exampleBoolean value="false"/>
@@ -3818,7 +3768,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-observation-v2-example"/></reference>
+                <reference value="Binary/planned-observation-example"/></reference>
             <name value="Planned Observation Example"/>
             <description value="Planned Observation example"/>
             <exampleBoolean value="false"/>
@@ -3829,7 +3779,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-procedure-section-v2-example"/></reference>
+                <reference value="Binary/planned-procedure-section-example"/></reference>
             <name value="Planned Procedure Section Example"/>
             <description value="Planned Procedure Section example"/>
             <exampleBoolean value="false"/>
@@ -3840,7 +3790,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-procedure-v2-example"/></reference>
+                <reference value="Binary/planned-procedure-example"/></reference>
             <name value="Planned Procedure Example"/>
             <description value="Planned Procedure example"/>
             <exampleBoolean value="false"/>
@@ -3851,7 +3801,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-supply-v2-example"/></reference>
+                <reference value="Binary/planned-supply-example"/></reference>
             <name value="Planned Supply Example"/>
             <description value="Planned Supply example"/>
             <exampleBoolean value="false"/>
@@ -3862,7 +3812,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/policy-activity-v3-example"/></reference>
+                <reference value="Binary/policy-activity-example"/></reference>
             <name value="Policy Activity Example"/>
             <description value="Policy Activity example"/>
             <exampleBoolean value="false"/>
@@ -3884,7 +3834,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/postprocedure-diagnosis-v3-example"/></reference>
+                <reference value="Binary/postprocedure-diagnosis-example"/></reference>
             <name value="Postprocedure Diagnosis Example"/>
             <description value="Postprocedure Diagnosis example"/>
             <exampleBoolean value="false"/>
@@ -3895,7 +3845,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/postprocedure-diagnosis-section-v3-example"/></reference>
+                <reference value="Binary/postprocedure-diagnosis-section-example"/></reference>
             <name value="Postprocedure Diagnosis Section Example"/>
             <description value="Postprocedure Diagnosis Section example"/>
             <exampleBoolean value="false"/>
@@ -3906,7 +3856,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/precondition-for-substance-administration-v2-example"/></reference>
+                <reference value="Binary/precondition-for-substance-administration-example"/></reference>
             <name value="Precondition for Substance Administration Example"/>
             <description value="Precondition for Substance Administration example"/>
             <exampleBoolean value="false"/>
@@ -3928,7 +3878,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/preoperative-diagnosis-section-v3-example"/></reference>
+                <reference value="Binary/preoperative-diagnosis-section-example"/></reference>
             <name value="Preoperative Diagnosis Section Example"/>
             <description value="Preoperative Diagnosis Section example"/>
             <exampleBoolean value="false"/>
@@ -3939,7 +3889,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/preoperative-diagnosis-v3-example"/></reference>
+                <reference value="Binary/preoperative-diagnosis-example"/></reference>
             <name value="Preoperative Diagnosis Example"/>
             <description value="Preoperative Diagnosis example"/>
             <exampleBoolean value="false"/>
@@ -3961,7 +3911,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/problem-concern-act-v3-example"/></reference>
+                <reference value="Binary/problem-concern-act-example"/></reference>
             <name value="Problem Concern Act Example"/>
             <description value="Problem Concern Act example"/>
             <exampleBoolean value="false"/>
@@ -3972,7 +3922,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/problem-observation-v3-example"/></reference>
+                <reference value="Binary/problem-observation-example"/></reference>
             <name value="Problem Observation Example"/>
             <description value="Problem Observation example"/>
             <exampleBoolean value="false"/>
@@ -3983,7 +3933,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/problem-section-v3-example"/></reference>
+                <reference value="Binary/problem-section-example"/></reference>
             <name value="Problem Section Example"/>
             <description value="Problem Section example"/>
             <exampleBoolean value="false"/>
@@ -4027,7 +3977,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-activity-observation-v2-example"/></reference>
+                <reference value="Binary/procedure-activity-observation-example"/></reference>
             <name value="Procedure Activity Observation Example"/>
             <description value="Procedure Activity Observation example"/>
             <exampleBoolean value="false"/>
@@ -4038,7 +3988,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-activity-procedure-v2-example"/></reference>
+                <reference value="Binary/procedure-activity-procedure-example"/></reference>
             <name value="Procedure Activity Procedure Example"/>
             <description value="Procedure Activity Procedure example"/>
             <exampleBoolean value="false"/>
@@ -4082,7 +4032,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-findings-section-v3-example"/></reference>
+                <reference value="Binary/procedure-findings-section-example"/></reference>
             <name value="Procedure Findings Section Example"/>
             <description value="Procedure Findings Section dexample"/>
             <exampleBoolean value="false"/>
@@ -4104,7 +4054,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-indications-section-v2-example"/></reference>
+                <reference value="Binary/procedure-indications-section-example"/></reference>
             <name value="Procedure Indications Section Example"/>
             <description value="Procedure Indications Section example"/>
             <exampleBoolean value="false"/>
@@ -4126,7 +4076,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/procedures-section-v2-example"/></reference>
+                <reference value="Binary/procedures-section-example"/></reference>
             <name value="Procedures Section Example"/>
             <description value="Procedures Section example"/>
             <exampleBoolean value="false"/>
@@ -4203,7 +4153,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/reaction-observation-v2-example"/></reference>
+                <reference value="Binary/reaction-observation-example"/></reference>
             <name value="Reaction Observation Example"/>
             <description value="Reaction Observation example"/>
             <exampleBoolean value="false"/>
@@ -4214,7 +4164,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/reason-for-referral-section-v2-example"/></reference>
+                <reference value="Binary/reason-for-referral-section-example"/></reference>
             <name value="Reason For Referral"/>
             <description value="Reason For Referral example"/>
             <exampleBoolean value="false"/>
@@ -4269,7 +4219,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/result-observation-v3-example"/></reference>
+                <reference value="Binary/result-observation-example"/></reference>
             <name value="Result Observation Example"/>
             <description value="Result Observation example"/>
             <exampleBoolean value="false"/>
@@ -4280,7 +4230,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/result-organizer-v3-example"/></reference>
+                <reference value="Binary/result-organizer-example"/></reference>
             <name value="Result Organizer Example"/>
             <description value="Result Organizer example"/>
             <exampleBoolean value="false"/>
@@ -4291,7 +4241,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/results-section-v3-example"/></reference>
+                <reference value="Binary/results-section-example"/></reference>
             <name value="Results Section Example"/>
             <description value="Results Section example"/>
             <exampleBoolean value="false"/>
@@ -4357,7 +4307,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/severity-observation-v2-example"/></reference>
+                <reference value="Binary/severity-observation-example"/></reference>
             <name value="Severity Observation Example"/>
             <description value="Severity Observation example"/>
             <exampleBoolean value="false"/>
@@ -4368,7 +4318,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/smoking-status-meaningful-use-v2-example"/></reference>
+                <reference value="Binary/smoking-status-meaningful-use-example"/></reference>
             <name value="Smoking Status Meaningful Use Example"/>
             <description value="Smoking Status - Meaningful Use example"/>
             <exampleBoolean value="false"/>
@@ -4379,7 +4329,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/social-history-observation-v3-example"/></reference>
+                <reference value="Binary/social-history-observation-example"/></reference>
             <name value="Social History Observation Example"/>
             <description value="Social History Observation example"/>
             <exampleBoolean value="false"/>
@@ -4390,7 +4340,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/social-history-section-v3-example"/></reference>
+                <reference value="Binary/social-history-section-example"/></reference>
             <name value="Social History Section Example"/>
             <description value="Social History Section example"/>
             <exampleBoolean value="false"/>
@@ -4434,7 +4384,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/tobacco-use-v2-example"/></reference>
+                <reference value="Binary/tobacco-use-example"/></reference>
             <name value="Tobacco Use Example"/>
             <description value="Tobacco Use example"/>
             <exampleBoolean value="false"/>
@@ -4489,7 +4439,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/us-realm-header-v3-example"/></reference>
+                <reference value="Binary/us-realm-header-example"/></reference>
             <name value="US Realm Header Example"/>
             <description value="US Realm Header example"/>
             <exampleBoolean value="false"/>
@@ -4522,7 +4472,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/vital-sign-observation-v2-example"/></reference>
+                <reference value="Binary/vital-sign-observation-example"/></reference>
             <name value="Vital Sign Observation Example"/>
             <description value="Vital Sign Observation example"/>
             <exampleBoolean value="false"/>
@@ -4533,7 +4483,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/vital-signs-organizer-v3-example"/></reference>
+                <reference value="Binary/vital-signs-organizer-example"/></reference>
             <name value="Vital Signs Organizer Example"/>
             <description value="Vital Signs Organizer example"/>
             <exampleBoolean value="false"/>
@@ -4544,7 +4494,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <reference>
-                <reference value="Binary/vital-signs-section-v3-example"/></reference>
+                <reference value="Binary/vital-signs-section-example"/></reference>
             <name value="Vital Signs Section Example"/>
             <description value="Vital Signs Section example"/>
             <exampleBoolean value="false"/>
@@ -4667,6 +4617,12 @@
                 <sourceUrl value="resources.html"/>
                 <name value="resources.html"/>
                 <title value="Resources"/>
+                <generation value="markdown"/>
+            </page>
+            <page>
+                <sourceUrl value="changes.html"/>
+                <name value="changes.html"/>
+                <title value="Change Log"/>
                 <generation value="markdown"/>
             </page>
         </page>

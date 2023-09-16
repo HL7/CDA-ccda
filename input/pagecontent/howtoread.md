@@ -27,11 +27,6 @@ C-CDA Templates are represented as Resource Profiles in the Implementation Guide
 #### Template Differentials
 All the Resource Profiles inherit from either a CDA Clinical Statement structure or from another Resource Profile.  The Differential Table shows the difference from what the Profile inherits from.  This will result in a few times where a Profile shows slightly different content from its corresponding Template.  For those instances, looking at the Snapshot Table will show all of the constraints including those inherited from the parent Profile.
 
-#### Template Name
-The name of the template and of the corresponding profile are most of the time the same.  The V3/V2 suffix that is found on templates will NOT be found on the profile name.
-
-Eg. Procedures Section  (V2) is named Procedures Section 
-
 #### Template Identifier
 The Template Identifier is used within the Profile URL as well as listed as another identifier of the template.  If a Template Identifier has a version string, that will only be found in the identifier.
 
@@ -111,7 +106,7 @@ All the template constraints can be found in two equivalent places in the profil
 
 NOTE: For elements that repeat but have been constrained, the Profile will be “sliced”, and the constraint will be found on one of the slices.  This applies to fixed value constraints as well as template constraints.
 
-NOTE: If a template inherits constraints from a parent profile, e.g., Care Team Member Act (V2) inherits from Care Team Organizer (V2), the full constraints will not be present in the Differential Tab of the child profile but will be found in in the Snapshot Tab of the child profile, or in the Differential Tab of the parent profile.
+NOTE: If a template inherits constraints from a parent profile, e.g., Care Team Member Act inherits from Care Team Organizer, the full constraints will not be present in the Differential Tab of the child profile but will be found in in the Snapshot Tab of the child profile, or in the Differential Tab of the parent profile.
 
 The Detailed Descriptions tab will have all the Template Constraints listed by the specific element being constrained. This is where constraint numbers as found in the pdf publication are asserted.
  

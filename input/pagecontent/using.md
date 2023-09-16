@@ -41,18 +41,18 @@ Each section and entry template in Volume 2 of this guide includes a context tab
 "Contained By" column indicates which templates use this template. The "Contains" column indicates any
 templates that the template uses.
 
-**Table 2: Contexts Table Example—Allergy Concern Act (V2)**
+**Table 2: Contexts Table Example—Allergy Concern Act**
 
 | **Contained By:**                   | **Contains:**                          |
 |-------------------------------------|----------------------------------------|
-| Allergies and Intolerances Section  | Allergy - Intolerance Observation (V2) |
+| Allergies and Intolerances Section  | Allergy - Intolerance Observation |
 |                                     | Author Participation                   |
 {: .grid }
 
 Each entry template also includes a constraints overview table to summarize the
 constraints in the template.
 
-**Table 3: Constraints Overview Example—Allergy Concern Act (V2)**
+**Table 3: Constraints Overview Example—Allergy Concern Act**
 
 | **XPath**                                                              | **Card.** | **Verb** | **Data Type** | **CONF#**   | Value                                     |
 |------------------------------------------------------------------------|-----------|----------|---------------|-------------|-------------------------------------------|
@@ -181,22 +181,22 @@ conformance statements are to be read and interpreted in hierarchical order. The
 hierarchical clauses can be interpreted as "if then, else" clauses. Thus...
     a. This structuredBody SHOULD contain zero or one [0..1] component
        (CONF:1098-29066) such that it
-        i. SHALL contain exactly one [1..1] Plan of Treatment Section (V2)
+        i. SHALL contain exactly one [1..1] Plan of Treatment Section
            (identifier:
            urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09)
            (CONF:1098-29067).
 ...is understood as:
     a. It is recommended (SHOULD) that the structureBody contains a component.
         i. If the component exists, then it must contain a Plan of Treatment
-           Section (V2),
+           Section,
         ii. else the component does not exist, and the conformance statement
-            about the Plan of Treatment Section (V2) should be skipped.
+            about the Plan of Treatment Section should be skipped.
 In the case where the higher level conformance statement is a SHALL, there is no
 conditional clause. Thus...
     b. This structuredBody SHALL contain exactly one [1..1] component
        (CONF:1098-29086) such that it
         i. SHALL contain exactly one [1..1] Problem Section (entries
-           required) (V2) (identifier:
+           required) (identifier:
            urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2014-06-09)
            (CONF:1098-29087).
 ...means that the structuredBody is always required to have a component.

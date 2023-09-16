@@ -7,8 +7,8 @@
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
-    <name value="InterventionsSection"/>
-    <title value="Interventions Section"/>
+    <name value="ActivitiesSection"/>
+    <title value="Activities Section"/>
     <status value="active"/>
     <publisher value="WaveOne Associates"/>
     <contact>
@@ -24,7 +24,7 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This template represents Interventions. Interventions are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Interventions can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Interventions Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
+    <description value="This template represents Activities. Activities are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Activities can be planned, ordered, historical, etc.&#xA;&#xA;Activities include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Activities Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -124,7 +124,7 @@
         </element>
         <element id="Section.entry:intervention.act">
             <path value="Section.entry.act"/>
-            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Intervention Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.131:2015-08-01) (CONF:1198-30997)."/>
+            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Intervention Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.131:2015-08-01) (CONF:1198-30997)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.131"/>
@@ -139,7 +139,7 @@
         </element>
         <element id="Section.entry:plannedIntervention.act">
             <path value="Section.entry.act"/>
-            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Planned Intervention Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.146:2015-08-01) (CONF:1198-32731)."/>
+            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Planned Intervention Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.146:2015-08-01) (CONF:1198-32731)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -156,7 +156,7 @@
         </element>
         <element id="Section.entry:handoffCommParticipants.act">
             <path value="Section.entry.act"/>
-            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Intervention Act (V2) (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.141) (CONF:1198-32403)."/>
+            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Intervention Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.141) (CONF:1198-32403)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
