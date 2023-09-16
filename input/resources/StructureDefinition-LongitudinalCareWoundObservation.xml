@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.114"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.114"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/LongitudinalCareWoundObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01"/>
     </identifier>
@@ -29,7 +29,7 @@
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-    <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.4"/>
+    <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Observation">
@@ -182,7 +182,7 @@
             <max value="*"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
         </element>
         <element id="Observation.entryRelationship">
@@ -217,7 +217,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.133"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundMeasurementObservation"/>
             </type>
         </element>
         <element id="Observation.entryRelationship:woundCharacteristic">
@@ -241,7 +241,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.134"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundCharacteristic"/>
             </type>
         </element>
         <element id="Observation.entryRelationship:numberofPressureUlcersObservation">
@@ -266,7 +266,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.76"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NumberofPressureUlcersObservation"/>
             </type>
         </element>
         <element id="Observation.entryRelationship:highestPressureUlcerStage">
@@ -290,7 +290,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.77"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HighestPressureUlcerStage"/>
             </type>
         </element>
     </differential>

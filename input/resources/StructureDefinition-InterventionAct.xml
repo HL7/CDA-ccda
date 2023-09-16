@@ -2,7 +2,7 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.10.20.22.4.131"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.131"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/InterventionAct"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.131:2015-08-01"/>
     </identifier>
@@ -137,7 +137,7 @@
             <max value="*"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.119"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
         </element>
         <element id="Act.entryRelationship">
@@ -191,7 +191,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.48"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </type>
         </element>
         <element id="Act.entryRelationship:immunizationActivity">
@@ -215,7 +215,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.52"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
             </type>
         </element>
         <element id="Act.entryRelationship:medicationActivity">
@@ -239,7 +239,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.16"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </type>
         </element>
         <element id="Act.entryRelationship:procedureActivityAct">
@@ -263,7 +263,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.12"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityAct"/>
             </type>
         </element>
         <element id="Act.entryRelationship:interventionAct">
@@ -288,7 +288,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.131"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InterventionAct"/>
             </type>
         </element>
         <element id="Act.entryRelationship:procedureActivityObservation">
@@ -312,7 +312,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.13"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityObservation"/>
             </type>
         </element>
         <element id="Act.entryRelationship:procedureActivityProcedure">
@@ -336,7 +336,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.14"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </type>
         </element>
         <element id="Act.entryRelationship:encounterActivity">
@@ -360,7 +360,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.49"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
             </type>
         </element>
         <element id="Act.entryRelationship:instruction">
@@ -384,7 +384,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.20"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
             </type>
         </element>
         <element id="Act.entryRelationship:nonMedSupply">
@@ -408,7 +408,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.50"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
             </type>
         </element>
         <element id="Act.entryRelationship:nutritionRecommendation">
@@ -425,7 +425,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.130"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionRecommendation"/>
             </type>
         </element>
         <element id="Act.entryRelationship:entryReferenceRefr">
@@ -450,7 +450,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
         <element id="Act.entryRelationship:entryReferenceRson">
@@ -480,7 +480,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.122"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
         <element id="Act.entryRelationship:handoffCommunicationParticipants">
@@ -504,7 +504,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.141"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HandoffCommunicationParticipants"/>
             </type>
         </element>
         <element id="Act.entryRelationship:plannedInterventionAct">
@@ -528,7 +528,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.146"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedInterventionAct"/>
             </type>
         </element>
         <element id="Act.reference">
@@ -551,7 +551,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/ExternalDocument"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.115"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ExternalDocumentReference"/>
             </type>
         </element>
     </differential>
