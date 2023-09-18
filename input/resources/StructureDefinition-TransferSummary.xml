@@ -288,8 +288,6 @@
                 <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-31583)."/>
             </constraint>
         </element>
-        <!--SG 20230708: This is wrong in C-CDA - it's a should 0..1 which causes an error because CDA says you have to have 1
-             deleted min=0-->
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
@@ -299,8 +297,8 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="SG 20230708: This is wrong in C-CDA - it's a should 0..1 which causes an error because CDA says you have to have 1 - deleted min=0"/>
-            <max value="1"/>
+            <min value="7"/>
+            <max value="*"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:advanceDirectives">
             <path value="ClinicalDocument.component.structuredBody.component"/>
