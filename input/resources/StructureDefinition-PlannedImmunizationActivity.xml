@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="PlannedImmunizationActivity"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedImmunizationActivity"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.22.4.120"/>
+    </identifier>
+    <name value="PlannedImmunizationActivity"/>
+    <title value="Planned Immunization Activity"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template represents planned immunizations. Planned Immunization Activity is very similar to Planned Medication Activity with some key differences, for example, the drug code system is constrained to CVX codes. &#xD;&#xA;The priority of the immunization activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the immunization activity is intended to take place and authorTime indicates when the documentation of the plan occurred."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="SubstanceAdministration">
+            <path value="SubstanceAdministration"/>
+        </element>
+        <element id="SubstanceAdministration.classCode">
+            <path value="SubstanceAdministration.classCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CONF:1098-32091)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="SBADM"/>
+        </element>
+        <element id="SubstanceAdministration.moodCode">
+            <path value="SubstanceAdministration.moodCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (SubstanceAdministration/Supply) urn:oid:2.16.840.1.113883.11.20.9.24 STATIC 2014-09-01 (CONF:1098-32097)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.templateId">
+            <path value="SubstanceAdministration.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:primary">
+            <path value="SubstanceAdministration.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-32098) such that it, SHALL not contain [0..0] extension."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:primary.root">
+            <path value="SubstanceAdministration.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.120&quot; (CONF:1098-32099)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.120"/>
+        </element>
+        <element id="SubstanceAdministration.id">
+            <path value="SubstanceAdministration.id"/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-32100)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.statusCode">
+            <path value="SubstanceAdministration.statusCode"/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-32101)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.statusCode.code">
+            <path value="SubstanceAdministration.statusCode.code"/>
+            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32102)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedString value="active"/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime">
+            <path value="SubstanceAdministration.effectiveTime"/>
+            <short value="The effectiveTime in a planned immunization activity represents the time that the immunization activity should occur."/>
+            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-32103)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.repeatNumber">
+            <path value="SubstanceAdministration.repeatNumber"/>
+            <short value="In a Planned Immunization Activity, repeatNumber defines the number of allowed administrations. For example, a repeatNumber of &quot;3&quot; means that the substance can be administered up to 3 times."/>
+            <requirements value="MAY contain zero or one [0..1] repeatNumber (CONF:1098-32126)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.routeCode">
+            <path value="SubstanceAdministration.routeCode"/>
+            <requirements value="MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-32127)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.routeCode.translation">
+            <path value="SubstanceAdministration.routeCode.translation"/>
+            <requirements value="The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32951)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.12"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.approachSiteCode">
+            <path value="SubstanceAdministration.approachSiteCode"/>
+            <requirements value="MAY contain zero or more [0..*] approachSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32128)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.doseQuantity">
+            <path value="SubstanceAdministration.doseQuantity"/>
+            <requirements value="MAY contain zero or one [0..1] doseQuantity (CONF:1098-32129)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.doseQuantity.unit">
+            <path value="SubstanceAdministration.doseQuantity.unit"/>
+            <requirements value="The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32130)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable">
+            <path value="SubstanceAdministration.consumable"/>
+            <requirements value="SHALL contain exactly one [1..1] consumable (CONF:1098-32131)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct"/>
+            <requirements value="This consumable SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1098-32132)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.performer">
+            <path value="SubstanceAdministration.performer"/>
+            <short value="The clinician who is expected to perform the planned immunization activity could be identified using substanceAdministration/performer."/>
+            <requirements value="MAY contain zero or more [0..*] performer (CONF:1098-32104)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.author">
+            <path value="SubstanceAdministration.author"/>
+            <short value="The author in a planned immunization activity represents the clinician who is requesting or planning the immunization activity."/>
+            <requirements value="MAY contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32105)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="act"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <short value="The following entryRelationship captures any instructions associated with the planned immunization activity."/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:priorityPreference">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <sliceName value="priorityPreference"/>
+            <short value="The following entryRelationship represents the priority that a patient or a provider places on the immunization activity."/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32108) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:priorityPreference.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32109)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="REFR"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:priorityPreference.observation">
+            <path value="SubstanceAdministration.entryRelationship.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-32110)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PriorityPreference"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:indication">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <sliceName value="indication"/>
+            <short value="The following entryRelationship represents the indication for the immunization activity."/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32114) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:indication.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32115)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="RSON"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:indication.observation">
+            <path value="SubstanceAdministration.entryRelationship.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32116)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:instruction">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <sliceName value="instruction"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32117) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:instruction.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32118)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="SUBJ"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:instruction.act">
+            <path value="SubstanceAdministration.entryRelationship.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32119)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.precondition">
+            <path value="SubstanceAdministration.precondition"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="criterion"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="SubstanceAdministration.precondition:pronditionForSubstanceAdmin">
+            <path value="SubstanceAdministration.precondition"/>
+            <sliceName value="pronditionForSubstanceAdmin"/>
+            <requirements value="MAY contain zero or more [0..*] precondition (CONF:1098-32123) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.precondition:pronditionForSubstanceAdmin.typeCode">
+            <path value="SubstanceAdministration.precondition.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;PRCN&quot; Precondition (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32124)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="PRCN"/>
+        </element>
+        <element id="SubstanceAdministration.precondition:pronditionForSubstanceAdmin.criterion">
+            <path value="SubstanceAdministration.precondition.criterion"/>
+            <requirements value="SHALL contain exactly one [1..1] Precondition for Substance Administration (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.25:2014-06-09) (CONF:1098-32125)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Criterion"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PreconditionforSubstanceAdministration"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

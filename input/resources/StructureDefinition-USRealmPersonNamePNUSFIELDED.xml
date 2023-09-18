@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="USRealmPersonNamePNUSFIELDED"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.22.5.1.1"/>
+    </identifier>
+    <name value="USRealmPersonNamePNUSFIELDED"/>
+    <title value="US Realm Person Name (PN.US.FIELDED)"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The US Realm Clinical Document Person Name datatype flavor is a set of reusable constraints that can be used for Persons."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="PN">
+            <path value="PN"/>
+            <constraint>
+                <key value="81-9371"/>
+                <severity value="error"/>
+                <human value="The content of name **SHALL** be either a conformant Patient Name (PTN.US.FIELDED), or a string (CONF:81-9371)."/>
+            </constraint>
+            <constraint>
+                <key value="81-9372"/>
+                <severity value="error"/>
+                <human value="The string **SHALL NOT** contain name parts (CONF:81-9372)."/>
+            </constraint>
+        </element>
+    </differential>
+</StructureDefinition>

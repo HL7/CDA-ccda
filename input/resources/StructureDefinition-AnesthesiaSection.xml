@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="AnesthesiaSection"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AnesthesiaSection"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09"/>
+    </identifier>
+    <version value="2014-06-09"/>
+    <name value="AnesthesiaSection"/>
+    <title value="Anesthesia Section"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Anesthesia Section records the type of anesthesia (e.g., general or local) and may state the actual agent used. This may be a subsection of the Procedure Description Section. The full details of anesthesia are usually found in a separate Anesthesia Note."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Section.templateId:primary">
+            <path value="Section.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-8066) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:primary.root">
+            <path value="Section.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.25&quot; (CONF:1098-10380)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.2.25"/>
+        </element>
+        <element id="Section.templateId:primary.extension">
+            <path value="Section.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32531)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2014-06-09"/>
+        </element>
+        <element id="Section.code">
+            <path value="Section.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-15351)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;59774-0&quot; Anesthesia (CONF:1098-15352)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="59774-0"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-30830)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Section.title">
+            <path value="Section.title"/>
+            <requirements value="SHALL contain exactly one [1..1] title (CONF:1098-8068)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.text">
+            <path value="Section.text"/>
+            <requirements value="SHALL contain exactly one [1..1] text (CONF:1098-8069)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry">
+            <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="procedure"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="substanceAdministration"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:procedure">
+            <path value="Section.entry"/>
+            <sliceName value="procedure"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-8092) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:procedure.procedure">
+            <path value="Section.entry.procedure"/>
+            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Procedure (identifier: urn:hl7&#xA;                ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15447)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </type>
+        </element>
+        <element id="Section.entry:medication">
+            <path value="Section.entry"/>
+            <sliceName value="medication"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-8094) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:medication.substanceAdministration">
+            <path value="Section.entry.substanceAdministration"/>
+            <requirements value="SHALL contain exactly one [1..1] Medication Activity (identifier: urn:hl7ii:2.16.8&#xA;                40.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-31127)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

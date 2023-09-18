@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="ImmunizationMedicationInformation"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09"/>
+    </identifier>
+    <version value="2014-06-09"/>
+    <name value="ImmunizationMedicationInformation"/>
+    <title value="Immunization Medication Information"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="ManufacturedProduct">
+            <path value="ManufacturedProduct"/>
+        </element>
+        <element id="ManufacturedProduct.classCode">
+            <path value="ManufacturedProduct.classCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ManufacturedProduct.templateId">
+            <path value="ManufacturedProduct.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ManufacturedProduct.templateId:primary">
+            <path value="ManufacturedProduct.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-9004) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ManufacturedProduct.templateId:primary.root">
+            <path value="ManufacturedProduct.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.54&quot; (CONF:1098-10499)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.54"/>
+        </element>
+        <element id="ManufacturedProduct.templateId:primary.extension">
+            <path value="ManufacturedProduct.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32602)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2014-06-09"/>
+        </element>
+        <element id="ManufacturedProduct.id">
+            <path value="ManufacturedProduct.id"/>
+            <requirements value="MAY contain zero or more [0..*] id (CONF:1098-9005)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial">
+            <path value="ManufacturedProduct.manufacturedMaterial"/>
+            <requirements value="SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-9006)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.code">
+            <path value="ManufacturedProduct.manufacturedMaterial.code"/>
+            <requirements value="This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered Vaccine Set urn:oid:2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6"/>
+            </binding>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.lotNumberText">
+            <path value="ManufacturedProduct.manufacturedMaterial.lotNumberText"/>
+            <short value="lotNumberText should be included if known. It may not be known for historical immunizations, planned immunizations, or refused/deferred immunizations."/>
+            <requirements value="This manufacturedMaterial SHOULD contain zero or one [0..1] lotNumberText (CONF:1098-9014)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ManufacturedProduct.manufacturerOrganization">
+            <path value="ManufacturedProduct.manufacturerOrganization"/>
+            <requirements value="SHOULD contain zero or one [0..1] manufacturerOrganization (CONF:1098-9012)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

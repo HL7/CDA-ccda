@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="FunctionalStatusSection"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusSection"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09"/>
+    </identifier>
+    <version value="2014-06-09"/>
+    <name value="FunctionalStatusSection"/>
+    <title value="Functional Status Section"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Functional Status Section contains observations and assessments of a patient's physical abilities. A patient's functional status may include information regarding the patient's ability to perform Activities of Daily Living (ADLs) in areas such as Mobility (e.g., ambulation), Self-Care (e.g., bathing, dressing, feeding, grooming) or Instrumental Activities of Daily Living (IADLs) (e.g., shopping, using a telephone, balancing a check book). Problems that impact function (e.g., dyspnea, dysphagia) can be contained in the section."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Section.templateId:primary">
+            <path value="Section.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-7920) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:primary.root">
+            <path value="Section.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.14&quot; (CONF:1098-10389)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.2.14"/>
+        </element>
+        <element id="Section.templateId:primary.extension">
+            <path value="Section.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32567)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2014-06-09"/>
+        </element>
+        <element id="Section.code">
+            <path value="Section.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-14578)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;47420-5&quot; Functional Status (CONF:1098-14579)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="47420-5"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-30866)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Section.title">
+            <path value="Section.title"/>
+            <requirements value="SHALL contain exactly one [1..1] title (CONF:1098-7922)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.text">
+            <path value="Section.text"/>
+            <requirements value="SHALL contain exactly one [1..1] text (CONF:1098-7923)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry">
+            <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="organizer"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="supply"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:funcStatusOrganizer">
+            <path value="Section.entry"/>
+            <sliceName value="funcStatusOrganizer"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-14414) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:funcStatusOrganizer.organizer">
+            <path value="Section.entry.organizer"/>
+            <requirements value="SHALL contain exactly one [1..1] Functional Status Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.66:2014-06-09) (CONF:1098-14415)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusOrganizer"/>
+            </type>
+        </element>
+        <element id="Section.entry:funcStatusObs">
+            <path value="Section.entry"/>
+            <sliceName value="funcStatusObs"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-14418) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:funcStatusObs.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Functional Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:1098-14419)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusObservation"/>
+            </type>
+        </element>
+        <element id="Section.entry:caregiverCharacteristics">
+            <path value="Section.entry"/>
+            <sliceName value="caregiverCharacteristics"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-14426) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:caregiverCharacteristics.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:1098-14427)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CaregiverCharacteristics"/>
+            </type>
+        </element>
+        <element id="Section.entry:assessmentScale">
+            <path value="Section.entry"/>
+            <sliceName value="assessmentScale"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-14580) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:assessmentScale.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1098-14581)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </type>
+        </element>
+        <element id="Section.entry:nonMedSupply">
+            <path value="Section.entry"/>
+            <sliceName value="nonMedSupply"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-14582) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:nonMedSupply.supply">
+            <path value="Section.entry.supply"/>
+            <requirements value="SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-30783)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
+            </type>
+        </element>
+        <element id="Section.entry:selfCareActivity">
+            <path value="Section.entry"/>
+            <sliceName value="selfCareActivity"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-32792) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:selfCareActivity.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Self-Care Activities (ADL and IADL) (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.128) (CONF:1098-31009)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SelfCareActivitiesADLandIADL"/>
+            </type>
+        </element>
+        <element id="Section.entry:sensoryStatus">
+            <path value="Section.entry"/>
+            <sliceName value="sensoryStatus"/>
+            <requirements value="MAY contain zero or more [0..*] entry (CONF:1098-16779) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:sensoryStatus.observation">
+            <path value="Section.entry.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Sensory Status (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.127) (CONF:1098-31011)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SensoryStatus"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="ProblemStatus"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemStatus"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.6:2019-06-20"/>
+    </identifier>
+    <version value="2019-06-20"/>
+    <name value="ProblemStatus"/>
+    <title value="Problem Status"/>
+    <status value="active"/>
+    <publisher value="Life Over Time Solutions"/>
+    <contact>
+        <name value="Lisa Nelson"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4012191165"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="LisaRNelson@cox.net"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Problem Status records the clinical status attributed to the problem.&#xA;&#xA;"/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7357)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7358)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:primary">
+            <path value="Observation.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7359) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId:primary.root">
+            <path value="Observation.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.6&quot; (CONF:1198-10518)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.6"/>
+        </element>
+        <element id="Observation.templateId:primary.extension">
+            <path value="Observation.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2019-06-20&quot; (CONF:1198-32961)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2019-06-20"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-19162)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;33999-4&quot; Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-19163)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="33999-4"/>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-7364)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19113)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedString value="completed"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Problem Status urn:oid:2.16.840.1.113883.3.88.12.80.68 DYNAMIC (CONF:1198-7365)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.68"/>
+            </binding>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="AuthorParticipation"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.22.4.119"/>
+    </identifier>
+    <name value="AuthorParticipation"/>
+    <title value="Author Participation"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden.&#xA;&#xA;The Author Participation template was added to those templates in scope for analysis in R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Author">
+            <path value="Author"/>
+        </element>
+        <element id="Author.templateId">
+            <path value="Author.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Author.templateId:primary">
+            <path value="Author.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-32017) such that it, SHALL not contain [0..0] extension."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Author.templateId:primary.root">
+            <path value="Author.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.119&quot; (CONF:1098-32018)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.119"/>
+        </element>
+        <element id="Author.time">
+            <path value="Author.time"/>
+            <requirements value="SHALL contain exactly one [1..1] time (CONF:1098-31471)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Author.assignedAuthor">
+            <path value="Author.assignedAuthor"/>
+            <requirements value="SHALL contain exactly one [1..1] assignedAuthor (CONF:1098-31472)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Author.assignedAuthor.id">
+            <path value="Author.assignedAuthor.id"/>
+            <label value="This id may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here. If the id is pointing to a participant already described elsewhere in the document, assignedAuthor/id is sufficient to identify this participant and none of the remaining details of assignedAuthor are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. This id must be a pointer to another author participant."/>
+            <short value="This id may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here. If the id is pointing to a participant already described elsewhere in the document, assignedAuthor/id is sufficient to identify this participant and none of the remaining details of assignedAuthor are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. This id must be a pointer to another author participant."/>
+            <requirements value="This assignedAuthor SHALL contain at least one [1..*] id (CONF:1098-31473)."/>
+            <min value="1"/>
+            <max value="*"/>
+            <constraint>
+                <key value="1098-32628"/>
+                <severity value="error"/>
+                <human value="If the ID isn't referencing an author described elsewhere in the document, then the author components required in US Realm Header are required here as well (CONF:1098-32628)."/>
+            </constraint>
+        </element>
+        <element id="Author.assignedAuthor.code">
+            <path value="Author.assignedAuthor.code"/>
+            <requirements value="This assignedAuthor SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31671)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <constraint>
+                <key value="1098-32315"/>
+                <severity value="warning"/>
+                <human value="If the content is patient authored the code **SHOULD** be selected from Personal And Legal Relationship Role Type (2.16.840.1.113883.11.20.12.1) (CONF:1098-32315)."/>
+            </constraint>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="Author.assignedAuthor.assignedPerson">
+            <path value="Author.assignedAuthor.assignedPerson"/>
+            <requirements value="This assignedAuthor MAY contain zero or one [0..1] assignedPerson (CONF:1098-31474)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Author.assignedAuthor.assignedPerson.name">
+            <path value="Author.assignedAuthor.assignedPerson.name"/>
+            <requirements value="The assignedPerson, if present, MAY contain zero or more [0..*] name (CONF:1098-31475)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Author.assignedAuthor.representedOrganization">
+            <path value="Author.assignedAuthor.representedOrganization"/>
+            <requirements value="This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:1098-31476)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Author.assignedAuthor.representedOrganization.id">
+            <path value="Author.assignedAuthor.representedOrganization.id"/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] id (CONF:1098-31478)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Author.assignedAuthor.representedOrganization.name">
+            <path value="Author.assignedAuthor.representedOrganization.name"/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:1098-31479)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Author.assignedAuthor.representedOrganization.telecom">
+            <path value="Author.assignedAuthor.representedOrganization.telecom"/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] telecom (CONF:1098-31480)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Author.assignedAuthor.representedOrganization.addr">
+            <path value="Author.assignedAuthor.representedOrganization.addr"/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] addr (CONF:1098-31481)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+    </differential>
+</StructureDefinition>
