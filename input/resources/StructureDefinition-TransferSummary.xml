@@ -241,21 +241,21 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <sliceName value="performer1"/>
             <requirements value="This serviceEvent SHALL contain at least one [1..*] performer (CONF:1198-31574) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.typeCode">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
             <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;PRF&quot; Participation of Physical Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31575)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="PRF"/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.ClinicalDocument.documentationOf.serviceEvent.performer:performer1.functionCode">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
             <short value="Use performer/functionCode when using a generic document type code such as 18761-7 (Provider-Unspecified Transfer Summary) to represent the provider."/>
             <requirements value="MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32651)."/>
