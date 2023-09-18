@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="DeviceIdentifierObservation"/>
+    <meta>
+        <versionId value="4"/>
+        <lastUpdated value="2023-07-11T23:41:38.984Z"/>
+    </meta>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DeviceIdentifierObservation"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.304:2022-06-01"/>
+    </identifier>
+    <version value="2022-06-01"/>
+    <name value="DeviceIdentifierObservation"/>
+    <title value="Device Identifier Observation"/>
+    <status value="draft"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Device Identifier** (also known as the &quot;Primary DI Number&quot;) for a medical device marketed in the US. The device identifier is parsed from the UDI value.&#xA;&#xA;The Device Identifier number can be used as a key to look-up device identification information in the publicly available version of the US FDA Global UDI Database (GUDID) - the AccessGUDID: https://accessgudid.nlm.nih.gov/resources/home"/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <short value="templateId"/>
+            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4524-3421)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId.root">
+            <path value="Observation.templateId.root"/>
+            <short value="root"/>
+            <definition value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.304&quot; (CONF:4524-3424)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.304"/>
+        </element>
+        <element id="Observation.templateId.extension">
+            <path value="Observation.templateId.extension"/>
+            <short value="extension"/>
+            <definition value="This templateId SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4524-3425)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2022-06-01"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <label value="Primary DI Number Code from NCIt"/>
+            <short value="Primary DI Number Code from NCIt"/>
+            <definition value="SHALL contain exactly one [1..1] code (CONF:4524-3422)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <short value="code"/>
+            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;C101722&quot; Primary DI Number (CodeSystem: NCI Thesaurus (NCIt) urn:oid:2.16.840.1.113883.3.26.1.1 STATIC) (CONF:4524-3426)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="C101722"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="codeSystem"/>
+            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.3.26.1.1&quot; (CONF:4524-3427)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.3.26.1.1"/>
+        </element>
+        <element id="Observation.code.codeSystemName">
+            <path value="Observation.code.codeSystemName"/>
+            <short value="codeSystemName"/>
+            <definition value="This code MAY contain zero or one [0..1] @codeSystemName=&quot;NCI Thesaurus&quot; (CONF:4524-3428)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="NCI Thesaurus"/>
+        </element>
+        <element id="Observation.code.displayName">
+            <path value="Observation.code.displayName"/>
+            <short value="displayName"/>
+            <definition value="This code MAY contain zero or one [0..1] @displayName=&quot;Primary DI Number&quot; (CONF:4524-3429)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <patternString value="Primary DI Number"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <label value="This value is assigned by the Manufacturer by using an FDA-accredited UDI-issuing agency"/>
+            <short value="This value is assigned by the Manufacturer by using an FDA-accredited UDI-issuing agency"/>
+            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;II&quot; (CONF:4524-3423)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value.root">
+            <path value="Observation.value.root"/>
+            <short value="root"/>
+            <definition value="This value SHALL contain exactly one [1..1] @root (CONF:4524-3430)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value.extension">
+            <path value="Observation.value.extension"/>
+            <short value="extension"/>
+            <definition value="This value SHOULD contain zero or one [0..1] @extension (CONF:4524-3431)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value.displayable">
+            <path value="Observation.value.displayable"/>
+            <short value="displayable"/>
+            <definition value="This value SHALL contain exactly one [1..1] @displayable=&quot;true&quot; (CONF:4524-3540)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="HospitalDischargeDiagnosis"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalDischargeDiagnosis"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.33:2015-08-01"/>
+    </identifier>
+    <version value="2015-08-01"/>
+    <name value="HospitalDischargeDiagnosis"/>
+    <title value="Hospital Discharge Diagnosis"/>
+    <status value="active"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template represents problems or diagnoses present at the time of discharge which occurred during the hospitalization or need to be monitored after hospitalization. It requires at least one Problem Observation entry."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Act">
+            <path value="Act"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7663)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7664)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Act.templateId">
+            <path value="Act.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Act.templateId:primary">
+            <path value="Act.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-16764) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.templateId:primary.root">
+            <path value="Act.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.33&quot; (CONF:1198-16765)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.33"/>
+        </element>
+        <element id="Act.templateId:primary.extension">
+            <path value="Act.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32534)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2015-08-01"/>
+        </element>
+        <element id="Act.code">
+            <path value="Act.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-19147)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.code.code">
+            <path value="Act.code.code"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;11535-2&quot; Hospital discharge diagnosis (CONF:1198-19148)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="11535-2"/>
+        </element>
+        <element id="Act.code.codeSystem">
+            <path value="Act.code.codeSystem"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32163)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Act.entryRelationship">
+            <path value="Act.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Act.entryRelationship:problemObservation">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="problemObservation"/>
+            <requirements value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-7666) such that it"/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:problemObservation.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-7667)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="SUBJ"/>
+        </element>
+        <element id="Act.entryRelationship:problemObservation.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15536)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

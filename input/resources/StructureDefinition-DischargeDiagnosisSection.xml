@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="DischargeDiagnosisSection"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeDiagnosisSection"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.24:2015-08-01"/>
+    </identifier>
+    <version value="2015-08-01"/>
+    <name value="DischargeDiagnosisSection"/>
+    <title value="Discharge Diagnosis Section"/>
+    <status value="active"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template represents problems or diagnoses present at the time of discharge which occurred during the hospitalization. This section includes an optional entry to record patient diagnoses specific to this visit. Problems that need ongoing tracking should also be included in the Problem Section."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Section.templateId:primary">
+            <path value="Section.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7979) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:primary.root">
+            <path value="Section.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.24&quot; (CONF:1198-10394)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.2.24"/>
+        </element>
+        <element id="Section.templateId:primary.extension">
+            <path value="Section.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32549)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2015-08-01"/>
+        </element>
+        <element id="Section.code">
+            <path value="Section.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-15355)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;11535-2&quot; Hospital Discharge Diagnosis (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-15356)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="11535-2"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30861)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Section.code.translation">
+            <path value="Section.code.translation"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="codeSystem"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="code.Section.code.translation:translation1">
+            <path value="Section.code.translation"/>
+            <sliceName value="translation1"/>
+            <requirements value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32834) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="code.Section.code.translation:translation1.code">
+            <path value="Section.code.translation.code"/>
+            <requirements value="SHALL contain exactly one [1..1] @code=&quot;78375-3&quot; Discharge Diagnosis (CONF:1198-32835)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="78375-3"/>
+        </element>
+        <element id="code.Section.code.translation:translation1.codeSystem">
+            <path value="Section.code.translation.codeSystem"/>
+            <requirements value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32836)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Section.title">
+            <path value="Section.title"/>
+            <requirements value="SHALL contain exactly one [1..1] title (CONF:1198-7981)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.text">
+            <path value="Section.text"/>
+            <requirements value="SHALL contain exactly one [1..1] text (CONF:1198-7982)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry">
+            <path value="Section.entry"/>
+            <requirements value="SHOULD contain zero or one [0..1] entry (CONF:1198-7983)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry.act">
+            <path value="Section.entry.act"/>
+            <requirements value="The entry, if present, SHALL contain exactly one [1..1] Hospital Discharge Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.33:2015-08-01) (CONF:1198-15489)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalDischargeDiagnosis"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

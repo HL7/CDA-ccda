@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="EncounterActivity"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01"/>
+    </identifier>
+    <version value="2015-08-01"/>
+    <name value="EncounterActivity"/>
+    <title value="Encounter Activity"/>
+    <status value="active"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This clinical statement describes an interaction between a patient and clinician. Interactions may include in-person encounters, telephone conversations, and email exchanges."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Encounter">
+            <path value="Encounter"/>
+        </element>
+        <element id="Encounter.classCode">
+            <path value="Encounter.classCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8710)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="ENC"/>
+        </element>
+        <element id="Encounter.moodCode">
+            <path value="Encounter.moodCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Encounter.templateId">
+            <path value="Encounter.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Encounter.templateId:primary">
+            <path value="Encounter.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8712) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.templateId:primary.root">
+            <path value="Encounter.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.49&quot; (CONF:1198-26353)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.49"/>
+        </element>
+        <element id="Encounter.templateId:primary.extension">
+            <path value="Encounter.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32546)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2015-08-01"/>
+        </element>
+        <element id="Encounter.id">
+            <path value="Encounter.id"/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-8713)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.code">
+            <path value="Encounter.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
+            </binding>
+        </element>
+        <element id="Encounter.code.originalText">
+            <path value="Encounter.code.originalText"/>
+            <requirements value="This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.code.originalText.reference">
+            <path value="Encounter.code.originalText.reference"/>
+            <requirements value="The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.code.originalText.reference.value">
+            <path value="Encounter.code.originalText.reference.value"/>
+            <requirements value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1198-15971)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <constraint>
+                <key value="1198-15972"/>
+                <severity value="error"/>
+                <human value="This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1198-15972)."/>
+            </constraint>
+        </element>
+        <element id="Encounter.code.translation">
+            <path value="Encounter.code.translation"/>
+            <short value="The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."/>
+            <requirements value="This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.effectiveTime">
+            <path value="Encounter.effectiveTime"/>
+            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8715)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+		    <element id="Encounter.sdtcDischargeDispositionCode">
+		      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+		        <valueUri value="urn:hl7-org:sdtc"/>
+		      </extension>
+		      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+		        <valueUri value="dischargeDispositionCode"/>
+		      </extension>
+		      <path value="Encounter.sdtcDischargeDispositionCode"/>
+            <label value="The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the dischargeDispositionCode element"/>
+            <short value="The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the dischargeDispositionCode element"/>
+            <requirements value="MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <constraint>
+                <key value="1198-32177"/>
+                <severity value="warning"/>
+                <human value="This sdtc:dischargeDispositionCode **SHOULD** contain exactly [0..1] *code*, which **SHOULD** be selected from ValueSet 2.16.840.1.113883.3.88.12.80.33 NUBC UB-04 FL17-Patient Status (code system 2.16.840.1.113883.6.301.5) *DYNAMIC*.  NOTE: This requires a license from the AHA to access these codes."/>
+            </constraint>
+            <constraint>
+                <key value="1198-32377"/>
+                <severity value="warning"/>
+                <human value="This sdtc:dischargeDispositionCode **SHOULD** contain exactly [0..1] *codeSystem*, which **SHOULD** be CodeSystem: NUBC 2.16.840.1.113883.6.301.5."/>
+            </constraint>
+        </element>
+        <element id="Encounter.performer">
+            <path value="Encounter.performer"/>
+            <requirements value="MAY contain zero or more [0..*] performer (CONF:1198-8725)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.performer.assignedEntity">
+            <path value="Encounter.performer.assignedEntity"/>
+            <requirements value="The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-8726)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.performer.assignedEntity.code">
+            <path value="Encounter.performer.assignedEntity.code"/>
+            <requirements value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8727)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+            </binding>
+        </element>
+        <element id="Encounter.participant">
+            <path value="Encounter.participant"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="participantRole"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Encounter.participant:location">
+            <path value="Encounter.participant"/>
+            <sliceName value="location"/>
+            <requirements value="SHOULD contain zero or more [0..*] participant (CONF:1198-8738) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.participant:location.typeCode">
+            <path value="Encounter.participant.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8740)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="LOC"/>
+        </element>
+        <element id="Encounter.participant:location.participantRole">
+            <path value="Encounter.participant.participantRole"/>
+            <requirements value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1198-14903)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
+            </type>
+        </element>
+        <element id="Encounter.entryRelationship">
+            <path value="Encounter.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="act"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Encounter.entryRelationship:indication">
+            <path value="Encounter.entryRelationship"/>
+            <sliceName value="indication"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-8722) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.entryRelationship:indication.typeCode">
+            <path value="Encounter.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8723)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="RSON"/>
+        </element>
+        <element id="Encounter.entryRelationship:indication.observation">
+            <path value="Encounter.entryRelationship.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1198-14899)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
+            </type>
+        </element>
+        <element id="Encounter.entryRelationship:diagnosis">
+            <path value="Encounter.entryRelationship"/>
+            <sliceName value="diagnosis"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.entryRelationship:diagnosis.act">
+            <path value="Encounter.entryRelationship.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Encounter Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:1198-15973)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterDiagnosis"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

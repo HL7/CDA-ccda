@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="ServiceDeliveryLocation"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.22.4.32"/>
+    </identifier>
+    <name value="ServiceDeliveryLocation"/>
+    <title value="Service Delivery Location"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This clinical statement represents the location of a service event where an act, observation or procedure took place."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="ParticipantRole">
+            <path value="ParticipantRole"/>
+        </element>
+        <element id="ParticipantRole.classCode">
+            <path value="ParticipantRole.classCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;SDLOC&quot; (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111 STATIC) (CONF:81-7758)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="SDLOC"/>
+        </element>
+        <element id="ParticipantRole.templateId">
+            <path value="ParticipantRole.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ParticipantRole.templateId:primary">
+            <path value="ParticipantRole.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-7635) such that it, SHALL not contain [0..0] extension."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ParticipantRole.templateId:primary.root">
+            <path value="ParticipantRole.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.32&quot; (CONF:81-10524)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.32"/>
+        </element>
+        <element id="ParticipantRole.code">
+            <path value="ParticipantRole.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet HealthcareServiceLocation urn:oid:2.16.840.1.113883.1.11.20275 DYNAMIC (CONF:81-16850)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275"/>
+            </binding>
+        </element>
+        <element id="ParticipantRole.addr">
+            <path value="ParticipantRole.addr"/>
+            <requirements value="SHOULD contain zero or more [0..*] addr (CONF:81-7760)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ParticipantRole.telecom">
+            <path value="ParticipantRole.telecom"/>
+            <requirements value="SHOULD contain zero or more [0..*] telecom (CONF:81-7761)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ParticipantRole.playingEntity">
+            <path value="ParticipantRole.playingEntity"/>
+            <requirements value="MAY contain zero or one [0..1] playingEntity (CONF:81-7762)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ParticipantRole.playingEntity.classCode">
+            <path value="ParticipantRole.playingEntity.classCode"/>
+            <requirements value="The playingEntity, if present, SHALL contain exactly one [1..1] @classCode=&quot;PLC&quot; (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:81-7763)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="PLC"/>
+        </element>
+        <element id="ParticipantRole.playingEntity.name">
+            <path value="ParticipantRole.playingEntity.name"/>
+            <requirements value="The playingEntity, if present, MAY contain zero or one [0..1] name (CONF:81-16037)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

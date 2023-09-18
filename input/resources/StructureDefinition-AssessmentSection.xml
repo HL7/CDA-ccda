@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="AssessmentSection"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.22.2.8"/>
+    </identifier>
+    <name value="AssessmentSection"/>
+    <title value="Assessment Section"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Assessment Section (also referred to as &quot;impression&quot; or &quot;diagnoses&quot; outside of the context of CDA) represents the clinician's conclusions and working assumptions that will guide treatment of the patient. The assessment may be a list of specific disease entities or a narrative block."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Section.templateId:primary">
+            <path value="Section.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-7711) such that it, SHALL not contain [0..0] extension."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:primary.root">
+            <path value="Section.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.8&quot; (CONF:81-10382)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.2.8"/>
+        </element>
+        <element id="Section.code">
+            <path value="Section.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:81-14757)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;51848-0&quot; Assessments (CONF:81-14758)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="51848-0"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26472)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Section.title">
+            <path value="Section.title"/>
+            <requirements value="SHALL contain exactly one [1..1] title (CONF:81-16774)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.text">
+            <path value="Section.text"/>
+            <requirements value="SHALL contain exactly one [1..1] text (CONF:81-7713)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

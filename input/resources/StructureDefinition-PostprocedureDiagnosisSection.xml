@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="PostprocedureDiagnosisSection"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosisSection"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.36:2015-08-01"/>
+    </identifier>
+    <version value="2015-08-01"/>
+    <name value="PostprocedureDiagnosisSection"/>
+    <title value="Postprocedure Diagnosis Section"/>
+    <status value="active"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Postprocedure Diagnosis Section records the diagnosis or diagnoses discovered or confirmed during the procedure. Often it is the same as the preprocedure diagnosis or indication."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Section.templateId:primary">
+            <path value="Section.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8167) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:primary.root">
+            <path value="Section.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.36&quot; (CONF:1198-10438)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.2.36"/>
+        </element>
+        <element id="Section.templateId:primary.extension">
+            <path value="Section.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32550)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2015-08-01"/>
+        </element>
+        <element id="Section.code">
+            <path value="Section.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-15403)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;59769-0&quot; Postprocedure Diagnosis (CONF:1198-15404)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="59769-0"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30862)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Section.title">
+            <path value="Section.title"/>
+            <requirements value="SHALL contain exactly one [1..1] title (CONF:1198-8170)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.text">
+            <path value="Section.text"/>
+            <requirements value="SHALL contain exactly one [1..1] text (CONF:1198-8171)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry">
+            <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="act"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Section.entry:postopDiagnosis">
+            <path value="Section.entry"/>
+            <sliceName value="postopDiagnosis"/>
+            <requirements value="SHOULD contain zero or one [0..1] entry (CONF:1198-8762) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry:postopDiagnosis.act">
+            <path value="Section.entry.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Postprocedure Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.51:2015-08-01) (CONF:1198-15503)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosis"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

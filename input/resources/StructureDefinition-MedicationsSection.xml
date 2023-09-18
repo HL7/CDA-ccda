@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="MedicationsSection"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"/>
+    </identifier>
+    <version value="2014-06-09"/>
+    <name value="MedicationsSection"/>
+    <title value="Medications Section"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Medications Section contains a patient's current medications and pertinent medication history. At a minimum, the currently active medications are listed. An entire medication history is an option. The section can describe a patient's prescription and dispense history and information about intended drug monitoring. &#xD;&#xA;&#xD;&#xA;This section requires either an entry indicating the subject is not known to be on any medications or entries summarizing the subject's medications."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Section">
+            <path value="Section"/>
+        </element>
+        <element id="Section.nullFlavor">
+            <path value="Section.nullFlavor"/>
+            <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-32845)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <fixedCode value="NI"/>
+        </element>
+        <element id="Section.templateId">
+            <path value="Section.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="2"/>
+        </element>
+        <element id="Section.templateId:secondary">
+            <path value="Section.templateId"/>
+            <sliceName value="secondary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-7568) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.templateId:secondary.root">
+            <path value="Section.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.1.1&quot; (CONF:1098-10433)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.2.1.1"/>
+        </element>
+        <element id="Section.templateId:secondary.extension">
+            <path value="Section.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32499)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2014-06-09"/>
+        </element>
+        <element id="Section.code">
+            <path value="Section.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-15387)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;10160-0&quot; History of medication use (CONF:1098-15388)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="10160-0"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-30825)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Section.title">
+            <path value="Section.title"/>
+            <requirements value="SHALL contain exactly one [1..1] title (CONF:1098-7570)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.text">
+            <path value="Section.text"/>
+            <requirements value="SHALL contain exactly one [1..1] text (CONF:1098-7571)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry">
+            <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="substanceAdministration"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <short value="If section/@nullFlavor is not present:"/>
+            <min value="1"/>
+        </element>
+        <element id="Section.entry:medActivity">
+            <path value="Section.entry"/>
+            <sliceName value="medActivity"/>
+            <requirements value="SHALL contain at least one [1..*] entry (CONF:1098-7572) such that it"/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:medActivity.substanceAdministration">
+            <path value="Section.entry.substanceAdministration"/>
+            <requirements value="SHALL contain exactly one [1..1] Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-10076)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

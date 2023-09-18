@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="ProcedureActivityAct"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityAct"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09"/>
+    </identifier>
+    <version value="2014-06-09"/>
+    <name value="ProcedureActivityAct"/>
+    <title value="Procedure Activity Act"/>
+    <status value="active"/>
+    <contact>
+        <name value="Gaye Dolin"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="714-744-4152"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="gaye.dolin@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This template represents any act that cannot be classified as an observation or procedure according to the HL7 RIM. Examples of these acts are a dressing change, teaching or feeding a patient, or providing comfort measures. &#xD;&#xA;The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy)."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Act">
+            <path value="Act"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8289)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-8290)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Act.templateId">
+            <path value="Act.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Act.templateId:primary">
+            <path value="Act.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-8291) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.templateId:primary.root">
+            <path value="Act.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.12&quot; (CONF:1098-10519)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.12"/>
+        </element>
+        <element id="Act.templateId:primary.extension">
+            <path value="Act.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32505)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2014-06-09"/>
+        </element>
+        <element id="Act.id">
+            <path value="Act.id"/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-8292)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.code">
+            <path value="Act.code"/>
+            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-8293)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <constraint>
+                <key value="1098-19190"/>
+                <severity value="warning"/>
+                <human value="This @code **SHOULD** be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96), and **MAY** be selected from CPT-4 (CodeSystem: 2.16.840.1.113883.6.12) or ICD10 PCS (CodeSystem: 2.16.840.1.113883.6.4) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:1098-19190)."/>
+            </constraint>
+        </element>
+        <element id="Act.code.originalText">
+            <path value="Act.code.originalText"/>
+            <requirements value="This code SHOULD contain zero or one [0..1] originalText (CONF:1098-19186)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.code.originalText.reference">
+            <path value="Act.code.originalText.reference"/>
+            <requirements value="The originalText, if present, MAY contain zero or one [0..1] reference (CONF:1098-19187)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.code.originalText.reference.value">
+            <path value="Act.code.originalText.reference.value"/>
+            <requirements value="The reference, if present, MAY contain zero or one [0..1] @value (CONF:1098-19188)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <constraint>
+                <key value="1098-19189"/>
+                <severity value="error"/>
+                <human value="This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1098-19189)."/>
+            </constraint>
+        </element>
+        <element id="Act.statusCode">
+            <path value="Act.statusCode"/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-8298)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.statusCode.code">
+            <path value="Act.statusCode.code"/>
+            <requirements value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:1098-32364)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.22"/>
+            </binding>
+        </element>
+        <element id="Act.effectiveTime">
+            <path value="Act.effectiveTime"/>
+            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-8299)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.priorityCode">
+            <path value="Act.priorityCode"/>
+            <requirements value="MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-8300)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.16866"/>
+            </binding>
+        </element>
+        <element id="Act.performer">
+            <path value="Act.performer"/>
+            <requirements value="SHOULD contain zero or more [0..*] performer (CONF:1098-8301)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer.assignedEntity">
+            <path value="Act.performer.assignedEntity"/>
+            <requirements value="The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1098-8302)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.performer.assignedEntity.id">
+            <path value="Act.performer.assignedEntity.id"/>
+            <requirements value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1098-8303)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer.assignedEntity.addr">
+            <path value="Act.performer.assignedEntity.addr"/>
+            <requirements value="This assignedEntity SHALL contain at least one [1..*] addr (CONF:1098-8304)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer.assignedEntity.telecom">
+            <path value="Act.performer.assignedEntity.telecom"/>
+            <requirements value="This assignedEntity SHALL contain at least one [1..*] telecom (CONF:1098-8305)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer.assignedEntity.representedOrganization">
+            <path value="Act.performer.assignedEntity.representedOrganization"/>
+            <requirements value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:1098-8306)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.performer.assignedEntity.representedOrganization.id">
+            <path value="Act.performer.assignedEntity.representedOrganization.id"/>
+            <requirements value="The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1098-8307)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer.assignedEntity.representedOrganization.name">
+            <path value="Act.performer.assignedEntity.representedOrganization.name"/>
+            <requirements value="The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:1098-8308)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer.assignedEntity.representedOrganization.telecom">
+            <path value="Act.performer.assignedEntity.representedOrganization.telecom"/>
+            <requirements value="The representedOrganization, if present, SHALL contain at least one [1..*] telecom (CONF:1098-8310)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.performer.assignedEntity.representedOrganization.addr">
+            <path value="Act.performer.assignedEntity.representedOrganization.addr"/>
+            <requirements value="The representedOrganization, if present, SHALL contain at least one [1..*] addr (CONF:1098-8309)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.author">
+            <path value="Act.author"/>
+            <comment value="201810 Errata STU Comment 1619: Updated cardinality from incorrect [1..*] to correct [0..*]"/>
+            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32477)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+            </type>
+        </element>
+        <element id="Act.participant">
+            <path value="Act.participant"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Act.participant:location">
+            <path value="Act.participant"/>
+            <sliceName value="location"/>
+            <requirements value="MAY contain zero or more [0..*] participant (CONF:1098-8311) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.participant:location.typeCode">
+            <path value="Act.participant.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8312)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="LOC"/>
+        </element>
+        <element id="Act.participant:location.participantRole">
+            <path value="Act.participant.participantRole"/>
+            <requirements value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1098-15599)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship">
+            <path value="Act.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="encounter"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="act"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="substanceAdministration"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Act.entryRelationship:encounter">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="encounter"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8314) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:encounter.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8315)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="COMP"/>
+        </element>
+        <element id="Act.entryRelationship:encounter.inversionInd">
+            <path value="Act.entryRelationship.inversionInd"/>
+            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8316)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedBoolean value="true"/>
+        </element>
+        <element id="Act.entryRelationship:encounter.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <requirements value="SHALL contain exactly one [1..1] encounter (CONF:1098-8317)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:encounter.encounter.classCode">
+            <path value="Act.entryRelationship.encounter.classCode"/>
+            <requirements value="This encounter SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; Encounter (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8318)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="ENC"/>
+        </element>
+        <element id="Act.entryRelationship:encounter.encounter.moodCode">
+            <path value="Act.entryRelationship.encounter.moodCode"/>
+            <requirements value="This encounter SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-8319)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Act.entryRelationship:encounter.encounter.id">
+            <path value="Act.entryRelationship.encounter.id"/>
+            <requirements value="This encounter SHALL contain exactly one [1..1] id (CONF:1098-8320)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <constraint>
+                <key value="1098-16849"/>
+                <severity value="warning"/>
+                <human value="Set the encounter ID to the ID of an encounter in another section to signify they are the same encounter (CONF:1098-16849)."/>
+            </constraint>
+        </element>
+        <element id="Act.entryRelationship:instruction">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="instruction"/>
+            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-8322) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.entryRelationship:instruction.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8323)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="SUBJ"/>
+        </element>
+        <element id="Act.entryRelationship:instruction.inversionInd">
+            <path value="Act.entryRelationship.inversionInd"/>
+            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:1098-8324)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedBoolean value="true"/>
+        </element>
+        <element id="Act.entryRelationship:instruction.act">
+            <path value="Act.entryRelationship.act"/>
+            <requirements value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31396)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship:indication">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="indication"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8326) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:indication.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8327)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="RSON"/>
+        </element>
+        <element id="Act.entryRelationship:indication.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <requirements value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-15601)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship:medication">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="medication"/>
+            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-8329) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:medication.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-8330)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="COMP"/>
+        </element>
+        <element id="Act.entryRelationship:medication.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <requirements value="SHALL contain exactly one [1..1] Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-15602)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

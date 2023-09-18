@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="FamilyHistoryOrganizer"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+    <identifier>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.45:2015-08-01"/>
+    </identifier>
+    <version value="2015-08-01"/>
+    <name value="FamilyHistoryOrganizer"/>
+    <title value="Family History Organizer"/>
+    <status value="active"/>
+    <publisher value="WaveOne Associates"/>
+    <contact>
+        <name value="Brett Marquard"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="4135496886"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="brett@waveoneassociates.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Family History Organizer associates a set of observations with a family member. For example, the Family History Organizer can group a set of observations about the patient's father."/>
+    <fhirVersion value="4.0.1"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Organizer">
+            <path value="Organizer"/>
+        </element>
+        <element id="Organizer.classCode">
+            <path value="Organizer.classCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8600)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="CLUSTER"/>
+        </element>
+        <element id="Organizer.moodCode">
+            <path value="Organizer.moodCode"/>
+            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8601)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Organizer.templateId">
+            <path value="Organizer.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Organizer.templateId:primary">
+            <path value="Organizer.templateId"/>
+            <sliceName value="primary"/>
+            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8604) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.templateId:primary.root">
+            <path value="Organizer.templateId.root"/>
+            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.45&quot; (CONF:1198-10497)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.45"/>
+        </element>
+        <element id="Organizer.templateId:primary.extension">
+            <path value="Organizer.templateId.extension"/>
+            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32606)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternString value="2015-08-01"/>
+        </element>
+        <element id="Organizer.id">
+            <path value="Organizer.id"/>
+            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-32485)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Organizer.statusCode">
+            <path value="Organizer.statusCode"/>
+            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8602)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.statusCode.code">
+            <path value="Organizer.statusCode.code"/>
+            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19099)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedString value="completed"/>
+        </element>
+        <element id="Organizer.subject">
+            <path value="Organizer.subject"/>
+            <requirements value="SHALL contain exactly one [1..1] subject (CONF:1198-8609)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.subject.relatedSubject">
+            <path value="Organizer.subject.relatedSubject"/>
+            <requirements value="This subject SHALL contain exactly one [1..1] relatedSubject (CONF:1198-15244)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.subject.relatedSubject.classCode">
+            <path value="Organizer.subject.relatedSubject.classCode"/>
+            <requirements value="This relatedSubject SHALL contain exactly one [1..1] @classCode=&quot;PRS&quot; Person (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:1198-15245)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedCode value="PRS"/>
+        </element>
+        <element id="Organizer.subject.relatedSubject.code">
+            <path value="Organizer.subject.relatedSubject.code"/>
+            <requirements value="This relatedSubject SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Family Member Value urn:oid:2.16.840.1.113883.1.11.19579 DYNAMIC (CONF:1198-15246)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19579"/>
+            </binding>
+        </element>
+        <element id="Organizer.subject.relatedSubject.subject">
+            <path value="Organizer.subject.relatedSubject.subject"/>
+            <requirements value="This relatedSubject SHOULD contain zero or one [0..1] subject (CONF:1198-15248)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <constraint>
+                <key value="1198-15249"/>
+                <severity value="warning"/>
+                <human value="The subject **SHOULD** contain zero or more [0..*] sdtc:id. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the id element (CONF:1198-15249)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-15981"/>
+                <severity value="warning"/>
+                <human value="The subject **MAY** contain zero or one [0..1] *sdtc:deceasedInd*. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the deceasedInd element (CONF:1198-15981)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-15982"/>
+                <severity value="warning"/>
+                <human value="The subject **MAY** contain zero or one [0..1] *sdtc:deceasedTime*. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the deceasedTime element (CONF:1198-15982)."/>
+            </constraint>
+            <constraint>
+                <key value="1198-15983"/>
+                <severity value="warning"/>
+                <human value="The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."/>
+            </constraint>
+        </element>
+        <element id="Organizer.subject.relatedSubject.subject.administrativeGenderCode">
+            <path value="Organizer.subject.relatedSubject.subject.administrativeGenderCode"/>
+            <requirements value="The subject, if present, SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:1198-15974)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1"/>
+            </binding>
+        </element>
+        <element id="Organizer.subject.relatedSubject.subject.birthTime">
+            <path value="Organizer.subject.relatedSubject.subject.birthTime"/>
+            <requirements value="The subject, if present, SHOULD contain zero or one [0..1] birthTime (CONF:1198-15976)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component">
+            <path value="Organizer.component"/>
+            <requirements value="SHALL contain at least one [1..*] component (CONF:1198-32428)."/>
+            <min value="1"/>
+            <max value="*"/>
+        </element>
+        <element id="Organizer.component.observation">
+            <path value="Organizer.component.observation"/>
+            <requirements value="Such components SHALL contain exactly one [1..1] Family History Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.46:2015-08-01) (CONF:1198-32429)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryObservation"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>
