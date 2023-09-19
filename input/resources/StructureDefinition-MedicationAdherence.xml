@@ -1,0 +1,114 @@
+<StructureDefinition xmlns='http://hl7.org/fhir'>
+  <id value='MedicationAdherence'/>
+  <meta>
+    <versionId value='7'/>
+    <lastUpdated value='2023-09-06T20:55:10.735Z'/>
+  </meta>
+  <url value='http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence'/>
+  <identifier>
+    <value value='urn:hl7ii:2.16.840.1.113883.10.20.22.4.508'/>
+  </identifier>
+  <name value='MedicationAdherence'/>
+  <title value='Medication Adherence'/>
+  <status value='active'/>
+  <description value='This profile represents whether a medication has been consumed according to instructions.'/>
+  <fhirVersion value='5.0.0'/>
+  <kind value='logical'/>
+  <abstract value='false'/>
+  <type value='http://hl7.org/cda/stds/core/StructureDefinition/Observation'/>
+  <baseDefinition value='http://hl7.org/cda/stds/core/StructureDefinition/Observation'/>
+  <derivation value='constraint'/>
+  <differential>
+    <element id='Observation'>
+      <path value='Observation'/>
+    </element>
+    <element id='Observation.classCode'>
+      <max value='1'/>
+      <path value='Observation.classCode'/>
+      <min value='1'/>
+    </element>
+    <element id='Observation.moodCode'>
+      <min value='1'/>
+      <path value='Observation.moodCode'/>
+      <max value='1'/>
+      <fixedCode value='EVN'/>
+    </element>
+    <element id='Observation.templateId'>
+      <slicing>
+        <discriminator>
+          <type value='value'/>
+          <path value='root'/>
+        </discriminator>
+        <discriminator>
+          <type value='value'/>
+          <path value='extension'/>
+        </discriminator>
+        <rules value='open'/>
+      </slicing>
+      <path value='Observation.templateId'/>
+      <min value='1'/>
+    </element>
+    <element id='Observation.templateId:primary'>
+      <min value='1'/>
+      <path value='Observation.templateId'/>
+      <sliceName value='primary'/>
+      <max value='1'/>
+    </element>
+    <element id='Observation.templateId:primary.root'>
+      <min value='1'/>
+      <path value='Observation.templateId.root'/>
+      <max value='1'/>
+      <patternString value='2.16.840.1.113883.10.20.22.4.508'/>
+    </element>
+    <element id='Observation.id'>
+      <max value='*'/>
+      <path value='Observation.id'/>
+      <min value='1'/>
+    </element>
+    <element id='Observation.code'>
+      <max value='1'/>
+      <path value='Observation.code'/>
+      <min value='1'/>
+    </element>
+    <element id='Observation.code.code'>
+      <min value='1'/>
+      <path value='Observation.code.code'/>
+      <label value='Adherence to prescribed medication instructions [Reported]'/>
+      <max value='1'/>
+      <patternString value='71799-1'/>
+    </element>
+    <element id='Observation.code.codeSystem'>
+      <min value='1'/>
+      <path value='Observation.code.codeSystem'/>
+      <max value='1'/>
+      <patternString value='2.16.840.1.113883.6.1'/>
+    </element>
+    <element id='Observation.statusCode'>
+      <max value='1'/>
+      <path value='Observation.statusCode'/>
+      <min value='1'/>
+    </element>
+    <element id='Observation.effectiveTime'>
+      <max value='1'/>
+      <path value='Observation.effectiveTime'/>
+      <min value='1'/>
+    </element>
+    <element id='Observation.value'>
+      <min value='1'/>
+      <path value='Observation.value'/>
+      <max value='1'/>
+      <type>
+        <code value='http://hl7.org/cda/stds/core/StructureDefinition/CD'/>
+      </type>
+    </element>
+    <element id='Observation.value.code'>
+      <min value='1'/>
+      <path value='Observation.value.code'/>
+      <max value='1'/>
+      <binding>
+        <strength value='extensible'/>
+        <valueSet value='http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.59'/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>
