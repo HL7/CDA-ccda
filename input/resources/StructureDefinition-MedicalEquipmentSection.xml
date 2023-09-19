@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="MedicalEquipmentSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentSection"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.23:2014-06-09"/>
@@ -10,19 +17,6 @@
     <name value="MedicalEquipmentSection"/>
     <title value="Medical Equipment Section"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This section defines a patient's implanted and external health and medical devices and equipment. This section lists any pertinent durable medical equipment (DME) used to help maintain the patient's health status. All equipment relevant to the diagnosis, care, or treatment of a patient should be included. &#xA;&#xA;Devices applied to, or placed in, the patient are represented with the Procedure Activity Procedure template. Equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs) is represented by the Non-Medicinal Supply Activity template. &#xA;&#xA;These devices may be grouped together within a Medical Equipment Organizer. The organizer would probably not be used with devices applied in or on the patient but rather to organize a group of medical supplies the patient has been supplied with."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

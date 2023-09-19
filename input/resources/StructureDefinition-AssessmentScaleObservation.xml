@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="AssessmentScaleObservation"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.69:2022-06-01"/>
@@ -10,20 +17,6 @@
     <name value="AssessmentScaleObservation"/>
     <title value="Assessment Scale Observation"/>
     <status value="active"/>
-    <publisher value="Namaste Informatics"/>
-    <contact>
-        <name value="Gay Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="9493028082"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gdolin@NamasteInformatics.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="An assessment scale is a collection of observations that together can yield a calculated or non-calculated summary evaluation of a one or more conditions. Examples include the Braden Scale (assesses pressure ulcer risk), APACHE Score (estimates mortality in critically ill patients), Mini-Mental Status Exam (assesses cognitive function), APGAR Score (assesses the health of a newborn), Glasgow Coma Scale (assesses coma and impaired consciousness), and WE CARE (Well Child Care, Evaluation, Community Resources, Advocacy, Referral, Education - a clinic-based screening and referral system developed for pediatric settings).&#xA;&#xA;When an Assessment Scale Observation is contained in a Problem Observation, a Social History Observation or a Procedure instance that is Social Determinant of Health focused, that Assessment scale **MAY** contain assessment scale observations that represent question and answer pairs from SDOH screening instruments that are represented in LOINC. Note that guidance on the use of LOINC in assessment scales already exists in Assessment Scale Observation constraints and Assessment Scale Supporting Observations constraints."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

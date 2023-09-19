@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="USRealmDateandTimeDTUSFIELDED"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.3"/>
@@ -9,20 +16,6 @@
     <name value="USRealmDateandTimeDTUSFIELDED"/>
     <title value="US Realm Date and Time (DT.US.FIELDED)"/>
     <status value="active"/>
-    <publisher value="Lantana Consulting Group"/>
-    <contact>
-        <name value="Sarah Gaunt"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="+6 141-029-2506"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="sarah.gaunt@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (DTM.US.FIELDED),  but is used with elements having a datatype of IVL_TS."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

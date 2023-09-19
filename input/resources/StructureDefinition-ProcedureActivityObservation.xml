@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ProcedureActivityObservation"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09"/>
@@ -10,19 +17,6 @@
     <name value="ProcedureActivityObservation"/>
     <title value="Procedure Activity Observation"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The common notion of procedure is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Therefore procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy). &#xA;&#xA;This template represents procedures that result in new information about the patient that cannot be classified as a procedure according to the HL7 RIM. Examples of these procedures are diagnostic imaging procedures, EEGs, and EKGs."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

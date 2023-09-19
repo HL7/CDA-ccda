@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="TransferSummary"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.13:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="TransferSummary"/>
     <title value="Transfer Summary"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This document describes constraints on the Clinical Document Architecture (CDA) header and body elements for a Transfer Summary. The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings. &#xA;&#xA;Standardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="TobaccoUse"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09"/>
@@ -10,19 +17,6 @@
     <name value="TobaccoUse"/>
     <title value="Tobacco Use"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This template represents a patient's tobacco use. &#xA;&#xA;All the types of tobacco use are represented using the codes from the tobacco use and exposure-finding hierarchy in SNOMED CT, including codes required for recording smoking status in Meaningful Use Stage 2. &#xA;&#xA;The effectiveTime element is used to describe dates associated with the patient's tobacco use. Whereas the Smoking Status - Meaningful Use template (2.16.840.1.113883.10.20.22.4.78:2014-06-09) represents a &quot;snapshot in time&quot; observation, simply reflecting what the patient's current smoking status is at the time of the observation, this Tobacco Use template uses effectiveTime to represent the biologically relevant time of the observation. Thus, to record a former smoker, an observation of &quot;cigarette smoker&quot; will have an effectiveTime/low defining the time the patient started to smoke cigarettes and an effectiveTime/high defining the time the patient ceased to smoke cigarettes. To record a current smoker, the effectiveTime/low will define the time the patient started smoking and will have no effectiveTime/high to indicated that the patient is still smoking."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

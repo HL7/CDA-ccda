@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="MedicationsSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"/>
@@ -10,19 +17,6 @@
     <name value="MedicationsSection"/>
     <title value="Medications Section"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Medications Section contains a patient's current medications and pertinent medication history. At a minimum, the currently active medications are listed. An entire medication history is an option. The section can describe a patient's prescription and dispense history and information about intended drug monitoring. &#xD;&#xA;&#xD;&#xA;This section requires either an entry indicating the subject is not known to be on any medications or entries summarizing the subject's medications."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

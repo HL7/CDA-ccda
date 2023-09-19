@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="AgeObservation"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AgeObservation"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.31"/>
@@ -9,19 +16,6 @@
     <name value="AgeObservation"/>
     <title value="Age Observation"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This Age Observation represents the subject's age at onset of an event or observation. The age of a relative in a Family History Observation at the time of that observation could also be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime. However, a common scenario is that a patient will know the age of a relative when the relative had a certain condition or when the relative died, but will not know the actual year (e.g., &quot;grandpa died of a heart attack at the age of 50&quot;). Often times, neither precise dates nor ages are known (e.g., &quot;cousin died of congenital heart disease as an infant&quot;)."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

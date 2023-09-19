@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="AdvanceDirectiveObservation"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="AdvanceDirectiveObservation"/>
     <title value="Advance Directive Observation"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This clinical statement represents Advance Directive Observation findings (e.g., &quot;resuscitation status is Full Code&quot;) rather than orders. It should not be considered a legal document or a substitute for the actual Advance Directive document. The related legal documents are referenced using the reference/externalReference element.&#xA;&#xA;The Advance Directive Observation describes the patient's directives, including but not limited to:&#xA;*  Medications&#xA;*  Transfer of Care to Hospital&#xA;*  Treatment&#xA;*  Procedures&#xA;*  Intubation and Ventilation&#xA;*  Diagnostic Tests&#xA;*  Tests&#xA;&#xA;The observation/value element contains the detailed patient directive which may be coded or text. For example, a category directive may be antibiotics, and the details would be intravenous antibiotics only.&#xA;"/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

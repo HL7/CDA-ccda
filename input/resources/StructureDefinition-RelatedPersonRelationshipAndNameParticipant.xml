@@ -6,6 +6,13 @@
         <versionId value="4"/>
         <lastUpdated value="2023-07-11T23:42:06.321Z"/>
     </meta>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/RelatedPersonRelationshipAndNameParticipant"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.5.8:2023-05-01"/>
@@ -14,20 +21,6 @@
     <name value="RelatedPersonRelationshipAndNameParticipant"/>
     <title value="Related Person Relationship and Name Participant"/>
     <status value="draft"/>
-    <publisher value="Namaste Informatics"/>
-    <contact>
-        <name value="Gay Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="9493028082"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gdolin@NamasteInformatics.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This template represents a generic participant person that has a relationship to the patient. (e.g., parent, next-of-kin, neighbor). The related person's name is required and it is recommended that the person's contact information is present. The more specific CDA participant of Guardian (recordTarget/patientRole/patient/guardian) can be used to represent a legally responsible guardian of the patient within the header. This template may be used to represent a person with any relationship to the patient within the header, or at the entry level when pertinent to a particular clinical statement."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

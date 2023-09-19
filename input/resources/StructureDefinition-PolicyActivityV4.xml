@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="PolicyActivityV4"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivityV4"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.61:2023-05-01"/>
@@ -10,20 +17,6 @@
     <name value="PolicyActivityV4"/>
     <title value="Policy Activity (V4)"/>
     <status value="draft"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="A policy activity represents the policy or program providing the coverage. The person for whom payment is being provided (i.e., the patient) is the covered party. The subscriber of the policy or program is represented as a participant that is the holder of the coverage. The payer is represented as the performer of the policy activity."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

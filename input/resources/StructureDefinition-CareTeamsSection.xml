@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="CareTeamsSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamsSection"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.500:2022-06-01"/>
@@ -10,20 +17,6 @@
     <name value="CareTeamsSection"/>
     <title value="Care Teams Section"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Care Team Section is used to share historical and current Care Team information. &#xA;&#xA;The Care Team Section may be included in any type of C-CDA structured document that is an open template.&#xA;&#xA;An individual can have more than one Care Team.  A Care Team can exist over time such as a longitudinal care team which includes historical members that may be active or inactive on the care team as needed. Or a Care Team, such as a rehabilitation team, may exist to address a person's needs associated with a particular care event, or a team can be based on addressing a specific condition. &#xA;&#xA;The Care Team Organizer entry template used in the C-CDA Care Teams Section is meant to support the foundation of effective communication, interaction channels and maintenance of current clinical context awareness for the patient, caregivers and care providers to promote care coordination. &#xA;&#xA;"/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

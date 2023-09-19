@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="DischargeSummary"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.8:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="DischargeSummary"/>
     <title value="Discharge Summary"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Discharge Summary is a document which synopsizes a patient's admission to a hospital, LTPAC provider, or other setting. It provides information for the continuation of care following discharge. The Joint Commission requires the following information to be included in the Discharge Summary (http://www.jointcommission.org/):&#xA;*  The reason for hospitalization (the admission)&#xA;*  The procedures performed, as applicable&#xA;*  The care, treatment, and services provided&#xA;*  The patients condition and disposition at discharge&#xA;*  Information provided to the patient and family&#xA;*  Provisions for follow-up care&#xA;&#xA;The best practice for a Discharge Summary is to include the discharge disposition in the display of the header."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

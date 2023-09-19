@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="AdmissionDiagnosisSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AdmissionDiagnosisSection"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.43:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="AdmissionDiagnosisSection"/>
     <title value="Admission Diagnosis Section"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This section contains a narrative description of the problems or diagnoses identified by the clinician at the time of the patient's admission. This section may contain a coded entry which represents the admitting diagnoses."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>

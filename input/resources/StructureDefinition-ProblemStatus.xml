@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ProblemStatus"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemStatus"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.6:2019-06-20"/>
@@ -10,20 +17,6 @@
     <name value="ProblemStatus"/>
     <title value="Problem Status"/>
     <status value="active"/>
-    <publisher value="Life Over Time Solutions"/>
-    <contact>
-        <name value="Lisa Nelson"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4012191165"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="LisaRNelson@cox.net"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Problem Status records the clinical status attributed to the problem.&#xA;&#xA;"/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
