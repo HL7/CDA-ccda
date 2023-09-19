@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="MedicationActivity"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09"/>
@@ -597,7 +604,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/2.16.840.1.113883.10.20.22.4.508"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
             </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:signature">
