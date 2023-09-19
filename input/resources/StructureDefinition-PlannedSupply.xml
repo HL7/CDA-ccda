@@ -133,56 +133,32 @@
             <min value="0"/>
             <max value="1"/>
         </element>
-        <!--SG 20230709: Adding slice, this is weird-->
         <element id="Supply.product">
             <path value="Supply.product"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="manufacturedProduct"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/>
             <requirements value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
+                <key value="1098-32325"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or one [0..1] product (CONF:1098-32325)."/>
+            </constraint>
+            <constraint>
                 <key value="1098-32092"/>
                 <severity value="error"/>
-                <human value="If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) then the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) and the participant **SHALL NOT** be Product Instance (CONF:1098-32092)."/>
+                <human value="If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) or Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) then the participant **SHALL NOT** be Product Instance (CONF:1098-32092 and CONF:1098-32093)."/>
             </constraint>
         </element>
-        <element id="Supply.product:medicationInformation">
-            <path value="Supply.product"/>
-            <sliceName value="medicationInformation"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Supply.product:medicationInformation.manufacturedProduct">
+        <element id="Supply.product.manufacturedProduct">
             <path value="Supply.product.manufacturedProduct"/>
-            <requirements value="The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationInformation"/>
-            </type>
-        </element>
-        <element id="Supply.product:immunizationMedInformation">
-            <path value="Supply.product"/>
-            <sliceName value="immunizationMedInformation"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Supply.product:immunizationMedInformation.manufacturedProduct">
-            <path value="Supply.product.manufacturedProduct"/>
-            <requirements value="The product, if present, SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1098-32052)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
+                <profile value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
             </type>
         </element>
         <!--<element id="Supply.product"><path value="Supply.product"/><short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/><requirements value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/><min value="0"/><max value="1"/><constraint><key value="1098-32092"/><severity value="error"/><human value="If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) then the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) and the participant **SHALL NOT** be Product Instance (CONF:1098-32092)."/></constraint></element><element id="Supply.product.manufacturedProduct"><path value="Supply.product.manufacturedProduct"/><requirements value="The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/><min value="1"/><max value="1"/><type><code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/><profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationInformation"/></type><type><code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/><profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/></type></element>-->
