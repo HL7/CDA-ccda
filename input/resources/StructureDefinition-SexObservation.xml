@@ -28,7 +28,7 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This template represents sex notations that occur in various instances, such as encounters that reflect information derived from driver's licenses or other IDs and meets the USCDI V4 Data element Sex.&#xA;&#xA;The Birth Sex Observation template is available for use in C-CDA and reflects specifically the sex assigned at birth concept present in USCDI V1 and V2.&#xA;&#xA;This Sex observation MAY also mean sex at the time of birth if it was documented at the time of delivery.&#xA;Future versions of the template be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation 1.0.0. when published.&#xA;&#xA;It is recommended systems include the Sex Observation in the Social History section."/>
+    <description value="This Sex Observation template is used to reflect the documentation of a person’s sex. Systems choosing to record the source of information should include the Provenance participation.&#xA;&#xA;USCDI v3 includes a data element for sex, intended to support the exchange of a sex value that is not characterized as sex assigned at birth or birth sex. This version of the C-CDA companion guide supports USCDI v3 Sex data element. Sex assigned at birth or birth sex must be recorded using the Birth Sex Observation which falls under the broader category of a 'Sex observation'. A Data Absent Reason (DAR) code value of 'asked-declined' may be used when a person has chosen not to disclose their sex.&#xA;&#xA;Future versions of the template may be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation, which may include additional guidance on this Sex observation and the relationship to administrative gender (administrativeGenderCode).&#xA;&#xA;It is recommended systems include the Sex Observation in the Social History section."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -143,39 +143,50 @@
             <path value="Observation.effectiveTime.low"/>
             <short value="low"/>
             <definition value="This effectiveTime SHALL NOT contain exactly one [1..1] low (CONF:4537-33090)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <min value="0"/>
+            <max value="0"/>
         </element>
         <element id="Observation.effectiveTime.width">
             <path value="Observation.effectiveTime.width"/>
             <short value="width"/>
             <definition value="This effectiveTime SHALL NOT contain exactly one [1..1] width (CONF:4537-33091)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <min value="0"/>
+            <max value="0"/>
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
             <short value="high"/>
             <definition value="This effectiveTime SHALL NOT contain exactly one [1..1] high (CONF:4537-33092)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <min value="0"/>
+            <max value="0"/>
         </element>
         <element id="Observation.effectiveTime.center">
             <path value="Observation.effectiveTime.center"/>
             <short value="center"/>
             <definition value="This effectiveTime SHALL NOT contain exactly one [1..1] center (CONF:4537-33093)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <min value="0"/>
+            <max value="0"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="value"/>
-            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Sex urn:oid:2.16.840.1.113762.1.4.1099.53 DYNAMIC 2016-06-01 (CONF:4537-33080)."/>
+            <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;(CONF:4537-33080)."/>
             <min value="1"/>
             <max value="1"/>
+         </element>
+         <element id="Observation.value.nullFlavor">
+             <path value="Observation.value.nullFlavor"/>
+             <definition value="SHALL NOT contain [0..0] @nullFlavor (CONF:4547-33094)."/>
+             <min value="0"/>
+             <max value="0"/>
+        </element>
+         <element id="Observation.value.code">
+             <path value="Observation.value.code"/>
+             <definition value="SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Sex (urn:oid:2.16.840.1.113762.1.4.1240.3) DYNAMIC 2023-06-28 (CONF:4547-33098)."/>
+             <min value="1"/>
+             <max value="1"/>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.53"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.3"/>
             </binding>
         </element>
     </differential>

@@ -33,3 +33,4 @@ The changes in this version of Consolidated CDA have been made from STU comments
 20. CDA-1277 - Added a Progress Towards Goal Observation to the Goal Observation template.
 21. CDA-1367 - Use proper LOINC code (8693-4) with no translations on Mental Status Observation template.
 22.	CDA-1693 - Change the name of the Interventions Section to Activities Section.
+23. CDA-20693 - typo correction to USCDI guidance

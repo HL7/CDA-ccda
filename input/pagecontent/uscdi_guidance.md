@@ -597,7 +597,7 @@ in the header or in entries.
 
 The Basic Occupation template is a simple observation template that is similar to the Past or Present Occupation
 Observation template found in [HL7 CDA® R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for
-Occupational Data for Health Release 1, STU Release 1.1 - US Realm](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522) but is simplified or use in the general clinical
+Occupational Data for Health Release 1, STU Release 1.1 - US Realm](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522) but is simplified for use in the general clinical
 context and binds to the most recent ODH value set from Occupational Data for Health, version 20201030 code
 system.
 
