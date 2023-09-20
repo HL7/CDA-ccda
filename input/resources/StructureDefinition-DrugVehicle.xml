@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="DrugVehicle"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DrugVehicle"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.24"/>
@@ -9,19 +16,6 @@
     <name value="DrugVehicle"/>
     <title value="Drug Vehicle"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This template represents the vehicle (e.g., saline, dextrose) for administering a medication."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -35,7 +29,7 @@
         </element>
         <element id="ParticipantRole.classCode">
             <path value="ParticipantRole.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7490)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7490)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="MANU"/>
@@ -54,53 +48,58 @@
         <element id="ParticipantRole.templateId:primary">
             <path value="ParticipantRole.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-7495) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:81-7495) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ParticipantRole.templateId:primary.root">
             <path value="ParticipantRole.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.24&quot; (CONF:81-10493)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.24&quot; (CONF:81-10493)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.24"/>
         </element>
+        <element id="ParticipantRole.templateId:primary.extension">
+            <path value="ParticipantRole.templateId.extension"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
         <element id="ParticipantRole.code">
             <path value="ParticipantRole.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:81-19137)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:81-19137)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ParticipantRole.code.code">
             <path value="ParticipantRole.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;412307009&quot; Drug Vehicle (CONF:81-19138)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;412307009&quot; Drug Vehicle (CONF:81-19138)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="412307009"/>
         </element>
         <element id="ParticipantRole.code.codeSystem">
             <path value="ParticipantRole.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:81-26502)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:81-26502)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
         <element id="ParticipantRole.playingEntity">
             <path value="ParticipantRole.playingEntity"/>
-            <requirements value="SHALL contain exactly one [1..1] playingEntity (CONF:81-7492)."/>
+            <comment value="SHALL contain exactly one [1..1] playingEntity (CONF:81-7492)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ParticipantRole.playingEntity.code">
             <path value="ParticipantRole.playingEntity.code"/>
             <short value="This playingEntity/code is used to supply a coded term for the drug vehicle."/>
-            <requirements value="This playingEntity SHALL contain exactly one [1..1] code (CONF:81-7493)."/>
+            <comment value="This playingEntity SHALL contain exactly one [1..1] code (CONF:81-7493)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ParticipantRole.playingEntity.name">
             <path value="ParticipantRole.playingEntity.name"/>
-            <requirements value="This playingEntity MAY contain zero or one [0..1] name (CONF:81-7494)."/>
+            <comment value="This playingEntity MAY contain zero or one [0..1] name (CONF:81-7494)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>

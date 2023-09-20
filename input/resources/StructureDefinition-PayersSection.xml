@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="PayersSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PayersSection"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="PayersSection"/>
     <title value="Payers Section"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Payers Section contains data on the patient's payers, whether &quot;third party&quot; insurance, self-pay, other payer or guarantor, or some combination of payers, and is used to define which entity is the responsible fiduciary for the financial aspects of a patient's care..&#xA;&#xA;Each unique instance of a payer and all the pertinent data needed to contact, bill to, and collect from that payer should be included. Authorization information that can be used to define pertinent referral, authorization tracking number, procedure, therapy, intervention, device, or similar authorizations for the patient or provider, or both should be included. At a minimum, the patient's pertinent current payment sources should be listed..&#xA;&#xA;The sources of payment are represented as a Coverage Activity, which identifies all of the insurance policies or government or other programs that cover some or all of the patient's healthcare expenses. The policies or programs are sequenced by preference. The Coverage Activity has a sequence number that represents the preference order. Each policy or program identifies the covered party with respect to the payer, so that the identifiers can be recorded."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -53,53 +46,53 @@
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7924) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-7924) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.18&quot; (CONF:1198-10434)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.18&quot; (CONF:1198-10434)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.18"/>
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32597)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32597)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-15395)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-15395)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;48768-6&quot; Payers (CONF:1198-15396)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;48768-6&quot; Payers (CONF:1198-15396)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="48768-6"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32149)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32149)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <requirements value="SHALL contain exactly one [1..1] title (CONF:1198-7926)."/>
+            <comment value="SHALL contain exactly one [1..1] title (CONF:1198-7926)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:1198-7927)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:1198-7927)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -116,18 +109,18 @@
         <element id="Section.entry:coverage">
             <path value="Section.entry"/>
             <sliceName value="coverage"/>
-            <requirements value="SHOULD contain zero or more [0..*] entry (CONF:1198-7959) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] entry (CONF:1198-7959) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:coverage.act">
             <path value="Section.entry.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Coverage Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.60:2015-08-01) (CONF:1198-15501)."/>
+            <comment value="SHALL contain exactly one [1..1] Coverage Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.60:2015-08-01) (CONF:1198-15501)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CoverageActivityV4"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CoverageActivity"/>
             </type>
         </element>
     </differential>

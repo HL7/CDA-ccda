@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="EncountersSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/EncountersSection"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="EncountersSection"/>
     <title value="Encounters Section"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This section lists and describes any healthcare encounters pertinent to the patient's current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patient's condition. It may include visits, appointments, as well as non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -37,7 +30,7 @@
         </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
-            <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32815)."/>
+            <comment value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32815)."/>
             <min value="0"/>
             <max value="1"/>
             <fixedCode value="NI"/>
@@ -60,53 +53,53 @@
         <element id="Section.templateId:secondary">
             <path value="Section.templateId"/>
             <sliceName value="secondary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8705) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8705) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:secondary.root">
             <path value="Section.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.22.1&quot; (CONF:1198-10387)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.22.1&quot; (CONF:1198-10387)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.22.1"/>
         </element>
         <element id="Section.templateId:secondary.extension">
             <path value="Section.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32548)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32548)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-15466)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-15466)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;46240-8&quot; Encounters (CONF:1198-15467)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;46240-8&quot; Encounters (CONF:1198-15467)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="46240-8"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot; 2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-31137)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot; 2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-31137)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <requirements value="SHALL contain exactly one [1..1] title (CONF:1198-8707)."/>
+            <comment value="SHALL contain exactly one [1..1] title (CONF:1198-8707)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:1198-8708)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:1198-8708)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -125,13 +118,13 @@
         <element id="Section.entry:encounter">
             <path value="Section.entry"/>
             <sliceName value="encounter"/>
-            <requirements value="SHALL contain at least one [1..*] entry (CONF:1198-8709) such that it"/>
+            <comment value="SHALL contain at least one [1..*] entry (CONF:1198-8709) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:encounter.encounter">
             <path value="Section.entry.encounter"/>
-            <requirements value="SHALL contain exactly one [1..1] Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:1198-15468)."/>
+            <comment value="SHALL contain exactly one [1..1] Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:1198-15468)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

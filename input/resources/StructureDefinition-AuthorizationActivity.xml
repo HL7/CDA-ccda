@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="AuthorizationActivity"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorizationActivity"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.1.19"/>
@@ -9,19 +16,6 @@
     <name value="AuthorizationActivity"/>
     <title value="Authorization Activity"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="An Authorization Activity represents authorizations or pre-authorizations currently active for the patient for the particular payer. &#xA;&#xA;Authorizations are represented using an act subordinate to the policy or program that provided it. The authorization refers to the policy or program. Authorized treatments can be grouped into an organizer class, where common properties, such as the reason for the authorization, can be expressed. Subordinate acts represent what was authorized."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -35,14 +29,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8944)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8944)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8945)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-8945)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -61,20 +55,25 @@
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-8946) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:81-8946) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:primary.root">
             <path value="Act.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.19&quot; (CONF:81-10529)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.19&quot; (CONF:81-10529)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.1.19"/>
         </element>
+				<element id="Act.templateId:primary.extension">
+					<path value="Act.templateId.extension"/>
+					<min value="0"/>
+					<max value="0"/>
+				</element>
         <element id="Act.id">
             <path value="Act.id"/>
-            <requirements value="SHALL contain exactly one [1..1] id (CONF:81-8947)."/>
+            <comment value="SHALL contain exactly one [1..1] id (CONF:81-8947)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -92,7 +91,7 @@
         <element id="Act.entryRelationship:target">
             <path value="Act.entryRelationship"/>
             <sliceName value="target"/>
-            <requirements value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
+            <comment value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -109,7 +108,7 @@
         </element>
         <element id="Act.entryRelationship:target.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-8949)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:81-8949)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="SUBJ"/>

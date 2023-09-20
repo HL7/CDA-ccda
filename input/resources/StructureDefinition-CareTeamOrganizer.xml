@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="CareTeamOrganizer"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamOrganizer"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.500:2022-06-01"/>
@@ -10,20 +17,6 @@
     <name value="CareTeamOrganizer"/>
     <title value="Care Team Organizer"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This organizer template contains information about a single care team. &#xA;The author of the organizer is the person who documented the care team information.&#xA;The participants of the organizer are the care team lead(s) and the care team organization.&#xA;&#xA;The components of the organizer contain the following information:&#xA;* The encounter that caused the care team to be formed&#xA;* Narrative information about the care team&#xA;* The care team members&#xA;* Reasons for the care team&#xA;* The care team type(s) - a care team can have multiple care team types &#xA;&#xA;"/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -37,16 +30,14 @@
         </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
-            <short value="classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; CLUSTER (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-124)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; CLUSTER (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-124)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="CLUSTER"/>
         </element>
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
-            <short value="moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-125)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-125)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -70,89 +61,78 @@
             <path value="Organizer.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-112) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-112) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.templateId:templateId1.root">
             <path value="Organizer.templateId.root"/>
-            <short value="root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.500&quot; (CONF:4515-117)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.500&quot; (CONF:4515-117)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.500"/>
         </element>
         <element id="Organizer.templateId:templateId1.extension">
             <path value="Organizer.templateId.extension"/>
-            <short value="extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-118)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-118)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2022-06-01"/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>
-            <short value="id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:4515-126)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:4515-126)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
-            <short value="code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:4515-114)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:4515-114)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.code.code">
             <path value="Organizer.code.code"/>
-            <short value="code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;86744-0&quot; Care Team (CONF:4515-120)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;86744-0&quot; Care Team (CONF:4515-120)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="86744-0"/>
         </element>
         <element id="Organizer.code.codeSystem">
             <path value="Organizer.code.codeSystem"/>
-            <short value="codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-121)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-121)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Organizer.code.originalText">
             <path value="Organizer.code.originalText"/>
-            <short value="originalText"/>
-            <definition value="This code SHOULD contain zero or one [0..1] originalText (CONF:4515-154) such that it"/>
+            <comment value="This code SHOULD contain zero or one [0..1] originalText (CONF:4515-154) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="code.Organizer.code.originalText.reference">
+        <element id="Organizer.code.originalText.reference">
             <path value="Organizer.code.originalText.reference"/>
-            <short value="reference"/>
-            <definition value="SHALL contain exactly one [1..1] reference (CONF:4515-155)."/>
+            <comment value="SHALL contain exactly one [1..1] reference (CONF:4515-155)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="code.Organizer.code.originalText.reference.value">
+        <element id="Organizer.code.originalText.reference.value">
             <path value="Organizer.code.originalText.reference.value"/>
-            <short value="value"/>
-            <definition value="This reference SHALL contain exactly one [1..1] @value (CONF:4515-156)."/>
+            <comment value="This reference SHALL contain exactly one [1..1] @value (CONF:4515-156)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <short value="statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4515-113)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4515-113)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
-            <label value="When statusCode has a value set, its value MAY be rendered in the narrative."/>
             <short value="When statusCode has a value set, its value MAY be rendered in the narrative."/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 STATIC (CONF:4515-119)."/>
+           <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 STATIC (CONF:4515-119)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -162,29 +142,25 @@
         </element>
         <element id="Organizer.effectiveTime">
             <path value="Organizer.effectiveTime"/>
-            <short value="effectiveTime"/>
-            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-127)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-127)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.effectiveTime.low">
             <path value="Organizer.effectiveTime.low"/>
-            <short value="low"/>
-            <definition value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:4515-157)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:4515-157)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.effectiveTime.high">
             <path value="Organizer.effectiveTime.high"/>
-            <short value="high"/>
-            <definition value="This effectiveTime MAY contain zero or one [0..1] high (CONF:4515-158)."/>
+            <comment value="This effectiveTime MAY contain zero or one [0..1] high (CONF:4515-158)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>
-            <short value="author"/>
-            <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-116)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-116)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -205,29 +181,27 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"/>
+            <comment value="MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"/>
         </element>
         <element id="Organizer.participant:participant1">
             <path value="Organizer.participant"/>
             <sliceName value="participant1"/>
             <short value="participant"/>
-            <definition value="SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Organizer.participant:participant1.typeCode">
             <path value="Organizer.participant.typeCode"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;PPRF&quot; Primary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-129)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;PPRF&quot; Primary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-129)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="PPRF"/>
         </element>
         <element id="Organizer.participant:participant1.sdtcFunctionCode">
             <path value="Organizer.participant.sdtcFunctionCode"/>
-            <label value="Describes the person's, caregiver's or health care provider's functional role on the care team."/>
             <short value="Describes the person's, caregiver's or health care provider's functional role on the care team."/>
-            <definition value="MAY contain zero or one [0..1] sdtc:functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-130)."/>
+           <comment value="MAY contain zero or one [0..1] sdtc:functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-130)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -237,15 +211,13 @@
         </element>
         <element id="Organizer.participant:participant1.participantRole">
             <path value="Organizer.participant.participantRole"/>
-            <short value="participantRole"/>
-            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:4515-131)."/>
+            <comment value="SHALL contain exactly one [1..1] participantRole (CONF:4515-131)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.participant:participant1.participantRole.id">
             <path value="Organizer.participant.participantRole.id"/>
-            <short value="id"/>
-            <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:4515-132)."/>
+            <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:4515-132)."/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -258,65 +230,57 @@
             <path value="Organizer.participant"/>
             <sliceName value="participant2"/>
             <short value="participant"/>
-            <definition value="MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"/>
+            <comment value="MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Organizer.participant:participant2.typeCode">
             <path value="Organizer.participant.typeCode"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-137)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-137)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="LOC"/>
         </element>
         <element id="Organizer.participant:participant2.participantRole">
             <path value="Organizer.participant.participantRole"/>
-            <short value="participantRole"/>
-            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:4515-135)."/>
+            <comment value="SHALL contain exactly one [1..1] participantRole (CONF:4515-135)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.participant:participant2.participantRole.id">
             <path value="Organizer.participant.participantRole.id"/>
-            <short value="id"/>
-            <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."/>
+            <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.participant:participant2.participantRole.addr">
             <path value="Organizer.participant.participantRole.addr"/>
-            <short value="addr"/>
-            <definition value="This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)."/>
+            <comment value="This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Organizer.participant:participant2.participantRole.telecom">
             <path value="Organizer.participant.participantRole.telecom"/>
-            <short value="telecom"/>
-            <definition value="This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)."/>
+            <comment value="This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Organizer.participant:participant2.participantRole.playingEntity">
             <path value="Organizer.participant.participantRole.playingEntity"/>
-            <short value="playingEntity"/>
-            <definition value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:4515-136)."/>
+            <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:4515-136)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.participant:participant2.participantRole.playingEntity.classCode">
             <path value="Organizer.participant.participantRole.playingEntity.classCode"/>
-            <short value="classCode"/>
-            <definition value="This playingEntity SHALL contain exactly one [1..1] @classCode=&quot;PLC&quot; Place (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:4515-141)."/>
+            <comment value="This playingEntity SHALL contain exactly one [1..1] @classCode=&quot;PLC&quot; Place (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:4515-141)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="PLC"/>
         </element>
         <element id="Organizer.participant:participant2.participantRole.playingEntity.name">
             <path value="Organizer.participant.participantRole.playingEntity.name"/>
-            <short value="name"/>
-            <definition value="This playingEntity SHALL contain exactly one [1..1] name (CONF:4515-142)."/>
+            <comment value="This playingEntity SHALL contain exactly one [1..1] name (CONF:4515-142)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -329,20 +293,19 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain at least one [1..*] component (CONF:4515-152) such that it"/>
+            <comment value="SHALL contain at least one [1..*] component (CONF:4515-152) such that it"/>
         </element>
         <element id="Organizer.component:component1">
             <path value="Organizer.component"/>
             <sliceName value="component1"/>
             <short value="component"/>
-            <definition value="MAY contain zero or more [0..*] component (CONF:4515-110) such that it"/>
+            <comment value="MAY contain zero or more [0..*] component (CONF:4515-110) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Organizer.component:component1.observation">
             <path value="Organizer.component.observation"/>
-            <short value="observation"/>
-            <definition value="SHALL contain exactly one [1..1] Care Team Type Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.2:2019-07-01) (CONF:4515-163)."/>
+            <comment value="SHALL contain exactly one [1..1] Care Team Type Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.2:2019-07-01) (CONF:4515-163)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -354,14 +317,13 @@
             <path value="Organizer.component"/>
             <sliceName value="component2"/>
             <short value="component"/>
-            <definition value="MAY contain zero or more [0..*] component (CONF:4515-146) such that it"/>
+            <comment value="MAY contain zero or more [0..*] component (CONF:4515-146) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Organizer.component:component2.act">
             <path value="Organizer.component.act"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-147)."/>
+            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-147)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -373,22 +335,20 @@
             <path value="Organizer.component"/>
             <sliceName value="component3"/>
             <short value="component"/>
-            <definition value="MAY contain zero or more [0..*] component (CONF:4515-148) such that it"/>
+            <comment value="MAY contain zero or more [0..*] component (CONF:4515-148) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Organizer.component:component3.encounter">
             <path value="Organizer.component.encounter"/>
-            <short value="encounter"/>
-            <definition value="SHALL contain exactly one [1..1] encounter (CONF:4515-164)."/>
+            <comment value="SHALL contain exactly one [1..1] encounter (CONF:4515-164)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.component:component3.encounter.id">
             <path value="Organizer.component.encounter.id"/>
-            <label value="1.	If the id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor=NA, then this entry SHALL conform to the Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4435-145)."/>
             <short value="1.	If the id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor=NA, then this entry SHALL conform to the Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4435-145)."/>
-            <definition value="This encounter SHALL contain at least one [1..*] id (CONF:4515-165)."/>
+           <comment value="This encounter SHALL contain at least one [1..*] id (CONF:4515-165)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
@@ -396,14 +356,13 @@
             <path value="Organizer.component"/>
             <sliceName value="component4"/>
             <short value="component"/>
-            <definition value="MAY contain zero or one [0..1] component (CONF:4515-150) such that it"/>
+            <comment value="MAY contain zero or one [0..1] component (CONF:4515-150) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Organizer.component:component4.act">
             <path value="Organizer.component.act"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-151)."/>
+            <comment value="SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-151)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -415,14 +374,13 @@
             <path value="Organizer.component"/>
             <sliceName value="component5"/>
             <short value="component"/>
-            <definition value="SHALL contain at least one [1..*] component (CONF:4515-152) such that it"/>
+            <comment value="SHALL contain at least one [1..*] component (CONF:4515-152) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.component:component5.act">
             <path value="Organizer.component.act"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Care Team Member Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.1:2022-06-01) (CONF:4515-166)."/>
+            <comment value="SHALL contain exactly one [1..1] Care Team Member Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.1:2022-06-01) (CONF:4515-166)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

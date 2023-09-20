@@ -63,7 +63,7 @@ Assessment Screenings can represent a structured evaluation of risk (e.g., PRAPA
 screening tool) for any Social Determinants of Health domain such as food, housing, or transportation security. The
 assessment scale responses are represented in C-CDA with the Assessment Scale Observation
 2.16.840.1.113883.10.20.22.4.69:2022- 06 -01 and its contained Assessment Scale Supporting Observation
-2.16.840.1.113883.10.20.22.4.86. The Social History Observation (V4) 2.16.840.1.113883.10.20.22.4.38:2022-06-
+2.16.840.1.113883.10.20.22.4.86. The Social History Observation 2.16.840.1.113883.10.20.22.4.38:2022-06-
 01 is for simple observations made by an individual about a patient's social history status during the course of care.
 Both can contribute to the identification of SDOH Problems (Conditions) or Observations or can be the reason for
 Service Requests (Planned Procedures) or Procedures.
@@ -366,7 +366,7 @@ No additional guidance
 
 ##### Relationship to Subscriber
 
-See the latest guidance added to Policy Activity V4 which includes a new value set.
+See the latest guidance added to Policy Activity which includes a new value set.
 
 ##### Member Identifier
 
@@ -382,7 +382,7 @@ No additional guidance
 
 ##### Payer Identifier
 
-See the latest guidance added to Policy Activity V4.
+See the latest guidance added to Policy Activity.
 
 #### Health Status/Assessments
 
@@ -597,7 +597,7 @@ in the header or in entries.
 
 The Basic Occupation template is a simple observation template that is similar to the Past or Present Occupation
 Observation template found in [HL7 CDA® R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for
-Occupational Data for Health Release 1, STU Release 1.1 - US Realm](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522) but is simplified or use in the general clinical
+Occupational Data for Health Release 1, STU Release 1.1 - US Realm](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522) but is simplified for use in the general clinical
 context and binds to the most recent ODH value set from Occupational Data for Health, version 20201030 code
 system.
 
@@ -611,8 +611,7 @@ system.
 
 ##### Sex
 
-The Birth Sex Observation template reflects the Sex assigned at birth concept present in USCDI v1 and v2 and the
-Sex concept in USCDI V3
+The Sex Observation template reflects the Sex data element in USCDI v3. The Birth Sex Observation represents a Sex Assigned at Birth present in USCDI v1 and v2. Sex Assigned at Birth is no longer a USCDI data element in USCDI v3, but systems may continue to use for other purposes.
 
 #### Problems
 

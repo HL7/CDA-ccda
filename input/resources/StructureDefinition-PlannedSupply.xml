@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="PlannedSupply"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09"/>
@@ -10,19 +17,6 @@
     <name value="PlannedSupply"/>
     <title value="Planned Supply"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This template represents both medicinal and non-medicinal supplies ordered, requested, or intended for the patient (e.g., medication prescription, order for wheelchair). The importance of the supply order or request to the patient and provider may be indicated in the Priority Preference. &#xD;&#xA;The effective time indicates the time when the supply is intended to take place and author time indicates when the documentation of the plan occurred. The Planned Supply template may also indicate the potential insurance coverage for the procedure. &#xD;&#xA;Depending on the type of supply, the product or participant will be either a Medication Information product (medication), an Immunization Medication Information product (immunization), or a Product Instance participant (device/equipment)."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -36,14 +30,14 @@
         </element>
         <element id="Supply.classCode">
             <path value="Supply.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8577)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8577)."/>
             <min value="1"/>
             <max value="1"/>
-            <fixedCode value="PROC"/>
+            <fixedCode value="SPLY"/>
         </element>
         <element id="Supply.moodCode">
             <path value="Supply.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (SubstanceAdministration/Supply) urn:oid:2.16.840.1.113883.11.20.9.24 STATIC 2011-09-30 (CONF:1098-8578)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (SubstanceAdministration/Supply) urn:oid:2.16.840.1.113883.11.20.9.24 STATIC 2011-09-30 (CONF:1098-8578)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -69,39 +63,39 @@
         <element id="Supply.templateId:primary">
             <path value="Supply.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-30463) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-30463) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Supply.templateId:primary.root">
             <path value="Supply.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.43&quot; (CONF:1098-30464)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.43&quot; (CONF:1098-30464)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.43"/>
         </element>
         <element id="Supply.templateId:primary.extension">
             <path value="Supply.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32556)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32556)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Supply.id">
             <path value="Supply.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-8580)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:1098-8580)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Supply.statusCode">
             <path value="Supply.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-30458)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-30458)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Supply.statusCode.code">
             <path value="Supply.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32047)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32047)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="active"/>
@@ -109,87 +103,63 @@
         <element id="Supply.effectiveTime">
             <path value="Supply.effectiveTime"/>
             <short value="The effectiveTime in a planned supply represents the time that the supply should occur."/>
-            <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)."/>
+            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Supply.repeatNumber">
             <path value="Supply.repeatNumber"/>
             <short value="In a Planned Supply, repeatNumber indicates the number of times the supply event can occur. For example, if a medication is filled at a pharmacy and the prescription may be refilled 3 more times, the supply RepeatNumber equals 4."/>
-            <requirements value="MAY contain zero or one [0..1] repeatNumber (CONF:1098-32063)."/>
+            <comment value="MAY contain zero or one [0..1] repeatNumber (CONF:1098-32063)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Supply.quantity">
             <path value="Supply.quantity"/>
-            <requirements value="MAY contain zero or one [0..1] quantity (CONF:1098-32064)."/>
+            <comment value="MAY contain zero or one [0..1] quantity (CONF:1098-32064)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <!--SG 20230709: Adding slice, this is weird-->
         <element id="Supply.product">
             <path value="Supply.product"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="manufacturedProduct"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/>
-            <requirements value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/>
+            <comment value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
+                <key value="1098-32325"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or one [0..1] product (CONF:1098-32325)."/>
+            </constraint>
+            <constraint>
                 <key value="1098-32092"/>
                 <severity value="error"/>
-                <human value="If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) then the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) and the participant **SHALL NOT** be Product Instance (CONF:1098-32092)."/>
+                <human value="If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) or Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) then the participant **SHALL NOT** be Product Instance (CONF:1098-32092 and CONF:1098-32093)."/>
             </constraint>
         </element>
-        <element id="Supply.product:medicationInformation">
-            <path value="Supply.product"/>
-            <sliceName value="medicationInformation"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Supply.product:medicationInformation.manufacturedProduct">
+        <element id="Supply.product.manufacturedProduct">
             <path value="Supply.product.manufacturedProduct"/>
-            <requirements value="The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationInformation"/>
-            </type>
-        </element>
-        <element id="Supply.product:immunizationMedInformation">
-            <path value="Supply.product"/>
-            <sliceName value="immunizationMedInformation"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Supply.product:immunizationMedInformation.manufacturedProduct">
-            <path value="Supply.product.manufacturedProduct"/>
-            <requirements value="The product, if present, SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1098-32052)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
+                <profile value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
             </type>
         </element>
-        <!--<element id="Supply.product"><path value="Supply.product"/><short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/><requirements value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/><min value="0"/><max value="1"/><constraint><key value="1098-32092"/><severity value="error"/><human value="If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) then the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) and the participant **SHALL NOT** be Product Instance (CONF:1098-32092)."/></constraint></element><element id="Supply.product.manufacturedProduct"><path value="Supply.product.manufacturedProduct"/><requirements value="The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/><min value="1"/><max value="1"/><type><code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/><profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationInformation"/></type><type><code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/><profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/></type></element>-->
+        <!--<element id="Supply.product"><path value="Supply.product"/><short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/><comment value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/><min value="0"/><max value="1"/><constraint><key value="1098-32092"/><severity value="error"/><human value="If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) then the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) and the participant **SHALL NOT** be Product Instance (CONF:1098-32092)."/></constraint></element><element id="Supply.product.manufacturedProduct"><path value="Supply.product.manufacturedProduct"/><requirements value="The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32050)."/><min value="1"/><max value="1"/><type><code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/><profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationInformation"/></type><type><code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/><profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/></type></element>-->
         <element id="Supply.performer">
             <path value="Supply.performer"/>
             <short value="The clinician who is expected to perform the supply could be identified using supply/performer."/>
-            <requirements value="MAY contain zero or more [0..*] performer (CONF:1098-32048)."/>
+            <comment value="MAY contain zero or more [0..*] performer (CONF:1098-32048)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Supply.author">
             <path value="Supply.author"/>
             <short value="The author in a supply represents the clinician who is requesting or planning the supply."/>
-            <requirements value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)."/>
+            <comment value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -211,7 +181,7 @@
         <element id="Supply.participant:productInstance">
             <path value="Supply.participant"/>
             <sliceName value="productInstance"/>
-            <requirements value="MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"/>
+            <comment value="MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -222,7 +192,7 @@
         </element>
         <element id="Supply.participant:productInstance.participantRole">
             <path value="Supply.participant.participantRole"/>
-            <requirements value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-32095)."/>
+            <comment value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-32095)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -249,20 +219,20 @@
             <path value="Supply.entryRelationship"/>
             <sliceName value="priorityPreference"/>
             <short value="The following entryRelationship represents the priority that a patient or a provider places on the supply."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31110) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31110) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Supply.entryRelationship:priorityPreference.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31111)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31111)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Supply.entryRelationship:priorityPreference.observation">
             <path value="Supply.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31112)."/>
+            <comment value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31112)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -274,20 +244,20 @@
             <path value="Supply.entryRelationship"/>
             <sliceName value="indication"/>
             <short value="The following entryRelationship represents the indication for the supply."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32054) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32054) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Supply.entryRelationship:indication.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32055)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32055)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="RSON"/>
         </element>
         <element id="Supply.entryRelationship:indication.observation">
             <path value="Supply.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32056)."/>
+            <comment value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32056)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -299,20 +269,20 @@
             <path value="Supply.entryRelationship"/>
             <sliceName value="instruction"/>
             <short value="The following entryRelationship captures any instructions associated with the planned supply."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32057) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32057) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Supply.entryRelationship:instruction.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32058)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32058)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="SUBJ"/>
         </element>
         <element id="Supply.entryRelationship:instruction.act">
             <path value="Supply.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32059)."/>
+            <comment value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32059)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -323,20 +293,20 @@
         <element id="Supply.entryRelationship:plannedCoverage">
             <path value="Supply.entryRelationship"/>
             <sliceName value="plannedCoverage"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Supply.entryRelationship:plannedCoverage.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32061)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32061)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Supply.entryRelationship:plannedCoverage.act">
             <path value="Supply.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:1098-32062)."/>
+            <comment value="SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:1098-32062)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

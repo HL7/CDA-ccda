@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ProcedureEstimatedBloodLossSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureEstimatedBloodLossSection"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.18.2.9"/>
@@ -9,19 +16,6 @@
     <name value="ProcedureEstimatedBloodLossSection"/>
     <title value="Procedure Estimated Blood Loss Section"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Procedure Estimated Blood Loss Section may be a subsection of another section such as the Procedure Description Section. The Procedure Estimated Blood Loss Section records the approximate amount of blood that the patient lost during the procedure or surgery. It may be an accurate quantitative amount, e.g., 250 milliliters, or it may be descriptive, e.g., minimal or none."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -52,46 +46,51 @@
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-8074) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:81-8074) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.18.2.9&quot; (CONF:81-10467)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.18.2.9&quot; (CONF:81-10467)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.18.2.9"/>
         </element>
+        <element id="Section.templateId:primary.extension">
+            <path value="Section.templateId.extension"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:81-15415)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:81-15415)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;59770-8&quot; Procedure Estimated Blood Loss (CONF:81-15416)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;59770-8&quot; Procedure Estimated Blood Loss (CONF:81-15416)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="59770-8"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26491)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26491)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <requirements value="SHALL contain exactly one [1..1] title (CONF:81-8076)."/>
+            <comment value="SHALL contain exactly one [1..1] title (CONF:81-8076)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:81-8077)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:81-8077)."/>
             <min value="1"/>
             <max value="1"/>
         </element>

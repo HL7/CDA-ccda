@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="CommentActivity"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CommentActivity"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.64"/>
@@ -9,19 +16,6 @@
     <name value="CommentActivity"/>
     <title value="Comment Activity"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -40,14 +34,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9425)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9425)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9426)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9426)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -66,52 +60,57 @@
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:81-9427) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:81-9427) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:primary.root">
             <path value="Act.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.64&quot; (CONF:81-10491)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.64&quot; (CONF:81-10491)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.64"/>
         </element>
+        <element id="Act.templateId:primary.extension">
+            <path value="Act.templateId.extension"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:81-9428)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:81-9428)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;48767-8&quot; Annotation Comment (CONF:81-19159)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;48767-8&quot; Annotation Comment (CONF:81-19159)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="48767-8"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26501)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26501)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Act.text">
             <path value="Act.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:81-9430)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:81-9430)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.text.reference">
             <path value="Act.text.reference"/>
-            <requirements value="This text SHALL contain exactly one [1..1] reference (CONF:81-15967)."/>
+            <comment value="This text SHALL contain exactly one [1..1] reference (CONF:81-15967)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.text.reference.value">
             <path value="Act.text.reference.value"/>
-            <requirements value="This reference SHALL contain exactly one [1..1] @value (CONF:81-15968)."/>
+            <comment value="This reference SHALL contain exactly one [1..1] @value (CONF:81-15968)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -122,7 +121,7 @@
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
-            <requirements value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:81-9433)."/>
+            <comment value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:81-9433)."/>
             <min value="0"/>
             <max value="1"/>
             <type>

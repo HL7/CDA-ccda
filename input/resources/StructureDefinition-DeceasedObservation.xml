@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="DeceasedObservation"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DeceasedObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.79:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="DeceasedObservation"/>
     <title value="Deceased Observation"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This template represents the observation that a patient has died. It also represents the cause of death, indicated by an entryRelationship type of CAUS. This template allows for more specific representation of data than is available with the use of dischargeDispositionCode."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -37,14 +30,14 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-14851)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-14851)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14852)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14852)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -67,78 +60,78 @@
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-14871) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-14871) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:primary.root">
             <path value="Observation.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.79&quot; (CONF:1198-14872)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.79&quot; (CONF:1198-14872)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.79"/>
         </element>
         <element id="Observation.templateId:primary.extension">
             <path value="Observation.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32541)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32541)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-14873)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:1198-14873)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-14853)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-14853)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; Assertion (CONF:1198-19135)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; Assertion (CONF:1198-19135)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ASSERTION"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-32158)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-32158)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.5.4"/>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-14854)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-14854)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19095)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19095)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-14855)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-14855)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
-            <requirements value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-14874)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-14874)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot; (CONF:1198-14857)."/>
+            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot; (CONF:1198-14857)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -147,7 +140,7 @@
         </element>
         <element id="Observation.value.code">
             <path value="Observation.value.code"/>
-            <requirements value="This value SHALL contain exactly one [1..1] @code=&quot;419099009&quot; Dead (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1198-15142)."/>
+            <comment value="This value SHALL contain exactly one [1..1] @code=&quot;419099009&quot; Dead (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1198-15142)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -164,27 +157,27 @@
         <element id="Observation.entryRelationship:problemObservation">
             <path value="Observation.entryRelationship"/>
             <sliceName value="problemObservation"/>
-            <requirements value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1198-14868) such that it"/>
+            <comment value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1198-14868) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:problemObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CAUS&quot; Is etiology for (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14875)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CAUS&quot; Is etiology for (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14875)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="CAUS"/>
         </element>
         <element id="Observation.entryRelationship:problemObservation.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
-            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1198-32900)."/>
+            <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1198-32900)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedBoolean value="true"/>
         </element>
         <element id="Observation.entryRelationship:problemObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-14870)."/>
+            <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-14870)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

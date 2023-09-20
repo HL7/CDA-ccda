@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="HealthStatusEvaluationsandOutcomesSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.2.61"/>
@@ -9,19 +16,6 @@
     <name value="HealthStatusEvaluationsandOutcomesSection"/>
     <title value="Health Status Evaluations and Outcomes Section"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This template represents observations regarding the outcome of care from the interventions used to treat the patient. These observations represent status, at points in time, related to established care plan goals and/or interventions."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -35,7 +29,7 @@
         </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
-            <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-32821)."/>
+            <comment value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-32821)."/>
             <min value="0"/>
             <max value="1"/>
             <fixedCode value="NI"/>
@@ -54,46 +48,51 @@
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-29578) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-29578) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.61&quot; (CONF:1098-29579)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.61&quot; (CONF:1098-29579)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.61"/>
         </element>
+        <element id="Section.templateId:primary.extension">
+            <path value="Section.templateId.extension"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-29580)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1098-29580)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;11383-7&quot; Patient Problem Outcome (CONF:1098-29581)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;11383-7&quot; Patient Problem Outcome (CONF:1098-29581)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="11383-7"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-29582)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-29582)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <requirements value="SHALL contain exactly one [1..1] title (CONF:1098-29589)."/>
+            <comment value="SHALL contain exactly one [1..1] title (CONF:1098-29589)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:1098-29590)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:1098-29590)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -112,13 +111,13 @@
         <element id="Section.entry:outcome">
             <path value="Section.entry"/>
             <sliceName value="outcome"/>
-            <requirements value="SHALL contain at least one [1..*] entry (CONF:1098-31227) such that it"/>
+            <comment value="SHALL contain at least one [1..*] entry (CONF:1098-31227) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:outcome.observation">
             <path value="Section.entry.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Outcome Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.144) (CONF:1098-31228)."/>
+            <comment value="SHALL contain exactly one [1..1] Outcome Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.144) (CONF:1098-31228)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

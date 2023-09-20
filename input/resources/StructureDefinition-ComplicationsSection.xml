@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ComplicationsSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ComplicationsSection"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="ComplicationsSection"/>
     <title value="Complications Section"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This section contains problems that occurred during or around the time of a procedure. The complications may be known risks or unanticipated problems."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -53,53 +46,53 @@
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8174) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8174) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.37&quot; (CONF:1198-10384)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.37&quot; (CONF:1198-10384)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.37"/>
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32538)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32538)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-15453)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-15453)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;55109-3&quot; Complications (CONF:1198-15454)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;55109-3&quot; Complications (CONF:1198-15454)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="55109-3"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30860)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30860)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <requirements value="SHALL contain exactly one [1..1] title (CONF:1198-8176)."/>
+            <comment value="SHALL contain exactly one [1..1] title (CONF:1198-8176)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:1198-8177)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:1198-8177)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -116,14 +109,14 @@
         <element id="Section.entry:problem">
             <path value="Section.entry"/>
             <sliceName value="problem"/>
-            <requirements value="MAY contain zero or more [0..*] entry (CONF:1198-8795) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1198-8795) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:problem.observation">
             <path value="Section.entry.observation"/>
             <short value="When no coded entries or negation of entries are present, narrative section/text will be provided containing details of the complication(s) or that there were no complications."/>
-            <requirements value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15455)."/>
+            <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15455)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

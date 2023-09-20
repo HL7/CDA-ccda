@@ -5,18 +5,18 @@ It has been adapted from the Release 2.0 version of the Consolidated CDA Templat
 The consolidated library incorporates previous efforts from Health Level Seven (HL7), Integrating the Healthcare Enterprise (IHE), the Health Information Technology Standards Panel (HITSP), the HL7 Health Story guides, HITSP C32, and related components of IHE Patient Care Coordination (IHE PCC). It has additional or enhanced document types for greater expressivity and decrease ambiguity (see Volume 2 Summary of Changes). Volume 1 adds new general guidance (see Summary of Changes).
 This guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to be used for implementing the following CDA documents and header constraints for clinical notes.
 
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.15.html">Care Plan including Home Health Plan of Care (HHPoC)</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.4.html">Consultation Note</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.2.html">Continuity of Care Document (CCD)</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.8.html">Discharge Summary</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.3.html">History and Physical (H&P)</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.7.html">Operative Note</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.6.html">Procedure Note</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.9.html">Progress Note</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.14.html">Referral Note</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.13.html">Transfer Summary</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.10.html">Unstructured Document</a>
-* <a href="StructureDefinition-2.16.840.1.113883.10.20.22.1.1.html">Patient Generated Document (US Realm Header)</a>
+* <a href="StructureDefinition-CarePlan.html">Care Plan including Home Health Plan of Care (HHPoC)</a>
+* <a href="StructureDefinition-ConsultationNote.html">Consultation Note</a>
+* <a href="StructureDefinition-ContinuityofCareDocumentCCD.html">Continuity of Care Document (CCD)</a>
+* <a href="StructureDefinition-DischargeSummary.html">Discharge Summary</a>
+* <a href="StructureDefinition-HistoryandPhysical.html">History and Physical (H&P)</a>
+* <a href="StructureDefinition-OperativeNote.html">Operative Note</a>
+* <a href="StructureDefinition-ProcedureNote.html">Procedure Note</a>
+* <a href="StructureDefinition-ProgressNote.html">Progress Note</a>
+* <a href="StructureDefinition-ReferralNote.html">Referral Note</a>
+* <a href="StructureDefinition-TransferSummary.html">Transfer Summary</a>
+* <a href="StructureDefinition-UnstructuredDocument.html">Unstructured Document</a>
+* <a href="StructureDefinition-USRealmHeaderforPatientGeneratedDocument.html">Patient Generated Document (US Realm Header)</a>
 
 ### Audience
 

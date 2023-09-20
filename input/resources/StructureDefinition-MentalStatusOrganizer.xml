@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="MentalStatusOrganizer"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusOrganizer"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.75:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="MentalStatusOrganizer"/>
     <title value="Mental Status Organizer"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Mental Status Organizer template may be used to group related Mental Status Observations (e.g., results of mental tests) and associated Assessment Scale Observations into subcategories and/or groupings by time. Subcategories can be things such as Mood and Affect, Behavior, Thought Process, Perception, Cognition, etc."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -37,14 +30,14 @@
         </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-14369)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-14369)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="CLUSTER"/>
         </element>
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14371)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14371)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -66,40 +59,40 @@
         <element id="Organizer.templateId:primary">
             <path value="Organizer.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-14375) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-14375) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.templateId:primary.root">
             <path value="Organizer.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.75&quot; (CONF:1198-14376)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.75&quot; (CONF:1198-14376)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.75"/>
         </element>
         <element id="Organizer.templateId:primary.extension">
             <path value="Organizer.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32566)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32566)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-14377)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:1198-14377)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
             <short value="The code selected indicates the category that groups the contained mental status observations (e.g., communication, learning and applying knowledge)."/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-14378)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-14378)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.code.code">
             <path value="Organizer.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code (CONF:1198-14697)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code (CONF:1198-14697)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -110,13 +103,13 @@
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-14372)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-14372)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19093)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19093)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
@@ -124,7 +117,7 @@
         <element id="Organizer.effectiveTime">
             <path value="Organizer.effectiveTime"/>
             <short value="The effectiveTime is an interval that spans the effectiveTimes of the contained mental status observations. Because all contained mental status observations have a required time stamp, it is not required that this effectiveTime be populated."/>
-            <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)."/>
+            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -147,13 +140,13 @@
         <element id="Organizer.component:mentalStatus">
             <path value="Organizer.component"/>
             <sliceName value="mentalStatus"/>
-            <requirements value="SHALL contain at least one [1..*] component (CONF:1198-14373) such that it"/>
+            <comment value="SHALL contain at least one [1..*] component (CONF:1198-14373) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Organizer.component:mentalStatus.observation">
             <path value="Organizer.component.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:1198-14381)."/>
+            <comment value="SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:1198-14381)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

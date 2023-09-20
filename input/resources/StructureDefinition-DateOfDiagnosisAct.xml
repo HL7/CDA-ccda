@@ -6,6 +6,13 @@
         <versionId value="4"/>
         <lastUpdated value="2023-07-11T23:41:51.895Z"/>
     </meta>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.502:2022-06-01"/>
@@ -14,20 +21,6 @@
     <name value="DateOfDiagnosisAct"/>
     <title value="Date of Diagnosis Act"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This template represents the earliest date of diagnosis, which is the date of first determination by a qualified professional of the presence of a problem or condition affecting a patient. An encounter diagnosis date may be different than this Date of Diagnosis.&#xA;&#xA;The date of diagnosis is usually not the same date as the date of condition onset. A patient may have a condition for some time before it is formally diagnosed."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -41,16 +34,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <short value="classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:4515-33010)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:4515-33010)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <short value="moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-33011)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-33011)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -68,83 +59,72 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-33000) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-33000) such that it"/>
             <min value="1"/>
         </element>
         <element id="Act.templateId:templateId1">
             <path value="Act.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-33000) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-33000) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:templateId1.root">
             <path value="Act.templateId.root"/>
-            <short value="root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.502&quot; (CONF:4515-33002)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.502&quot; (CONF:4515-33002)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.502"/>
         </element>
         <element id="Act.templateId:templateId1.extension">
             <path value="Act.templateId.extension"/>
-            <short value="extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-33003)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-33003)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2022-06-01"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <short value="code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:4515-33001)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:4515-33001)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <short value="code"/>
-            <definition value="This code SHALL contain zero or one [0..1] @code=&quot;77975-1&quot; Earliest date of diagnosis (CONF:4515-33004)."/>
+            <comment value="This code SHALL contain zero or one [0..1] @code=&quot;77975-1&quot; Earliest date of diagnosis (CONF:4515-33004)."/>
             <min value="0"/>
             <max value="1"/>
             <patternString value="77975-1"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <short value="codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:4515-33005)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:4515-33005)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
-        <!--SG 20230706: constraint not entered "properly" in TWB (or at least not best practice way and not translating 
-             to fhir - added Observation.statusCode.code element and moved patternString to that element-->
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <short value="statusCode"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.statusCode.code">
-            <path value="Observation.statusCode.code"/>
-            <short value="SG 20230706: constraint not entered 'properly' in TWB (or at least not best practice way and not translating to FHIR - added Observation.statusCode.code element and moved patternString to that element"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4515-33006)."/>
+        <element id="Act.statusCode.code">
+            <path value="Act.statusCode.code"/>
+            <comment value="SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4515-33006)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
-            <short value="effectiveTime"/>
-            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-33007)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-33007)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.effectiveTime.value">
             <path value="Act.effectiveTime.value"/>
-            <short value="value"/>
-            <definition value="This effectiveTime SHALL contain exactly one [1..1] @value (CONF:4515-33008)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] @value (CONF:4515-33008)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -155,15 +135,13 @@
         </element>
         <element id="Act.effectiveTime.low">
             <path value="Act.effectiveTime.low"/>
-            <short value="low"/>
-            <definition value="This effectiveTime SHALL NOT contain [0..0] low (CONF:4515-33016)."/>
+            <comment value="This effectiveTime SHALL NOT contain [0..0] low (CONF:4515-33016)."/>
             <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Act.effectiveTime.high">
             <path value="Act.effectiveTime.high"/>
-            <short value="high"/>
-            <definition value="This effectiveTime SHALL NOT contain [0..0] high (CONF:4515-33017)."/>
+            <comment value="This effectiveTime SHALL NOT contain [0..0] high (CONF:4515-33017)."/>
             <min value="0"/>
             <max value="0"/>
         </element>

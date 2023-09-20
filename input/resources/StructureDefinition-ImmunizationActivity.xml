@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ImmunizationActivity"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="ImmunizationActivity"/>
     <title value="Immunization Activity"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="An Immunization Activity describes immunization substance administrations that have actually occurred or are intended to occur. Immunization Activities in &quot;INT&quot; mood are reflections of immunizations a clinician intends a patient to receive. Immunization Activities in &quot;EVN&quot; mood reflect immunizations actually received.&#xA;&#xA;An Immunization Activity is very similar to a Medication Activity with some key differentiators. The drug code system is constrained to CVX codes. Administration timing is less complex. Patient refusal reasons should be captured. All vaccines administered should be fully documented in the patient's permanent medical record. Healthcare providers who administer vaccines covered by the National Childhood Vaccine Injury Act are required to ensure that the permanent medical record of the recipient indicates: &#xA;&#xA;1. Date of administration&#xA;2. Vaccine manufacturer&#xA;3. Vaccine lot number&#xA;4. Name and title of the person who administered the vaccine and the address of the clinic or facility where the permanent record will reside&#xA;5. Vaccine information statement (VIS)&#xA;&#xA;a. Date printed on the VIS&#xA;b. Date VIS given to patient or parent/guardian.&#xA;&#xA;This information should be included in an Immunization Activity when available. (Reference: [https://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/c/vis-instruct.pdf])"/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -37,13 +30,13 @@
         </element>
         <element id="SubstanceAdministration.classCode">
             <path value="SubstanceAdministration.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8826)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8826)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.moodCode">
             <path value="SubstanceAdministration.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC (CONF:1198-8827)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC (CONF:1198-8827)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -69,54 +62,53 @@
         <element id="SubstanceAdministration.templateId:primary">
             <path value="SubstanceAdministration.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-8828) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8828) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.templateId:primary.root">
             <path value="SubstanceAdministration.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.52&quot; (CONF:1198-10498)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.52&quot; (CONF:1198-10498)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.52"/>
         </element>
         <element id="SubstanceAdministration.templateId:primary.extension">
             <path value="SubstanceAdministration.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32528)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32528)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="SubstanceAdministration.id">
             <path value="SubstanceAdministration.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-8829)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:1198-8829)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="SubstanceAdministration.code">
             <path value="SubstanceAdministration.code"/>
             <short value="SubstanceAdministration.code is an optional field. Per HL7 Pharmacy Committee, &quot;this is intended to further specify the nature of the substance administration act. To date the committee has made no use of this attribute&quot;. Because the type of substance administration is generally implicit in the routeCode, in the consumable participant, etc., the field is generally not used and there is no defined value set."/>
-            <requirements value="MAY contain zero or one [0..1] code (CONF:1198-8830)."/>
+            <comment value="MAY contain zero or one [0..1] code (CONF:1198-8830)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.negationInd">
             <path value="SubstanceAdministration.negationInd"/>
-            <label value="Use negationInd=&quot;true&quot; to indicate that the immunization was not given."/>
             <short value="Use negationInd=&quot;true&quot; to indicate that the immunization was not given."/>
-            <requirements value="SHALL contain exactly one [1..1] @negationInd (CONF:1198-8985)."/>
+           <comment value="SHALL contain exactly one [1..1] @negationInd (CONF:1198-8985)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.statusCode">
             <path value="SubstanceAdministration.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8833)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8833)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.statusCode.code">
             <path value="SubstanceAdministration.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1198-32359)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1198-32359)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -126,20 +118,20 @@
         </element>
         <element id="SubstanceAdministration.effectiveTime">
             <path value="SubstanceAdministration.effectiveTime"/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8834)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8834)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.repeatNumber">
             <path value="SubstanceAdministration.repeatNumber"/>
             <short value="In &quot;INT&quot; (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of &quot;3&quot; means that the substance can be administered up to 3 times. In &quot;EVN&quot; (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of &quot;3&quot; in a substance administration event means that the current administration is the 3rd in a series."/>
-            <requirements value="MAY contain zero or one [0..1] repeatNumber (CONF:1198-8838)."/>
+            <comment value="MAY contain zero or one [0..1] repeatNumber (CONF:1198-8838)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.routeCode">
             <path value="SubstanceAdministration.routeCode"/>
-            <requirements value="MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1198-8839)."/>
+            <comment value="MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1198-8839)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -149,7 +141,7 @@
         </element>
         <element id="SubstanceAdministration.routeCode.translation">
             <path value="SubstanceAdministration.routeCode.translation"/>
-            <requirements value="The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1198-32960)."/>
+            <comment value="The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1198-32960)."/>
             <min value="0"/>
             <max value="*"/>
             <binding>
@@ -159,7 +151,7 @@
         </element>
         <element id="SubstanceAdministration.approachSiteCode">
             <path value="SubstanceAdministration.approachSiteCode"/>
-            <requirements value="MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-8840)."/>
+            <comment value="MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-8840)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -169,13 +161,13 @@
         </element>
         <element id="SubstanceAdministration.doseQuantity">
             <path value="SubstanceAdministration.doseQuantity"/>
-            <requirements value="SHOULD contain zero or one [0..1] doseQuantity (CONF:1198-8841)."/>
+            <comment value="SHOULD contain zero or one [0..1] doseQuantity (CONF:1198-8841)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.doseQuantity.unit">
             <path value="SubstanceAdministration.doseQuantity.unit"/>
-            <requirements value="The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1198-8842)."/>
+            <comment value="The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1198-8842)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -185,7 +177,7 @@
         </element>
         <element id="SubstanceAdministration.administrationUnitCode">
             <path value="SubstanceAdministration.administrationUnitCode"/>
-            <requirements value="MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1198-8846)."/>
+            <comment value="MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1198-8846)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -195,13 +187,13 @@
         </element>
         <element id="SubstanceAdministration.consumable">
             <path value="SubstanceAdministration.consumable"/>
-            <requirements value="SHALL contain exactly one [1..1] consumable (CONF:1198-8847)."/>
+            <comment value="SHALL contain exactly one [1..1] consumable (CONF:1198-8847)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.consumable.manufacturedProduct">
             <path value="SubstanceAdministration.consumable.manufacturedProduct"/>
-            <requirements value="This consumable SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1198-15546)."/>
+            <comment value="This consumable SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1198-15546)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -211,13 +203,13 @@
         </element>
         <element id="SubstanceAdministration.performer">
             <path value="SubstanceAdministration.performer"/>
-            <requirements value="SHOULD contain zero or one [0..1] performer (CONF:1198-8849)."/>
+            <comment value="SHOULD contain zero or one [0..1] performer (CONF:1198-8849)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.author">
             <path value="SubstanceAdministration.author"/>
-            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31151)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31151)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -242,20 +234,20 @@
         <element id="SubstanceAdministration.participant:drugVehicle">
             <path value="SubstanceAdministration.participant"/>
             <sliceName value="drugVehicle"/>
-            <requirements value="MAY contain zero or more [0..*] participant (CONF:1198-8850) such that it"/>
+            <comment value="MAY contain zero or more [0..*] participant (CONF:1198-8850) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="SubstanceAdministration.participant:drugVehicle.typeCode">
             <path value="SubstanceAdministration.participant.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CSM&quot; (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8851)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CSM&quot; (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8851)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="CSM"/>
         </element>
         <element id="SubstanceAdministration.participant:drugVehicle.participantRole">
             <path value="SubstanceAdministration.participant.participantRole"/>
-            <requirements value="SHALL contain exactly one [1..1] Drug Vehicle (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.24) (CONF:1198-15547)."/>
+            <comment value="SHALL contain exactly one [1..1] Drug Vehicle (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.24) (CONF:1198-15547)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -284,20 +276,20 @@
         <element id="SubstanceAdministration.entryRelationship:indication">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="indication"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-8853) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-8853) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:indication.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8854)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8854)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="RSON"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:indication.observation">
             <path value="SubstanceAdministration.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1198-15537)."/>
+            <comment value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1198-15537)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -308,27 +300,27 @@
         <element id="SubstanceAdministration.entryRelationship:instruction">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="instruction"/>
-            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8856) such that it"/>
+            <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8856) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:instruction.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8857)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8857)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="SUBJ"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:instruction.inversionInd">
             <path value="SubstanceAdministration.entryRelationship.inversionInd"/>
-            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1198-8858)."/>
+            <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1198-8858)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedBoolean value="true"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:instruction.act">
             <path value="SubstanceAdministration.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1198-31392)."/>
+            <comment value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1198-31392)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -339,20 +331,20 @@
         <element id="SubstanceAdministration.entryRelationship:medSupplyOrder">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="medSupplyOrder"/>
-            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8860) such that it"/>
+            <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8860) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:medSupplyOrder.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8861)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8861)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:medSupplyOrder.supply">
             <path value="SubstanceAdministration.entryRelationship.supply"/>
-            <requirements value="SHALL contain exactly one [1..1] Medication Supply Order (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09) (CONF:1198-15539)."/>
+            <comment value="SHALL contain exactly one [1..1] Medication Supply Order (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09) (CONF:1198-15539)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -363,20 +355,20 @@
         <element id="SubstanceAdministration.entryRelationship:medDispense">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="medDispense"/>
-            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8863) such that it"/>
+            <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8863) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:medDispense.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8864)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8864)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:medDispense.supply">
             <path value="SubstanceAdministration.entryRelationship.supply"/>
-            <requirements value="SHALL contain exactly one [1..1] Medication Dispense (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.18:2014-06-09) (CONF:1198-15540)."/>
+            <comment value="SHALL contain exactly one [1..1] Medication Dispense (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.18:2014-06-09) (CONF:1198-15540)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -387,20 +379,20 @@
         <element id="SubstanceAdministration.entryRelationship:reactionObs">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="reactionObs"/>
-            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8866) such that it"/>
+            <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8866) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:reactionObs.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CAUS&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8867)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CAUS&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8867)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="CAUS"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:reactionObs.observation">
             <path value="SubstanceAdministration.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1198-15541)."/>
+            <comment value="SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1198-15541)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -411,20 +403,20 @@
         <element id="SubstanceAdministration.entryRelationship:immunizationRefusal">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="immunizationRefusal"/>
-            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8988) such that it"/>
+            <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8988) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:immunizationRefusal.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8989)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8989)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="RSON"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:immunizationRefusal.observation">
             <path value="SubstanceAdministration.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Immunization Refusal Reason (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.53) (CONF:1198-15542)."/>
+            <comment value="SHALL contain exactly one [1..1] Immunization Refusal Reason (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.53) (CONF:1198-15542)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -436,33 +428,33 @@
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="substanceAdmin"/>
             <short value="The following entryRelationship is used to indicate a given immunization's order in a series. The nested Substance Administered Act identifies an administration in the series. The entryRelationship/sequenceNumber shows the order of this particular administration in that series."/>
-            <requirements value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-31510) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-31510) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:substanceAdmin.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31511)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31511)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:substanceAdmin.inversionInd">
             <path value="SubstanceAdministration.entryRelationship.inversionInd"/>
-            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1198-31512)."/>
+            <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1198-31512)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedBoolean value="true"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:substanceAdmin.sequenceNumber">
             <path value="SubstanceAdministration.entryRelationship.sequenceNumber"/>
-            <requirements value="MAY contain zero or one [0..1] sequenceNumber (CONF:1198-31513)."/>
+            <comment value="MAY contain zero or one [0..1] sequenceNumber (CONF:1198-31513)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:substanceAdmin.act">
             <path value="SubstanceAdministration.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Substance Administered Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.118) (CONF:1198-31514)."/>
+            <comment value="SHALL contain exactly one [1..1] Substance Administered Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.118) (CONF:1198-31514)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -483,20 +475,20 @@
         <element id="SubstanceAdministration.precondition:substanceAdmin">
             <path value="SubstanceAdministration.precondition"/>
             <sliceName value="substanceAdmin"/>
-            <requirements value="MAY contain zero or more [0..*] precondition (CONF:1198-8869) such that it"/>
+            <comment value="MAY contain zero or more [0..*] precondition (CONF:1198-8869) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="SubstanceAdministration.precondition:substanceAdmin.typeCode">
             <path value="SubstanceAdministration.precondition.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;PRCN&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8870)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;PRCN&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8870)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="PRCN"/>
         </element>
         <element id="SubstanceAdministration.precondition:substanceAdmin.criterion">
             <path value="SubstanceAdministration.precondition.criterion"/>
-            <requirements value="SHALL contain exactly one [1..1] Precondition for Substance Administration (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.25:2014-06-09) (CONF:1198-15548)."/>
+            <comment value="SHALL contain exactly one [1..1] Precondition for Substance Administration (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.25:2014-06-09) (CONF:1198-15548)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

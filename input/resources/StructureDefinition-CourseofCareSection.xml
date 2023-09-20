@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="CourseofCareSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CourseofCareSection"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.2.64"/>
@@ -9,20 +16,6 @@
     <name value="CourseofCareSection"/>
     <title value="Course of Care Section"/>
     <status value="active"/>
-    <publisher value="Lantana Consulting Group"/>
-    <contact>
-        <name value="Sarah Gaunt"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="+6 141-029-2506"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="sarah.gaunt@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Course of Care section describes what happened during the course of an encounter."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -48,46 +41,51 @@
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-32640) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-32640) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.64&quot; (CONF:1098-32642)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.64&quot; (CONF:1098-32642)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.64"/>
         </element>
+        <element id="Section.templateId:primary.extension">
+            <path value="Section.templateId.extension"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-32641)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1098-32641)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;8648-8&quot; Hospital Course Narrative (CONF:1098-32645)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;8648-8&quot; Hospital Course Narrative (CONF:1098-32645)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="8648-8"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32646)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32646)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <requirements value="SHALL contain exactly one [1..1] title (CONF:1098-32643)."/>
+            <comment value="SHALL contain exactly one [1..1] title (CONF:1098-32643)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:1098-32644)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:1098-32644)."/>
             <min value="1"/>
             <max value="1"/>
         </element>

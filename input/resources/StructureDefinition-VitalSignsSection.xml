@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="VitalSignsSection"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsSection"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="VitalSignsSection"/>
     <title value="Vital Signs Section"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The Vital Signs Section contains relevant vital signs for the context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight, body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends.&#xD;&#xA;Vital signs are represented in the same way as other results, but are aggregated into their own section to follow clinical conventions."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -37,7 +30,7 @@
         </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
-            <requirements value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32874)."/>
+            <comment value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32874)."/>
             <min value="0"/>
             <max value="1"/>
             <fixedCode value="NI"/>
@@ -60,53 +53,53 @@
         <element id="Section.templateId:secondary">
             <path value="Section.templateId"/>
             <sliceName value="secondary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7273) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-7273) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:secondary.root">
             <path value="Section.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.4.1&quot; (CONF:1198-10452)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.4.1&quot; (CONF:1198-10452)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.4.1"/>
         </element>
         <element id="Section.templateId:secondary.extension">
             <path value="Section.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32585)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32585)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-15962)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-15962)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;8716-3&quot; Vital Signs (CONF:1198-15963)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;8716-3&quot; Vital Signs (CONF:1198-15963)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="8716-3"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30903)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30903)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <requirements value="SHALL contain exactly one [1..1] title (CONF:1198-9967)."/>
+            <comment value="SHALL contain exactly one [1..1] title (CONF:1198-9967)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:1198-7275)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:1198-7275)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -125,13 +118,13 @@
         <element id="Section.entry:organizer">
             <path value="Section.entry"/>
             <sliceName value="organizer"/>
-            <requirements value="SHALL contain at least one [1..*] entry (CONF:1198-7276) such that it"/>
+            <comment value="SHALL contain at least one [1..*] entry (CONF:1198-7276) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:organizer.organizer">
             <path value="Section.entry.organizer"/>
-            <requirements value="SHALL contain exactly one [1..1] Vital Signs Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01) (CONF:1198-15964)."/>
+            <comment value="SHALL contain exactly one [1..1] Vital Signs Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01) (CONF:1198-15964)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

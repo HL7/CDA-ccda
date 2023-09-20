@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
-    <id value="CoverageActivityV4"/>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CoverageActivityV4"/>
+    <id value="CoverageActivity"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CoverageActivity"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.60:2023-05-01"/>
     </identifier>
     <version value="2023-05-01"/>
-    <name value="CoverageActivityV4"/>
-    <title value="Coverage Activity (V4)"/>
+    <name value="CoverageActivity"/>
+    <title value="Coverage Activity"/>
     <status value="draft"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="A Coverage Activity groups the policy and authorization acts within a Payers Section to order the payment sources. A Coverage Activity contains one or more Policy Activities, each of which contains zero or more Authorization Activities. &#xA;The sequenceNumber/@value shows the policy order of preference. &#xA;The Member Identifier is described in the contained Policy Activity Template 2.16.840.1.113883.10.20.22.4.61."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -37,16 +30,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <short value="classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-8872)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-8872)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <short value="moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8873)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8873)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -64,89 +55,79 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-8897) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-8897) such that it"/>
             <min value="1"/>
         </element>
         <element id="Act.templateId:templateId1">
             <path value="Act.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-8897) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-8897) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:templateId1.root">
             <path value="Act.templateId.root"/>
-            <short value="root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.60&quot; (CONF:4537-10492)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.60&quot; (CONF:4537-10492)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.60"/>
         </element>
         <element id="Act.templateId:templateId1.extension">
             <path value="Act.templateId.extension"/>
-            <short value="extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32596)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32596)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2023-05-01"/>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>
-            <short value="id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:4537-8874)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:4537-8874)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <short value="code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:4537-8876)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:4537-8876)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <short value="code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;48768-6&quot; Payment sources (CONF:4537-19160)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;48768-6&quot; Payment sources (CONF:4537-19160)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="48768-6"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <short value="codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4537-32156)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4537-32156)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <short value="statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4537-8875)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-8875)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
-            <short value="code"/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19094)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19094)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
-            <short value="effectiveTime"/>
-            <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-33064)."/>
+            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-33064)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.effectiveTime.value">
             <path value="Act.effectiveTime.value"/>
-            <short value="value"/>
-            <definition value="The effectiveTime, if present, SHALL contain exactly one [1..1] @value (CONF:4537-33065)."/>
+            <comment value="The effectiveTime, if present, SHALL contain exactly one [1..1] @value (CONF:4537-33065)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -163,48 +144,44 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:4537-8878) such that it"/>
+            <comment value="SHALL contain at least one [1..*] entryRelationship (CONF:4537-8878) such that it"/>
             <min value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <short value="entryRelationship"/>
-            <definition value="SHALL contain at least one [1..*] entryRelationship (CONF:4537-8878) such that it"/>
+            <comment value="SHALL contain at least one [1..*] entryRelationship (CONF:4537-8878) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <short value="typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4537-8879)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4537-8879)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.sequenceNumber">
             <path value="Act.entryRelationship.sequenceNumber"/>
-            <short value="sequenceNumber"/>
-            <definition value="MAY contain zero or one [0..1] sequenceNumber (CONF:4537-17174)."/>
+            <comment value="MAY contain zero or one [0..1] sequenceNumber (CONF:4537-17174)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.sequenceNumber.value">
             <path value="Act.entryRelationship.sequenceNumber.value"/>
-            <short value="value"/>
-            <definition value="The sequenceNumber, if present, SHALL contain exactly one [1..1] @value (CONF:4537-17175)."/>
+            <comment value="The sequenceNumber, if present, SHALL contain exactly one [1..1] @value (CONF:4537-17175)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.act">
             <path value="Act.entryRelationship.act"/>
-            <short value="act"/>
-            <definition value="SHALL contain exactly one [1..1] Policy Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.61:2015-08-01) (CONF:4537-15528)."/>
+            <comment value="SHALL contain exactly one [1..1] Policy Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.61:2015-08-01) (CONF:4537-15528)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivityV4"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
             </type>
         </element>
     </differential>

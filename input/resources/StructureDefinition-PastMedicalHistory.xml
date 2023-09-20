@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="PastMedicalHistory"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PastMedicalHistory"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2015-08-01"/>
@@ -10,20 +17,6 @@
     <name value="PastMedicalHistory"/>
     <title value="Past Medical History"/>
     <status value="active"/>
-    <publisher value="WaveOne Associates"/>
-    <contact>
-        <name value="Brett Marquard"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="4135496886"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="brett@waveoneassociates.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="This section contains a record of the patient's past complaints, problems, and diagnoses. It contains data from the patient's past up to the patient's current complaint or reason for seeking medical care."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -53,53 +46,53 @@
         <element id="Section.templateId:primary">
             <path value="Section.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-7828) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-7828) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.templateId:primary.root">
             <path value="Section.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.20&quot; (CONF:1198-10390)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.20&quot; (CONF:1198-10390)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.20"/>
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32536)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32536)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-15474)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-15474)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;11348-0&quot; History of Past Illness (CONF:1198-15475)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;11348-0&quot; History of Past Illness (CONF:1198-15475)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="11348-0"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30831)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30831)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <requirements value="SHALL contain exactly one [1..1] title (CONF:1198-7830)."/>
+            <comment value="SHALL contain exactly one [1..1] title (CONF:1198-7830)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <requirements value="SHALL contain exactly one [1..1] text (CONF:1198-7831)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:1198-7831)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -116,13 +109,13 @@
         <element id="Section.entry:problem">
             <path value="Section.entry"/>
             <sliceName value="problem"/>
-            <requirements value="MAY contain zero or more [0..*] entry (CONF:1198-8791) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1198-8791) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:problem.observation">
             <path value="Section.entry.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15476)."/>
+            <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15476)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

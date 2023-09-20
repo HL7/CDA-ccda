@@ -2,6 +2,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="USRealmPatientNamePTNUSFIELDED"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+      <valueBoolean>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+          <valueCode value="not-applicable"/>
+        </extension>
+      </valueBoolean>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.1"/>
@@ -9,19 +16,6 @@
     <name value="USRealmPatientNamePTNUSFIELDED"/>
     <title value="US Realm Patient Name (PTN.US.FIELDED)"/>
     <status value="active"/>
-    <contact>
-        <name value="Gaye Dolin"/>
-        <telecom>
-            <system value="phone"/>
-            <value value="714-744-4152"/>
-            <use value="work"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="gaye.dolin@lantanagroup.com"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
     <description value="The US Realm Patient Name datatype flavor is a set of reusable constraints that can be used for the patient or any other person. It requires a first (given) and last (family) name. If a patient or person has only one name part (e.g., patient with first name only) place the name part in the field required by the organization. Use the appropriate nullFlavor, &quot;Not Applicable&quot; (NA), in the other field.&#xA;&#xA;For information on mixed content see the Extensible Markup Language reference (http://www.w3c.org/TR/2008/REC-xml-20081126/)."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
@@ -41,19 +35,19 @@
         <element id="PN.use">
             <path value="PN.use"/>
             <short value="If name/@nullFlavor is present, the remaining conformance statements *SHALL NOT* be enforced"/>
-            <requirements value="MAY contain zero or one [0..1] @use, which SHALL be selected from ValueSet EntityNameUse urn:oid:2.16.840.1.113883.1.11.15913 STATIC 2005-05-01 (CONF:81-7154)."/>
+            <comment value="MAY contain zero or one [0..1] @use, which SHALL be selected from ValueSet EntityNameUse urn:oid:2.16.840.1.113883.1.11.15913 STATIC 2005-05-01 (CONF:81-7154)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="PN.family">
             <path value="PN.family"/>
-            <requirements value="SHALL contain exactly one [1..1] family (CONF:81-7159)."/>
+            <comment value="SHALL contain exactly one [1..1] family (CONF:81-7159)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="PN.family.qualifier">
             <path value="PN.family.qualifier"/>
-            <requirements value="This family MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7160)."/>
+            <comment value="This family MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7160)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -63,7 +57,7 @@
         </element>
         <element id="PN.given">
             <path value="PN.given"/>
-            <requirements value="SHALL contain at least one [1..*] given (CONF:81-7157)."/>
+            <comment value="SHALL contain at least one [1..*] given (CONF:81-7157)."/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -74,7 +68,7 @@
         </element>
         <element id="PN.given.qualifier">
             <path value="PN.given.qualifier"/>
-            <requirements value="Such givens MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7158)."/>
+            <comment value="Such givens MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7158)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -84,13 +78,13 @@
         </element>
         <element id="PN.prefix">
             <path value="PN.prefix"/>
-            <requirements value="MAY contain zero or more [0..*] prefix (CONF:81-7155)."/>
+            <comment value="MAY contain zero or more [0..*] prefix (CONF:81-7155)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="PN.prefix.qualifier">
             <path value="PN.prefix.qualifier"/>
-            <requirements value="The prefix, if present, MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7156)."/>
+            <comment value="The prefix, if present, MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7156)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -100,13 +94,13 @@
         </element>
         <element id="PN.suffix">
             <path value="PN.suffix"/>
-            <requirements value="MAY contain zero or one [0..1] suffix (CONF:81-7161)."/>
+            <comment value="MAY contain zero or one [0..1] suffix (CONF:81-7161)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="PN.suffix.qualifier">
             <path value="PN.suffix.qualifier"/>
-            <requirements value="The suffix, if present, MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7162)."/>
+            <comment value="The suffix, if present, MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7162)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
