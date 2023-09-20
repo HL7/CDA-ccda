@@ -30,16 +30,14 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <short value="classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-16715)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-16715)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <short value="moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-16716)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-16716)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -57,66 +55,59 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-16722) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-16722) such that it"/>
             <min value="1"/>
         </element>
         <element id="Observation.templateId:templateId1">
             <path value="Observation.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-16722) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-16722) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:templateId1.root">
             <path value="Observation.templateId.root"/>
-            <short value="root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.86&quot; (CONF:4515-16723)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.86&quot; (CONF:4515-16723)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.86"/>
         </element>
         <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
-            <short value="extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-33036)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-33036)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2022-06-01"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <short value="id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:4515-16724)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:4515-16724)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <short value="code"/>
-            <definition value="SHALL contain exactly one [1..1] code, which SHALL be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) DYNAMIC (CONF:4515-19178)."/>
+            <comment value="SHALL contain exactly one [1..1] code, which SHALL be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) DYNAMIC (CONF:4515-19178)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <short value="statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4515-16720)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4515-16720)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <short value="code"/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-19089)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-19089)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="value"/>
-            <definition value="SHALL contain at least one [1..*] value (CONF:4515-16754)."/>
+            <comment value="SHALL contain at least one [1..*] value (CONF:4515-16754)."/>
             <min value="1"/>
             <max value="*"/>
             <constraint>

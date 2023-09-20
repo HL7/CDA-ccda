@@ -29,14 +29,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-30385)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-30385)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-30386)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-30386)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -58,20 +58,20 @@
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-30340) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-30340) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:primary.root">
             <path value="Act.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.130&quot; (CONF:1098-30341)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.130&quot; (CONF:1098-30341)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.130"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Nutrition Recommendations urn:oid:2.16.840.1.113883.1.11.20.2.9 DYNAMIC (CONF:1098-30342)."/>
+            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Nutrition Recommendations urn:oid:2.16.840.1.113883.1.11.20.2.9 DYNAMIC (CONF:1098-30342)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -81,13 +81,13 @@
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31697)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31697)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31698)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31698)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="active"/>
@@ -95,7 +95,7 @@
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
             <short value="The effectiveTime indicates the time when the activity is intended to take place."/>
-            <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-31699)."/>
+            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-31699)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -132,21 +132,20 @@
         <element id="Act.entryRelationship:plannedEncounter">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedEncounter"/>
-            <comment value="STU Comment 1501: Updated to add &quot;such that it&quot;"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32382) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32382) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:plannedEncounter.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32928)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32928)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedEncounter.encounter">
             <path value="Act.entryRelationship.encounter"/>
-            <requirements value="SHALL contain exactly one [1..1] Planned Encounter (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.40:2014-06-09) (CONF:1098-32383)."/>
+            <comment value="SHALL contain exactly one [1..1] Planned Encounter (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.40:2014-06-09) (CONF:1098-32383)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -157,21 +156,20 @@
         <element id="Act.entryRelationship:plannedMedActivity">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedMedActivity"/>
-            <comment value="STU Comment 1501: Updated to add &quot;such that it&quot;"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32384) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32384) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:plannedMedActivity.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32929)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32929)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedMedActivity.substanceAdministration">
             <path value="Act.entryRelationship.substanceAdministration"/>
-            <requirements value="SHALL contain exactly one [1..1] Planned Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1098-32385)."/>
+            <comment value="SHALL contain exactly one [1..1] Planned Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1098-32385)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -182,21 +180,20 @@
         <element id="Act.entryRelationship:plannedObs">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedObs"/>
-            <comment value="STU Comment 1501: Updated to add &quot;such that it&quot;"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32386) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32386) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:plannedObs.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32930)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32930)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedObs.observation">
             <path value="Act.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Planned Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1098-32387)."/>
+            <comment value="SHALL contain exactly one [1..1] Planned Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1098-32387)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -207,21 +204,20 @@
         <element id="Act.entryRelationship:plannedProc">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedProc"/>
-            <comment value="STU Comment 1501: Updated to add &quot;such that it&quot;"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32388) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32388) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:plannedProc.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32931)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32931)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedProc.procedure">
             <path value="Act.entryRelationship.procedure"/>
-            <requirements value="SHALL contain exactly one [1..1] Planned Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09) (CONF:1098-32389)."/>
+            <comment value="SHALL contain exactly one [1..1] Planned Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09) (CONF:1098-32389)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -232,21 +228,20 @@
         <element id="Act.entryRelationship:plannedSupply">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedSupply"/>
-            <comment value="STU Comment 1501: Updated to add &quot;such that it&quot;"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32390) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32390) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:plannedSupply.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32932)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32932)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedSupply.supply">
             <path value="Act.entryRelationship.supply"/>
-            <requirements value="SHALL contain exactly one [1..1] Planned Supply (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09) (CONF:1098-32391)."/>
+            <comment value="SHALL contain exactly one [1..1] Planned Supply (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09) (CONF:1098-32391)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -257,21 +252,20 @@
         <element id="Act.entryRelationship:plannedAct">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedAct"/>
-            <comment value="STU Comment 1501: Updated to add &quot;such that it&quot;"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32632) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32632) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:plannedAct.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32933)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32933)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:plannedAct.act">
             <path value="Act.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Planned Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1098-32633)."/>
+            <comment value="SHALL contain exactly one [1..1] Planned Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1098-32633)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

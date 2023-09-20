@@ -29,14 +29,14 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31017)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31017)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31018)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31018)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -55,20 +55,20 @@
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-27959) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-27959) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:primary.root">
             <path value="Observation.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.127&quot; (CONF:1098-27960)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.127&quot; (CONF:1098-27960)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.127"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Sensory Status Problem Type urn:oid:2.16.840.1.113883.11.20.9.50 DYNAMIC (CONF:1098-27962)."/>
+            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Sensory Status Problem Type urn:oid:2.16.840.1.113883.11.20.9.50 DYNAMIC (CONF:1098-27962)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -78,40 +78,40 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31437)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31437)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31438)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31438)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31441)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31441)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
             <short value="The effectiveTime/low (a.k.a. &quot;onset date&quot;) asserts when the condition became biologically active."/>
-            <requirements value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-32630)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-32630)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
             <short value="The effectiveTime/high (a.k.a. &quot;resolution date&quot;) asserts when the condition became biologically resolved."/>
-            <requirements value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-32631)."/>
+            <comment value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-32631)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Mental and Functional Status Response urn:oid:2.16.840.1.113883.11.20.9.44 DYNAMIC (CONF:1098-27974)."/>
+            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Mental and Functional Status Response urn:oid:2.16.840.1.113883.11.20.9.44 DYNAMIC (CONF:1098-27974)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -124,7 +124,7 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31439)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31439)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -145,20 +145,20 @@
         <element id="Observation.entryRelationship:assessmentScaleObservation">
             <path value="Observation.entryRelationship"/>
             <sliceName value="assessmentScaleObservation"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-27984) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-27984) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.entryRelationship:assessmentScaleObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-27985)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-27985)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:assessmentScaleObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1098-27986)."/>
+            <comment value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1098-27986)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

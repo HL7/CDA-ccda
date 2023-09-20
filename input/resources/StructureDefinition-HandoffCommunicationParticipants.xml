@@ -29,14 +29,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-30832)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-30832)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-30833)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-30833)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -55,46 +55,46 @@
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-30834) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-30834) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:primary.root">
             <path value="Act.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.141&quot; (CONF:1098-30835)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.141&quot; (CONF:1098-30835)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.141"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-30836)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1098-30836)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;432138007&quot; handoff communication (procedure) (CONF:1098-30837)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;432138007&quot; handoff communication (procedure) (CONF:1098-30837)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="432138007"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1098-30838)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1098-30838)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31668)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31668)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31669)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31669)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
@@ -102,14 +102,14 @@
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
             <short value="The effective time is the time when the handoff process took place between the sender and receiver of the patient information. This could be the time the information was transmitted, released, or verbally communicated to the next clinician."/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31670)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31670)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
             <short value="The Author Participant contains the sender's contact information and is a resource for the Information Recipient for any follow-up questions."/>
-            <requirements value="SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31672)."/>
+            <comment value="SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31672)."/>
             <min value="1"/>
             <max value="*"/>
             <type>
@@ -132,32 +132,32 @@
         <element id="Act.participant:infoRecipient">
             <path value="Act.participant"/>
             <sliceName value="infoRecipient"/>
-            <requirements value="SHALL contain at least one [1..*] participant (CONF:1098-31673) such that it"/>
+            <comment value="SHALL contain at least one [1..*] participant (CONF:1098-31673) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.participant:infoRecipient.typeCode">
             <path value="Act.participant.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;IRCP&quot; Information Recipient (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1098-31674)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;IRCP&quot; Information Recipient (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1098-31674)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="IRCP"/>
         </element>
         <element id="Act.participant:infoRecipient.participantRole">
             <path value="Act.participant.participantRole"/>
-            <requirements value="SHALL contain exactly one [1..1] participantRole (CONF:1098-31675)."/>
+            <comment value="SHALL contain exactly one [1..1] participantRole (CONF:1098-31675)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:infoRecipient.participantRole.id">
             <path value="Act.participant.participantRole.id"/>
-            <requirements value="This participantRole SHALL contain at least one [1..*] id (CONF:1098-32422)."/>
+            <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:1098-32422)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.participant:infoRecipient.participantRole.code">
             <path value="Act.participant.participantRole.code"/>
-            <requirements value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31676)."/>
+            <comment value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31676)."/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -167,19 +167,19 @@
         </element>
         <element id="Act.participant:infoRecipient.participantRole.addr">
             <path value="Act.participant.participantRole.addr"/>
-            <requirements value="This participantRole SHALL contain at least one [1..*] addr (CONF:1098-32392)."/>
+            <comment value="This participantRole SHALL contain at least one [1..*] addr (CONF:1098-32392)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.participant:infoRecipient.participantRole.playingEntity">
             <path value="Act.participant.participantRole.playingEntity"/>
-            <requirements value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1098-32393)."/>
+            <comment value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1098-32393)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:infoRecipient.participantRole.playingEntity.name">
             <path value="Act.participant.participantRole.playingEntity.name"/>
-            <requirements value="The playingEntity, if present, SHALL contain at least one [1..*] name (CONF:1098-32394)."/>
+            <comment value="The playingEntity, if present, SHALL contain at least one [1..*] name (CONF:1098-32394)."/>
             <min value="1"/>
             <max value="*"/>
         </element>

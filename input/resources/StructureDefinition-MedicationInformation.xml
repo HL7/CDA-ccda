@@ -30,7 +30,7 @@
         </element>
         <element id="ManufacturedProduct.classCode">
             <path value="ManufacturedProduct.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-7408)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-7408)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -52,41 +52,40 @@
         <element id="ManufacturedProduct.templateId:primary">
             <path value="ManufacturedProduct.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-7409) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-7409) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ManufacturedProduct.templateId:primary.root">
             <path value="ManufacturedProduct.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.23&quot; (CONF:1098-10506)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.23&quot; (CONF:1098-10506)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.23"/>
         </element>
         <element id="ManufacturedProduct.templateId:primary.extension">
             <path value="ManufacturedProduct.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32579)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32579)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="ManufacturedProduct.id">
             <path value="ManufacturedProduct.id"/>
-            <requirements value="MAY contain zero or more [0..*] id (CONF:1098-7410)."/>
+            <comment value="MAY contain zero or more [0..*] id (CONF:1098-7410)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial">
             <path value="ManufacturedProduct.manufacturedMaterial"/>
-            <label value="A medication should be recorded as a pre-coordinated ingredient + strength + dose form (e.g., “metoprolol 25mg tablet”, “amoxicillin 400mg/5mL suspension”) where possible. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack)."/>
             <short value="A medication should be recorded as a pre-coordinated ingredient + strength + dose form (e.g., “metoprolol 25mg tablet”, “amoxicillin 400mg/5mL suspension”) where possible. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack)."/>
-            <requirements value="SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-7411)."/>
+           <comment value="SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-7411)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code">
             <path value="ManufacturedProduct.manufacturedMaterial.code"/>
-            <requirements value="This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Medication Clinical Drug urn:oid:2.16.840.1.113762.1.4.1010.4 DYNAMIC (CONF:1098-7412)."/>
+            <comment value="This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Medication Clinical Drug urn:oid:2.16.840.1.113762.1.4.1010.4 DYNAMIC (CONF:1098-7412)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -96,7 +95,7 @@
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code.translation">
             <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
-            <requirements value="This code MAY contain zero or more [0..*] translation, which MAY be selected from ValueSet Clinical Substance urn:oid:2.16.840.1.113762.1.4.1010.2 DYNAMIC (CONF:1098-31884)."/>
+            <comment value="This code MAY contain zero or more [0..*] translation, which MAY be selected from ValueSet Clinical Substance urn:oid:2.16.840.1.113762.1.4.1010.2 DYNAMIC (CONF:1098-31884)."/>
             <min value="0"/>
             <max value="*"/>
             <binding>
@@ -106,7 +105,7 @@
         </element>
         <element id="ManufacturedProduct.manufacturerOrganization">
             <path value="ManufacturedProduct.manufacturerOrganization"/>
-            <requirements value="MAY contain zero or one [0..1] manufacturerOrganization (CONF:1098-7416)."/>
+            <comment value="MAY contain zero or one [0..1] manufacturerOrganization (CONF:1098-7416)."/>
             <min value="0"/>
             <max value="1"/>
         </element>

@@ -29,14 +29,14 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-32914)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-32914)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-32915)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-32915)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -55,65 +55,65 @@
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-32916) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-32916) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:primary.root">
             <path value="Observation.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.138&quot; (CONF:1098-32917)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.138&quot; (CONF:1098-32917)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.138"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-32918)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:1098-32918)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-32919)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1098-32919)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;75303-8&quot; Nutrition assessment (CONF:1098-32926)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;75303-8&quot; Nutrition assessment (CONF:1098-32926)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="75303-8"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32927)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32927)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-32920)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-32920)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-32921)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-32921)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-32923)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-32923)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <requirements value="SHALL contain exactly one [1..1] value (CONF:1098-32922)."/>
+            <comment value="SHALL contain exactly one [1..1] value (CONF:1098-32922)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -124,7 +124,7 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32924)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32924)."/>
             <min value="0"/>
             <max value="*"/>
             <type>

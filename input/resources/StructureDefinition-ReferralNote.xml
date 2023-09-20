@@ -46,20 +46,20 @@
         <element id="ClinicalDocument.templateId:primary">
             <path value="ClinicalDocument.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-28947) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-28947) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.templateId:primary.root">
             <path value="ClinicalDocument.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.14&quot; (CONF:1198-28948)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.14&quot; (CONF:1198-28948)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.14"/>
         </element>
         <element id="ClinicalDocument.templateId:primary.extension">
             <path value="ClinicalDocument.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32911)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32911)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
@@ -67,7 +67,7 @@
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
             <short value="The Referral Note recommends use of the document type code 57133-1 &quot;Referral Note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Referral note would not be authored by a Pediatric Cardiologist.  The type of referral and the target of the referral are specified via the participant (and not via the author)."/>
-            <requirements value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet ReferralDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.3 DYNAMIC (CONF:1198-28949)."/>
+            <comment value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet ReferralDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.3 DYNAMIC (CONF:1198-28949)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -77,37 +77,37 @@
         </element>
         <element id="ClinicalDocument.informationRecipient">
             <path value="ClinicalDocument.informationRecipient"/>
-            <requirements value="SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31589)."/>
+            <comment value="SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31589)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
-            <requirements value="This informationRecipient SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31590)."/>
+            <comment value="This informationRecipient SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31590)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.addr">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.addr"/>
-            <requirements value="This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)."/>
+            <comment value="This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.telecom">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.telecom"/>
-            <requirements value="This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31592)."/>
+            <comment value="This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31592)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient"/>
-            <requirements value="This intendedRecipient SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31593)."/>
+            <comment value="This intendedRecipient SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31593)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name"/>
-            <requirements value="This informationRecipient SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-31594)."/>
+            <comment value="This informationRecipient SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-31594)."/>
             <min value="1"/>
             <max value="*"/>
             <type>
@@ -129,26 +129,26 @@
         <element id="ClinicalDocument.participant:participant1">
             <path value="ClinicalDocument.participant"/>
             <sliceName value="participant1"/>
-            <requirements value="SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31924)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31924)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="IND"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
-            <requirements value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31643)."/>
+            <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31643)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
-            <requirements value="This associatedEntity SHALL contain exactly one [1..1] @classCode, which SHALL be selected from ValueSet INDRoleclassCodes urn:oid:2.16.840.1.113883.11.20.9.33 DYNAMIC (CONF:1198-31925)."/>
+            <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode, which SHALL be selected from ValueSet INDRoleclassCodes urn:oid:2.16.840.1.113883.11.20.9.33 DYNAMIC (CONF:1198-31925)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -158,13 +158,13 @@
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
-            <requirements value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31644)."/>
+            <comment value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31644)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson.name">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
-            <requirements value="This associatedPerson SHALL contain at least one [1..*] US Realm Patient Name (PTN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1) (CONF:1198-31645)."/>
+            <comment value="This associatedPerson SHALL contain at least one [1..*] US Realm Patient Name (PTN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1) (CONF:1198-31645)."/>
             <min value="1"/>
             <max value="*"/>
             <type>
@@ -175,63 +175,63 @@
         <element id="ClinicalDocument.participant:participant2">
             <path value="ClinicalDocument.participant"/>
             <sliceName value="participant2"/>
-            <requirements value="SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31648)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31648)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="CALLBCK"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
-            <requirements value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31649)."/>
+            <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31649)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
-            <requirements value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;ASSIGNED&quot; assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-32419)."/>
+            <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;ASSIGNED&quot; assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-32419)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ASSIGNED"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.id">
             <path value="ClinicalDocument.participant.associatedEntity.id"/>
-            <requirements value="This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31650)."/>
+            <comment value="This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31650)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.addr">
             <path value="ClinicalDocument.participant.associatedEntity.addr"/>
-            <requirements value="This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)."/>
+            <comment value="This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.telecom">
             <path value="ClinicalDocument.participant.associatedEntity.telecom"/>
-            <requirements value="This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31652)."/>
+            <comment value="This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31652)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
-            <requirements value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31653)."/>
+            <comment value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31653)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson.name">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
-            <requirements value="This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31654)."/>
+            <comment value="This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31654)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.scopingOrganization">
             <path value="ClinicalDocument.participant.associatedEntity.scopingOrganization"/>
-            <requirements value="This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31655)."/>
+            <comment value="This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31655)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -249,7 +249,7 @@
         </element>
         <element id="ClinicalDocument.component.structuredBody">
             <path value="ClinicalDocument.component.structuredBody"/>
-            <requirements value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."/>
+            <comment value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -277,13 +277,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="planOfTreatment"/>
-            <requirements value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066)."/>
+            <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="The component, if present, SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-29067)."/>
+            <comment value="The component, if present, SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-29067)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -294,13 +294,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:advanceDirectives">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="advanceDirectives"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29068) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29068) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:advanceDirectives.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01) (CONF:1198-29069)."/>
+            <comment value="SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01) (CONF:1198-29069)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -311,13 +311,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:historyOfPresentIllness">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="historyOfPresentIllness"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29074) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29074) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:historyOfPresentIllness.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-29075)."/>
+            <comment value="SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-29075)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -328,13 +328,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:familyHistory">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="familyHistory"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29076) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29076) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:familyHistory.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2015-08-01) (CONF:1198-29077)."/>
+            <comment value="SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2015-08-01) (CONF:1198-29077)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -345,13 +345,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:immunizations">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="immunizations"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29082) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29082) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:immunizations.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Immunizations Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.2.1:2015-08-01) (CONF:1198-29083)."/>
+            <comment value="SHALL contain exactly one [1..1] Immunizations Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.2.1:2015-08-01) (CONF:1198-29083)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -362,13 +362,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:problem">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="problem"/>
-            <requirements value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-29086) such that it"/>
+            <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-29086) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:problem.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2015-08-01) (CONF:1198-29087)."/>
+            <comment value="SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2015-08-01) (CONF:1198-29087)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -379,13 +379,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:procedures">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="procedures"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29088) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29088) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:procedures.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-29089)."/>
+            <comment value="SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-29089)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -396,13 +396,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:results">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="results"/>
-            <requirements value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29090) such that it"/>
+            <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29090) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:results.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2015-08-01) (CONF:1198-29091)."/>
+            <comment value="SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2015-08-01) (CONF:1198-29091)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -413,13 +413,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:reviewOfSystems">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="reviewOfSystems"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29092) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29092) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:reviewOfSystems.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Review of Systems Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:1198-29093)."/>
+            <comment value="SHALL contain exactly one [1..1] Review of Systems Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:1198-29093)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -430,13 +430,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:socialHistory">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="socialHistory"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29094) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29094) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:socialHistory.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01) (CONF:1198-29095)."/>
+            <comment value="SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01) (CONF:1198-29095)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -447,13 +447,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:vitalSigns">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="vitalSigns"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29096) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29096) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:vitalSigns.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2015-08-01) (CONF:1198-29097)."/>
+            <comment value="SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2015-08-01) (CONF:1198-29097)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -464,13 +464,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:functionalStatus">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="functionalStatus"/>
-            <requirements value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29098) such that it"/>
+            <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29098) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:functionalStatus.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Functional Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09) (CONF:1198-29099)."/>
+            <comment value="SHALL contain exactly one [1..1] Functional Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09) (CONF:1198-29099)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -481,13 +481,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:physicalExam">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="physicalExam"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29100) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29100) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:physicalExam.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2015-08-01) (CONF:1198-29101)."/>
+            <comment value="SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2015-08-01) (CONF:1198-29101)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -498,13 +498,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:nutrition">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="nutrition"/>
-            <requirements value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30780) such that it"/>
+            <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30780) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:nutrition.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Nutrition Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.57) (CONF:1198-30781)."/>
+            <comment value="SHALL contain exactly one [1..1] Nutrition Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.57) (CONF:1198-30781)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -515,13 +515,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:mentalStatus">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="mentalStatus"/>
-            <requirements value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30796) such that it"/>
+            <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30796) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:mentalStatus.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Mental Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.56:2015-08-01) (CONF:1198-30926)."/>
+            <comment value="SHALL contain exactly one [1..1] Mental Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.56:2015-08-01) (CONF:1198-30926)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -532,13 +532,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:medicalEquip">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="medicalEquip"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30798) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30798) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:medicalEquip.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Medical Equipment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.23:2014-06-09) (CONF:1198-30799)."/>
+            <comment value="SHALL contain exactly one [1..1] Medical Equipment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.23:2014-06-09) (CONF:1198-30799)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -549,13 +549,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:allergiesAndIntolerances">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="allergiesAndIntolerances"/>
-            <requirements value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30911) such that it"/>
+            <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30911) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:allergiesAndIntolerances.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01) (CONF:1198-30912)."/>
+            <comment value="SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01) (CONF:1198-30912)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -566,13 +566,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:assessment">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="assessment"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30913) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30913) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30914)."/>
+            <comment value="SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30914)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -583,13 +583,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:assessmentAndPlan">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="assessmentAndPlan"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30915) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30915) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessmentAndPlan.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Assessment and Plan Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09) (CONF:1198-30916)."/>
+            <comment value="SHALL contain exactly one [1..1] Assessment and Plan Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09) (CONF:1198-30916)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -600,13 +600,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:medicalHistory">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="medicalHistory"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30917) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30917) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:medicalHistory.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2015-08-01) (CONF:1198-30918)."/>
+            <comment value="SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2015-08-01) (CONF:1198-30918)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -617,13 +617,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:generalStatus">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="generalStatus"/>
-            <requirements value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30919) such that it"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30919) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:generalStatus.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] General Status Section (identifier: urn:oid:2.16.840.1.113883.10.20.2.5) (CONF:1198-30920)."/>
+            <comment value="SHALL contain exactly one [1..1] General Status Section (identifier: urn:oid:2.16.840.1.113883.10.20.2.5) (CONF:1198-30920)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -634,13 +634,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:medications">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="medications"/>
-            <requirements value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30922) such that it"/>
+            <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30922) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:medications.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.1.1:2014-06-09) (CONF:1198-30923)."/>
+            <comment value="SHALL contain exactly one [1..1] Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.1.1:2014-06-09) (CONF:1198-30923)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -651,13 +651,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:reasonForReferral">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="reasonForReferral"/>
-            <requirements value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30924) such that it"/>
+            <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30924) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:reasonForReferral.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Reason for Referral Section (identifier: urn:hl7ii:1.3.6.1.4.1.19376.1.5.3.1.3.1:2014-06-09) (CONF:1198-30925)."/>
+            <comment value="SHALL contain exactly one [1..1] Reason for Referral Section (identifier: urn:hl7ii:1.3.6.1.4.1.19376.1.5.3.1.3.1:2014-06-09) (CONF:1198-30925)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -668,13 +668,13 @@
         <element id="ClinicalDocument.component.structuredBody.component:payers">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="payers"/>
-            <requirements value="This structuredBody MAY contain exactly one [0..1] component (CONF:1198-309240) such that it"/>
+            <comment value="This structuredBody MAY contain exactly one [0..1] component (CONF:1198-309240) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:payers.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <requirements value="SHALL contain exactly one [1..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2015-08-01) (CONF:1198-309250)."/>
+            <comment value="SHALL contain exactly one [1..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2015-08-01) (CONF:1198-309250)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

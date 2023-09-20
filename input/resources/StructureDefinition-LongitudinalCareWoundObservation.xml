@@ -30,14 +30,14 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31012)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31012)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-31013)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-31013)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -60,47 +60,47 @@
         <element id="Observation.templateId:secondary">
             <path value="Observation.templateId"/>
             <sliceName value="secondary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-32947) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-32947) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:secondary.root">
             <path value="Observation.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.114&quot; (CONF:1198-29474)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.114&quot; (CONF:1198-29474)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.114"/>
         </element>
         <element id="Observation.templateId:secondary.extension">
             <path value="Observation.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32913)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32913)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-29476)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-29476)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; assertion (CONF:1198-29477)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; assertion (CONF:1198-29477)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="ASSERTION"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-31010)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-31010)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.5.4"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Wound Type urn:oid:2.16.840.1.113883.1.11.20.2.6 DYNAMIC (CONF:1198-29485)."/>
+            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Wound Type urn:oid:2.16.840.1.113883.1.11.20.2.6 DYNAMIC (CONF:1198-29485)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -118,7 +118,7 @@
         <element id="Observation.targetSiteCode">
             <path value="Observation.targetSiteCode"/>
             <!--<sliceName value="targetSiteCode1"/>-->
-            <requirements value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/>
+            <comment value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/>
             <min value="0"/>
             <max value="1"/>
             <binding>
@@ -129,39 +129,39 @@
         <element id="Observation.targetSiteCode.qualifier">
             <path value="Observation.targetSiteCode.qualifier"/>
             <short value="If targetSite/qualifierCode name/value pairs are used, care must be taken to avoid conflict with the SNOMED-CT body structure code used in observation/value.  SNOMED-CT body structure codes are often pre-coordinated with laterality."/>
-            <requirements value="MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."/>
+            <comment value="MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.name">
             <path value="Observation.targetSiteCode.qualifier.name"/>
-            <requirements value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1198-29491)."/>
+            <comment value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1198-29491)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.name.code">
             <path value="Observation.targetSiteCode.qualifier.name.code"/>
-            <requirements value="This name SHALL contain exactly one [1..1] @code=&quot;272741003&quot; laterality (CONF:1198-29492)."/>
+            <comment value="This name SHALL contain exactly one [1..1] @code=&quot;272741003&quot; laterality (CONF:1198-29492)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="272741003"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.name.codeSystem">
             <path value="Observation.targetSiteCode.qualifier.name.codeSystem"/>
-            <requirements value="This name SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."/>
+            <comment value="This name SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.value">
             <path value="Observation.targetSiteCode.qualifier.value"/>
-            <requirements value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."/>
+            <comment value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.value.code">
             <path value="Observation.targetSiteCode.qualifier.value.code"/>
-            <requirements value="This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."/>
+            <comment value="This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -170,10 +170,10 @@
             </binding>
         </element>
         <!--SG 20230709: Keeping commented out original code in case this really should be a slice-->
-        <!--<element id="Observation.targetSiteCode:targetSiteCode1"><path value="Observation.targetSiteCode"/><sliceName value="targetSiteCode1"/><requirements value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/><min value="0"/><max value="1"/><binding><strength value="preferred"/><valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/></binding></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier"><path value="Observation.targetSiteCode.qualifier"/><short value="If targetSite/qualifierCode name/value pairs are used, care must be taken to avoid conflict with the SNOMED-CT body structure code used in observation/value.  SNOMED-CT body structure codes are often pre-coordinated with laterality."/><requirements value="MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."/><min value="0"/><max value="*"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name"><path value="Observation.targetSiteCode.qualifier.name"/><requirements value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1198-29491)."/><min value="1"/><max value="1"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name.code"><path value="Observation.targetSiteCode.qualifier.name.code"/><requirements value="This name SHALL contain exactly one [1..1] @code=&quot;272741003&quot; laterality (CONF:1198-29492)."/><min value="1"/><max value="1"/><patternString value="272741003"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name.codeSystem"><path value="Observation.targetSiteCode.qualifier.name.codeSystem"/><requirements value="This name SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."/><min value="1"/><max value="1"/><patternString value="2.16.840.1.113883.6.96"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.value"><path value="Observation.targetSiteCode.qualifier.value"/><requirements value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."/><min value="1"/><max value="1"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.value.code"><path value="Observation.targetSiteCode.qualifier.value.code"/><requirements value="This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."/><min value="1"/><max value="1"/><binding><strength value="preferred"/><valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.37"/></binding></element>-->
+        <!--<element id="Observation.targetSiteCode:targetSiteCode1"><path value="Observation.targetSiteCode"/><sliceName value="targetSiteCode1"/><comment value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/><min value="0"/><max value="1"/><binding><strength value="preferred"/><valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/></binding></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier"><path value="Observation.targetSiteCode.qualifier"/><short value="If targetSite/qualifierCode name/value pairs are used, care must be taken to avoid conflict with the SNOMED-CT body structure code used in observation/value.  SNOMED-CT body structure codes are often pre-coordinated with laterality."/><requirements value="MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."/><min value="0"/><max value="*"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name"><path value="Observation.targetSiteCode.qualifier.name"/><requirements value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1198-29491)."/><min value="1"/><max value="1"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name.code"><path value="Observation.targetSiteCode.qualifier.name.code"/><requirements value="This name SHALL contain exactly one [1..1] @code=&quot;272741003&quot; laterality (CONF:1198-29492)."/><min value="1"/><max value="1"/><patternString value="272741003"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name.codeSystem"><path value="Observation.targetSiteCode.qualifier.name.codeSystem"/><requirements value="This name SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."/><min value="1"/><max value="1"/><patternString value="2.16.840.1.113883.6.96"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.value"><path value="Observation.targetSiteCode.qualifier.value"/><requirements value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."/><min value="1"/><max value="1"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.value.code"><path value="Observation.targetSiteCode.qualifier.value.code"/><requirements value="This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."/><min value="1"/><max value="1"/><binding><strength value="preferred"/><valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.37"/></binding></element>-->
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31542)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31542)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -195,20 +195,20 @@
         <element id="Observation.entryRelationship:woundMeasurementObservation">
             <path value="Observation.entryRelationship"/>
             <sliceName value="woundMeasurementObservation"/>
-            <requirements value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-29495) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-29495) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.entryRelationship:woundMeasurementObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-29496)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-29496)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:woundMeasurementObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Wound Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.133) (CONF:1198-29497)."/>
+            <comment value="SHALL contain exactly one [1..1] Wound Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.133) (CONF:1198-29497)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -219,20 +219,20 @@
         <element id="Observation.entryRelationship:woundCharacteristic">
             <path value="Observation.entryRelationship"/>
             <sliceName value="woundCharacteristic"/>
-            <requirements value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-29503) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-29503) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.entryRelationship:woundCharacteristic.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1198-29504)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1198-29504)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:woundCharacteristic.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Wound Characteristic (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.134) (CONF:1198-29505)."/>
+            <comment value="SHALL contain exactly one [1..1] Wound Characteristic (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.134) (CONF:1198-29505)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -244,20 +244,20 @@
             <path value="Observation.entryRelationship"/>
             <sliceName value="numberofPressureUlcersObservation"/>
             <short value="When the wound observed is a type of pressure ulcer, then this template SHOULD contain an entry for the Number of Pressure Ulcers."/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31890) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31890) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Observation.entryRelationship:numberofPressureUlcersObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31891)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31891)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:numberofPressureUlcersObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Number of Pressure Ulcers Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.76:2015-08-01) (CONF:1198-31892)."/>
+            <comment value="SHALL contain exactly one [1..1] Number of Pressure Ulcers Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.76:2015-08-01) (CONF:1198-31892)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -268,20 +268,20 @@
         <element id="Observation.entryRelationship:highestPressureUlcerStage">
             <path value="Observation.entryRelationship"/>
             <sliceName value="highestPressureUlcerStage"/>
-            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-31893) such that it"/>
+            <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-31893) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:highestPressureUlcerStage.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31894)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31894)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:highestPressureUlcerStage.observation">
             <path value="Observation.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Highest Pressure Ulcer Stage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.77) (CONF:1198-31919)."/>
+            <comment value="SHALL contain exactly one [1..1] Highest Pressure Ulcer Stage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.77) (CONF:1198-31919)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

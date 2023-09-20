@@ -30,14 +30,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-9024)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-9024)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-9025)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-9025)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -60,46 +60,46 @@
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1198-16772) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-16772) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:primary.root">
             <path value="Act.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.3&quot; (CONF:1198-16773)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.3&quot; (CONF:1198-16773)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.3"/>
         </element>
         <element id="Act.templateId:primary.extension">
             <path value="Act.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32509)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32509)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1198-9026)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:1198-9026)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1198-9027)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-9027)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @code=&quot;CONC&quot; Concern (CONF:1198-19184)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;CONC&quot; Concern (CONF:1198-19184)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="CONC"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.6&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32168)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.6&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32168)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.5.6"/>
@@ -107,14 +107,14 @@
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
             <short value="The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved."/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1198-9029)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-9029)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
             <short value="The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved."/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:1198-31525)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:1198-31525)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -124,29 +124,27 @@
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-9030)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-9030)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.effectiveTime.low">
             <path value="Act.effectiveTime.low"/>
-            <label value="The effectiveTime/low of the Problem Concern Act asserts when the concern became active."/>
             <short value="The effectiveTime/low of the Problem Concern Act asserts when the concern became active."/>
-            <requirements value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-9032)."/>
+           <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-9032)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.effectiveTime.high">
             <path value="Act.effectiveTime.high"/>
-            <label value="The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."/>
             <short value="The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."/>
-            <requirements value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-9033)."/>
+           <comment value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-9033)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
-            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31146)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31146)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -169,20 +167,20 @@
         <element id="Act.entryRelationship:problem">
             <path value="Act.entryRelationship"/>
             <sliceName value="problem"/>
-            <requirements value="SHALL contain exactly one [1..1] entryRelationship (CONF:1198-9034) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] entryRelationship (CONF:1198-9034) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.entryRelationship:problem.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-9035)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-9035)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="SUBJ"/>
         </element>
         <element id="Act.entryRelationship:problem.observation">
             <path value="Act.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15980)."/>
+            <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15980)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -193,20 +191,20 @@
         <element id="Act.entryRelationship:priority">
             <path value="Act.entryRelationship"/>
             <sliceName value="priority"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31638) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31638) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:priority.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31639)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31639)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:priority.observation">
             <path value="Act.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1198-31640)."/>
+            <comment value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1198-31640)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
