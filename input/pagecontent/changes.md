@@ -34,3 +34,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 21. CDA-1367 - Use proper LOINC code (8693-4) with no translations on Mental Status Observation template.
 22.	CDA-1693 - Change the name of the Interventions Section to Activities Section.
 23. CDA-20693 - typo correction to USCDI guidance
+24. CDA-20711 - update Gender Harmony guidance
+25. CDA-20546 - PQ values require a @unit
+26. CDA-20681 - Templates no longer contain a version label in their name (such as V2, V3, etc.)
+27. CDA-20482 - Extensionless templates are not allowed to have an extension.

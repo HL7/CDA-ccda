@@ -61,8 +61,8 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+						<min value="2"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-185) such that it"/>
-            <min value="1"/>
         </element>
         <element id="Observation.templateId:templateId1">
             <path value="Observation.templateId"/>
@@ -153,7 +153,6 @@
             <definition value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Sexual Orientation urn:oid:2.16.840.1.113762.1.4.1021.33 DYNAMIC (CONF:4537-187)."/>
             <min value="1"/>
             <max value="1"/>
-            <!--SG 20230709: add missing type-->
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
@@ -169,8 +168,8 @@
             <min value="0"/>
             <max value="1"/>
             <binding>
-                <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.103"/>
+			        <strength value="preferred"/>
+			        <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.103"/>
             </binding>
         </element>
     </differential>

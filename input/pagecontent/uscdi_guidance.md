@@ -611,8 +611,7 @@ system.
 
 ##### Sex
 
-The Birth Sex Observation template reflects the Sex assigned at birth concept present in USCDI v1 and v2 and the
-Sex concept in USCDI V3
+The Sex Observation template reflects the Sex data element in USCDI v3. The Birth Sex Observation represents a Sex Assigned at Birth present in USCDI v1 and v2. Sex Assigned at Birth is no longer a USCDI data element in USCDI v3, but systems may continue to use for other purposes.
 
 #### Problems
 
