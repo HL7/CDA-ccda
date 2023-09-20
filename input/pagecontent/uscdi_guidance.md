@@ -63,7 +63,7 @@ Assessment Screenings can represent a structured evaluation of risk (e.g., PRAPA
 screening tool) for any Social Determinants of Health domain such as food, housing, or transportation security. The
 assessment scale responses are represented in C-CDA with the Assessment Scale Observation
 2.16.840.1.113883.10.20.22.4.69:2022- 06 -01 and its contained Assessment Scale Supporting Observation
-2.16.840.1.113883.10.20.22.4.86. The Social History Observation (V4) 2.16.840.1.113883.10.20.22.4.38:2022-06-
+2.16.840.1.113883.10.20.22.4.86. The Social History Observation 2.16.840.1.113883.10.20.22.4.38:2022-06-
 01 is for simple observations made by an individual about a patient's social history status during the course of care.
 Both can contribute to the identification of SDOH Problems (Conditions) or Observations or can be the reason for
 Service Requests (Planned Procedures) or Procedures.
@@ -366,7 +366,7 @@ No additional guidance
 
 ##### Relationship to Subscriber
 
-See the latest guidance added to Policy Activity V4 which includes a new value set.
+See the latest guidance added to Policy Activity which includes a new value set.
 
 ##### Member Identifier
 
@@ -382,7 +382,7 @@ No additional guidance
 
 ##### Payer Identifier
 
-See the latest guidance added to Policy Activity V4.
+See the latest guidance added to Policy Activity.
 
 #### Health Status/Assessments
 
