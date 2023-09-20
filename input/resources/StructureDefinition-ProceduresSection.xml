@@ -17,7 +17,7 @@
     <name value="ProceduresSection"/>
     <title value="Procedures Section"/>
     <status value="active"/>
-    <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure is for procedures that alter the physical condition of a patient (e.g., splenectomy). Procedure Activity Observation is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Procedure Activity Act is for all other types of procedures (e.g., dressing change)."/>
+    <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure is for procedures that alter the physical condition of a patient (e.g., splenectomy)."/>
     <fhirVersion value="4.0.1"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -114,7 +114,7 @@
             </slicing>
             <min value="0"/>
             <max value="*"/>
-            <short value="If section/@nullFlavor is not present there SHALL be at least one entry conformant to Procedure Activity Act (templateId 2.16.840.1.113883.10.20.22.4.12:2014-06-09) OR Procedure Activity Observation (templateId: 2.16.840.1.113883.10.20.22.4.13:2014-06-09) OR Procedure Activity Procedure (templateId: 2.16.840.1.113883.10.20.22.4.14:2014-06-09)"/>
+            <short value="If section/@nullFlavor is not present there SHALL be at least one entry conformant to Procedure Activity Procedure (templateId: 2.16.840.1.113883.10.20.22.4.14:2014-06-09)"/>
             <requirements value="SHALL contain at least one [1..*] entry (CONF:1098-7895) such that it"/>
             <min value="1"/>
         </element>
@@ -130,34 +130,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </type>
-        </element>
-        <element id="Section.entry:entryAct">
-            <path value="Section.entry"/>
-            <sliceName value="entryAct"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09) (CONF:1098-15511)."/>
-        </element>
-        <element id="Section.entry:entryAct.act">
-            <path value="Section.entry.act"/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityAct"/>
-            </type>
-        </element>
-        <element id="Section.entry:entryObservation">
-            <path value="Section.entry"/>
-            <sliceName value="entryObservation"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09) (CONF:1098-15510)."/>
-        </element>
-        <element id="Section.entry:entryObservation.observation">
-            <path value="Section.entry.observation"/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityObservation"/>
             </type>
         </element>
     </differential>
