@@ -235,30 +235,6 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:procedureActivityAct">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="procedureActivityAct"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-30991) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:procedureActivityAct.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-30992)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:procedureActivityAct.act">
-            <path value="Act.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.12:2014-06-09) (CONF:1198-30993)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityAct"/>
-            </type>
-        </element>
         <element id="Act.entryRelationship:interventionAct">
             <path value="Act.entryRelationship"/>
             <sliceName value="interventionAct"/>
@@ -282,30 +258,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InterventionAct"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:procedureActivityObservation">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="procedureActivityObservation"/>
-            <requirements value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-31164) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:procedureActivityObservation.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31165)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:procedureActivityObservation.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <requirements value="SHALL contain exactly one [1..1] Procedure Activity Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.13:2014-06-09) (CONF:1198-31166)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityObservation"/>
             </type>
         </element>
         <element id="Act.entryRelationship:procedureActivityProcedure">

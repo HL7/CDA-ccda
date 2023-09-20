@@ -986,7 +986,7 @@
                 <display value="Instruction"/>
             </reference>
             <name value="Instruction"/>
-            <description value="The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template's moodCode can only be INT. If an instruction was already given, the Procedure Activity Act template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode."/>
+            <description value="The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. The template's moodCode can only be INT. If an instruction was already given, the Procedure Activity Procedure template (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through act/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -1627,26 +1627,6 @@
             </reference>
             <name value="Problem Status"/>
             <description value="The Problem Status records the clinical status attributed to the problem.&#xA;&#xA;"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/ProcedureActivityAct"/>
-                <display value="Procedure Activity Act"/>
-            </reference>
-            <name value="Procedure Activity Act"/>
-            <description value="This template represents any act that cannot be classified as an observation or procedure according to the HL7 RIM. Examples of these acts are a dressing change, teaching or feeding a patient, or providing comfort measures. &#xD;&#xA;The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy)."/>
-            <exampleBoolean value="false"/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/ProcedureActivityObservation"/>
-                <display value="Procedure Activity Observation"/>
-            </reference>
-            <name value="Procedure Activity Observation"/>
-            <description value="The common notion of procedure is broader than that specified by the HL7 Version 3 Reference Information Model (RIM). Therefore procedure templates can be represented with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure (e.g., splenectomy). &#xA;&#xA;This template represents procedures that result in new information about the patient that cannot be classified as a procedure according to the HL7 RIM. Examples of these procedures are diagnostic imaging procedures, EEGs, and EKGs."/>
             <exampleBoolean value="false"/>
             <groupingId value="entry"/>
         </resource>
@@ -3960,28 +3940,6 @@
             <description value="Procedure Note serviceEvent example"/>
             <exampleBoolean value="false"/>
             <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/procedure-activity-act-example"/></reference>
-            <name value="Procedure Activity Act Example"/>
-            <description value="Procedure Activity Act example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityAct"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <reference>
-                <reference value="Binary/procedure-activity-observation-example"/></reference>
-            <name value="Procedure Activity Observation Example"/>
-            <description value="Procedure Activity Observation example"/>
-            <exampleBoolean value="false"/>
-            <exampleCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityObservation"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
