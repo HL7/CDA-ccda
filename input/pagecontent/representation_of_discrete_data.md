@@ -1848,7 +1848,7 @@ author(s) for the contained Problem Observation(s). -->
 
 ##### Problem Observation
 
-| **Entry Template**   | **Problem Observation (V4)<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2022-06-01 (open)]**    |
+| **Entry Template**   | **Problem Observation<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2022-06-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template reflects a discrete observation about a patient's problem.  |
@@ -3029,7 +3029,7 @@ implementation guide.
                                     </tr>
                                 </table>
 
-| **Entry Template**   | **Social History Observation (V4)<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2022-06-01 (open)]**    |
+| **Entry Template**   | **Social History Observation<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2022-06-01 (open)]**    |
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template represents a patient's occupations, lifestyle, and environmental health risk factors. Demographic data (e.g., marital status, race, ethnicity, religious affiliation) are captured in the header.  |
@@ -4376,7 +4376,7 @@ templates.
 | **Summary of C-CDA Supplemental Templates for Advanced Directives**   ||
 | ---- | ------ |
 | **Advance Care Planning Intervention (V1)**<br />New Version:<br />[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.204:2017-05-01 (open)]   | The Advance Care Planning Intervention template is used to record a planned intervention that will involve reviewing and verifying a person’s directives or will involve educating and supporting a person on establishing or modifying his or her advance directives. It also can be used to record when the activity of reviewing and verifying a person’s directives has been completed or when educating and supporting a person to establish or update his or her advance directives has been completed.  |
-| **Advance Directive Observation (V4)**<br />New Version:<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2017-05-01 (open)]   | An Advance Directive Observation template is used to record information about a document authored by the person and containing goals, preferences, and priorities for care. The observation records that the document was available and may have been reviewed (verified). It records the kind (category) of advance directive document, where the document can be accessed, who verified it, and the type of content that was determined to be present. When a person has more than one advance directive document, each document is recorded using an Advance Directive Observation template. A set of Advance Directive Observations are grouped together using an Advance Directive Organizer.  |
+| **Advance Directive Observation**<br />New Version:<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2017-05-01 (open)]   | An Advance Directive Observation template is used to record information about a document authored by the person and containing goals, preferences, and priorities for care. The observation records that the document was available and may have been reviewed (verified). It records the kind (category) of advance directive document, where the document can be accessed, who verified it, and the type of content that was determined to be present. When a person has more than one advance directive document, each document is recorded using an Advance Directive Observation template. A set of Advance Directive Observations are grouped together using an Advance Directive Organizer.  |
 | **Advance Directive Organizer**<br />New Version:<br />[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2017-05-01 (open)]   | This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented.  |
 | **Obligation Instruction**<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.205:2018-01-01 (open)]   | The Obligation Instruction template represents a statement made by a patient regarding care services he or she wants to be performed.  |
 | **Prohibition Instruction**<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.206:2018-01-01 (open)]   | The Prohibition Instruction template represents a statement made by a patient regarding care services he or she does not want to be performed.  |
