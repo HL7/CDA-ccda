@@ -30,14 +30,14 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7480)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7480)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7481)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7481)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -55,27 +55,27 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-7482) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-7482) such that it"/>
             <min value="1"/>
         </element>
         <element id="Observation.templateId:templateId1">
             <path value="Observation.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-7482) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-7482) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:templateId1.root">
             <path value="Observation.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.19&quot; (CONF:4537-10502)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.19&quot; (CONF:4537-10502)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.19"/>
         </element>
         <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32570)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32570)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2023-05-01"/>
@@ -83,13 +83,13 @@
         <element id="Observation.id">
             <path value="Observation.id"/>
             <short value="If the id element is used to reference a problem recorded elsewhere in the document then this id must equal another entry/id in the same document instance. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. Its purpose is to obviate the need to repeat the complete XML representation of the referred to entry when relating one entry to another."/>
-           <definition value="SHALL contain at least one [1..*] id (CONF:4537-7483)."/>
+           <comment value="SHALL contain at least one [1..*] id (CONF:4537-7483)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <definition value="SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Problem Type (SNOMEDCT) urn:oid:2.16.840.1.113883.3.88.12.3221.7.2 DYNAMIC (CONF:4537-31229)."/>
+            <comment value="SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Problem Type (SNOMEDCT) urn:oid:2.16.840.1.113883.3.88.12.3221.7.2 DYNAMIC (CONF:4537-31229)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -99,26 +99,26 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4537-7487)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-7487)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19105)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19105)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <definition value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7488)."/>
+            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7488)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <definition value="MAY contain zero or one [0..1] value with @xsi:type=&quot;CD&quot;, where the code MAY be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:4537-7489)."/>
+            <comment value="MAY contain zero or one [0..1] value with @xsi:type=&quot;CD&quot;, where the code MAY be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:4537-7489)."/>
             <min value="0"/>
             <max value="1"/>
             <type>

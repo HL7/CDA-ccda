@@ -29,14 +29,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31485)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31485)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31486)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31486)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -55,13 +55,13 @@
         <element id="Act.templateId:primary">
             <path value="Act.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-31487) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-31487) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:primary.root">
             <path value="Act.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.122&quot; (CONF:1098-31488)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.122&quot; (CONF:1098-31488)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.122"/>
@@ -69,32 +69,32 @@
         <element id="Act.id">
             <path value="Act.id"/>
             <short value="The ID must equal another entry/id in the same document instance. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. The ID cannot have Null value (e.g., nullFlavor is not allowed)."/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-31489)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:1098-31489)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <requirements value="SHALL contain exactly one [1..1] code (CONF:1098-31490)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:1098-31490)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.code.nullFlavor">
             <path value="Act.code.nullFlavor"/>
-            <requirements value="This code SHALL contain exactly one [1..1] @nullFlavor=&quot;NP&quot; Not Present (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-31491)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @nullFlavor=&quot;NP&quot; Not Present (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-31491)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="NP"/>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31498)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31498)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
-            <requirements value="This statusCode MAY contain zero or one [0..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31499)."/>
+            <comment value="This statusCode MAY contain zero or one [0..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31499)."/>
             <min value="0"/>
             <max value="1"/>
             <fixedString value="completed"/>

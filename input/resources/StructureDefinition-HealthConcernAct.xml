@@ -35,14 +35,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4515-30750)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4515-30750)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-30751)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-30751)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -60,66 +60,66 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-30752) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-30752) such that it"/>
             <min value="1"/>
         </element>
         <element id="Act.templateId:templateId1">
             <path value="Act.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:4515-30752) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-30752) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:templateId1.root">
             <path value="Act.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.132&quot; (CONF:4515-30753)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.132&quot; (CONF:4515-30753)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.132"/>
         </element>
         <element id="Act.templateId:templateId1.extension">
             <path value="Act.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-32861)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-32861)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2022-06-01"/>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>
-            <definition value="SHALL contain at least one [1..*] id (CONF:4515-30754)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:4515-30754)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:4515-32310)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:4515-32310)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;75310-3&quot; Health Concern (CONF:4515-32311)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;75310-3&quot; Health Concern (CONF:4515-32311)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="75310-3"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-32312)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-32312)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4515-30758)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4515-30758)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
-            <definition value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:4515-32313)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:4515-32313)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -129,13 +129,13 @@
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
-            <definition value="MAY contain zero or one [0..1] effectiveTime (CONF:4515-30759)."/>
+            <comment value="MAY contain zero or one [0..1] effectiveTime (CONF:4515-30759)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
-            <definition value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31546)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31546)."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -156,26 +156,26 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-30761) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-30761) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-30762)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-30762)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:4515-31001)."/>
+            <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:4515-31001)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -187,20 +187,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31007) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31007) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship2.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31008)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31008)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship2.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09) (CONF:4515-31186)."/>
+            <comment value="SHALL contain exactly one [1..1] Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09) (CONF:4515-31186)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -212,20 +212,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31157) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31157) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship3.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31158)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31158)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship3.act">
             <path value="Act.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32106)."/>
+            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32106)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -242,20 +242,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31160) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31160) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship4.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31161)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31161)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship4.act">
             <path value="Act.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32107)."/>
+            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32107)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -272,20 +272,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship5"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31190) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31190) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship5.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31191)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31191)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship5.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-31192)."/>
+            <comment value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-31192)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -297,20 +297,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship6"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31232) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31232) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship6.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31264)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31264)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship6.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Self-Care Activities (ADL and IADL) (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.128) (CONF:4515-31265)."/>
+            <comment value="SHALL contain exactly one [1..1] Self-Care Activities (ADL and IADL) (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.128) (CONF:4515-31265)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -322,20 +322,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship7"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31234) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31234) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship7.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31268)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31268)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship7.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:4515-31273)."/>
+            <comment value="SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:4515-31273)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -347,20 +347,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship8"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31235) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31235) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship8.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31269)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31269)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship8.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:4515-31275)."/>
+            <comment value="SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:4515-31275)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -372,20 +372,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship9"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31236) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31236) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship9.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31270)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31270)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship9.act">
             <path value="Act.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Encounter Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:4515-31277)."/>
+            <comment value="SHALL contain exactly one [1..1] Encounter Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:4515-31277)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -397,20 +397,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship10"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31237) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31237) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship10.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers To (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31279)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers To (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31279)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship10.organizer">
             <path value="Act.entryRelationship.organizer"/>
-            <definition value="SHALL contain exactly one [1..1] Family History Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.45:2015-08-01) (CONF:4515-31280)."/>
+            <comment value="SHALL contain exactly one [1..1] Family History Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.45:2015-08-01) (CONF:4515-31280)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -422,20 +422,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship11"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31238) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31238) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship11.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31282)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31282)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship11.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Functional Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:4515-31283)."/>
+            <comment value="SHALL contain exactly one [1..1] Functional Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:4515-31283)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -447,20 +447,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship12"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31241) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31241) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship12.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31291)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31291)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship12.act">
             <path value="Act.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Hospital Admission Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.34:2015-08-01) (CONF:4515-31292)."/>
+            <comment value="SHALL contain exactly one [1..1] Hospital Admission Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.34:2015-08-01) (CONF:4515-31292)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -472,20 +472,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship13"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31244) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31244) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship13.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31300)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31300)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship13.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Nutrition Assessment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.138) (CONF:4515-31301)."/>
+            <comment value="SHALL contain exactly one [1..1] Nutrition Assessment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.138) (CONF:4515-31301)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -497,20 +497,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship14"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31246) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31246) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship14.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31306)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31306)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship14.act">
             <path value="Act.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Postprocedure Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.51:2015-08-01) (CONF:4515-31307)."/>
+            <comment value="SHALL contain exactly one [1..1] Postprocedure Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.51:2015-08-01) (CONF:4515-31307)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -522,20 +522,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship15"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31247) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31247) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship15.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31309)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31309)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship15.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Pregnancy Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:4515-31310)."/>
+            <comment value="SHALL contain exactly one [1..1] Pregnancy Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:4515-31310)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -547,20 +547,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship16"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31248) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31248) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship16.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31312)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31312)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship16.act">
             <path value="Act.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Preoperative Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.65:2015-08-01) (CONF:4515-31313)."/>
+            <comment value="SHALL contain exactly one [1..1] Preoperative Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.65:2015-08-01) (CONF:4515-31313)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -572,20 +572,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship17"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31250) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31250) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship17.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31318)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31318)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship17.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:4515-31319)."/>
+            <comment value="SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:4515-31319)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -597,20 +597,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship18"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31251) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31251) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship18.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31321)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31321)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship18.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Result Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:4515-31322)."/>
+            <comment value="SHALL contain exactly one [1..1] Result Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:4515-31322)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -622,20 +622,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship19"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31252) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31252) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship19.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31324)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31324)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship19.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Sensory Status (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.127) (CONF:4515-31325)."/>
+            <comment value="SHALL contain exactly one [1..1] Sensory Status (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.127) (CONF:4515-31325)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -647,20 +647,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship20"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31253) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31253) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship20.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31327)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31327)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship20.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Social History Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2015-08-01) (CONF:4515-31328)."/>
+            <comment value="SHALL contain exactly one [1..1] Social History Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2015-08-01) (CONF:4515-31328)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -672,20 +672,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship21"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31254) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31254) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship21.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32961)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32961)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship21.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Substance or Device Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.24.3.90:2014-06-09) (CONF:4515-31331)."/>
+            <comment value="SHALL contain exactly one [1..1] Substance or Device Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.24.3.90:2014-06-09) (CONF:4515-31331)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -697,20 +697,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship22"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31255) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31255) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship22.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31333)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31333)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship22.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:4515-31334)."/>
+            <comment value="SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:4515-31334)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -722,20 +722,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship23"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31256) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31256) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship23.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31336)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31336)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship23.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Vital Sign Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:4515-31337)."/>
+            <comment value="SHALL contain exactly one [1..1] Vital Sign Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:4515-31337)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -747,20 +747,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship24"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31257) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31257) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship24.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31339)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31339)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship24.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Longitudinal Care Wound Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01) (CONF:4515-31340)."/>
+            <comment value="SHALL contain exactly one [1..1] Longitudinal Care Wound Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01) (CONF:4515-31340)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -772,20 +772,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship25"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31365) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31365) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship25.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31366)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31366)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="SPRT"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship25.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:4515-31367)."/>
+            <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:4515-31367)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -797,20 +797,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship26"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31368) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31368) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship26.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31369)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31369)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship26.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:4515-31370)."/>
+            <comment value="SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:4515-31370)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -822,20 +822,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship27"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31371) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31371) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship27.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31372)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31372)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship27.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Cultural and Religious Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.111) (CONF:4515-31373)."/>
+            <comment value="SHALL contain exactly one [1..1] Cultural and Religious Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.111) (CONF:4515-31373)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -847,20 +847,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship28"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31374) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31374) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship28.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31375)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31375)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship28.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Characteristics of Home Environment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.109) (CONF:4515-31376)."/>
+            <comment value="SHALL contain exactly one [1..1] Characteristics of Home Environment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.109) (CONF:4515-31376)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -872,20 +872,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship29"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31377) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31377) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship29.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31378)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31378)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship29.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Nutritional Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.124) (CONF:4515-31379)."/>
+            <comment value="SHALL contain exactly one [1..1] Nutritional Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.124) (CONF:4515-31379)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -897,20 +897,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship30"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31380) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31380) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship30.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31381)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31381)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship30.organizer">
             <path value="Act.entryRelationship.organizer"/>
-            <definition value="SHALL contain exactly one [1..1] Result Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01) (CONF:4515-31382)."/>
+            <comment value="SHALL contain exactly one [1..1] Result Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01) (CONF:4515-31382)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -922,20 +922,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship31"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31442) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31442) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship31.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31443)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31443)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship31.observation">
             <path value="Act.entryRelationship.observation"/>
-            <definition value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-31444)."/>
+            <comment value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-31444)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -947,20 +947,20 @@
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship32"/>
             <short value="entryRelationship"/>
-            <definition value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship32.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31550)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31550)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship32.act">
             <path value="Act.entryRelationship.act"/>
-            <definition value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31551)."/>
+            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31551)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -970,20 +970,20 @@
         </element>
         <element id="Act.reference">
             <path value="Act.reference"/>
-            <definition value="MAY contain zero or more [0..*] reference (CONF:4515-32757)."/>
+            <comment value="MAY contain zero or more [0..*] reference (CONF:4515-32757)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.reference.typeCode">
             <path value="Act.reference.typeCode"/>
-            <definition value="The reference, if present, SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32758)."/>
+            <comment value="The reference, if present, SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32758)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Act.reference.externalDocument">
             <path value="Act.reference.externalDocument"/>
-            <definition value="The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:4515-32759)."/>
+            <comment value="The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:4515-32759)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

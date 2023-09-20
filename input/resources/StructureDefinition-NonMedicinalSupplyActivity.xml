@@ -30,14 +30,14 @@
         </element>
         <element id="Supply.classCode">
             <path value="Supply.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8745)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8745)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="SPLY"/>
         </element>
         <element id="Supply.moodCode">
             <path value="Supply.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:1098-8746)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:1098-8746)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -63,39 +63,39 @@
         <element id="Supply.templateId:primary">
             <path value="Supply.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-8747) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-8747) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Supply.templateId:primary.root">
             <path value="Supply.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.50&quot; (CONF:1098-10509)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.50&quot; (CONF:1098-10509)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.50"/>
         </element>
         <element id="Supply.templateId:primary.extension">
             <path value="Supply.templateId.extension"/>
-            <requirements value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32514)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32514)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Supply.id">
             <path value="Supply.id"/>
-            <requirements value="SHALL contain at least one [1..*] id (CONF:1098-8748)."/>
+            <comment value="SHALL contain at least one [1..*] id (CONF:1098-8748)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Supply.statusCode">
             <path value="Supply.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CONF:1098-8749)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-8749)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Supply.statusCode.code">
             <path value="Supply.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32363)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32363)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -105,7 +105,7 @@
         </element>
         <element id="Supply.effectiveTime">
             <path value="Supply.effectiveTime"/>
-            <requirements value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."/>
+            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -119,7 +119,7 @@
         </element>
         <element id="Supply.quantity">
             <path value="Supply.quantity"/>
-            <requirements value="SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)."/>
+            <comment value="SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -140,20 +140,20 @@
         <element id="Supply.participant:participant1">
             <path value="Supply.participant"/>
             <sliceName value="participant1"/>
-            <requirements value="MAY contain zero or one [0..1] participant (CONF:1098-8752) such that it"/>
+            <comment value="MAY contain zero or one [0..1] participant (CONF:1098-8752) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Supply.participant:participant1.typeCode">
             <path value="Supply.participant.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;PRD&quot; Product (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8754)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;PRD&quot; Product (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8754)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="PRD"/>
         </element>
         <element id="Supply.participant:participant1.participantRole">
             <path value="Supply.participant.participantRole"/>
-            <requirements value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-15900)."/>
+            <comment value="SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-15900)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -174,27 +174,27 @@
         <element id="Supply.entryRelationship:instruction">
             <path value="Supply.entryRelationship"/>
             <sliceName value="instruction"/>
-            <requirements value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-30277) such that it"/>
+            <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-30277) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Supply.entryRelationship:instruction.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CONF:1098-30278)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CONF:1098-30278)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="SUBJ"/>
         </element>
         <element id="Supply.entryRelationship:instruction.inversionInd">
             <path value="Supply.entryRelationship.inversionInd"/>
-            <requirements value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1098-30279)."/>
+            <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1098-30279)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedBoolean value="true"/>
         </element>
         <element id="Supply.entryRelationship:instruction.act">
             <path value="Supply.entryRelationship.act"/>
-            <requirements value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31393)."/>
+            <comment value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31393)."/>
             <min value="1"/>
             <max value="1"/>
             <type>

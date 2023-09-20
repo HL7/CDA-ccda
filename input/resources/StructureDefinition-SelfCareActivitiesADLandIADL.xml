@@ -29,14 +29,14 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31389)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31389)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <requirements value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31390)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31390)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -55,13 +55,13 @@
         <element id="Observation.templateId:primary">
             <path value="Observation.templateId"/>
             <sliceName value="primary"/>
-            <requirements value="SHALL contain exactly one [1..1] templateId (CONF:1098-28190) such that it, SHALL not contain [0..0] extension."/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-28190) such that it, SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.templateId:primary.root">
             <path value="Observation.templateId.root"/>
-            <requirements value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.128&quot; (CONF:1098-28457)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.128&quot; (CONF:1098-28457)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.128"/>
@@ -69,7 +69,7 @@
         <element id="Observation.code">
             <path value="Observation.code"/>
             <short value="If more detailed ADL and IADL activities need to be recorded select the appropriate code from LOINC."/>
-            <requirements value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet ADL Result Type urn:oid:2.16.840.1.113883.11.20.9.47 DYNAMIC (CONF:1098-28153)."/>
+            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet ADL Result Type urn:oid:2.16.840.1.113883.11.20.9.47 DYNAMIC (CONF:1098-28153)."/>
             <min value="1"/>
             <max value="1"/>
             <binding>
@@ -79,20 +79,20 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <requirements value="SHALL contain exactly one [1..1] statusCode (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32490)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32490)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <requirements value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32491)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32491)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedString value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-32492)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-32492)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -101,7 +101,7 @@
         <element id="Observation.value">
             <path value="Observation.value"/>
             <!--<sliceName value="ability"/>-->
-            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Ability urn:oid:2.16.840.1.113883.11.20.9.46 DYNAMIC (CONF:1098-28042)."/>
+            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Ability urn:oid:2.16.840.1.113883.11.20.9.46 DYNAMIC (CONF:1098-28042)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -114,7 +114,7 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <requirements value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32469)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32469)."/>
             <min value="0"/>
             <max value="*"/>
             <type>

@@ -34,14 +34,14 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CONF:3250-16899)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CONF:3250-16899)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CONF:3250-16900)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CONF:3250-16900)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="EVN"/>
@@ -59,54 +59,54 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:3250-16933) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:3250-16933) such that it"/>
             <min value="1"/>
         </element>
         <element id="Act.templateId:templateId1">
             <path value="Act.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <definition value="SHALL contain exactly one [1..1] templateId (CONF:3250-16933) such that it"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:3250-16933) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.templateId:templateId1.root">
             <path value="Act.templateId.root"/>
-            <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.202&quot; (CONF:3250-16934)."/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.202&quot; (CONF:3250-16934)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.202"/>
         </element>
         <element id="Act.templateId:templateId1.extension">
             <path value="Act.templateId.extension"/>
-            <definition value="SHALL contain exactly one [1..1] @extension=&quot;2016-11-01&quot; (CONF:3250-16937)."/>
+            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2016-11-01&quot; (CONF:3250-16937)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2016-11-01"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <definition value="SHALL contain exactly one [1..1] code (CONF:3250-16895)."/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:3250-16895)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <definition value="This code SHALL contain exactly one [1..1] @code=&quot;34109-9&quot; Note (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;34109-9&quot; Note (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="34109-9"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:3250-16941)."/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:3250-16941)."/>
             <min value="1"/>
             <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Act.code.translation">
             <path value="Act.code.translation"/>
-            <definition value="This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."/>
+            <comment value="This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
@@ -126,13 +126,13 @@
         </element>
         <element id="Act.text">
             <path value="Act.text"/>
-            <definition value="SHALL contain exactly one [1..1] text (CONF:3250-16896)."/>
+            <comment value="SHALL contain exactly one [1..1] text (CONF:3250-16896)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.text.mediaType">
             <path value="Act.text.mediaType"/>
-            <definition value="This text MAY contain zero or one [0..1] @mediaType, which SHOULD be selected from ValueSet SupportedFileFormats urn:oid:2.16.840.1.113883.11.20.7.1 DYNAMIC (CONF:3250-16906)."/>
+            <comment value="This text MAY contain zero or one [0..1] @mediaType, which SHOULD be selected from ValueSet SupportedFileFormats urn:oid:2.16.840.1.113883.11.20.7.1 DYNAMIC (CONF:3250-16906)."/>
             <min value="0"/>
             <max value="1"/>
             <constraint>
@@ -147,19 +147,19 @@
         </element>
         <element id="Act.text.reference">
             <path value="Act.text.reference"/>
-            <definition value="This text SHALL contain exactly one [1..1] reference (CONF:3250-16897)."/>
+            <comment value="This text SHALL contain exactly one [1..1] reference (CONF:3250-16897)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.text.reference.nullFlavor">
             <path value="Act.text.reference.nullFlavor"/>
-            <definition value="This reference SHALL NOT contain [0..0] @nullFlavor (CONF:3250-16920)."/>
+            <comment value="This reference SHALL NOT contain [0..0] @nullFlavor (CONF:3250-16920)."/>
             <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Act.text.reference.value">
             <path value="Act.text.reference.value"/>
-            <definition value="This reference SHALL contain exactly one [1..1] @value (CONF:3250-16898)."/>
+            <comment value="This reference SHALL contain exactly one [1..1] @value (CONF:3250-16898)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -170,25 +170,25 @@
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <definition value="SHALL contain exactly one [1..1] statusCode (CONF:3250-16916)."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:3250-16916)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
-            <definition value="SHALL contain exactly one [1..1] effectiveTime (CONF:3250-16903)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:3250-16903)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.effectiveTime.value">
             <path value="Act.effectiveTime.value"/>
-            <definition value="This effectiveTime SHOULD contain zero or one [0..1] @value (CONF:3250-16917)."/>
+            <comment value="This effectiveTime SHOULD contain zero or one [0..1] @value (CONF:3250-16917)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
-            <definition value="SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:3250-16913)."/>
+            <comment value="SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:3250-16913)."/>
             <min value="1"/>
             <max value="*"/>
             <type>
@@ -209,26 +209,26 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"/>
+            <comment value="MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"/>
         </element>
         <element id="Act.participant:participant1">
             <path value="Act.participant"/>
             <sliceName value="participant1"/>
             <short value="participant"/>
-            <definition value="MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"/>
+            <comment value="MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.participant:participant1.typeCode">
             <path value="Act.participant.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;LA&quot; Legal Authenticator (CONF:3250-16925)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LA&quot; Legal Authenticator (CONF:3250-16925)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="LA"/>
         </element>
         <element id="Act.participant:participant1.time">
             <path value="Act.participant.time"/>
-            <definition value="SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:3250-16926)."/>
+            <comment value="SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:3250-16926)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -239,7 +239,7 @@
         </element>
         <element id="Act.participant:participant1.participantRole">
             <path value="Act.participant.participantRole"/>
-            <definition value="SHALL contain exactly one [1..1] participantRole (CONF:3250-16924)."/>
+            <comment value="SHALL contain exactly one [1..1] participantRole (CONF:3250-16924)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
@@ -250,19 +250,19 @@
         </element>
         <element id="Act.participant:participant1.participantRole.id">
             <path value="Act.participant.participantRole.id"/>
-            <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:3250-16927)."/>
+            <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:3250-16927)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity">
             <path value="Act.participant.participantRole.playingEntity"/>
-            <definition value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:3250-16928)."/>
+            <comment value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:3250-16928)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity.name">
             <path value="Act.participant.participantRole.playingEntity.name"/>
-            <definition value="The playingEntity, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:3250-16929)."/>
+            <comment value="The playingEntity, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:3250-16929)."/>
             <min value="1"/>
             <max value="*"/>
             <type>
@@ -287,45 +287,45 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <short value="entryRelationship"/>
-            <definition value="SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"/>
+            <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:3250-16921)."/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:3250-16921)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.inversionInd">
             <path value="Act.entryRelationship.inversionInd"/>
-            <definition value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:3250-16922)."/>
+            <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:3250-16922)."/>
             <min value="1"/>
             <max value="1"/>
             <fixedBoolean value="true"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.negationInd">
             <path value="Act.entryRelationship.negationInd"/>
-            <definition value="MAY contain zero or one [0..1] @negationInd (CONF:3250-16931)."/>
+            <comment value="MAY contain zero or one [0..1] @negationInd (CONF:3250-16931)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.encounter">
             <path value="Act.entryRelationship.encounter"/>
-            <definition value="SHALL contain exactly one [1..1] encounter (CONF:3250-16908)."/>
+            <comment value="SHALL contain exactly one [1..1] encounter (CONF:3250-16908)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.encounter.id">
             <path value="Act.entryRelationship.encounter.id"/>
-            <definition value="This encounter SHALL contain at least one [1..*] id (CONF:3250-16909)."/>
+            <comment value="This encounter SHALL contain at least one [1..*] id (CONF:3250-16909)."/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
@@ -343,31 +343,31 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"/>
+            <comment value="MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"/>
         </element>
         <element id="Act.reference:reference1">
             <path value="Act.reference"/>
             <sliceName value="reference1"/>
             <short value="reference"/>
-            <definition value="MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"/>
+            <comment value="MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.reference:reference1.externalDocument">
             <path value="Act.reference.externalDocument"/>
-            <definition value="SHALL contain exactly one [1..1] externalDocument (CONF:3250-16911)."/>
+            <comment value="SHALL contain exactly one [1..1] externalDocument (CONF:3250-16911)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.reference:reference1.externalDocument.id">
             <path value="Act.reference.externalDocument.id"/>
-            <definition value="This externalDocument SHALL contain exactly one [1..1] id (CONF:3250-16915)."/>
+            <comment value="This externalDocument SHALL contain exactly one [1..1] id (CONF:3250-16915)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.reference:reference1.externalDocument.code">
             <path value="Act.reference.externalDocument.code"/>
-            <definition value="This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)."/>
+            <comment value="This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
