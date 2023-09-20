@@ -30,7 +30,6 @@
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
-            <short value="classCode"/>
             <definition value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-8898)."/>
             <min value="1"/>
             <max value="1"/>
@@ -38,7 +37,6 @@
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <short value="moodCode"/>
             <definition value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8899)."/>
             <min value="1"/>
             <max value="1"/>
@@ -70,7 +68,6 @@
         </element>
         <element id="Act.templateId:templateId1.root">
             <path value="Act.templateId.root"/>
-            <short value="root"/>
             <definition value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.61&quot; (CONF:4537-10516)."/>
             <min value="1"/>
             <max value="1"/>
@@ -78,7 +75,6 @@
         </element>
         <element id="Act.templateId:templateId1.extension">
             <path value="Act.templateId.extension"/>
-            <short value="extension"/>
             <definition value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32595)."/>
             <min value="1"/>
             <max value="1"/>
@@ -86,14 +82,12 @@
         </element>
         <element id="Act.id">
             <path value="Act.id"/>
-            <short value="id"/>
             <definition value="SHALL contain at least one [1..*] id (CONF:4537-8901)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <short value="code"/>
             <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem X12N Insurance Type urn:oid:2.16.840.1.113883.6.255.1336 DYNAMIC (CONF:4537-8903)."/>
             <min value="1"/>
             <max value="1"/>
@@ -126,7 +120,6 @@
         </element>
         <element id="Act.code.translation:translation1.code">
             <path value="Act.code.translation.code"/>
-            <short value="code"/>
             <definition value="SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Payer urn:oid:2.16.840.1.114222.4.11.3591 DYNAMIC (CONF:4537-33066)."/>
             <min value="0"/>
             <max value="1"/>
@@ -137,14 +130,12 @@
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <short value="statusCode"/>
             <definition value="SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
-            <short value="code"/>
             <definition value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19109)."/>
             <min value="1"/>
             <max value="1"/>
@@ -180,7 +171,6 @@
         </element>
         <element id="Act.performer:performer1.typeCode">
             <path value="Act.performer.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;PRF&quot; Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4537-8907)."/>
             <min value="1"/>
             <max value="1"/>
@@ -188,14 +178,12 @@
         </element>
         <element id="Act.performer:performer1.templateId">
             <path value="Act.performer.templateId"/>
-            <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16808), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.performer:performer1.templateId.root">
             <path value="Act.performer.templateId.root"/>
-            <short value="root"/>
             <definition value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.87&quot; Payer Performer (CONF:4537-16809)."/>
             <min value="1"/>
             <max value="1"/>
@@ -203,28 +191,24 @@
         </element>
         <element id="Act.performer:performer1.assignedEntity">
             <path value="Act.performer.assignedEntity"/>
-            <short value="assignedEntity"/>
             <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8908)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.performer:performer1.assignedEntity.id">
             <path value="Act.performer.assignedEntity.id"/>
-            <short value="id"/>
             <definition value="This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-8909)."/>
             <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Act.performer:performer1.assignedEntity.code">
             <path value="Act.performer.assignedEntity.code"/>
-            <short value="code"/>
             <definition value="This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.performer:performer1.assignedEntity.code.code">
             <path value="Act.performer.assignedEntity.code.code"/>
-            <short value="code"/>
             <definition value="The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Financially Responsible Party Type Value Set urn:oid:2.16.840.1.113883.1.11.10416 DYNAMIC (CONF:4537-15992)."/>
             <min value="1"/>
             <max value="1"/>
@@ -235,7 +219,6 @@
         </element>
         <element id="Act.performer:performer1.assignedEntity.addr">
             <path value="Act.performer.assignedEntity.addr"/>
-            <short value="addr"/>
             <definition value="This assignedEntity MAY contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8910)."/>
             <min value="0"/>
             <max value="1"/>
@@ -246,21 +229,18 @@
         </element>
         <element id="Act.performer:performer1.assignedEntity.telecom">
             <path value="Act.performer.assignedEntity.telecom"/>
-            <short value="telecom"/>
             <definition value="This assignedEntity MAY contain zero or more [0..*] telecom (CONF:4537-8911)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Act.performer:performer1.assignedEntity.representedOrganization">
             <path value="Act.performer.assignedEntity.representedOrganization"/>
-            <short value="representedOrganization"/>
             <definition value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.performer:performer1.assignedEntity.representedOrganization.name">
             <path value="Act.performer.assignedEntity.representedOrganization.name"/>
-            <short value="name"/>
             <definition value="The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)."/>
             <min value="0"/>
             <max value="1"/>
@@ -275,7 +255,6 @@
         </element>
         <element id="Act.performer:performer2.typeCode">
             <path value="Act.performer.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;PRF&quot; Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4537-32971)."/>
             <min value="1"/>
             <max value="1"/>
@@ -283,14 +262,12 @@
         </element>
         <element id="Act.performer:performer2.templateId">
             <path value="Act.performer.templateId"/>
-            <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16810), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.performer:performer2.templateId.root">
             <path value="Act.performer.templateId.root"/>
-            <short value="root"/>
             <definition value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.88&quot; Guarantor Performer (CONF:4537-16811)."/>
             <min value="1"/>
             <max value="1"/>
@@ -298,14 +275,12 @@
         </element>
         <element id="Act.performer:performer2.time">
             <path value="Act.performer.time"/>
-            <short value="time"/>
             <definition value="SHOULD contain zero or one [0..1] time (CONF:4537-8963)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.performer:performer2.assignedEntity">
             <path value="Act.performer.assignedEntity"/>
-            <short value="assignedEntity"/>
             <definition value="SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8962)."/>
             <min value="1"/>
             <max value="1"/>
@@ -317,14 +292,12 @@
         </element>
         <element id="Act.performer:performer2.assignedEntity.code">
             <path value="Act.performer.assignedEntity.code"/>
-            <short value="code"/>
             <definition value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:4537-8968)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.performer:performer2.assignedEntity.code.code">
             <path value="Act.performer.assignedEntity.code.code"/>
-            <short value="code"/>
             <definition value="This code SHALL contain exactly one [1..1] @code=&quot;GUAR&quot; Guarantor (CONF:4537-16096)."/>
             <min value="1"/>
             <max value="1"/>
@@ -332,7 +305,6 @@
         </element>
         <element id="Act.performer:performer2.assignedEntity.code.codeSystem">
             <path value="Act.performer.assignedEntity.code.codeSystem"/>
-            <short value="codeSystem"/>
             <definition value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.110&quot; (CONF:4537-32165)."/>
             <min value="1"/>
             <max value="1"/>
@@ -340,7 +312,6 @@
         </element>
         <element id="Act.performer:performer2.assignedEntity.addr">
             <path value="Act.performer.assignedEntity.addr"/>
-            <short value="addr"/>
             <definition value="This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)."/>
             <min value="0"/>
             <max value="1"/>
@@ -351,7 +322,6 @@
         </element>
         <element id="Act.performer:performer2.assignedEntity.telecom">
             <path value="Act.performer.assignedEntity.telecom"/>
-            <short value="telecom"/>
             <definition value="This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)."/>
             <min value="0"/>
             <max value="*"/>
@@ -386,7 +356,6 @@
         </element>
         <element id="Act.participant:participant1.typeCode">
             <path value="Act.participant.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;COV&quot; Coverage target (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4537-8917)."/>
             <min value="1"/>
             <max value="1"/>
@@ -394,14 +363,12 @@
         </element>
         <element id="Act.participant:participant1.templateId">
             <path value="Act.participant.templateId"/>
-            <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16812), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant1.templateId.root">
             <path value="Act.participant.templateId.root"/>
-            <short value="root"/>
             <definition value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.89&quot; Covered Party Participant (CONF:4537-16814)."/>
             <min value="1"/>
             <max value="1"/>
@@ -409,35 +376,30 @@
         </element>
         <element id="Act.participant:participant1.time">
             <path value="Act.participant.time"/>
-            <short value="time"/>
             <definition value="SHOULD contain zero or one [0..1] time (CONF:4537-8918)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant1.time.low">
             <path value="Act.participant.time.low"/>
-            <short value="low"/>
             <definition value="The time, if present, SHOULD contain zero or one [0..1] low (CONF:4537-8919)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant1.time.high">
             <path value="Act.participant.time.high"/>
-            <short value="high"/>
             <definition value="The time, if present, SHOULD contain zero or one [0..1] high (CONF:4537-8920)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant1.participantRole">
             <path value="Act.participant.participantRole"/>
-            <short value="participantRole"/>
             <definition value="SHALL contain exactly one [1..1] participantRole (CONF:4537-8921)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant1.participantRole.id">
             <path value="Act.participant.participantRole.id"/>
-            <short value="id"/>
             <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:4537-8922)."/>
             <min value="1"/>
             <max value="*"/>
@@ -449,14 +411,12 @@
         </element>
         <element id="Act.participant:participant1.participantRole.code">
             <path value="Act.participant.participantRole.code"/>
-            <short value="code"/>
             <definition value="This participantRole SHALL contain exactly one [1..1] code (CONF:4537-8923)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant1.participantRole.code.code">
             <path value="Act.participant.participantRole.code.code"/>
-            <short value="code"/>
             <definition value="This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Coverage Role Type Value Set urn:oid:2.16.840.1.113883.1.11.18877 DYNAMIC (CONF:4537-16078)."/>
             <min value="0"/>
             <max value="1"/>
@@ -467,7 +427,6 @@
         </element>
         <element id="Act.participant:participant1.participantRole.addr">
             <path value="Act.participant.participantRole.addr"/>
-            <short value="addr"/>
             <definition value="This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)."/>
             <min value="0"/>
             <max value="1"/>
@@ -478,14 +437,12 @@
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity">
             <path value="Act.participant.participantRole.playingEntity"/>
-            <short value="playingEntity"/>
             <definition value="This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity.name">
             <path value="Act.participant.participantRole.playingEntity.name"/>
-            <short value="name"/>
             <definition value="The playingEntity, if present, SHALL contain exactly one [1..1] name (CONF:4537-8930)."/>
             <min value="1"/>
             <max value="1"/>
@@ -517,7 +474,6 @@
         </element>
         <element id="Act.participant:participant2.typeCode">
             <path value="Act.participant.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;HLD&quot; Holder (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4537-8935)."/>
             <min value="1"/>
             <max value="1"/>
@@ -525,14 +481,12 @@
         </element>
         <element id="Act.participant:participant2.templateId">
             <path value="Act.participant.templateId"/>
-            <short value="templateId"/>
             <definition value="SHALL contain exactly one [1..1] templateId (CONF:4537-16813), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant2.templateId.root">
             <path value="Act.participant.templateId.root"/>
-            <short value="root"/>
             <definition value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.90&quot; Policy Holder Participant (CONF:4537-16815)."/>
             <min value="1"/>
             <max value="1"/>
@@ -540,21 +494,18 @@
         </element>
         <element id="Act.participant:participant2.time">
             <path value="Act.participant.time"/>
-            <short value="time"/>
             <definition value="MAY contain zero or one [0..1] time (CONF:4537-8938)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant2.participantRole">
             <path value="Act.participant.participantRole"/>
-            <short value="participantRole"/>
             <definition value="SHALL contain exactly one [1..1] participantRole (CONF:4537-8936)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Act.participant:participant2.participantRole.id">
             <path value="Act.participant.participantRole.id"/>
-            <short value="id"/>
             <definition value="This participantRole SHALL contain at least one [1..*] id (CONF:4537-8937)."/>
             <min value="1"/>
             <max value="*"/>
@@ -566,7 +517,6 @@
         </element>
         <element id="Act.participant:participant2.participantRole.addr">
             <path value="Act.participant.participantRole.addr"/>
-            <short value="addr"/>
             <definition value="This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)."/>
             <min value="0"/>
             <max value="1"/>
@@ -605,7 +555,6 @@
         </element>
         <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <short value="typeCode"/>
             <definition value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4537-8940)."/>
             <min value="1"/>
             <max value="1"/>
