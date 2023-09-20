@@ -44,9 +44,8 @@
         </element>
         <element id="Observation.negationInd">
             <path value="Observation.negationInd"/>
-            <label value="Use negationInd=&quot;true&quot; to indicate that the allergy was not observed."/>
             <short value="Use negationInd=&quot;true&quot; to indicate that the allergy was not observed."/>
-            <requirements value="MAY contain zero or one [0..1] @negationInd (CONF:1098-31526)."/>
+           <requirements value="MAY contain zero or one [0..1] @negationInd (CONF:1098-31526)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
@@ -127,33 +126,29 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <label value="If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'."/>
             <short value="If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'."/>
-            <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7387)."/>
+           <requirements value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7387)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
-            <label value="The effectiveTime/low (a.k.a. &quot;onset date&quot;) asserts when the allergy/intolerance became biologically active."/>
             <short value="The effectiveTime/low (a.k.a. &quot;onset date&quot;) asserts when the allergy/intolerance became biologically active."/>
-            <requirements value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-31538)."/>
+           <requirements value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-31538)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
-            <label value="The effectiveTime/high (a.k.a. &quot;resolution date&quot;) asserts when the allergy/intolerance became biologically resolved."/>
             <short value="The effectiveTime/high (a.k.a. &quot;resolution date&quot;) asserts when the allergy/intolerance became biologically resolved."/>
-            <requirements value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31539)."/>
+           <requirements value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31539)."/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <label value="The consumable participant points to the precise allergen or substance of intolerance. Because the consumable and the reaction are more clinically relevant than a categorization of the allergy/adverse event type, many systems will simply assign a fixed value here (e.g., &quot;allergy to substance&quot;)."/>
             <short value="The consumable participant points to the precise allergen or substance of intolerance. Because the consumable and the reaction are more clinically relevant than a categorization of the allergy/adverse event type, many systems will simply assign a fixed value here (e.g., &quot;allergy to substance&quot;)."/>
-            <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Allergy and Intolerance Type urn:oid:2.16.840.1.113883.3.88.12.3221.6.2 DYNAMIC (CONF:1098-7390)."/>
+           <requirements value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Allergy and Intolerance Type urn:oid:2.16.840.1.113883.3.88.12.3221.6.2 DYNAMIC (CONF:1098-7390)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
