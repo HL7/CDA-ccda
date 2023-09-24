@@ -125,6 +125,11 @@
                 <rules value="open"/>
             </slicing>
             <min value="1"/>
+            <constraint>
+                <key value="1098-7513"/>
+                <severity value="error"/>
+                <human value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it **SHALL** contain exactly one [1..1] @xsi:type=&quot;PIVL_TS&quot; or &quot;EIVL_TS&quot; (CONF:1098-28499)."/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.effectiveTime:duration">
             <path value="SubstanceAdministration.effectiveTime"/>
@@ -163,23 +168,34 @@
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:frequency">
+        <element id="SubstanceAdministration.effectiveTime:periodicFrequency">
             <path value="SubstanceAdministration.effectiveTime"/>
-            <sliceName value="frequency"/>
-            <short value="This effectiveTime represents the medication frequency (e.g., administration times per day)."/>
-           <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it"/>
+            <sliceName value="periodicFrequency"/>
+            <short value="This effectiveTime represents a periodic medication frequency (e.g., administration times per day)."/>
             <min value="0"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SXCM-TS"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/EIVL-TS"/>
             </type>
-            <constraint>
-                <key value="1098-28499"/>
-                <severity value="error"/>
-                <human value="**SHALL** contain exactly one [1..1] @xsi:type=&quot;PIVL_TS&quot; or &quot;EIVL_TS&quot; (CONF:1098-28499)."/>
-            </constraint>
         </element>
-        <element id="SubstanceAdministration.effectiveTime:frequency.operator">
+        <element id="SubstanceAdministration.effectiveTime:periodicFrequency.operator">
+            <path value="SubstanceAdministration.effectiveTime.operator"/>
+            <comment value="SHALL contain exactly one [1..1] @operator=&quot;A&quot; (CONF:1098-9106)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <patternCode value="A"/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:eventFrequency">
+            <path value="SubstanceAdministration.effectiveTime"/>
+            <sliceName value="eventFrequency"/>
+            <short value="This effectiveTime represents an event-based medication frequency (e.g., administration at bedtime)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PIVL-TS"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:eventFrequency.operator">
             <path value="SubstanceAdministration.effectiveTime.operator"/>
             <comment value="SHALL contain exactly one [1..1] @operator=&quot;A&quot; (CONF:1098-9106)."/>
             <min value="1"/>
