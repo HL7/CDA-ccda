@@ -82,9 +82,6 @@ Examples of referral situations are when a patient is referred from a family phy
     * scopingOrganization 0..1
       * ^comment = "This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31655)."
 * component 1..1
-  * ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "section.code"
-  * ^slicing.rules = #open
   * structuredBody 1..1
     * obeys 1198-29102 and 1198-29103
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."
