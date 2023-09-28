@@ -115,67 +115,51 @@ The Operative Note is created immediately following a surgical or other high-ris
         component15 0..1 and
         component16 0..1
     * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30486)."
-      * section 1..1
       * section only AnesthesiaSection
         * ^comment = "This component SHALL contain exactly one [1..1] Anesthesia Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09) (CONF:1198-30487)."
     * component[component2] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30488) such that it"
-      * section 1..1
       * section only ComplicationsSection
         * ^comment = "SHALL contain exactly one [1..1] Complications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2015-08-01) (CONF:1198-30489)."
     * component[component3] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30490) such that it"
-      * section 1..1
       * section only PreoperativeDiagnosisSection
         * ^comment = "SHALL contain exactly one [1..1] Preoperative Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.34:2015-08-01) (CONF:1198-30491)."
     * component[component4] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30492) such that it"
-      * section 1..1
       * section only ProcedureEstimatedBloodLossSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Estimated Blood Loss Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.9) (CONF:1198-30493)."
     * component[component5] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30494) such that it"
-      * section 1..1
       * section only ProcedureFindingsSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Findings Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.28:2015-08-01) (CONF:1198-30495)."
     * component[component6] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30496) such that it"
-      * section 1..1
       * section only ProcedureSpecimensTakenSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Specimens Taken Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.31) (CONF:1198-30497)."
     * component[component7] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30498) such that it"
-      * section 1..1
       * section only ProcedureDescriptionSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Description Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.27) (CONF:1198-30499)."
     * component[component8] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30500) such that it"
-      * section 1..1
       * section only PostoperativeDiagnosisSection
         * ^comment = "SHALL contain exactly one [1..1] Postoperative Diagnosis Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.35) (CONF:1198-30501)."
     * component[component9] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30502) such that it"
-      * section 1..1
       * section only ProcedureImplantsSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Implants Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.40) (CONF:1198-30503)."
     * component[component10] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30504) such that it"
-      * section 1..1
       * section only OperativeNoteFluidsSection
         * ^comment = "SHALL contain exactly one [1..1] Operative Note Fluids Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.12) (CONF:1198-30505)."
     * component[component11] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30506) such that it"
-      * section 1..1
       * section only OperativeNoteSurgicalProcedureSection
         * ^comment = "SHALL contain exactly one [1..1] Operative Note Surgical Procedure Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.14) (CONF:1198-30507)."
     * component[component12] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30508) such that it"
-      * section 1..1
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30509)."
     * component[component13] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30510) such that it"
-      * section 1..1
       * section only PlannedProcedureSection
         * ^comment = "SHALL contain exactly one [1..1] Planned Procedure Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.30:2014-06-09) (CONF:1198-30511)."
     * component[component14] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30512) such that it"
-      * section 1..1
       * section only ProcedureDispositionSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Disposition Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.12) (CONF:1198-30513)."
     * component[component15] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30514) such that it"
-      * section 1..1
       * section only ProcedureIndicationsSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Indications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.29:2014-06-09) (CONF:1198-30515)."
     * component[component16] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30516) such that it"
-      * section 1..1
       * section only SurgicalDrainsSection
         * ^comment = "SHALL contain exactly one [1..1] Surgical Drains Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.13) (CONF:1198-30517)."
 
