@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="DrugMonitoringAct"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="act"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DrugMonitoringAct"/>
     <identifier>
@@ -15,30 +20,28 @@
     </identifier>
     <name value="DrugMonitoringAct"/>
     <title value="Drug Monitoring Act"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This template represents the act of monitoring the patient's medication and includes a participation to record the person responsible for monitoring the medication. The prescriber of the medication is not necessarily the same person or persons monitoring the drug. The effectiveTime indicates the time when the activity is intended to take place.&#xA;&#xA;For example, a cardiologist may prescribe a patient Warfarin. The patient's primary care provider may monitor the patient's INR and adjust the dosing of the Warfarin based on these laboratory results. Here the person designated to monitor the drug is the primary care provider."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act">
-            <path value="Act"/>
-        </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-30823)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;INT&quot; (CONF:1098-28656)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="INT"/>
         </element>
         <element id="Act.templateId">
@@ -63,51 +66,42 @@
             <path value="Act.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.123&quot; (CONF:1098-28658)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.123"/>
         </element>
         <element id="Act.templateId:primary.extension">
             <path value="Act.templateId.extension"/>
-            <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1098-31920)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1098-28660)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;395170001&quot; medication monitoring (regime/therapy) (CONF:1098-30818)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="395170001"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1098-30819)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31921)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32358)."/>
             <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15933"/>
@@ -117,7 +111,6 @@
             <path value="Act.effectiveTime"/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31922)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.participant">
             <path value="Act.participant"/>
@@ -141,39 +134,30 @@
             <path value="Act.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;RESP&quot; (CONF:1098-28663)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedCode value="RESP"/>
         </element>
         <element id="Act.participant:participant1.participantRole">
             <path value="Act.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:1098-28662)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.participant:participant1.participantRole.classCode">
             <path value="Act.participant.participantRole.classCode"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] @classCode=&quot;ASSIGNED&quot; (CONF:1098-28664)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="ASSIGNED"/>
         </element>
         <element id="Act.participant:participant1.participantRole.id">
             <path value="Act.participant.participantRole.id"/>
             <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:1098-28665)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity">
             <path value="Act.participant.participantRole.playingEntity"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1098-28667)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity.classCode">
             <path value="Act.participant.participantRole.playingEntity.classCode"/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] @classCode=&quot;PSN&quot; (CONF:1098-28668)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="PSN"/>
         </element>
         <element id="Act.participant:participant1.participantRole.playingEntity.name">

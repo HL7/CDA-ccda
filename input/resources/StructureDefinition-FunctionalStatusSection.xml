@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="FunctionalStatusSection"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="section"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusSection"/>
     <identifier>
@@ -16,18 +21,20 @@
     <version value="2014-06-09"/>
     <name value="FunctionalStatusSection"/>
     <title value="Functional Status Section"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="The Functional Status Section contains observations and assessments of a patient's physical abilities. A patient's functional status may include information regarding the patient's ability to perform Activities of Daily Living (ADLs) in areas such as Mobility (e.g., ambulation), Self-Care (e.g., bathing, dressing, feeding, grooming) or Instrumental Activities of Daily Living (IADLs) (e.g., shopping, using a telephone, balancing a check book). Problems that impact function (e.g., dyspnea, dysphagia) can be contained in the section."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -54,47 +61,40 @@
             <path value="Section.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.14&quot; (CONF:1098-10389)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.14"/>
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32567)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1098-14578)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;47420-5&quot; Functional Status (CONF:1098-14579)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="47420-5"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-30866)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
             <comment value="SHALL contain exactly one [1..1] title (CONF:1098-7922)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:1098-7923)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
@@ -113,8 +113,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <min value="0"/>
-            <max value="*"/>
         </element>
         <element id="Section.entry:funcStatusOrganizer">
             <path value="Section.entry"/>
@@ -127,7 +125,6 @@
             <path value="Section.entry.organizer"/>
             <comment value="SHALL contain exactly one [1..1] Functional Status Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.66:2014-06-09) (CONF:1098-14415)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusOrganizer"/>
@@ -144,7 +141,6 @@
             <path value="Section.entry.observation"/>
             <comment value="SHALL contain exactly one [1..1] Functional Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:1098-14419)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusObservation"/>
@@ -161,7 +157,6 @@
             <path value="Section.entry.observation"/>
             <comment value="SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:1098-14427)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CaregiverCharacteristics"/>
@@ -178,7 +173,6 @@
             <path value="Section.entry.observation"/>
             <comment value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1098-14581)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
@@ -195,7 +189,6 @@
             <path value="Section.entry.supply"/>
             <comment value="SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-30783)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
@@ -212,7 +205,6 @@
             <path value="Section.entry.observation"/>
             <comment value="SHALL contain exactly one [1..1] Self-Care Activities (ADL and IADL) (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.128) (CONF:1098-31009)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SelfCareActivitiesADLandIADL"/>
@@ -229,7 +221,6 @@
             <path value="Section.entry.observation"/>
             <comment value="SHALL contain exactly one [1..1] Sensory Status (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.127) (CONF:1098-31011)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SensoryStatus"/>

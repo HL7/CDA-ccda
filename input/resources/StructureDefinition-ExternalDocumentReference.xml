@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="ExternalDocumentReference"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="externalDocument"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ExternalDocumentReference"/>
     <identifier>
@@ -16,31 +21,29 @@
     <version value="2014-06-09"/>
     <name value="ExternalDocumentReference"/>
     <title value="External Document Reference"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="Where it is necessary to reference an external clinical document, the External Document Reference template can be used to reference this external document. However, if the containing document is appending to or replacing another document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ExternalDocument"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ExternalDocument"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="ExternalDocument">
-            <path value="ExternalDocument"/>
-        </element>
         <element id="ExternalDocument.classCode">
             <path value="ExternalDocument.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;DOCCLIN&quot; Clinical Document (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31931)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="DOCCLIN"/>
         </element>
         <element id="ExternalDocument.moodCode">
             <path value="ExternalDocument.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31932)."/>
             <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="EVN"/>
         </element>
         <element id="ExternalDocument.templateId">
             <path value="ExternalDocument.templateId"/>
@@ -68,14 +71,12 @@
             <path value="ExternalDocument.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.115&quot; (CONF:1098-32750)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.115"/>
         </element>
         <element id="ExternalDocument.templateId:primary.extension">
             <path value="ExternalDocument.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32749)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="ExternalDocument.id">
@@ -88,19 +89,14 @@
             <path value="ExternalDocument.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1098-31933)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="ExternalDocument.setId">
             <path value="ExternalDocument.setId"/>
             <comment value="SHOULD contain zero or one [0..1] setId (CONF:1098-32752)."/>
-            <min value="0"/>
-            <max value="1"/>
         </element>
         <element id="ExternalDocument.versionNumber">
             <path value="ExternalDocument.versionNumber"/>
             <comment value="SHOULD contain zero or one [0..1] versionNumber (CONF:1098-32753)."/>
-            <min value="0"/>
-            <max value="1"/>
         </element>
     </differential>
 </StructureDefinition>

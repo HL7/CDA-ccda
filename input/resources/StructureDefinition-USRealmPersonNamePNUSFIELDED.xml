@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="USRealmPersonNamePNUSFIELDED"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-no-order">
+        <valueBoolean value="true"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
     <identifier>
@@ -15,9 +20,14 @@
     </identifier>
     <name value="USRealmPersonNamePNUSFIELDED"/>
     <title value="US Realm Person Name (PN.US.FIELDED)"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="The US Realm Clinical Document Person Name datatype flavor is a set of reusable constraints that can be used for Persons."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
@@ -30,11 +40,13 @@
                 <key value="81-9371"/>
                 <severity value="error"/>
                 <human value="The content of name **SHALL** be either a conformant Patient Name (PTN.US.FIELDED), or a string (CONF:81-9371)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
             </constraint>
             <constraint>
                 <key value="81-9372"/>
                 <severity value="error"/>
                 <human value="The string **SHALL NOT** contain name parts (CONF:81-9372)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
             </constraint>
         </element>
     </differential>

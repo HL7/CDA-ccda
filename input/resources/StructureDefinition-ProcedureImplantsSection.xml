@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="ProcedureImplantsSection"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="section"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureImplantsSection"/>
     <identifier>
@@ -15,9 +20,14 @@
     </identifier>
     <name value="ProcedureImplantsSection"/>
     <title value="Procedure Implants Section"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="The Procedure Implants Section records any materials placed during the procedure including stents, tubes, and drains."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -30,6 +40,7 @@
                 <key value="81-8769"/>
                 <severity value="error"/>
                 <human value="The Procedure Implants section **SHALL** include a statement providing details of the implants placed, or assert no implants were placed (CONF:81-8769)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureImplantsSection"/>
             </constraint>
         </element>
         <element id="Section.templateId">
@@ -54,45 +65,38 @@
             <path value="Section.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.40&quot; (CONF:81-10444)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.40"/>
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
-            <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:81-15373)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;59771-6&quot; Procedure Implants (CONF:81-15374)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="59771-6"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26492)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
             <comment value="SHALL contain exactly one [1..1] title (CONF:81-8180)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:81-8181)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
     </differential>
 </StructureDefinition>

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="USRealmDateandTimeDTMUSFIELDED"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
     <identifier>
@@ -15,9 +17,14 @@
     </identifier>
     <name value="USRealmDateandTimeDTMUSFIELDED"/>
     <title value="US Realm Date and Time (DTM.US.FIELDED)"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (DT.US.FIELDED), but is used with elements having a datatype of TS."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/TS"/>
@@ -30,21 +37,25 @@
                 <key value="81-10127"/>
                 <severity value="error"/>
                 <human value="**SHALL** be precise to the day (CONF:81-10127)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
             </constraint>
             <constraint>
                 <key value="81-10128"/>
                 <severity value="warning"/>
                 <human value="**SHOULD** be precise to the minute (CONF:81-10128)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
             </constraint>
             <constraint>
                 <key value="81-10129"/>
                 <severity value="warning"/>
                 <human value="**MAY** be precise to the second (CONF:81-10129)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
             </constraint>
             <constraint>
                 <key value="81-10130"/>
                 <severity value="warning"/>
                 <human value="If more precise than day, **SHOULD** include time-zone offset (CONF:81-10130)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
             </constraint>
         </element>
     </differential>

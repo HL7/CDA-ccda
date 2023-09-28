@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="AdmissionMedicationsSectionEntriesOptional"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="section"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AdmissionMedicationsSectionEntriesOptional"/>
     <identifier>
@@ -16,18 +21,20 @@
     <version value="2015-08-01"/>
     <name value="AdmissionMedicationsSectionEntriesOptional"/>
     <title value="Admission Medications Section (entries optional)"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="The section contains the medications taken by the patient prior to and at the time of admission to the facility."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -54,47 +61,40 @@
             <path value="Section.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.44&quot; (CONF:1198-10392)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.44"/>
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32560)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-15482)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;42346-7&quot; Medications on Admission (CONF:1198-15483)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="42346-7"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32142)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
             <comment value="SHALL contain exactly one [1..1] title (CONF:1198-10100)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:1198-10101)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
@@ -117,7 +117,6 @@
             <path value="Section.entry.act"/>
             <comment value="SHALL contain exactly one [1..1] Admission Medication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.36:2014-06-09) (CONF:1198-15484)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdmissionMedication"/>
