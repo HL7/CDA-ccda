@@ -1,0 +1,31 @@
+Profile: HighestPressureUlcerStage
+Parent: $Observation
+Id: HighestPressureUlcerStage
+Title: "Highest Pressure Ulcer Stage"
+Description: "This observation contains a description of the wound tissue of the most severe or highest staged pressure ulcer observed on a patient."
+* insert LogicalModelNA
+* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.77"
+* classCode 1..1
+* classCode = #OBS (exactly)
+  * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-14726)."
+* moodCode 1..1
+* moodCode = #EVN (exactly)
+  * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-14727)."
+* templateId ^slicing.discriminator.type = #value
+  * ^slicing.discriminator.path = "root"
+  * ^slicing.rules = #open
+* templateId contains primary 1..1
+* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:81-14728) such that it, SHALL not contain [0..0] extension."
+  * root 1..1
+  * root = "2.16.840.1.113883.10.20.22.4.77"
+    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.77\" (CONF:81-14729)."
+  * extension 0..0
+* id 1..*
+  * ^comment = "SHALL contain at least one [1..*] id (CONF:81-14730)."
+* code 1..1
+  * ^comment = "SHALL contain exactly one [1..1] code (CONF:81-14731)."
+  * code 1..1
+  * code = #420905001
+    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"420905001\" Highest Pressure Ulcer Stage (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:81-14732)."
+* value 1..1
+  * ^comment = "SHALL contain exactly one [1..1] value (CONF:81-14733)."
