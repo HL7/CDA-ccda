@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="OperativeNote"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="clinicalDocument"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
     <identifier>
@@ -18,29 +23,20 @@
     <title value="Operative Note"/>
     <status value="active"/>
     <description value="The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory agencies. &#xA;&#xA;The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="ClinicalDocument">
-            <path value="ClinicalDocument"/>
-        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="extension"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <min value="2"/>
         </element>
         <element id="ClinicalDocument.templateId:secondary">
@@ -54,28 +50,23 @@
             <path value="ClinicalDocument.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.7&quot; (CONF:1198-10048)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.7"/>
         </element>
         <element id="ClinicalDocument.templateId:secondary.extension">
             <path value="ClinicalDocument.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32519)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
             <short value="The Operative Note recommends use of a single document type code, 11504-8 &quot;Provider-unspecified Operation Note&quot;, with further specification provided by author or performer, setting, or specialty data in the CDA header. Some of the LOINC codes in the Surgical Operation Note Document Type Code table are pre-coordinated with the practice setting or the training or professional level of the author. Use of pre-coordinated codes is not recommended because of potential conflict with other information in the header. When these codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-17187)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="ClinicalDocument.code.code">
             <path value="ClinicalDocument.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet SurgicalOperationNoteDocumentTypeCode http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.1.1 DYNAMIC (CONF:1198-17188)."/>
             <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.1.1"/>
@@ -86,24 +77,20 @@
             <short value="A serviceEvent represents the main act, such as a colonoscopy or an appendectomy, being documented. A serviceEvent can further specialize the act inherent in the ClinicalDocument/code, such as where the ClinicalDocument/code is simply &quot;Surgical Operation Note&quot; and the procedure is &quot;Appendectomy.&quot; serviceEvent is required in the Operative Note and it must be equivalent to or further specialize the value inherent in the ClinicalDocument/code; it shall not conflict with the value inherent in the ClinicalDocument/code, as such a conflict would create ambiguity. serviceEvent/effectiveTime can be used to indicate the time the actual event (as opposed to the encounter surrounding the event) took place. If the date and the duration of the procedure is known, serviceEvent/effectiveTime/low is used with a width element that describes the duration; no high element is used. However, if only the date is known, the date is placed in both the low and high elements."/>
             <comment value="SHALL contain at least one [1..*] documentationOf (CONF:1198-8486)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
             <comment value="Such documentationOfs SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8493)."/>
-            <min value="1"/>
-            <max value="1"/>
             <constraint>
                 <key value="1198-8487"/>
                 <severity value="error"/>
                 <human value="The value of serviceEvent/code **SHALL** be from ICD9 CM Procedures (CodeSystem 2.16.840.1.113883.6.104), CPT-4 (CodeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (CodeSystem 2.16.840.1.113883.6.96) ValueSet Procedure 2.16.840.1.113883.3.88.12.80.28 *DYNAMIC* (CONF:1198-8487)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
             <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
@@ -112,16 +99,19 @@
                 <key value="1198-8488"/>
                 <severity value="error"/>
                 <human value="The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
             <constraint>
                 <key value="1198-10058"/>
                 <severity value="error"/>
                 <human value="If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
             <constraint>
                 <key value="1198-10060"/>
                 <severity value="error"/>
                 <human value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
@@ -155,15 +145,11 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;PPRF&quot; Primary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8495)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="PPRF"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
             <comment value="MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:1198-32963)."/>
-            <min value="0"/>
-            <max value="1"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.30"/>
@@ -172,14 +158,10 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-10917)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8490)."/>
-            <min value="0"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
@@ -195,15 +177,11 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRF&quot; Secondary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32738)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="SPRF"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
             <comment value="MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:1198-32964)."/>
-            <min value="0"/>
-            <max value="1"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.30"/>
@@ -212,14 +190,10 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32737)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2.assignedEntity.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32739)."/>
-            <min value="0"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
@@ -229,53 +203,39 @@
             <path value="ClinicalDocument.authorization"/>
             <short value="Authorization represents consent. Consent, if present, shall be represented by authorization/consent."/>
             <comment value="MAY contain zero or one [0..1] authorization (CONF:1198-32404)."/>
-            <min value="0"/>
             <max value="1"/>
         </element>
         <element id="ClinicalDocument.authorization.typeCode">
             <path value="ClinicalDocument.authorization.typeCode"/>
             <comment value="The authorization, if present, SHALL contain exactly one [1..1] @typeCode=&quot;AUTH&quot; authorized by (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32408)."/>
             <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="AUTH"/>
         </element>
         <element id="ClinicalDocument.authorization.consent">
             <path value="ClinicalDocument.authorization.consent"/>
             <comment value="The authorization, if present, SHALL contain exactly one [1..1] consent (CONF:1198-32405)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="ClinicalDocument.authorization.consent.classCode">
             <path value="ClinicalDocument.authorization.consent.classCode"/>
             <comment value="This consent SHALL contain exactly one [1..1] @classCode=&quot;CONS&quot; consent (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32409)."/>
             <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="CONS"/>
         </element>
         <element id="ClinicalDocument.authorization.consent.moodCode">
             <path value="ClinicalDocument.authorization.consent.moodCode"/>
             <comment value="This consent SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-32410)."/>
             <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="EVN"/>
         </element>
         <element id="ClinicalDocument.authorization.consent.statusCode">
             <path value="ClinicalDocument.authorization.consent.statusCode"/>
             <comment value="This consent SHALL contain exactly one [1..1] statusCode (CONF:1198-32411)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="ClinicalDocument.component">
             <path value="ClinicalDocument.component"/>
             <comment value="SHALL contain exactly one [1..1] component (CONF:1198-9585)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody">
             <path value="ClinicalDocument.component.structuredBody"/>
             <comment value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30485)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>
@@ -298,8 +258,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component1.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="This component SHALL contain exactly one [1..1] Anesthesia Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09) (CONF:1198-30487)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AnesthesiaSection"/>
@@ -315,8 +273,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component2.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Complications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2015-08-01) (CONF:1198-30489)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ComplicationsSection"/>
@@ -332,8 +288,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component3.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Preoperative Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.34:2015-08-01) (CONF:1198-30491)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PreoperativeDiagnosisSection"/>
@@ -349,8 +303,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component4.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Estimated Blood Loss Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.9) (CONF:1198-30493)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureEstimatedBloodLossSection"/>
@@ -366,8 +318,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component5.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Findings Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.28:2015-08-01) (CONF:1198-30495)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureFindingsSection"/>
@@ -383,8 +333,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component6.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Specimens Taken Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.31) (CONF:1198-30497)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureSpecimensTakenSection"/>
@@ -400,8 +348,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component7.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Description Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.27) (CONF:1198-30499)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureDescriptionSection"/>
@@ -417,8 +363,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component8.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Postoperative Diagnosis Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.35) (CONF:1198-30501)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PostoperativeDiagnosisSection"/>
@@ -434,8 +378,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component9.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Implants Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.40) (CONF:1198-30503)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureImplantsSection"/>
@@ -451,8 +393,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component10.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Operative Note Fluids Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.12) (CONF:1198-30505)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNoteFluidsSection"/>
@@ -468,8 +408,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component11.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Operative Note Surgical Procedure Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.14) (CONF:1198-30507)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNoteSurgicalProcedureSection"/>
@@ -485,8 +423,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component12.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30509)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection"/>
@@ -502,8 +438,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component13.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Planned Procedure Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.30:2014-06-09) (CONF:1198-30511)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedureSection"/>
@@ -519,8 +453,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component14.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Disposition Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.12) (CONF:1198-30513)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureDispositionSection"/>
@@ -536,8 +468,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component15.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Indications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.29:2014-06-09) (CONF:1198-30515)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureIndicationsSection"/>
@@ -553,8 +483,6 @@
         <element id="ClinicalDocument.component.structuredBody.component:component16.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Surgical Drains Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.13) (CONF:1198-30517)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SurgicalDrainsSection"/>

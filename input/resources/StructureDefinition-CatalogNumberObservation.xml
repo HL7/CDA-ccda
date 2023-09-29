@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="CatalogNumberObservation"/>
     <meta>
         <versionId value="4"/>
         <lastUpdated value="2023-07-11T23:41:38.318Z"/>
     </meta>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="observation"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CatalogNumberObservation"/>
     <identifier>
@@ -20,18 +25,20 @@
     <version value="2019-06-21"/>
     <name value="CatalogNumberObservation"/>
     <title value="Catalog Number Observation"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Catalog Number**.  The UDI-DI of the medical device may be used to retrieve the Catalog Number in accessGUDID, which should be considered the source of truth."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <comment value="SHALL contain exactly one [1..1] templateId (CONF:4437-3432)."/>
@@ -41,51 +48,41 @@
         <element id="Observation.templateId.root">
             <path value="Observation.templateId.root"/>
             <short value="template oid"/>
-           <comment value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.302&quot; (CONF:4437-3434)."/>
+            <comment value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.302&quot; (CONF:4437-3434)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.302"/>
         </element>
         <element id="Observation.templateId.extension">
             <path value="Observation.templateId.extension"/>
             <comment value="This templateId SHALL contain exactly one [1..1] @extension=&quot;2019-06-21&quot; (CONF:4437-3435)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2019-06-21"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
             <short value="Code for &quot;Device Catalog Number&quot;"/>
-           <comment value="SHALL contain exactly one [1..1] code (CONF:4437-3433)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <comment value="SHALL contain exactly one [1..1] code (CONF:4437-3433)."/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;C99286&quot; Catalog Number (CodeSystem: NCI Thesaurus (NCIt) urn:oid:2.16.840.1.113883.3.26.1.1 STATIC) (CONF:4437-3436)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="C99286"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.3.26.1.1&quot; (CONF:4437-3437)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.3.26.1.1"/>
         </element>
         <element id="Observation.code.codeSystemName">
             <path value="Observation.code.codeSystemName"/>
             <comment value="This code MAY contain zero or one [0..1] @codeSystemName=&quot;NCI Thesaurus&quot; (CONF:4437-3438)."/>
-            <min value="0"/>
-            <max value="1"/>
             <patternString value="NCI Thesaurus"/>
         </element>
         <element id="Observation.code.displayName">
             <path value="Observation.code.displayName"/>
             <comment value="This code MAY contain zero or one [0..1] @displayName=&quot;Catalog Number&quot; (CONF:4437-3439)."/>
-            <min value="0"/>
-            <max value="1"/>
             <patternString value="Catalog Number"/>
         </element>
         <element id="Observation.value">

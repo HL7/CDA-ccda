@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="FamilyHistoryOrganizer"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="organizer"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
     <identifier>
@@ -16,31 +21,28 @@
     <version value="2015-08-01"/>
     <name value="FamilyHistoryOrganizer"/>
     <title value="Family History Organizer"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="The Family History Organizer associates a set of observations with a family member. For example, the Family History Organizer can group a set of observations about the patient's father."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Organizer">
-            <path value="Organizer"/>
-        </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8600)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="CLUSTER"/>
         </element>
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8601)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="EVN"/>
         </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
@@ -68,59 +70,47 @@
             <path value="Organizer.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.45&quot; (CONF:1198-10497)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.45"/>
         </element>
         <element id="Organizer.templateId:primary.extension">
             <path value="Organizer.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32606)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1198-32485)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8602)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19099)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedCode value="completed"/>
         </element>
         <element id="Organizer.subject">
             <path value="Organizer.subject"/>
             <comment value="SHALL contain exactly one [1..1] subject (CONF:1198-8609)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Organizer.subject.relatedSubject">
             <path value="Organizer.subject.relatedSubject"/>
             <comment value="This subject SHALL contain exactly one [1..1] relatedSubject (CONF:1198-15244)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Organizer.subject.relatedSubject.classCode">
             <path value="Organizer.subject.relatedSubject.classCode"/>
             <comment value="This relatedSubject SHALL contain exactly one [1..1] @classCode=&quot;PRS&quot; Person (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:1198-15245)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="PRS"/>
         </element>
         <element id="Organizer.subject.relatedSubject.code">
             <path value="Organizer.subject.relatedSubject.code"/>
             <comment value="This relatedSubject SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Family Member Value urn:oid:2.16.840.1.113883.1.11.19579 DYNAMIC (CONF:1198-15246)."/>
             <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19579"/>
@@ -129,34 +119,35 @@
         <element id="Organizer.subject.relatedSubject.subject">
             <path value="Organizer.subject.relatedSubject.subject"/>
             <comment value="This relatedSubject SHOULD contain zero or one [0..1] subject (CONF:1198-15248)."/>
-            <min value="0"/>
-            <max value="1"/>
             <constraint>
                 <key value="1198-15249"/>
                 <severity value="warning"/>
                 <human value="The subject **SHOULD** contain zero or more [0..*] sdtc:id. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the id element (CONF:1198-15249)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
             </constraint>
             <constraint>
                 <key value="1198-15981"/>
                 <severity value="warning"/>
                 <human value="The subject **MAY** contain zero or one [0..1] *sdtc:deceasedInd*. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the deceasedInd element (CONF:1198-15981)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
             </constraint>
             <constraint>
                 <key value="1198-15982"/>
                 <severity value="warning"/>
                 <human value="The subject **MAY** contain zero or one [0..1] *sdtc:deceasedTime*. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the deceasedTime element (CONF:1198-15982)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
             </constraint>
             <constraint>
                 <key value="1198-15983"/>
                 <severity value="warning"/>
                 <human value="The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
             </constraint>
         </element>
         <element id="Organizer.subject.relatedSubject.subject.administrativeGenderCode">
             <path value="Organizer.subject.relatedSubject.subject.administrativeGenderCode"/>
             <comment value="The subject, if present, SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:1198-15974)."/>
             <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1"/>
@@ -165,20 +156,16 @@
         <element id="Organizer.subject.relatedSubject.subject.birthTime">
             <path value="Organizer.subject.relatedSubject.subject.birthTime"/>
             <comment value="The subject, if present, SHOULD contain zero or one [0..1] birthTime (CONF:1198-15976)."/>
-            <min value="0"/>
-            <max value="1"/>
         </element>
         <element id="Organizer.component">
             <path value="Organizer.component"/>
             <comment value="SHALL contain at least one [1..*] component (CONF:1198-32428)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Organizer.component.observation">
             <path value="Organizer.component.observation"/>
             <comment value="Such components SHALL contain exactly one [1..1] Family History Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.46:2015-08-01) (CONF:1198-32429)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryObservation"/>

@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="DateOfDiagnosisAct"/>
     <meta>
         <versionId value="4"/>
         <lastUpdated value="2023-07-11T23:41:51.895Z"/>
     </meta>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="act"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
     <identifier>
@@ -20,30 +25,28 @@
     <version value="2022-06-01"/>
     <name value="DateOfDiagnosisAct"/>
     <title value="Date of Diagnosis Act"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This template represents the earliest date of diagnosis, which is the date of first determination by a qualified professional of the presence of a problem or condition affecting a patient. An encounter diagnosis date may be different than this Date of Diagnosis.&#xA;&#xA;The date of diagnosis is usually not the same date as the date of condition onset. A patient may have a condition for some time before it is formally diagnosed."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act">
-            <path value="Act"/>
-        </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:4515-33010)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-33011)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="EVN"/>
         </element>
         <element id="Act.templateId">
@@ -66,7 +69,6 @@
             <path value="Act.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-33000) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -74,75 +76,63 @@
             <path value="Act.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.502&quot; (CONF:4515-33002)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.502"/>
         </element>
         <element id="Act.templateId:templateId1.extension">
             <path value="Act.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-33003)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2022-06-01"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4515-33001)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
             <comment value="This code SHALL contain zero or one [0..1] @code=&quot;77975-1&quot; Earliest date of diagnosis (CONF:4515-33004)."/>
-            <min value="0"/>
-            <max value="1"/>
             <patternCode value="77975-1"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:4515-33005)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
             <comment value="SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4515-33006)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedCode value="completed"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-33007)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.effectiveTime.value">
             <path value="Act.effectiveTime.value"/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] @value (CONF:4515-33008)."/>
             <min value="1"/>
-            <max value="1"/>
             <constraint>
                 <key value="4515-33009"/>
                 <severity value="error"/>
                 <human value="**SHALL** be precise to at least the year (CONF:4515-33009)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
             </constraint>
         </element>
         <element id="Act.effectiveTime.low">
             <path value="Act.effectiveTime.low"/>
             <comment value="This effectiveTime SHALL NOT contain [0..0] low (CONF:4515-33016)."/>
-            <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Act.effectiveTime.high">
             <path value="Act.effectiveTime.high"/>
             <comment value="This effectiveTime SHALL NOT contain [0..0] high (CONF:4515-33017)."/>
-            <min value="0"/>
             <max value="0"/>
         </element>
     </differential>

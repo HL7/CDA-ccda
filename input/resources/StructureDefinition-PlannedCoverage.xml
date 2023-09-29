@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="PlannedCoverage"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="act"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedCoverage"/>
     <identifier>
@@ -15,30 +20,28 @@
     </identifier>
     <name value="PlannedCoverage"/>
     <title value="Planned Coverage"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This template represents the insurance coverage intended to cover an act or procedure."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act">
-            <path value="Act"/>
-        </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; act (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-31945)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;INT&quot; Intent (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31946)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="INT"/>
         </element>
         <element id="Act.templateId">
@@ -63,58 +66,47 @@
             <path value="Act.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.129&quot; (CONF:1098-31948)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.129"/>
         </element>
         <element id="Act.templateId:primary.extension">
             <path value="Act.templateId.extension"/>
-            <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1098-31950)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1098-31951)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;48768-6&quot; Payment Sources (CONF:1098-31952)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="48768-6"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-31953)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-31954)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-31955)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedCode value="active"/>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
             <comment value="MAY contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32178)."/>
-            <min value="0"/>
-            <max value="*"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
@@ -141,28 +133,21 @@
         <element id="Act.entryRelationship:entryRelationship1.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31968)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.act">
             <path value="Act.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] act (CONF:1098-31969)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.act.classCode">
             <path value="Act.entryRelationship.act.classCode"/>
             <comment value="This act SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; ACT (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31970)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.act.moodCode">
             <path value="Act.entryRelationship.act.moodCode"/>
             <comment value="This act SHALL contain exactly one [1..1] @moodCode=&quot;INT&quot; intent (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31971)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="INT"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.act.id">
@@ -170,13 +155,10 @@
             <short value="These act/identifiers are unique identifiers for the policy or program providing the coverage."/>
             <comment value="This act SHALL contain at least one [1..*] id (CONF:1098-31972)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.act.code">
             <path value="Act.entryRelationship.act.code"/>
             <comment value="This act SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Payer urn:oid:2.16.840.1.114222.4.11.3591 DYNAMIC (CONF:1098-31973)."/>
-            <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"/>
@@ -186,13 +168,11 @@
             <path value="Act.entryRelationship.act.statusCode"/>
             <comment value="This act SHALL contain exactly one [1..1] statusCode (CONF:1098-31974)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.act.statusCode.code">
             <path value="Act.entryRelationship.act.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31975)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedCode value="active"/>
         </element>
     </differential>

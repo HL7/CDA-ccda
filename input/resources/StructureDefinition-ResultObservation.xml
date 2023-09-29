@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="ResultObservation"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="observation"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
     <identifier>
@@ -18,28 +23,26 @@
     <title value="Result Observation"/>
     <status value="draft"/>
     <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-        </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7130)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7131)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
@@ -62,7 +65,6 @@
             <path value="Observation.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-7136) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -70,44 +72,38 @@
             <path value="Observation.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.2&quot; (CONF:4537-9138)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.2"/>
         </element>
         <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32575)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2023-05-01"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:4537-7137)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
             <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."/>
-            <min value="1"/>
-            <max value="1"/>
             <constraint>
                 <key value="4537-19212"/>
                 <severity value="warning"/>
                 <human value="This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-7134)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Result Status urn:oid:2.16.840.1.113883.11.20.9.39 STATIC (CONF:4537-14849)."/>
             <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.39"/>
@@ -116,9 +112,8 @@
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <short value="Represents the clinically relevant time of the measurement (e.g., the time a blood pressure reading is obtained, the time the blood sample was obtained for a chemistry test)."/>
-           <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-7140)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-7140)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
@@ -129,23 +124,24 @@
                 <key value="4537-31484"/>
                 <severity value="warning"/>
                 <human value="If Observation/value is a physical quantity (xsi:type=&quot;PQ&quot;): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
             <constraint>
                 <key value="4537-31866"/>
                 <severity value="warning"/>
                 <human value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
             <constraint>
                 <key value="4537-32610"/>
                 <severity value="warning"/>
                 <human value="If Observation/value is a CD (**xsi:type=&quot;CD&quot;**) the value **SHOULD** be SNOMED-CT (CONF:4537-32610)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
         </element>
         <element id="Observation.interpretationCode">
             <path value="Observation.interpretationCode"/>
             <comment value="SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."/>
-            <min value="0"/>
-            <max value="*"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.78"/>
@@ -154,38 +150,30 @@
         <element id="Observation.methodCode">
             <path value="Observation.methodCode"/>
             <comment value="MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."/>
-            <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode">
             <path value="Observation.targetSiteCode"/>
             <comment value="MAY contain zero or one [0..1] targetSiteCode (CONF:4537-7153)."/>
-            <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.specimen">
             <path value="Observation.specimen"/>
             <comment value="MAY contain zero or more [0..*] specimen (CONF:4537-32611)."/>
-            <min value="0"/>
-            <max value="*"/>
         </element>
         <element id="Observation.specimen.specimenRole">
             <path value="Observation.specimen.specimenRole"/>
             <comment value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32612)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.specimen.specimenRole.specimenPlayingEntity">
             <path value="Observation.specimen.specimenRole.specimenPlayingEntity"/>
             <comment value="This specimenRole SHALL contain exactly one [1..1] specimenPlayingEntity (CONF:4537-32613)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.specimen.specimenRole.specimenPlayingEntity.code">
             <path value="Observation.specimen.specimenRole.specimenPlayingEntity.code"/>
             <comment value="This specimenPlayingEntity SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Specimen type urn:oid:2.16.840.1.113762.1.4.1099.54 DYNAMIC (CONF:4537-32614)."/>
             <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.54"/>
@@ -194,8 +182,6 @@
         <element id="Observation.author">
             <path value="Observation.author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)."/>
-            <min value="0"/>
-            <max value="*"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
@@ -204,26 +190,20 @@
         <element id="Observation.referenceRange">
             <path value="Observation.referenceRange"/>
             <comment value="SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)."/>
-            <min value="0"/>
-            <max value="*"/>
         </element>
         <element id="Observation.referenceRange.observationRange">
             <path value="Observation.referenceRange.observationRange"/>
             <comment value="The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4537-7151)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.referenceRange.observationRange.code">
             <path value="Observation.referenceRange.observationRange.code"/>
             <comment value="This observationRange SHALL NOT contain [0..0] code (CONF:4537-7152)."/>
-            <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Observation.referenceRange.observationRange.value">
             <path value="Observation.referenceRange.observationRange.value"/>
             <comment value="This observationRange SHALL contain exactly one [1..1] value (CONF:4537-32175)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
     </differential>
 </StructureDefinition>

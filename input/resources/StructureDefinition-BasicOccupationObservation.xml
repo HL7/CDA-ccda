@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="BasicOccupationObservation"/>
     <meta>
         <versionId value="4"/>
         <lastUpdated value="2023-07-11T23:41:52.226Z"/>
     </meta>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="observation"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/BasicOccupationObservation"/>
     <identifier>
@@ -22,43 +27,28 @@
     <title value="Basic Occupation Observation"/>
     <status value="draft"/>
     <description value="This template represents a simple observation about the type of work (e.g., infantry, business analyst, social worker) of a person. The effectiveTime low and high represent the start and end times of a particular observation about an occupation. Multiple occupation observation instances in a single document or derived from multiple documents, represent a basic historical occupation record. Implementers should use the Basic Occupation Observation template for conveying occupation information in support of USCDI v3.  It is recommended systems include the Basic Industry Observation in the Social History section.&#xA;&#xA;Implementers wishing to convey more advanced Occupation detail, such as employer, usual work (longest held), or other work related observations may consider using [HL7 CDA R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522)  in addition to this Observation."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-        </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-33000)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-33001)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="extension"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-32995) such that it"/>
             <min value="2"/>
         </element>
@@ -66,7 +56,6 @@
             <path value="Observation.templateId"/>
             <sliceName value="templateId1"/>
             <short value="templateId"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-32995) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -74,72 +63,55 @@
             <path value="Observation.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.503&quot; (CONF:4537-32998)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.503"/>
         </element>
         <element id="Observation.templateId:templateId1.extension">
             <path value="Observation.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32999)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2023-05-01"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4537-32996)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;11341-5&quot; History of Occupation (CONF:4537-33002)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="11341-5"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-33003)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-32997)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-33004)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33005)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-33007)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
             <comment value="This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33008)."/>
-            <min value="0"/>
-            <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
             <comment value="SHALL contain exactly one [1..1] value, which SHALL be selected from ValueSet Occupation ONETSOC Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7901 DYNAMIC (CONF:4537-33006)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
@@ -151,54 +123,31 @@
         <element id="Observation.subject">
             <path value="Observation.subject"/>
             <comment value="MAY contain zero or one [0..1] subject (CONF:4537-33058)."/>
-            <min value="0"/>
-            <max value="1"/>
         </element>
         <element id="Observation.subject.relatedSubject">
             <path value="Observation.subject.relatedSubject"/>
             <comment value="The subject, if present, SHALL contain exactly one [1..1] relatedSubject (CONF:4537-33059)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.entryRelationship">
             <path value="Observation.entryRelationship"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="act"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="observation"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <comment value="SHOULD contain zero or one [0..1] entryRelationship (CONF:4537-33060) such that it"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
             <short value="entryRelationship"/>
-            <comment value="SHOULD contain zero or one [0..1] entryRelationship (CONF:4537-33060) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4537-33062)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Observation.entryRelationship:entryRelationship1.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Basic Industry Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.504:2023-05-01) (CONF:4537-33063)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BasicIndustryObservation"/>

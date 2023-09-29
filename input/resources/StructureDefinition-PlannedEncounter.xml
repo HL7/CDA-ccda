@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="PlannedEncounter"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="encounter"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
     <identifier>
@@ -16,30 +21,27 @@
     <version value="2014-06-09"/>
     <name value="PlannedEncounter"/>
     <title value="Planned Encounter"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This template represents a planned or ordered encounter. The type of encounter (e.g., comprehensive outpatient visit) is represented. Clinicians participating in the encounter and the location of the planned encounter may be captured. The priority that the patient and providers place on the encounter may be represented."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Encounter">
-            <path value="Encounter"/>
-        </element>
         <element id="Encounter.classCode">
             <path value="Encounter.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8564)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="ENC"/>
         </element>
         <element id="Encounter.moodCode">
             <path value="Encounter.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-8565)."/>
-            <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23"/>
@@ -71,28 +73,23 @@
             <path value="Encounter.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.40&quot; (CONF:1098-30438)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.40"/>
         </element>
         <element id="Encounter.templateId:primary.extension">
             <path value="Encounter.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32553)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Encounter.id">
             <path value="Encounter.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1098-8567)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Encounter.code">
             <path value="Encounter.code"/>
             <short value="Records the type of encounter ordered or recommended."/>
             <comment value="SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Encounter Planned urn:oid:2.16.840.1.113883.11.20.9.52 DYNAMIC (CONF:1098-31032)."/>
-            <min value="0"/>
-            <max value="1"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.52"/>
@@ -102,20 +99,16 @@
             <path value="Encounter.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-30439)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Encounter.statusCode.code">
             <path value="Encounter.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31880)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedCode value="active"/>
         </element>
         <element id="Encounter.effectiveTime">
             <path value="Encounter.effectiveTime"/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30440)."/>
-            <min value="0"/>
-            <max value="1"/>
         </element>
         <element id="Encounter.performer">
             <path value="Encounter.performer"/>
@@ -138,15 +131,11 @@
         <element id="Encounter.performer:performer.assignedEntity">
             <path value="Encounter.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-31874)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Encounter.author">
             <path value="Encounter.author"/>
             <short value="The author in a planned encounter represents the clinician who is requesting or planning the encounter."/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32045)."/>
-            <min value="0"/>
-            <max value="*"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
@@ -178,14 +167,11 @@
             <path value="Encounter.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1098-31875)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedCode value="LOC"/>
         </element>
         <element id="Encounter.participant:location.participantRole">
             <path value="Encounter.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1098-31876)."/>
-            <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
@@ -213,15 +199,12 @@
         <element id="Encounter.entryRelationship:priorityPreference.typeCode">
             <path value="Encounter.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31034)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Encounter.entryRelationship:priorityPreference.observation">
             <path value="Encounter.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:1098-31035)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PriorityPreference"/>
@@ -237,15 +220,12 @@
         <element id="Encounter.entryRelationship:indication.typeCode">
             <path value="Encounter.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31878)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="RSON"/>
         </element>
         <element id="Encounter.entryRelationship:indication.observation">
             <path value="Encounter.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-31879)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
