@@ -50,7 +50,7 @@ Description: "This template defines constraints that represent common administra
   * ^comment = "SHALL contain exactly one [1..1] confidentialityCode, which SHOULD be selected from ValueSet HL7 BasicConfidentialityKind urn:oid:2.16.840.1.113883.1.11.16926 DYNAMIC (CONF:4537-5259)."
 * languageCode 1..1
 * languageCode from $2.16.840.1.113883.1.11.11526 (required)
-  * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet Language urn:oid:2.16.840.1.113883.1.11.11526 DYNAMIC (CONF:4537-5372)."
+  * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC."
 * setId 0..1
   * obeys 4537-6380
   * ^comment = "MAY contain zero or one [0..1] setId (CONF:4537-5261)."
@@ -142,7 +142,7 @@ Description: "This template defines constraints that represent common administra
             * country from $2.16.840.1.113883.3.88.12.80.63 (required)
               * ^comment = "This addr SHOULD contain zero or one [0..1] country, which SHALL be selected from ValueSet Country urn:oid:2.16.840.1.113883.3.88.12.80.63 DYNAMIC (CONF:4537-5404)."
       * languageCommunication 0..*
-        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication (CONF:4537-5406)."
+        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."
         * languageCode 1..1
         * languageCode from $2.16.840.1.113883.1.11.11526 (required)
           * ^comment = "The languageCommunication, if present, SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet Language urn:oid:2.16.840.1.113883.1.11.11526 DYNAMIC (CONF:4537-5407)."
