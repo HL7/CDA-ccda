@@ -1,0 +1,166 @@
+Profile: USRealmHeaderforPatientGeneratedDocument
+Parent: USRealmHeader
+Id: USRealmHeaderforPatientGeneratedDocument
+Title: "US Realm Header for Patient Generated Document"
+Description: """This template is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. 
+The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."""
+* insert LogicalModelNA
+* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.29.1:2015-08-01"
+* ^version = "2015-08-01"
+* ^status = #active
+* templateId ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "root"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "extension"
+  * ^slicing.rules = #open
+* templateId contains secondary 1..1
+* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28458) such that it"
+  * root 1..1
+  * root = "2.16.840.1.113883.10.20.29.1"
+    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.29.1\" (CONF:1198-28459)."
+  * extension 1..1
+  * extension = "2015-08-01"
+    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32917)."
+* recordTarget 1..1
+  * ^short = "The recordTarget records the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element. \n\nIf the document receiver is interested in setting up a translator for the encounter with the patient, the receiver of the document will have to infer the need for a translator, based upon the language skills identified for the patient, the patient's language of preference and the predominant language used by the organization receiving the CDA.\n\nHL7 Vocabulary simply describes guardian as a relationship to a ward.  This need not be a formal legal relationship. When a guardian relationship exists for the patient, it can be represented, regardless of who is present at the time the document is generated. This need not be a formal legal relationship. A child's parent can be represented in the guardian role.  In this case, the guardian/code element would encode the personal relationship of \"mother\" for the child's mom or \"father\" for the child's dad. An elderly person's child can be represented in the guardian role. In this case, the guardian/code element would encode the personal relationship of \"daughter\" or \"son\", or if a legal relationship existed, the relationship of \"legal guardian\" could be encoded."
+  * ^comment = "SHALL contain exactly one [1..1] recordTarget (CONF:1198-28460)."
+  * patientRole 1..1
+    * ^comment = "This recordTarget SHALL contain exactly one [1..1] patientRole (CONF:1198-28461)."
+    * id 1..*
+      * ^comment = "This patientRole SHALL contain at least one [1..*] id (CONF:1198-28462)."
+    * patient 1..1
+      * ^comment = "This patientRole SHALL contain exactly one [1..1] patient (CONF:1198-28465)."
+      * guardian 0..*
+        * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:1198-28469)."
+        * id 0..*
+          * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] id (CONF:1198-28470)."
+        * code 0..1
+        * code from $2.16.840.1.113883.11.20.12.1 (required)
+          * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28473)."
+      * languageCommunication 0..*
+        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication (CONF:1198-28474)."
+        * preferenceInd 0..1
+          * ^short = "Indicates a preference for information about care delivery and treatments be communicated (or translated if needed) into this language.\n\nIf more than one languageCommunication is present, only one languageCommunication element SHALL have a preferenceInd with a value of 1.\n"
+          * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] preferenceInd (CONF:1198-28475)."
+    * providerOrganization 0..1
+      * ^label = "If present, this organization represents the provider organization where the person is claiming to be a patient."
+      * ^short = "If present, this organization represents the provider organization where the person is claiming to be a patient.\n\nundefined"
+      * ^comment = "This patientRole MAY contain zero or one [0..1] providerOrganization (CONF:1198-28476)."
+* author 1..*
+  * ^short = "The author element represents the creator of the clinical document.  The author may be a device, or a person. The person is the patient or the patient's advocate."
+  * ^comment = "SHALL contain at least one [1..*] author (CONF:1198-28477)."
+  * assignedAuthor 1..1
+    * ^comment = "Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:1198-28478)."
+    * id 1..*
+      * ^comment = "This assignedAuthor SHALL contain at least one [1..*] id (CONF:1198-28479)."
+    * code 0..1
+      * ^short = "When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."
+      * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-28481)."
+      * code 1..1
+      * code from $2.16.840.1.113883.11.20.12.1 (preferred)
+        * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28676)."
+* dataEnterer 0..1
+  * ^short = "The dataEnterer element represents the person who transferred the content, written or dictated by someone else, into the clinical document. The guiding rule of thumb is that an author provides the content found within the header or body of the document, subject to their own interpretation, and the dataEnterer adds that information to the electronic system. In other words, a dataEnterer transfers information from one source to another (e.g., transcription from paper form to electronic system). If the dataEnterer is missing, this role is assumed to be played by the author."
+  * ^comment = "MAY contain zero or one [0..1] dataEnterer (CONF:1198-28678)."
+  * assignedEntity 1..1
+    * ^comment = "The dataEnterer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-28679)."
+    * code 0..1
+    * code from $2.16.840.1.113883.11.20.12.1 (preferred)
+      * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28680)."
+* informant ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "relatedEntity"
+  * ^slicing.rules = #open
+  * ^short = "The informant element describes the source of the information in a medical document.\n\nAssigned health care providers may be a source of information when a document is created. (e.g., a nurse's aide who provides information about a recent significant health care event that occurred within an acute care facility.) In these cases, the assignedEntity element is used.\n\nWhen the informant is a personal relation, that informant is represented in the relatedEntity element, even if the personal relation is a medical professional.  The code element of the relatedEntity describes the relationship between the informant and the patient. The relationship between the informant and the patient  needs to be described to help the receiver of the clinical document understand the information in the document. \n\nEach informant can be either an assignedEntity (a clinician serving the patient) OR a relatedEntity (a person with a personal or legal relationship with the patient). The constraints here apply to relatedEntity."
+* informant[informant1] 0..*
+  * ^comment = "MAY contain zero or more [0..*] informant (CONF:1198-28681) such that it"
+  * relatedEntity 1..1
+    * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:1198-28682)."
+    * code 0..1
+      * ^comment = "This relatedEntity MAY contain zero or one [0..1] code (CONF:1198-28683)."
+      * code 0..1
+      * code from $2.16.840.1.113883.11.20.12.1 (preferred)
+        * ^comment = "The code, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28684)."
+* custodian 1..1
+  * ^short = "The custodian element represents the organization or person that is in charge of maintaining the document. The custodian is the steward that is entrusted with the care of the document. Every CDA document has exactly one custodian. The custodian participation satisfies the CDA definition of Stewardship. Because CDA is an exchange standard and may not represent the original form of the authenticated document (e.g., CDA could include scanned copy of original), the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party. Also, the custodian may be the patient or an organization acting on behalf of the patient, such as a PHR organization."
+  * ^comment = "SHALL contain exactly one [1..1] custodian (CONF:1198-28685)."
+  * assignedCustodian 1..1
+    * ^comment = "This custodian SHALL contain exactly one [1..1] assignedCustodian (CONF:1198-28686)."
+    * representedCustodianOrganization 1..1
+      * ^short = "The representedCustodianOrganization may be the person when the document is not maintained by an organization."
+      * ^comment = "This assignedCustodian SHALL contain exactly one [1..1] representedCustodianOrganization (CONF:1198-28687)."
+      * id 1..*
+        * ^short = "The combined @root and @extension attributes record the custodian organization's identity in a secure, trusted, and unique way."
+        * ^comment = "This representedCustodianOrganization SHALL contain at least one [1..*] id (CONF:1198-28688)."
+* informationRecipient 0..*
+  * ^short = "The informationRecipient element records the intended recipient of the information at the time the document is created. For example, in cases where the intended recipient of the document is the patient's health chart, set the receivedOrganization to be the scoping organization for that chart."
+  * ^comment = "MAY contain zero or more [0..*] informationRecipient (CONF:1198-28690)."
+  * intendedRecipient 1..1
+    * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-28691)."
+    * id 0..*
+      * ^short = "The combined @root and @extension  attributes to record the information recipient's identity in a secure, trusted, and unique way."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] id (CONF:1198-28692)."
+      * root 0..1
+        * ^short = "For a provider, the id/@root =\"2.16.840.1.113883.4.6\" indicates the National Provider Identifier where id/@extension is the NPI number for the provider.\n\nThe ids MAY reference the id of a person or organization entity specified elsewhere in the document."
+        * ^comment = "The id, if present, SHOULD contain zero or one [0..1] @root (CONF:1198-28693)."
+* legalAuthenticator 0..1
+  * ^short = "In a patient authored document, the legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. (Note that per the following section, there may also be one or more document authenticators.) \n\nBased on local practice, patient authored documents may be provided without legal authentication. This implies that a patient authored document that does not contain this element has not been legally authenticated.\n\nThe act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. All patient documents have the potential for legal authentication, given the appropriate legal authority.\n\nLocal policies MAY choose to delegate the function of legal authentication to a device or system that generates the document. In these cases, the legal authenticator is the person accepting responsibility for the document, not the generating device or system.\n\nNote that the legal authenticator, if present, must be a person."
+  * ^comment = "MAY contain zero or one [0..1] legalAuthenticator (CONF:1198-28694)."
+  * assignedEntity 1..1
+    * ^comment = "The legalAuthenticator, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-28695)."
+    * id 1..*
+      * ^short = "The combined @root and @extension  attributes to record the information recipient's identity in a secure, trusted, and unique way."
+      * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-28696)."
+    * code 0..1
+      * ^comment = "This assignedEntity MAY contain zero or one [0..1] code (CONF:1198-28697)."
+      * code 0..1
+      * code from $2.16.840.1.113883.11.20.12.1 (preferred)
+        * ^comment = "The code, if present, MAY contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28698)."
+* authenticator 0..*
+  * ^comment = "MAY contain zero or more [0..*] authenticator (CONF:1198-28699)."
+  * assignedEntity 1..1
+    * ^comment = "The authenticator, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-28700)."
+    * id 1..*
+      * ^short = "The combined @root and @extension  attributes to record the authenticator's identity in a secure, trusted, and unique way."
+      * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-28701)."
+    * code 0..1
+    * code from $2.16.840.1.113883.11.20.12.1 (preferred)
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28702)."
+* participant 0..*
+  * ^short = "The participant element identifies other supporting participants, including parents, relatives, caregivers, insurance policyholders, guarantors, and other participants related in some way to the patient. \n\nA supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)"
+  * ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-28703)."
+  * typeCode 1..1
+    * ^short = "Unless otherwise specified by the document specific header constraints, when participant/@typeCode is IND, associatedEntity/@classCode SHALL be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30"
+    * ^comment = "The participant, if present, SHALL contain exactly one [1..1] @typeCode (CONF:1198-28704)."
+  * associatedEntity 1..1
+    * ^comment = "The participant, if present, SHALL contain exactly one [1..1] associatedEntity (CONF:1198-28705)."
+    * code 0..1
+    * code from $2.16.840.1.113883.11.20.12.1 (preferred)
+      * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28706)."
+* inFulfillmentOf 0..*
+  * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-28707)."
+  * order 1..1
+    * ^comment = "The inFulfillmentOf, if present, SHALL contain exactly one [1..1] order (CONF:1198-28708)."
+    * id 1..*
+      * ^short = "A scheduled appointment or service event in a practice management system may be represented using this id element."
+      * ^comment = "This order SHALL contain at least one [1..*] id (CONF:1198-28709)."
+* documentationOf 0..*
+  * ^comment = "MAY contain zero or more [0..*] documentationOf (CONF:1198-28710)."
+  * serviceEvent 1..1
+    * ^comment = "The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-28711)."
+    * code 0..1
+      * ^short = "The code should be selected from a value set established by the document-level template for a specific type of Patient Generated Document."
+      * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] code (CONF:1198-28712)."
+    * performer 0..*
+      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)."
+      * functionCode 0..1
+        * ^short = "The functionCode SHALL be selected from value set ParticipationType 2.16.840.1.113883.1.11.10901 \n\nWhen indicating the performer was the primary care physician the functionCode shall be ='PCP'"
+        * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:1198-28714)."
+      * assignedEntity 1..1
+        * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-28715)."
+        * id 1..*
+          * ^short = "The combined @root and @extension  attributes record the performer's identity in a secure, trusted, and unique way."
+          * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-28716)."
+        * code 0..1
+        * code from $2.16.840.1.113883.11.20.12.1 (preferred)
+          * ^short = "If the assignedEntity is an individual, the code SHOULD be selected from value set PersonalandLegalRelationshipRoleType value set"
+          * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28718)."

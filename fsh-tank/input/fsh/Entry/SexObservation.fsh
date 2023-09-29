@@ -1,0 +1,68 @@
+Profile: SexObservation
+Parent: $Observation
+Id: SexObservation
+Title: "Sex Observation"
+Description: """This Sex Observation template is used to reflect the documentation of a person’s sex. Systems choosing to record the source of information should include the Provenance participation.
+
+USCDI v3 includes a data element for sex, intended to support the exchange of a sex value that is not characterized as sex assigned at birth or birth sex. This version of the C-CDA companion guide supports USCDI v3 Sex data element. Sex assigned at birth or birth sex must be recorded using the Birth Sex Observation which falls under the broader category of a 'Sex observation'. A Data Absent Reason (DAR) code value of 'asked-declined' may be used when a person has chosen not to disclose their sex.
+
+Future versions of the template may be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation, which may include additional guidance on this Sex observation and the relationship to administrative gender (administrativeGenderCode).
+
+It is recommended systems include the Sex Observation in the Social History section."""
+* ^meta.versionId = "4"
+* ^meta.lastUpdated = "2023-07-11T23:41:53.603Z"
+* insert LogicalModelNA
+* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.507:2023-07-01"
+* ^version = "2023-07-01"
+* ^status = #draft
+* classCode 1..1
+* classCode = #OBS (exactly)
+  * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-33088)."
+* moodCode 1..1
+* moodCode = #EVN (exactly)
+  * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-33089)."
+* templateId ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "root"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "extension"
+  * ^slicing.rules = #open
+* templateId contains templateId1 1..1
+* templateId[templateId1] ^short = "templateId"
+  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-33078) such that it"
+  * root 1..1
+  * root = "2.16.840.1.113883.10.20.22.4.507"
+    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.507\" (CONF:4537-33083)."
+  * extension 1..1
+  * extension = "2023-07-01"
+    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-07-01\" (CONF:4537-33084)."
+* code 1..1
+  * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-33079)."
+  * code 1..1
+  * code = #46098-0
+    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"46098-0\" Sex (CONF:4537-33085)."
+  * codeSystem 1..1
+  * codeSystem = "2.16.840.1.113883.6.1"
+    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-33086)."
+* statusCode 1..1
+  * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-33077)."
+  * code 1..1
+  * code = #completed (exactly)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-33082)."
+* effectiveTime 1..1
+  * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33081)."
+  * low 0..0
+    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] low (CONF:4537-33090)."
+  * width 0..0
+    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] width (CONF:4537-33091)."
+  * high 0..0
+    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] high (CONF:4537-33092)."
+  * center 0..0
+    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] center (CONF:4537-33093)."
+* value 1..1
+* value only $CD
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\"(CONF:4537-33080)."
+  * nullFlavor 0..0
+    * ^comment = "SHALL NOT contain [0..0] @nullFlavor (CONF:4547-33094)."
+  * code 1..1
+  * code from $2.16.840.1.113762.1.4.1240.3 (required)
+    * ^comment = "SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Sex (urn:oid:2.16.840.1.113762.1.4.1240.3) DYNAMIC 2023-06-28 (CONF:4547-33098)."

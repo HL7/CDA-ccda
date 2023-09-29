@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="USRealmAddressADUSFIELDED"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-no-order">
+        <valueBoolean value="true"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
     <identifier>
@@ -15,9 +20,14 @@
     </identifier>
     <name value="USRealmAddressADUSFIELDED"/>
     <title value="US Realm Address (AD.US.FIELDED)"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="Reusable address template, for use in US Realm CDA Header."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
@@ -30,13 +40,13 @@
                 <key value="81-7296"/>
                 <severity value="error"/>
                 <human value="**SHALL NOT** have mixed content except for white space (CONF:81-7296)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
             </constraint>
         </element>
         <element id="AD.use">
             <path value="AD.use"/>
             <short value="If addr/@nullFlavor is present, the remaining conformance statements *SHALL NOT* be enforced"/>
             <comment value="SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet PostalAddressUse urn:oid:2.16.840.1.113883.1.11.10637 STATIC 2005-05-01 (CONF:81-7290)."/>
-            <min value="0"/>
             <max value="1"/>
             <binding>
                 <strength value="required"/>
@@ -46,7 +56,6 @@
         <element id="AD.country">
             <path value="AD.country"/>
             <comment value="SHOULD contain zero or one [0..1] country, which SHALL be selected from ValueSet Country urn:oid:2.16.840.1.113883.3.88.12.80.63 DYNAMIC (CONF:81-7295)."/>
-            <min value="0"/>
             <max value="1"/>
             <binding>
                 <strength value="required"/>
@@ -56,12 +65,12 @@
         <element id="AD.state">
             <path value="AD.state"/>
             <comment value="SHOULD contain zero or one [0..1] state, which SHOULD be selected from ValueSet StateValueSet urn:oid:2.16.840.1.113883.3.88.12.80.1 DYNAMIC) (CONF:81-7293)."/>
-            <min value="0"/>
             <max value="1"/>
             <constraint>
                 <key value="81-10024"/>
                 <severity value="error"/>
                 <human value="If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the state MAY be present but MAY be bound to different vocabularies (CONF:81-10024)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
             </constraint>
             <binding>
                 <strength value="preferred"/>
@@ -77,12 +86,12 @@
         <element id="AD.postalCode">
             <path value="AD.postalCode"/>
             <comment value="SHOULD contain zero or one [0..1] postalCode, which SHOULD be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 DYNAMIC (CONF:81-7294)."/>
-            <min value="0"/>
             <max value="1"/>
             <constraint>
                 <key value="81-10025"/>
                 <severity value="error"/>
                 <human value="If the country is US, the postalCode element is required but SHOULD have @nullFlavor if the postalCode is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the postalCode MAY be present but MAY be bound to different vocabularies (CONF:81-10025)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
             </constraint>
             <binding>
                 <strength value="preferred"/>

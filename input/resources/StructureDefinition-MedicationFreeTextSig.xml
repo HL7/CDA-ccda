@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="MedicationFreeTextSig"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="substanceAdministration"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
     <identifier>
@@ -15,30 +20,28 @@
     </identifier>
     <name value="MedicationFreeTextSig"/>
     <title value="Medication Free Text Sig"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="The template is available to explicitly identify the free text Sig within each medication. &#xA;&#xA;An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="SubstanceAdministration">
-            <path value="SubstanceAdministration"/>
-        </element>
         <element id="SubstanceAdministration.classCode">
             <path value="SubstanceAdministration.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-32770)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="SubstanceAdministration.moodCode">
             <path value="SubstanceAdministration.moodCode"/>
             <short value="moodCode must match the parent substanceAdministration EVN or INT"/>
-           <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:81-32771)."/>
-            <min value="1"/>
-            <max value="1"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:81-32771)."/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.18"/>
@@ -66,81 +69,67 @@
             <path value="SubstanceAdministration.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.147&quot; (CONF:81-32772)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.147"/>
         </element>
         <element id="SubstanceAdministration.templateId:primary.extension">
             <path value="SubstanceAdministration.templateId.extension"/>
-            <min value="0"/>
             <max value="0"/>
         </element>
         <element id="SubstanceAdministration.code">
             <path value="SubstanceAdministration.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-32775)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="SubstanceAdministration.code.code">
             <path value="SubstanceAdministration.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;76662-6&quot; Instructions Medication (CONF:81-32780)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="76662-6"/>
         </element>
         <element id="SubstanceAdministration.code.codeSystem">
             <path value="SubstanceAdministration.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:81-32781)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="SubstanceAdministration.text">
             <path value="SubstanceAdministration.text"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:81-32754)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="SubstanceAdministration.text.reference">
             <path value="SubstanceAdministration.text.reference"/>
             <short value="Reference into the section/text to a tag that only contains free text sig."/>
             <comment value="This text SHALL contain exactly one [1..1] reference (CONF:81-32755)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="SubstanceAdministration.text.reference.value">
             <path value="SubstanceAdministration.text.reference.value"/>
             <comment value="This reference SHOULD contain zero or one [0..1] @value (CONF:81-32756)."/>
-            <min value="0"/>
-            <max value="1"/>
             <constraint>
                 <key value="81-32774"/>
                 <severity value="error"/>
                 <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-32774)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
             </constraint>
         </element>
         <element id="SubstanceAdministration.consumable">
             <path value="SubstanceAdministration.consumable"/>
             <comment value="SHALL contain exactly one [1..1] consumable (CONF:81-32776)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="SubstanceAdministration.consumable.manufacturedProduct">
             <path value="SubstanceAdministration.consumable.manufacturedProduct"/>
             <comment value="This consumable SHALL contain exactly one [1..1] manufacturedProduct (CONF:81-32777)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedLabeledDrug">
             <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedLabeledDrug"/>
             <comment value="This manufacturedProduct SHALL contain exactly one [1..1] manufacturedLabeledDrug (CONF:81-32778)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedLabeledDrug.nullFlavor">
             <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedLabeledDrug.nullFlavor"/>
             <comment value="This manufacturedLabeledDrug SHALL contain exactly one [1..1] @nullFlavor=&quot;NA&quot; Not Applicable (CONF:81-32779)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedCode value="NA"/>
         </element>
     </differential>

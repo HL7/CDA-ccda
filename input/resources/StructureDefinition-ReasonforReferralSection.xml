@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="ReasonforReferralSection"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="section"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforReferralSection"/>
     <identifier>
@@ -16,18 +21,20 @@
     <version value="2014-06-09"/>
     <name value="ReasonforReferralSection"/>
     <title value="Reason for Referral Section"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This section describes the clinical reason why a provider is sending a patient to another provider for care. The reason for referral may become the reason for visit documented by the receiving provider."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -54,47 +61,40 @@
             <path value="Section.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;1.3.6.1.4.1.19376.1.5.3.1.3.1&quot; (CONF:1098-10468)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32571)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1098-15427)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;42349-1&quot; Reason for Referral (CONF:1098-15428)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="42349-1"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-30867)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
             <comment value="SHALL contain exactly one [1..1] title (CONF:1098-7846)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:1098-7847)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
@@ -117,7 +117,6 @@
             <path value="Section.entry.act"/>
             <comment value="SHALL contain exactly one [1..1] Patient Referral Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.140) (CONF:1098-30897)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>

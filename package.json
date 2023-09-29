@@ -1,0 +1,24 @@
+{
+  "name": "cda-ccda-3.0-sd",
+  "version": "3.0.0",
+  "description": "Scripts and tools for building the IG for C-CDA in SD format",
+  "main": "index.js",
+  "devDependencies": {
+    "fhir": "^4.12.0",
+    "fsh-sushi": "=3.4.0",
+    "gofsh": "^2.1.2",
+    "xml-formatter": "^3.5.0"
+  },
+  "scripts": {
+    "gofsh": "npm run gofsh-pre && npm run gofsh-cmd && npm run gofsh-post",
+    "gofsh-pre": "rm -rf fsh-tank && node scripts/gofsh-extension.js",
+    "gofsh-cmd": "gofsh --indent -d hl7.cda.uv.core@current -t json-and-xml -s group-by-profile -o fsh-tank ./input",
+    "gofsh-post": "node scripts/gofshPost.js && node scripts/gofsh-extension.js undo",
+    "sushi-hack": "node scripts/hackSushi.js",
+    "sushi": "sushi ./fsh-tank && npm run sushi-post",
+    "sushi-post": "node scripts/jsonToXml.js",
+    "postinstall": "npm run sushi-hack"
+  },
+  "author": "HL7",
+  "license": "ISC"
+}

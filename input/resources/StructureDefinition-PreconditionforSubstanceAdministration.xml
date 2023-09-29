@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="PreconditionforSubstanceAdministration"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="criterion"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PreconditionforSubstanceAdministration"/>
     <identifier>
@@ -16,18 +21,20 @@
     <version value="2014-06-09"/>
     <name value="PreconditionforSubstanceAdministration"/>
     <title value="Precondition for Substance Administration"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="A criterion for administration can be used to record that the medication is to be administered only when the associated criteria are met."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Criterion"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Criterion"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Criterion">
-            <path value="Criterion"/>
-        </element>
         <element id="Criterion.templateId">
             <path value="Criterion.templateId"/>
             <slicing>
@@ -54,41 +61,35 @@
             <path value="Criterion.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.25&quot; (CONF:1098-10517)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.25"/>
         </element>
         <element id="Criterion.templateId:primary.extension">
             <path value="Criterion.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32603)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2014-06-09"/>
         </element>
         <element id="Criterion.code">
             <path value="Criterion.code"/>
             <comment value="SHALL contain exactly one [1..1] code with @xsi:type=&quot;CD&quot; (CONF:1098-32396)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Criterion.code.code">
             <path value="Criterion.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; Assertion (CONF:1098-32397)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="ASSERTION"/>
         </element>
         <element id="Criterion.code.codeSystem">
             <path value="Criterion.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-32398)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.5.4"/>
         </element>
         <element id="Criterion.value">
             <path value="Criterion.value"/>
             <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1098-7369)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>

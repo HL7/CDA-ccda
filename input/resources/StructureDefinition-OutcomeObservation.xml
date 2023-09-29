@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="OutcomeObservation"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="observation"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
     <identifier>
@@ -15,9 +20,14 @@
     </identifier>
     <name value="OutcomeObservation"/>
     <title value="Outcome Observation"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This template represents the outcome of care resulting from the interventions used to treat the patient. In the Care Planning workflow, the judgment about how well the person is progressing towards the goal is based on the observations made about the status of the patient with respect to interventions performed in the pursuit of achieving that goal.&#xA;&#xA;Often thought of as an &quot;actual outcome&quot;, the Outcome Observation may be related to goals, progression toward goals, and the associated interventions. For example, an observation outcome of a blood oxygen saturation level of 95% is related to the goal of &quot;Maintain Pulse Ox greater than 92&quot;, which in turn is related to the health concern of respiratory insufficiency and the problem of pneumonia. The template makes use of the Entry Reference (templateId:2.16.840.1.113883.10.20.22.4.122) to reference the interventions and goals defined elsewhere in the Care Plan CDA instance."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -30,20 +40,17 @@
                 <key value="1098-32782"/>
                 <severity value="error"/>
                 <human value="SHALL contain at least one [1..*] entryRelationships (CONF:1098-32782)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
             </constraint>
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31219)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31220)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
@@ -68,37 +75,29 @@
             <path value="Observation.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.144&quot; (CONF:1098-31222)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.144"/>
         </element>
         <element id="Observation.templateId:primary.extension">
             <path value="Observation.templateId.extension"/>
-            <min value="0"/>
             <max value="0"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1098-31223)."/>
             <min value="1"/>
-            <max value="*"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
             <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32746)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
             <comment value="SHOULD contain zero or one [0..1] value (CONF:1098-32747)."/>
-            <min value="0"/>
             <max value="1"/>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)."/>
-            <min value="0"/>
-            <max value="*"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
@@ -130,20 +129,18 @@
                 <key value="1098-32461"/>
                 <severity value="error"/>
                 <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1098-32461)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
             </constraint>
         </element>
         <element id="Observation.entryRelationship:entryReference.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;GEVL&quot; Evaluates goal (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31225)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="GEVL"/>
         </element>
         <element id="Observation.entryRelationship:entryReference.act">
             <path value="Observation.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-32465)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
@@ -160,22 +157,18 @@
         <element id="Observation.entryRelationship:progressTowardGoalObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31428)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="SPRT"/>
         </element>
         <element id="Observation.entryRelationship:progressTowardGoalObservation.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:1098-31429)."/>
             <min value="1"/>
-            <max value="1"/>
             <fixedBoolean value="true"/>
         </element>
         <element id="Observation.entryRelationship:progressTowardGoalObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110) (CONF:1098-31430)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressTowardGoalObservation"/>
@@ -191,20 +184,18 @@
                 <key value="1098-32462"/>
                 <severity value="error"/>
                 <human value="This entryReference template **SHALL** reference an instance of a Intervention Act template (CONF:1098-32462)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
             </constraint>
         </element>
         <element id="Observation.entryRelationship:entryReference2.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31689)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="RSON"/>
         </element>
         <element id="Observation.entryRelationship:entryReference2.act">
             <path value="Observation.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-31690)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
@@ -213,21 +204,16 @@
         <element id="Observation.reference">
             <path value="Observation.reference"/>
             <comment value="MAY contain zero or more [0..*] reference (CONF:1098-32763)."/>
-            <min value="0"/>
-            <max value="*"/>
         </element>
         <element id="Observation.reference.typeCode">
             <path value="Observation.reference.typeCode"/>
             <comment value="The reference, if present, SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32764)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="REFR"/>
         </element>
         <element id="Observation.reference.externalDocument">
             <path value="Observation.reference.externalDocument"/>
             <comment value="The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:1098-32765)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/ExternalDocument"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ExternalDocumentReference"/>

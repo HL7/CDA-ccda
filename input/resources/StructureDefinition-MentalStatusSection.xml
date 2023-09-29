@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="MentalStatusSection"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="section"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusSection"/>
     <identifier>
@@ -16,18 +21,20 @@
     <version value="2015-08-01"/>
     <name value="MentalStatusSection"/>
     <title value="Mental Status Section"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="The Mental Status Section contains observations and evaluations related to a patient's psychological and mental competency and deficits including, but not limited to any of the following types of information:&#xA;*  Appearance (e.g., unusual grooming, clothing or body modifications)&#xA;*  Attitude (e.g., cooperative, guarded, hostile)&#xA;*  Behavior/psychomotor (e.g., abnormal movements, eye contact, tics)&#xA;*  Mood and affect (e.g., anxious, angry, euphoric)&#xA;*  Speech and Language (e.g., pressured speech, perseveration)&#xA;*  Thought process (e.g., logic, coherence)&#xA;*  Thought content (e.g., delusions, phobias)&#xA;*  Perception (e.g., voices, hallucinations)&#xA;*  Cognition (e.g., memory, alertness/consciousness, attention, orientation)  which were included in Cognitive Status Observation in earlier publications of C-CDA.&#xA;*  Insight and judgment (e.g., understanding of condition, decision making)"/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -54,47 +61,40 @@
             <path value="Section.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.56&quot; (CONF:1198-28294)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.56"/>
         </element>
         <element id="Section.templateId:primary.extension">
             <path value="Section.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32793)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-28295)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;10190-7&quot; Mental Status (CONF:1198-28296)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="10190-7"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30826)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
             <comment value="SHALL contain exactly one [1..1] title (CONF:1198-28297)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:1198-28298)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
@@ -109,8 +109,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <min value="0"/>
-            <max value="*"/>
         </element>
         <element id="Section.entry:mentalStatusOrganizer">
             <path value="Section.entry"/>
@@ -123,7 +121,6 @@
             <path value="Section.entry.organizer"/>
             <comment value="SHALL contain exactly one [1..1] Mental Status Organizer (identifier: urn:hl7ii:2.&#xA;                16.840.1.113883.10.20.22.4.75:2015-08-01) (CONF:1198-28302)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusOrganizer"/>
@@ -140,7 +137,6 @@
             <path value="Section.entry.observation"/>
             <comment value="SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:&#xA;                2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:1198-28306)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
@@ -157,7 +153,6 @@
             <path value="Section.entry.observation"/>
             <comment value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16&#xA;                .840.1.113883.10.20.22.4.69) (CONF:1198-28314)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>

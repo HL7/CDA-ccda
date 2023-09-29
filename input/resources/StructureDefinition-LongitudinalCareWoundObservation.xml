@@ -1,60 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="LongitudinalCareWoundObservation"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="observation"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/LongitudinalCareWoundObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01"/>
     </identifier>
-    <version value="2015-08-01"/>
     <name value="LongitudinalCareWoundObservation"/>
     <title value="Longitudinal Care Wound Observation"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This template represents acquired or surgical wounds and is not intended to encompass all wound types. The template applies to wounds such as pressure ulcers, surgical incisions, and deep tissue injury wounds. Information in this template may include information about the wound measurements characteristics."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-        </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31012)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-31013)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="extension"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <min value="2"/>
         </element>
         <element id="Observation.templateId:secondary">
@@ -68,58 +57,41 @@
             <path value="Observation.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.114&quot; (CONF:1198-29474)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.114"/>
         </element>
         <element id="Observation.templateId:secondary.extension">
             <path value="Observation.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32913)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-29476)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; assertion (CONF:1198-29477)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="ASSERTION"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-31010)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.5.4"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
             <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Wound Type urn:oid:2.16.840.1.113883.1.11.20.2.6 DYNAMIC (CONF:1198-29485)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
-            </type>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.2.6"/>
             </binding>
         </element>
-        <!--SG 20230709: This is entered wrong in TWB, is has the root box checked but no identifier, so there is no disciminator
-             thinking the root was checked by accident, so removing slice (none of the other targetSiteCodes in C-CDA are sliced-->
-        <!--<element id="Observation.targetSiteCode"><path value="Observation.targetSiteCode"/><slicing><rules value="open"/></slicing></element>-->
-        <!--SG 20230709: Removing slices-->
         <element id="Observation.targetSiteCode">
             <path value="Observation.targetSiteCode"/>
-            <!--<sliceName value="targetSiteCode1"/>-->
             <comment value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/>
-            <min value="0"/>
             <max value="1"/>
             <binding>
                 <strength value="preferred"/>
@@ -130,66 +102,44 @@
             <path value="Observation.targetSiteCode.qualifier"/>
             <short value="If targetSite/qualifierCode name/value pairs are used, care must be taken to avoid conflict with the SNOMED-CT body structure code used in observation/value.  SNOMED-CT body structure codes are often pre-coordinated with laterality."/>
             <comment value="MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."/>
-            <min value="0"/>
-            <max value="*"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.name">
             <path value="Observation.targetSiteCode.qualifier.name"/>
             <comment value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1198-29491)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.name.code">
             <path value="Observation.targetSiteCode.qualifier.name.code"/>
             <comment value="This name SHALL contain exactly one [1..1] @code=&quot;272741003&quot; laterality (CONF:1198-29492)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="272741003"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.name.codeSystem">
             <path value="Observation.targetSiteCode.qualifier.name.codeSystem"/>
             <comment value="This name SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.value">
             <path value="Observation.targetSiteCode.qualifier.value"/>
             <comment value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."/>
             <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Observation.targetSiteCode.qualifier.value.code">
             <path value="Observation.targetSiteCode.qualifier.value.code"/>
             <comment value="This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."/>
             <min value="1"/>
-            <max value="1"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.37"/>
             </binding>
         </element>
-        <!--SG 20230709: Keeping commented out original code in case this really should be a slice-->
-        <!--<element id="Observation.targetSiteCode:targetSiteCode1"><path value="Observation.targetSiteCode"/><sliceName value="targetSiteCode1"/><comment value="SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"/><min value="0"/><max value="1"/><binding><strength value="preferred"/><valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/></binding></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier"><path value="Observation.targetSiteCode.qualifier"/><short value="If targetSite/qualifierCode name/value pairs are used, care must be taken to avoid conflict with the SNOMED-CT body structure code used in observation/value.  SNOMED-CT body structure codes are often pre-coordinated with laterality."/><requirements value="MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."/><min value="0"/><max value="*"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name"><path value="Observation.targetSiteCode.qualifier.name"/><requirements value="The qualifier, if present, SHALL contain exactly one [1..1] name (CONF:1198-29491)."/><min value="1"/><max value="1"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name.code"><path value="Observation.targetSiteCode.qualifier.name.code"/><requirements value="This name SHALL contain exactly one [1..1] @code=&quot;272741003&quot; laterality (CONF:1198-29492)."/><min value="1"/><max value="1"/><patternCode value="272741003"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.name.codeSystem"><path value="Observation.targetSiteCode.qualifier.name.codeSystem"/><requirements value="This name SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."/><min value="1"/><max value="1"/><patternString value="2.16.840.1.113883.6.96"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.value"><path value="Observation.targetSiteCode.qualifier.value"/><requirements value="The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."/><min value="1"/><max value="1"/></element><element id="Observation.targetSiteCode:targetSiteCode1.qualifier.value.code"><path value="Observation.targetSiteCode.qualifier.value.code"/><requirements value="This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."/><min value="1"/><max value="1"/><binding><strength value="preferred"/><valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.37"/></binding></element>-->
         <element id="Observation.author">
             <path value="Observation.author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31542)."/>
-            <min value="0"/>
-            <max value="*"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
-            </type>
         </element>
         <element id="Observation.entryRelationship">
             <path value="Observation.entryRelationship"/>
-            <slicing>
-                <discriminator>
-                    <type value="profile"/>
-                    <path value="observation"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="When the wound observed is a type of pressure ulcer, then this template SHOULD contain an entry for the Highest Pressure Ulcer Stage."/>
         </element>
         <element id="Observation.entryRelationship:woundMeasurementObservation">
@@ -202,15 +152,12 @@
         <element id="Observation.entryRelationship:woundMeasurementObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-29496)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:woundMeasurementObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Wound Measurement Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.133) (CONF:1198-29497)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundMeasurementObservation"/>
@@ -226,15 +173,12 @@
         <element id="Observation.entryRelationship:woundCharacteristic.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:1198-29504)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:woundCharacteristic.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Wound Characteristic (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.134) (CONF:1198-29505)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundCharacteristic"/>
@@ -251,15 +195,12 @@
         <element id="Observation.entryRelationship:numberofPressureUlcersObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31891)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:numberofPressureUlcersObservation.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Number of Pressure Ulcers Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.76:2015-08-01) (CONF:1198-31892)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NumberofPressureUlcersObservation"/>
@@ -275,15 +216,12 @@
         <element id="Observation.entryRelationship:highestPressureUlcerStage.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31894)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="COMP"/>
         </element>
         <element id="Observation.entryRelationship:highestPressureUlcerStage.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Highest Pressure Ulcer Stage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.77) (CONF:1198-31919)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HighestPressureUlcerStage"/>

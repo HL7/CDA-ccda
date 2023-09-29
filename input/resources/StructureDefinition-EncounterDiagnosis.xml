@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="EncounterDiagnosis"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
-      <valueBoolean>
-        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-          <valueCode value="not-applicable"/>
-        </extension>
-      </valueBoolean>
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+        <valueUri value="act"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterDiagnosis"/>
     <identifier>
@@ -16,30 +21,28 @@
     <version value="2015-08-01"/>
     <name value="EncounterDiagnosis"/>
     <title value="Encounter Diagnosis"/>
-    <status value="active"/>
+    <status value="draft"/>
     <description value="This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit. If the encounter is associated with a Hospital Discharge, the Hospital Discharge Diagnosis must be used. This entry requires at least one Problem Observation entry."/>
-    <fhirVersion value="4.0.1"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act">
-            <path value="Act"/>
-        </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-14889)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="ACT"/>
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14890)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="EVN"/>
         </element>
         <element id="Act.templateId">
@@ -68,34 +71,28 @@
             <path value="Act.templateId.root"/>
             <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.80&quot; (CONF:1198-14896)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.80"/>
         </element>
         <element id="Act.templateId:primary.extension">
             <path value="Act.templateId.extension"/>
             <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32542)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-19182)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;29308-4&quot; Diagnosis (CONF:1198-19183)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternCode value="29308-4"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32160)."/>
             <min value="1"/>
-            <max value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Act.entryRelationship">
@@ -119,15 +116,12 @@
         <element id="Act.entryRelationship:problemObservation.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14893)."/>
-            <min value="1"/>
-            <max value="1"/>
             <fixedCode value="SUBJ"/>
         </element>
         <element id="Act.entryRelationship:problemObservation.observation">
             <path value="Act.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-14898)."/>
             <min value="1"/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
