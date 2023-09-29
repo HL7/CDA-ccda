@@ -86,7 +86,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-7515)."
 * doseQuantity 1..1
-  * obeys 1098-16879 and 1098-16878
+  * obeys 1098-16879 and 1098-16878 and 1098-40000
   * ^comment = "SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
