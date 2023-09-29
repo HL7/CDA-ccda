@@ -138,21 +138,14 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet ONC Administrative Sex urn:oid:2.16.840.1.113762.1.4.1 STATIC 2016-06-01 (CONF:4537-33034)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
-            <constraint>
-                <key value="4537-33040"/>
-                <severity value="error"/>
-                <human value="If value/@code not from value set ONC Administrative Sex urn:oid:2.16.840.1.113762.1.4.1 STATIC 2016-06-01, then value/@nullFlavor SHALL be “UNK” (CONF:4537-33040)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
-            </constraint>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.24"/>
             </binding>
         </element>
     </differential>

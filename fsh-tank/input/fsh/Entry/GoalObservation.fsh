@@ -47,7 +47,6 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-32335)."
 * value 0..1
   * obeys 4515-32963
-  * ^comment = "MAY contain zero or one [0..1] value (CONF:4515-32743)."
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-30995)."

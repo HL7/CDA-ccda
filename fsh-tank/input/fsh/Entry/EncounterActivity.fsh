@@ -50,6 +50,7 @@ Description: "This clinical statement describes an interaction between a patient
   * ^extension[=].valueUri = "dischargeDispositionCode"
   * ^short = "The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the dischargeDispositionCode element"
   * ^comment = "MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."
+* sdtcDischargeDispositionCode from $2.16.840.1.113883.3.88.12.80.33 (preferred)
 * performer 0..*
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1198-8725)."
   * assignedEntity 1..1

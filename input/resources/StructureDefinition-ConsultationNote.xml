@@ -165,20 +165,6 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
             </type>
         </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty">
-            <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty"/>
-            <comment value="This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-8391)."/>
-        </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty.assignedEntity">
-            <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty.assignedEntity"/>
-            <comment value="The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."/>
-            <constraint>
-                <key value="1198-32905"/>
-                <severity value="error"/>
-                <human value="This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
-            </constraint>
-        </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
             <short value="The encounterParticipant element represents persons who participated in the encounter and not necessarily the entire episode of care."/>

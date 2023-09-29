@@ -70,11 +70,6 @@ A Consultation Note includes the reason for the referral, history of present ill
     * effectiveTime 1..1
     * effectiveTime only USRealmDateandTimeDTUSFIELDED
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8389)."
-    * responsibleParty 0..1
-      * ^comment = "This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-8391)."
-      * assignedEntity 1..1
-        * obeys 1198-32905
-        * ^comment = "The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."
     * encounterParticipant 0..*
       * ^short = "The encounterParticipant element represents persons who participated in the encounter and not necessarily the entire episode of care."
       * ^comment = "This encompassingEncounter MAY contain zero or more [0..*] encounterParticipant (CONF:1198-8392)."
@@ -191,10 +186,6 @@ A Consultation Note includes the reason for the referral, history of present ill
     * component[component24] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30909) such that it"
       * section only NutritionSection
         * ^comment = "SHALL contain exactly one [1..1] Nutrition Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.57) (CONF:1198-30910)."
-
-Invariant: 1198-32905
-Description: "This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."
-Severity: #error
 
 Invariant: 1198-32906
 Description: "This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32906)."

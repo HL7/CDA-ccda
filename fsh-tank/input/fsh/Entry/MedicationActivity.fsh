@@ -90,7 +90,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * ^comment = "SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
-    * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526).  If @unit is present, then admnistrationUnitCode SHALL NOT be present."
+    * obeys 1098-40000
+    * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)."
 * rateQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-7517)."
   * unit 1..1
@@ -100,8 +101,9 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * ^comment = "MAY contain zero or one [0..1] maxDoseQuantity (CONF:1098-7518)."
 * administrationUnitCode 0..1
 * administrationUnitCode from AdministrationUnitDoseForm (required)
+  * obeys 1098-40000
   * ^short = "administrationUnitCode@code describes the units of medication administration for an item using a code that is pre-coordinated to include a physical unit form (ointment, powder, solution, etc.) which differs from the units used in administering the consumable (capful, spray, drop, etc.). For example when recording medication administrations, 'metric drop (C48491)'' would be appropriate to accompany the RxNorm code of 198283 (Timolol 0.25% Ophthalmic Solution) where the number of drops would be specified in doseQuantity@value."
-  * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519).  If administrationUnitCode is present, then doseQuantity/@unit SHALL NOT be present."
+  * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519)."
 * consumable 1..1
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:1098-7520)."
   * manufacturedProduct 1..1
@@ -244,4 +246,8 @@ Severity: #warning
 
 Invariant: 1098-16878
 Description: "Pre-coordinated consumable: If the consumable code is a pre-coordinated unit dose (e.g., \"metoprolol 25mg tablet\") then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., \"2\", meaning 2 x \"metoprolol 25mg tablet\" per administration) (CONF:1098-16878)."
+Severity: #warning
+
+Invariant: 1098-40000
+Description: "If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."
 Severity: #warning

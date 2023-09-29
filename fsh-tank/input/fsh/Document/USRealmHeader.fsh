@@ -454,6 +454,11 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:4537-9959)."
     * effectiveTime 1..1
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:4537-9958)."
+    * responsibleParty 0..1
+      * ^comment = "This encompassingEncounter SHOULD contain zero or one [0..1] responsibleParty (CONF:1198-8391)."
+      * assignedEntity 1..1
+        * obeys 1198-32905
+        * ^comment = "The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."
 
 Invariant: 4537-9991
 Description: "This id **SHALL** be a globally unique identifier for the document (CONF:4537-9991)."
@@ -526,3 +531,8 @@ Severity: #error
 Invariant: 4537-10007
 Description: "When participant/@typeCode is *IND*, associatedEntity/@classCode **SHOULD** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes *DYNAMIC* (CONF:4537-10007)."
 Severity: #warning
+
+Invariant: 1198-32905
+Description: "This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."
+Severity: #error
+

@@ -152,9 +152,14 @@ The Patient Generated Document Header template is not a separate document type. 
       * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] code (CONF:1198-28712)."
     * performer 0..*
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)."
+      * typeCode 1..1
+      * typeCode from $2.16.840.1.113883.1.11.19601 (required)
+        * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
       * functionCode 0..1
-        * ^short = "The functionCode SHALL be selected from value set ParticipationType 2.16.840.1.113883.1.11.10901 \n\nWhen indicating the performer was the primary care physician the functionCode shall be ='PCP'"
-        * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:1198-28714)."
+        * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
+        * code 0..1
+        * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
+          * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)."
       * assignedEntity 1..1
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-28715)."
         * id 1..*

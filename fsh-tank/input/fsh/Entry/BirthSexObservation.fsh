@@ -61,10 +61,4 @@ It is recommended systems include the Birth Sex observation in the Social Histor
     * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] center (CONF:4537-33047)."
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113762.1.4.1 (required)
-  * obeys 4537-33040
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet ONC Administrative Sex urn:oid:2.16.840.1.113762.1.4.1 STATIC 2016-06-01 (CONF:4537-33034)."
-
-Invariant: 4537-33040
-Description: "If value/@code not from value set ONC Administrative Sex urn:oid:2.16.840.1.113762.1.4.1 STATIC 2016-06-01, then value/@nullFlavor SHALL be “UNK” (CONF:4537-33040)."
-Severity: #error
+* value from $2.16.840.1.113762.1.4.1021.24 (required)
