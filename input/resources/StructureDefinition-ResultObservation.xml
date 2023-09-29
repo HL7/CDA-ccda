@@ -94,6 +94,12 @@
                 <human value="This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
+            <constraint>
+                <key value="1098-40001"/>
+                <severity value="warning"/>
+                <human value="SHALL contain either a @code attribute or a @nullFlavor attribute, but not both."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
+            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>

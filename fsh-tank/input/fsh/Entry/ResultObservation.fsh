@@ -33,7 +33,7 @@ The result observation includes a statusCode to allow recording the status of an
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7137)."
 * code 1..1
-  * obeys 4537-19212
+  * obeys 4537-19212 and 1098-40001
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7134)."
@@ -88,4 +88,8 @@ Severity: #warning
 
 Invariant: 4537-32610
 Description: "If Observation/value is a CD (**xsi:type=\"CD\"**) the value **SHOULD** be SNOMED-CT (CONF:4537-32610)."
+Severity: #warning
+
+Invariant: 1098-40001
+Description: "SHALL contain either a @code attribute or a @nullFlavor attribute, but not both."
 Severity: #warning
