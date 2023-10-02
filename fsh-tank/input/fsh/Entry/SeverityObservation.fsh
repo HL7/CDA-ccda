@@ -2,7 +2,7 @@ Profile: SeverityObservation
 Parent: $Observation
 Id: SeverityObservation
 Title: "Severity Observation"
-Description: "This clinical statement represents the gravity of the problem, such as allergy or reaction, in terms of its actual or potential impact on the patient. The Severity Observation can be associated with an Allergy - Intolerance Observation, Substance or Device Allergy - Intolerance Observation, Reaction Observation or all. When the Severity Observation is associated directly with an allergy it characterizes the allergy. When the Severity Observation is associated with a Reaction Observation it characterizes a reaction. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity."
+Description: "This clinical statement represents the gravity of the problem, such as allergy or reaction, in terms of its actual or potential impact on the patient. The Severity Observation can be associated with an Allergy - Intolerance Observation, Substance or Device Allergy - Intolerance Observation, Reaction Observation or other reaction. When the Severity Observation is associated directly with an allergy it characterizes the allergy. When the Severity Observation is associated with a Reaction Observation it characterizes a reaction. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity. The severity of problems may be precoordinated within the coding used to describe the problem."
 * insert LogicalModelNA
 * ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09"
 * ^version = "2014-06-09"
@@ -41,4 +41,4 @@ Description: "This clinical statement represents the gravity of the problem, suc
 * value 1..1
 * value only $CD
 * value from Severity (required)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Reaction Severity urn:oid:2.16.840.1.113883.3.88.12.3221.6.8 DYNAMIC (CONF:1098-7356)."
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet Reaction Severity urn:oid:2.16.840.1.113883.3.88.12.3221.6.8 DYNAMIC (CONF:1098-7356)."
