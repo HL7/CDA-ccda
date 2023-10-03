@@ -87,7 +87,7 @@ Description: "A coded or physical quantity value **MAY** contain zero or more [0
 Severity: #warning
 
 Invariant: 4537-32610
-Description: "If Observation/value is a CD (**xsi:type=\"CD\"**) the value **SHOULD** be SNOMED-CT (CONF:4537-32610)."
+Description: "If Observation/value is a CD (**xsi:type=\"CD\"**) the value **SHOULD** be SNOMED-CT or LOINC (CONF:4537-32610)."
 Severity: #warning
 
 Invariant: 1098-40001
