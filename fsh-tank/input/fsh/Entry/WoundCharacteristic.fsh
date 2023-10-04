@@ -31,7 +31,6 @@ Description: "This template represents characteristics of a wound (e.g., integri
   * codeSystem = "2.16.840.1.113883.5.4"
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.5.4\" (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-31541)."
 * statusCode 1..1
-  * ^short = "SG 20230706: constraint not entered 'properly' in TWB (or at least not best practice way and not translating to fhir - added Observation.statusCode.code element and moved patternString to that element"
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "SHALL contain exactly one [1..1] statusCode=\"completed\" (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-29944)."

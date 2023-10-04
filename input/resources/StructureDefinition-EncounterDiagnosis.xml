@@ -22,7 +22,7 @@
     <name value="EncounterDiagnosis"/>
     <title value="Encounter Diagnosis"/>
     <status value="draft"/>
-    <description value="This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit. If the encounter is associated with a Hospital Discharge, the Hospital Discharge Diagnosis must be used. This entry requires at least one Problem Observation entry."/>
+    <description value="This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit. If the encounter is associated with a Hospital Discharge, the Hospital Discharge Diagnosis must be used. This entry requires at least one Problem Observation entry.  The Problem Status template in the Problem Observation entry indicates the status of the diagnosis."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -94,6 +94,16 @@
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32160)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Act.statusCode">
+            <path value="Act.statusCode"/>
+            <min value="1"/>
+        </element>
+        <element id="Act.statusCode.code">
+            <path value="Act.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC)."/>
+            <min value="1"/>
+            <fixedCode value="completed"/>
         </element>
         <element id="Act.entryRelationship">
             <path value="Act.entryRelationship"/>

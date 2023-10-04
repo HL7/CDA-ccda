@@ -40,3 +40,5 @@ The changes in this version of Consolidated CDA have been made from STU comments
 27. CDA-20482 - Extensionless templates are not allowed to have an extension.
 28. CDA-20786 - Set some bound observations to have a type
 29. CDA-20767 - Remove CarePlan intendedRecipient/receivedOrganization/name rule
+30. CDA-1789 - Provided guidance on using PlannedEncounter template for future encounters.
+31. CDA-1873 - Changed Encounter Diagnosis statusCode to be 'completed'.
