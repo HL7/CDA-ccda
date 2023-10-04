@@ -37,15 +37,47 @@
         <element id="AD">
             <path value="AD"/>
             <constraint>
-                <key value="81-7296"/>
+                <key value="us-addr-nullflavor"/>
                 <severity value="error"/>
-                <human value="**SHALL NOT** have mixed content except for white space (CONF:81-7296)."/>
+                <human value="If addr/@nullFlavor is not present, city and streetAddressLine are required"/>
+                <expression value="nullFlavor.exists() or (city.exists() and streetAddressLine.exists())"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
+            </constraint>
+            <constraint>
+                <key value="should-use"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or one [0..1] @use"/>
+                <expression value="use.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
+            </constraint>
+            <constraint>
+                <key value="should-country"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or one [0..1] country"/>
+                <expression value="country.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
+            </constraint>
+            <constraint>
+                <key value="81-10024"/>
+                <severity value="error"/>
+                <human value="If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the state MAY be present but MAY be bound to different vocabularies (CONF:81-10024)."/>
+                <expression value="nullFlavor.exists() or (country.exists() and country.xmlText != 'US') or state.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
+            </constraint>
+            <constraint>
+                <key value="81-10025"/>
+                <severity value="error"/>
+                <human value="If the country is US, the postalCode element is required but SHOULD have @nullFlavor if the postalCode is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the postalCode MAY be present but MAY be bound to different vocabularies (CONF:81-10025)."/>
+                <expression value="nullFlavor.exists() or (country.exists() and country.xmlText != 'US') or postalCode.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
             </constraint>
         </element>
+        <element id="AD.nullFlavor">
+            <path value="AD.nullFlavor"/>
+            <short value="If addr/@nullFlavor is not present, city, streetAddressLine, and state/postalCode (if country is US) are required."/>
+        </element>
         <element id="AD.use">
             <path value="AD.use"/>
-            <short value="If addr/@nullFlavor is present, the remaining conformance statements *SHALL NOT* be enforced"/>
             <comment value="SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet PostalAddressUse urn:oid:2.16.840.1.113883.1.11.10637 STATIC 2005-05-01 (CONF:81-7290)."/>
             <max value="1"/>
             <binding>
@@ -66,12 +98,6 @@
             <path value="AD.state"/>
             <comment value="SHOULD contain zero or one [0..1] state, which SHOULD be selected from ValueSet StateValueSet urn:oid:2.16.840.1.113883.3.88.12.80.1 DYNAMIC) (CONF:81-7293)."/>
             <max value="1"/>
-            <constraint>
-                <key value="81-10024"/>
-                <severity value="error"/>
-                <human value="If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the state MAY be present but MAY be bound to different vocabularies (CONF:81-10024)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
-            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.1"/>
@@ -79,20 +105,14 @@
         </element>
         <element id="AD.city">
             <path value="AD.city"/>
+            <short value="city is required if nullFlavor is absent"/>
             <comment value="SHALL contain exactly one [1..1] city (CONF:81-7292)."/>
-            <min value="1"/>
             <max value="1"/>
         </element>
         <element id="AD.postalCode">
             <path value="AD.postalCode"/>
             <comment value="SHOULD contain zero or one [0..1] postalCode, which SHOULD be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 DYNAMIC (CONF:81-7294)."/>
             <max value="1"/>
-            <constraint>
-                <key value="81-10025"/>
-                <severity value="error"/>
-                <human value="If the country is US, the postalCode element is required but SHOULD have @nullFlavor if the postalCode is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the postalCode MAY be present but MAY be bound to different vocabularies (CONF:81-10025)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
-            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.2"/>
@@ -100,9 +120,14 @@
         </element>
         <element id="AD.streetAddressLine">
             <path value="AD.streetAddressLine"/>
+            <short value="streetAddressLine is required if nullFlavor is absent"/>
             <comment value="SHALL contain at least one and not more than 4 streetAddressLine (CONF:81-7291)."/>
-            <min value="1"/>
             <max value="4"/>
+        </element>
+        <element id="AD.xmlText">
+            <path value="AD.xmlText"/>
+            <comment value="**SHALL NOT** have mixed content except for white space (CONF:81-7296)."/>
+            <max value="0"/>
         </element>
     </differential>
 </StructureDefinition>
