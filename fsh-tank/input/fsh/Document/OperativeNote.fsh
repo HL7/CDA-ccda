@@ -32,7 +32,6 @@ The Operative Note is created immediately following a surgical or other high-ris
   * ^short = "A serviceEvent represents the main act, such as a colonoscopy or an appendectomy, being documented. A serviceEvent can further specialize the act inherent in the ClinicalDocument/code, such as where the ClinicalDocument/code is simply \"Surgical Operation Note\" and the procedure is \"Appendectomy.\" serviceEvent is required in the Operative Note and it must be equivalent to or further specialize the value inherent in the ClinicalDocument/code; it shall not conflict with the value inherent in the ClinicalDocument/code, as such a conflict would create ambiguity. serviceEvent/effectiveTime can be used to indicate the time the actual event (as opposed to the encounter surrounding the event) took place. If the date and the duration of the procedure is known, serviceEvent/effectiveTime/low is used with a width element that describes the duration; no high element is used. However, if only the date is known, the date is placed in both the low and high elements."
   * ^comment = "SHALL contain at least one [1..*] documentationOf (CONF:1198-8486)."
   * serviceEvent 1..1
-    * obeys 1198-8487
     * ^comment = "Such documentationOfs SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8493)."
     * code 1..1
       * obeys 1198-8487
