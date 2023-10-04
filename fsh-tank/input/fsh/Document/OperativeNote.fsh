@@ -34,6 +34,9 @@ The Operative Note is created immediately following a surgical or other high-ris
   * serviceEvent 1..1
     * obeys 1198-8487
     * ^comment = "Such documentationOfs SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8493)."
+    * code 1..1
+      * obeys 1198-8487
+      * ^comment = "SHALL contain exactly one [1..1] code."
     * effectiveTime 1..1
     * effectiveTime only USRealmDateandTimeDTUSFIELDED
       * obeys 1198-8488 and 1198-10058 and 1198-10060

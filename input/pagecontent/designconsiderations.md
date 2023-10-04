@@ -190,7 +190,7 @@ Any SHALL, SHOULD or MAY conformance statement may use nullFlavor, unless the nu
 **Allowed nullFlavors When Element is Required (with xml examples)**
 
 1. *SHALL* contain at least one [1..*] id
-2. *SHALL* contain exactly one [1..1] code
+2. *SHALL* contain exactly one [1..1] code which SHALL be selected from ValueSet ValueSetName
 3. *SHALL* contain exactly one [1..1] effectiveTime
 
 ```

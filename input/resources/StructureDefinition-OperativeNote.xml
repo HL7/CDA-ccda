@@ -88,6 +88,17 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
         </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.code">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.code"/>
+            <comment value="SHALL contain exactly one [1..1] code."/>
+            <min value="1"/>
+            <constraint>
+                <key value="1198-8487"/>
+                <severity value="error"/>
+                <human value="The value of serviceEvent/code **SHALL** be from ICD9 CM Procedures (CodeSystem 2.16.840.1.113883.6.104), CPT-4 (CodeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (CodeSystem 2.16.840.1.113883.6.96) ValueSet Procedure 2.16.840.1.113883.3.88.12.80.28 *DYNAMIC* (CONF:1198-8487)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
             <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."/>
