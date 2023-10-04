@@ -51,11 +51,11 @@ Description: "This template defines constraints that represent common administra
 * languageCode 1..1
 * languageCode from $2.16.840.1.113883.1.11.11526 (required)
   * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC."
+* obeys 4537-6380
 * setId 0..1
-  * obeys 4537-6380
   * ^comment = "MAY contain zero or one [0..1] setId (CONF:4537-5261)."
+* obeys 4537-6387
 * versionNumber 0..1
-  * obeys 4537-6387
   * ^comment = "MAY contain zero or one [0..1] versionNumber (CONF:4537-5264)."
 * recordTarget 1..*
   * ^comment = "SHALL contain at least one [1..*] recordTarget (CONF:4537-5266)."
@@ -67,7 +67,7 @@ Description: "This template defines constraints that represent common administra
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This patientRole SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5271)."
     * telecom 1..*
-      * ^comment = "This patientRole SHALL contain at least one [1..*] telecom (CONF:4537-5280)."
+      * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-5375)."
@@ -80,7 +80,8 @@ Description: "This template defines constraints that represent common administra
       * administrativeGenderCode from $2.16.840.1.113883.1.11.1 (required)
         * ^comment = "This patient SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:4537-6394)."
       * birthTime 1..1
-        * obeys 4537-5299 and 4537-5300 and 4537-32418
+        * obeys 4537-5299 and 4537-5300
+        * ^short = "**MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)"
         * ^comment = "This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."
       * sdtcDeceasedInd 0..1
         * obeys 4537-32993
@@ -89,9 +90,8 @@ Description: "This template defines constraints that represent common administra
       * sdtcDeceasedTime 0..1
         * ^short = "sdtc:deceasedTime"
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedTime (CONF:4537-32988)."
-        * value 0..1
-          * obeys 4537-32991 and 4537-32992
-          * ^comment = "The sdtc:deceasedTime, if present, SHOULD contain zero or one [0..1] @value (CONF:4537-32989)."
+        * obeys should-value-att and 4537-32991 and 4537-32992
+      * obeys should-maritalStatusCode
       * maritalStatusCode 0..1
       * maritalStatusCode from $2.16.840.1.113883.1.11.12212 (required)
         * ^comment = "This patient SHOULD contain zero or one [0..1] maritalStatusCode, which SHALL be selected from ValueSet Marital Status urn:oid:2.16.840.1.113883.1.11.12212 DYNAMIC (CONF:4537-5303)."
@@ -115,14 +115,18 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "This patient MAY contain zero or more [0..*] ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:4537-32901)."
       * guardian 0..*
         * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:4537-5325)."
+        * obeys should-code
         * code 0..1
         * code from $2.16.840.1.113883.11.20.12.1 (required)
           * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-5326)."
+        * obeys should-addr
         * addr 0..*
         * addr only USRealmAddressADUSFIELDED
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)."
+        * obeys should-telecom
         * telecom 0..*
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] telecom (CONF:4537-5382)."
+          * obeys should-use
           * use 0..1
           * use from $2.16.840.1.113883.11.20.9.20 (required)
             * ^comment = "The telecom, if present, SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7993)."
@@ -136,11 +140,12 @@ Description: "This template defines constraints that represent common administra
         * place 1..1
           * ^comment = "The birthplace, if present, SHALL contain exactly one [1..1] place (CONF:4537-5396)."
           * addr 1..1
-            * obeys 4537-5402 and 4537-5403
+            * obeys 4537-5402 and 4537-5403 and should-country
             * ^comment = "This place SHALL contain exactly one [1..1] addr (CONF:4537-5397)."
             * country 0..1
             * country from $2.16.840.1.113883.3.88.12.80.63 (required)
               * ^comment = "This addr SHOULD contain zero or one [0..1] country, which SHALL be selected from ValueSet Country urn:oid:2.16.840.1.113883.3.88.12.80.63 DYNAMIC (CONF:4537-5404)."
+      * obeys should-languageCommunication
       * languageCommunication 0..*
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."
         * languageCode 1..1
@@ -149,9 +154,11 @@ Description: "This template defines constraints that represent common administra
         * modeCode 0..1
         * modeCode from LanguageAbilityMode (required)
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:4537-5409)."
+        * obeys should-proficiencyLevelCode
         * proficiencyLevelCode 0..1
         * proficiencyLevelCode from LanguageAbilityProficiency (required)
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] proficiencyLevelCode, which SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.1.11.12199 DYNAMIC (CONF:4537-9965)."
+        * obeys should-preferenceInd
         * preferenceInd 0..1
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] preferenceInd (CONF:4537-5414)."
     * providerOrganization 0..1
@@ -159,12 +166,14 @@ Description: "This template defines constraints that represent common administra
       * id 1..*
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] id (CONF:4537-5417)."
         * root 0..1
+        // TODO - fix
         * root = "2.16.840.1.113883.4.6"
           * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16820)."
       * name 1..*
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] name (CONF:4537-5419)."
       * telecom 1..*
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] telecom (CONF:4537-5420)."
+        * obeys should-use
         * use 0..1
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7994)."
@@ -184,17 +193,21 @@ Description: "This template defines constraints that represent common administra
       * ^slicing.discriminator[=].path = "root"
       * ^slicing.rules = #open
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:4537-32882) such that it, This assignedAuthor SHALL contain at least one [1..*] id (CONF:4537-5449)."
-    * id contains id1 0..1
-    * id[id1] ^short = "id"
-      * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:4537-32882) such that it"
+    // This seems easier than using slice() which requires a structure parameter that isn't quite present in FSH
+    * insert ConstraintWarning(4537-32882, [[SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)]], [[id.where(root = '2.16.840.1.113883.4.6')]])
+    * id contains npi 0..1
+    * id[npi] ^short = "id"
       * nullFlavor 0..1
+      // TODO - fix
       * nullFlavor = #UNK (exactly)
         * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"UNK\" Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4537-32883)."
       * root 1..1
       * root = "2.16.840.1.113883.4.6"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-32884)."
+      * obeys should-extension
       * extension 0..1
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4537-32885)."
+    * obeys should-code
     * code 0..1
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4537-16787)."
       * code 1..1
@@ -205,14 +218,17 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5452)."
     * telecom 1..*
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] telecom (CONF:4537-5428)."
+      * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7995)."
+    * obeys should-assignedPerson
     * assignedPerson 0..1
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4537-5430)."
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-16789)."
+    * obeys should-assignedAuthoringDevice
     * assignedAuthoringDevice 0..1
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedAuthoringDevice (CONF:4537-16783)."
       * manufacturerModelName 1..1
@@ -226,6 +242,7 @@ Description: "This template defines constraints that represent common administra
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5443)."
       * root 0..1
+      // TODO - fix
       * root = "2.16.840.1.113883.4.6"
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16821)."
     * code 0..1
@@ -236,6 +253,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5460)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5466)."
+      * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7996)."
@@ -282,12 +300,14 @@ Description: "This template defines constraints that represent common administra
       * id 1..*
         * ^comment = "This representedCustodianOrganization SHALL contain at least one [1..*] id (CONF:4537-5522)."
         * root 0..1
+        // TODO - fix
         * root = "2.16.840.1.113883.4.6"
           * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16822)."
       * name 1..1
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] name (CONF:4537-5524)."
       * telecom 1..1
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] telecom (CONF:4537-5525)."
+        * obeys should-use
         * use 0..1
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7998)."
@@ -309,6 +329,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This intendedRecipient MAY contain zero or one [0..1] receivedOrganization (CONF:4537-5577)."
       * name 1..1
         * ^comment = "The receivedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:4537-5578)."
+* obeys should-legalAuthenticator
 * legalAuthenticator 0..1
   * ^comment = "SHOULD contain zero or one [0..1] legalAuthenticator (CONF:4537-5579)."
   * time 1..1
@@ -337,6 +358,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5589)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5595)."
+      * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7999)."
@@ -372,6 +394,7 @@ Description: "This template defines constraints that represent common administra
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5613)."
       * root 0..1
+      // TODO - fix
       * root = "2.16.840.1.113883.4.6"
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier  (CONF:4537-16824)."
     * code 0..1
@@ -384,6 +407,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5616)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5622)."
+      * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-8000)."
@@ -412,6 +436,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] effectiveTime (CONF:4537-14837)."
       * low 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-14838)."
+    * obeys should-performer
     * performer 0..*
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:4537-14839)."
       * typeCode 1..1
@@ -419,6 +444,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
       * functionCode 0..1
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
+        * obeys should-code
         * code 0..1
         * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
           * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)."
@@ -427,8 +453,10 @@ Description: "This template defines constraints that represent common administra
         * id 1..*
           * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-14846)."
           * root 0..1
+          // TODO - fix
           * root = "2.16.840.1.113883.4.6"
             * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-14847)."
+        * obeys should-code
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (preferred)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-14842)."
@@ -454,6 +482,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:4537-9959)."
     * effectiveTime 1..1
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:4537-9958)."
+    * obeys should-responsibleParty
     * responsibleParty 0..1
       * ^comment = "This encompassingEncounter SHOULD contain zero or one [0..1] responsibleParty (CONF:1198-8391)."
       * assignedEntity 1..1
@@ -473,24 +502,24 @@ Description: "This code **SHALL** be drawn from the LOINC document type ontology
 Severity: #error
 
 Invariant: 4537-6380
-Description: "If  setId is present versionNumber **SHALL** be present (CONF:4537-6380)."
+Description: "If setId is present versionNumber **SHALL** be present (CONF:4537-6380)."
 Severity: #error
+Expression: "setId.exists() implies versionNumber.exists()"
 
 Invariant: 4537-6387
 Description: "If versionNumber is present setId **SHALL** be present (CONF:4537-6387)."
 Severity: #error
+Expression: "versionNumber.exists() implies setId.exists()"
 
 Invariant: 4537-5299
 Description: "**SHALL** be precise to year (CONF:4537-5299)."
 Severity: #error
+Expression: "nullFlavor.exists() or value.length() >= 4"
 
 Invariant: 4537-5300
 Description: "**SHOULD** be precise to day (CONF:4537-5300)."
 Severity: #warning
-
-Invariant: 4537-32418
-Description: "**MAY** be precise to the minute (CONF:4537-32418)."
-Severity: #warning
+Expression: "nullFlavor.exists() or value.length() >= 8"
 
 Invariant: 4537-32993
 Description: "If sdtc:deceasedInd=\"true\", then sdtc:deceasedTime **SHALL** be present (CONF:4537-32993)."
@@ -499,10 +528,12 @@ Severity: #error
 Invariant: 4537-32991
 Description: "**SHALL**  be precise to to the year (CONF:4537-32991)."
 Severity: #error
+Expression: "nullFlavor.exists() or value.length() >= 4"
 
 Invariant: 4537-32992
 Description: "**SHOULD** be precise to the day (CONF:4537-32992)."
 Severity: #warning
+Expression: "nullFlavor.exists() or value.length() >= 8"
 
 Invariant: 4537-31347
 Description: "If sdtc:raceCode is present, then the patient **SHALL** contain [1..1] raceCode (CONF:4537-31347)."

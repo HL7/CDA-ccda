@@ -35,15 +35,15 @@ Description: "If addr/@nullFlavor is not present, city and streetAddressLine are
 Severity: #error
 Expression: "nullFlavor.exists() or (city.exists() and streetAddressLine.exists())"
 
-Invariant: should-use
-Description: "SHOULD contain zero or one [0..1] @use"
-Severity: #warning
-Expression: "use.exists()"
+// Invariant: should-use
+// Description: "SHOULD contain zero or one [0..1] @use"
+// Severity: #warning
+// Expression: "use.exists()"
 
-Invariant: should-country
-Description: "SHOULD contain zero or one [0..1] country"
-Severity: #warning
-Expression: "country.exists()"
+// Invariant: should-country
+// Description: "SHOULD contain zero or one [0..1] country"
+// Severity: #warning
+// Expression: "country.exists()"
 
 Invariant: 81-10024
 Description: "If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the state MAY be present but MAY be bound to different vocabularies (CONF:81-10024)."
