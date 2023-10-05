@@ -3,27 +3,15 @@ Parent: ProblemObservation
 Id: LongitudinalCareWoundObservation
 Title: "Longitudinal Care Wound Observation"
 Description: "This template represents acquired or surgical wounds and is not intended to encompass all wound types. The template applies to wounds such as pressure ulcers, surgical incisions, and deep tissue injury wounds. Information in this template may include information about the wound measurements characteristics."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01"
+
+* insert LogicalModelTemplate(LongitudinalCareWoundObservation, 2.16.840.1.113883.10.20.22.4.114, 2015-08-01)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31012)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-31013)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-32947) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.114"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.114\" (CONF:1198-29474)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32913)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-29476)."
   * code 1..1

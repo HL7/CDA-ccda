@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="SexualOrientationObservation"/>
-    <meta>
-        <versionId value="5"/>
-        <lastUpdated value="2023-07-11T23:41:51.564Z"/>
-    </meta>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -49,25 +45,21 @@
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-185) such that it"/>
             <min value="2"/>
         </element>
-        <element id="Observation.templateId:templateId1">
+        <element id="Observation.templateId:sexualOrientationObservation">
             <path value="Observation.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="sexualOrientationObservation"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1.root">
+        <element id="Observation.templateId:sexualOrientationObservation.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.501&quot; (CONF:4537-188)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.501"/>
         </element>
-        <element id="Observation.templateId:templateId1.extension">
+        <element id="Observation.templateId:sexualOrientationObservation.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-189)."/>
             <min value="1"/>
             <patternString value="2023-05-01"/>
         </element>
