@@ -48,25 +48,21 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:3250-16935) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Section.templateId:templateId1">
+        <element id="Section.templateId:section">
             <path value="Section.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="section"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Section.templateId:templateId1.root">
+        <element id="Section.templateId:section.root">
             <path value="Section.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.65&quot; (CONF:3250-16936)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.65"/>
         </element>
-        <element id="Section.templateId:templateId1.extension">
+        <element id="Section.templateId:section.extension">
             <path value="Section.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2016-11-01&quot; (CONF:3250-16938)."/>
             <min value="1"/>
             <patternString value="2016-11-01"/>
         </element>
@@ -79,14 +75,21 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68"/>
             </binding>
         </element>
+        <element id="Section.code.code">
+            <path value="Section.code.code"/>
+            <min value="1"/>
+        </element>
+        <element id="Section.code.codeSystem">
+            <path value="Section.code.codeSystem"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <comment value="SHALL contain exactly one [1..1] title (CONF:3250-16891)."/>
             <min value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <comment value="SHALL contain exactly one [1..1] text (CONF:3250-16894)."/>
             <min value="1"/>
         </element>
         <element id="Section.entry">
