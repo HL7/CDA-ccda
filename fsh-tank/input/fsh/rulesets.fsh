@@ -27,3 +27,29 @@ RuleSet: ConstraintWarningEmpty(key, human)
 * ^constraint[+].key = "{key}"
 * ^constraint[=].severity = #warning
 * ^constraint[=].human = "{human}"
+
+
+// CDA Section common constraints
+RuleSet: Section(loinc, title, templateId, extension)
+* insert LogicalModelNA
+* ^identifier.value = "urn:hl7ii:{templateId}:{extension}"
+* ^version = "{extension}"
+* templateId ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "root"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "extension"
+  * ^slicing.rules = #open
+* templateId contains section 1..1
+* templateId[section]
+  * root 1..1
+  * root = "{templateId}"
+  * extension 1..1
+  * extension = "{extension}"
+* code 1..1
+  * ^short = "{title}"
+  * code 1..1
+  * code = {loinc}
+  * codeSystem 1..1
+  * codeSystem = "2.16.840.1.113883.6.1"
+* title 1..1
+* text 1..1
