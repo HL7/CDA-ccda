@@ -11,9 +11,7 @@ This section differentiates between "advance directives" and "advance directive 
 * insert LogicalModelNA
 * ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01"
 * ^version = "2015-08-01"
-* nullFlavor 0..1
-* nullFlavor = #NI (exactly)
-  * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"NI\" No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32800)."
+* nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 * templateId 2..
   * ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "root"
