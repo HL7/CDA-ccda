@@ -9,11 +9,6 @@ The Operative Note is created immediately following a surgical or other high-ris
 * ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.7:2015-08-01"
 * ^version = "2015-08-01"
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
 * templateId contains secondary 1..1
 * templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8483) such that it"
   * root 1..1

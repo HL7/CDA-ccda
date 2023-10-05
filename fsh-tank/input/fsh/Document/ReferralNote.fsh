@@ -9,11 +9,6 @@ Examples of referral situations are when a patient is referred from a family phy
 * ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.14:2015-08-01"
 * ^version = "2015-08-01"
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
 * templateId contains primary 1..1
 * templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28947) such that it"
   * root 1..1

@@ -15,11 +15,6 @@ The best practice for a Discharge Summary is to include the discharge dispositio
 * ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.8:2015-08-01"
 * ^version = "2015-08-01"
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
 * templateId contains secondary 1..1
 * templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8463) such that it"
   * root 1..1
