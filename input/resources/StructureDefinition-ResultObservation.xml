@@ -22,7 +22,7 @@
     <name value="ResultObservation"/>
     <title value="Result Observation"/>
     <status value="draft"/>
-    <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus."/>
+    <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus.&#xA;&#xA;If code contains a valid non-null LOINC then the xsi:type value SHOULD match the LOINC Scale Part based on the table below:&#xA;&#xA;| LOINC Scale Part     | Value xsi:type |&#xA;| -------- | ------- |&#xA;| Qn - Quantitative | INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Ord - Ordinal | CD |&#xA;| Nom - Nominal | CD |&#xA;| Nar - Narrative | ED, ST |&#xA;| OrdQn - Quantitative or Ordinal | CD, INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Multi - Multi | ED |&#xA;| Doc - Document | ED |&#xA;"/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>

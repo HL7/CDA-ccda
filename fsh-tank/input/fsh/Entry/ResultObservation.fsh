@@ -4,7 +4,21 @@ Id: ResultObservation
 Title: "Result Observation"
 Description: """This template represents the results of a laboratory, radiology, or other study performed on a patient.
 
-The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus."""
+The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus.
+
+If code contains a valid non-null LOINC then the xsi:type value SHOULD match the LOINC Scale Part based on the table below:
+
+| LOINC Scale Part     | Value xsi:type |
+| -------- | ------- |
+| Qn - Quantitative | INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |
+| Ord - Ordinal | CD |
+| Nom - Nominal | CD |
+| Nar - Narrative | ED, ST |
+| OrdQn - Quantitative or Ordinal | CD, INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |
+| Multi - Multi | ED |
+| Doc - Document | ED |
+
+"""
 * insert LogicalModelNA
 * ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2023-05-01"
 * ^version = "2023-05-01"
