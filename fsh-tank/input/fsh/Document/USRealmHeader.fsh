@@ -196,11 +196,8 @@ Description: "This template defines constraints that represent common administra
     // This seems easier than using slice() which requires a structure parameter that isn't quite present in FSH
     * insert ConstraintWarning(4537-32882, [[SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)]], [[id.where(root = '2.16.840.1.113883.4.6')]])
     * id contains npi 0..1
-    * id[npi] ^short = "id"
-      * nullFlavor 0..1
-      // TODO - fix
-      * nullFlavor = #UNK (exactly)
-        * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"UNK\" Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4537-32883)."
+    * id[npi]
+      * nullFlavor ^short = "If NPI is unknown, set @nullFlavor to UNK"
       * root 1..1
       * root = "2.16.840.1.113883.4.6"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-32884)."

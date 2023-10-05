@@ -46,12 +46,10 @@ Note: The Provenance template title includes a version 2 to support moving from 
     //"</element>"
     //"SG 20230601 Not a slice"
     //"<element id=\"Author.assignedAuthor.id\"><path value=\"Author.assignedAuthor.id\" /><short value=\"id\" /><comment value=\"This assignedAuthor SHALL contain at least one [1..*] id (CONF:4515-2).\" />"
-  * id contains id2 1..1
-  * id[id2] ^short = "id"
+  * id contains npi 1..1
+  * id[npi]
     * ^comment = "This assignedAuthor SHALL contain exactly one [1..1] id (CONF:4515-20) such that it"
-    * nullFlavor 0..1
-    * nullFlavor = #UNK (exactly)
-      * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"UNK\" Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4515-21)."
+    * nullFlavor ^short = "If NPI is unknown, set @nullFlavor to UNK"
     * root 1..1
     * root = "2.16.840.1.113883.4.6"
       * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-22)."
@@ -85,23 +83,19 @@ Note: The Provenance template title includes a version 2 to support moving from 
       //"<short value=\"id\" />"
       //"<comment value=\"The representedOrganization, if present, SHALL contain at least one [1..*] id (CONF:4515-32981).\" />"
     * id contains
-        id1 1..1 and
-        id2 1..1
-    * id[id1] ^short = "id"
+        taxId 1..1 and
+        npi 1..1
+    * id[taxId]
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] id (CONF:4515-24) such that it"
-      * nullFlavor 0..1
-      * nullFlavor = #UNK (exactly)
-        * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"UNK\" Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4515-25)."
+      * nullFlavor ^short = "If Tax ID Number is unknown, set @nullFlavor to UNK"
       * root 1..1
       * root = "2.16.840.1.113883.4.2"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.2\" Tax ID Number (CONF:4515-26)."
       * extension 0..1
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-32982)."
-    * id[id2] ^short = "id"
+    * id[npi]
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] id (CONF:4515-28) such that it"
-      * nullFlavor 0..1
-      * nullFlavor = #UNK (exactly)
-        * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"UNK\" Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4515-29)."
+      * nullFlavor ^short = "If NPI is unknown, set @nullFlavor to UNK"
       * root 1..1
       * root = "2.16.840.1.113883.4.6"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier  (CONF:4515-30)."

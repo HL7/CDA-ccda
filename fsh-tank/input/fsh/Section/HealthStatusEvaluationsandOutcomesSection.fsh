@@ -5,9 +5,7 @@ Title: "Health Status Evaluations and Outcomes Section"
 Description: "This template represents observations regarding the outcome of care from the interventions used to treat the patient. These observations represent status, at points in time, related to established care plan goals and/or interventions."
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.2.61"
-* nullFlavor 0..1
-* nullFlavor = #NI (exactly)
-  * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"NI\" No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-32821)."
+* nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 * templateId ^slicing.discriminator.type = #value
   * ^slicing.discriminator.path = "root"
   * ^slicing.rules = #open

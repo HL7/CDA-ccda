@@ -5,9 +5,7 @@ Title: "Goals Section"
 Description: "This template represents patient Goals. A goal is a defined outcome or condition to be achieved in the process of patient care. Goals include patient-defined over-arching goals (e.g., alleviation of health concerns, desired/intended positive outcomes from interventions, longevity, function, symptom management, comfort) and health concern-specific or intervention-specific goals to achieve desired outcomes."
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.2.60"
-* nullFlavor 0..1
-* nullFlavor = #NI (exactly)
-  * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"NI\" No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-32819)."
+* nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 * templateId ^slicing.discriminator.type = #value
   * ^slicing.discriminator.path = "root"
   * ^slicing.rules = #open
