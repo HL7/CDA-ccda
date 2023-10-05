@@ -94,8 +94,7 @@ RuleSet: LogicalModelTemplate(sliceName, root, extension)
 
 RuleSet: LogicalModelTemplateRootOnly(sliceName, root)
 * insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:{root}:{extension}"
-* ^version = "{extension}"
+* ^identifier.value = "urn:oid:{root}"
 * templateId ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "root"
   * ^slicing.rules = #open
