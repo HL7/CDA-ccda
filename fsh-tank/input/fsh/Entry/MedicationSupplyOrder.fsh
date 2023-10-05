@@ -1,5 +1,5 @@
 Profile: MedicationSupplyOrder
-Parent: CDAR2Supply
+Parent: $Supply
 Id: MedicationSupplyOrder
 Title: "Medication Supply Order"
 Description: "This template records the intent to supply a patient with medications."

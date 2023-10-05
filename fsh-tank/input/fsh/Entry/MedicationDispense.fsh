@@ -1,5 +1,5 @@
 Profile: MedicationDispense
-Parent: CDAR2Supply
+Parent: $Supply
 Id: MedicationDispense
 Title: "Medication Dispense"
 Description: "This template records the act of supplying medications (i.e., dispensing). The moodCode equaling \"EVN\" (Event), signals that the \"supply\" has occurred and thus has been dispensed."

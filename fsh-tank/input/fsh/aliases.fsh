@@ -11,6 +11,7 @@ Alias: $ManufacturedProduct = http://hl7.org/cda/stds/core/StructureDefinition/M
 Alias: $Procedure = http://hl7.org/cda/stds/core/StructureDefinition/Procedure
 Alias: $Criterion = http://hl7.org/cda/stds/core/StructureDefinition/Criterion
 Alias: $Participant1 = http://hl7.org/cda/stds/core/StructureDefinition/Participant1
+Alias: $Supply = http://hl7.org/cda/stds/core/StructureDefinition/Supply
 Alias: $ClinicalDocument = http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument
 Alias: $PQ = http://hl7.org/cda/stds/core/StructureDefinition/PQ
 Alias: $CD = http://hl7.org/cda/stds/core/StructureDefinition/CD

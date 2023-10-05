@@ -1,5 +1,5 @@
 Profile: PlannedSupply
-Parent: CDAR2Supply
+Parent: $Supply
 Id: PlannedSupply
 Title: "Planned Supply"
 Description: """This template represents both medicinal and non-medicinal supplies ordered, requested, or intended for the patient (e.g., medication prescription, order for wheelchair). The importance of the supply order or request to the patient and provider may be indicated in the Priority Preference. 
