@@ -3,28 +3,15 @@ Parent: $Act
 Id: PostprocedureDiagnosis
 Title: "Postprocedure Diagnosis"
 Description: "This template represents the diagnosis or diagnoses discovered or confirmed during the procedure. They may be the same as preprocedure diagnoses or indications."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.51:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(postprocedureDiagnosis, 2.16.840.1.113883.10.20.22.4.51, 2015-08-01)
+
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" (CONF:1198-8756)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CONF:1198-8757)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-16766) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.51"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.51\" (CONF:1198-16767)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32539)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-19151)."
   * code 1..1

@@ -5,9 +5,9 @@ Title: "Coverage Activity"
 Description: """A Coverage Activity groups the policy and authorization acts within a Payers Section to order the payment sources. A Coverage Activity contains one or more Policy Activities, each of which contains zero or more Authorization Activities. 
 The sequenceNumber/@value shows the policy order of preference. 
 The Member Identifier is described in the contained Policy Activity Template 2.16.840.1.113883.10.20.22.4.61."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.60:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(coverageActivity, 2.16.840.1.113883.10.20.22.4.60, 2023-05-01)
+
 * ^status = #draft
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -15,21 +15,6 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8873)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-8897) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-8897) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.60"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.60\" (CONF:4537-10492)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-32596)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8874)."
 * code 1..1

@@ -3,9 +3,9 @@ Parent: $Act
 Id: PolicyActivity
 Title: "Policy Activity"
 Description: "A policy activity represents the policy or program providing the coverage. The person for whom payment is being provided (i.e., the patient) is the covered party. The subscriber of the policy or program is represented as a participant that is the holder of the coverage. The payer is represented as the performer of the policy activity."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.61:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(policyActivity, 2.16.840.1.113883.10.20.22.4.61, 2023-05-01)
+
 * ^status = #draft
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -13,21 +13,6 @@ Description: "A policy activity represents the policy or program providing the c
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8899)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-8900) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-8900) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.61"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.61\" (CONF:4537-10516)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-32595)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8901)."
 * code 1..1

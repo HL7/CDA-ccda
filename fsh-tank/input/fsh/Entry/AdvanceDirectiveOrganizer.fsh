@@ -3,28 +3,15 @@ Parent: $Organizer
 Id: AdvanceDirectiveOrganizer
 Title: "Advance Directive Organizer"
 Description: "This clinical statement groups a set of advance directive observations."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(advanceDirectiveOrganizer, 2.16.840.1.113883.10.20.22.4.108, 2015-08-01)
+
 * classCode 1..1
 * classCode = #CLUSTER (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"CLUSTER\" Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-28410)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-28411)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28412) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.108"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.108\" (CONF:1198-28413)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32876)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-28414)."
 * code 1..1

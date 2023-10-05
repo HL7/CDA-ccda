@@ -3,24 +3,11 @@ Parent: $ManufacturedProduct
 Id: ImmunizationMedicationInformation
 Title: "Immunization Medication Information"
 Description: "The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09"
-* ^version = "2014-06-09"
+
+* insert LogicalModelTemplate(immunizationMedicationInformation, 2.16.840.1.113883.10.20.22.4.54, 2014-06-09)
+
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"MANU\" (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-9004) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.54"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.54\" (CONF:1098-10499)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32602)."
 * id 0..*
   * ^comment = "MAY contain zero or more [0..*] id (CONF:1098-9005)."
 * manufacturedMaterial 1..1

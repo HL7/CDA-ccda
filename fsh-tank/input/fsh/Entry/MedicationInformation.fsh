@@ -5,24 +5,11 @@ Title: "Medication Information"
 Description: """A medication should be recorded as a pre-coordinated ingredient + strength + dose form (e.g., "metoprolol 25mg tablet", "amoxicillin 400mg/5mL suspension") where possible. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack).
 
 The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable. Thus, a patient consuming a single "metoprolol 25mg tablet" per administration will have a doseQuantity of "1", whereas a patient consuming "metoprolol" will have a dose of "25 mg"."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09"
-* ^version = "2014-06-09"
+
+* insert LogicalModelTemplate(medicationInformation, 2.16.840.1.113883.10.20.22.4.23, 2014-06-09)
+
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"MANU\" (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-7408)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-7409) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.23"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.23\" (CONF:1098-10506)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32579)."
 * id 0..*
   * ^comment = "MAY contain zero or more [0..*] id (CONF:1098-7410)."
 * manufacturedMaterial 1..1

@@ -6,29 +6,15 @@ Description: """This template represents planned alterations of the patient's ph
 
 Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the "immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient", or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as "interventions" such as "Home Environment Evaluation" or "Assessment of nutritional status".
 """
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2022-06-01"
-* ^version = "2022-06-01"
+
+* insert LogicalModelTemplate(plannedProcedure, 2.16.840.1.113883.10.20.22.4.41, 2022-06-01)
+
 * classCode 1..1
 * classCode = #PROC (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"PROC\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-8568)."
 * moodCode 1..1
 * moodCode from $2.16.840.1.113883.11.20.9.23 (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2011-09-30 (CONF:4515-8569)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-30444) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.41"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.41\" (CONF:4515-30445)."
-  * extension 1..1
-  * extension = "2022-06-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2022-06-01\" (CONF:4515-32554)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-8571)."
 * code 1..1

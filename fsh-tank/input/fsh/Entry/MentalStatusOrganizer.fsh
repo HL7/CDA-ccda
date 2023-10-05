@@ -3,27 +3,14 @@ Parent: $Organizer
 Id: MentalStatusOrganizer
 Title: "Mental Status Organizer"
 Description: "The Mental Status Organizer template may be used to group related Mental Status Observations (e.g., results of mental tests) and associated Assessment Scale Observations into subcategories and/or groupings by time. Subcategories can be things such as Mood and Affect, Behavior, Thought Process, Perception, Cognition, etc."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.75:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(mentalStatusOrganizer, 2.16.840.1.113883.10.20.22.4.75, 2015-08-01)
+
 * classCode 1..1
 * classCode = #CLUSTER (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"CLUSTER\" Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-14369)."
 * moodCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14371)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-14375) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.75"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.75\" (CONF:1198-14376)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32566)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-14377)."
 * code 1..1

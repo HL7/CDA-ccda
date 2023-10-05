@@ -3,23 +3,15 @@ Parent: $Act
 Id: PatientReferralAct
 Title: "Patient Referral Act"
 Description: "This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.140"
+
+* insert LogicalModelTemplateRootOnly(patientReferralAct, 2.16.840.1.113883.10.20.22.4.140)
+
 * classCode 1..1
 * classCode = #PCPR (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"PCPR\" provision of care (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-30884)."
 * moodCode 1..1
 * moodCode from $2.16.840.1.113883.11.20.9.66 (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Patient Referral Act moodCode urn:oid:2.16.840.1.113883.11.20.9.66 STATIC 2014-09-01 (CONF:1098-30885)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-30886) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.140"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.140\" (CONF:1098-30887)."
-  * extension 0..0
 * id 1..*
   * ^short = "In the case of a Consultation Note where this referral is being fulfilled by this consultation, this id would be referenced in the inFullfilmentOf/order/id of the Consultation Note."
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-30888)."
