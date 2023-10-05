@@ -42,7 +42,7 @@ Description: "A policy activity represents the policy or program providing the c
   * translation[translation1] ^short = "translation"
     * ^comment = "This code SHALL contain at least one [1..*] translation (CONF:4537-32852) such that it"
     * code 0..1
-    * code from Payer (preferred)
+    * code from $Payer (preferred)
       * ^comment = "SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Payer urn:oid:2.16.840.1.114222.4.11.3591 DYNAMIC (CONF:4537-33066)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."

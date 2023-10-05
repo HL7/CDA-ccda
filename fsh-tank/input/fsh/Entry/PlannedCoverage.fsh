@@ -58,7 +58,7 @@ Description: "This template represents the insurance coverage intended to cover 
       * ^short = "These act/identifiers are unique identifiers for the policy or program providing the coverage."
       * ^comment = "This act SHALL contain at least one [1..*] id (CONF:1098-31972)."
     * code 1..1
-    * code from Payer (required)
+    * code from $Payer (required)
       * ^comment = "This act SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Payer urn:oid:2.16.840.1.114222.4.11.3591 DYNAMIC (CONF:1098-31973)."
     * statusCode 1..1
       * ^comment = "This act SHALL contain exactly one [1..1] statusCode (CONF:1098-31974)."
