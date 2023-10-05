@@ -18,6 +18,7 @@
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09"/>
     </identifier>
+    <version value="2014-06-09"/>
     <name value="AllergyIntoleranceObservation"/>
     <title value="Allergy - Intolerance Observation"/>
     <status value="draft"/>
@@ -51,22 +52,19 @@
             <path value="Observation.templateId"/>
             <min value="2"/>
         </element>
-        <element id="Observation.templateId:secondary">
+        <element id="Observation.templateId:allergy">
             <path value="Observation.templateId"/>
-            <sliceName value="secondary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-7381) such that it"/>
+            <sliceName value="allergy"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:secondary.root">
+        <element id="Observation.templateId:allergy.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.7&quot; (CONF:1098-10488)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.7"/>
         </element>
-        <element id="Observation.templateId:secondary.extension">
+        <element id="Observation.templateId:allergy.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32526)."/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
         </element>

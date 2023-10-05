@@ -5,11 +5,9 @@ Title: "Basic Occupation Observation"
 Description: """This template represents a simple observation about the type of work (e.g., infantry, business analyst, social worker) of a person. The effectiveTime low and high represent the start and end times of a particular observation about an occupation. Multiple occupation observation instances in a single document or derived from multiple documents, represent a basic historical occupation record. Implementers should use the Basic Occupation Observation template for conveying occupation information in support of USCDI v3.  It is recommended systems include the Basic Industry Observation in the Social History section.
 
 Implementers wishing to convey more advanced Occupation detail, such as employer, usual work (longest held), or other work related observations may consider using [HL7 CDA R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522)  in addition to this Observation."""
-* ^meta.versionId = "4"
-* ^meta.lastUpdated = "2023-07-11T23:41:52.226Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.503:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(basicOccupationObservation, 2.16.840.1.113883.10.20.22.4.503, 2023-05-01)
+
 * ^status = #draft
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -17,21 +15,6 @@ Implementers wishing to convey more advanced Occupation detail, such as employer
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-33001)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-32995) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-32995) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.503"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.503\" (CONF:4537-32998)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-32999)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-32996)."
   * code 1..1

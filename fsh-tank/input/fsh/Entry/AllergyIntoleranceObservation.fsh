@@ -7,8 +7,9 @@ Description: """This template reflects a discrete observation about a patient's 
 The effectiveTime of the Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK".
 
 The agent responsible for an allergy or adverse reaction is not always a manufactured material (for example, food allergies), nor is it necessarily consumed. The following constraints reflect limitations in the base CDA R2 specification, and should be used to represent any type of responsible agent, i.e., use playingEntity classCode = "MMAT" for all agents, manufactured or not."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09"
+
+* insert LogicalModelTemplate(allergy, 2.16.840.1.113883.10.20.22.4.7, 2014-06-09)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7379)."
@@ -18,19 +19,6 @@ The agent responsible for an allergy or adverse reaction is not always a manufac
 * negationInd 0..1
   * ^short = "Use negationInd=\"true\" to indicate that the allergy was not observed."
   * ^comment = "MAY contain zero or one [0..1] @negationInd (CONF:1098-31526)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-7381) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.7"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.7\" (CONF:1098-10488)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32526)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-7382)."
 * code 1..1
