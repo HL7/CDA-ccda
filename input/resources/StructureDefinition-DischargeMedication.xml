@@ -50,32 +50,29 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Act.templateId:primary">
+        <element id="Act.templateId:dischargeMedication">
             <path value="Act.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-16760) such that it"/>
+            <sliceName value="dischargeMedication"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:primary.root">
+        <element id="Act.templateId:dischargeMedication.root">
             <path value="Act.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.35&quot; (CONF:1198-16761)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.35"/>
         </element>
-        <element id="Act.templateId:primary.extension">
+        <element id="Act.templateId:dischargeMedication.extension">
             <path value="Act.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2016-03-01&quot; (CONF:1198-32513)."/>
             <min value="1"/>
             <patternString value="2016-03-01"/>
         </element>

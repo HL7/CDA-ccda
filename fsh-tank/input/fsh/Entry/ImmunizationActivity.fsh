@@ -16,27 +16,14 @@ a. Date printed on the VIS
 b. Date VIS given to patient or parent/guardian.
 
 This information should be included in an Immunization Activity when available. (Reference: [https://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/c/vis-instruct.pdf])"""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(immunizationActivity, 2.16.840.1.113883.10.20.22.4.52, 2015-08-01)
+
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8826)."
 * moodCode 1..1
 * moodCode from MoodCodeEvnInt (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC (CONF:1198-8827)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8828) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.52"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.52\" (CONF:1198-10498)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32528)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8829)."
 * code 0..1

@@ -14,29 +14,15 @@ The components of the organizer contain the following information:
 * The care team type(s) - a care team can have multiple care team types 
 
 """
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.500:2022-06-01"
-* ^version = "2022-06-01"
+
+* insert LogicalModelTemplate(careTeamOrganizer, 2.16.840.1.113883.10.20.22.4.500, 2022-06-01)
+
 * classCode 1..1
 * classCode = #CLUSTER (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"CLUSTER\" CLUSTER (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-124)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-125)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-112) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.500"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.500\" (CONF:4515-117)."
-  * extension 1..1
-  * extension = "2022-06-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2022-06-01\" (CONF:4515-118)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-126)."
 * code 1..1

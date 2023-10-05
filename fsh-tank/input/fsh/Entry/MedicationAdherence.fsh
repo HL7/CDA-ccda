@@ -3,19 +3,11 @@ Parent: $Observation
 Id: MedicationAdherence
 Title: "Medication Adherence"
 Description: "This profile represents whether a medication has been consumed according to instructions."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.508"
+
+* insert LogicalModelTemplate(medicationAdherence, 2.16.840.1.113883.10.20.22.4.508, 2023-05-01)
 * classCode 1..1
 * moodCode 1..1
 * moodCode = #EVN (exactly)
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary].root 1..1
-* templateId[primary].root = "2.16.840.1.113883.10.20.22.4.508"
 * id 1..*
 * code 1..1
   * code 1..1

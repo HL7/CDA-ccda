@@ -9,30 +9,15 @@ A goal may be a patient or provider goal. If the author is set to the recordTarg
 A goal usually has a related health concern and/or risk.
 
 A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.121:2022-06-01"
-* ^version = "2022-06-01"
+
+* insert LogicalModelTemplate(goalObservation, 2.16.840.1.113883.10.20.22.4.121, 2022-06-01)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4515-30418)."
 * moodCode 1..1
 * moodCode = #GOL (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"GOL\" Goal (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-30419)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-8583) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-8583) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.121"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.121\" (CONF:4515-10512)."
-  * extension 1..1
-  * extension = "2022-06-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2022-06-01\" (CONF:4515-32886)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-32332)."
 * code 1..1

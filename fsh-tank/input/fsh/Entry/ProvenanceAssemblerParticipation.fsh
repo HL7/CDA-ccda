@@ -12,28 +12,13 @@ Note: The CDA Participant does not support a software device or the organization
 Note: The Provenance template title includes a version 2 to support moving from the 'Basic Provenance' guide to the this Companion Guide, so the templateId has not changed."""
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:42:05.979Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.5.7:2020-05-19"
-* ^version = "2020-05-19"
+
+* insert LogicalModelTemplate(provenanceAssemblerParticipation, 2.16.840.1.113883.10.20.22.5.7, 2020-05-19)
+
 * ^status = #draft
 * typeCode 1..1
 * typeCode = #DEV (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"DEV\" Device (CONF:4537-55)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-40) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-40) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.5.7"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.5.7\" (CONF:4537-44)."
-  * extension 1..1
-  * extension = "2020-05-19"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2020-05-19\" (CONF:4537-33025)."
 * functionCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] functionCode (CONF:4537-38)."
   * code 1..1

@@ -9,11 +9,8 @@ Description: """This observation represents the gender identity of the patient, 
 This template follows the guidelines from the HL7 Gender Harmony project. This template is based on C-CDA Social History Observation template.
 
 This observation is not appropriate for recording patient gender (administrativeGender) or birth sex."""
-* ^meta.versionId = "5"
-* ^meta.lastUpdated = "2023-07-11T23:42:07.772Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.34.3.45:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(genderIdentityObservation, 2.16.840.1.113883.10.20.34.3.45, 2023-05-01)
 * ^status = #draft
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -21,20 +18,6 @@ This observation is not appropriate for recording patient gender (administrative
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-1231)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-1221) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.34.3.45"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.34.3.45\" (CONF:4537-1225)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-1226)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-1222)."
   * code 1..1

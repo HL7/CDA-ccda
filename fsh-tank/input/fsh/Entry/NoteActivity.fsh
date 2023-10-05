@@ -9,30 +9,15 @@ Finally, if the type of data in the note is not known or no single C-CDA section
 An alternative is to place the Note Activity as an entryRelationship to an Encounter Activity entry in the Encounters Section, but implementers may wish to group notes categorically into a separate location in CDA documents rather than overloading the Encounters Section."""
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:34.630Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01"
-* ^version = "2016-11-01"
+
+* insert LogicalModelTemplate(noteActivity, 2.16.840.1.113883.10.20.22.4.202, 2016-11-01)
+
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" Act (CONF:3250-16899)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CONF:3250-16900)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:3250-16933) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:3250-16933) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.202"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.202\" (CONF:3250-16934)."
-  * extension 1..1
-  * extension = "2016-11-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2016-11-01\" (CONF:3250-16937)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:3250-16895)."
   * code 1..1

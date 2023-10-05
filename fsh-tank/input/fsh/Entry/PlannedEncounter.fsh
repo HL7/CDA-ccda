@@ -3,28 +3,15 @@ Parent: $Encounter
 Id: PlannedEncounter
 Title: "Planned Encounter"
 Description: "This template represents a planned or ordered encounter. The type of encounter (e.g., comprehensive outpatient visit) is represented. Clinicians participating in the encounter and the location of the planned encounter may be captured. The priority that the patient and providers place on the encounter may be represented."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.40:2014-06-09"
-* ^version = "2014-06-09"
+
+* insert LogicalModelTemplate(plannedEncounter, 2.16.840.1.113883.10.20.22.4.40, 2014-06-09)
+
 * classCode 1..1
 * classCode = #ENC (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ENC\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8564)."
 * moodCode 1..1
 * moodCode from $2.16.840.1.113883.11.20.9.23 (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-8565)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-30437) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.40"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.40\" (CONF:1098-30438)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32553)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-8567)."
 * code 0..1

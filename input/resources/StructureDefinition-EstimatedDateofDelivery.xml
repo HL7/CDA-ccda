@@ -51,24 +51,22 @@
                     <type value="value"/>
                     <path value="root"/>
                 </discriminator>
-                <rules value="closed"/>
+                <rules value="open"/>
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:primary">
+        <element id="Observation.templateId:estimatedDateofDelivery">
             <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:81-16762) such that it, SHALL not contain [0..0] extension."/>
+            <sliceName value="estimatedDateofDelivery"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:primary.root">
+        <element id="Observation.templateId:estimatedDateofDelivery.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.15.3.1&quot; (CONF:81-16763)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.15.3.1"/>
         </element>
-        <element id="Observation.templateId:primary.extension">
+        <element id="Observation.templateId:estimatedDateofDelivery.extension">
             <path value="Observation.templateId.extension"/>
             <max value="0"/>
         </element>

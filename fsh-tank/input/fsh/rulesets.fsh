@@ -71,3 +71,35 @@ RuleSet: _SectionCommon
   * codeSystem = "2.16.840.1.113883.6.1"
 * title 1..1
 * text 1..1
+
+
+
+
+RuleSet: LogicalModelTemplate(sliceName, root, extension)
+* insert LogicalModelNA
+* ^identifier.value = "urn:hl7ii:{root}:{extension}"
+* ^version = "{extension}"
+* templateId ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "root"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "extension"
+  * ^slicing.rules = #open
+* templateId contains {sliceName} 1..1
+* templateId[{sliceName}]
+  * root 1..1
+  * root = "{root}"
+  * extension 1..1
+  * extension = "{extension}"
+
+
+RuleSet: LogicalModelTemplateRootOnly(sliceName, root)
+* insert LogicalModelNA
+* ^identifier.value = "urn:oid:{root}"
+* templateId ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "root"
+  * ^slicing.rules = #open
+* templateId contains {sliceName} 1..1
+* templateId[{sliceName}]
+  * root 1..1
+  * root = "{root}"
+  * extension 0..0

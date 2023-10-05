@@ -7,28 +7,15 @@ Description: """This template represents the current smoking status of the patie
 This template represents a "snapshot in time" observation, simply reflecting what the patient's current smoking status is at the time of the observation. As a result, the effectiveTime is constrained to a time stamp, and will approximately correspond with the author/time. Details regarding the time period when the patient is/was smoking would be recorded in the Tobacco Use template.
 
 If the patient's current smoking status is unknown, the value element must be populated with SNOMED CT code 266927001 to communicate "Unknown if ever smoked" from the Current Smoking Status Value Set."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09"
-* ^version = "2014-06-09"
+
+* insert LogicalModelTemplate(smokingStatusMeaningfulUse, 2.16.840.1.113883.10.20.22.4.78, 2014-06-09)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-14806)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-14807)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-14815) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.78"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.78\" (CONF:1098-14816)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32573)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-32401)."
 * code 1..1
