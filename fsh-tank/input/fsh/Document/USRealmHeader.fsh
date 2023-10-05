@@ -48,6 +48,8 @@ Description: "This template defines constraints that represent common administra
 * confidentialityCode 1..1
 * confidentialityCode from $2.16.840.1.113883.1.11.16926 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] confidentialityCode, which SHOULD be selected from ValueSet HL7 BasicConfidentialityKind urn:oid:2.16.840.1.113883.1.11.16926 DYNAMIC (CONF:4537-5259)."
+  * nullFlavor 0..0
+    * ^comment = "SHALL NOT contain [0..0] @nullFlavor."
 * languageCode 1..1
 * languageCode from $2.16.840.1.113883.1.11.11526 (required)
   * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC."
