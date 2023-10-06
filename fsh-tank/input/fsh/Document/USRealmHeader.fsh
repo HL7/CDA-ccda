@@ -127,7 +127,6 @@ Description: "This template defines constraints that represent common administra
         * addr only USRealmAddressADUSFIELDED
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)."
         * obeys should-telecom
-        * obeys should-telecom
         * telecom 0..*
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] telecom (CONF:4537-5382)." // auto-should
           * obeys should-use
@@ -162,7 +161,6 @@ Description: "This template defines constraints that represent common administra
         * proficiencyLevelCode 0..1
         * proficiencyLevelCode from LanguageAbilityProficiency (required)
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] proficiencyLevelCode, which SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.1.11.12199 DYNAMIC (CONF:4537-9965)."
-        * obeys should-preferenceInd
         * obeys should-preferenceInd
         * preferenceInd 0..1
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] preferenceInd (CONF:4537-5414)." // auto-should
@@ -209,7 +207,6 @@ Description: "This template defines constraints that represent common administra
       * extension 0..1
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4537-32885)."
     * obeys should-code
-    * obeys should-code
     * code 0..1
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4537-16787)." // auto-should
       * code 1..1
@@ -225,13 +222,11 @@ Description: "This template defines constraints that represent common administra
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7995)."
     * obeys should-assignedPerson
-    * obeys should-assignedPerson
     * assignedPerson 0..1
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4537-5430)." // auto-should
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-16789)."
-    * obeys should-assignedAuthoringDevice
     * obeys should-assignedAuthoringDevice
     * assignedAuthoringDevice 0..1
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedAuthoringDevice (CONF:4537-16783)." // auto-should
@@ -331,7 +326,6 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This intendedRecipient MAY contain zero or one [0..1] receivedOrganization (CONF:4537-5577)."
       * name 1..1
         * ^comment = "The receivedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:4537-5578)."
-* obeys should-legalAuthenticator
 * obeys should-legalAuthenticator
 * legalAuthenticator 0..1
   * ^comment = "SHOULD contain zero or one [0..1] legalAuthenticator (CONF:4537-5579)." // auto-should
@@ -439,7 +433,6 @@ Description: "This template defines constraints that represent common administra
       * low 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-14838)."
     * obeys should-performer
-    * obeys should-performer
     * performer 0..*
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:4537-14839)." // auto-should
       * typeCode 1..1
@@ -484,7 +477,6 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:4537-9959)."
     * effectiveTime 1..1
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:4537-9958)."
-    * obeys should-responsibleParty
     * obeys should-responsibleParty
     * responsibleParty 0..1
       * ^comment = "This encompassingEncounter SHOULD contain zero or one [0..1] responsibleParty (CONF:1198-8391)." // auto-should
