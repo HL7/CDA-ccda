@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Procedure">
+            <path value="Procedure"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+        </element>
         <element id="Procedure.classCode">
             <path value="Procedure.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; Procedure (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-7652)."/>
@@ -96,10 +106,24 @@
                 <human value="If the Intervention Procedure is a Social Determinant of Health Intervention, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Procedures](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion) **DYNAMIC** (CONF:4515-32984)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
+            <constraint>
+                <key value="should-originalText"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain originalText"/>
+                <expression value="originalText.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.code.originalText">
             <path value="Procedure.code.originalText"/>
             <comment value="This code SHOULD contain zero or one [0..1] originalText (CONF:4515-19203)."/>
+            <constraint>
+                <key value="should-reference"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain reference"/>
+                <expression value="reference.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.code.originalText.reference">
             <path value="Procedure.code.originalText.reference"/>
@@ -173,6 +197,13 @@
         <element id="Procedure.specimen.specimenRole">
             <path value="Procedure.specimen.specimenRole"/>
             <comment value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4515-7704)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.specimen.specimenRole.id">
             <path value="Procedure.specimen.specimenRole.id"/>
@@ -205,6 +236,13 @@
         <element id="Procedure.performer:performer1.assignedEntity">
             <path value="Procedure.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."/>
+            <constraint>
+                <key value="should-representedOrganization"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain representedOrganization"/>
+                <expression value="representedOrganization.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.id">
             <path value="Procedure.performer.assignedEntity.id"/>
@@ -236,6 +274,13 @@
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization">
             <path value="Procedure.performer.assignedEntity.representedOrganization"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.id">
             <path value="Procedure.performer.assignedEntity.representedOrganization.id"/>

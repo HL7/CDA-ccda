@@ -98,6 +98,13 @@
         <element id="Organizer.subject.relatedSubject">
             <path value="Organizer.subject.relatedSubject"/>
             <comment value="This subject SHALL contain exactly one [1..1] relatedSubject (CONF:1198-15244)."/>
+            <constraint>
+                <key value="should-subject"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain subject"/>
+                <expression value="subject.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+            </constraint>
         </element>
         <element id="Organizer.subject.relatedSubject.classCode">
             <path value="Organizer.subject.relatedSubject.classCode"/>
@@ -138,6 +145,13 @@
                 <key value="1198-15983"/>
                 <severity value="warning"/>
                 <human value="The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-birthTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain birthTime"/>
+                <expression value="birthTime.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
             </constraint>
         </element>

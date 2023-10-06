@@ -105,6 +105,13 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
             <short value="The main activity being described by a CCD is the provision of healthcare over a period of time. This is shown by setting the value of serviceEvent/@classCode to 'PCPR' (care provision) and indicating the duration over which care was provided in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range). &#xA;&#xA;NOTE: Implementations originating a CCD should take care to discover what the episode of care being summarized is. For example, when a patient fills out a form providing relevant health history, the episode of care being documented might be from birth to the present."/>
             <comment value="This documentationOf SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8480)."/>
+            <constraint>
+                <key value="should-performer"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain performer"/>
+                <expression value="performer.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.classCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.classCode"/>

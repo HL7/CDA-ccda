@@ -323,6 +323,13 @@
             <path value="Act.reference.externalDocument"/>
             <comment value="SHALL contain exactly one [1..1] externalDocument (CONF:3250-16911)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+            </constraint>
         </element>
         <element id="Act.reference:reference1.externalDocument.id">
             <path value="Act.reference.externalDocument.id"/>

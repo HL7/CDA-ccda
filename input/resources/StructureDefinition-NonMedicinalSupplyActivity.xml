@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Supply">
+            <path value="Supply"/>
+            <constraint>
+                <key value="should-quantity"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain quantity"/>
+                <expression value="quantity.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
+            </constraint>
+        </element>
         <element id="Supply.classCode">
             <path value="Supply.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8745)."/>

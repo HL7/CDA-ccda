@@ -79,6 +79,13 @@
         <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian"/>
             <comment value="This patient MAY contain zero or more [0..*] guardian (CONF:1198-28469)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.id">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.id"/>
@@ -107,6 +114,13 @@
         <element id="ClinicalDocument.author.assignedAuthor">
             <path value="ClinicalDocument.author.assignedAuthor"/>
             <comment value="Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:1198-28478)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.id">
             <path value="ClinicalDocument.author.assignedAuthor.id"/>
@@ -195,6 +209,13 @@
         <element id="ClinicalDocument.informationRecipient.intendedRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
             <comment value="The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-28691)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.id">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.id"/>
@@ -296,6 +317,20 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
             <comment value="The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-28711)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
+            <constraint>
+                <key value="should-performer"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain performer"/>
+                <expression value="performer.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.code"/>

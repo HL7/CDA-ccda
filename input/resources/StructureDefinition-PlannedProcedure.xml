@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Procedure">
+            <path value="Procedure"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
+            </constraint>
+        </element>
         <element id="Procedure.classCode">
             <path value="Procedure.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-8568)."/>

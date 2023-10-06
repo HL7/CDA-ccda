@@ -35,6 +35,23 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="SubstanceAdministration">
+            <path value="SubstanceAdministration"/>
+            <constraint>
+                <key value="should-doseQuantity"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain doseQuantity"/>
+                <expression value="doseQuantity.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-performer"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain performer"/>
+                <expression value="performer.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
+            </constraint>
+        </element>
         <element id="SubstanceAdministration.classCode">
             <path value="SubstanceAdministration.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8826)."/>

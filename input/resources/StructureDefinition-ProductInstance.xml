@@ -74,6 +74,13 @@
             <path value="ParticipantRole.playingDevice"/>
             <comment value="SHALL contain exactly one [1..1] playingDevice (CONF:81-7903)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProductInstance"/>
+            </constraint>
         </element>
         <element id="ParticipantRole.playingDevice.code">
             <path value="ParticipantRole.playingDevice.code"/>

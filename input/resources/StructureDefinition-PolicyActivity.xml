@@ -180,6 +180,20 @@
         <element id="Act.performer:performer1.assignedEntity">
             <path value="Act.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8908)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-representedOrganization"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain representedOrganization"/>
+                <expression value="representedOrganization.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
         </element>
         <element id="Act.performer:performer1.assignedEntity.id">
             <path value="Act.performer.assignedEntity.id"/>
@@ -214,6 +228,13 @@
         <element id="Act.performer:performer1.assignedEntity.representedOrganization">
             <path value="Act.performer.assignedEntity.representedOrganization"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)."/>
+            <constraint>
+                <key value="should-name"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain name"/>
+                <expression value="name.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
         </element>
         <element id="Act.performer:performer1.assignedEntity.representedOrganization.name">
             <path value="Act.performer.assignedEntity.representedOrganization.name"/>
@@ -226,6 +247,13 @@
             <short value="performer"/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="should-time"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain time"/>
+                <expression value="time.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
         </element>
         <element id="Act.performer:performer2.typeCode">
             <path value="Act.performer.typeCode"/>
@@ -259,6 +287,13 @@
                 <key value="4537-8967"/>
                 <severity value="warning"/>
                 <human value="**SHOULD** include assignedEntity/assignedPerson/name AND/OR assignedEntity/representedOrganization/name (CONF:4537-8967)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
             </constraint>
         </element>
@@ -319,6 +354,13 @@
             <comment value="SHALL contain exactly one [1..1] participant (CONF:4537-8916) such that it"/>
             <min value="1"/>
             <max value="1"/>
+            <constraint>
+                <key value="should-time"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain time"/>
+                <expression value="time.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
         </element>
         <element id="Act.participant:participant1.typeCode">
             <path value="Act.participant.typeCode"/>
@@ -345,6 +387,20 @@
         <element id="Act.participant:participant1.time">
             <path value="Act.participant.time"/>
             <comment value="SHOULD contain zero or one [0..1] time (CONF:4537-8918)."/>
+            <constraint>
+                <key value="should-low"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain low"/>
+                <expression value="low.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-high"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
         </element>
         <element id="Act.participant:participant1.time.low">
             <path value="Act.participant.time.low"/>
@@ -357,6 +413,13 @@
         <element id="Act.participant:participant1.participantRole">
             <path value="Act.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:4537-8921)."/>
+            <constraint>
+                <key value="should-playingEntity"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain playingEntity"/>
+                <expression value="playingEntity.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
+            </constraint>
         </element>
         <element id="Act.participant:participant1.participantRole.id">
             <path value="Act.participant.participantRole.id"/>

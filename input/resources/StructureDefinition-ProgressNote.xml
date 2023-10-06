@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="should-documentationOf"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain documentationOf"/>
+                <expression value="documentationOf.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>

@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="should-componentOf"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain componentOf"/>
+                <expression value="componentOf.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
@@ -284,6 +294,13 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter">
             <path value="ClinicalDocument.componentOf.encompassingEncounter"/>
             <comment value="The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-30872)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.id">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.id"/>

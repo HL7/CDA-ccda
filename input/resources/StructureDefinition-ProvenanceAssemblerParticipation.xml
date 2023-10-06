@@ -111,6 +111,13 @@
             <path value="Participant1.associatedEntity.scopingOrganization"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] scopingOrganization (CONF:4537-43)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAssemblerParticipation"/>
+            </constraint>
         </element>
         <element id="Participant1.associatedEntity.scopingOrganization.id">
             <path value="Participant1.associatedEntity.scopingOrganization.id"/>

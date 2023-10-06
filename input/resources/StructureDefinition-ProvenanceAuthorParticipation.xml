@@ -81,6 +81,20 @@
         <element id="Author.assignedAuthor">
             <path value="Author.assignedAuthor"/>
             <comment value="SHALL contain exactly one [1..1] assignedAuthor (CONF:4515-32975)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
+            </constraint>
+            <constraint>
+                <key value="should-assignedPerson"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain assignedPerson"/>
+                <expression value="assignedPerson.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
+            </constraint>
         </element>
         <element id="Author.assignedAuthor.id">
             <path value="Author.assignedAuthor.id"/>
@@ -144,6 +158,13 @@
             <path value="Author.assignedAuthor.assignedPerson.name"/>
             <comment value="The assignedPerson, if present, SHALL contain at least one [1..*] name (CONF:4515-32977)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-given"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain given"/>
+                <expression value="given.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
+            </constraint>
         </element>
         <element id="Author.assignedAuthor.assignedPerson.name.family">
             <path value="Author.assignedAuthor.assignedPerson.name.family"/>
@@ -162,6 +183,13 @@
         <element id="Author.assignedAuthor.representedOrganization">
             <path value="Author.assignedAuthor.representedOrganization"/>
             <comment value="This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."/>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
+            </constraint>
         </element>
         <element id="Author.assignedAuthor.representedOrganization.nullFlavor">
             <path value="Author.assignedAuthor.representedOrganization.nullFlavor"/>

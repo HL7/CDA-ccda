@@ -43,6 +43,27 @@
                 <human value="A supply act  **SHALL** contain one product/Medication Information *OR* one product/Immunization Medication Information template (CONF:4537-9333)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
             </constraint>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
+            </constraint>
+            <constraint>
+                <key value="should-repeatNumber"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain repeatNumber"/>
+                <expression value="repeatNumber.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
+            </constraint>
+            <constraint>
+                <key value="should-quantity"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain quantity"/>
+                <expression value="quantity.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
+            </constraint>
         </element>
         <element id="Supply.classCode">
             <path value="Supply.classCode"/>

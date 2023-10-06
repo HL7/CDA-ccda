@@ -84,6 +84,13 @@
             <path value="Encounter.code"/>
             <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-originalText"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain originalText"/>
+                <expression value="originalText.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
+            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
@@ -92,6 +99,13 @@
         <element id="Encounter.code.originalText">
             <path value="Encounter.code.originalText"/>
             <comment value="This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)."/>
+            <constraint>
+                <key value="should-reference"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain reference"/>
+                <expression value="reference.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
+            </constraint>
         </element>
         <element id="Encounter.code.originalText.reference">
             <path value="Encounter.code.originalText.reference"/>

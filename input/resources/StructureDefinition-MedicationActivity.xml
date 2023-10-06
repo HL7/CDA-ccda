@@ -145,6 +145,13 @@
                 <human value="This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
+            <constraint>
+                <key value="should-low"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain low"/>
+                <expression value="low.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.effectiveTime:duration.value">
             <path value="SubstanceAdministration.effectiveTime.value"/>

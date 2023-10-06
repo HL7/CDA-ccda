@@ -42,6 +42,13 @@
                 <human value="SHALL contain at least one [1..*] entryRelationships (CONF:1098-32782)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
             </constraint>
+            <constraint>
+                <key value="should-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain value"/>
+                <expression value="value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
+            </constraint>
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>

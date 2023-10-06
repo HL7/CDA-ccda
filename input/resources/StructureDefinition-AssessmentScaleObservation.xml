@@ -166,10 +166,24 @@
         <element id="Observation.referenceRange.observationRange">
             <path value="Observation.referenceRange.observationRange"/>
             <comment value="The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4515-16800)."/>
+            <constraint>
+                <key value="should-text"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text"/>
+                <expression value="text.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
         </element>
         <element id="Observation.referenceRange.observationRange.text">
             <path value="Observation.referenceRange.observationRange.text"/>
             <comment value="This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)."/>
+            <constraint>
+                <key value="should-reference"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain reference"/>
+                <expression value="reference.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
         </element>
         <element id="Observation.referenceRange.observationRange.text.reference">
             <path value="Observation.referenceRange.observationRange.text.reference"/>

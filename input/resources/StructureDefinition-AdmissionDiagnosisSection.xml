@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="should-entry"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain entry"/>
+                <expression value="entry.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdmissionDiagnosisSection"/>
+            </constraint>
+        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>

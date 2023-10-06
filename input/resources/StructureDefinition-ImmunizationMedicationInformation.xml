@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ManufacturedProduct">
+            <path value="ManufacturedProduct"/>
+            <constraint>
+                <key value="should-manufacturerOrganization"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain manufacturerOrganization"/>
+                <expression value="manufacturerOrganization.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
+            </constraint>
+        </element>
         <element id="ManufacturedProduct.classCode">
             <path value="ManufacturedProduct.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."/>
@@ -79,6 +89,13 @@
             <path value="ManufacturedProduct.manufacturedMaterial"/>
             <comment value="SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-9006)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-lotNumberText"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain lotNumberText"/>
+                <expression value="lotNumberText.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
+            </constraint>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code">
             <path value="ManufacturedProduct.manufacturedMaterial.code"/>

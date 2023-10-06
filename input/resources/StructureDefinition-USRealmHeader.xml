@@ -58,6 +58,13 @@
                 <expression value="legalAuthenticator.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
+            <constraint>
+                <key value="should-legalAuthenticator"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain legalAuthenticator"/>
+                <expression value="legalAuthenticator.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.realmCode">
             <path value="ClinicalDocument.realmCode"/>
@@ -409,6 +416,13 @@
                 <expression value="telecom.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.code">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.code"/>
@@ -509,6 +523,13 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain proficiencyLevelCode"/>
                 <expression value="proficiencyLevelCode.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
+                <key value="should-preferenceInd"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain preferenceInd"/>
+                <expression value="preferenceInd.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
@@ -633,10 +654,31 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
                 <key value="should-assignedPerson"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain assignedPerson"/>
                 <expression value="assignedPerson.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
+                <key value="should-assignedPerson"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain assignedPerson"/>
+                <expression value="assignedPerson.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
+                <key value="should-assignedAuthoringDevice"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain assignedAuthoringDevice"/>
+                <expression value="assignedAuthoringDevice.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
@@ -1265,6 +1307,13 @@
                 <expression value="performer.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
+            <constraint>
+                <key value="should-performer"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain performer"/>
+                <expression value="performer.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
@@ -1374,6 +1423,13 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter">
             <path value="ClinicalDocument.componentOf.encompassingEncounter"/>
             <comment value="The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:4537-9956)."/>
+            <constraint>
+                <key value="should-responsibleParty"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain responsibleParty"/>
+                <expression value="responsibleParty.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
             <constraint>
                 <key value="should-responsibleParty"/>
                 <severity value="warning"/>

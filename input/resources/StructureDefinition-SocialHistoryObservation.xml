@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain value"/>
+                <expression value="value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+            </constraint>
+        </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-8548)."/>

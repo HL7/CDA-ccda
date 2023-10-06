@@ -35,6 +35,23 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="should-setId"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain setId"/>
+                <expression value="setId.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
+            <constraint>
+                <key value="should-versionNumber"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain versionNumber"/>
+                <expression value="versionNumber.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
@@ -99,6 +116,34 @@
         <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
             <comment value="SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
+            <constraint>
+                <key value="should-informationRecipient"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain informationRecipient"/>
+                <expression value="informationRecipient.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
+            <constraint>
+                <key value="should-receivedOrganization"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain receivedOrganization"/>
+                <expression value="receivedOrganization.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.id">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.id"/>
@@ -125,6 +170,13 @@
         <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization"/>
             <comment value="This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization.id">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.id"/>
@@ -231,6 +283,13 @@
         <element id="ClinicalDocument.participant:participant1.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31683)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>

@@ -159,6 +159,27 @@
         <element id="Act.performer:performer1.assignedEntity">
             <path value="Act.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4515-175)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
+            </constraint>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
+            </constraint>
+            <constraint>
+                <key value="should-assignedPerson"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain assignedPerson"/>
+                <expression value="assignedPerson.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
+            </constraint>
         </element>
         <element id="Act.performer:performer1.assignedEntity.id">
             <path value="Act.performer.assignedEntity.id"/>

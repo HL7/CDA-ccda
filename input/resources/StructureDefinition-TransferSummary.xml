@@ -132,6 +132,13 @@
         <element id="ClinicalDocument.participant:participant2.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31628)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>

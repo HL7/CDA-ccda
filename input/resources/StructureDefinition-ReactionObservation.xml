@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
+            </constraint>
+        </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7325)."/>
@@ -111,6 +121,20 @@
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7332)."/>
+            <constraint>
+                <key value="should-low"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain low"/>
+                <expression value="low.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-high"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
+            </constraint>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
