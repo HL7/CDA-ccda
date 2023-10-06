@@ -560,7 +560,13 @@
         <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization.id.root">
             <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization.id.root"/>
             <comment value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4537-16820)."/>
-            <patternString value="2.16.840.1.113883.4.6"/>
+            <constraint>
+                <key value="should-npi"/>
+                <severity value="warning"/>
+                <human value="SHOULD be NPI"/>
+                <expression value="$this = '2.16.840.1.113883.4.6'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization.name">
             <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization.name"/>
@@ -764,7 +770,13 @@
         <element id="ClinicalDocument.dataEnterer.assignedEntity.id.root">
             <path value="ClinicalDocument.dataEnterer.assignedEntity.id.root"/>
             <comment value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4537-16821)."/>
-            <patternString value="2.16.840.1.113883.4.6"/>
+            <constraint>
+                <key value="should-npi"/>
+                <severity value="warning"/>
+                <human value="SHOULD be NPI"/>
+                <expression value="$this = '2.16.840.1.113883.4.6'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.dataEnterer.assignedEntity.code">
             <path value="ClinicalDocument.dataEnterer.assignedEntity.code"/>
@@ -914,7 +926,13 @@
         <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id.root">
             <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id.root"/>
             <comment value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4537-16822)."/>
-            <patternString value="2.16.840.1.113883.4.6"/>
+            <constraint>
+                <key value="should-npi"/>
+                <severity value="warning"/>
+                <human value="SHOULD be NPI"/>
+                <expression value="$this = '2.16.840.1.113883.4.6'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.name">
             <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.name"/>
@@ -1023,8 +1041,8 @@
         </element>
         <element id="ClinicalDocument.legalAuthenticator.assignedEntity.id.root">
             <path value="ClinicalDocument.legalAuthenticator.assignedEntity.id.root"/>
+            <short value="MAY contain '2.16.840.1.113883.4.6' (NPI)"/>
             <comment value="Such ids MAY contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4537-16823)."/>
-            <patternString value="2.16.840.1.113883.4.6"/>
         </element>
         <element id="ClinicalDocument.legalAuthenticator.assignedEntity.code">
             <path value="ClinicalDocument.legalAuthenticator.assignedEntity.code"/>
@@ -1138,7 +1156,13 @@
         <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.id.root">
             <path value="ClinicalDocument.authenticator.assignedEntity.id.root"/>
             <comment value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier  (CONF:4537-16824)."/>
-            <patternString value="2.16.840.1.113883.4.6"/>
+            <constraint>
+                <key value="should-npi"/>
+                <severity value="warning"/>
+                <human value="SHOULD be NPI"/>
+                <expression value="$this = '2.16.840.1.113883.4.6'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code">
             <path value="ClinicalDocument.authenticator.assignedEntity.code"/>
@@ -1302,7 +1326,13 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id.root">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id.root"/>
             <comment value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4537-14847)."/>
-            <patternString value="2.16.840.1.113883.4.6"/>
+            <constraint>
+                <key value="should-npi"/>
+                <severity value="warning"/>
+                <human value="SHOULD be NPI"/>
+                <expression value="$this = '2.16.840.1.113883.4.6'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>

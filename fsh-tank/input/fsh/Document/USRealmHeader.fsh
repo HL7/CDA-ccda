@@ -169,8 +169,7 @@ Description: "This template defines constraints that represent common administra
       * id 1..*
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] id (CONF:4537-5417)."
         * root 0..1
-        // TODO - fix
-        * root = "2.16.840.1.113883.4.6"
+          * obeys should-npi
           * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16820)."
       * name 1..*
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] name (CONF:4537-5419)."
@@ -242,8 +241,7 @@ Description: "This template defines constraints that represent common administra
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5443)."
       * root 0..1
-      // TODO - fix
-      * root = "2.16.840.1.113883.4.6"
+        * obeys should-npi
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16821)."
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
@@ -300,8 +298,7 @@ Description: "This template defines constraints that represent common administra
       * id 1..*
         * ^comment = "This representedCustodianOrganization SHALL contain at least one [1..*] id (CONF:4537-5522)."
         * root 0..1
-        // TODO - fix
-        * root = "2.16.840.1.113883.4.6"
+          * obeys should-npi
           * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16822)."
       * name 1..1
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] name (CONF:4537-5524)."
@@ -348,7 +345,7 @@ Description: "This template defines constraints that represent common administra
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5586)."
       * root 0..1
-      * root = "2.16.840.1.113883.4.6"
+        * ^short = "MAY contain '2.16.840.1.113883.4.6' (NPI)"
         * ^comment = "Such ids MAY contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16823)."
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
@@ -394,8 +391,7 @@ Description: "This template defines constraints that represent common administra
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5613)."
       * root 0..1
-      // TODO - fix
-      * root = "2.16.840.1.113883.4.6"
+        * obeys should-npi
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier  (CONF:4537-16824)."
     * code 0..1
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code (CONF:4537-16825)."
@@ -453,8 +449,7 @@ Description: "This template defines constraints that represent common administra
         * id 1..*
           * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-14846)."
           * root 0..1
-          // TODO - fix
-          * root = "2.16.840.1.113883.4.6"
+            * obeys should-npi
             * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-14847)."
         * obeys should-code
         * code 0..1

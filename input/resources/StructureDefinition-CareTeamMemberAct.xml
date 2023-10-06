@@ -173,7 +173,13 @@
         <element id="Act.performer:performer1.assignedEntity.id.root">
             <path value="Act.performer.assignedEntity.id.root"/>
             <comment value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4515-177)."/>
-            <patternString value="2.16.840.1.113883.4.6"/>
+            <constraint>
+                <key value="should-npi"/>
+                <severity value="warning"/>
+                <human value="SHOULD be NPI"/>
+                <expression value="$this = '2.16.840.1.113883.4.6'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
+            </constraint>
         </element>
         <element id="Act.performer:performer1.assignedEntity.addr">
             <path value="Act.performer.assignedEntity.addr"/>

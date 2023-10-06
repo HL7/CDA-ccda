@@ -84,3 +84,15 @@ Invariant: should-value-att
 Description: "SHOULD contain @value"
 Severity: #warning
 Expression: "value.exists()"
+
+
+////////////////////////////////////////////////////////////
+//                                                        //
+//                  Special "should's"                    //
+//                                                        //
+////////////////////////////////////////////////////////////
+
+Invariant: should-npi
+Description: "SHOULD be NPI"
+Severity: #warning
+Expression: "$this = '2.16.840.1.113883.4.6'"

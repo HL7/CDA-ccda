@@ -63,7 +63,7 @@ This id must be a pointer to another Performer."""
       * obeys 4515-180
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-176)."
       * root 0..1
-      * root = "2.16.840.1.113883.4.6"
+        * obeys should-npi
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)."
     * addr 0..*
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)."
