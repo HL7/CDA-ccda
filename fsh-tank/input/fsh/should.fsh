@@ -76,9 +76,9 @@ Severity: #warning
 Expression: "high.exists()"
 
 Invariant: should-id
-Description: "SHOULD contain high"
+Description: "SHOULD contain id"
 Severity: #warning
-Expression: "high.exists()"
+Expression: "id.exists()"
 
 Invariant: should-informationRecipient
 Description: "SHOULD contain informationRecipient"
