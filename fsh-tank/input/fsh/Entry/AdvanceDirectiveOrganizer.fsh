@@ -4,7 +4,7 @@ Id: AdvanceDirectiveOrganizer
 Title: "Advance Directive Organizer"
 Description: "This clinical statement groups a set of advance directive observations."
 
-* insert LogicalModelTemplate(advanceDirectiveOrganizer, 2.16.840.1.113883.10.20.22.4.108, 2015-08-01)
+* insert LogicalModelTemplate(advance-directive-org, 2.16.840.1.113883.10.20.22.4.108, 2015-08-01)
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)

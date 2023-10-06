@@ -13,7 +13,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:42:05.979Z"
 
-* insert LogicalModelTemplate(provenanceAssemblerParticipation, 2.16.840.1.113883.10.20.22.5.7, 2020-05-19)
+* insert LogicalModelTemplate(provenance-assembler, 2.16.840.1.113883.10.20.22.5.7, 2020-05-19)
 
 * ^status = #draft
 * typeCode 1..1

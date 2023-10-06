@@ -8,7 +8,7 @@ It is a wrapper for a single risk concern which may be derived from a variety of
 
 A Risk Concern Act represents a health concern that is a risk. A risk is a clinical or socioeconomic condition that the patient does not currently have, but the probability of developing that condition rises to the level of concern such that an intervention and/or monitoring is needed."""
 
-* insert LogicalModelTemplate(riskConcernAct, 2.16.840.1.113883.10.20.22.4.136, 2015-08-01)
+* insert LogicalModelTemplate(risk-concern-act, 2.16.840.1.113883.10.20.22.4.136, 2015-08-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

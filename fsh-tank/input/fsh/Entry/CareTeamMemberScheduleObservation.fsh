@@ -10,7 +10,7 @@ Description: """This template represents the schedule of when the care team memb
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:50.902Z"
 
-* insert LogicalModelTemplate(careTeamMemberScheduleObservation, 2.16.840.1.113883.10.20.22.4.500.3, 2022-06-01)
+* insert LogicalModelTemplate(care-team-member-schedule-obs, 2.16.840.1.113883.10.20.22.4.500.3, 2022-06-01)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

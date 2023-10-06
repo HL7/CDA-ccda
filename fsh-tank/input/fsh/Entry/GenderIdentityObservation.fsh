@@ -10,7 +10,7 @@ This template follows the guidelines from the HL7 Gender Harmony project. This t
 
 This observation is not appropriate for recording patient gender (administrativeGender) or birth sex."""
 
-* insert LogicalModelTemplate(genderIdentityObservation, 2.16.840.1.113883.10.20.34.3.45, 2023-05-01)
+* insert LogicalModelTemplate(gender-identity-obs, 2.16.840.1.113883.10.20.34.3.45, 2023-05-01)
 * ^status = #draft
 * classCode 1..1
 * classCode = #OBS (exactly)

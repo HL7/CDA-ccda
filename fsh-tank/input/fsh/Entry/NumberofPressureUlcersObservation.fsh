@@ -4,7 +4,7 @@ Id: NumberofPressureUlcersObservation
 Title: "Number of Pressure Ulcers Observation"
 Description: "This template represents the number of pressure ulcers observed at a particular stage."
 
-* insert LogicalModelTemplate(numberofPressureUlcersObservation, 2.16.840.1.113883.10.20.22.4.76, 2015-08-01)
+* insert LogicalModelTemplate(numberof-pressure-ulcers-obs, 2.16.840.1.113883.10.20.22.4.76, 2015-08-01)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

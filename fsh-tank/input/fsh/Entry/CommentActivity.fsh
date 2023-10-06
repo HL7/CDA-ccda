@@ -4,7 +4,7 @@ Id: CommentActivity
 Title: "Comment Activity"
 Description: "Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."
 
-* insert LogicalModelTemplateRootOnly(commentActivity, 2.16.840.1.113883.10.20.22.4.64)
+* insert LogicalModelTemplateRootOnly(comment-activity, 2.16.840.1.113883.10.20.22.4.64)
 
 * obeys 81-9429
 * classCode 1..1

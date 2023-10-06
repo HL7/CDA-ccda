@@ -4,7 +4,7 @@ Id: ExternalDocumentReference
 Title: "External Document Reference"
 Description: "Where it is necessary to reference an external clinical document, the External Document Reference template can be used to reference this external document. However, if the containing document is appending to or replacing another document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."
 
-* insert LogicalModelTemplate(externalDocumentReference, 2.16.840.1.113883.10.20.22.4.115, 2014-06-09)
+* insert LogicalModelTemplate(external-doc-ref, 2.16.840.1.113883.10.20.22.4.115, 2014-06-09)
 
 * classCode 1..1
 * classCode = #DOCCLIN (exactly)

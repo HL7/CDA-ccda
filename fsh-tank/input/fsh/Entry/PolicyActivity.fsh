@@ -4,7 +4,7 @@ Id: PolicyActivity
 Title: "Policy Activity"
 Description: "A policy activity represents the policy or program providing the coverage. The person for whom payment is being provided (i.e., the patient) is the covered party. The subscriber of the policy or program is represented as a participant that is the holder of the coverage. The payer is represented as the performer of the policy activity."
 
-* insert LogicalModelTemplate(policyActivity, 2.16.840.1.113883.10.20.22.4.61, 2023-05-01)
+* insert LogicalModelTemplate(policy-activity, 2.16.840.1.113883.10.20.22.4.61, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

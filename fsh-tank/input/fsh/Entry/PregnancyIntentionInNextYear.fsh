@@ -7,7 +7,7 @@ Description: """This template represents a patient's reported intention or desir
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:36.964Z"
 
-* insert LogicalModelTemplate(pregnancyIntentionInNextYear, 2.16.840.1.113883.10.20.22.4.281, 2023-05-01)
+* insert LogicalModelTemplate(pregnancy-intention-next-year, 2.16.840.1.113883.10.20.22.4.281, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

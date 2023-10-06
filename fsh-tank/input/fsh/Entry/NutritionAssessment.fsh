@@ -4,7 +4,7 @@ Id: NutritionAssessment
 Title: "Nutrition Assessment"
 Description: "This template represents the patient's nutrition abilities and habits including intake, diet requirements or diet followed."
 
-* insert LogicalModelTemplateRootOnly(nutritionAssessment, 2.16.840.1.113883.10.20.22.4.138)
+* insert LogicalModelTemplateRootOnly(nutrition-assessment, 2.16.840.1.113883.10.20.22.4.138)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

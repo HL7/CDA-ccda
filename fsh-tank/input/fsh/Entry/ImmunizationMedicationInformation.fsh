@@ -4,7 +4,7 @@ Id: ImmunizationMedicationInformation
 Title: "Immunization Medication Information"
 Description: "The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."
 
-* insert LogicalModelTemplate(immunizationMedicationInformation, 2.16.840.1.113883.10.20.22.4.54, 2014-06-09)
+* insert LogicalModelTemplate(immunization-med-info, 2.16.840.1.113883.10.20.22.4.54, 2014-06-09)
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"MANU\" (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."

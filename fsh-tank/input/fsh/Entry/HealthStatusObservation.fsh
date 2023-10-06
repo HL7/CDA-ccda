@@ -4,7 +4,7 @@ Id: HealthStatusObservation
 Title: "Health Status Observation"
 Description: "This template represents information about the overall health status of the patient. To represent the impact of a specific problem or concern related to the patient's expected health outcome use the Prognosis Observation template 2.16.840.1.113883.10.20.22.4.113."
 
-* insert LogicalModelTemplate(healthStatusObservation, 2.16.840.1.113883.10.20.22.4.5, 2014-06-09)
+* insert LogicalModelTemplate(health-status-obs, 2.16.840.1.113883.10.20.22.4.5, 2014-06-09)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

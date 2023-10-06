@@ -4,7 +4,7 @@ Id: HandoffCommunicationParticipants
 Title: "Handoff Communication Participants"
 Description: "This template represents the sender (author) and receivers (participants) of a handoff communication in a plan of treatment. It does not convey details about the communication. The \"handoff\" process involves senders, those transmitting the patient's information and releasing the care of that patient to the next clinician, and receivers, those who accept the patient information and care of that patient."
 
-* insert LogicalModelTemplateRootOnly(handoffCommunicationParticipants, 2.16.840.1.113883.10.20.22.4.141)
+* insert LogicalModelTemplateRootOnly(handoff-comm-participants, 2.16.840.1.113883.10.20.22.4.141)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

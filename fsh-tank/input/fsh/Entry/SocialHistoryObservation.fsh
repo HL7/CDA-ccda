@@ -5,7 +5,7 @@ Title: "Social History Observation"
 Description: """This template represents a patient's job (occupation and industry), lifestyle, and environmental health risk factors. Demographic data (e.g., marital status, race, ethnicity, religious affiliation) are captured in the header. Though tobacco use and exposure may be represented with a Social History Observation, it is recommended to use the Current Smoking Status template or the Tobacco Use template instead, to represent smoking or tobacco habits.
 There are supplemental templates and guidance for observations of [Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522), [nutrition](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=478) and [pregnancy](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=494) that could be captured in the Social History Observation, and implementers may want to consider using those more specific templates in the Social History section."""
 
-* insert LogicalModelTemplate(socialHistoryObservation, 2.16.840.1.113883.10.20.22.4.38, 2022-06-01)
+* insert LogicalModelTemplate(social-history-obs, 2.16.840.1.113883.10.20.22.4.38, 2022-06-01)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

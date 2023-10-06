@@ -6,7 +6,7 @@ Description: """This template provides a mechanism for grouping result observati
 
 If any Result Observation within the organizer has a statusCode of "active", the Result Organizer must also have a statusCode of "active"."""
 
-* insert LogicalModelTemplate(resultOrganizer, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
+* insert LogicalModelTemplate(result-org, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

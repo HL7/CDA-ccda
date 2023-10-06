@@ -6,7 +6,7 @@ Description: """This template represents a simple observation about the type of 
 
  Implementers should use the Basic Industry Observation template for conveying Industry in support of USCDI v3. It is recommended systems include the Basic Industry Observation in the Social History section.  Implementers wishing to convey more advanced Industry detail may consider using  [HL7 CDA R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522) in addition to this Observation."""
 
-* insert LogicalModelTemplate(basicIndustryObservation, 2.16.840.1.113883.10.20.22.4.504, 2023-05-01)
+* insert LogicalModelTemplate(basic-industry-obs, 2.16.840.1.113883.10.20.22.4.504, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

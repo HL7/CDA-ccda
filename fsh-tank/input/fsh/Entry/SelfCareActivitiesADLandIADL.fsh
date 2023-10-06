@@ -4,7 +4,7 @@ Id: SelfCareActivitiesADLandIADL
 Title: "Self-Care Activities (ADL and IADL)"
 Description: "This template represents a patient's daily self-care ability. These activities are called Activities of Daily Living (ADL) and Instrumental Activities of Daily Living (IADL). ADLs involve caring for and moving of the body (e.g., dressing, bathing, eating). IADLs support an independent life style (e.g., cooking, managing medications, driving, shopping)."
 
-* insert LogicalModelTemplateRootOnly(selfCareActivitiesADLandIADL, 2.16.840.1.113883.10.20.22.4.128)
+* insert LogicalModelTemplateRootOnly(self-care-activities, 2.16.840.1.113883.10.20.22.4.128)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

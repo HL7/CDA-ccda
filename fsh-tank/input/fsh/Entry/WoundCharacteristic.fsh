@@ -4,7 +4,7 @@ Id: WoundCharacteristic
 Title: "Wound Characteristic"
 Description: "This template represents characteristics of a wound (e.g., integrity of suture line, odor, erythema)."
 
-* insert LogicalModelTemplateRootOnly(woundCharacteristic, 2.16.840.1.113883.10.20.22.4.134)
+* insert LogicalModelTemplateRootOnly(wound-characteristic, 2.16.840.1.113883.10.20.22.4.134)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

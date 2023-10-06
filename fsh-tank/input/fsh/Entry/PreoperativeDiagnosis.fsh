@@ -4,7 +4,7 @@ Id: PreoperativeDiagnosis
 Title: "Preoperative Diagnosis"
 Description: "This template represents the surgical diagnosis or diagnoses assigned to the patient before the surgical procedure and is the reason for the surgery. The preoperative diagnosis is, in the opinion of the surgeon, the diagnosis that will be confirmed during surgery."
 
-* insert LogicalModelTemplate(preoperativeDiagnosis, 2.16.840.1.113883.10.20.22.4.65, 2015-08-01)
+* insert LogicalModelTemplate(preoperative-dx, 2.16.840.1.113883.10.20.22.4.65, 2015-08-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

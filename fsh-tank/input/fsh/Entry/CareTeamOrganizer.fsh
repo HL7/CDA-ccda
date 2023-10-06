@@ -15,7 +15,7 @@ The components of the organizer contain the following information:
 
 """
 
-* insert LogicalModelTemplate(careTeamOrganizer, 2.16.840.1.113883.10.20.22.4.500, 2022-06-01)
+* insert LogicalModelTemplate(care-team-org, 2.16.840.1.113883.10.20.22.4.500, 2022-06-01)
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)

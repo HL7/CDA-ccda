@@ -4,7 +4,7 @@ Id: PlannedCoverage
 Title: "Planned Coverage"
 Description: "This template represents the insurance coverage intended to cover an act or procedure."
 
-* insert LogicalModelTemplateRootOnly(plannedCoverage, 2.16.840.1.113883.10.20.22.4.129)
+* insert LogicalModelTemplateRootOnly(planned-coverage, 2.16.840.1.113883.10.20.22.4.129)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

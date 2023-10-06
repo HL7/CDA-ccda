@@ -14,7 +14,7 @@ When sending a UDI, populate the participantRole/id/@root with the FDA OID (2.16
 When sending a DI, populate the participantRole/id/@root with the appropriate assigning agency OID and participantRole/id/@extension with the DI.
 The scopingEntity/id should correspond to FDA or the appropriate issuing agency."""
 
-* insert LogicalModelTemplateRootOnly(productInstance, 2.16.840.1.113883.10.20.22.4.37)
+* insert LogicalModelTemplateRootOnly(product-instance, 2.16.840.1.113883.10.20.22.4.37)
 
 * classCode 1..1
 * classCode = #MANU (exactly)

@@ -5,7 +5,7 @@ Title: "Caregiver Characteristics"
 Description: """This clinical statement represents a caregiver's willingness to provide care and the abilities of that caregiver to provide assistance to a patient in relation to a specific need.
 """
 
-* insert LogicalModelTemplateRootOnly(caregiverCharacteristics, 2.16.840.1.113883.10.20.22.4.72)
+* insert LogicalModelTemplateRootOnly(caregiver-characteristics, 2.16.840.1.113883.10.20.22.4.72)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

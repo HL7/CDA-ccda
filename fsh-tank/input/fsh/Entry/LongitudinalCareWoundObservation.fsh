@@ -4,7 +4,7 @@ Id: LongitudinalCareWoundObservation
 Title: "Longitudinal Care Wound Observation"
 Description: "This template represents acquired or surgical wounds and is not intended to encompass all wound types. The template applies to wounds such as pressure ulcers, surgical incisions, and deep tissue injury wounds. Information in this template may include information about the wound measurements characteristics."
 
-* insert LogicalModelTemplate(LongitudinalCareWoundObservation, 2.16.840.1.113883.10.20.22.4.114, 2015-08-01)
+* insert LogicalModelTemplate(Longitudinal-care-wound-obs, 2.16.840.1.113883.10.20.22.4.114, 2015-08-01)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

@@ -6,7 +6,7 @@ Description: """A medication should be recorded as a pre-coordinated ingredient 
 
 The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable. Thus, a patient consuming a single "metoprolol 25mg tablet" per administration will have a doseQuantity of "1", whereas a patient consuming "metoprolol" will have a dose of "25 mg"."""
 
-* insert LogicalModelTemplate(medicationInformation, 2.16.840.1.113883.10.20.22.4.23, 2014-06-09)
+* insert LogicalModelTemplate(med-information, 2.16.840.1.113883.10.20.22.4.23, 2014-06-09)
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"MANU\" (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-7408)."

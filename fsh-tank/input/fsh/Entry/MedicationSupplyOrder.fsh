@@ -4,7 +4,7 @@ Id: MedicationSupplyOrder
 Title: "Medication Supply Order"
 Description: "This template records the intent to supply a patient with medications."
 
-* insert LogicalModelTemplate(medicationSupplyOrder, 2.16.840.1.113883.10.20.22.4.17, 2014-06-09)
+* insert LogicalModelTemplate(med-supplyOrder, 2.16.840.1.113883.10.20.22.4.17, 2014-06-09)
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SPLY\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7427)."

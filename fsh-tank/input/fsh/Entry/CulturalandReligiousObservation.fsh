@@ -4,7 +4,7 @@ Id: CulturalandReligiousObservation
 Title: "Cultural and Religious Observation"
 Description: "This template represents a patient's spiritual, religious, and cultural belief practices, such as a kosher diet or fasting ritual. religiousAffiliationCode in the document header captures only the patient's religious affiliation."
 
-* insert LogicalModelTemplateRootOnly(culturalandReligiousObservation, 2.16.840.1.113883.10.20.22.4.111)
+* insert LogicalModelTemplateRootOnly(culturaland-religious-obs, 2.16.840.1.113883.10.20.22.4.111)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

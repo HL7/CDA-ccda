@@ -4,7 +4,7 @@ Id: NutritionRecommendation
 Title: "Nutrition Recommendation"
 Description: "This template represents nutrition regimens (e.g., fluid restrictions, calorie minimum), interventions (e.g., NPO, nutritional supplements), and procedures (e.g., G-Tube by bolus, TPN by central line). It may also depict the need for nutrition education."
 
-* insert LogicalModelTemplateRootOnly(nutritionRecommendation, 2.16.840.1.113883.10.20.22.4.130)
+* insert LogicalModelTemplateRootOnly(nutrition-rec, 2.16.840.1.113883.10.20.22.4.130)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

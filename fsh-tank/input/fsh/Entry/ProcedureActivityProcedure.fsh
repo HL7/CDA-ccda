@@ -7,7 +7,7 @@ This template represents procedures whose immediate and primary outcome (post-co
 This template can be used with a contained Product Instance template to represent a device in or on a patient. In this case, targetSiteCode is used to record the location of the device in or on the patient's body. Equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs) is represented by the Non-Medicinal Supply Activity template.
 Procedure Activity Procedure Usage Note: Common practice in the industry has shown that Procedure Activity Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the "immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient" or not. As a result, it is recommended to use Procedure Activity Procedure when sending procedures also thought of as "interventions" such as "Home Environment Evaluation" or "Assessment of nutritional status"."""
 
-* insert LogicalModelTemplate(procedureActivityProcedure, 2.16.840.1.113883.10.20.22.4.14, 2022-06-01)
+* insert LogicalModelTemplate(procedure, 2.16.840.1.113883.10.20.22.4.14, 2022-06-01)
 
 * classCode 1..1
 * classCode = #PROC (exactly)

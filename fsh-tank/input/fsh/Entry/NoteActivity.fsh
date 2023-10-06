@@ -10,7 +10,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:34.630Z"
 
-* insert LogicalModelTemplate(noteActivity, 2.16.840.1.113883.10.20.22.4.202, 2016-11-01)
+* insert LogicalModelTemplate(note-activity, 2.16.840.1.113883.10.20.22.4.202, 2016-11-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

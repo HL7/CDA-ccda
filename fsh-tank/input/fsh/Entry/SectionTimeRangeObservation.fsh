@@ -6,7 +6,7 @@ Description: "This observation represents the date and time range of the informa
 * ^meta.versionId = "5"
 * ^meta.lastUpdated = "2023-07-11T23:41:34.303Z"
 
-* insert LogicalModelTemplate(sectionTimeRangeObservation, 2.16.840.1.113883.10.20.22.4.201, 2016-06-01)
+* insert LogicalModelTemplate(section-time-range-obs, 2.16.840.1.113883.10.20.22.4.201, 2016-06-01)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

@@ -4,7 +4,7 @@ Id: FamilyHistoryObservation
 Title: "Family History Observation"
 Description: "Family History Observations related to a particular family member are contained within a Family History Organizer. The effectiveTime in the Family History Observation is the biologically or clinically relevant time of the observation. The biologically or clinically relevant time is the time at which the observation holds (is effective) for the family member (the subject of the observation)."
 
-* insert LogicalModelTemplate(familyHistoryObservation, 2.16.840.1.113883.10.20.22.4.46, 2015-08-01)
+* insert LogicalModelTemplate(family-history-obs, 2.16.840.1.113883.10.20.22.4.46, 2015-08-01)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

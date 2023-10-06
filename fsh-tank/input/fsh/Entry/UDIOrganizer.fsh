@@ -33,7 +33,7 @@ urn:hl7ii:2.16.840.1.113883.10.20.22.4.305 2019-06-21 NCIt: C160939 MAY be inclu
 * ^meta.versionId = "5"
 * ^meta.lastUpdated = "2023-07-11T23:41:40.695Z"
 
-* insert LogicalModelTemplate(uDIOrganizer, 2.16.840.1.113883.10.20.22.4.311, 2019-06-21)
+* insert LogicalModelTemplate(UDI-org, 2.16.840.1.113883.10.20.22.4.311, 2019-06-21)
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)

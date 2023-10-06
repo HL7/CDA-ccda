@@ -4,7 +4,7 @@ Id: ReactionObservation
 Title: "Reaction Observation"
 Description: "This clinical statement represents the response to an undesired symptom, finding, etc. due to administered or exposed substance. A reaction can be defined described with respect to its severity, and can have been treated by one or more interventions."
 
-* insert LogicalModelTemplate(reactionObservation, 2.16.840.1.113883.10.20.22.4.9, 2014-06-09)
+* insert LogicalModelTemplate(reaction-obs, 2.16.840.1.113883.10.20.22.4.9, 2014-06-09)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

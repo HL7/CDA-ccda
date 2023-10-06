@@ -4,7 +4,7 @@ Id: PriorityPreference
 Title: "Priority Preference"
 Description: "This template represents priority preferences chosen by a patient or a care provider. Priority preferences are choices made by care providers or patients or both relative to options for care or treatment (including scheduling, care experience, and meeting of personal health goals), the sharing and disclosure of health information, and the prioritization of concerns and problems."
 
-* insert LogicalModelTemplateRootOnly(priorityPreference, 2.16.840.1.113883.10.20.22.4.143)
+* insert LogicalModelTemplateRootOnly(priority-pref, 2.16.840.1.113883.10.20.22.4.143)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

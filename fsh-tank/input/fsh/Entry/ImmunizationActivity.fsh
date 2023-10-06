@@ -17,7 +17,7 @@ b. Date VIS given to patient or parent/guardian.
 
 This information should be included in an Immunization Activity when available. (Reference: [https://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/c/vis-instruct.pdf])"""
 
-* insert LogicalModelTemplate(immunizationActivity, 2.16.840.1.113883.10.20.22.4.52, 2015-08-01)
+* insert LogicalModelTemplate(immunization-activity, 2.16.840.1.113883.10.20.22.4.52, 2015-08-01)
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8826)."

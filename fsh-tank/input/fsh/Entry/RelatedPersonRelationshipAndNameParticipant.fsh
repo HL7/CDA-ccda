@@ -6,7 +6,7 @@ Description: "This template represents a generic participant person that has a r
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:42:06.321Z"
 
-* insert LogicalModelTemplate(relatedPersonRelationshipAndNameParticipant, 2.16.840.1.113883.10.20.22.5.8, 2023-05-01)
+* insert LogicalModelTemplate(related-person, 2.16.840.1.113883.10.20.22.5.8, 2023-05-01)
 
 * ^status = #draft
 * typeCode 1..1

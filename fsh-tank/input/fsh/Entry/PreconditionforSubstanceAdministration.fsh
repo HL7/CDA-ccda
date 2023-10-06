@@ -4,7 +4,7 @@ Id: PreconditionforSubstanceAdministration
 Title: "Precondition for Substance Administration"
 Description: "A criterion for administration can be used to record that the medication is to be administered only when the associated criteria are met."
 
-* insert LogicalModelTemplate(preconditionSubstanceAdministration, 2.16.840.1.113883.10.20.22.4.25, 2014-06-09)
+* insert LogicalModelTemplate(precondition-substance-admin, 2.16.840.1.113883.10.20.22.4.25, 2014-06-09)
 
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code with @xsi:type=\"CD\" (CONF:1098-32396)."

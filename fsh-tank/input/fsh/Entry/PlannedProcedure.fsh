@@ -7,7 +7,7 @@ Description: """This template represents planned alterations of the patient's ph
 Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the "immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient", or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as "interventions" such as "Home Environment Evaluation" or "Assessment of nutritional status".
 """
 
-* insert LogicalModelTemplate(plannedProcedure, 2.16.840.1.113883.10.20.22.4.41, 2022-06-01)
+* insert LogicalModelTemplate(planned-proc, 2.16.840.1.113883.10.20.22.4.41, 2022-06-01)
 
 * classCode 1..1
 * classCode = #PROC (exactly)

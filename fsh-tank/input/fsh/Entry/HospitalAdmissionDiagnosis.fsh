@@ -7,7 +7,7 @@ Description: """This template represents problems or diagnoses identified by the
 This Hospital Admission Diagnosis act may contain more than one Problem Observation to represent multiple diagnoses for a Hospital Admission. 
 """
 
-* insert LogicalModelTemplate(hospitalAdmissionDiagnosis, 2.16.840.1.113883.10.20.22.4.34, 2015-08-01)
+* insert LogicalModelTemplate(hospital-admission-dx, 2.16.840.1.113883.10.20.22.4.34, 2015-08-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

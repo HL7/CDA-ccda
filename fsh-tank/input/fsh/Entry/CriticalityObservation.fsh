@@ -4,7 +4,7 @@ Id: CriticalityObservation
 Title: "Criticality Observation"
 Description: "This observation represents the gravity of the potential risk for future life-threatening adverse reactions when exposed to a substance known to cause an adverse reaction in that individual. When the worst case result is assessed to have a life-threatening or organ system threatening potential, it is considered to be of high criticality."
 
-* insert LogicalModelTemplateRootOnly(criticalityObservation, 2.16.840.1.113883.10.20.22.4.145)
+* insert LogicalModelTemplateRootOnly(criticality-obs, 2.16.840.1.113883.10.20.22.4.145)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

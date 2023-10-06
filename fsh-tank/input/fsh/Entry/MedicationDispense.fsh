@@ -4,7 +4,7 @@ Id: MedicationDispense
 Title: "Medication Dispense"
 Description: "This template records the act of supplying medications (i.e., dispensing). The moodCode equaling \"EVN\" (Event), signals that the \"supply\" has occurred and thus has been dispensed."
 
-* insert LogicalModelTemplate(medicationDispense, 2.16.840.1.113883.10.20.22.4.18, 2023-05-01)
+* insert LogicalModelTemplate(med-dispense, 2.16.840.1.113883.10.20.22.4.18, 2023-05-01)
 
 * ^status = #draft
 * obeys 4537-9333

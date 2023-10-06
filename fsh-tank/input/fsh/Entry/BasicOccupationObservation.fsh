@@ -6,7 +6,7 @@ Description: """This template represents a simple observation about the type of 
 
 Implementers wishing to convey more advanced Occupation detail, such as employer, usual work (longest held), or other work related observations may consider using [HL7 CDA R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522)  in addition to this Observation."""
 
-* insert LogicalModelTemplate(basicOccupationObservation, 2.16.840.1.113883.10.20.22.4.503, 2023-05-01)
+* insert LogicalModelTemplate(basic-occupation-obs, 2.16.840.1.113883.10.20.22.4.503, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

@@ -4,7 +4,7 @@ Id: HighestPressureUlcerStage
 Title: "Highest Pressure Ulcer Stage"
 Description: "This observation contains a description of the wound tissue of the most severe or highest staged pressure ulcer observed on a patient."
 
-* insert LogicalModelTemplateRootOnly(highestPressureUlcerStage, 2.16.840.1.113883.10.20.22.4.77)
+* insert LogicalModelTemplateRootOnly(highest-pressure-ulcer-stage, 2.16.840.1.113883.10.20.22.4.77)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

@@ -6,7 +6,7 @@ Description: """A Coverage Activity groups the policy and authorization acts wit
 The sequenceNumber/@value shows the policy order of preference. 
 The Member Identifier is described in the contained Policy Activity Template 2.16.840.1.113883.10.20.22.4.61."""
 
-* insert LogicalModelTemplate(coverageActivity, 2.16.840.1.113883.10.20.22.4.60, 2023-05-01)
+* insert LogicalModelTemplate(coverage-activity, 2.16.840.1.113883.10.20.22.4.60, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

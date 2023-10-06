@@ -6,7 +6,7 @@ Description: """This template represents the tribe or band that an individual as
 The tribe or band name is drawn from an HL7 code system that aligns with the Indian entities list, a list of tribes or bands recognized by and eligible to receive services from the United States Bureau of Indian Affairs. This template does not represent tribal enrollment.
 Please see [Indian Entities Recognized by and Eligible To Receive Services From the United States Bureau of Indian Affairs](https://www.federalregister.gov/documents/2021/01/29/2021-01606/indian-entities-recognized-by-and-eligible-to-receive-services-from-the-united-states-bureau-of)."""
 
-* insert LogicalModelTemplate(tribalAffiliationObservation, 2.16.840.1.113883.10.20.22.4.506, 2023-05-01)
+* insert LogicalModelTemplate(tribal-affiliation-obs, 2.16.840.1.113883.10.20.22.4.506, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

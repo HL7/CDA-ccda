@@ -4,7 +4,7 @@ Id: HospitalDischargeDiagnosis
 Title: "Hospital Discharge Diagnosis"
 Description: "This template represents problems or diagnoses present at the time of discharge which occurred during the hospitalization or need to be monitored after hospitalization. It requires at least one Problem Observation entry."
 
-* insert LogicalModelTemplate(hospitalDischargeDiagnosis, 2.16.840.1.113883.10.20.22.4.33, 2015-08-01)
+* insert LogicalModelTemplate(hospital-discharge-dx, 2.16.840.1.113883.10.20.22.4.33, 2015-08-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

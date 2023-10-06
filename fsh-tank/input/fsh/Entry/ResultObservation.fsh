@@ -20,7 +20,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 
 """
 
-* insert LogicalModelTemplate(resultObservation, 2.16.840.1.113883.10.20.22.4.2, 2023-05-01)
+* insert LogicalModelTemplate(result-obs, 2.16.840.1.113883.10.20.22.4.2, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

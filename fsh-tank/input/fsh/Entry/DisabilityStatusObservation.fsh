@@ -8,7 +8,7 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:52.905Z"
 
-* insert LogicalModelTemplate(disabilityStatusObservation, 2.16.840.1.113883.10.20.22.4.505, 2023-05-01)
+* insert LogicalModelTemplate(disability-status-obs, 2.16.840.1.113883.10.20.22.4.505, 2023-05-01)
 
 * ^status = #draft
 * classCode 1..1

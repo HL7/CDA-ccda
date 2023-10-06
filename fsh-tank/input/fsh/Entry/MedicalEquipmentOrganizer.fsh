@@ -6,7 +6,7 @@ Description: """This template represents a set of current or historical medical 
 
 Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy tube, port catheter), whether permanent or temporary, are represented within the Procedure Activity Procedure template (templateId: 2.16.840.1.113883.10.20.22.4.14.2)."""
 
-* insert LogicalModelTemplateRootOnly(medicalEquipmentOrganizer, 2.16.840.1.113883.10.20.22.4.135)
+* insert LogicalModelTemplateRootOnly(medical-equipment-org, 2.16.840.1.113883.10.20.22.4.135)
 
 * obeys 1098-32380
 * classCode 1..1

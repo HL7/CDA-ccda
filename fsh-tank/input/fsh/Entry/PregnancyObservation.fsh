@@ -4,7 +4,7 @@ Id: PregnancyObservation
 Title: "Pregnancy Observation"
 Description: "This clinical statement represents current and/or prior pregnancy dates enabling investigators to determine if the subject of the case report was pregnant during the course of a condition."
 
-* insert LogicalModelTemplateRootOnly(pregnancyObservation, 2.16.840.1.113883.10.20.15.3.8)
+* insert LogicalModelTemplateRootOnly(pregnancy-obs, 2.16.840.1.113883.10.20.15.3.8)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

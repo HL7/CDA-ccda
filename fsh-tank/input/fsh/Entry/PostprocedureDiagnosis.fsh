@@ -4,7 +4,7 @@ Id: PostprocedureDiagnosis
 Title: "Postprocedure Diagnosis"
 Description: "This template represents the diagnosis or diagnoses discovered or confirmed during the procedure. They may be the same as preprocedure diagnoses or indications."
 
-* insert LogicalModelTemplate(postprocedureDiagnosis, 2.16.840.1.113883.10.20.22.4.51, 2015-08-01)
+* insert LogicalModelTemplate(postprocedure-dx, 2.16.840.1.113883.10.20.22.4.51, 2015-08-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

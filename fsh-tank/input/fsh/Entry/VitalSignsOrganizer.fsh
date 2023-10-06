@@ -5,7 +5,7 @@ Title: "Vital Signs Organizer"
 Description: """This template provides a mechanism for grouping vital signs (e.g., grouping systolic blood pressure and diastolic blood pressure).
 """
 
-* insert LogicalModelTemplate(vitalSignsOrganizer, 2.16.840.1.113883.10.20.22.4.26, 2015-08-01)
+* insert LogicalModelTemplate(vital-signs-org, 2.16.840.1.113883.10.20.22.4.26, 2015-08-01)
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)

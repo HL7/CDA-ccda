@@ -6,7 +6,7 @@ Description: """This template reflects a discrete observation about a patient's 
 
 The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is resolved. If the problem is known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK"."""
 
-* insert LogicalModelTemplate(problemObservation, 2.16.840.1.113883.10.20.22.4.4, 2015-08-01)
+* insert LogicalModelTemplate(problem-obs, 2.16.840.1.113883.10.20.22.4.4, 2015-08-01)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

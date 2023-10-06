@@ -4,7 +4,7 @@ Id: MedicationAdherence
 Title: "Medication Adherence"
 Description: "This profile represents whether a medication has been consumed according to instructions."
 
-* insert LogicalModelTemplate(medicationAdherence, 2.16.840.1.113883.10.20.22.4.508, 2023-05-01)
+* insert LogicalModelTemplate(med-adherence, 2.16.840.1.113883.10.20.22.4.508, 2023-05-01)
 * classCode 1..1
 * moodCode 1..1
 * moodCode = #EVN (exactly)

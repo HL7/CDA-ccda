@@ -4,7 +4,7 @@ Id: DrugVehicle
 Title: "Drug Vehicle"
 Description: "This template represents the vehicle (e.g., saline, dextrose) for administering a medication."
 
-* insert LogicalModelTemplateRootOnly(drugVehicle, 2.16.840.1.113883.10.20.22.4.24)
+* insert LogicalModelTemplateRootOnly(drug-vehicle, 2.16.840.1.113883.10.20.22.4.24)
 
 * classCode 1..1
 * classCode = #MANU (exactly)

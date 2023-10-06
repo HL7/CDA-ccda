@@ -4,7 +4,7 @@ Id: DischargeMedication
 Title: "Discharge Medication"
 Description: "This template represents medications that the patient is intended to take (or stop) after discharge."
 
-* insert LogicalModelTemplate(dischargeMedication, 2.16.840.1.113883.10.20.22.4.35, 2016-03-01)
+* insert LogicalModelTemplate(discharge-med, 2.16.840.1.113883.10.20.22.4.35, 2016-03-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

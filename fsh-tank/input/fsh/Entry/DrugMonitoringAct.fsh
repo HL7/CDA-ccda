@@ -6,7 +6,7 @@ Description: """This template represents the act of monitoring the patient's med
 
 For example, a cardiologist may prescribe a patient Warfarin. The patient's primary care provider may monitor the patient's INR and adjust the dosing of the Warfarin based on these laboratory results. Here the person designated to monitor the drug is the primary care provider."""
 
-* insert LogicalModelTemplateRootOnly(drugMonitoringAct, 2.16.840.1.113883.10.20.22.4.123)
+* insert LogicalModelTemplateRootOnly(drug-monitoring-act, 2.16.840.1.113883.10.20.22.4.123)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

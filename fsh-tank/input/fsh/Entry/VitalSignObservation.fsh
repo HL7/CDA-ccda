@@ -20,7 +20,7 @@ The following is a list of recommended units for common types of vital sign meas
 
 """
 
-* insert LogicalModelTemplate(vitalSignObservation, 2.16.840.1.113883.10.20.22.4.27, 2014-06-09)
+* insert LogicalModelTemplate(vital-sign-obs, 2.16.840.1.113883.10.20.22.4.27, 2014-06-09)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

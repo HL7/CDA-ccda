@@ -6,7 +6,7 @@ Description: """The template is available to explicitly identify the free text S
 
 An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."""
 
-* insert LogicalModelTemplateRootOnly(medicationFreeTextSig, 2.16.840.1.113883.10.20.22.4.147)
+* insert LogicalModelTemplateRootOnly(med-freeTextSig, 2.16.840.1.113883.10.20.22.4.147)
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-32770)."

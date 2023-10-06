@@ -10,7 +10,7 @@ A Health Concern Act is used to track non-optimal physical or psychological situ
 When the underlying condition is of concern (i.e., as long as the condition, whether active or resolved, is of ongoing concern and interest), the statusCode is active. Only when the underlying condition is no longer of concern is the statusCode set to completed. The effectiveTime reflects the time that the underlying condition was felt to be a concern; it may or may not correspond to the effectiveTime of the condition (e.g., even five years later, a prior heart attack may remain a concern).
 Health concerns require intervention(s) to increase the likelihood of achieving the goals of care for the patient and they specify the condition oriented reasons for creating the plan."""
 
-* insert LogicalModelTemplate(healthConcernAct, 2.16.840.1.113883.10.20.22.4.132, 2022-06-01)
+* insert LogicalModelTemplate(health-concern-act, 2.16.840.1.113883.10.20.22.4.132, 2022-06-01)
 
 * obeys 4515-32962
 * classCode 1..1

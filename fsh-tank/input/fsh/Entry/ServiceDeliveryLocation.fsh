@@ -4,7 +4,7 @@ Id: ServiceDeliveryLocation
 Title: "Service Delivery Location"
 Description: "This clinical statement represents the location of a service event where an act, observation or procedure took place."
 
-* insert LogicalModelTemplateRootOnly(serviceDeliveryLocation, 2.16.840.1.113883.10.20.22.4.32)
+* insert LogicalModelTemplateRootOnly(service-delivery-loc, 2.16.840.1.113883.10.20.22.4.32)
 
 * classCode 1..1
 * classCode = #SDLOC (exactly)

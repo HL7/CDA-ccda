@@ -4,7 +4,7 @@ Id: ImmunizationRefusalReason
 Title: "Immunization Refusal Reason"
 Description: "The Immunization Refusal Reason documents the rationale for the patient declining an immunization."
 
-* insert LogicalModelTemplateRootOnly(immunizationRefusalReason, 2.16.840.1.113883.10.20.22.4.53)
+* insert LogicalModelTemplateRootOnly(imm-refuse-reason, 2.16.840.1.113883.10.20.22.4.53)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

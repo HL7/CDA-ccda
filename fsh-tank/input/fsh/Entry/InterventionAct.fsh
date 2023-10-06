@@ -10,7 +10,7 @@ Intervention Acts can be related to each other, or to Planned Intervention Acts.
 
 All interventions referenced in an Intervention Act must have a moodCode of EVN, indicating that they have occurred."""
 
-* insert LogicalModelTemplate(interventionAct, 2.16.840.1.113883.10.20.22.4.131, 2015-08-01)
+* insert LogicalModelTemplate(intervention-act, 2.16.840.1.113883.10.20.22.4.131, 2015-08-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

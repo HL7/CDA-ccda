@@ -5,7 +5,7 @@ Title: "Prognosis Observation"
 Description: """This template represents the patient's prognosis, which must be associated with a problem observation. It may serve as an alert to scope intervention plans. 
 The effectiveTime represents the clinically relevant time of the observation. The observation/value is not constrained and can represent the expected life duration in PQ, an anticipated course of the disease in text, or coded term."""
 
-* insert LogicalModelTemplateRootOnly(prognosisObservation, 2.16.840.1.113883.10.20.22.4.113)
+* insert LogicalModelTemplateRootOnly(prognosis-obs, 2.16.840.1.113883.10.20.22.4.113)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

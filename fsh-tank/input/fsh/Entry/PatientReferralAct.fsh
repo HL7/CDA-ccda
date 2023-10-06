@@ -4,7 +4,7 @@ Id: PatientReferralAct
 Title: "Patient Referral Act"
 Description: "This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
 
-* insert LogicalModelTemplateRootOnly(patientReferralAct, 2.16.840.1.113883.10.20.22.4.140)
+* insert LogicalModelTemplateRootOnly(patient-referral-act, 2.16.840.1.113883.10.20.22.4.140)
 
 * classCode 1..1
 * classCode = #PCPR (exactly)

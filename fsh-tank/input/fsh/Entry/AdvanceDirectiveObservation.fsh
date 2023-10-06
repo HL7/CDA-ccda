@@ -16,7 +16,7 @@ The Advance Directive Observation describes the patient's directives, including 
 The observation/value element contains the detailed patient directive which may be coded or text. For example, a category directive may be antibiotics, and the details would be intravenous antibiotics only.
 """
 
-* insert LogicalModelTemplate(advanceDirectiveObservation, 2.16.840.1.113883.10.20.22.4.48, 2015-08-01)
+* insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2015-08-01)
 
 * classCode 1..1
 * classCode = #OBS (exactly)

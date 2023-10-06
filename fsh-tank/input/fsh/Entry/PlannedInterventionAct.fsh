@@ -10,7 +10,7 @@ Planned Intervention Acts can be related to each other or to Intervention Acts. 
 
 All interventions referenced in a Planned Intervention Act must have moodCodes indicating that that are planned (have not yet occurred)."""
 
-* insert LogicalModelTemplate(plannedInterventionAct, 2.16.840.1.113883.10.20.22.4.146, 2015-08-01)
+* insert LogicalModelTemplate(planned-intervention-act, 2.16.840.1.113883.10.20.22.4.146, 2015-08-01)
 
 * classCode 1..1
 * classCode = #ACT (exactly)

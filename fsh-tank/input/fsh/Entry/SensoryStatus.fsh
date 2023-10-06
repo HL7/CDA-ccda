@@ -4,7 +4,7 @@ Id: SensoryStatus
 Title: "Sensory Status"
 Description: "This template represents a patient's sensory or speech ability. It may contain an assessment scale observations related to the sensory or speech ability."
 
-* insert LogicalModelTemplateRootOnly(sensoryStatus, 2.16.840.1.113883.10.20.22.4.127)
+* insert LogicalModelTemplateRootOnly(sensory-status, 2.16.840.1.113883.10.20.22.4.127)
 
 * classCode 1..1
 * classCode = #OBS (exactly)
