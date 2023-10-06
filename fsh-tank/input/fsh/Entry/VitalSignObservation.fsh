@@ -51,7 +51,6 @@ The following is a list of recommended units for common types of vital sign meas
 * interpretationCode 0..1
   * ^comment = "MAY contain zero or one [0..1] interpretationCode (CONF:1098-7307)."
   * code 1..1
-  * code from $2.16.840.1.113883.1.11.78 (required)
     * ^comment = "The interpretationCode, if present, SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:1098-32886)."
 * methodCode 0..1
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:1098-7308)."

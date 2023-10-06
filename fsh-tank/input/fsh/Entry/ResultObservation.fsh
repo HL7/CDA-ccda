@@ -46,7 +46,6 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * obeys 4537-31484 and 4537-31866 and 4537-32610
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:4537-7143)."
 * interpretationCode 0..*
-* interpretationCode from $2.16.840.1.113883.1.11.78 (required)
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."
 * methodCode 0..1
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."
