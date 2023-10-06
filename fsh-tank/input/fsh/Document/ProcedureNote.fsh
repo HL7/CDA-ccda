@@ -106,13 +106,15 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^comment = "This consent SHALL contain exactly one [1..1] @moodCode=\"EVN\" event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-32416)."
     * statusCode 1..1
       * ^comment = "This consent SHALL contain exactly one [1..1] statusCode (CONF:1198-32417)."
+* obeys should-componentOf
 * componentOf 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-30871)."
+  * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-30871)." // auto-should
   * encompassingEncounter 1..1
     * ^comment = "The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-30872)."
+    * obeys should-id
     * id ..*
       * ^short = "SG 20230709: EncompassingEncounter.id is required in US Realm Header - this is an illegal constraint - deleted min=0"
-      * ^comment = "This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)."
+      * ^comment = "This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)." // auto-should
       //"<min value=\"0\"/>"
     * code 1..1
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] code (CONF:1198-30873)."

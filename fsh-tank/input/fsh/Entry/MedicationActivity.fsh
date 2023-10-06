@@ -44,9 +44,10 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * value 0..1
     * ^short = "indicates a single-administration timestamp"
     * ^comment = "SHOULD contain zero or one [0..1] @value (CONF:1098-32775)."
+  * obeys should-low
   * low 0..1
     * ^short = "indicates when medication started"
-    * ^comment = "SHOULD contain zero or one [0..1] low (CONF:1098-32776)."
+    * ^comment = "SHOULD contain zero or one [0..1] low (CONF:1098-32776)." // auto-should
   * high 0..1
     * ^short = "indicates when medication stopped"
     * ^comment = "MAY contain zero or one [0..1] high (CONF:1098-32777)."

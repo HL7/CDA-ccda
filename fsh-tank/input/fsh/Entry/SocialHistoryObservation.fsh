@@ -26,9 +26,10 @@ There are supplemental templates and guidance for observations of [Occupational 
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-19117)."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-31868)."
+* obeys should-value
 * value 0..1
   * obeys 4515-8555 and 4515-32957
-  * ^comment = "SHOULD contain zero or one [0..1] value (CONF:4515-8559)."
+  * ^comment = "SHOULD contain zero or one [0..1] value (CONF:4515-8559)." // auto-should
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31869)."

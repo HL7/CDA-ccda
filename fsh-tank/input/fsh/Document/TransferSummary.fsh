@@ -53,8 +53,9 @@ Standardization of information used in this form will promote interoperability; 
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] @classCode=\"ASSIGNED\" assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-31641)."
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31629)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31630)."
+      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31630)." // auto-should
     * telecom 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31631)."
     * associatedPerson 1..1

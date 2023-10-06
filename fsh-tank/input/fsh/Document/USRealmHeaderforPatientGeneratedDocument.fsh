@@ -27,8 +27,9 @@ The Patient Generated Document Header template is not a separate document type. 
       * ^comment = "This patientRole SHALL contain exactly one [1..1] patient (CONF:1198-28465)."
       * guardian 0..*
         * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:1198-28469)."
+        * obeys should-id
         * id 0..*
-          * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] id (CONF:1198-28470)."
+          * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] id (CONF:1198-28470)." // auto-should
         * code 0..1
         * code from $2.16.840.1.113883.11.20.12.1 (required)
           * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28473)."
@@ -48,9 +49,10 @@ The Patient Generated Document Header template is not a separate document type. 
     * ^comment = "Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:1198-28478)."
     * id 1..*
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] id (CONF:1198-28479)."
+    * obeys should-code
     * code 0..1
       * ^short = "When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."
-      * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-28481)."
+      * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-28481)." // auto-should
       * code 1..1
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
         * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28676)."
@@ -91,9 +93,10 @@ The Patient Generated Document Header template is not a separate document type. 
   * ^comment = "MAY contain zero or more [0..*] informationRecipient (CONF:1198-28690)."
   * intendedRecipient 1..1
     * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-28691)."
+    * obeys should-id
     * id 0..*
       * ^short = "The combined @root and @extension  attributes to record the information recipient's identity in a secure, trusted, and unique way."
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] id (CONF:1198-28692)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] id (CONF:1198-28692)." // auto-should
       * root 0..1
         * ^short = "For a provider, the id/@root =\"2.16.840.1.113883.4.6\" indicates the National Provider Identifier where id/@extension is the NPI number for the provider.\n\nThe ids MAY reference the id of a person or organization entity specified elsewhere in the document."
         * ^comment = "The id, if present, SHOULD contain zero or one [0..1] @root (CONF:1198-28693)."
@@ -142,11 +145,13 @@ The Patient Generated Document Header template is not a separate document type. 
   * ^comment = "MAY contain zero or more [0..*] documentationOf (CONF:1198-28710)."
   * serviceEvent 1..1
     * ^comment = "The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-28711)."
+    * obeys should-code
     * code 0..1
       * ^short = "The code should be selected from a value set established by the document-level template for a specific type of Patient Generated Document."
-      * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] code (CONF:1198-28712)."
+      * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] code (CONF:1198-28712)." // auto-should
+    * obeys should-performer
     * performer 0..*
-      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)."
+      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)." // auto-should
       * typeCode 1..1
       * typeCode from $2.16.840.1.113883.1.11.19601 (required)
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."

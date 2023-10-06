@@ -20,10 +20,12 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
 * code 1..1
   * obeys 4515-19207 and 4515-32984
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-7656)."
+  * obeys should-originalText
   * originalText 0..1
-    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:4515-19203)."
+    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:4515-19203)." // auto-should
+    * obeys should-reference
     * reference 0..1
-      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-19204)."
+      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-19204)." // auto-should
       * value 0..1
         * obeys 4515-19206
         * ^comment = "The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:4515-19205)."
@@ -32,8 +34,9 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.22 (required)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:4515-32366)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-7662)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-7662)." // auto-should
 * priorityCode 0..1
 * priorityCode from ActPriority (required)
   * ^comment = "MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:4515-7668)."
@@ -48,9 +51,10 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4515-7697)."
   * specimenRole 1..1
     * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4515-7704)."
+    * obeys should-id
     * id 0..*
       * obeys 4515-29744
-      * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)."
+      * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)." // auto-should
 * performer ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "assignedEntity"
   * ^slicing.rules = #open
@@ -71,10 +75,12 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED)."
+    * obeys should-representedOrganization
     * representedOrganization 0..1
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)." // auto-should
+      * obeys should-id
       * id 0..*
-        * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:4515-7734)."
+        * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:4515-7734)." // auto-should
       * name 0..*
         * ^comment = "The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:4515-7735)."
       * telecom 1..*

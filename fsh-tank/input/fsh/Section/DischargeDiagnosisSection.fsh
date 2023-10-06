@@ -20,8 +20,9 @@ Description: "This template represents problems or diagnoses present at the time
     * codeSystem 1..1
     * codeSystem = "2.16.840.1.113883.6.1"
       * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32836)."
+* obeys should-entry
 * entry 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-7983)."
+  * ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-7983)." // auto-should
   * act 1..1
   * act only HospitalDischargeDiagnosis
     * ^comment = "The entry, if present, SHALL contain exactly one [1..1] Hospital Discharge Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.33:2015-08-01) (CONF:1198-15489)."

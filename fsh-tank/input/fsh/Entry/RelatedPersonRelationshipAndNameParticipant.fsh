@@ -23,8 +23,9 @@ Description: "This template represents a generic participant person that has a r
   * addr 0..*
   * addr only USRealmAddressADUSFIELDED
     * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-32979)."
+  * obeys should-telecom
   * telecom 0..*
-    * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-32986)."
+    * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-32986)." // auto-should
   * associatedPerson 1..1
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:4537-32980)."
     * name 1..*

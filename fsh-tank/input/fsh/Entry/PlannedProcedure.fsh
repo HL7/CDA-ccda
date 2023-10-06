@@ -25,8 +25,9 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4515-31978)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-30447)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-30447)." // auto-should
 * methodCode 0..*
   * ^comment = "MAY contain zero or more [0..*] methodCode (CONF:4515-31980)."
 * targetSiteCode 0..*

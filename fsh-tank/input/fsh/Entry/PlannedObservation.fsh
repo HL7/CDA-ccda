@@ -26,9 +26,10 @@ The Planned Observation template may also indicate the potential insurance cover
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32032)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
   * ^short = "The effectiveTime in a planned observation represents the time that the observation should occur."
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30454)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30454)." // auto-should
 * value 0..1
   * ^comment = "MAY contain zero or one [0..1] value (CONF:1098-31031)."
 * methodCode 0..1

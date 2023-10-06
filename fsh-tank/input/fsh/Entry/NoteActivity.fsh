@@ -113,8 +113,9 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * ^comment = "SHALL contain exactly one [1..1] externalDocument (CONF:3250-16911)."
     * id 1..1
       * ^comment = "This externalDocument SHALL contain exactly one [1..1] id (CONF:3250-16915)."
+    * obeys should-code
     * code 0..1
-      * ^comment = "This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)."
+      * ^comment = "This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)." // auto-should
 
 Invariant: 3250-16942
 Description: "If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."

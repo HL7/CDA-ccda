@@ -42,5 +42,6 @@ Description: """This template represents the schedule of when the care team memb
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"IVL_TS\" (CONF:4515-14)."
   * low 1..1
     * ^comment = "This value SHALL contain exactly one [1..1] low (CONF:4515-33030)."
+  * obeys should-high
   * high 0..1
-    * ^comment = "This value SHOULD contain zero or one [0..1] high (CONF:4515-33029)."
+    * ^comment = "This value SHOULD contain zero or one [0..1] high (CONF:4515-33029)." // auto-should

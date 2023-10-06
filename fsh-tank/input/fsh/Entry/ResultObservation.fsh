@@ -63,8 +63,9 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)."
+* obeys should-referenceRange
 * referenceRange 0..*
-  * ^comment = "SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)."
+  * ^comment = "SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)." // auto-should
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4537-7151)."
     * code 0..0

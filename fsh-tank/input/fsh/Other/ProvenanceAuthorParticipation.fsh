@@ -55,17 +55,20 @@ Note: The Provenance template title includes a version 2 to support moving from 
       * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-22)."
     * extension 0..1
       * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-23)."
+  * obeys should-code
   * code 0..1
     * obeys 4515-56 and 4515-57
-    * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)."
+    * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)." // auto-should
+  * obeys should-assignedPerson
   * assignedPerson 0..1
-    * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-32976)."
+    * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-32976)." // auto-should
     * name 1..*
       * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] name (CONF:4515-32977)."
       * family 1..1
         * ^comment = "Such names SHALL contain exactly one [1..1] family (CONF:4515-17)."
+      * obeys should-given
       * given 0..*
-        * ^comment = "Such names SHOULD contain zero or more [0..*] given (CONF:4515-18)."
+        * ^comment = "Such names SHOULD contain zero or more [0..*] given (CONF:4515-18)." // auto-should
   * assignedAuthoringDevice 0..1
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] assignedAuthoringDevice (CONF:4515-32)."
   * representedOrganization 0..1
@@ -103,8 +106,9 @@ Note: The Provenance template title includes a version 2 to support moving from 
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-31)."
     * name 1..1
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:4515-11)."
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] telecom (CONF:4515-12)."
+      * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] telecom (CONF:4515-12)." // auto-should
 
 Invariant: 4515-64
 Description: "If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (CONF:4515-64)."

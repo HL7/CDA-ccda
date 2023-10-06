@@ -49,9 +49,10 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-8454)."
       * high 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-8455)."
+    * obeys should-performer
     * performer 0..*
       * ^short = "The serviceEvent/performer represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare providers would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
-      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)."
+      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)." // auto-should
       * typeCode 1..1
       * typeCode = #PRF (exactly)
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode=\"PRF\" Participation physical performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8458)."

@@ -27,9 +27,10 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
   * code 1..1
   * code from ProgressNoteDocumentTypeCode (required)
     * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProgressNoteDocumentTypeCode http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.8.1 DYNAMIC (CONF:1198-17190)."
+* obeys should-documentationOf
 * documentationOf 0..1
   * ^short = "A documentationOf can contain a serviceEvent to further specialize the act inherent in the ClinicalDocument/code. In a Progress Note, a serviceEvent can represent the event of writing the Progress Note. The serviceEvent/effectiveTime is the time period the note documents."
-  * ^comment = "SHOULD contain zero or one [0..1] documentationOf (CONF:1198-7603)."
+  * ^comment = "SHOULD contain zero or one [0..1] documentationOf (CONF:1198-7603)." // auto-should
   * serviceEvent 1..1
     * ^comment = "The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-7604)."
     * classCode 1..1

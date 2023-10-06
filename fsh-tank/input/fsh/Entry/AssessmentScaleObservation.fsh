@@ -54,10 +54,12 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
   * ^comment = "MAY contain zero or more [0..*] referenceRange (CONF:4515-16799)."
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4515-16800)."
+    * obeys should-text
     * text 0..1
-      * ^comment = "This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)."
+      * ^comment = "This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)." // auto-should
+      * obeys should-reference
       * reference 0..1
-        * ^comment = "The text, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-16802)."
+        * ^comment = "The text, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-16802)." // auto-should
         * value 0..1
           * obeys 4515-16804
           * ^comment = "The reference, if present, MAY contain zero or one [0..1] @value (CONF:4515-16803)."

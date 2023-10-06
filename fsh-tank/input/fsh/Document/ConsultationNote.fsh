@@ -37,8 +37,9 @@ A Consultation Note includes the reason for the referral, history of present ill
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] @classCode=\"ASSIGNED\" assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 DYNAMIC) (CONF:1198-31659)."
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31660)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31661)."
+      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31661)." // auto-should
     * telecom 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31662)."
     * associatedPerson 1..1

@@ -25,10 +25,12 @@ Examples of referral situations are when a patient is referred from a family phy
   * ^comment = "SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31589)."
   * intendedRecipient 1..1
     * ^comment = "This informationRecipient SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31590)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)." // auto-should
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31592)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31592)." // auto-should
     * informationRecipient 1..1
       * ^comment = "This intendedRecipient SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31593)."
       * name 1..*
@@ -66,8 +68,9 @@ Examples of referral situations are when a patient is referred from a family phy
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] @classCode=\"ASSIGNED\" assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-32419)."
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31650)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)."
+      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)." // auto-should
     * telecom 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31652)."
     * associatedPerson 1..1

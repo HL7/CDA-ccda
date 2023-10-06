@@ -23,9 +23,10 @@ The priority of the activity to the patient and provider is communicated through
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32019)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
   * ^short = "The effectiveTime in a planned act represents the time that the act should occur."
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30433)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30433)." // auto-should
 * performer 0..*
   * ^short = "The clinician who is expected to carry out the act could be identified using act/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30435)."

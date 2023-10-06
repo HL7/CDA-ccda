@@ -65,13 +65,16 @@ This id must be a pointer to another Performer."""
       * root 0..1
         * obeys should-npi
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)."
+      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)." // auto-should
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4515-183)."
+      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4515-183)." // auto-should
+    * obeys should-assignedPerson
     * assignedPerson 0..1
       * ^short = "This assignedPerson must be present on at least one performer in this document for each unique assignedEntity/id."
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-178)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-178)." // auto-should
       * name 1..1
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4515-179)."

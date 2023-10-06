@@ -16,7 +16,9 @@ Description: "Where it is necessary to reference an external clinical document, 
   * ^comment = "SHALL contain exactly one [1..1] id (CONF:1098-32751)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-31933)."
+* obeys should-setId
 * setId 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1098-32752)."
+  * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1098-32752)." // auto-should
+* obeys should-versionNumber
 * versionNumber 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1098-32753)."
+  * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1098-32753)." // auto-should

@@ -23,8 +23,9 @@ Description: "This template represents equipment supplied to the patient (e.g., 
 * effectiveTime only $EIVL-TS
   * obeys 1098-16867
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."
+* obeys should-quantity
 * quantity 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)."
+  * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)." // auto-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.discriminator[+].type = #value

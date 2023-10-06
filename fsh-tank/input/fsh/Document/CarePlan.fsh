@@ -41,10 +41,12 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
   * code 1..1
   * code from $2.16.840.1.113762.1.4.1099.10 (required)
     * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Care Plan Document Type urn:oid:2.16.840.1.113762.1.4.1099.10 DYNAMIC (CONF:1198-32959)."
+* obeys should-setId
 * setId 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)."
+  * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." // auto-should
+* obeys should-versionNumber
 * versionNumber 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)."
+  * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." // auto-should
 * informationRecipient ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "intendedRecipient"
   * ^slicing.rules = #open
@@ -54,19 +56,24 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
     * ^comment = "SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."
     * id 1..*
       * ^comment = "This intendedRecipient SHALL contain at least one [1..*] id (CONF:1198-31996)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)." // auto-should
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)." // auto-should
+    * obeys should-informationRecipient
     * informationRecipient 0..1
-      * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)." // auto-should
       * name 1..1
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32320)."
+    * obeys should-receivedOrganization
     * receivedOrganization 0..1
-      * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)." // auto-should
+      * obeys should-id
       * id 0..*
-        * ^comment = "The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)."
+        * ^comment = "The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)." // auto-should
       * standardIndustryClassCode 0..1
       * standardIndustryClassCode from $2.16.840.1.114222.4.11.1066 (required)
         * ^comment = "The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."
@@ -119,8 +126,9 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] @classCode=\"ASSIGNED\" (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-31686)."
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31684)."
+    * obeys should-code
     * code 0..1
-      * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code (CONF:1198-31685)."
+      * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code (CONF:1198-31685)." // auto-should
       * code 0..1
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
         * ^comment = "The code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-32367)."

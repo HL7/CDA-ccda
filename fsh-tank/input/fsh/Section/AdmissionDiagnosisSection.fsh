@@ -20,8 +20,9 @@ Description: "This section contains a narrative description of the problems or d
     * codeSystem 1..1
     * codeSystem = "2.16.840.1.113883.6.1"
       * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-32751)."
+* obeys should-entry
 * entry 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-9934)."
+  * ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-9934)." // auto-should
   * act 1..1
   * act only HospitalAdmissionDiagnosis
     * ^comment = "The entry, if present, SHALL contain exactly one [1..1] Hospital Admission Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.34:2015-08-01) (CONF:1198-15481)."

@@ -27,12 +27,15 @@ Description: "This clinical statement represents the response to an undesired sy
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19114)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7332)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7332)." // auto-should
+  * obeys should-low
   * low 0..1
-    * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] low (CONF:1098-7333)."
+    * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] low (CONF:1098-7333)." // auto-should
+  * obeys should-high
   * high 0..1
-    * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] high (CONF:1098-7334)."
+    * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] high (CONF:1098-7334)." // auto-should
 * value 1..1
 * value only $CD
 * value from Problem (required)

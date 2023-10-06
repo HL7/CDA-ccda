@@ -17,10 +17,12 @@ Description: "This clinical statement describes an interaction between a patient
 * code 1..1
 * code from EncounterTypeCode (preferred)
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."
+  * obeys should-originalText
   * originalText 0..1
-    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)."
+    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)." // auto-should
+    * obeys should-reference
     * reference 0..1
-      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)."
+      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)." // auto-should
       * value 0..1
         * obeys 1198-15972
         * ^comment = "The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1198-15971)."

@@ -60,8 +60,9 @@ Description: "A policy activity represents the policy or program providing the c
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8908)."
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-8909)."
+    * obeys should-code
     * code 0..1
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)." // auto-should
       * code 1..1
       * code from $2.16.840.1.113883.1.11.10416 (preferred)
         * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Financially Responsible Party Type Value Set urn:oid:2.16.840.1.113883.1.11.10416 DYNAMIC (CONF:4537-15992)."
@@ -70,10 +71,12 @@ Description: "A policy activity represents the policy or program providing the c
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8910)."
     * telecom 0..*
       * ^comment = "This assignedEntity MAY contain zero or more [0..*] telecom (CONF:4537-8911)."
+    * obeys should-representedOrganization
     * representedOrganization 0..1
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)." // auto-should
+      * obeys should-name
       * name 0..1
-        * ^comment = "The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)."
+        * ^comment = "The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)." // auto-should
 * performer[performer2] ^short = "performer"
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
   * typeCode 1..1
@@ -85,8 +88,9 @@ Description: "A policy activity represents the policy or program providing the c
     * root = "2.16.840.1.113883.10.20.22.4.88"
       * ^comment = "This templateId SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.88\" Guarantor Performer (CONF:4537-16811)."
     * extension 0..0
+  * obeys should-time
   * time 0..1
-    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8963)."
+    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8963)." // auto-should
   * assignedEntity 1..1
     * obeys 4537-8967
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8962)."
@@ -101,8 +105,9 @@ Description: "A policy activity represents the policy or program providing the c
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)."
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)."
+      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)." // auto-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "templateId"
   * ^slicing.discriminator[+].type = #value
@@ -125,12 +130,15 @@ Description: "A policy activity represents the policy or program providing the c
     * root = "2.16.840.1.113883.10.20.22.4.89"
       * ^comment = "This templateId SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.89\" Covered Party Participant (CONF:4537-16814)."
     * extension 0..0
+  * obeys should-time
   * time 0..1
-    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8918)."
+    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8918)." // auto-should
+    * obeys should-low
     * low 0..1
-      * ^comment = "The time, if present, SHOULD contain zero or one [0..1] low (CONF:4537-8919)."
+      * ^comment = "The time, if present, SHOULD contain zero or one [0..1] low (CONF:4537-8919)." // auto-should
+    * obeys should-high
     * high 0..1
-      * ^comment = "The time, if present, SHOULD contain zero or one [0..1] high (CONF:4537-8920)."
+      * ^comment = "The time, if present, SHOULD contain zero or one [0..1] high (CONF:4537-8920)." // auto-should
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4537-8921)."
     * id 1..*
@@ -144,8 +152,9 @@ Description: "A policy activity represents the policy or program providing the c
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)."
+    * obeys should-playingEntity
     * playingEntity 0..1
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)." // auto-should
       * name 1..1
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] name (CONF:4537-8930)."
       * sdtcBirthTime 1..1

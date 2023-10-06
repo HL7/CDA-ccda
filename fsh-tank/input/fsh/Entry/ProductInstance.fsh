@@ -23,8 +23,9 @@ The scopingEntity/id should correspond to FDA or the appropriate issuing agency.
   * ^comment = "SHALL contain at least one [1..*] id (CONF:81-7902)."
 * playingDevice 1..1
   * ^comment = "SHALL contain exactly one [1..1] playingDevice (CONF:81-7903)."
+  * obeys should-code
   * code 0..1
-    * ^comment = "This playingDevice SHOULD contain zero or one [0..1] code (CONF:81-16837)."
+    * ^comment = "This playingDevice SHOULD contain zero or one [0..1] code (CONF:81-16837)." // auto-should
 * scopingEntity 1..1
   * ^comment = "SHALL contain exactly one [1..1] scopingEntity (CONF:81-7905)."
   * id 1..*

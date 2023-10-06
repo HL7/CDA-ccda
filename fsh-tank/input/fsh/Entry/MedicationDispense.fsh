@@ -24,12 +24,15 @@ Description: "This template records the act of supplying medications (i.e., disp
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-32361)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7456)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7456)." // auto-should
+* obeys should-repeatNumber
 * repeatNumber 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:4537-7457)."
+  * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:4537-7457)." // auto-should
+* obeys should-quantity
 * quantity 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:4537-7458)."
+  * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:4537-7458)." // auto-should
 * product 0..1
   * ^comment = "MAY contain zero or one [0..1] product (CONF:4537-7459)."
   * manufacturedProduct 1..1

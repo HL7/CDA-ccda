@@ -21,9 +21,10 @@ Depending on the type of supply, the product or participant will be either a Med
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32047)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
   * ^short = "The effectiveTime in a planned supply represents the time that the supply should occur."
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)." // auto-should
 * repeatNumber 0..1
   * ^short = "In a Planned Supply, repeatNumber indicates the number of times the supply event can occur. For example, if a medication is filled at a pharmacy and the prescription may be refilled 3 more times, the supply RepeatNumber equals 4."
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1098-32063)."

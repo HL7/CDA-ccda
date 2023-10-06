@@ -86,10 +86,12 @@ The components of the organizer contain the following information:
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4515-135)."
     * id 1..*
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."
+    * obeys should-addr
     * addr 0..1
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)." // auto-should
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)."
+      * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)." // auto-should
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:4515-136)."
       * classCode 1..1

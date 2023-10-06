@@ -26,8 +26,9 @@ Description: "This template represents the type of referral (e.g., for dental ca
 * effectiveTime 1..1
   * ^short = "The effectiveTime represents the time when the future referral is intended to take place."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30893)."
+* obeys should-priorityCode
 * priorityCode 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)."
+  * ^comment = "SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)." // auto-should
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31612)."

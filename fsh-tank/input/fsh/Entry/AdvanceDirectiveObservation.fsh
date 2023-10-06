@@ -86,9 +86,10 @@ The observation/value element contains the detailed patient directive which may 
   * typeCode 1..1
   * typeCode = #VRF (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"VRF\" Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."
+  * obeys should-time
   * time 0..1
     * obeys 1198-8666
-    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:1198-8665)."
+    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:1198-8665)." // auto-should
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:1198-8825)."
     * code 0..1
@@ -117,8 +118,9 @@ The observation/value element contains the detailed patient directive which may 
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)."
+      * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)." // auto-should
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."
       * code 0..1
