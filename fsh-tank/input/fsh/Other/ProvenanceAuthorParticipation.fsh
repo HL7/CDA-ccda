@@ -13,26 +13,9 @@ This template is used to identify primary authorship for an entry. An entry may 
 The `assignedAuthor/id` may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here.
 
 Note: The Provenance template title includes a version 2 to support moving from the 'Basic Provenance' guide to the this Companion Guide, so the templateId has not changed."""
-* ^meta.versionId = "4"
-* ^meta.lastUpdated = "2023-07-11T23:42:05.648Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.5.6:2019-10-01"
-* ^version = "2019-10-01"
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-32980) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-32980) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.5.6"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.5.6\" (CONF:4515-15)."
-  * extension 1..1
-  * extension = "2019-10-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2019-10-01\" (CONF:4515-36)."
+
+* insert LogicalModelTemplate(provenance-author, 2.16.840.1.113883.10.20.22.5.6, 2019-10-01)
+
 * time 1..1
   * ^comment = "SHALL contain exactly one [1..1] time (CONF:4515-32983)."
 * assignedAuthor 1..1

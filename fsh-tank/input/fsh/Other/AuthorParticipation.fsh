@@ -5,17 +5,9 @@ Title: "Author Participation"
 Description: """This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden.
 
 The Author Participation template was added to those templates in scope for analysis in R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.119"
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-32017) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.119"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.119\" (CONF:1098-32018)."
-  * extension 0..0
+
+* insert LogicalModelTemplateRootOnly(author, 2.16.840.1.113883.10.20.22.4.119)
+
 * time 1..1
   * ^comment = "SHALL contain exactly one [1..1] time (CONF:1098-31471)."
 * assignedAuthor 1..1

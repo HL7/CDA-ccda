@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="ProvenanceAuthorParticipation"/>
-    <meta>
-        <versionId value="4"/>
-        <lastUpdated value="2023-07-11T23:42:05.648Z"/>
-    </meta>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -52,25 +48,21 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-32980) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Author.templateId:templateId1">
+        <element id="Author.templateId:provenance-author">
             <path value="Author.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="provenance-author"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Author.templateId:templateId1.root">
+        <element id="Author.templateId:provenance-author.root">
             <path value="Author.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.5.6&quot; (CONF:4515-15)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.5.6"/>
         </element>
-        <element id="Author.templateId:templateId1.extension">
+        <element id="Author.templateId:provenance-author.extension">
             <path value="Author.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2019-10-01&quot; (CONF:4515-36)."/>
             <min value="1"/>
             <patternString value="2019-10-01"/>
         </element>
