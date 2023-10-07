@@ -5,18 +5,10 @@ Title: "Referral Note"
 Description: """A Referral Note communicates pertinent information from a provider who is requesting services of another provider of clinical or non-clinical services. The information in this document includes the reason for the referral and additional information that would augment decision making and care delivery. 
 
 Examples of referral situations are when a patient is referred from a family physician to a cardiologist for cardiac evaluation or when patient is sent by a cardiologist to an emergency department for angina or when a patient is referred by a nurse practitioner to an audiologist for hearing screening or when a patient is referred by a hospitalist to social services."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.14:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(referral-note, 2.16.840.1.113883.10.20.22.1.14, 2015-08-01)
+
 * ^status = #active
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28947) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.14"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.14\" (CONF:1198-28948)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32911)."
 * code 1..1
 * code from ReferralDocumentType (required)
   * ^short = "The Referral Note recommends use of the document type code 57133-1 \"Referral Note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Referral note would not be authored by a Pediatric Cardiologist.  The type of referral and the target of the referral are specified via the participant (and not via the author)."

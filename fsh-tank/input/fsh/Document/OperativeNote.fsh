@@ -5,18 +5,10 @@ Title: "Operative Note"
 Description: """The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory agencies. 
 
 The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.7:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(operative-note, 2.16.840.1.113883.10.20.22.1.7, 2015-08-01)
+
 * ^status = #active
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8483) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.7"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.7\" (CONF:1198-10048)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32519)."
 * code 1..1
   * ^short = "The Operative Note recommends use of a single document type code, 11504-8 \"Provider-unspecified Operation Note\", with further specification provided by author or performer, setting, or specialty data in the CDA header. Some of the LOINC codes in the Surgical Operation Note Document Type Code table are pre-coordinated with the practice setting or the training or professional level of the author. Use of pre-coordinated codes is not recommended because of potential conflict with other information in the header. When these codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17187)."

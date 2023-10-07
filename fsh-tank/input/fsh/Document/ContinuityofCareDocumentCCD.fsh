@@ -9,18 +9,10 @@ The Continuity of Care Document (CCD) represents a core data set of the most rel
 The primary use case for the CCD is to provide a snapshot in time containing the germane clinical, demographic, and administrative data for a specific patient. The key characteristic of a CCD is that the ServiceEvent is constrained to "PCPR". This means it does not function to report new ServiceEvents associated with performing care. It reports on care that has already been provided. The CCD provides a historical tally of the care over a range of time and is not a record of new services delivered.
 
 More specific use cases, such as a Discharge Summary, Transfer Summary, Referral Note, Consultation Note, or Progress Note, are available as alternative documents in this guide."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.2:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(CCD, 2.16.840.1.113883.10.20.22.1.2, 2015-08-01)
+
 * ^status = #active
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8450) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.2"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.2\" (CONF:1198-10038)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32516)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17180)."
   * code 1..1

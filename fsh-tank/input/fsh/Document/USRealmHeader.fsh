@@ -3,9 +3,9 @@ Parent: $ClinicalDocument
 Id: USRealmHeader
 Title: "US Realm Header"
 Description: "This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(us-realm, 2.16.840.1.113883.10.20.22.1.1, 2023-05-01)
+
 * ^status = #draft
 * realmCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] realmCode=\"US\" (CONF:4537-16791)."
@@ -19,20 +19,6 @@ Description: "This template defines constraints that represent common administra
   * extension 1..1
   * extension = "POCD_HD000040" (exactly)
     * ^comment = "This typeId SHALL contain exactly one [1..1] @extension=\"POCD_HD000040\" (CONF:4537-5251)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains us-realm 1..1
-* templateId[us-realm] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-5252) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.1"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.1\" (CONF:4537-10036)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-32503)."
 * id 1..1
   * obeys 4537-9991
   * ^comment = "SHALL contain exactly one [1..1] id (CONF:4537-5363)."

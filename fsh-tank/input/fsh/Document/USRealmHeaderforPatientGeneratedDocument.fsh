@@ -4,18 +4,10 @@ Id: USRealmHeaderforPatientGeneratedDocument
 Title: "US Realm Header for Patient Generated Document"
 Description: """This template is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. 
 The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.29.1:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(us-patient-gen-doc, 2.16.840.1.113883.10.20.29.1, 2015-08-01)
+
 * ^status = #active
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28458) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.29.1"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.29.1\" (CONF:1198-28459)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32917)."
 * recordTarget 1..1
   * ^short = "The recordTarget records the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element. \n\nIf the document receiver is interested in setting up a translator for the encounter with the patient, the receiver of the document will have to infer the need for a translator, based upon the language skills identified for the patient, the patient's language of preference and the predominant language used by the organization receiving the CDA.\n\nHL7 Vocabulary simply describes guardian as a relationship to a ward.  This need not be a formal legal relationship. When a guardian relationship exists for the patient, it can be represented, regardless of who is present at the time the document is generated. This need not be a formal legal relationship. A child's parent can be represented in the guardian role.  In this case, the guardian/code element would encode the personal relationship of \"mother\" for the child's mom or \"father\" for the child's dad. An elderly person's child can be represented in the guardian role. In this case, the guardian/code element would encode the personal relationship of \"daughter\" or \"son\", or if a legal relationship existed, the relationship of \"legal guardian\" could be encoded."
   * ^comment = "SHALL contain exactly one [1..1] recordTarget (CONF:1198-28460)."

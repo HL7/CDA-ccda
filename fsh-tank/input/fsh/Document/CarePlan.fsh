@@ -24,18 +24,10 @@ There are 2 optional sections:
 A care plan document can include entry references from the information in these sections to the information (entries) in other sections.
 
 Please see Volume 1 of this guide to view a Care Plan Relationship diagram and story board."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.15:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(care-plan, 2.16.840.1.113883.10.20.22.1.15, 2015-08-01)
+
 * ^status = #active
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28741) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.15"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.15\" (CONF:1198-28742)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32877)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-28745)."
   * code 1..1

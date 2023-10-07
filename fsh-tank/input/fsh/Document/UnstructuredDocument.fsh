@@ -9,18 +9,10 @@ For guidance on how to handle multiple files, on the selection of media types fo
 IHEs XDS-SD (Cross-Transaction Specifications and Content Specifications, Scanned Documents Module) profile addresses a similar, more restricted use case, specifically for scanned documents or documents electronically created from existing text sources, and limits content to PDF-A or text. This Unstructured Documents template is applicable not only for scanned documents in non-PDF formats, but also for clinical documents produced through word processing applications, etc. 
 
 For conformance with both specifications, implementers need to ensure that their documents at a minimum conform with the SHALL constraints from either specification."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.10:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(unstructured-doc, 2.16.840.1.113883.10.20.22.1.10, 2015-08-01)
+
 * ^status = #active
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-7710) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.10"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.10\" (CONF:1198-10054)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32522)."
 * recordTarget 1..*
   * ^comment = "SHALL contain at least one [1..*] recordTarget (CONF:1198-31089)."
   * patientRole 1..1
