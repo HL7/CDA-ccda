@@ -44,6 +44,10 @@
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-445)."/>
             <fixedCode value="EVN"/>
         </element>
+        <element id="Observation.typeId">
+            <path value="Observation.typeId"/>
+            <max value="0"/>
+        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -86,6 +90,10 @@
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
+        <element id="Observation.derivationExpr">
+            <path value="Observation.derivationExpr"/>
+            <max value="0"/>
+        </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:81-448)."/>
@@ -97,6 +105,22 @@
             <min value="1"/>
             <fixedCode value="completed"/>
         </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.priorityCode">
+            <path value="Observation.priorityCode"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.repeatNumber">
+            <path value="Observation.repeatNumber"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.languageCode">
+            <path value="Observation.languageCode"/>
+            <max value="0"/>
+        </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
             <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;TS&quot; (CONF:81-450)."/>
@@ -105,6 +129,54 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/TS"/>
             </type>
+        </element>
+        <element id="Observation.interpretationCode">
+            <path value="Observation.interpretationCode"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.methodCode">
+            <path value="Observation.methodCode"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.targetSiteCode">
+            <path value="Observation.targetSiteCode"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.subject">
+            <path value="Observation.subject"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.specimen">
+            <path value="Observation.specimen"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.performer">
+            <path value="Observation.performer"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.informant">
+            <path value="Observation.informant"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.participant">
+            <path value="Observation.participant"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.entryRelationship">
+            <path value="Observation.entryRelationship"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.reference">
+            <path value="Observation.reference"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.precondition">
+            <path value="Observation.precondition"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.referenceRange">
+            <path value="Observation.referenceRange"/>
+            <max value="0"/>
         </element>
     </differential>
 </StructureDefinition>

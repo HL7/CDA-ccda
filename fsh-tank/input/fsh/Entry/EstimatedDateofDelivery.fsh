@@ -28,3 +28,26 @@ Description: "This clinical statement represents the anticipated date when a wom
 * value 1..1
 * value only $TS
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"TS\" (CONF:81-450)."
+
+// Closed Template Rules
+* derivationExpr ..0
+* typeId ..0
+// * id ..0 // Keeping id as it's universally recommended for entries
+// * text ..0  // Keeping text per V1's recommendation to include text everywhere
+* effectiveTime ..0
+* priorityCode ..0
+* repeatNumber ..0
+* languageCode ..0
+* interpretationCode ..0
+* methodCode ..0
+* targetSiteCode ..0
+* subject ..0
+* specimen ..0
+* performer ..0
+// * author ..0 // Keeping author since C-CDA has a general author participation that can be applied anywhere
+* informant ..0
+* participant ..0
+* entryRelationship ..0
+* reference ..0
+* precondition ..0
+* referenceRange ..0

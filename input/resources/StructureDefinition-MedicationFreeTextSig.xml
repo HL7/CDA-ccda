@@ -34,6 +34,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="SubstanceAdministration">
+            <path value="SubstanceAdministration"/>
+            <constraint>
+                <key value="sig-closed"/>
+                <severity value="error"/>
+                <human value="This is a closed template and shall not contain any elements besides code, text, and consumable"/>
+                <expression value="(typeId | statusCode | effectiveTime | priorityCode | repeatNumber | routeCode | approachSiteCode | doseQuantity | rateQuantity | maxDoseQuantity | administrationUnitCode | subject | specimen | performer | informant | participant | entryRelationship | precondition).empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
+            </constraint>
+        </element>
         <element id="SubstanceAdministration.classCode">
             <path value="SubstanceAdministration.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-32770)."/>
