@@ -43,15 +43,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentOrganizer"/>
             </constraint>
         </element>
-        <element id="Organizer.classCode">
-            <path value="Organizer.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-31020)."/>
-            <fixedCode value="CLUSTER"/>
-        </element>
-        <element id="Organizer.moodCode">
-            <path value="Organizer.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-31021)."/>
-        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -77,6 +68,15 @@
         <element id="Organizer.templateId:medical-equipment-org.extension">
             <path value="Organizer.templateId.extension"/>
             <max value="0"/>
+        </element>
+        <element id="Organizer.classCode">
+            <path value="Organizer.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-31020)."/>
+            <fixedCode value="CLUSTER"/>
+        </element>
+        <element id="Organizer.moodCode">
+            <path value="Organizer.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-31021)."/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>

@@ -45,15 +45,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
         </element>
-        <element id="Procedure.classCode">
-            <path value="Procedure.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; Procedure (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-7652)."/>
-        </element>
-        <element id="Procedure.moodCode">
-            <path value="Procedure.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-7653)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Procedure.templateId">
             <path value="Procedure.templateId"/>
             <slicing>
@@ -84,6 +75,15 @@
             <path value="Procedure.templateId.extension"/>
             <min value="1"/>
             <patternString value="2022-06-01"/>
+        </element>
+        <element id="Procedure.classCode">
+            <path value="Procedure.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; Procedure (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-7652)."/>
+        </element>
+        <element id="Procedure.moodCode">
+            <path value="Procedure.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-7653)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Procedure.id">
             <path value="Procedure.id"/>

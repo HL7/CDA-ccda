@@ -35,10 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -69,6 +65,10 @@
             <path value="Observation.templateId.extension"/>
             <min value="1"/>
             <patternString value="2023-05-01"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>

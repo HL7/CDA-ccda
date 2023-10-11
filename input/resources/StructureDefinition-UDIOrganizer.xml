@@ -39,15 +39,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Organizer.classCode">
-            <path value="Organizer.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; (CONF:4437-3482)."/>
-            <fixedCode value="CLUSTER"/>
-        </element>
-        <element id="Organizer.moodCode">
-            <path value="Organizer.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CONF:4437-3483)."/>
-        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -78,6 +69,15 @@
             <path value="Organizer.templateId.extension"/>
             <min value="1"/>
             <patternString value="2019-06-21"/>
+        </element>
+        <element id="Organizer.classCode">
+            <path value="Organizer.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; (CONF:4437-3482)."/>
+            <fixedCode value="CLUSTER"/>
+        </element>
+        <element id="Organizer.moodCode">
+            <path value="Organizer.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CONF:4437-3483)."/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>

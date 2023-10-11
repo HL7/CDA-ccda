@@ -39,16 +39,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act.classCode">
-            <path value="Act.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Provision of Care (CONF:4515-53)."/>
-            <fixedCode value="PCPR"/>
-        </element>
-        <element id="Act.moodCode">
-            <path value="Act.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CONF:4515-54)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
             <slicing>
@@ -79,6 +69,16 @@
             <path value="Act.templateId.extension"/>
             <min value="1"/>
             <patternString value="2022-06-01"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Provision of Care (CONF:4515-53)."/>
+            <fixedCode value="PCPR"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CONF:4515-54)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>

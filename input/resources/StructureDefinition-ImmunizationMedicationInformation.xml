@@ -45,11 +45,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
             </constraint>
         </element>
-        <element id="ManufacturedProduct.classCode">
-            <path value="ManufacturedProduct.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."/>
-            <min value="1"/>
-        </element>
         <element id="ManufacturedProduct.templateId">
             <path value="ManufacturedProduct.templateId"/>
             <slicing>
@@ -80,6 +75,11 @@
             <path value="ManufacturedProduct.templateId.extension"/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="ManufacturedProduct.classCode">
+            <path value="ManufacturedProduct.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."/>
+            <min value="1"/>
         </element>
         <element id="ManufacturedProduct.id">
             <path value="ManufacturedProduct.id"/>

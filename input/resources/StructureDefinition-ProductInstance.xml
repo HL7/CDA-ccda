@@ -34,11 +34,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="ParticipantRole.classCode">
-            <path value="ParticipantRole.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; Manufactured Product (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7900)."/>
-            <fixedCode value="MANU"/>
-        </element>
         <element id="ParticipantRole.templateId">
             <path value="ParticipantRole.templateId"/>
             <slicing>
@@ -64,6 +59,11 @@
         <element id="ParticipantRole.templateId:product-instance.extension">
             <path value="ParticipantRole.templateId.extension"/>
             <max value="0"/>
+        </element>
+        <element id="ParticipantRole.classCode">
+            <path value="ParticipantRole.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; Manufactured Product (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7900)."/>
+            <fixedCode value="MANU"/>
         </element>
         <element id="ParticipantRole.id">
             <path value="ParticipantRole.id"/>

@@ -45,18 +45,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
             </constraint>
         </element>
-        <element id="Procedure.classCode">
-            <path value="Procedure.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-8568)."/>
-        </element>
-        <element id="Procedure.moodCode">
-            <path value="Procedure.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2011-09-30 (CONF:4515-8569)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23"/>
-            </binding>
-        </element>
         <element id="Procedure.templateId">
             <path value="Procedure.templateId"/>
             <slicing>
@@ -87,6 +75,18 @@
             <path value="Procedure.templateId.extension"/>
             <min value="1"/>
             <patternString value="2022-06-01"/>
+        </element>
+        <element id="Procedure.classCode">
+            <path value="Procedure.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-8568)."/>
+        </element>
+        <element id="Procedure.moodCode">
+            <path value="Procedure.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2011-09-30 (CONF:4515-8569)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23"/>
+            </binding>
         </element>
         <element id="Procedure.id">
             <path value="Procedure.id"/>

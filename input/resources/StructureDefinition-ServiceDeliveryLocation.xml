@@ -51,11 +51,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
             </constraint>
         </element>
-        <element id="ParticipantRole.classCode">
-            <path value="ParticipantRole.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SDLOC&quot; (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111 STATIC) (CONF:81-7758)."/>
-            <fixedCode value="SDLOC"/>
-        </element>
         <element id="ParticipantRole.templateId">
             <path value="ParticipantRole.templateId"/>
             <slicing>
@@ -81,6 +76,11 @@
         <element id="ParticipantRole.templateId:service-delivery-loc.extension">
             <path value="ParticipantRole.templateId.extension"/>
             <max value="0"/>
+        </element>
+        <element id="ParticipantRole.classCode">
+            <path value="ParticipantRole.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SDLOC&quot; (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111 STATIC) (CONF:81-7758)."/>
+            <fixedCode value="SDLOC"/>
         </element>
         <element id="ParticipantRole.code">
             <path value="ParticipantRole.code"/>

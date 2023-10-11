@@ -52,16 +52,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ExternalDocumentReference"/>
             </constraint>
         </element>
-        <element id="ExternalDocument.classCode">
-            <path value="ExternalDocument.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;DOCCLIN&quot; Clinical Document (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31931)."/>
-            <fixedCode value="DOCCLIN"/>
-        </element>
-        <element id="ExternalDocument.moodCode">
-            <path value="ExternalDocument.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31932)."/>
-            <min value="1"/>
-        </element>
         <element id="ExternalDocument.templateId">
             <path value="ExternalDocument.templateId"/>
             <slicing>
@@ -92,6 +82,16 @@
             <path value="ExternalDocument.templateId.extension"/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="ExternalDocument.classCode">
+            <path value="ExternalDocument.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;DOCCLIN&quot; Clinical Document (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31931)."/>
+            <fixedCode value="DOCCLIN"/>
+        </element>
+        <element id="ExternalDocument.moodCode">
+            <path value="ExternalDocument.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31932)."/>
+            <min value="1"/>
         </element>
         <element id="ExternalDocument.id">
             <path value="ExternalDocument.id"/>

@@ -35,19 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7379)."/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7380)."/>
-        </element>
-        <element id="Observation.negationInd">
-            <path value="Observation.negationInd"/>
-            <short value="Use negationInd=&quot;true&quot; to indicate that the allergy was not observed."/>
-            <comment value="MAY contain zero or one [0..1] @negationInd (CONF:1098-31526)."/>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <min value="2"/>
@@ -67,6 +54,19 @@
             <path value="Observation.templateId.extension"/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7379)."/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7380)."/>
+        </element>
+        <element id="Observation.negationInd">
+            <path value="Observation.negationInd"/>
+            <short value="Use negationInd=&quot;true&quot; to indicate that the allergy was not observed."/>
+            <comment value="MAY contain zero or one [0..1] @negationInd (CONF:1098-31526)."/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>

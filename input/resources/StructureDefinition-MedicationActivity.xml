@@ -44,18 +44,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
         </element>
-        <element id="SubstanceAdministration.classCode">
-            <path value="SubstanceAdministration.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7496)."/>
-        </element>
-        <element id="SubstanceAdministration.moodCode">
-            <path value="SubstanceAdministration.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:1098-7497)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.18"/>
-            </binding>
-        </element>
         <element id="SubstanceAdministration.templateId">
             <path value="SubstanceAdministration.templateId"/>
             <slicing>
@@ -86,6 +74,18 @@
             <path value="SubstanceAdministration.templateId.extension"/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="SubstanceAdministration.classCode">
+            <path value="SubstanceAdministration.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7496)."/>
+        </element>
+        <element id="SubstanceAdministration.moodCode">
+            <path value="SubstanceAdministration.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:1098-7497)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.18"/>
+            </binding>
         </element>
         <element id="SubstanceAdministration.id">
             <path value="SubstanceAdministration.id"/>

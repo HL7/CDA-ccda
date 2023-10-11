@@ -65,15 +65,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
             </constraint>
         </element>
-        <element id="Supply.classCode">
-            <path value="Supply.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7451)."/>
-        </element>
-        <element id="Supply.moodCode">
-            <path value="Supply.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7452)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Supply.templateId">
             <path value="Supply.templateId"/>
             <slicing>
@@ -104,6 +95,15 @@
             <path value="Supply.templateId.extension"/>
             <min value="1"/>
             <patternString value="2023-05-01"/>
+        </element>
+        <element id="Supply.classCode">
+            <path value="Supply.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7451)."/>
+        </element>
+        <element id="Supply.moodCode">
+            <path value="Supply.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7452)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Supply.id">
             <path value="Supply.id"/>

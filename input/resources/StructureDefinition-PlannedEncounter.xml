@@ -45,18 +45,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
             </constraint>
         </element>
-        <element id="Encounter.classCode">
-            <path value="Encounter.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8564)."/>
-        </element>
-        <element id="Encounter.moodCode">
-            <path value="Encounter.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-8565)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23"/>
-            </binding>
-        </element>
         <element id="Encounter.templateId">
             <path value="Encounter.templateId"/>
             <slicing>
@@ -87,6 +75,18 @@
             <path value="Encounter.templateId.extension"/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="Encounter.classCode">
+            <path value="Encounter.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8564)."/>
+        </element>
+        <element id="Encounter.moodCode">
+            <path value="Encounter.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-8565)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23"/>
+            </binding>
         </element>
         <element id="Encounter.id">
             <path value="Encounter.id"/>
