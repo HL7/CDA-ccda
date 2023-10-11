@@ -4,7 +4,9 @@ Id: ResultOrganizer
 Title: "Result Organizer"
 Description: """This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). 
 
-If any Result Observation within the organizer has a statusCode of "active", the Result Organizer must also have a statusCode of "active"."""
+If any Result Observation within the organizer has a statusCode of "active", the Result Organizer must also have a statusCode of "active". 
+
+Specimen(s) attached to a Result Organizer apply to all Result Observations contained in the Organizer. It is not recommended to record specimen information at the Result Observation."""
 
 * insert LogicalModelTemplate(result-org, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
 
