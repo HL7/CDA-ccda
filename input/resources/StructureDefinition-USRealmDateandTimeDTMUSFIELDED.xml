@@ -34,27 +34,24 @@
         <element id="TS">
             <path value="TS"/>
             <constraint>
-                <key value="81-10127"/>
+                <key value="ts-shall-day"/>
                 <severity value="error"/>
-                <human value="**SHALL** be precise to the day (CONF:81-10127)."/>
+                <human value="**SHALL** be precise to at least the day"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 8"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
             </constraint>
             <constraint>
-                <key value="81-10128"/>
+                <key value="ts-should-minute"/>
                 <severity value="warning"/>
-                <human value="**SHOULD** be precise to the minute (CONF:81-10128)."/>
+                <human value="**SHOULD** be precise to at least the minute"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 12"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
             </constraint>
             <constraint>
-                <key value="81-10129"/>
-                <severity value="warning"/>
-                <human value="**MAY** be precise to the second (CONF:81-10129)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
-            </constraint>
-            <constraint>
-                <key value="81-10130"/>
-                <severity value="warning"/>
-                <human value="If more precise than day, **SHOULD** include time-zone offset (CONF:81-10130)."/>
+                <key value="ts-shall-timezone"/>
+                <severity value="error"/>
+                <human value="If more precise than minute, **SHALL** include time-zone offset"/>
+                <expression value="nullFlavor.exists() or value.length() &amp;lt;= 8 or value.contains('-') or value.contains('+')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
             </constraint>
         </element>

@@ -69,7 +69,7 @@ Description: "This template defines constraints that represent common administra
       * administrativeGenderCode from $2.16.840.1.113883.1.11.1 (required)
         * ^comment = "This patient SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:4537-6394)."
       * birthTime 1..1
-        * obeys 4537-5299 and 4537-5300
+        * obeys ts-shall-year and ts-should-day
         * ^short = "**MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)"
         * ^comment = "This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."
       * sdtcDeceasedInd 0..1
@@ -79,7 +79,7 @@ Description: "This template defines constraints that represent common administra
       * sdtcDeceasedTime 0..1
         * ^short = "sdtc:deceasedTime"
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedTime (CONF:4537-32988)."
-        * obeys should-value-att and 4537-32991 and 4537-32992
+        * obeys should-value-att and ts-shall-year and ts-should-day
       * obeys should-maritalStatusCode
       * maritalStatusCode 0..1
       * maritalStatusCode from $2.16.840.1.113883.1.11.12212 (required)
@@ -92,7 +92,6 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "This patient SHALL contain exactly one [1..1] raceCode, which SHALL be selected from ValueSet Race Category Excluding Nulls urn:oid:2.16.840.1.113883.3.2074.1.1.3 DYNAMIC (CONF:4537-5322)."
       * sdtcRaceCode 0..*
       * sdtcRaceCode from $2.16.840.1.113883.1.11.14914 (required)
-        * obeys 4537-31347
         * ^short = "The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."
         * ^comment = "This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:4537-7263)."
       * ethnicGroupCode 1..1
@@ -492,33 +491,16 @@ Description: "If versionNumber is present setId **SHALL** be present (CONF:4537-
 Severity: #error
 Expression: "versionNumber.exists() implies setId.exists()"
 
-Invariant: 4537-5299
-Description: "**SHALL** be precise to year (CONF:4537-5299)."
-Severity: #error
-Expression: "nullFlavor.exists() or value.length() >= 4"
-
-Invariant: 4537-5300
-Description: "**SHOULD** be precise to day (CONF:4537-5300)."
-Severity: #warning
-Expression: "nullFlavor.exists() or value.length() >= 8"
-
 Invariant: 4537-32993
 Description: "If sdtc:deceasedInd=\"true\", then sdtc:deceasedTime **SHALL** be present (CONF:4537-32993)."
 Severity: #error
+Expression: "sdtcDeceasedTime.exists() implies sdtcDeceasedInd.exists()"
 
-Invariant: 4537-32991
-Description: "**SHALL**  be precise to to the year (CONF:4537-32991)."
-Severity: #error
-Expression: "nullFlavor.exists() or value.length() >= 4"
-
-Invariant: 4537-32992
-Description: "**SHOULD** be precise to the day (CONF:4537-32992)."
-Severity: #warning
-Expression: "nullFlavor.exists() or value.length() >= 8"
-
-Invariant: 4537-31347
-Description: "If sdtc:raceCode is present, then the patient **SHALL** contain [1..1] raceCode (CONF:4537-31347)."
-Severity: #error
+// This is redundant - patient always requires 1..1 raceCode
+// Invariant: 4537-31347
+// Description: "If sdtc:raceCode is present, then the patient **SHALL** contain [1..1] raceCode (CONF:4537-31347)."
+// Severity: #error
+// Expression: "sdtcRaceCode.exists() implies raceCode.exists()"
 
 Invariant: 4537-5402
 Description: "If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet StateValueSet 2.16.840.1.113883.3.88.12.80.1 *DYNAMIC* (CONF:4537-5402)."
@@ -528,6 +510,7 @@ Invariant: 4537-5403
 Description: "If country is US, this addr **MAY** contain zero or one [0..1] postalCode, which **SHALL** be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 *DYNAMIC* (CONF:4537-5403)."
 Severity: #warning
 
+// TODO - delete pending outcome of https://jira.hl7.org/browse/CDA-20817
 Invariant: 4537-16790
 Description: "There **SHALL** be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice (CONF:4537-16790)."
 Severity: #error
@@ -539,12 +522,14 @@ Severity: #warning
 Invariant: 4537-10006
 Description: "**SHALL** contain associatedEntity/associatedPerson *AND/OR* associatedEntity/scopingOrganization (CONF:4537-10006)."
 Severity: #error
+Expression: "associatedEntity.associatedPerson.exists() or associatedEntity.scopingOrganization.exists()"
 
 Invariant: 4537-10007
 Description: "When participant/@typeCode is *IND*, associatedEntity/@classCode **SHOULD** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes *DYNAMIC* (CONF:4537-10007)."
 Severity: #warning
+Expression: "typeCode = 'IND' implies associatedEntity.classCode.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33')"
 
 Invariant: 1198-32905
 Description: "This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."
 Severity: #error
-
+Expression: "assignedPerson.exists() or representedOrganization.exists()"

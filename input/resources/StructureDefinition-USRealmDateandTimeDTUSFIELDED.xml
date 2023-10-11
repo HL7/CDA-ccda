@@ -31,30 +31,53 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="IVL_TS">
-            <path value="IVL_TS"/>
+        <element id="IVL_TS.low">
+            <path value="IVL_TS.low"/>
+            <short value="**MAY** be precise to at least the second"/>
             <constraint>
-                <key value="81-10078"/>
+                <key value="ts-shall-day"/>
                 <severity value="error"/>
-                <human value="**SHALL** be precise to the day (CONF:81-10078)."/>
+                <human value="**SHALL** be precise to at least the day"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 8"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
             </constraint>
             <constraint>
-                <key value="81-10079"/>
+                <key value="ts-should-minute"/>
                 <severity value="warning"/>
-                <human value="**SHOULD** be precise to the minute (CONF:81-10079)."/>
+                <human value="**SHOULD** be precise to at least the minute"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 12"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
             </constraint>
             <constraint>
-                <key value="81-10080"/>
-                <severity value="warning"/>
-                <human value="**MAY** be precise to the second (CONF:81-10080)."/>
+                <key value="ts-shall-timezone"/>
+                <severity value="error"/>
+                <human value="If more precise than minute, **SHALL** include time-zone offset"/>
+                <expression value="nullFlavor.exists() or value.length() &amp;lt;= 8 or value.contains('-') or value.contains('+')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+            </constraint>
+        </element>
+        <element id="IVL_TS.high">
+            <path value="IVL_TS.high"/>
+            <short value="**MAY** be precise to at least the second"/>
+            <constraint>
+                <key value="ts-shall-day"/>
+                <severity value="error"/>
+                <human value="**SHALL** be precise to at least the day"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 8"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
             </constraint>
             <constraint>
-                <key value="81-10081"/>
+                <key value="ts-should-minute"/>
                 <severity value="warning"/>
-                <human value="If more precise than day, **SHOULD** include time-zone offset (CONF:81-10081)."/>
+                <human value="**SHOULD** be precise to at least the minute"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 12"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+            </constraint>
+            <constraint>
+                <key value="ts-shall-timezone"/>
+                <severity value="error"/>
+                <human value="If more precise than minute, **SHALL** include time-zone offset"/>
+                <expression value="nullFlavor.exists() or value.length() &amp;lt;= 8 or value.contains('-') or value.contains('+')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
             </constraint>
         </element>
