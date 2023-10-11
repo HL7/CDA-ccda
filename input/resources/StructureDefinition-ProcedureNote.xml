@@ -84,15 +84,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="associatedEntity.classCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
                     <path value="typeCode"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="functionCode"/>
+                    <path value="functionCode.code"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -133,23 +129,52 @@
         </element>
         <element id="ClinicalDocument.documentationOf">
             <path value="ClinicalDocument.documentationOf"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="serviceEvent"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="A serviceEvent is required in the Procedure Note to represent the main act, such as a colonoscopy or a cardiac stress study, being documented. It must be equivalent to or further specialize the value inherent in the ClinicalDocument/@code (such as where the ClinicalDocument/@code is simply &quot;Procedure Note&quot; and the procedure is &quot;colonoscopy&quot;), and it shall not conflict with the value inherent in the ClinicalDocument/@code, as such a conflict would create ambiguity. A serviceEvent/effectiveTime element indicates the time the actual event (as opposed to the encounter surrounding the event) took place. serviceEvent/effectiveTime may be represented two different ways in the Procedure Note. For accuracy to the second, the best method is effectiveTime/low together with effectiveTime/high. If a more general time, such as minutes or hours, is acceptable OR if the duration is unknown, an effectiveTime/low with a width element may be used. If the duration is unknown, the appropriate HL7 null value such as &quot;NI&quot; or &quot;NA&quot; must be used for the width element."/>
             <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent">
+            <path value="ClinicalDocument.documentationOf.serviceEvent"/>
+            <comment value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-10061)."/>
+            <constraint>
+                <key value="1198-8511"/>
+                <severity value="error"/>
+                <human value="The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), CPT-4 (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
+            <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-10062)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+            </type>
+            <constraint>
+                <key value="1198-8513"/>
+                <severity value="error"/>
+                <human value="The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8513)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+            </constraint>
+            <constraint>
+                <key value="1198-8514"/>
+                <severity value="error"/>
+                <human value="If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-8514)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+            </constraint>
+            <constraint>
+                <key value="1198-8515"/>
+                <severity value="error"/>
+                <human value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-8515)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449)."/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="assignedEntity"/>
-                </discriminator>
                 <discriminator>
                     <type value="value"/>
                     <path value="typeCode"/>
@@ -207,53 +232,6 @@
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
             </binding>
-        </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1">
-            <path value="ClinicalDocument.documentationOf"/>
-            <sliceName value="documentationOf1"/>
-            <comment value="SHALL contain at least one [1..*] documentationOf (CONF:1198-8510) such that it"/>
-            <min value="1"/>
-            <max value="*"/>
-        </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent">
-            <path value="ClinicalDocument.documentationOf.serviceEvent"/>
-            <comment value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-10061)."/>
-            <constraint>
-                <key value="1198-8511"/>
-                <severity value="error"/>
-                <human value="The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), CPT-4 (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
-            </constraint>
-        </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
-            <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-10062)."/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
-            </type>
-            <constraint>
-                <key value="1198-8513"/>
-                <severity value="error"/>
-                <human value="The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8513)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
-            </constraint>
-            <constraint>
-                <key value="1198-8514"/>
-                <severity value="error"/>
-                <human value="If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-8514)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
-            </constraint>
-            <constraint>
-                <key value="1198-8515"/>
-                <severity value="error"/>
-                <human value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-8515)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
-            </constraint>
-        </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime.low">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
-            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449)."/>
         </element>
         <element id="ClinicalDocument.authorization">
             <path value="ClinicalDocument.authorization"/>
@@ -378,8 +356,8 @@
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="ClinicalDocument.section"/>
+                    <type value="profile"/>
+                    <path value="section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

@@ -27,12 +27,8 @@ The Operative Note is created immediately following a surgical or other high-ris
     * effectiveTime only USRealmDateandTimeDTUSFIELDED
       * obeys 1198-8488 and 1198-10058 and 1198-10060
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."
-    * performer ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "assignedEntity"
-      * ^slicing.discriminator[+].type = #value
+    * performer ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
-      * ^slicing.discriminator[+].type = #value
-      * ^slicing.discriminator[=].path = "functionCode"
       * ^slicing.rules = #open
       * ^short = "This performer represents any assistants."
     * performer contains
@@ -83,8 +79,8 @@ The Operative Note is created immediately following a surgical or other high-ris
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-9585)."
   * structuredBody 1..1
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30485)."
-    * component ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "ClinicalDocument.section"
+    * component ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         component1 1..1 and

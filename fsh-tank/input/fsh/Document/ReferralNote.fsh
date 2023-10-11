@@ -75,8 +75,8 @@ Examples of referral situations are when a patient is referred from a family phy
   * structuredBody 1..1
     * obeys 1198-29102 and 1198-29103
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."
-    * component ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "section.code"
+    * component ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         planOfTreatment 0..1 and

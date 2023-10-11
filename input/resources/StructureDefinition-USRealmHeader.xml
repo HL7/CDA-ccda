@@ -825,8 +825,12 @@
             <path value="ClinicalDocument.informant"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="exists"/>
                     <path value="relatedEntity"/>
+                </discriminator>
+                <discriminator>
+                    <type value="exists"/>
+                    <path value="assignedEntity"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -1092,15 +1096,7 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="ClinicalDocument.signatureCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="ClinicalDocument.assignedEntity"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="ClinicalDocument.time"/>
+                    <path value="signatureCode.code"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

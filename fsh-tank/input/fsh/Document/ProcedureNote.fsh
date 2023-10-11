@@ -16,11 +16,9 @@ The Procedure Note is created immediately following a non-operative procedure. I
   * code from ProcedureNoteDocumentTypeCodes (required)
     * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureNoteDocumentTypeCodes http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.6.1 DYNAMIC (CONF:1198-17183)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "associatedEntity.classCode"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "functionCode"
+  * ^slicing.discriminator[=].path = "functionCode.code"
   * ^slicing.rules = #open
   * ^short = "The participant element in the Procedure Note header follows the General Header Constraints for participants."
 * participant contains participant1 0..*
@@ -38,15 +36,11 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^comment = "SHALL contain exactly one [1..1] associatedEntity/@classCode=\"PROV\" Provider (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8507)."
     * associatedPerson 1..1
       * ^comment = "This associatedEntity/@classCode SHALL contain exactly one [1..1] associatedPerson (CONF:1198-8508)."
-* documentationOf ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "serviceEvent"
-  * ^slicing.rules = #open
+// Removed slicing on documentationOf since its only branch-id was serviceEvent, which is required anyway
+* documentationOf 1..*
   * ^short = "A serviceEvent is required in the Procedure Note to represent the main act, such as a colonoscopy or a cardiac stress study, being documented. It must be equivalent to or further specialize the value inherent in the ClinicalDocument/@code (such as where the ClinicalDocument/@code is simply \"Procedure Note\" and the procedure is \"colonoscopy\"), and it shall not conflict with the value inherent in the ClinicalDocument/@code, as such a conflict would create ambiguity. A serviceEvent/effectiveTime element indicates the time the actual event (as opposed to the encounter surrounding the event) took place. serviceEvent/effectiveTime may be represented two different ways in the Procedure Note. For accuracy to the second, the best method is effectiveTime/low together with effectiveTime/high. If a more general time, such as minutes or hours, is acceptable OR if the duration is unknown, an effectiveTime/low with a width element may be used. If the duration is unknown, the appropriate HL7 null value such as \"NI\" or \"NA\" must be used for the width element."
-* documentationOf contains documentationOf1 1..*
-  * serviceEvent
+  * serviceEvent 1..1
     * performer ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "assignedEntity"
-      * ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
       * ^short = "This performer identifies any assistants."
@@ -72,8 +66,6 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32735)."
-* documentationOf[documentationOf1] ^comment = "SHALL contain at least one [1..*] documentationOf (CONF:1198-8510) such that it"
-  * serviceEvent 1..1
     * obeys 1198-8511
     * ^comment = "SHALL contain exactly one [1..1] serviceEvent (CONF:1198-10061)."
     * effectiveTime 1..1
@@ -131,8 +123,8 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * obeys 1198-30412 and 1198-30414 and 1198-30415
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30352)."
     * component 5..
-      * ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "ClinicalDocument.section"
+      * ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         component1 1..1 and

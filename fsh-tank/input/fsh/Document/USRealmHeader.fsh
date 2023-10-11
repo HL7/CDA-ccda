@@ -245,8 +245,10 @@ Description: "This template defines constraints that represent common administra
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5470)."
-* informant ^slicing.discriminator[0].type = #value
+* informant ^slicing.discriminator[0].type = #exists
   * ^slicing.discriminator[=].path = "relatedEntity"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "assignedEntity"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"
 * informant contains
@@ -350,11 +352,7 @@ Description: "This template defines constraints that represent common administra
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5598)."
 * authenticator ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "ClinicalDocument.signatureCode"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "ClinicalDocument.assignedEntity"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "ClinicalDocument.time"
+  * ^slicing.discriminator[=].path = "signatureCode.code"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] authenticator (CONF:4537-5607) such that it"
 * authenticator contains authenticator1 0..*

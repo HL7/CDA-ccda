@@ -68,8 +68,8 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
     * ^short = "In this template (templateId 2.16.840.1.113883.10.20.22.1.9.2), coded entries are optional"
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30617)."
     * component 1..
-      * ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "ClinicalDocument.section"
+      * ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         component1 0..1 and

@@ -51,6 +51,13 @@
                 <expression value="versionNumber.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
+            <constraint>
+                <key value="should-informationRecipient"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain informationRecipient"/>
+                <expression value="informationRecipient.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
@@ -93,24 +100,7 @@
             <path value="ClinicalDocument.versionNumber"/>
             <comment value="SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)."/>
         </element>
-        <element id="ClinicalDocument.informationRecipient">
-            <path value="ClinicalDocument.informationRecipient"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="intendedRecipient"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1">
-            <path value="ClinicalDocument.informationRecipient"/>
-            <sliceName value="informationRecipient1"/>
-            <comment value="SHOULD contain zero or more [0..*] informationRecipient (CONF:1198-31993) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
             <comment value="SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."/>
             <constraint>
@@ -142,29 +132,29 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.id">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.id">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.id"/>
             <comment value="This intendedRecipient SHALL contain at least one [1..*] id (CONF:1198-31996)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.addr">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.addr">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.addr"/>
             <comment value="This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)."/>
         </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.telecom">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.telecom">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.telecom"/>
             <comment value="This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)."/>
         </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.informationRecipient">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient"/>
             <comment value="This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)."/>
         </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.informationRecipient.name">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name"/>
             <comment value="The informationRecipient, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32320)."/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization"/>
             <comment value="This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)."/>
             <constraint>
@@ -175,11 +165,11 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization.id">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.id">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.id"/>
             <comment value="The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)."/>
         </element>
-        <element id="ClinicalDocument.informationRecipient:informationRecipient1.intendedRecipient.receivedOrganization.standardIndustryClassCode">
+        <element id="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.standardIndustryClassCode">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization.standardIndustryClassCode"/>
             <comment value="The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."/>
             <binding>
@@ -350,57 +340,12 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="serviceEvent"/>
+                    <path value="serviceEvent.classCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."/>
             <min value="1"/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="assignedEntity"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
-            <sliceName value="performer1"/>
-            <comment value="This serviceEvent SHALL contain at least one [1..*] performer (CONF:1198-31905) such that it"/>
-            <min value="1"/>
-            <max value="*"/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
-            <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31907)."/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.id">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
-            <comment value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-31908)."/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.code">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
-            <comment value="This assignedEntity MAY contain zero or one [0..1] code (CONF:1198-31909)."/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.assignedPerson">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson"/>
-            <comment value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-32328)."/>
-            <min value="1"/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.assignedPerson.name">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.name"/>
-            <comment value="This assignedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32329)."/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
-            </type>
         </element>
         <element id="ClinicalDocument.documentationOf:documentationOf1">
             <path value="ClinicalDocument.documentationOf"/>
@@ -430,13 +375,40 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high"/>
             <comment value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-32331)."/>
         </element>
+        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
+            <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31907)."/>
+        </element>
+        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity.id">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
+            <comment value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-31908)."/>
+        </element>
+        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity.code">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
+            <comment value="This assignedEntity MAY contain zero or one [0..1] code (CONF:1198-31909)."/>
+        </element>
+        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity.assignedPerson">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson"/>
+            <comment value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-32328)."/>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity.assignedPerson.name">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.name"/>
+            <comment value="This assignedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32329)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
+            </type>
+        </element>
         <element id="ClinicalDocument.relatedDocument">
             <path value="ClinicalDocument.relatedDocument"/>
             <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="parentDocument"/>
-                </discriminator>
                 <discriminator>
                     <type value="value"/>
                     <path value="typeCode"/>
@@ -509,8 +481,8 @@
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="ClinicalDocument.section"/>
+                    <type value="profile"/>
+                    <path value="section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

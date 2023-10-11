@@ -121,15 +121,7 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="assignedEntity"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
                     <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="functionCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -243,8 +235,8 @@
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="ClinicalDocument.section"/>
+                    <type value="profile"/>
+                    <path value="section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

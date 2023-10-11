@@ -14,7 +14,7 @@ A Consultation Note includes the reason for the referral, history of present ill
   * ^short = "The Consultation Note recommends use of  the document type code 11488-4 \"Consult Note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet ConsultDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.31 DYNAMIC (CONF:1198-17176)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "ClinicalDocument.typeCode"
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^short = "This participant represents the person to contact for questions about the consult summary. This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."
 * participant contains participant1 0..*

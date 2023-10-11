@@ -39,11 +39,10 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
 * obeys should-versionNumber
 * versionNumber 0..1
   * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." // auto-should
-* informationRecipient ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "intendedRecipient"
-  * ^slicing.rules = #open
-* informationRecipient contains informationRecipient1 0..*
-* informationRecipient[informationRecipient1] ^comment = "SHOULD contain zero or more [0..*] informationRecipient (CONF:1198-31993) such that it"
+
+// Removing slicing on infoRecipient, since the only branch identifier (intendedRecipient) is required anyway
+* obeys should-informationRecipient
+* informationRecipient 0..*
   * intendedRecipient 1..1
     * ^comment = "SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."
     * id 1..*
@@ -138,16 +137,14 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
       * name 1..*
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31900)."
 * documentationOf ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "serviceEvent"
+  * ^slicing.discriminator[=].path = "serviceEvent.classCode"
   * ^slicing.rules = #open
   * ^short = "The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."
 * documentationOf contains documentationOf1 1..1
-  * serviceEvent
-    * performer ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "assignedEntity"
-      * ^slicing.rules = #open
-    * performer contains performer1 1..*
-    * performer[performer1] ^comment = "This serviceEvent SHALL contain at least one [1..*] performer (CONF:1198-31905) such that it"
+* documentationOf[documentationOf1] ^comment = "SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it"
+  * serviceEvent 1..1
+    // Removed slicing on performer since it was only branched on assignedEntity which is required anyway
+    * performer 1..*
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31907)."
         * id 1..*
@@ -159,8 +156,6 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
           * name 1..1
           * name only USRealmPersonNamePNUSFIELDED
             * ^comment = "This assignedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32329)."
-* documentationOf[documentationOf1] ^comment = "SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it"
-  * serviceEvent 1..1
     * ^comment = "SHALL contain exactly one [1..1] serviceEvent (CONF:1198-31902)."
     * classCode 1..1
     * classCode = #PCPR (exactly)
@@ -171,9 +166,7 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."
       * high 0..1
         * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-32331)."
-* relatedDocument ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "parentDocument"
-  * ^slicing.discriminator[+].type = #value
+* relatedDocument ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * relatedDocument contains relatedDocument1 0..*
@@ -202,8 +195,8 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
     * obeys 1198-31044
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28754)."
     * component 2..
-      * ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "ClinicalDocument.section"
+      * ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         component1 1..1 and

@@ -85,8 +85,8 @@ Standardization of information used in this form will promote interoperability; 
     * obeys 1198-31582 and 1198-31583
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28252)."
     * component 7..
-      * ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "section.code"
+      * ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         advanceDirectives 0..1 and
