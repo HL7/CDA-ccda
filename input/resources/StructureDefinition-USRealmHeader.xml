@@ -272,16 +272,16 @@
             <comment value="This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."/>
             <min value="1"/>
             <constraint>
-                <key value="4537-5299"/>
+                <key value="ts-shall-year"/>
                 <severity value="error"/>
-                <human value="**SHALL** be precise to year (CONF:4537-5299)."/>
+                <human value="**SHALL** be precise to at least the year"/>
                 <expression value="nullFlavor.exists() or value.length() &gt;= 4"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="4537-5300"/>
+                <key value="ts-should-day"/>
                 <severity value="warning"/>
-                <human value="**SHOULD** be precise to day (CONF:4537-5300)."/>
+                <human value="**SHOULD** be precise to at least the day"/>
                 <expression value="nullFlavor.exists() or value.length() &gt;= 8"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
@@ -294,6 +294,7 @@
                 <key value="4537-32993"/>
                 <severity value="error"/>
                 <human value="If sdtc:deceasedInd=&quot;true&quot;, then sdtc:deceasedTime **SHALL** be present (CONF:4537-32993)."/>
+                <expression value="sdtcDeceasedTime.exists() implies sdtcDeceasedInd.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
@@ -309,16 +310,16 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="4537-32991"/>
+                <key value="ts-shall-year"/>
                 <severity value="error"/>
-                <human value="**SHALL**  be precise to to the year (CONF:4537-32991)."/>
+                <human value="**SHALL** be precise to at least the year"/>
                 <expression value="nullFlavor.exists() or value.length() &gt;= 4"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="4537-32992"/>
+                <key value="ts-should-day"/>
                 <severity value="warning"/>
-                <human value="**SHOULD** be precise to the day (CONF:4537-32992)."/>
+                <human value="**SHOULD** be precise to at least the day"/>
                 <expression value="nullFlavor.exists() or value.length() &gt;= 8"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
@@ -352,12 +353,6 @@
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode"/>
             <short value="The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."/>
             <comment value="This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:4537-7263)."/>
-            <constraint>
-                <key value="4537-31347"/>
-                <severity value="error"/>
-                <human value="If sdtc:raceCode is present, then the patient **SHALL** contain [1..1] raceCode (CONF:4537-31347)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914"/>
@@ -1222,12 +1217,14 @@
                 <key value="4537-10006"/>
                 <severity value="error"/>
                 <human value="**SHALL** contain associatedEntity/associatedPerson *AND/OR* associatedEntity/scopingOrganization (CONF:4537-10006)."/>
+                <expression value="associatedEntity.associatedPerson.exists() or associatedEntity.scopingOrganization.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
                 <key value="4537-10007"/>
                 <severity value="warning"/>
                 <human value="When participant/@typeCode is *IND*, associatedEntity/@classCode **SHOULD** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes *DYNAMIC* (CONF:4537-10007)."/>
+                <expression value="typeCode = 'IND' implies associatedEntity.classCode.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
@@ -1398,6 +1395,7 @@
                 <key value="1198-32905"/>
                 <severity value="error"/>
                 <human value="This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."/>
+                <expression value="assignedPerson.exists() or representedOrganization.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
