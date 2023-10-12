@@ -97,8 +97,12 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="exists"/>
-                    <path value="*"/>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="organizer"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

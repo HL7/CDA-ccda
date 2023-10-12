@@ -13,8 +13,10 @@ This section differentiates between "advance directives" and "advance directive 
 * insert Section(#42348-3, Advance Directives, 2.16.840.1.113883.10.20.22.2.21.1, 2015-08-01)
 * entry 1..*
   * obeys 1198-32881
-  * ^slicing.discriminator[0].type = #exists
-  * ^slicing.discriminator[=].path = "*"
+  * ^slicing.discriminator[0].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present SHALL contain an Advance Directive Observation OR an Advance Directive Organizer (NEW):"
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"
