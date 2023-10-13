@@ -56,8 +56,8 @@ A Consultation Note includes the reason for the referral, history of present ill
     * id 1..*
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:1198-8388)."
     * effectiveTime 1..1
-    * effectiveTime only USRealmDateandTimeDTUSFIELDED
-      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8389)."
+    * effectiveTime only USRealmDateTimeInterval
+      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8389)."
     * encounterParticipant 0..*
       * ^short = "The encounterParticipant element represents persons who participated in the encounter and not necessarily the entire episode of care."
       * ^comment = "This encompassingEncounter MAY contain zero or more [0..*] encounterParticipant (CONF:1198-8392)."

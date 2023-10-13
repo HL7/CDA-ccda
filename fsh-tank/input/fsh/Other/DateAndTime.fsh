@@ -1,10 +1,10 @@
-Profile: USRealmDateandTimeDTUSFIELDED
+Profile: USRealmDateTimeInterval
 Parent: IVL_TS
-Id: USRealmDateandTimeDTUSFIELDED
-Title: "US Realm Date and Time (DT.US.FIELDED)"
-Description: "The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.
+Id: USRealmDateTimeInterval
+Title: "US Realm Date and Time (Interval)"
+Description: "The US Realm Clinical Document Date and Time datatype flavor records date and time information. If time is provided, it must include a time zone offset.
 
-This data type uses the same rules as US Realm Date and Time (DTM.US.FIELDED),  but is used with elements having a datatype of IVL_TS."
+This data type uses the same rules as US Realm Date and Time (Point in Time), but is used with elements having a datatype of IVL_TS."
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.3"
 * low obeys ts-shall-day and ts-should-minute and ts-shall-timezone
@@ -13,13 +13,13 @@ This data type uses the same rules as US Realm Date and Time (DTM.US.FIELDED),  
   * ^short = "**MAY** be precise to at least the second"
 
 
-Profile: USRealmDateandTimeDTMUSFIELDED
+Profile: USRealmDateTime
 Parent: TS
-Id: USRealmDateandTimeDTMUSFIELDED
-Title: "US Realm Date and Time (DTM.US.FIELDED)"
-Description: "The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.
+Id: USRealmDateTime
+Title: "US Realm Date and Time (Point in Time)"
+Description: "The US Realm Clinical Document Date and Time datatype flavor records date and time information. If time is provided, it must include a time zone offset.
 
-This data type uses the same rules as US Realm Date and Time (DT.US.FIELDED), but is used with elements having a datatype of TS."
+This data type uses the same rules as US Realm Date and Time (Interval), but is used with elements having a datatype of TS."
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.4"
 * obeys ts-shall-day and ts-should-minute and ts-shall-timezone
