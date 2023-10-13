@@ -87,6 +87,7 @@
         </element>
         <element id="Observation.derivationExpr">
             <path value="Observation.derivationExpr"/>
+            <short value="Such derivation expression can contain a text calculation of how the components total up to the summed score"/>
             <comment value="MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."/>
         </element>
         <element id="Observation.statusCode">
@@ -102,6 +103,7 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
+            <short value="Represents clinically effective time of the measurement, which may be when the measurement was performed (e.g., a BP measurement), or may be when sample was taken (and measured some time afterwards)"/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-14445)."/>
             <min value="1"/>
         </element>
@@ -161,6 +163,7 @@
         </element>
         <element id="Observation.referenceRange">
             <path value="Observation.referenceRange"/>
+            <short value="The referenceRange/observationRange/text, if present, MAY contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"/>
             <comment value="MAY contain zero or more [0..*] referenceRange (CONF:4515-16799)."/>
         </element>
         <element id="Observation.referenceRange.observationRange">
@@ -176,6 +179,7 @@
         </element>
         <element id="Observation.referenceRange.observationRange.text">
             <path value="Observation.referenceRange.observationRange.text"/>
+            <short value="The text may contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"/>
             <comment value="This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)."/>
             <constraint>
                 <key value="should-reference"/>

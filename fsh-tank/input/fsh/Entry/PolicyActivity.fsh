@@ -14,6 +14,7 @@ Description: "A policy activity represents the policy or program providing the c
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8899)."
 * id 1..*
+  * ^short = "This id is a unique identifier for the policy or program providing the coverage"
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8901)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem X12N Insurance Type urn:oid:2.16.840.1.113883.6.255.1336 DYNAMIC (CONF:4537-8903)."
@@ -45,7 +46,7 @@ Description: "A policy activity represents the policy or program providing the c
 * performer contains
     performer1 1..1 and
     performer2 0..*
-* performer[performer1] ^short = "performer"
+* performer[performer1] ^short = "This performer represents the Payer."
   * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4537-8906) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)
@@ -59,6 +60,7 @@ Description: "A policy activity represents the policy or program providing the c
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8908)."
     * id 1..*
+      * ^short = "This is the Payer id. The root is a unique identifier to an openly available assigning authority, such as National Association of Insurance Commissioners (NAIC) (2.16.840.1.113883.6.300), and the extension identifiers the payer within that authority."
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-8909)."
     * obeys should-code
     * code 0..1
@@ -77,7 +79,7 @@ Description: "A policy activity represents the policy or program providing the c
       * obeys should-name
       * name 0..1
         * ^comment = "The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)." // auto-should
-* performer[performer2] ^short = "performer"
+* performer[performer2] ^short = "This performer represents the Guarantor."
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)
@@ -154,6 +156,7 @@ Description: "A policy activity represents the policy or program providing the c
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)."
     * obeys should-playingEntity
     * playingEntity 0..1
+      * ^short = "This playingEntity records the covered party name and birthTime as represented by the health plan. This could match the information in recordTarget, or be different due to marriage or other reasons."
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)." // auto-should
       * name 1..1
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] name (CONF:4537-8930)."
@@ -162,7 +165,7 @@ Description: "A policy activity represents the policy or program providing the c
         * ^short = "sdtc:birthTime"
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] sdtc:birthTime (CONF:4537-31344)."
 * participant[participant2] obeys 4537-17139
-  * ^short = "participant"
+  * ^short = "When the Subscriber is the patient, the participant element describing the subscriber *SHALL NOT* be present. This information will be recorded instead in the data elements used to record member information."
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
   * typeCode 1..1
   * typeCode = #HLD (exactly)

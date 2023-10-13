@@ -39,6 +39,7 @@ Description: """This template represents the schedule of when the care team memb
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-33021)."
 * value 1..1
 * value only $IVL-TS
+  * ^short = "Observation/value Interval Time Stamp holds the time range the Care Team Member participated on the Care Team of the patient."
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"IVL_TS\" (CONF:4515-14)."
   * low 1..1
     * ^comment = "This value SHALL contain exactly one [1..1] low (CONF:4515-33030)."

@@ -39,6 +39,7 @@ The priority of the immunization activity to the patient and provider is communi
   * ^comment = "MAY contain zero or one [0..1] doseQuantity (CONF:1098-32129)."
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
+    * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32130)."
 * consumable 1..1
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:1098-32131)."
@@ -78,7 +79,8 @@ The priority of the immunization activity to the patient and provider is communi
   * observation 1..1
   * observation only Indication
     * ^comment = "SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32116)."
-* entryRelationship[instruction] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32117) such that it"
+* entryRelationship[instruction] ^short = "The following entryRelationship captures any instructions associated with the planned immunization activity."
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32117) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32118)."

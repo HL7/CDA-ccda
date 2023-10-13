@@ -35,4 +35,5 @@ Immunization Refusal Reason 2.16.840.1.113883.10.20.22.4.53 should be used to re
 * value 0..1
 * value only $CD
 * value from Problem (example)
+  * ^short = "If the ID element does not reference a problem recorded elsewhere in the document, then observation/value must be populated with a coded entry."
   * ^comment = "MAY contain zero or one [0..1] value with @xsi:type=\"CD\", where the code MAY be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:4537-7489)."

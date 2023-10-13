@@ -123,6 +123,7 @@
         </element>
         <element id="Act.text.mediaType">
             <path value="Act.text.mediaType"/>
+            <short value="If the note was originally in another format, such as RTF, this element may also contain the base-64-encoded raw data of the note in addition to a reference to the narrative."/>
             <comment value="This text MAY contain zero or one [0..1] @mediaType, which SHOULD be selected from ValueSet SupportedFileFormats urn:oid:2.16.840.1.113883.11.20.7.1 DYNAMIC (CONF:3250-16906)."/>
             <constraint>
                 <key value="3250-16912"/>
@@ -142,6 +143,7 @@
         </element>
         <element id="Act.text.reference.nullFlavor">
             <path value="Act.text.reference.nullFlavor"/>
+            <short value="The note activity must reference human-readable content in the narrative, so this reference must not be null."/>
             <comment value="This reference SHALL NOT contain [0..0] @nullFlavor (CONF:3250-16920)."/>
             <max value="0"/>
         </element>
@@ -158,11 +160,13 @@
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
+            <short value="Indicates the status of the note. The most common statusCode is completed indicating the note is signed and finalized."/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:3250-16916)."/>
             <min value="1"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
+            <short value="The effectiveTime represents the clinically relevant time of the note. The precise timestamp of creation / updating should be conveyed in author/time."/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:3250-16903)."/>
             <min value="1"/>
         </element>
@@ -172,6 +176,7 @@
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
+            <short value="Represents the person(s) who wrote the note."/>
             <comment value="SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:3250-16913)."/>
             <min value="1"/>
             <type>
@@ -197,7 +202,7 @@
         <element id="Act.participant:participant1">
             <path value="Act.participant"/>
             <sliceName value="participant1"/>
-            <short value="participant"/>
+            <short value="Represents the person(s) legally responsible for the contents of the note."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -209,6 +214,7 @@
         </element>
         <element id="Act.participant:participant1.time">
             <path value="Act.participant.time"/>
+            <short value="Indicates the time of signing the note."/>
             <comment value="SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:3250-16926)."/>
             <min value="1"/>
             <type>
@@ -228,6 +234,7 @@
         </element>
         <element id="Act.participant:participant1.participantRole.id">
             <path value="Act.participant.participantRole.id"/>
+            <short value="This may be the ID of the note author. If so, no additional information in this participant is required."/>
             <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:3250-16927)."/>
             <min value="1"/>
         </element>
@@ -266,7 +273,7 @@
         <element id="Act.entryRelationship:entryRelationship1">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <short value="entryRelationship"/>
+            <short value="Links the note to an encounter. If the Note Activity is present within a document containing an encompassingEncounter, then this entryRelationship is optional and the note is associated with the encounter represented by the encompassingEncounter."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -283,6 +290,7 @@
         </element>
         <element id="Act.entryRelationship:entryRelationship1.negationInd">
             <path value="Act.entryRelationship.negationInd"/>
+            <short value="To communicate that the note is not associated with any encounter, this entryRelationship MAY be included with @negationInd=&quot;true&quot; and encounter/id/@nullFlavor=&quot;NA&quot;. The negationInd + encounter indicate this note is not associated with any encounter."/>
             <comment value="MAY contain zero or one [0..1] @negationInd (CONF:3250-16931)."/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.encounter">
@@ -315,7 +323,7 @@
         <element id="Act.reference:reference1">
             <path value="Act.reference"/>
             <sliceName value="reference1"/>
-            <short value="reference"/>
+            <short value="Represents an unstructured C-CDA document containing the original contents of the note in the original format."/>
             <min value="0"/>
             <max value="*"/>
         </element>

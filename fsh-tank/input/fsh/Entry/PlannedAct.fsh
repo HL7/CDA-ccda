@@ -58,7 +58,8 @@ The priority of the activity to the patient and provider is communicated through
   * observation 1..1
   * observation only Indication
     * ^comment = "SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-32023)."
-* entryRelationship[instruction] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it"
+* entryRelationship[instruction] ^short = "The following entryRelationship captures any instructions associated with the planned act."
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32024) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32025)."

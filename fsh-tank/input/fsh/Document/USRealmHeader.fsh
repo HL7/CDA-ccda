@@ -47,6 +47,7 @@ Description: "This template defines constraints that represent common administra
 * versionNumber 0..1
   * ^comment = "MAY contain zero or one [0..1] versionNumber (CONF:4537-5264)."
 * recordTarget 1..*
+  * ^short = "The recordTarget records the administrative and demographic data of the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element"
   * ^comment = "SHALL contain at least one [1..*] recordTarget (CONF:4537-5266)."
   * patientRole 1..1
     * ^comment = "Such recordTargets SHALL contain exactly one [1..1] patientRole (CONF:4537-5267)."
@@ -168,6 +169,7 @@ Description: "This template defines constraints that represent common administra
       * addr only USRealmAddressADUSFIELDED
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5422)."
 * author 1..*
+  * ^short = "The author element represents the creator of the clinical document.  The author may be a device or a person."
   * ^comment = "SHALL contain at least one [1..*] author (CONF:4537-5444)."
   * time 1..1
   * time only USRealmDateandTimeDTMUSFIELDED
@@ -193,6 +195,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4537-32885)."
     * obeys should-code
     * code 0..1
+      * ^short = "Only if this assignedAuthor is an assignedPerson should the assignedAuthor contain a code."
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4537-16787)." // auto-should
       * code 1..1
       * code from $2.16.840.1.114222.4.11.1066 (preferred)
@@ -220,6 +223,7 @@ Description: "This template defines constraints that represent common administra
       * softwareName 1..1
         * ^comment = "The assignedAuthoringDevice, if present, SHALL contain exactly one [1..1] softwareName (CONF:4537-16785)."
 * dataEnterer 0..1
+  * ^short = "The dataEnterer element represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content found within the header or body of a document, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
   * ^comment = "MAY contain zero or one [0..1] dataEnterer (CONF:4537-5441)."
   * assignedEntity 1..1
     * ^comment = "The dataEnterer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5442)."
@@ -255,6 +259,7 @@ Description: "This template defines constraints that represent common administra
     informant1 0..* and
     informant2 0..*
 * informant[informant1] ^short = "informant"
+  * ^short = "The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-8001) such that it"
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8002)."
@@ -272,11 +277,12 @@ Description: "This template defines constraints that represent common administra
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-8222)."
-* informant[informant2] ^short = "informant"
+* informant[informant2] ^short = "The informant element describes an information source (who is not a provider) for any content within the clinical document. This informant would be used when the source of information has a personal relationship with the patient or is the patient."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"
   * relatedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:4537-31356)."
 * custodian 1..1
+  * ^short = "The custodian element represents the organization that is in charge of maintaining and is entrusted with the care of the document.&#10;&#10;There is only one custodian per CDA document. Allowing that a CDA document may not represent the original form of the authenticated document, the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party."
   * ^comment = "SHALL contain exactly one [1..1] custodian (CONF:4537-5519)."
   * assignedCustodian 1..1
     * ^comment = "This custodian SHALL contain exactly one [1..1] assignedCustodian (CONF:4537-5520)."
@@ -299,6 +305,7 @@ Description: "This template defines constraints that represent common administra
       * addr only USRealmAddressADUSFIELDED
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5559)."
 * informationRecipient 0..*
+  * ^short = "The informationRecipient element records the intended recipient of the information at the time the document was created. In cases where the intended recipient of the document is the patient's health chart, set the receivedOrganization to the scoping organization for that chart."
   * ^comment = "MAY contain zero or more [0..*] informationRecipient (CONF:4537-5565)."
   * intendedRecipient 1..1
     * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:4537-5566)."
@@ -315,6 +322,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "The receivedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:4537-5578)."
 * obeys should-legalAuthenticator
 * legalAuthenticator 0..1
+  * ^short = "The legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. A clinical document that does not contain this element has not been legally authenticated. The act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. Based on local practice, clinical documents may be released before legal authentication.  All clinical documents have the potential for legal authentication, given the appropriate credentials. Local policies MAY choose to delegate the function of legal authentication to a device or system that generates the clinical document. In these cases, the legal authenticator is a person accepting responsibility for the document, not the generating device or system. Note that the legal authenticator, if present, must be a person."
   * ^comment = "SHOULD contain zero or one [0..1] legalAuthenticator (CONF:4537-5579)." // auto-should
   * time 1..1
   * time only USRealmDateandTimeDTMUSFIELDED
@@ -325,7 +333,7 @@ Description: "This template defines constraints that represent common administra
     * code = #S
       * ^comment = "This signatureCode SHALL contain exactly one [1..1] @code=\"S\" (CodeSystem: HL7ParticipationSignature urn:oid:2.16.840.1.113883.5.89 STATIC) (CONF:4537-5584)."
   * sdtcSignatureText 0..1
-    * ^short = "The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:\n1) Electronic signature: this attribute can represent virtually any electronic signature scheme.\n2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.\n"
+    * ^short = "The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:\n1) Electronic signature: this attribute can represent virtually any electronic signature scheme.\n2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.\n The sdtc:signatureText extension provides a location in CDA for a textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. Details of what goes in the field are described in the HL7 CDA Digital Signature Standard balloted in Fall 2013."
     * ^comment = "The legalAuthenticator, if present, MAY contain zero or one [0..1] sdtc:signatureText (CONF:4537-30810)."
   * assignedEntity 1..1
     * ^comment = "The legalAuthenticator, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5585)."
@@ -356,7 +364,7 @@ Description: "This template defines constraints that represent common administra
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] authenticator (CONF:4537-5607) such that it"
 * authenticator contains authenticator1 0..*
-* authenticator[authenticator1] ^short = "authenticator"
+* authenticator[authenticator1] ^short = "The authenticator identifies a participant or participants who attest to the accuracy of the information in the document."
   * ^comment = "MAY contain zero or more [0..*] authenticator (CONF:4537-5607) such that it"
   * time 1..1
   * time only USRealmDateandTimeDTMUSFIELDED
@@ -367,7 +375,7 @@ Description: "This template defines constraints that represent common administra
     * code = #S
       * ^comment = "This signatureCode SHALL contain exactly one [1..1] @code=\"S\" (CodeSystem: HL7ParticipationSignature urn:oid:2.16.840.1.113883.5.89 STATIC) (CONF:4537-5611)."
   * sdtcSignatureText 0..1
-    * ^short = "The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:\n1) Electronic signature: this attribute can represent virtually any electronic signature scheme.\n2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.\n"
+    * ^short = "The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:\n1) Electronic signature: this attribute can represent virtually any electronic signature scheme.\n2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.\n The sdtc:signatureText extension provides a location in CDA for a textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. Details of what goes in the field are described in the HL7 CDA Digital Signature Standard balloted in Fall of 2013."
     * ^comment = "MAY contain zero or one [0..1] sdtc:signatureText (CONF:4537-30811)."
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5612)."
@@ -399,9 +407,11 @@ Description: "This template defines constraints that represent common administra
   * obeys 4537-10006 and 4537-10007
   //"<slicing><rules value=\"open\" /></slicing>"
   //"<comment value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" /></element><element id=\"ClinicalDocument.participant:participant1\"><path value=\"ClinicalDocument.participant\" /><sliceName value=\"participant1\" /><short value=\"participant\" /><definition value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" />"
+  * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
   * time 0..1
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
 * inFulfillmentOf 0..*
+  * ^short = "The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists' report of an x-ray."
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:4537-9952)."
   * order 1..1
     * ^comment = "The inFulfillmentOf, if present, SHALL contain exactly one [1..1] order (CONF:4537-9953)."
@@ -410,6 +420,7 @@ Description: "This template defines constraints that represent common administra
 * documentationOf 0..*
   * ^comment = "MAY contain zero or more [0..*] documentationOf (CONF:4537-14835)."
   * serviceEvent 1..1
+    * ^short = "A serviceEvent represents the main act being documented, such as a colonoscopy or a cardiac stress study. In a provision of healthcare serviceEvent, the care providers, PCP, or other longitudinal providers, are recorded within the serviceEvent. If the document is about a single encounter, the providers associated can be recorded in the componentOf/encompassingEncounter template."
     * ^comment = "The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:4537-14836)."
     * effectiveTime 1..1
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] effectiveTime (CONF:4537-14837)."
@@ -417,6 +428,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-14838)."
     * obeys should-performer
     * performer 0..*
+      * ^short = "The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:4537-14839)." // auto-should
       * typeCode 1..1
       * typeCode from $2.16.840.1.113883.1.11.19601 (required)
@@ -439,6 +451,7 @@ Description: "This template defines constraints that represent common administra
         * code from $2.16.840.1.114222.4.11.1066 (preferred)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-14842)."
 * authorization 0..*
+  * ^short = "The authorization element represents information about the patient's consent. The type of consent is conveyed in consent/code. Consents in the header have been finalized (consent/statusCode must equal Completed) and should be on file. This specification does not address how 'Privacy Consent' is represented, but does not preclude the inclusion of 'Privacy Consent'. The authorization consent is used for referring to consents that are documented elsewhere in the EHR or medical record for a health condition and/or treatment that is described in the CDA document."
   * ^comment = "MAY contain zero or more [0..*] authorization (CONF:4537-16792) such that it"
   * consent 1..1
     * ^comment = "SHALL contain exactly one [1..1] consent (CONF:4537-16793)."
@@ -453,6 +466,7 @@ Description: "This template defines constraints that represent common administra
       * code = #completed (exactly)
         * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-16798)."
 * componentOf 0..1
+  * ^short = "The encompassing encounter represents the setting of the clinical encounter during which the document act(s) or ServiceEvent(s) occurred. In order to represent providers associated with a specific encounter, they are recorded within the encompassingEncounter as participants. In a CCD, the encompassingEncounter may be used when documenting a specific encounter and its participants. All relevant encounters in a CCD may be listed in the encounters section."
   * ^comment = "MAY contain zero or one [0..1] componentOf (CONF:4537-9955)."
   * encompassingEncounter 1..1
     * ^comment = "The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:4537-9956)."

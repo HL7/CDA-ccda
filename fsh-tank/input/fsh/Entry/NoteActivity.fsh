@@ -35,22 +35,27 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * mediaType 0..1
   * mediaType from SupportedFileFormats (preferred)
     * obeys 3250-16912
+    * ^short = "If the note was originally in another format, such as RTF, this element may also contain the base-64-encoded raw data of the note in addition to a reference to the narrative."
     * ^comment = "This text MAY contain zero or one [0..1] @mediaType, which SHOULD be selected from ValueSet SupportedFileFormats urn:oid:2.16.840.1.113883.11.20.7.1 DYNAMIC (CONF:3250-16906)."
   * reference 1..1
     * ^comment = "This text SHALL contain exactly one [1..1] reference (CONF:3250-16897)."
     * nullFlavor 0..0
+      * ^short = "The note activity must reference human-readable content in the narrative, so this reference must not be null."
       * ^comment = "This reference SHALL NOT contain [0..0] @nullFlavor (CONF:3250-16920)."
     * value 1..1
       * obeys 3250-16902
       * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:3250-16898)."
 * statusCode 1..1
+  * ^short = "Indicates the status of the note. The most common statusCode is completed indicating the note is signed and finalized."
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:3250-16916)."
 * effectiveTime 1..1
+  * ^short = "The effectiveTime represents the clinically relevant time of the note. The precise timestamp of creation / updating should be conveyed in author/time."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:3250-16903)."
   * value 0..1
     * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] @value (CONF:3250-16917)."
 * author 1..*
 * author only AuthorParticipation
+  * ^short = "Represents the person(s) who wrote the note."
   * ^comment = "SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:3250-16913)."
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "participantRole"
@@ -59,19 +64,21 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"
 * participant contains participant1 0..*
-* participant[participant1] ^short = "participant"
+* participant[participant1] ^short = "Represents the person(s) legally responsible for the contents of the note."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"
   * typeCode 1..1
   * typeCode = #LA (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"LA\" Legal Authenticator (CONF:3250-16925)."
   * time 1..1
   * time only USRealmDateandTimeDTUSFIELDED
+    * ^short = "Indicates the time of signing the note."
     * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:3250-16926)."
     //"SG 20230602 Updated this from IVL_TS to IVL-TS"
   * participantRole 1..1
     * obeys 3250-16930
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:3250-16924)."
     * id 1..*
+      * ^short = "This may be the ID of the note author. If so, no additional information in this participant is required."
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:3250-16927)."
     * playingEntity 0..1
       * ^comment = "This participantRole MAY contain zero or one [0..1] playingEntity (CONF:3250-16928)."
@@ -87,7 +94,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"
 * entryRelationship contains entryRelationship1 0..*
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+* entryRelationship[entryRelationship1] ^short = "Links the note to an encounter. If the Note Activity is present within a document containing an encompassingEncounter, then this entryRelationship is optional and the note is associated with the encounter represented by the encompassingEncounter."
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -96,6 +103,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * inversionInd = true (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @inversionInd=\"true\" (CONF:3250-16922)."
   * negationInd 0..1
+    * ^short = "To communicate that the note is not associated with any encounter, this entryRelationship MAY be included with @negationInd=\"true\" and encounter/id/@nullFlavor=\"NA\". The negationInd + encounter indicate this note is not associated with any encounter."
     * ^comment = "MAY contain zero or one [0..1] @negationInd (CONF:3250-16931)."
   * encounter 1..1
     * ^comment = "SHALL contain exactly one [1..1] encounter (CONF:3250-16908)."
@@ -107,7 +115,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"
 * reference contains reference1 0..*
-* reference[reference1] ^short = "reference"
+* reference[reference1] ^short = "Represents an unstructured C-CDA document containing the original contents of the note in the original format."
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"
   * externalDocument 1..1
     * ^comment = "SHALL contain exactly one [1..1] externalDocument (CONF:3250-16911)."

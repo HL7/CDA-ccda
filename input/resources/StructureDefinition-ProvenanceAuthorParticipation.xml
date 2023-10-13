@@ -128,6 +128,7 @@
         </element>
         <element id="Author.assignedAuthor.code">
             <path value="Author.assignedAuthor.code"/>
+            <short value="When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."/>
             <comment value="This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)."/>
             <constraint>
                 <key value="4515-56"/>
@@ -174,6 +175,7 @@
         </element>
         <element id="Author.assignedAuthor.representedOrganization">
             <path value="Author.assignedAuthor.representedOrganization"/>
+            <short value="If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64)."/>
             <comment value="This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."/>
             <constraint>
                 <key value="should-telecom"/>
@@ -185,6 +187,7 @@
         </element>
         <element id="Author.assignedAuthor.representedOrganization.nullFlavor">
             <path value="Author.assignedAuthor.representedOrganization.nullFlavor"/>
+            <short value="A nullFlavor of &quot;NA&quot; is allowed If the assignedAuthor is not a clinician"/>
             <comment value="The representedOrganization, if present, MAY contain zero or one [0..1] @nullFlavor (CONF:4515-35)."/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization.id">

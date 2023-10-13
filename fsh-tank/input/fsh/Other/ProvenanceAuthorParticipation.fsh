@@ -41,6 +41,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
   * obeys should-code
   * code 0..1
     * obeys 4515-56 and 4515-57
+    * ^short = "When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."
     * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)." // auto-should
   * obeys should-assignedPerson
   * assignedPerson 0..1
@@ -55,8 +56,10 @@ Note: The Provenance template title includes a version 2 to support moving from 
   * assignedAuthoringDevice 0..1
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] assignedAuthoringDevice (CONF:4515-32)."
   * representedOrganization 0..1
+    * ^short = "If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64)."
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."
     * nullFlavor 0..1
+      * ^short = "A nullFlavor of \"NA\" is allowed If the assignedAuthor is not a clinician"
       * ^comment = "The representedOrganization, if present, MAY contain zero or one [0..1] @nullFlavor (CONF:4515-35)."
     * id ..*
       * ^slicing.discriminator[0].type = #value

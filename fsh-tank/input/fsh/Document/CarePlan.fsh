@@ -144,6 +144,7 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
 * documentationOf[documentationOf1] ^comment = "SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it"
   * serviceEvent 1..1
     // Removed slicing on performer since it was only branched on assignedEntity which is required anyway
+    * ^short = "The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."
     * performer 1..*
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31907)."

@@ -39,7 +39,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     eventFrequency 0..1
 * effectiveTime[duration] only $IVL-TS
   * obeys 1098-32890
-  * ^short = "This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."
+  * ^short = "The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., \"10 days\"), the frequency of administration (e.g., \"every 8 hours\"), and more. Here, we require that there **SHALL** be an effectiveTime documentation of the duration (or single-administration timestamp), and that there **SHOULD** be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included. Note: This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"
   * value 0..1
     * ^short = "indicates a single-administration timestamp"
@@ -79,11 +79,13 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
     * obeys 1098-40000
+    * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)."
 * rateQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-7517)."
   * unit 1..1
   * unit from UnitsOfMeasureCaseSensitive (required)
+    * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The rateQuantity, if present, SHALL contain exactly one [1..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7525)."
 * maxDoseQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] maxDoseQuantity (CONF:1098-7518)."

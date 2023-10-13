@@ -131,6 +131,7 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
+            <short value="If the author is the recordTarget (patient), this is a patient goal.  If the author is a provider, this is a provider goal. If both patient and provider are authors, this is a negotiated goal. If no author is present, it is assumed the document or section author(s) is the author of this goal."/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-30995)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
@@ -155,7 +156,7 @@
         <element id="Observation.entryRelationship:entryRelationship1">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <short value="entryRelationship"/>
+            <short value="The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in entryRelationship to refer the template."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-30701) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -177,7 +178,7 @@
         <element id="Observation.entryRelationship:entryRelationship2">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
-            <short value="entryRelationship"/>
+            <short value="The following entryRelationship represents a planned component of the goal such as Planned Encounter (V2), Planned Observation (V2), Planned Procedure (V2), Planned Medication Activity (V2), Planned Supply (V2), Planned Act (V2) or Planned Immunization Activity. Because these entries are already described in the Interventions Section of the CDA document instance, rather than repeating the full content of the entries, the Entry Reference template may be used to reference the entries."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-30704) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -199,7 +200,7 @@
         <element id="Observation.entryRelationship:entryRelationship3">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
-            <short value="entryRelationship"/>
+            <short value="The following entryRelationship represents the priority that the patient or a provider puts on the goal."/>
             <comment value="SHOULD contain zero or one [0..1] entryRelationship (CONF:4515-30785) such that it"/>
             <min value="0"/>
             <max value="1"/>
@@ -221,7 +222,7 @@
         <element id="Observation.entryRelationship:entryRelationship4">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
-            <short value="entryRelationship"/>
+            <short value="The following entryRelationship represents the relationship between two Goal Observations where the target is a component of the source (Goal Observation HAS COMPONENT Goal Observation). The component goal (target) is a Milestone."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31448) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -243,7 +244,7 @@
         <element id="Observation.entryRelationship:entryRelationship5">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryRelationship5"/>
-            <short value="entryRelationship"/>
+            <short value="Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -286,6 +287,7 @@
         </element>
         <element id="Observation.reference">
             <path value="Observation.reference"/>
+            <short value="Where it is necessary to reference an external clinical document such a Referral document, Discharge Summary document etc., the External Document Reference template can be used to reference this document.  However, if this Care Plan document is replacing or appending another Care Plan document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."/>
             <comment value="MAY contain zero or more [0..*] reference (CONF:4515-32754)."/>
         </element>
         <element id="Observation.reference.typeCode">

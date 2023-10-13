@@ -123,14 +123,17 @@
         </element>
         <element id="Procedure.effectiveTime">
             <path value="Procedure.effectiveTime"/>
+            <short value="The effectiveTime in a planned procedure represents the time that the procedure should occur."/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-30447)."/>
         </element>
         <element id="Procedure.methodCode">
             <path value="Procedure.methodCode"/>
+            <short value="In a planned procedure the provider may suggest that a procedure should be performed using a particular method. MethodCode *SHALL NOT* conflict with the method inherent in Procedure/code."/>
             <comment value="MAY contain zero or more [0..*] methodCode (CONF:4515-31980)."/>
         </element>
         <element id="Procedure.targetSiteCode">
             <path value="Procedure.targetSiteCode"/>
+            <short value="The targetSiteCode is used to identify the part of the body of concern for the planned procedure."/>
             <comment value="MAY contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-31981)."/>
             <binding>
                 <strength value="required"/>
@@ -139,10 +142,12 @@
         </element>
         <element id="Procedure.performer">
             <path value="Procedure.performer"/>
+            <short value="The clinician who is expected to perform the procedure could be identified using procedure/performer."/>
             <comment value="MAY contain zero or more [0..*] performer (CONF:4515-30449)."/>
         </element>
         <element id="Procedure.author">
             <path value="Procedure.author"/>
+            <short value="The author in a planned procedure represents the clinician who is requesting or planning the procedure."/>
             <comment value="SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31979)."/>
             <max value="1"/>
             <type>
@@ -168,7 +173,7 @@
         <element id="Procedure.entryRelationship:entryRelationship1">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship1"/>
-            <short value="entryRelationship"/>
+            <short value="The following entryRelationship represents the priority that a patient or a provider places on the procedure."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31079) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -190,7 +195,7 @@
         <element id="Procedure.entryRelationship:entryRelationship2">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
-            <short value="entryRelationship"/>
+            <short value="The following entryRelationship represents the indication for the procedure."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31982) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -212,7 +217,7 @@
         <element id="Procedure.entryRelationship:entryRelationship3">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
-            <short value="entryRelationship"/>
+            <short value="The following entryRelationship captures any instructions associated with the planned procedure."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31985) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -240,7 +245,7 @@
         <element id="Procedure.entryRelationship:entryRelationship4">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship4"/>
-            <short value="entryRelationship"/>
+            <short value="The following entryRelationship represents the insurance coverage the patient may have for the procedure."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31990) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -262,7 +267,7 @@
         <element id="Procedure.entryRelationship:entryRelationship5">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship5"/>
-            <short value="entryRelationship"/>
+            <short value="When an Assessment Scale Observation is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Assessment scale **MAY** contain Assessment Scale observations that represent LOINC question and answer pairs from SDOH screening instruments."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32994) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -284,7 +289,7 @@
         <element id="Procedure.entryRelationship:entryRelationship6">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship6"/>
-            <short value="entryRelationship"/>
+            <short value="When an Entry Reference Template is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Entry Reference **MAY** refer to Assessment Scale Observation in the same document that represent LOINC question and answer pairs from SDOH screening instruments."/>
             <min value="0"/>
             <max value="*"/>
         </element>

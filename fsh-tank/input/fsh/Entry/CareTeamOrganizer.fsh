@@ -38,6 +38,7 @@ The components of the organizer contain the following information:
     * reference 1..1
       * ^comment = "SHALL contain exactly one [1..1] reference (CONF:4515-155)."
       * value 1..1
+        * ^short = "The value attribute references the narrative in section.text where the care team name is rendered. The intention of this reference is to clarify which care team this Organizer refers to."
         * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:4515-156)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-113)."
@@ -63,7 +64,7 @@ The components of the organizer contain the following information:
 * participant contains
     participant1 0..* and
     participant2 0..*
-* participant[participant1] ^short = "participant"
+* participant[participant1] ^short = "This Participant represents the Care Team lead."
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"
   * typeCode 1..1
   * typeCode = #PPRF (exactly)
@@ -114,7 +115,7 @@ The components of the organizer contain the following information:
   * observation 1..1
   * observation only CareTeamTypeObservation
     * ^comment = "SHALL contain exactly one [1..1] Care Team Type Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.2:2019-07-01) (CONF:4515-163)."
-* component[component2] ^short = "component"
+* component[component2] ^short = "The following components represent the reasons for the existence of the care team. These entry references are typically a health concern, risk concern or problem but can also be some other entry present in the document."
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-146) such that it"
   * act 1..1
   * act only EntryReference

@@ -34,6 +34,7 @@ Specimen(s) attached to a Result Organizer apply to all Result Observations cont
   * high 1..1
     * ^comment = "The effectiveTime, if present, SHALL contain exactly one [1..1] high (CONF:4537-32489)."
 * specimen 0..*
+  * ^short = "When an organizer is for laboratory,  observations are expected to include the specimen participant. The specimen included at specimenPlayingEntity/code must be consistent with the observation/code."
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4537-32615)."
   * specimenRole 1..1
     * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32616)."

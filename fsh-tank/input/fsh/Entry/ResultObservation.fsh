@@ -52,6 +52,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 * targetSiteCode 0..1
   * ^comment = "MAY contain zero or one [0..1] targetSiteCode (CONF:4537-7153)."
 * specimen 0..*
+  * ^short = "Laboratory observations are expected to include the specimen participant. The specimen included at specimenPlayingEntity/code must be consistent with the observation/code."
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4537-32611)."
   * specimenRole 1..1
     * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32612)."

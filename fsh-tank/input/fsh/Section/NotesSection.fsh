@@ -17,7 +17,7 @@ When a Notes Section is present, Note Activity entries contain structured inform
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:3250-16904) such that it"
 * entry contains entry1 1..*
-* entry[entry1] ^short = "entry"
+* entry[entry1] ^short = "If section/@nullFlavor is not present:"
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:3250-16904) such that it"
   * act 1..1
   * act only NoteActivity

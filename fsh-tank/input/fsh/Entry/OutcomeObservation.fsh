@@ -56,6 +56,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * observation only ProgressTowardGoalObservation
     * ^comment = "SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110) (CONF:1098-31430)."
 * entryRelationship[entryReference2] obeys 1098-32462
+  * ^short = "Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)

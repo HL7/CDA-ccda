@@ -47,7 +47,8 @@ The Operative Note is created immediately following a surgical or other high-ris
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8490)."
-    * performer[performer2] ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"
+    * performer[performer2] ^short = "This performer represents any assistants"
+      * ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"
       * typeCode 1..1
       * typeCode = #SPRF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRF\" Secondary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32738)."

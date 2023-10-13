@@ -66,7 +66,8 @@ Many systems display the nested Problem Observation with the most recent author 
   * observation 1..1
   * observation only ProblemObservation
     * ^comment = "SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15980)."
-* entryRelationship[priority] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-31638) such that it"
+* entryRelationship[priority] ^short = "The following entryRelationship represents the importance of the concern to a provider."
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-31638) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31639)."

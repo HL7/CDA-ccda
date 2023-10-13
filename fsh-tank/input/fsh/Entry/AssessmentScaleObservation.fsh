@@ -20,6 +20,7 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) DYNAMIC (CONF:4515-14439)."
 * derivationExpr 0..1
   * ^comment = "MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."
+  * ^short = "Such derivation expression can contain a text calculation of how the components total up to the summed score"
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-14444)."
   * code 1..1
@@ -27,6 +28,7 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-19088)."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-14445)."
+  * ^short = "Represents clinically effective time of the measurement, which may be when the measurement was performed (e.g., a BP measurement), or may be when sample was taken (and measured some time afterwards)"
 * value 1..1
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:4515-14450)."
 * interpretationCode 0..*
@@ -52,11 +54,13 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Supporting Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.86) (CONF:4515-16742)."
 * referenceRange 0..*
   * ^comment = "MAY contain zero or more [0..*] referenceRange (CONF:4515-16799)."
+  * ^short = "The referenceRange/observationRange/text, if present, MAY contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4515-16800)."
     * obeys should-text
     * text 0..1
       * ^comment = "This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)." // auto-should
+      * ^short = "The text may contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"
       * obeys should-reference
       * reference 0..1
         * ^comment = "The text, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-16802)." // auto-should
