@@ -107,13 +107,11 @@
             <comment value="SHALL contain exactly one [1..1] value (CONF:1098-28442)."/>
             <min value="1"/>
             <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
-            </type>
             <constraint>
                 <key value="1098-32487"/>
                 <severity value="error"/>
-                <human value="If xsi:type is CD, **SHALL** contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED-CT  urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-32487)."/>
+                <human value="If value contains a @code, then @codeSystem SHALL = &quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED-CT  urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-32487)."/>
+                <expression value="code.exists() implies codeSystem='2.16.840.1.113883.6.96'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CulturalandReligiousObservation"/>
             </constraint>
         </element>

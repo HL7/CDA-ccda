@@ -28,10 +28,10 @@ Description: "This template represents a patient's spiritual, religious, and cul
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-27937)."
 * value 1..1
-* value only $CD
   * obeys 1098-32487
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:1098-28442)."
 
 Invariant: 1098-32487
-Description: "If xsi:type is CD, **SHALL** contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED-CT  urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-32487)."
+Description: "If value contains a @code, then @codeSystem SHALL = \"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED-CT  urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-32487)."
 Severity: #error
+Expression: "code.exists() implies codeSystem='2.16.840.1.113883.6.96'"

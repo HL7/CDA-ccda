@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="DeviceIdentifierObservation"/>
-    <meta>
-        <versionId value="4"/>
-        <lastUpdated value="2023-07-11T23:41:38.984Z"/>
-    </meta>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -41,19 +37,32 @@
     <differential>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4524-3421)."/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:device-id-obs">
+            <path value="Observation.templateId"/>
+            <sliceName value="device-id-obs"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId.root">
+        <element id="Observation.templateId:device-id-obs.root">
             <path value="Observation.templateId.root"/>
-            <comment value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.304&quot; (CONF:4524-3424)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.304"/>
         </element>
-        <element id="Observation.templateId.extension">
+        <element id="Observation.templateId:device-id-obs.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="This templateId SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4524-3425)."/>
             <min value="1"/>
             <patternString value="2022-06-01"/>
         </element>
@@ -76,13 +85,13 @@
         </element>
         <element id="Observation.code.codeSystemName">
             <path value="Observation.code.codeSystemName"/>
+            <short value="MAY be set to 'NCI Thesaurus'"/>
             <comment value="This code MAY contain zero or one [0..1] @codeSystemName=&quot;NCI Thesaurus&quot; (CONF:4524-3428)."/>
-            <patternString value="NCI Thesaurus"/>
         </element>
         <element id="Observation.code.displayName">
             <path value="Observation.code.displayName"/>
+            <short value="MAY be set to 'Primary DI Number'"/>
             <comment value="This code MAY contain zero or one [0..1] @displayName=&quot;Primary DI Number&quot; (CONF:4524-3429)."/>
-            <patternString value="Primary DI Number"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
@@ -98,6 +107,7 @@
             <path value="Observation.value.displayable"/>
             <comment value="This value SHALL contain exactly one [1..1] @displayable=&quot;true&quot; (CONF:4524-3540)."/>
             <min value="1"/>
+            <patternBoolean value="true"/>
         </element>
         <element id="Observation.value.root">
             <path value="Observation.value.root"/>

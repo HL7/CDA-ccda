@@ -1,5 +1,5 @@
  <observation classCode="OBS" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <templateId root="2.16.840.1.113883.10.20.22.4.69"/>
+  <templateId root="2.16.840.1.113883.10.20.22.4.69" extension="2022-06-01"/>
   <id root="c6b5a04b-2bf4-49d1-8336-636a3813df0b"/>
   <code code="54614-3" 
              displayName="Brief Interview for Mental Status"
@@ -10,12 +10,16 @@
   <effectiveTime value="20120214"/>
   <!-- Summed score of the component values -->
   <value xsi:type="INT" value="7"/>
+  <!-- Supporting observations -->
   <entryRelationship typeCode="COMP">
     <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.86"/>
-            
-            . . .
-
+      <templateId root="2.16.840.1.113883.10.20.22.4.86" extension="2022-06-01"/>
+        <id root="f4dce790-8328-11db-9fe1-0800200c9a44"/>
+        <code code="248240001" displayName="motor response"
+                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED"/>
+        <statusCode code="completed"/>
+        <value xsi:type="INT" value="3"/>
     </observation>
   </entryRelationship>
+  <!-- Additional observations summing to 7 -->
 </observation>

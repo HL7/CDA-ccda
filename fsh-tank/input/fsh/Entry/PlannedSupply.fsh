@@ -32,7 +32,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^comment = "MAY contain zero or one [0..1] quantity (CONF:1098-32064)."
 * product 0..1
   * obeys 1098-32325 and 1098-32092
-  * ^short = "A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."
+  * ^short = "A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD). "
   * ^comment = "MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation or $ManufacturedProduct
@@ -49,6 +49,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^short = "This participant represents a device that is ordered, requested or intended for the patient."
 * participant contains productInstance 0..1
 * participant[productInstance] obeys 1098-32096
+  * ^short = "This participant represents a device that is ordered, requested or intended for the patient."
   * ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"
   * participantRole 1..1
   * participantRole only ProductInstance
@@ -88,7 +89,8 @@ Depending on the type of supply, the product or participant will be either a Med
   * act 1..1
   * act only Instruction
     * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32059)."
-* entryRelationship[plannedCoverage] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"
+* entryRelationship[plannedCoverage] ^short = "The following entryRelationship represents the insurance coverage the patient may have for the supply."
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32061)."

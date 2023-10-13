@@ -24,9 +24,9 @@ The Operative Note is created immediately following a surgical or other high-ris
       * obeys 1198-8487
       * ^comment = "SHALL contain exactly one [1..1] code."
     * effectiveTime 1..1
-    * effectiveTime only USRealmDateandTimeDTUSFIELDED
+    * effectiveTime only USRealmDateTimeInterval
       * obeys 1198-8488 and 1198-10058 and 1198-10060
-      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."
+      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."
     * performer ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
@@ -47,7 +47,8 @@ The Operative Note is created immediately following a surgical or other high-ris
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8490)."
-    * performer[performer2] ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"
+    * performer[performer2] ^short = "This performer represents any assistants"
+      * ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"
       * typeCode 1..1
       * typeCode = #SPRF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRF\" Secondary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32738)."

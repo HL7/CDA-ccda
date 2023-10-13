@@ -90,7 +90,7 @@ This id must be a pointer to another Performer."""
 * participant contains
     participant2 0..* and
     participant1 0..*
-* participant[participant2] ^short = "participant"
+* participant[participant2] ^short = "particThis participant represents the location where the care team member provides the serviceipant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
   * typeCode 1..1
   * typeCode = #LOC (exactly)
@@ -98,7 +98,7 @@ This id must be a pointer to another Performer."""
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4515-173)."
 * participant[participant1] obeys 4515-172
-  * ^short = "participant"
+  * ^short = "This participant is used to express additional care team functions performed by this member of the team. Include additional participant to record additional roles (functionCode) this Care Team member plays."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-76) such that it"
   * typeCode 1..1
   * typeCode = #IND (exactly)
@@ -127,7 +127,7 @@ This id must be a pointer to another Performer."""
     * id 1..1
       * obeys 4515-90
       * ^comment = "This encounter SHALL contain exactly one [1..1] id (CONF:4515-89)."
-* entryRelationship[entryRelationship2] ^short = "entryRelationship"
+* entryRelationship[entryRelationship2] ^short = "This is the note activity to naratively describe information about the member on the care team."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-91) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -135,7 +135,7 @@ This id must be a pointer to another Performer."""
   * act 1..1
   * act only NoteActivity
     * ^comment = "SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-93)."
-* entryRelationship[entryRelationship3] ^short = "entryRelationship"
+* entryRelationship[entryRelationship3] ^short = "This is the schedule of when or how frequently the care team member participates (or provides care to the patient) on the care team."
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

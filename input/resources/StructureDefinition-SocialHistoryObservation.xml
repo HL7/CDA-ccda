@@ -123,6 +123,7 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
+            <short value="NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="SHOULD contain zero or one [0..1] value (CONF:4515-8559)."/>
             <max value="1"/>
             <constraint>
@@ -169,7 +170,7 @@
         <element id="Observation.entryRelationship:social-history-entry-sprt-obs">
             <path value="Observation.entryRelationship"/>
             <sliceName value="social-history-entry-sprt-obs"/>
-            <short value="entryRelationship"/>
+            <short value="When an Assessment Scale Observation is contained in a Social History Observation instance that is a Social Determinant of Health Social History Observation, that Assessment Scale Observation MAY contain Assessment Scale Supporting Observations that contain LOINC question and answer pairs from SDOH screening instruments."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32958) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -191,7 +192,7 @@
         <element id="Observation.entryRelationship:social-history-entry-sprt-act">
             <path value="Observation.entryRelationship"/>
             <sliceName value="social-history-entry-sprt-act"/>
-            <short value="entryRelationship"/>
+            <short value="When an Entry Reference is contained in a Social History Template instance that is a Social Determinant of Health Social History, that Entry Reference **MAY** reference an Assessment Scale Observation elsewhere in the document that represent LOINC question and answer pairs from SDOH screening instruments."/>
             <min value="0"/>
             <max value="*"/>
         </element>

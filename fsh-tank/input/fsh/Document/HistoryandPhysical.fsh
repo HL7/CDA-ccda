@@ -37,9 +37,9 @@ A History and Physical Examination is required upon hospital admission as well a
     * id 1..*
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:1198-8340)."
     * effectiveTime 1..1
-    * effectiveTime only USRealmDateandTimeDTUSFIELDED
+    * effectiveTime only USRealmDateTimeInterval
       * ^short = "The effectiveTime represents the time interval or point in time in which the encounter took place."
-      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8341)."
+      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8341)."
     * responsibleParty 0..1
       * obeys 1198-8348
       * ^short = "The responsibleParty element records only the party responsible for the encounter, not necessarily the entire episode of care."

@@ -33,6 +33,7 @@ This observation is not appropriate for recording patient gender (administrative
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-33069)."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33068)."
+  * ^short = "The effectiveTime represents the relevant time of the observation. A patient's \"gender identity\" may change and using effectiveTime/low and effectiveTime/high defines the time during which the patient had identified as specified."
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-33070)."
   * high 0..1
@@ -43,4 +44,5 @@ This observation is not appropriate for recording patient gender (administrative
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Gender Identity USCDI core urn:oid:2.16.840.1.113762.1.4.1021.101 DYNAMIC (CONF:4537-1223)."
   * nullFlavor 0..1
   * nullFlavor from $2.16.840.1.113762.1.4.1114.17 (preferred)
+    * ^short = "To represent additional Gender Identities, set nullFlavor=\"OTH\". To represent \"choose not to disclose\", set nullFlavor=\"ASKU\"."
     * ^comment = "This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Asked but Unknown and Other urn:oid:2.16.840.1.113762.1.4.1114.17 DYNAMIC (CONF:4537-1232)."

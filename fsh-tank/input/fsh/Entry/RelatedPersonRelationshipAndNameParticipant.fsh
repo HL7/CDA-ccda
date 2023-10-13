@@ -19,6 +19,7 @@ Description: "This template represents a generic participant person that has a r
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] @classCode=\"PRS\" Person (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111) (CONF:4537-33076)."
   * code 1..1
   * code from $2.16.840.1.113883.11.20.12.1 (required)
+    * ^short = "This associatedEntity/code represents the person's relationship to the patient."
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-32985)."
   * addr 0..*
   * addr only USRealmAddressADUSFIELDED
@@ -27,6 +28,7 @@ Description: "This template represents a generic participant person that has a r
   * telecom 0..*
     * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-32986)." // auto-should
   * associatedPerson 1..1
+    * ^short = "The associatedPerson represents the name and contact information of the related person"
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:4537-32980)."
     * name 1..*
     * name only USRealmPersonNamePNUSFIELDED

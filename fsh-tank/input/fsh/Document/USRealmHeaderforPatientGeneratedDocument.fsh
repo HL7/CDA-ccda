@@ -32,7 +32,7 @@ The Patient Generated Document Header template is not a separate document type. 
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] preferenceInd (CONF:1198-28475)."
     * providerOrganization 0..1
       * ^label = "If present, this organization represents the provider organization where the person is claiming to be a patient."
-      * ^short = "If present, this organization represents the provider organization where the person is claiming to be a patient.\n\nundefined"
+      * ^short = "If present, this organization represents the provider organization where the person is claiming to be a patient."
       * ^comment = "This patientRole MAY contain zero or one [0..1] providerOrganization (CONF:1198-28476)."
 * author 1..*
   * ^short = "The author element represents the creator of the clinical document.  The author may be a device, or a person. The person is the patient or the patient's advocate."
@@ -143,6 +143,7 @@ The Patient Generated Document Header template is not a separate document type. 
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)." // auto-should
       * typeCode 1..1
       * typeCode from $2.16.840.1.113883.1.11.19601 (required)
+        * ^short = "When indicating the performer was the primary care physician, implementers should indicate \"PCP\" as the functionCode"
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
       * functionCode 0..1
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."

@@ -92,10 +92,10 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
-            <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."/>
+            <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
             <constraint>
                 <key value="1198-8488"/>
@@ -164,6 +164,7 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <sliceName value="performer2"/>
+            <short value="This performer represents any assistants"/>
             <comment value="This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"/>
             <min value="0"/>
             <max value="*"/>

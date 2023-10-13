@@ -82,7 +82,8 @@ Description: "This template represents the type of referral (e.g., for dental ca
     * value only $CD
     * value from $2.16.840.1.113883.11.20.9.61 (preferred)
       * ^comment = "This observation SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet Care Model urn:oid:2.16.840.1.113883.11.20.9.61 DYNAMIC (CONF:1098-31611)."
-* entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31635) such that it"
+* entryRelationship[indication] ^short = "The following entryRelationship represents a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31635) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31636)."

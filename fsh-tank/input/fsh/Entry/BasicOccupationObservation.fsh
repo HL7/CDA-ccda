@@ -31,14 +31,17 @@ Implementers wishing to convey more advanced Occupation detail, such as employer
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33005)."
   * low 1..1
+    * ^short = "The low value reflects the start date of the recorded occupation."
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-33007)."
   * high 0..1
+    * ^short = "The high value reflects the end date of the recorded occupation. An absent high value means the occupation was current at the time the document was generated."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33008)."
 * value 1..1
 * value only $CD
 * value from $2.16.840.1.114222.4.11.7901 (required)
   * ^comment = "SHALL contain exactly one [1..1] value, which SHALL be selected from ValueSet Occupation ONETSOC Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7901 DYNAMIC (CONF:4537-33006)."
 * subject 0..1
+  * ^short = "Indicates that this observation is for a related person whose occupation may affect the patient."
   * ^comment = "MAY contain zero or one [0..1] subject (CONF:4537-33058)."
   * relatedSubject 1..1
     * ^comment = "The subject, if present, SHALL contain exactly one [1..1] relatedSubject (CONF:4537-33059)."

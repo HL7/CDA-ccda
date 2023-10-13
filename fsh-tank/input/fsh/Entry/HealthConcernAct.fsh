@@ -38,6 +38,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:4515-30759)."
 * author 0..*
 * author only AuthorParticipation
+  * ^short = "A health concern may be a patient or provider concern. If the author is set to the recordTarget (patient), this is a patient concern. If the author is set to a provider, this is a provider concern. If both patient and provider are set as authors, this is a concern of both the patient and the provider."
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31546)."
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "act"
@@ -94,7 +95,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * observation 1..1
   * observation only AllergyIntoleranceObservation
     * ^comment = "SHALL contain exactly one [1..1] Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09) (CONF:4515-31186)."
-* entryRelationship[entryRelationship3] ^short = "entryRelationship"
+* entryRelationship[entryRelationship3] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern REFERS TO Health Concern).  For example, a patient has 2 health concerns identified in a CARE Plan: Failure to Thrive and Poor Feeding, while it could be that one may have caused the other, at the time of care planning and documentation it is not necessary, nor desirable to have to assert what caused what. The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31157) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -103,7 +104,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * act only EntryReference
     * obeys 4515-32860
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32106)."
-* entryRelationship[entryRelationship4] ^short = "entryRelationship"
+* entryRelationship[entryRelationship4] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where the target is a component of the source (Health Concern HAS COMPONENT Health Concern). For example, a patient has an Impaired Mobility Health Concern. There may then be the need to document several component health concerns, such as \"Unable to Transfer Bed to Chair\",\"Unable to Rise from Commode\", \"Short of Breath Walking with Walker\". The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31160) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -272,7 +273,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * observation 1..1
   * observation only LongitudinalCareWoundObservation
     * ^comment = "SHALL contain exactly one [1..1] Longitudinal Care Wound Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01) (CONF:4515-31340)."
-* entryRelationship[entryRelationship25] ^short = "entryRelationship"
+* entryRelationship[entryRelationship25] ^short = "The following entryRelationship represents the relationship Health Concern HAS SUPPORT Observation."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31365) such that it"
   * typeCode 1..1
   * typeCode = #SPRT (exactly)
@@ -320,7 +321,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * organizer 1..1
   * organizer only ResultOrganizer
     * ^comment = "SHALL contain exactly one [1..1] Result Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01) (CONF:4515-31382)."
-* entryRelationship[entryRelationship31] ^short = "entryRelationship"
+* entryRelationship[entryRelationship31] ^short = "The following entryRelationship represents the priority that the patient or a provider puts on the health concern."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31442) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -328,7 +329,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * observation 1..1
   * observation only PriorityPreference
     * ^comment = "SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-31444)."
-* entryRelationship[entryRelationship32] ^short = "entryRelationship"
+* entryRelationship[entryRelationship32] ^short = "Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -337,6 +338,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31551)."
 * reference 0..*
+  * ^short = "Where it is necessary to reference an external clinical document such as a Referral document, Discharge Summary document etc., the External Document Reference template can be used to reference this document.  However, if this Care Plan document is replacing or appending another Care Plan document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:4515-32757)."
   * typeCode 1..1
   * typeCode = #REFR (exactly)

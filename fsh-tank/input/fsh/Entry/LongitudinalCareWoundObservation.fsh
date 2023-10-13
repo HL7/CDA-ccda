@@ -78,7 +78,8 @@ Description: "This template represents acquired or surgical wounds and is not in
   * observation 1..1
   * observation only NumberofPressureUlcersObservation
     * ^comment = "SHALL contain exactly one [1..1] Number of Pressure Ulcers Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.76:2015-08-01) (CONF:1198-31892)."
-* entryRelationship[highestPressureUlcerStage] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1198-31893) such that it"
+* entryRelationship[highestPressureUlcerStage] ^short = "When the wound observed is a type of pressure ulcer, then this template SHOULD contain an entry for the Highest Pressure Ulcer Stage."
+  * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1198-31893) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31894)."

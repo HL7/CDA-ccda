@@ -45,6 +45,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4515-7670)."
 * targetSiteCode 0..*
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
+  * ^short = "In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."
   * ^comment = "SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)."
 * specimen 0..*
   * obeys 4515-16842
@@ -183,7 +184,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * observation 1..1
   * observation only ReactionObservation
     * ^comment = "SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:4515-32475)."
-* entryRelationship[entryRelationship6] ^short = "entryRelationship"
+* entryRelationship[entryRelationship6] ^short = "When an Assessment Scale Observation is contained in a Procedure Template instance that is a Social Determinant of Health intervention procedure, that Assessment scale **MAY** contain Assessment Scale observations that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32985) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -191,7 +192,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32986)."
-* entryRelationship[entryRelationship7] ^short = "entryRelationship"
+* entryRelationship[entryRelationship7] ^short = "When an Entry Reference Template is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Entry Reference **MAY** refer to Assessment Scale Observation in the same document that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)

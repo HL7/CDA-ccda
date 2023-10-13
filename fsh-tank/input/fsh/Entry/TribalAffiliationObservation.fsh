@@ -29,6 +29,7 @@ Please see [Indian Entities Recognized by and Eligible To Receive Services From 
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-10)."
 * effectiveTime 1..1
+  * ^short = "The effectiveTime reflects a point in time observation when the current tribal affiliation status was observed. Note: This template represents a \"snapshot in time\" observation, simply reflecting the patient's tribal affiliation at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-11)."
   * low 1..1
     * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] low (CONF:4537-33048)."

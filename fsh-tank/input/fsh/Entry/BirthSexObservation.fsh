@@ -35,6 +35,7 @@ It is recommended systems include the Birth Sex observation in the Social Histor
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-33035)."
 * effectiveTime 1..1
+  * ^short = "Note: This template represents a \"snapshot in time\" observation, simply reflecting the patient's sex at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp. Since this represents Birth Sex it SHALL match the birthTime."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33043)."
   * low 1..1
     * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] low (CONF:4537-33044)."
