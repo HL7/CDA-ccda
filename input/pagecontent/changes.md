@@ -53,3 +53,4 @@ The changes in this version of Consolidated CDA have been made from STU comments
 40. CDA-20767 - Remove CarePlan intendedRecipient/receivedOrganization/name rule
 41. CDA-1789 - Provided guidance on using PlannedEncounter template for future encounters.
 42. CDA-1873 - Changed Encounter Diagnosis statusCode to be 'completed'.
+43. CDA-20814 - Updated all UDI templates to allow additional templateIds
