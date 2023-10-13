@@ -48,10 +48,11 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-32976)." // auto-should
     * name 1..*
       * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] name (CONF:4515-32977)."
-      * family 1..1
+      * obeys shall-family
+      * item.family ^short = "Family required"
         * ^comment = "Such names SHALL contain exactly one [1..1] family (CONF:4515-17)."
       * obeys should-given
-      * given 0..*
+      * item.given ^short = "SHOULD contain given"
         * ^comment = "Such names SHOULD contain zero or more [0..*] given (CONF:4515-18)." // auto-should
   * assignedAuthoringDevice 0..1
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] assignedAuthoringDevice (CONF:4515-32)."

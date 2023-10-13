@@ -38,7 +38,7 @@ Expression: "componentOf.exists()"
 Invariant: should-country
 Description: "SHOULD contain country"
 Severity: #warning
-Expression: "country.exists()"
+Expression: "item.country.exists()"
 
 Invariant: should-documentationOf
 Description: "SHOULD contain documentationOf"
@@ -68,7 +68,7 @@ Expression: "extension.exists()"
 Invariant: should-given
 Description: "SHOULD contain given"
 Severity: #warning
-Expression: "given.exists()"
+Expression: "item.given.exists()"
 
 Invariant: should-high
 Description: "SHOULD contain high"

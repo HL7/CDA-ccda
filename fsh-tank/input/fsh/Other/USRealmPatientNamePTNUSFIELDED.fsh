@@ -7,28 +7,24 @@ Description: """The US Realm Patient Name datatype flavor is a set of reusable c
 For information on mixed content see the Extensible Markup Language reference (http://www.w3c.org/TR/2008/REC-xml-20081126/)."""
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.1"
-* obeys 81-7278
+* obeys shall-family and shall-given and shall-max-suffix and 81-7278
 * use 0..1
   * ^short = "If name/@nullFlavor is present, the remaining conformance statements *SHALL NOT* be enforced"
   * ^comment = "MAY contain zero or one [0..1] @use, which SHALL be selected from ValueSet EntityNameUse urn:oid:2.16.840.1.113883.1.11.15913 STATIC 2005-05-01 (CONF:81-7154)."
-* family 1..1
-  * ^comment = "SHALL contain exactly one [1..1] family (CONF:81-7159)."
+* item.family
   * qualifier 0..1
   * qualifier from EntityPersonNamePartQualifier (required)
     * ^comment = "This family MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7160)."
-* given 1..*
-  * obeys 81-7163
+* item.given ^short = "The first given is the first name. The second occurrence of given, if provided, SHALL include middle nam eor middle initial."
   * ^comment = "SHALL contain at least one [1..*] given (CONF:81-7157)."
   * qualifier 0..1
   * qualifier from EntityPersonNamePartQualifier (required)
     * ^comment = "Such givens MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7158)."
-* prefix 0..*
-  * ^comment = "MAY contain zero or more [0..*] prefix (CONF:81-7155)."
+* item.prefix ^comment = "MAY contain zero or more [0..*] prefix (CONF:81-7155)."
   * qualifier 0..1
   * qualifier from EntityPersonNamePartQualifier (required)
     * ^comment = "The prefix, if present, MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7156)."
-* suffix 0..1
-  * ^comment = "MAY contain zero or one [0..1] suffix (CONF:81-7161)."
+* item.suffix ^comment = "MAY contain zero or one [0..1] suffix (CONF:81-7161)."
   * qualifier 0..1
   * qualifier from EntityPersonNamePartQualifier (required)
     * ^comment = "The suffix, if present, MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7162)."
@@ -36,7 +32,19 @@ For information on mixed content see the Extensible Markup Language reference (h
 Invariant: 81-7278
 Description: "**SHALL NOT** have mixed content except for white space (CONF:81-7278)."
 Severity: #error
+Expression: "item.xmlText.empty()"
 
-Invariant: 81-7163
-Description: "The second occurrence of given (given[2]) if provided, SHALL include middle name or middle initial (CONF:81-7163)."
-Severity: #warning
+Invariant: shall-family
+Description: "SHALL contain exactly one [1..1] family (CONF:81-7159)."
+Severity: #error
+Expression: "nullFlavor.exists() or item.family.count() = 1"
+
+Invariant: shall-given
+Description: "SHALL contain at least one [1..*] given (CONF:81-7157)."
+Severity: #error
+Expression: "nullFlavor.exists() or item.given.exists()"
+
+Invariant: shall-max-suffix
+Description: "There may be at most one suffix"
+Severity: #error
+Expression: "(item.suffix.empty() or item.suffix.count() = 1)"
