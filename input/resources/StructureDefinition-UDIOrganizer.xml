@@ -39,15 +39,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Organizer.classCode">
-            <path value="Organizer.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; (CONF:4437-3482)."/>
-            <fixedCode value="CLUSTER"/>
-        </element>
-        <element id="Organizer.moodCode">
-            <path value="Organizer.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CONF:4437-3483)."/>
-        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -63,25 +54,30 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Organizer.templateId:templateId1">
+        <element id="Organizer.templateId:UDI-org">
             <path value="Organizer.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4437-3480) such that it"/>
+            <sliceName value="UDI-org"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Organizer.templateId:templateId1.root">
+        <element id="Organizer.templateId:UDI-org.root">
             <path value="Organizer.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.311&quot; (CONF:4437-3484)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.311"/>
         </element>
-        <element id="Organizer.templateId:templateId1.extension">
+        <element id="Organizer.templateId:UDI-org.extension">
             <path value="Organizer.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2019-06-21&quot; (CONF:4437-3485)."/>
             <min value="1"/>
             <patternString value="2019-06-21"/>
+        </element>
+        <element id="Organizer.classCode">
+            <path value="Organizer.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; (CONF:4437-3482)."/>
+            <fixedCode value="CLUSTER"/>
+        </element>
+        <element id="Organizer.moodCode">
+            <path value="Organizer.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CONF:4437-3483)."/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>

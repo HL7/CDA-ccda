@@ -19,34 +19,8 @@ Care expectations may range from being treated only by female clinicians, to exp
 Overarching goals described in this section are not tied to a specific condition, problem, health concern, or intervention. Examples of overarching goals could be to minimize pain or dependence on others, or to walk a daughter down the aisle for her marriage. 
 
 The plan may also indicate that patient education will be provided."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09"
-* ^version = "2014-06-09"
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-7723) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.2.10"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.2.10\" (CONF:1098-10435)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32501)."
-* code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-14749)."
-  * code 1..1
-  * code = #18776-5
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"18776-5\" Plan of Treatment (CONF:1098-14750)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-30813)."
-* title 1..1
-  * ^comment = "SHALL contain exactly one [1..1] title (CONF:1098-16986)."
-* text 1..1
-  * ^comment = "SHALL contain exactly one [1..1] text (CONF:1098-7725)."
+
+* insert Section(#18776-5, Plan of Treatment, 2.16.840.1.113883.10.20.22.2.10, 2014-06-09)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"

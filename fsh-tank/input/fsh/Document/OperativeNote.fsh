@@ -5,23 +5,10 @@ Title: "Operative Note"
 Description: """The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory agencies. 
 
 The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.7:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(operative-note, 2.16.840.1.113883.10.20.22.1.7, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8483) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.7"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.7\" (CONF:1198-10048)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32519)."
 * code 1..1
   * ^short = "The Operative Note recommends use of a single document type code, 11504-8 \"Provider-unspecified Operation Note\", with further specification provided by author or performer, setting, or specialty data in the CDA header. Some of the LOINC codes in the Surgical Operation Note Document Type Code table are pre-coordinated with the practice setting or the training or professional level of the author. Use of pre-coordinated codes is not recommended because of potential conflict with other information in the header. When these codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17187)."
@@ -32,18 +19,16 @@ The Operative Note is created immediately following a surgical or other high-ris
   * ^short = "A serviceEvent represents the main act, such as a colonoscopy or an appendectomy, being documented. A serviceEvent can further specialize the act inherent in the ClinicalDocument/code, such as where the ClinicalDocument/code is simply \"Surgical Operation Note\" and the procedure is \"Appendectomy.\" serviceEvent is required in the Operative Note and it must be equivalent to or further specialize the value inherent in the ClinicalDocument/code; it shall not conflict with the value inherent in the ClinicalDocument/code, as such a conflict would create ambiguity. serviceEvent/effectiveTime can be used to indicate the time the actual event (as opposed to the encounter surrounding the event) took place. If the date and the duration of the procedure is known, serviceEvent/effectiveTime/low is used with a width element that describes the duration; no high element is used. However, if only the date is known, the date is placed in both the low and high elements."
   * ^comment = "SHALL contain at least one [1..*] documentationOf (CONF:1198-8486)."
   * serviceEvent 1..1
-    * obeys 1198-8487
     * ^comment = "Such documentationOfs SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8493)."
+    * code 1..1
+      * obeys 1198-8487
+      * ^comment = "SHALL contain exactly one [1..1] code."
     * effectiveTime 1..1
-    * effectiveTime only USRealmDateandTimeDTUSFIELDED
+    * effectiveTime only USRealmDateTimeInterval
       * obeys 1198-8488 and 1198-10058 and 1198-10060
-      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."
-    * performer ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "assignedEntity"
-      * ^slicing.discriminator[+].type = #value
+      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."
+    * performer ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
-      * ^slicing.discriminator[+].type = #value
-      * ^slicing.discriminator[=].path = "functionCode"
       * ^slicing.rules = #open
       * ^short = "This performer represents any assistants."
     * performer contains
@@ -62,7 +47,8 @@ The Operative Note is created immediately following a surgical or other high-ris
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8490)."
-    * performer[performer2] ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"
+    * performer[performer2] ^short = "This performer represents any assistants"
+      * ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"
       * typeCode 1..1
       * typeCode = #SPRF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRF\" Secondary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32738)."
@@ -94,8 +80,8 @@ The Operative Note is created immediately following a surgical or other high-ris
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-9585)."
   * structuredBody 1..1
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30485)."
-    * component ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "ClinicalDocument.section"
+    * component ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         component1 1..1 and
@@ -164,7 +150,7 @@ The Operative Note is created immediately following a surgical or other high-ris
         * ^comment = "SHALL contain exactly one [1..1] Surgical Drains Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.13) (CONF:1198-30517)."
 
 Invariant: 1198-8487
-Description: "The value of serviceEvent/code **SHALL** be from ICD9 CM Procedures (CodeSystem 2.16.840.1.113883.6.104), CPT-4 (CodeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (CodeSystem 2.16.840.1.113883.6.96) ValueSet Procedure 2.16.840.1.113883.3.88.12.80.28 *DYNAMIC* (CONF:1198-8487)."
+Description: "The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD-9-CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT-4 (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC (CONF:1198-8511)."
 Severity: #error
 
 Invariant: 1198-8488

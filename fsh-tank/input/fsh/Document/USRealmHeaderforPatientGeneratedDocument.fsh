@@ -4,23 +4,10 @@ Id: USRealmHeaderforPatientGeneratedDocument
 Title: "US Realm Header for Patient Generated Document"
 Description: """This template is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. 
 The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.29.1:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(us-patient-gen-doc, 2.16.840.1.113883.10.20.29.1, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28458) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.29.1"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.29.1\" (CONF:1198-28459)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32917)."
 * recordTarget 1..1
   * ^short = "The recordTarget records the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element. \n\nIf the document receiver is interested in setting up a translator for the encounter with the patient, the receiver of the document will have to infer the need for a translator, based upon the language skills identified for the patient, the patient's language of preference and the predominant language used by the organization receiving the CDA.\n\nHL7 Vocabulary simply describes guardian as a relationship to a ward.  This need not be a formal legal relationship. When a guardian relationship exists for the patient, it can be represented, regardless of who is present at the time the document is generated. This need not be a formal legal relationship. A child's parent can be represented in the guardian role.  In this case, the guardian/code element would encode the personal relationship of \"mother\" for the child's mom or \"father\" for the child's dad. An elderly person's child can be represented in the guardian role. In this case, the guardian/code element would encode the personal relationship of \"daughter\" or \"son\", or if a legal relationship existed, the relationship of \"legal guardian\" could be encoded."
   * ^comment = "SHALL contain exactly one [1..1] recordTarget (CONF:1198-28460)."
@@ -32,19 +19,20 @@ The Patient Generated Document Header template is not a separate document type. 
       * ^comment = "This patientRole SHALL contain exactly one [1..1] patient (CONF:1198-28465)."
       * guardian 0..*
         * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:1198-28469)."
+        * obeys should-id
         * id 0..*
-          * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] id (CONF:1198-28470)."
+          * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] id (CONF:1198-28470)." // auto-should
         * code 0..1
         * code from $2.16.840.1.113883.11.20.12.1 (required)
           * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28473)."
       * languageCommunication 0..*
-        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication (CONF:1198-28474)."
+        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."
         * preferenceInd 0..1
           * ^short = "Indicates a preference for information about care delivery and treatments be communicated (or translated if needed) into this language.\n\nIf more than one languageCommunication is present, only one languageCommunication element SHALL have a preferenceInd with a value of 1.\n"
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] preferenceInd (CONF:1198-28475)."
     * providerOrganization 0..1
       * ^label = "If present, this organization represents the provider organization where the person is claiming to be a patient."
-      * ^short = "If present, this organization represents the provider organization where the person is claiming to be a patient.\n\nundefined"
+      * ^short = "If present, this organization represents the provider organization where the person is claiming to be a patient."
       * ^comment = "This patientRole MAY contain zero or one [0..1] providerOrganization (CONF:1198-28476)."
 * author 1..*
   * ^short = "The author element represents the creator of the clinical document.  The author may be a device, or a person. The person is the patient or the patient's advocate."
@@ -53,9 +41,10 @@ The Patient Generated Document Header template is not a separate document type. 
     * ^comment = "Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:1198-28478)."
     * id 1..*
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] id (CONF:1198-28479)."
+    * obeys should-code
     * code 0..1
       * ^short = "When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."
-      * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-28481)."
+      * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-28481)." // auto-should
       * code 1..1
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
         * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28676)."
@@ -67,12 +56,9 @@ The Patient Generated Document Header template is not a separate document type. 
     * code 0..1
     * code from $2.16.840.1.113883.11.20.12.1 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28680)."
-* informant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "relatedEntity"
-  * ^slicing.rules = #open
+// Removing slicing since only discriminator is always required
+* informant 0..*
   * ^short = "The informant element describes the source of the information in a medical document.\n\nAssigned health care providers may be a source of information when a document is created. (e.g., a nurse's aide who provides information about a recent significant health care event that occurred within an acute care facility.) In these cases, the assignedEntity element is used.\n\nWhen the informant is a personal relation, that informant is represented in the relatedEntity element, even if the personal relation is a medical professional.  The code element of the relatedEntity describes the relationship between the informant and the patient. The relationship between the informant and the patient  needs to be described to help the receiver of the clinical document understand the information in the document. \n\nEach informant can be either an assignedEntity (a clinician serving the patient) OR a relatedEntity (a person with a personal or legal relationship with the patient). The constraints here apply to relatedEntity."
-* informant[informant1] 0..*
-  * ^comment = "MAY contain zero or more [0..*] informant (CONF:1198-28681) such that it"
   * relatedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:1198-28682)."
     * code 0..1
@@ -96,9 +82,10 @@ The Patient Generated Document Header template is not a separate document type. 
   * ^comment = "MAY contain zero or more [0..*] informationRecipient (CONF:1198-28690)."
   * intendedRecipient 1..1
     * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-28691)."
+    * obeys should-id
     * id 0..*
       * ^short = "The combined @root and @extension  attributes to record the information recipient's identity in a secure, trusted, and unique way."
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] id (CONF:1198-28692)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] id (CONF:1198-28692)." // auto-should
       * root 0..1
         * ^short = "For a provider, the id/@root =\"2.16.840.1.113883.4.6\" indicates the National Provider Identifier where id/@extension is the NPI number for the provider.\n\nThe ids MAY reference the id of a person or organization entity specified elsewhere in the document."
         * ^comment = "The id, if present, SHOULD contain zero or one [0..1] @root (CONF:1198-28693)."
@@ -147,14 +134,22 @@ The Patient Generated Document Header template is not a separate document type. 
   * ^comment = "MAY contain zero or more [0..*] documentationOf (CONF:1198-28710)."
   * serviceEvent 1..1
     * ^comment = "The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-28711)."
+    * obeys should-code
     * code 0..1
       * ^short = "The code should be selected from a value set established by the document-level template for a specific type of Patient Generated Document."
-      * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] code (CONF:1198-28712)."
+      * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] code (CONF:1198-28712)." // auto-should
+    * obeys should-performer
     * performer 0..*
-      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)."
+      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)." // auto-should
+      * typeCode 1..1
+      * typeCode from $2.16.840.1.113883.1.11.19601 (required)
+        * ^short = "When indicating the performer was the primary care physician, implementers should indicate \"PCP\" as the functionCode"
+        * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
       * functionCode 0..1
-        * ^short = "The functionCode SHALL be selected from value set ParticipationType 2.16.840.1.113883.1.11.10901 \n\nWhen indicating the performer was the primary care physician the functionCode shall be ='PCP'"
-        * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:1198-28714)."
+        * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
+        * code 0..1
+        * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
+          * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)."
       * assignedEntity 1..1
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-28715)."
         * id 1..*

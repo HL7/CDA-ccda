@@ -3,34 +3,8 @@ Parent: $Section
 Id: SocialHistorySection
 Title: "Social History Section"
 Description: "This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01"
-* ^version = "2015-08-01"
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-7936) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.2.17"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.2.17\" (CONF:1198-10449)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32494)."
-* code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-14819)."
-  * code 1..1
-  * code = #29762-2
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"29762-2\" Social History (CONF:1198-14820)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30814)."
-* title 1..1
-  * ^comment = "SHALL contain exactly one [1..1] title (CONF:1198-7938)."
-* text 1..1
-  * ^comment = "SHALL contain exactly one [1..1] text (CONF:1198-7939)."
+
+* insert Section(#29762-2, Social History, 2.16.840.1.113883.10.20.22.2.17, 2015-08-01)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"

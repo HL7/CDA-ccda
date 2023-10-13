@@ -8,23 +8,10 @@ The next portion of the report contains information obtained by physically exami
 The report ends with the clinician's assessment of the patient's situation and the intended plan to address those issues. 
 A History and Physical Examination is required upon hospital admission as well as before operative procedures. An initial evaluation in an ambulatory setting is often documented in the form of an H&P note.
 """
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.3:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(history-physical, 2.16.840.1.113883.10.20.22.1.3, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8283) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.3"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.3\" (CONF:1198-10046)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32518)."
 * code 1..1
   * ^short = "The H&P Note recommends use of a single document type code, 34117-2 \"History and physical note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17185)."
@@ -50,9 +37,9 @@ A History and Physical Examination is required upon hospital admission as well a
     * id 1..*
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:1198-8340)."
     * effectiveTime 1..1
-    * effectiveTime only USRealmDateandTimeDTUSFIELDED
+    * effectiveTime only USRealmDateTimeInterval
       * ^short = "The effectiveTime represents the time interval or point in time in which the encounter took place."
-      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8341)."
+      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8341)."
     * responsibleParty 0..1
       * obeys 1198-8348
       * ^short = "The responsibleParty element records only the party responsible for the encounter, not necessarily the entire episode of care."

@@ -35,6 +35,37 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Organizer.templateId">
+            <path value="Organizer.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Organizer.templateId:vital-signs-org">
+            <path value="Organizer.templateId"/>
+            <sliceName value="vital-signs-org"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.templateId:vital-signs-org.root">
+            <path value="Organizer.templateId.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.26"/>
+        </element>
+        <element id="Organizer.templateId:vital-signs-org.extension">
+            <path value="Organizer.templateId.extension"/>
+            <min value="1"/>
+            <patternString value="2015-08-01"/>
+        </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; CLUSTER (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7279)."/>
@@ -43,40 +74,6 @@
         <element id="Organizer.moodCode">
             <path value="Organizer.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7280)."/>
-        </element>
-        <element id="Organizer.templateId">
-            <path value="Organizer.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="extension"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Organizer.templateId:primary">
-            <path value="Organizer.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-7281) such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Organizer.templateId:primary.root">
-            <path value="Organizer.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.26&quot; (CONF:1198-10528)."/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.22.4.26"/>
-        </element>
-        <element id="Organizer.templateId:primary.extension">
-            <path value="Organizer.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32582)."/>
-            <min value="1"/>
-            <patternString value="2015-08-01"/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>

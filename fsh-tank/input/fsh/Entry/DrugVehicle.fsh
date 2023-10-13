@@ -3,20 +3,12 @@ Parent: $ParticipantRole
 Id: DrugVehicle
 Title: "Drug Vehicle"
 Description: "This template represents the vehicle (e.g., saline, dextrose) for administering a medication."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.24"
+
+* insert LogicalModelTemplateRootOnly(drug-vehicle, 2.16.840.1.113883.10.20.22.4.24)
+
 * classCode 1..1
 * classCode = #MANU (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"MANU\" (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7490)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:81-7495) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.24"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.24\" (CONF:81-10493)."
-  * extension 0..0
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:81-19137)."
   * code 1..1

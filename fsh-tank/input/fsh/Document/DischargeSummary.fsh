@@ -11,23 +11,10 @@ Description: """The Discharge Summary is a document which synopsizes a patient's
 *  Provisions for follow-up care
 
 The best practice for a Discharge Summary is to include the discharge disposition in the display of the header."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.8:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(discharge-summary, 2.16.840.1.113883.10.20.22.1.8, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8463) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.8"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.8\" (CONF:1198-10044)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32517)."
 * code 1..1
   * ^short = "The Discharge Summary recommends use of a single document type code, 18842-5 \"Discharge summary\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17178)."
@@ -74,8 +61,8 @@ The best practice for a Discharge Summary is to include the discharge dispositio
     * ^short = "In this template (templateId 2.16.840.1.113883.10.20.22.1.8.2), coded entries are optional."
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30518)."
     * component 4..
-      * ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "ClinicalDocument.section"
+      * ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         component1 1..1 and

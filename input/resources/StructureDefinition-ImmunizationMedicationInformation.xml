@@ -35,10 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="ManufacturedProduct.classCode">
-            <path value="ManufacturedProduct.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."/>
-            <min value="1"/>
+        <element id="ManufacturedProduct">
+            <path value="ManufacturedProduct"/>
+            <constraint>
+                <key value="should-manufacturerOrganization"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain manufacturerOrganization"/>
+                <expression value="manufacturerOrganization.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
+            </constraint>
         </element>
         <element id="ManufacturedProduct.templateId">
             <path value="ManufacturedProduct.templateId"/>
@@ -55,24 +60,26 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="ManufacturedProduct.templateId:primary">
+        <element id="ManufacturedProduct.templateId:immunization-med-info">
             <path value="ManufacturedProduct.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-9004) such that it"/>
+            <sliceName value="immunization-med-info"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ManufacturedProduct.templateId:primary.root">
+        <element id="ManufacturedProduct.templateId:immunization-med-info.root">
             <path value="ManufacturedProduct.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.54&quot; (CONF:1098-10499)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.54"/>
         </element>
-        <element id="ManufacturedProduct.templateId:primary.extension">
+        <element id="ManufacturedProduct.templateId:immunization-med-info.extension">
             <path value="ManufacturedProduct.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32602)."/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="ManufacturedProduct.classCode">
+            <path value="ManufacturedProduct.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."/>
+            <min value="1"/>
         </element>
         <element id="ManufacturedProduct.id">
             <path value="ManufacturedProduct.id"/>
@@ -82,6 +89,13 @@
             <path value="ManufacturedProduct.manufacturedMaterial"/>
             <comment value="SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-9006)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-lotNumberText"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain lotNumberText"/>
+                <expression value="lotNumberText.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
+            </constraint>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code">
             <path value="ManufacturedProduct.manufacturedMaterial.code"/>

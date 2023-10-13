@@ -9,28 +9,15 @@ Interventions are actions taken to increase the likelihood of achieving the pati
 Intervention Acts can be related to each other, or to Planned Intervention Acts. (E.g., a Planned Intervention Act with moodCode of INT could be related to a series of Intervention Acts with moodCode of EVN, each having an effectiveTime containing the time of the intervention.) 
 
 All interventions referenced in an Intervention Act must have a moodCode of EVN, indicating that they have occurred."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.131:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(intervention-act, 2.16.840.1.113883.10.20.22.4.131, 2015-08-01)
+
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-30971)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-30972)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-30973) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.131"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.131\" (CONF:1198-30974)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32916)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-30975)."
 * code 1..1
@@ -46,8 +33,9 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-32316)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-31624)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-31624)." // auto-should
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31552)."

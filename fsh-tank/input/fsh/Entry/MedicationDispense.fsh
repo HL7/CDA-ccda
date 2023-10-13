@@ -1,11 +1,11 @@
 Profile: MedicationDispense
-Parent: CDAR2Supply
+Parent: $Supply
 Id: MedicationDispense
 Title: "Medication Dispense"
 Description: "This template records the act of supplying medications (i.e., dispensing). The moodCode equaling \"EVN\" (Event), signals that the \"supply\" has occurred and thus has been dispensed."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.18:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(med-dispense, 2.16.840.1.113883.10.20.22.4.18, 2023-05-01)
+
 * ^status = #draft
 * obeys 4537-9333
 * classCode 1..1
@@ -14,37 +14,27 @@ Description: "This template records the act of supplying medications (i.e., disp
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7452)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-7453) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-7453) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.18"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.18\" (CONF:4537-10505)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-32580)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7454)."
 * code 1..1
 * code from $2.16.840.1.113883.4.642.3.1312 (required)
+  * ^short = "The MedicationDispense Status Codes value set is the same value set used in the FHIR Dispense Resource, is broader than and has more meaningful codes for the act of dispensing than are permitted at actStatus in CDA, thus actStatus code is fixed to \"completed\".&#10;&#10;Comments are welcome as to if this will confuse the industry and instead there should not be constraints on Supply/actCode, and instead we should bind actStatus to the closest codes available in the [HL7 v3 Code System ActStatus ](https://fhir-ru.github.io/v3/ActStatus/cs.html) and provide a mapping to the FHIR set."
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet MedicationDispense Status Codes urn:oid:2.16.840.1.113883.4.642.3.1312 DYNAMIC (CONF:4537-32974)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7455)."
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-32361)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7456)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7456)." // auto-should
+* obeys should-repeatNumber
 * repeatNumber 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:4537-7457)."
+  * ^short = "In \"EVN\" (event) mood, the repeatNumber is the number of dispenses. For example, a repeatNumber of \"3\" indicates the third dispense."
+  * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:4537-7457)." // auto-should
+* obeys should-quantity
 * quantity 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:4537-7458)."
+  * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:4537-7458)." // auto-should
 * product 0..1
   * ^comment = "MAY contain zero or one [0..1] product (CONF:4537-7459)."
   * manufacturedProduct 1..1

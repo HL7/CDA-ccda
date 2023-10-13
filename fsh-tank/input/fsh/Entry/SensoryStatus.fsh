@@ -3,23 +3,15 @@ Parent: $Observation
 Id: SensoryStatus
 Title: "Sensory Status"
 Description: "This template represents a patient's sensory or speech ability. It may contain an assessment scale observations related to the sensory or speech ability."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.127"
+
+* insert LogicalModelTemplateRootOnly(sensory-status, 2.16.840.1.113883.10.20.22.4.127)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31017)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31018)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-27959) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.127"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.127\" (CONF:1098-27960)."
-  * extension 0..0
 * code 1..1
 * code from $2.16.840.1.113883.11.20.9.50 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Sensory Status Problem Type urn:oid:2.16.840.1.113883.11.20.9.50 DYNAMIC (CONF:1098-27962)."

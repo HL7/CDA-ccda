@@ -13,26 +13,9 @@ This template is used to identify primary authorship for an entry. An entry may 
 The `assignedAuthor/id` may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here.
 
 Note: The Provenance template title includes a version 2 to support moving from the 'Basic Provenance' guide to the this Companion Guide, so the templateId has not changed."""
-* ^meta.versionId = "4"
-* ^meta.lastUpdated = "2023-07-11T23:42:05.648Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.5.6:2019-10-01"
-* ^version = "2019-10-01"
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-32980) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-32980) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.5.6"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.5.6\" (CONF:4515-15)."
-  * extension 1..1
-  * extension = "2019-10-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2019-10-01\" (CONF:4515-36)."
+
+* insert LogicalModelTemplate(provenance-author, 2.16.840.1.113883.10.20.22.5.6, 2019-10-01)
+
 * time 1..1
   * ^comment = "SHALL contain exactly one [1..1] time (CONF:4515-32983)."
 * assignedAuthor 1..1
@@ -46,33 +29,37 @@ Note: The Provenance template title includes a version 2 to support moving from 
     //"</element>"
     //"SG 20230601 Not a slice"
     //"<element id=\"Author.assignedAuthor.id\"><path value=\"Author.assignedAuthor.id\" /><short value=\"id\" /><comment value=\"This assignedAuthor SHALL contain at least one [1..*] id (CONF:4515-2).\" />"
-  * id contains id2 1..1
-  * id[id2] ^short = "id"
+  * id contains npi 1..1
+  * id[npi]
     * ^comment = "This assignedAuthor SHALL contain exactly one [1..1] id (CONF:4515-20) such that it"
-    * nullFlavor 0..1
-    * nullFlavor = #UNK (exactly)
-      * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"UNK\" Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4515-21)."
+    * nullFlavor ^short = "If NPI is unknown, set @nullFlavor to UNK"
     * root 1..1
     * root = "2.16.840.1.113883.4.6"
       * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-22)."
     * extension 0..1
       * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-23)."
+  * obeys should-code
   * code 0..1
     * obeys 4515-56 and 4515-57
-    * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)."
+    * ^short = "When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."
+    * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)." // auto-should
+  * obeys should-assignedPerson
   * assignedPerson 0..1
-    * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-32976)."
+    * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-32976)." // auto-should
     * name 1..*
       * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] name (CONF:4515-32977)."
       * family 1..1
         * ^comment = "Such names SHALL contain exactly one [1..1] family (CONF:4515-17)."
+      * obeys should-given
       * given 0..*
-        * ^comment = "Such names SHOULD contain zero or more [0..*] given (CONF:4515-18)."
+        * ^comment = "Such names SHOULD contain zero or more [0..*] given (CONF:4515-18)." // auto-should
   * assignedAuthoringDevice 0..1
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] assignedAuthoringDevice (CONF:4515-32)."
   * representedOrganization 0..1
+    * ^short = "If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64)."
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."
     * nullFlavor 0..1
+      * ^short = "A nullFlavor of \"NA\" is allowed If the assignedAuthor is not a clinician"
       * ^comment = "The representedOrganization, if present, MAY contain zero or one [0..1] @nullFlavor (CONF:4515-35)."
     * id ..*
       * ^slicing.discriminator[0].type = #value
@@ -85,23 +72,19 @@ Note: The Provenance template title includes a version 2 to support moving from 
       //"<short value=\"id\" />"
       //"<comment value=\"The representedOrganization, if present, SHALL contain at least one [1..*] id (CONF:4515-32981).\" />"
     * id contains
-        id1 1..1 and
-        id2 1..1
-    * id[id1] ^short = "id"
+        taxId 1..1 and
+        npi 1..1
+    * id[taxId]
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] id (CONF:4515-24) such that it"
-      * nullFlavor 0..1
-      * nullFlavor = #UNK (exactly)
-        * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"UNK\" Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4515-25)."
+      * nullFlavor ^short = "If Tax ID Number is unknown, set @nullFlavor to UNK"
       * root 1..1
       * root = "2.16.840.1.113883.4.2"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.2\" Tax ID Number (CONF:4515-26)."
       * extension 0..1
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-32982)."
-    * id[id2] ^short = "id"
+    * id[npi]
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] id (CONF:4515-28) such that it"
-      * nullFlavor 0..1
-      * nullFlavor = #UNK (exactly)
-        * ^comment = "MAY contain zero or one [0..1] @nullFlavor=\"UNK\" Unknown (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:4515-29)."
+      * nullFlavor ^short = "If NPI is unknown, set @nullFlavor to UNK"
       * root 1..1
       * root = "2.16.840.1.113883.4.6"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier  (CONF:4515-30)."
@@ -109,8 +92,9 @@ Note: The Provenance template title includes a version 2 to support moving from 
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-31)."
     * name 1..1
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:4515-11)."
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] telecom (CONF:4515-12)."
+      * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] telecom (CONF:4515-12)." // auto-should
 
 Invariant: 4515-64
 Description: "If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (CONF:4515-64)."

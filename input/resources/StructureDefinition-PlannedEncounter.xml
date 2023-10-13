@@ -35,17 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Encounter.classCode">
-            <path value="Encounter.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8564)."/>
-        </element>
-        <element id="Encounter.moodCode">
-            <path value="Encounter.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-8565)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23"/>
-            </binding>
+        <element id="Encounter">
+            <path value="Encounter"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
+            </constraint>
         </element>
         <element id="Encounter.templateId">
             <path value="Encounter.templateId"/>
@@ -62,24 +60,33 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Encounter.templateId:primary">
+        <element id="Encounter.templateId:planned-enc">
             <path value="Encounter.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-30437) such that it"/>
+            <sliceName value="planned-enc"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Encounter.templateId:primary.root">
+        <element id="Encounter.templateId:planned-enc.root">
             <path value="Encounter.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.40&quot; (CONF:1098-30438)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.40"/>
         </element>
-        <element id="Encounter.templateId:primary.extension">
+        <element id="Encounter.templateId:planned-enc.extension">
             <path value="Encounter.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32553)."/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="Encounter.classCode">
+            <path value="Encounter.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8564)."/>
+        </element>
+        <element id="Encounter.moodCode">
+            <path value="Encounter.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-8565)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23"/>
+            </binding>
         </element>
         <element id="Encounter.id">
             <path value="Encounter.id"/>

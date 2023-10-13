@@ -35,17 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Supply.classCode">
-            <path value="Supply.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8745)."/>
-        </element>
-        <element id="Supply.moodCode">
-            <path value="Supply.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:1098-8746)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.18"/>
-            </binding>
+        <element id="Supply">
+            <path value="Supply"/>
+            <constraint>
+                <key value="should-quantity"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain quantity"/>
+                <expression value="quantity.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
+            </constraint>
         </element>
         <element id="Supply.templateId">
             <path value="Supply.templateId"/>
@@ -62,24 +60,33 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Supply.templateId:primary">
+        <element id="Supply.templateId:non-medicinal-supply-activity">
             <path value="Supply.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-8747) such that it"/>
+            <sliceName value="non-medicinal-supply-activity"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Supply.templateId:primary.root">
+        <element id="Supply.templateId:non-medicinal-supply-activity.root">
             <path value="Supply.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.50&quot; (CONF:1098-10509)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.50"/>
         </element>
-        <element id="Supply.templateId:primary.extension">
+        <element id="Supply.templateId:non-medicinal-supply-activity.extension">
             <path value="Supply.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32514)."/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="Supply.classCode">
+            <path value="Supply.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8745)."/>
+        </element>
+        <element id="Supply.moodCode">
+            <path value="Supply.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:1098-8746)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.18"/>
+            </binding>
         </element>
         <element id="Supply.id">
             <path value="Supply.id"/>

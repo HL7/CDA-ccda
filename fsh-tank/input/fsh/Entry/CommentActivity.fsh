@@ -3,8 +3,9 @@ Parent: $Act
 Id: CommentActivity
 Title: "Comment Activity"
 Description: "Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.64"
+
+* insert LogicalModelTemplateRootOnly(comment-activity, 2.16.840.1.113883.10.20.22.4.64)
+
 * obeys 81-9429
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -12,15 +13,6 @@ Description: "Comments are free text data that cannot otherwise be recorded usin
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-9426)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:81-9427) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.64"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.64\" (CONF:81-10491)."
-  * extension 0..0
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:81-9428)."
   * code 1..1

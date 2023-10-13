@@ -35,18 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act.classCode">
-            <path value="Act.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32678)."/>
-            <fixedCode value="ACT"/>
-        </element>
-        <element id="Act.moodCode">
-            <path value="Act.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned Intervention moodCode urn:oid:2.16.840.1.113883.11.20.9.54 DYNAMIC (CONF:1198-32679)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.54"/>
-            </binding>
+        <element id="Act">
+            <path value="Act"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedInterventionAct"/>
+            </constraint>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -63,24 +60,34 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Act.templateId:primary">
+        <element id="Act.templateId:planned-intervention-act">
             <path value="Act.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-32653) such that it"/>
+            <sliceName value="planned-intervention-act"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:primary.root">
+        <element id="Act.templateId:planned-intervention-act.root">
             <path value="Act.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.146&quot; (CONF:1198-32680)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.146"/>
         </element>
-        <element id="Act.templateId:primary.extension">
+        <element id="Act.templateId:planned-intervention-act.extension">
             <path value="Act.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32912)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32678)."/>
+            <fixedCode value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned Intervention moodCode urn:oid:2.16.840.1.113883.11.20.9.54 DYNAMIC (CONF:1198-32679)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.54"/>
+            </binding>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>

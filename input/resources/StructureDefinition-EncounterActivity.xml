@@ -35,15 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Encounter.classCode">
-            <path value="Encounter.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8710)."/>
-        </element>
-        <element id="Encounter.moodCode">
-            <path value="Encounter.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Encounter.templateId">
             <path value="Encounter.templateId"/>
             <slicing>
@@ -59,24 +50,30 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Encounter.templateId:primary">
+        <element id="Encounter.templateId:encounter-activity">
             <path value="Encounter.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8712) such that it"/>
+            <sliceName value="encounter-activity"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Encounter.templateId:primary.root">
+        <element id="Encounter.templateId:encounter-activity.root">
             <path value="Encounter.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.49&quot; (CONF:1198-26353)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.49"/>
         </element>
-        <element id="Encounter.templateId:primary.extension">
+        <element id="Encounter.templateId:encounter-activity.extension">
             <path value="Encounter.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32546)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
+        </element>
+        <element id="Encounter.classCode">
+            <path value="Encounter.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ENC&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8710)."/>
+        </element>
+        <element id="Encounter.moodCode">
+            <path value="Encounter.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Encounter.id">
             <path value="Encounter.id"/>
@@ -87,6 +84,13 @@
             <path value="Encounter.code"/>
             <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-originalText"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain originalText"/>
+                <expression value="originalText.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
+            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
@@ -95,6 +99,13 @@
         <element id="Encounter.code.originalText">
             <path value="Encounter.code.originalText"/>
             <comment value="This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)."/>
+            <constraint>
+                <key value="should-reference"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain reference"/>
+                <expression value="reference.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
+            </constraint>
         </element>
         <element id="Encounter.code.originalText.reference">
             <path value="Encounter.code.originalText.reference"/>
@@ -137,6 +148,10 @@
                 <human value="This sdtc:dischargeDispositionCode **SHOULD** contain exactly [0..1] *codeSystem*, which **SHOULD** be CodeSystem: NUBC 2.16.840.1.113883.6.301.5."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
             </constraint>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.33"/>
+            </binding>
         </element>
         <element id="Encounter.performer">
             <path value="Encounter.performer"/>

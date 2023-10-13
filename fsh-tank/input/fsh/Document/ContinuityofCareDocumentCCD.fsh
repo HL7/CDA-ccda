@@ -9,23 +9,10 @@ The Continuity of Care Document (CCD) represents a core data set of the most rel
 The primary use case for the CCD is to provide a snapshot in time containing the germane clinical, demographic, and administrative data for a specific patient. The key characteristic of a CCD is that the ServiceEvent is constrained to "PCPR". This means it does not function to report new ServiceEvents associated with performing care. It reports on care that has already been provided. The CCD provides a historical tally of the care over a range of time and is not a record of new services delivered.
 
 More specific use cases, such as a Discharge Summary, Transfer Summary, Referral Note, Consultation Note, or Progress Note, are available as alternative documents in this guide."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.2:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(CCD, 2.16.840.1.113883.10.20.22.1.2, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8450) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.2"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.2\" (CONF:1198-10038)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32516)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17180)."
   * code 1..1
@@ -54,9 +41,10 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-8454)."
       * high 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-8455)."
+    * obeys should-performer
     * performer 0..*
       * ^short = "The serviceEvent/performer represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare providers would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
-      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)."
+      * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)." // auto-should
       * typeCode 1..1
       * typeCode = #PRF (exactly)
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode=\"PRF\" Participation physical performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8458)."

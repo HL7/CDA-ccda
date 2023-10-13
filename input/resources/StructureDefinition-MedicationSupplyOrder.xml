@@ -35,14 +35,22 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Supply.classCode">
-            <path value="Supply.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7427)."/>
-        </element>
-        <element id="Supply.moodCode">
-            <path value="Supply.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;INT&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7428)."/>
-            <fixedCode value="INT"/>
+        <element id="Supply">
+            <path value="Supply"/>
+            <constraint>
+                <key value="should-repeatNumber"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain repeatNumber"/>
+                <expression value="repeatNumber.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationSupplyOrder"/>
+            </constraint>
+            <constraint>
+                <key value="should-quantity"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain quantity"/>
+                <expression value="quantity.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationSupplyOrder"/>
+            </constraint>
         </element>
         <element id="Supply.templateId">
             <path value="Supply.templateId"/>
@@ -59,24 +67,30 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Supply.templateId:primary">
+        <element id="Supply.templateId:med-supplyOrder">
             <path value="Supply.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-7429) such that it"/>
+            <sliceName value="med-supplyOrder"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Supply.templateId:primary.root">
+        <element id="Supply.templateId:med-supplyOrder.root">
             <path value="Supply.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.17&quot; (CONF:1098-10507)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.17"/>
         </element>
-        <element id="Supply.templateId:primary.extension">
+        <element id="Supply.templateId:med-supplyOrder.extension">
             <path value="Supply.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32578)."/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="Supply.classCode">
+            <path value="Supply.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7427)."/>
+        </element>
+        <element id="Supply.moodCode">
+            <path value="Supply.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;INT&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7428)."/>
+            <fixedCode value="INT"/>
         </element>
         <element id="Supply.id">
             <path value="Supply.id"/>

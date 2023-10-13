@@ -11,30 +11,15 @@ Description: """This template is used to express the care team type. A care team
 """
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:50.575Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.2:2019-07-01"
-* ^version = "2019-07-01"
+
+* insert LogicalModelTemplate(care-team-type-obs, 2.16.840.1.113883.10.20.22.4.500.2, 2019-07-01)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4435-101)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4435-102)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4435-99) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4435-99) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.500.2"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\" 2.16.840.1.113883.10.20.22.4.500.2\" (CONF:4435-106)."
-  * extension 1..1
-  * extension = "2019-07-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2019-07-01\" (CONF:4435-108)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4435-97)."
   * code 1..1

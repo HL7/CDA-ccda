@@ -42,16 +42,13 @@
                 <human value="SHALL contain at least one [1..*] entryRelationships (CONF:1098-32782)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
             </constraint>
-        </element>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31219)."/>
-            <fixedCode value="OBS"/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31220)."/>
-            <fixedCode value="EVN"/>
+            <constraint>
+                <key value="should-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain value"/>
+                <expression value="value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -64,22 +61,30 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:primary">
+        <element id="Observation.templateId:outcome-obs">
             <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-31221) such that it, SHALL not contain [0..0] extension."/>
+            <sliceName value="outcome-obs"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:primary.root">
+        <element id="Observation.templateId:outcome-obs.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.144&quot; (CONF:1098-31222)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.144"/>
         </element>
-        <element id="Observation.templateId:primary.extension">
+        <element id="Observation.templateId:outcome-obs.extension">
             <path value="Observation.templateId.extension"/>
             <max value="0"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31219)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31220)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -177,6 +182,7 @@
         <element id="Observation.entryRelationship:entryReference2">
             <path value="Observation.entryRelationship"/>
             <sliceName value="entryReference2"/>
+            <short value="Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"/>
             <min value="0"/>
             <max value="*"/>

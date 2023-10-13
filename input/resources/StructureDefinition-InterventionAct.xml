@@ -35,15 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act.classCode">
-            <path value="Act.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-30971)."/>
-            <fixedCode value="ACT"/>
-        </element>
-        <element id="Act.moodCode">
-            <path value="Act.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-30972)."/>
-            <fixedCode value="EVN"/>
+        <element id="Act">
+            <path value="Act"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/InterventionAct"/>
+            </constraint>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -60,24 +60,31 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Act.templateId:primary">
+        <element id="Act.templateId:intervention-act">
             <path value="Act.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-30973) such that it"/>
+            <sliceName value="intervention-act"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:primary.root">
+        <element id="Act.templateId:intervention-act.root">
             <path value="Act.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.131&quot; (CONF:1198-30974)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.131"/>
         </element>
-        <element id="Act.templateId:primary.extension">
+        <element id="Act.templateId:intervention-act.extension">
             <path value="Act.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32916)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-30971)."/>
+            <fixedCode value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-30972)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>

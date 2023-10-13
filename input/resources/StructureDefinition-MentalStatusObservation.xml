@@ -35,16 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-14249)."/>
-            <fixedCode value="OBS"/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14250)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -60,24 +50,31 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:primary">
+        <element id="Observation.templateId:mental-status-obs">
             <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-14255) such that it"/>
+            <sliceName value="mental-status-obs"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:primary.root">
+        <element id="Observation.templateId:mental-status-obs.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.74&quot; (CONF:1198-14256)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.74"/>
         </element>
-        <element id="Observation.templateId:primary.extension">
+        <element id="Observation.templateId:mental-status-obs.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32565)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-14249)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14250)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -118,15 +115,29 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
+            <slicing>
+                <discriminator>
+                    <type value="type"/>
+                    <path value="$this"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <comment value="SHALL contain exactly one [1..1] value (CONF:1198-14263)."/>
             <min value="1"/>
             <max value="1"/>
-            <constraint>
-                <key value="1198-14271"/>
-                <severity value="warning"/>
-                <human value="If xsi:type=“CD”, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1198-14271)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
-            </constraint>
+        </element>
+        <element id="Observation.value:code">
+            <path value="Observation.value"/>
+            <sliceName value="code"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.1"/>
+            </binding>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>

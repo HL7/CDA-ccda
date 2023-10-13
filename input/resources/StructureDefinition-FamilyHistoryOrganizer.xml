@@ -35,15 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Organizer.classCode">
-            <path value="Organizer.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8600)."/>
-            <fixedCode value="CLUSTER"/>
-        </element>
-        <element id="Organizer.moodCode">
-            <path value="Organizer.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8601)."/>
-        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -59,24 +50,30 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Organizer.templateId:primary">
+        <element id="Organizer.templateId:family-history-org">
             <path value="Organizer.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8604) such that it"/>
+            <sliceName value="family-history-org"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Organizer.templateId:primary.root">
+        <element id="Organizer.templateId:family-history-org.root">
             <path value="Organizer.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.45&quot; (CONF:1198-10497)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.45"/>
         </element>
-        <element id="Organizer.templateId:primary.extension">
+        <element id="Organizer.templateId:family-history-org.extension">
             <path value="Organizer.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32606)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
+        </element>
+        <element id="Organizer.classCode">
+            <path value="Organizer.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8600)."/>
+            <fixedCode value="CLUSTER"/>
+        </element>
+        <element id="Organizer.moodCode">
+            <path value="Organizer.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8601)."/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>
@@ -101,6 +98,13 @@
         <element id="Organizer.subject.relatedSubject">
             <path value="Organizer.subject.relatedSubject"/>
             <comment value="This subject SHALL contain exactly one [1..1] relatedSubject (CONF:1198-15244)."/>
+            <constraint>
+                <key value="should-subject"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain subject"/>
+                <expression value="subject.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+            </constraint>
         </element>
         <element id="Organizer.subject.relatedSubject.classCode">
             <path value="Organizer.subject.relatedSubject.classCode"/>
@@ -141,6 +145,13 @@
                 <key value="1198-15983"/>
                 <severity value="warning"/>
                 <human value="The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-birthTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain birthTime"/>
+                <expression value="birthTime.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
             </constraint>
         </element>

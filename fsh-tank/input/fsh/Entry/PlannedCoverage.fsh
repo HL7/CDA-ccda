@@ -3,23 +3,15 @@ Parent: $Act
 Id: PlannedCoverage
 Title: "Planned Coverage"
 Description: "This template represents the insurance coverage intended to cover an act or procedure."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.129"
+
+* insert LogicalModelTemplateRootOnly(planned-coverage, 2.16.840.1.113883.10.20.22.4.129)
+
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" act (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-31945)."
 * moodCode 1..1
 * moodCode = #INT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"INT\" Intent (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31946)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-31947) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.129"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.129\" (CONF:1098-31948)."
-  * extension 0..0
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-31950)."
 * code 1..1
@@ -58,7 +50,7 @@ Description: "This template represents the insurance coverage intended to cover 
       * ^short = "These act/identifiers are unique identifiers for the policy or program providing the coverage."
       * ^comment = "This act SHALL contain at least one [1..*] id (CONF:1098-31972)."
     * code 1..1
-    * code from Payer (required)
+    * code from $Payer (required)
       * ^comment = "This act SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Payer urn:oid:2.16.840.1.114222.4.11.3591 DYNAMIC (CONF:1098-31973)."
     * statusCode 1..1
       * ^comment = "This act SHALL contain exactly one [1..1] statusCode (CONF:1098-31974)."

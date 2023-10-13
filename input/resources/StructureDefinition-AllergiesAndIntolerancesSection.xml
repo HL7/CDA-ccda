@@ -37,68 +37,60 @@
     <differential>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
-            <comment value="MAY contain zero or one [0..1] @nullFlavor=&quot;NI&quot; No information (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1198-32824)."/>
-            <fixedCode value="NI"/>
+            <short value="If a required section contains no information, the @nullFlavor MAY be set to NI"/>
         </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="extension"/>
+                    <path value="root"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
-                    <path value="root"/>
+                    <path value="extension"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <min value="2"/>
+            <min value="1"/>
         </element>
-        <element id="Section.templateId:secondary">
+        <element id="Section.templateId:section">
             <path value="Section.templateId"/>
-            <sliceName value="secondary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-7527) such that it"/>
+            <sliceName value="section"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Section.templateId:secondary.root">
+        <element id="Section.templateId:section.root">
             <path value="Section.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.6.1&quot; (CONF:1198-10379)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.6.1"/>
         </element>
-        <element id="Section.templateId:secondary.extension">
+        <element id="Section.templateId:section.extension">
             <path value="Section.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32545)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-15349)."/>
+            <short value="Allergies, adverse reactions, alerts"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;48765-2&quot; Allergies, adverse reactions, alerts (CONF:1198-15350)."/>
             <min value="1"/>
             <patternCode value="48765-2"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32140)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <comment value="SHALL contain exactly one [1..1] title (CONF:1198-7534)."/>
             <min value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <comment value="SHALL contain exactly one [1..1] text (CONF:1198-7530)."/>
             <min value="1"/>
         </element>
         <element id="Section.entry">

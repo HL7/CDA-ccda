@@ -5,23 +5,17 @@ Title: "Medication Free Text Sig"
 Description: """The template is available to explicitly identify the free text Sig within each medication. 
 
 An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.147"
+
+* insert LogicalModelTemplateRootOnly(med-freeTextSig, 2.16.840.1.113883.10.20.22.4.147)
+
+* obeys sig-closed
+
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-32770)."
 * moodCode 1..1
 * moodCode from MoodCodeEvnInt (required)
   * ^short = "moodCode must match the parent substanceAdministration EVN or INT"
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:81-32771)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #closed
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:81-32753) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.147"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.147\" (CONF:81-32772)."
-  * extension 0..0
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-32775)."
   * code 1..1
@@ -51,3 +45,9 @@ An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."
 Invariant: 81-32774
 Description: "This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-32774)."
 Severity: #error
+
+Invariant: sig-closed
+Description: "This is a closed template and shall not contain any elements besides code, text, and consumable"
+Severity: #error
+Expression: "(typeId | statusCode | effectiveTime | priorityCode | repeatNumber | routeCode | approachSiteCode | doseQuantity | rateQuantity | maxDoseQuantity | administrationUnitCode | subject | specimen | performer | informant | participant | entryRelationship | precondition).empty()"
+// (omitting id and author since id is generally recommended, and author pariticpations are allowed anywhere)

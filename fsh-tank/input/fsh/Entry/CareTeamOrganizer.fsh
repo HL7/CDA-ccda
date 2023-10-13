@@ -14,29 +14,15 @@ The components of the organizer contain the following information:
 * The care team type(s) - a care team can have multiple care team types 
 
 """
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.500:2022-06-01"
-* ^version = "2022-06-01"
+
+* insert LogicalModelTemplate(care-team-org, 2.16.840.1.113883.10.20.22.4.500, 2022-06-01)
+
 * classCode 1..1
 * classCode = #CLUSTER (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"CLUSTER\" CLUSTER (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-124)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-125)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-112) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.500"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.500\" (CONF:4515-117)."
-  * extension 1..1
-  * extension = "2022-06-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2022-06-01\" (CONF:4515-118)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-126)."
 * code 1..1
@@ -52,6 +38,7 @@ The components of the organizer contain the following information:
     * reference 1..1
       * ^comment = "SHALL contain exactly one [1..1] reference (CONF:4515-155)."
       * value 1..1
+        * ^short = "The value attribute references the narrative in section.text where the care team name is rendered. The intention of this reference is to clarify which care team this Organizer refers to."
         * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:4515-156)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-113)."
@@ -77,7 +64,7 @@ The components of the organizer contain the following information:
 * participant contains
     participant1 0..* and
     participant2 0..*
-* participant[participant1] ^short = "participant"
+* participant[participant1] ^short = "This Participant represents the Care Team lead."
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"
   * typeCode 1..1
   * typeCode = #PPRF (exactly)
@@ -100,10 +87,12 @@ The components of the organizer contain the following information:
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4515-135)."
     * id 1..*
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."
+    * obeys should-addr
     * addr 0..1
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)." // auto-should
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)."
+      * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)." // auto-should
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:4515-136)."
       * classCode 1..1
@@ -126,7 +115,7 @@ The components of the organizer contain the following information:
   * observation 1..1
   * observation only CareTeamTypeObservation
     * ^comment = "SHALL contain exactly one [1..1] Care Team Type Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.2:2019-07-01) (CONF:4515-163)."
-* component[component2] ^short = "component"
+* component[component2] ^short = "The following components represent the reasons for the existence of the care team. These entry references are typically a health concern, risk concern or problem but can also be some other entry present in the document."
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-146) such that it"
   * act 1..1
   * act only EntryReference

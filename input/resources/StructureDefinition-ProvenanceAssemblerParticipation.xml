@@ -39,12 +39,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Participant1.typeCode">
-            <path value="Participant1.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CONF:4537-55)."/>
-            <min value="1"/>
-            <fixedCode value="DEV"/>
-        </element>
         <element id="Participant1.templateId">
             <path value="Participant1.templateId"/>
             <slicing>
@@ -58,27 +52,29 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-40) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Participant1.templateId:templateId1">
+        <element id="Participant1.templateId:provenance-assembler">
             <path value="Participant1.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="provenance-assembler"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Participant1.templateId:templateId1.root">
+        <element id="Participant1.templateId:provenance-assembler.root">
             <path value="Participant1.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.5.7&quot; (CONF:4537-44)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.5.7"/>
         </element>
-        <element id="Participant1.templateId:templateId1.extension">
+        <element id="Participant1.templateId:provenance-assembler.extension">
             <path value="Participant1.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2020-05-19&quot; (CONF:4537-33025)."/>
             <min value="1"/>
             <patternString value="2020-05-19"/>
+        </element>
+        <element id="Participant1.typeCode">
+            <path value="Participant1.typeCode"/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CONF:4537-55)."/>
+            <min value="1"/>
+            <fixedCode value="DEV"/>
         </element>
         <element id="Participant1.functionCode">
             <path value="Participant1.functionCode"/>
@@ -115,6 +111,13 @@
             <path value="Participant1.associatedEntity.scopingOrganization"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] scopingOrganization (CONF:4537-43)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAssemblerParticipation"/>
+            </constraint>
         </element>
         <element id="Participant1.associatedEntity.scopingOrganization.id">
             <path value="Participant1.associatedEntity.scopingOrganization.id"/>

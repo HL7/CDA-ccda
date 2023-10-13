@@ -5,8 +5,9 @@ Title: "Outcome Observation"
 Description: """This template represents the outcome of care resulting from the interventions used to treat the patient. In the Care Planning workflow, the judgment about how well the person is progressing towards the goal is based on the observations made about the status of the patient with respect to interventions performed in the pursuit of achieving that goal.
 
 Often thought of as an "actual outcome", the Outcome Observation may be related to goals, progression toward goals, and the associated interventions. For example, an observation outcome of a blood oxygen saturation level of 95% is related to the goal of "Maintain Pulse Ox greater than 92", which in turn is related to the health concern of respiratory insufficiency and the problem of pneumonia. The template makes use of the Entry Reference (templateId:2.16.840.1.113883.10.20.22.4.122) to reference the interventions and goals defined elsewhere in the Care Plan CDA instance."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.144"
+
+* insert LogicalModelTemplateRootOnly(outcome-obs, 2.16.840.1.113883.10.20.22.4.144)
+
 * obeys 1098-32782
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -14,21 +15,13 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31220)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-31221) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.144"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.144\" (CONF:1098-31222)."
-  * extension 0..0
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-31223)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32746)."
+* obeys should-value
 * value 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] value (CONF:1098-32747)."
+  * ^comment = "SHOULD contain zero or one [0..1] value (CONF:1098-32747)." // auto-should
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)."
@@ -63,6 +56,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * observation only ProgressTowardGoalObservation
     * ^comment = "SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110) (CONF:1098-31430)."
 * entryRelationship[entryReference2] obeys 1098-32462
+  * ^short = "Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)

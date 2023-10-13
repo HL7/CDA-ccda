@@ -1,32 +1,19 @@
 Profile: PlannedSupply
-Parent: CDAR2Supply
+Parent: $Supply
 Id: PlannedSupply
 Title: "Planned Supply"
 Description: """This template represents both medicinal and non-medicinal supplies ordered, requested, or intended for the patient (e.g., medication prescription, order for wheelchair). The importance of the supply order or request to the patient and provider may be indicated in the Priority Preference. 
 The effective time indicates the time when the supply is intended to take place and author time indicates when the documentation of the plan occurred. The Planned Supply template may also indicate the potential insurance coverage for the procedure. 
 Depending on the type of supply, the product or participant will be either a Medication Information product (medication), an Immunization Medication Information product (immunization), or a Product Instance participant (device/equipment)."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09"
-* ^version = "2014-06-09"
+
+* insert LogicalModelTemplate(planned-supply, 2.16.840.1.113883.10.20.22.4.43, 2014-06-09)
+
 * classCode 1..1
 * classCode = #SPLY (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SPLY\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8577)."
 * moodCode 1..1
 * moodCode from $2.16.840.1.113883.11.20.9.24 (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (SubstanceAdministration/Supply) urn:oid:2.16.840.1.113883.11.20.9.24 STATIC 2011-09-30 (CONF:1098-8578)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-30463) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.43"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.43\" (CONF:1098-30464)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32556)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-8580)."
 * statusCode 1..1
@@ -34,9 +21,10 @@ Depending on the type of supply, the product or participant will be either a Med
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32047)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
   * ^short = "The effectiveTime in a planned supply represents the time that the supply should occur."
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)." // auto-should
 * repeatNumber 0..1
   * ^short = "In a Planned Supply, repeatNumber indicates the number of times the supply event can occur. For example, if a medication is filled at a pharmacy and the prescription may be refilled 3 more times, the supply RepeatNumber equals 4."
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1098-32063)."
@@ -44,7 +32,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^comment = "MAY contain zero or one [0..1] quantity (CONF:1098-32064)."
 * product 0..1
   * obeys 1098-32325 and 1098-32092
-  * ^short = "A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."
+  * ^short = "A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD). "
   * ^comment = "MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation or $ManufacturedProduct
@@ -61,6 +49,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^short = "This participant represents a device that is ordered, requested or intended for the patient."
 * participant contains productInstance 0..1
 * participant[productInstance] obeys 1098-32096
+  * ^short = "This participant represents a device that is ordered, requested or intended for the patient."
   * ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"
   * participantRole 1..1
   * participantRole only ProductInstance
@@ -100,7 +89,8 @@ Depending on the type of supply, the product or participant will be either a Med
   * act 1..1
   * act only Instruction
     * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32059)."
-* entryRelationship[plannedCoverage] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"
+* entryRelationship[plannedCoverage] ^short = "The following entryRelationship represents the insurance coverage the patient may have for the supply."
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32061)."

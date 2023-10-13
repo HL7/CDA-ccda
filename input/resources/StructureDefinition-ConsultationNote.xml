@@ -12,7 +12,7 @@
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="clinicalDocument"/>
+        <valueUri value="ClinicalDocument"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
     <identifier>
@@ -39,22 +39,19 @@
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary">
+        <element id="ClinicalDocument.templateId:consult-note">
             <path value="ClinicalDocument.templateId"/>
-            <sliceName value="secondary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8375) such that it"/>
+            <sliceName value="consult-note"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary.root">
+        <element id="ClinicalDocument.templateId:consult-note.root">
             <path value="ClinicalDocument.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.4&quot; (CONF:1198-10040)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.4"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary.extension">
+        <element id="ClinicalDocument.templateId:consult-note.extension">
             <path value="ClinicalDocument.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32502)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
         </element>
@@ -72,7 +69,7 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="ClinicalDocument.typeCode"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -94,6 +91,13 @@
         <element id="ClinicalDocument.participant:participant1.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31658)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.participant:participant1.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
@@ -159,25 +163,11 @@
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime"/>
-            <comment value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8389)."/>
+            <comment value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8389)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
-        </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty">
-            <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty"/>
-            <comment value="This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-8391)."/>
-        </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty.assignedEntity">
-            <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty.assignedEntity"/>
-            <comment value="The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."/>
-            <constraint>
-                <key value="1198-32905"/>
-                <severity value="error"/>
-                <human value="This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>

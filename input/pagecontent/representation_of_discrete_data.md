@@ -1472,7 +1472,7 @@ a note on the Encounter, the entryRelationship should link to this new Note Acti
 | ---- | ------ |
 | **Reference Source**   | HL7 C-CDA R2.1  |
 | **Purpose**   | This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit.  |
-| **ActStatus**   | No constraint specified.  |
+| **ActStatus**   | Fixed to 'completed'.  |
 | **Negation**   | No constraint specified.  |
 | **Other Considerations**   | This template requires at least one contained Problem Observation template.  |
 | **Reference**   | Visit [HL7 CDA Example Search](http://hl7-c-cda-examples.herokuapp.com/sections/Problems)  |

@@ -16,27 +16,14 @@ a. Date printed on the VIS
 b. Date VIS given to patient or parent/guardian.
 
 This information should be included in an Immunization Activity when available. (Reference: [https://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/c/vis-instruct.pdf])"""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(immunization-activity, 2.16.840.1.113883.10.20.22.4.52, 2015-08-01)
+
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8826)."
 * moodCode 1..1
 * moodCode from MoodCodeEvnInt (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC (CONF:1198-8827)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8828) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.52"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.52\" (CONF:1198-10498)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32528)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8829)."
 * code 0..1
@@ -64,21 +51,26 @@ This information should be included in an Immunization Activity when available. 
 * approachSiteCode 0..1
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-8840)."
+* obeys should-doseQuantity
 * doseQuantity 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] doseQuantity (CONF:1198-8841)."
+  * obeys 1098-40000
+  * ^comment = "SHOULD contain zero or one [0..1] doseQuantity (CONF:1198-8841)." // auto-should
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
+    * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1198-8842)."
 * administrationUnitCode 0..1
 * administrationUnitCode from AdministrationUnitDoseForm (required)
+  * obeys 1098-40000
   * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1198-8846)."
 * consumable 1..1
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:1198-8847)."
   * manufacturedProduct 1..1
   * manufacturedProduct only ImmunizationMedicationInformation
     * ^comment = "This consumable SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1198-15546)."
+* obeys should-performer
 * performer 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] performer (CONF:1198-8849)."
+  * ^comment = "SHOULD contain zero or one [0..1] performer (CONF:1198-8849)." // auto-should
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31151)."

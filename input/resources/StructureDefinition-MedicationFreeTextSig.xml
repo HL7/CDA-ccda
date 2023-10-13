@@ -34,6 +34,42 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="SubstanceAdministration">
+            <path value="SubstanceAdministration"/>
+            <constraint>
+                <key value="sig-closed"/>
+                <severity value="error"/>
+                <human value="This is a closed template and shall not contain any elements besides code, text, and consumable"/>
+                <expression value="(typeId | statusCode | effectiveTime | priorityCode | repeatNumber | routeCode | approachSiteCode | doseQuantity | rateQuantity | maxDoseQuantity | administrationUnitCode | subject | specimen | performer | informant | participant | entryRelationship | precondition).empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
+            </constraint>
+        </element>
+        <element id="SubstanceAdministration.templateId">
+            <path value="SubstanceAdministration.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:med-freeTextSig">
+            <path value="SubstanceAdministration.templateId"/>
+            <sliceName value="med-freeTextSig"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:med-freeTextSig.root">
+            <path value="SubstanceAdministration.templateId.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.147"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:med-freeTextSig.extension">
+            <path value="SubstanceAdministration.templateId.extension"/>
+            <max value="0"/>
+        </element>
         <element id="SubstanceAdministration.classCode">
             <path value="SubstanceAdministration.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-32770)."/>
@@ -46,34 +82,6 @@
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.18"/>
             </binding>
-        </element>
-        <element id="SubstanceAdministration.templateId">
-            <path value="SubstanceAdministration.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <rules value="closed"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="SubstanceAdministration.templateId:primary">
-            <path value="SubstanceAdministration.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:81-32753) such that it, SHALL not contain [0..0] extension."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="SubstanceAdministration.templateId:primary.root">
-            <path value="SubstanceAdministration.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.147&quot; (CONF:81-32772)."/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.22.4.147"/>
-        </element>
-        <element id="SubstanceAdministration.templateId:primary.extension">
-            <path value="SubstanceAdministration.templateId.extension"/>
-            <max value="0"/>
         </element>
         <element id="SubstanceAdministration.code">
             <path value="SubstanceAdministration.code"/>

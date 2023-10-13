@@ -22,7 +22,7 @@
     <name value="ResultOrganizer"/>
     <title value="Result Organizer"/>
     <status value="draft"/>
-    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;."/>
+    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;. &#xA;&#xA;Specimen(s) attached to a Result Organizer apply to all Result Observations contained in the Organizer. It is not recommended to record specimen information at the Result Observation."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -35,14 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Organizer.classCode">
-            <path value="Organizer.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7121)."/>
-        </element>
-        <element id="Organizer.moodCode">
-            <path value="Organizer.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7122)."/>
-        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -56,27 +48,31 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-7126) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Organizer.templateId:templateId1">
+        <element id="Organizer.templateId:result-org">
             <path value="Organizer.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="result-org"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Organizer.templateId:templateId1.root">
+        <element id="Organizer.templateId:result-org.root">
             <path value="Organizer.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.1&quot; (CONF:4537-9134)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.1"/>
         </element>
-        <element id="Organizer.templateId:templateId1.extension">
+        <element id="Organizer.templateId:result-org.extension">
             <path value="Organizer.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32588)."/>
             <min value="1"/>
             <patternString value="2023-05-01"/>
+        </element>
+        <element id="Organizer.classCode">
+            <path value="Organizer.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7121)."/>
+        </element>
+        <element id="Organizer.moodCode">
+            <path value="Organizer.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7122)."/>
         </element>
         <element id="Organizer.id">
             <path value="Organizer.id"/>
@@ -130,6 +126,7 @@
         </element>
         <element id="Organizer.specimen">
             <path value="Organizer.specimen"/>
+            <short value="When an organizer is for laboratory,  observations are expected to include the specimen participant. The specimen included at specimenPlayingEntity/code must be consistent with the observation/code."/>
             <comment value="MAY contain zero or more [0..*] specimen (CONF:4537-32615)."/>
         </element>
         <element id="Organizer.specimen.specimenRole">

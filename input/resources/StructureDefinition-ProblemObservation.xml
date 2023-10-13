@@ -35,21 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-9041)."/>
-            <fixedCode value="OBS"/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-9042)."/>
-            <fixedCode value="EVN"/>
-        </element>
-        <element id="Observation.negationInd">
-            <path value="Observation.negationInd"/>
-            <short value="The negationInd is used to indicate the absence of the condition in observation/value. A negationInd of &quot;true&quot; coupled with an observation/value of SNOMED code 64572001 &quot;Disease (disorder)&quot; indicates that the patient has no known conditions."/>
-            <comment value="MAY contain zero or one [0..1] @negationInd (CONF:1198-10139)."/>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -65,24 +50,36 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:primary">
+        <element id="Observation.templateId:problem-obs">
             <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-14926) such that it"/>
+            <sliceName value="problem-obs"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:primary.root">
+        <element id="Observation.templateId:problem-obs.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.4&quot; (CONF:1198-14927)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.4"/>
         </element>
-        <element id="Observation.templateId:primary.extension">
+        <element id="Observation.templateId:problem-obs.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32508)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-9041)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-9042)."/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Observation.negationInd">
+            <path value="Observation.negationInd"/>
+            <short value="The negationInd is used to indicate the absence of the condition in observation/value. A negationInd of &quot;true&quot; coupled with an observation/value of SNOMED code 64572001 &quot;Disease (disorder)&quot; indicates that the patient has no known conditions."/>
+            <comment value="MAY contain zero or one [0..1] @negationInd (CONF:1198-10139)."/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>

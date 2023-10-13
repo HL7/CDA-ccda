@@ -9,28 +9,15 @@ A moodCode of INT is allowed, but it is recommended that the Planned Medication 
 At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.
 
 The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single  "metoprolol 25mg tablet " per administration will have a doseQuantity of  "1 ", whereas a patient consuming  "metoprolol Oral Product " (RxCUI 1163523) will have a dose of  "25 mg "."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09"
-* ^version = "2014-06-09"
+
+* insert LogicalModelTemplate(medication-activity, 2.16.840.1.113883.10.20.22.4.16, 2014-06-09)
+
 * obeys 1098-30800
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7496)."
 * moodCode 1..1
 * moodCode from MoodCodeEvnInt (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:1098-7497)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-7499) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.16"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.16\" (CONF:1098-10504)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32498)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-7500)."
 * code 0..1
@@ -45,6 +32,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * effectiveTime obeys 1098-7513
   * ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "operator"
+  * ^slicing.discriminator[+].type = #type
+  * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
 * effectiveTime contains
     duration 1..1 and
@@ -52,14 +41,15 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     eventFrequency 0..1
 * effectiveTime[duration] only $IVL-TS
   * obeys 1098-32890
-  * ^short = "This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."
+  * ^short = "The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., \"10 days\"), the frequency of administration (e.g., \"every 8 hours\"), and more. Here, we require that there **SHALL** be an effectiveTime documentation of the duration (or single-administration timestamp), and that there **SHOULD** be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included. Note: This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"
   * value 0..1
     * ^short = "indicates a single-administration timestamp"
     * ^comment = "SHOULD contain zero or one [0..1] @value (CONF:1098-32775)."
+  * obeys should-low
   * low 0..1
     * ^short = "indicates when medication started"
-    * ^comment = "SHOULD contain zero or one [0..1] low (CONF:1098-32776)."
+    * ^comment = "SHOULD contain zero or one [0..1] low (CONF:1098-32776)." // auto-should
   * high 0..1
     * ^short = "indicates when medication stopped"
     * ^comment = "MAY contain zero or one [0..1] high (CONF:1098-32777)."
@@ -86,20 +76,24 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-7515)."
 * doseQuantity 1..1
-  * obeys 1098-16879 and 1098-16878
+  * obeys 1098-16879 and 1098-16878 and 1098-40000
   * ^comment = "SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
+    * obeys 1098-40000
+    * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)."
 * rateQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-7517)."
   * unit 1..1
   * unit from UnitsOfMeasureCaseSensitive (required)
+    * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The rateQuantity, if present, SHALL contain exactly one [1..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7525)."
 * maxDoseQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] maxDoseQuantity (CONF:1098-7518)."
 * administrationUnitCode 0..1
 * administrationUnitCode from AdministrationUnitDoseForm (required)
+  * obeys 1098-40000
   * ^short = "administrationUnitCode@code describes the units of medication administration for an item using a code that is pre-coordinated to include a physical unit form (ointment, powder, solution, etc.) which differs from the units used in administering the consumable (capful, spray, drop, etc.). For example when recording medication administrations, 'metric drop (C48491)'' would be appropriate to accompany the RxNorm code of 198283 (Timolol 0.25% Ophthalmic Solution) where the number of drops would be specified in doseQuantity@value."
   * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519)."
 * consumable 1..1
@@ -244,4 +238,8 @@ Severity: #warning
 
 Invariant: 1098-16878
 Description: "Pre-coordinated consumable: If the consumable code is a pre-coordinated unit dose (e.g., \"metoprolol 25mg tablet\") then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., \"2\", meaning 2 x \"metoprolol 25mg tablet\" per administration) (CONF:1098-16878)."
+Severity: #warning
+
+Invariant: 1098-40000
+Description: "If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."
 Severity: #warning

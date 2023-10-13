@@ -2,7 +2,7 @@ const fs = require('fs');
 
 /**
  * Modify sushi with fixes to support CDA logical model development
- *  - Allow binding on code (and ADXP) elements
+ *  x Allow binding on code (and ADXP) elements (no longer needed!)
  *  - Disable binding strength checks (to be removed once all profiles are fixed up)
  *  - Fix sushi's logical-model-type-matching to be based on url rather than type
  */
@@ -16,10 +16,7 @@ if (fs.existsSync(filePath + '.orig')) {
 }
 
 
-const cdaCodeTypes = ['CD', 'CE', 'CS', 'cs', 'ADXP'].map((type) => `'http://hl7.org/cda/stds/core/StructureDefinition/${type}'`);
-
-const searchString = new RegExp("'code', 'Coding', 'CodeableConcept', 'CodeableReference', 'Quantity', 'string', 'uri'\\);", 'g');
-const replaceString = `'code', 'Coding', 'CodeableConcept', 'CodeableReference', 'Quantity', 'string', 'uri', ${cdaCodeTypes.join(', ')});`;
+const searchString = new RegExp('throw new errors_1.BindingStrengthError', 'g');
 
 fs.readFile(filePath, 'utf8', (err, data) => {
   if (err) {
@@ -28,15 +25,12 @@ fs.readFile(filePath, 'utf8', (err, data) => {
   }
 
   if (!searchString.test(data)) {
-    console.error('Sushi could not be modified for C-CDA. Are you sure the correct version is installed?');
+    console.error('Sushi could not be modified for C-CDA. Are you sure the correct version (3.5.0) is installed?');
     return;
   }
 
-  // Support binding on CDA elements - waiting on https://github.com/FHIR/sushi/issues/1347
-  let newData = data.replace(new RegExp(searchString, 'g'), replaceString);
-
   // Ignore the binding strength error - waiting on actually FIXING these in Sushi rather than in XML
-  newData = newData.replace(new RegExp('throw new errors_1.BindingStrengthError', 'g'), '//throw new errors_1.BindingStrengthError');
+  let newData = data.replace(searchString, '//throw new errors_1.BindingStrengthError');
 
   // Bug with how Sushi reconciles logical-model definitions based on .type instead of .url
   newData = newData.replace(new RegExp('matchesLogicalType = t2.code && t2.code === md.sdType;'), 'matchesLogicalType = t2.code && (t2.code === md.sdType || t2.code === md.url);')

@@ -3,23 +3,15 @@ Parent: $Act
 Id: PatientReferralAct
 Title: "Patient Referral Act"
 Description: "This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.140"
+
+* insert LogicalModelTemplateRootOnly(patient-referral-act, 2.16.840.1.113883.10.20.22.4.140)
+
 * classCode 1..1
 * classCode = #PCPR (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"PCPR\" provision of care (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-30884)."
 * moodCode 1..1
 * moodCode from $2.16.840.1.113883.11.20.9.66 (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Patient Referral Act moodCode urn:oid:2.16.840.1.113883.11.20.9.66 STATIC 2014-09-01 (CONF:1098-30885)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-30886) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.140"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.140\" (CONF:1098-30887)."
-  * extension 0..0
 * id 1..*
   * ^short = "In the case of a Consultation Note where this referral is being fulfilled by this consultation, this id would be referenced in the inFullfilmentOf/order/id of the Consultation Note."
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-30888)."
@@ -34,8 +26,9 @@ Description: "This template represents the type of referral (e.g., for dental ca
 * effectiveTime 1..1
   * ^short = "The effectiveTime represents the time when the future referral is intended to take place."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30893)."
+* obeys should-priorityCode
 * priorityCode 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)."
+  * ^comment = "SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)." // auto-should
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31612)."
@@ -89,7 +82,8 @@ Description: "This template represents the type of referral (e.g., for dental ca
     * value only $CD
     * value from $2.16.840.1.113883.11.20.9.61 (preferred)
       * ^comment = "This observation SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet Care Model urn:oid:2.16.840.1.113883.11.20.9.61 DYNAMIC (CONF:1098-31611)."
-* entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31635) such that it"
+* entryRelationship[indication] ^short = "The following entryRelationship represents a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31635) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31636)."

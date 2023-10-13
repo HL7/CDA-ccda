@@ -24,54 +24,47 @@ There are 2 optional sections:
 A care plan document can include entry references from the information in these sections to the information (entries) in other sections.
 
 Please see Volume 1 of this guide to view a Care Plan Relationship diagram and story board."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.15:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(care-plan, 2.16.840.1.113883.10.20.22.1.15, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28741) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.15"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.15\" (CONF:1198-28742)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32877)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-28745)."
   * code 1..1
   * code from $2.16.840.1.113762.1.4.1099.10 (required)
     * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Care Plan Document Type urn:oid:2.16.840.1.113762.1.4.1099.10 DYNAMIC (CONF:1198-32959)."
+* obeys should-setId
 * setId 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)."
+  * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." // auto-should
+* obeys should-versionNumber
 * versionNumber 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)."
-* informationRecipient ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "intendedRecipient"
-  * ^slicing.rules = #open
-* informationRecipient contains informationRecipient1 0..*
-* informationRecipient[informationRecipient1] ^comment = "SHOULD contain zero or more [0..*] informationRecipient (CONF:1198-31993) such that it"
+  * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." // auto-should
+
+// Removing slicing on infoRecipient, since the only branch identifier (intendedRecipient) is required anyway
+* obeys should-informationRecipient
+* informationRecipient 0..*
   * intendedRecipient 1..1
     * ^comment = "SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."
     * id 1..*
       * ^comment = "This intendedRecipient SHALL contain at least one [1..*] id (CONF:1198-31996)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)." // auto-should
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)." // auto-should
+    * obeys should-informationRecipient
     * informationRecipient 0..1
-      * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)." // auto-should
       * name 1..1
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32320)."
+    * obeys should-receivedOrganization
     * receivedOrganization 0..1
-      * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)." // auto-should
+      * obeys should-id
       * id 0..*
-        * ^comment = "The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)."
+        * ^comment = "The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)." // auto-should
       * standardIndustryClassCode 0..1
       * standardIndustryClassCode from $2.16.840.1.114222.4.11.1066 (required)
         * ^comment = "The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."
@@ -124,8 +117,9 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] @classCode=\"ASSIGNED\" (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-31686)."
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31684)."
+    * obeys should-code
     * code 0..1
-      * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code (CONF:1198-31685)."
+      * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code (CONF:1198-31685)." // auto-should
       * code 0..1
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
         * ^comment = "The code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-32367)."
@@ -143,16 +137,15 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
       * name 1..*
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31900)."
 * documentationOf ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "serviceEvent"
+  * ^slicing.discriminator[=].path = "serviceEvent.classCode"
   * ^slicing.rules = #open
   * ^short = "The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."
 * documentationOf contains documentationOf1 1..1
-  * serviceEvent
-    * performer ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "assignedEntity"
-      * ^slicing.rules = #open
-    * performer contains performer1 1..*
-    * performer[performer1] ^comment = "This serviceEvent SHALL contain at least one [1..*] performer (CONF:1198-31905) such that it"
+* documentationOf[documentationOf1] ^comment = "SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it"
+  * serviceEvent 1..1
+    // Removed slicing on performer since it was only branched on assignedEntity which is required anyway
+    * ^short = "The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."
+    * performer 1..*
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31907)."
         * id 1..*
@@ -164,8 +157,6 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
           * name 1..1
           * name only USRealmPersonNamePNUSFIELDED
             * ^comment = "This assignedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32329)."
-* documentationOf[documentationOf1] ^comment = "SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it"
-  * serviceEvent 1..1
     * ^comment = "SHALL contain exactly one [1..1] serviceEvent (CONF:1198-31902)."
     * classCode 1..1
     * classCode = #PCPR (exactly)
@@ -176,9 +167,7 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."
       * high 0..1
         * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-32331)."
-* relatedDocument ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "parentDocument"
-  * ^slicing.discriminator[+].type = #value
+* relatedDocument ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * relatedDocument contains relatedDocument1 0..*
@@ -207,8 +196,8 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
     * obeys 1198-31044
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28754)."
     * component 2..
-      * ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "ClinicalDocument.section"
+      * ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         component1 1..1 and

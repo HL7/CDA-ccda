@@ -22,7 +22,7 @@
     <name value="ResultObservation"/>
     <title value="Result Observation"/>
     <status value="draft"/>
-    <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus."/>
+    <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus.&#xA;&#xA;If code contains a valid non-null LOINC then the xsi:type value SHOULD match the LOINC Scale Part based on the table below:&#xA;&#xA;| LOINC Scale Part     | Value xsi:type |&#xA;| -------- | ------- |&#xA;| Qn - Quantitative | INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Ord - Ordinal | CD |&#xA;| Nom - Nominal | CD |&#xA;| Nar - Narrative | ED, ST |&#xA;| OrdQn - Quantitative or Ordinal | CD, INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Multi - Multi | ED |&#xA;| Doc - Document | ED |&#xA;"/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -35,15 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7130)."/>
-            <fixedCode value="OBS"/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7131)."/>
-            <fixedCode value="EVN"/>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-referenceRange"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain referenceRange"/>
+                <expression value="referenceRange.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -58,27 +58,33 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-7136) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1">
+        <element id="Observation.templateId:result-obs">
             <path value="Observation.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="result-obs"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1.root">
+        <element id="Observation.templateId:result-obs.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.2&quot; (CONF:4537-9138)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.2"/>
         </element>
-        <element id="Observation.templateId:templateId1.extension">
+        <element id="Observation.templateId:result-obs.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32575)."/>
             <min value="1"/>
             <patternString value="2023-05-01"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7130)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7131)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -92,6 +98,12 @@
                 <key value="4537-19212"/>
                 <severity value="warning"/>
                 <human value="This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
+            </constraint>
+            <constraint>
+                <key value="1098-40001"/>
+                <severity value="warning"/>
+                <human value="SHALL contain either a @code attribute or a @nullFlavor attribute, but not both."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
         </element>
@@ -117,6 +129,7 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
+            <short value="NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="SHALL contain exactly one [1..1] value (CONF:4537-7143)."/>
             <min value="1"/>
             <max value="1"/>
@@ -135,17 +148,13 @@
             <constraint>
                 <key value="4537-32610"/>
                 <severity value="warning"/>
-                <human value="If Observation/value is a CD (**xsi:type=&quot;CD&quot;**) the value **SHOULD** be SNOMED-CT (CONF:4537-32610)."/>
+                <human value="If Observation/value is a CD (**xsi:type=&quot;CD&quot;**) the value **SHOULD** be SNOMED-CT or LOINC (CONF:4537-32610)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
         </element>
         <element id="Observation.interpretationCode">
             <path value="Observation.interpretationCode"/>
             <comment value="SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.78"/>
-            </binding>
         </element>
         <element id="Observation.methodCode">
             <path value="Observation.methodCode"/>
@@ -159,6 +168,7 @@
         </element>
         <element id="Observation.specimen">
             <path value="Observation.specimen"/>
+            <short value="Laboratory observations are expected to include the specimen participant. The specimen included at specimenPlayingEntity/code must be consistent with the observation/code."/>
             <comment value="MAY contain zero or more [0..*] specimen (CONF:4537-32611)."/>
         </element>
         <element id="Observation.specimen.specimenRole">

@@ -3,9 +3,9 @@ Parent: $Act
 Id: PolicyActivity
 Title: "Policy Activity"
 Description: "A policy activity represents the policy or program providing the coverage. The person for whom payment is being provided (i.e., the patient) is the covered party. The subscriber of the policy or program is represented as a participant that is the holder of the coverage. The payer is represented as the performer of the policy activity."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.61:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(policy-activity, 2.16.840.1.113883.10.20.22.4.61, 2023-05-01)
+
 * ^status = #draft
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -13,22 +13,8 @@ Description: "A policy activity represents the policy or program providing the c
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8899)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-8900) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-8900) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.61"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.61\" (CONF:4537-10516)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-32595)."
 * id 1..*
+  * ^short = "This id is a unique identifier for the policy or program providing the coverage"
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8901)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem X12N Insurance Type urn:oid:2.16.840.1.113883.6.255.1336 DYNAMIC (CONF:4537-8903)."
@@ -42,7 +28,7 @@ Description: "A policy activity represents the policy or program providing the c
   * translation[translation1] ^short = "translation"
     * ^comment = "This code SHALL contain at least one [1..*] translation (CONF:4537-32852) such that it"
     * code 0..1
-    * code from Payer (preferred)
+    * code from $Payer (preferred)
       * ^comment = "SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Payer urn:oid:2.16.840.1.114222.4.11.3591 DYNAMIC (CONF:4537-33066)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."
@@ -60,7 +46,7 @@ Description: "A policy activity represents the policy or program providing the c
 * performer contains
     performer1 1..1 and
     performer2 0..*
-* performer[performer1] ^short = "performer"
+* performer[performer1] ^short = "This performer represents the Payer."
   * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4537-8906) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)
@@ -74,9 +60,11 @@ Description: "A policy activity represents the policy or program providing the c
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8908)."
     * id 1..*
+      * ^short = "This is the Payer id. The root is a unique identifier to an openly available assigning authority, such as National Association of Insurance Commissioners (NAIC) (2.16.840.1.113883.6.300), and the extension identifiers the payer within that authority."
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-8909)."
+    * obeys should-code
     * code 0..1
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)." // auto-should
       * code 1..1
       * code from $2.16.840.1.113883.1.11.10416 (preferred)
         * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Financially Responsible Party Type Value Set urn:oid:2.16.840.1.113883.1.11.10416 DYNAMIC (CONF:4537-15992)."
@@ -85,11 +73,13 @@ Description: "A policy activity represents the policy or program providing the c
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8910)."
     * telecom 0..*
       * ^comment = "This assignedEntity MAY contain zero or more [0..*] telecom (CONF:4537-8911)."
+    * obeys should-representedOrganization
     * representedOrganization 0..1
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)." // auto-should
+      * obeys should-name
       * name 0..1
-        * ^comment = "The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)."
-* performer[performer2] ^short = "performer"
+        * ^comment = "The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)." // auto-should
+* performer[performer2] ^short = "This performer represents the Guarantor."
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)
@@ -100,8 +90,9 @@ Description: "A policy activity represents the policy or program providing the c
     * root = "2.16.840.1.113883.10.20.22.4.88"
       * ^comment = "This templateId SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.88\" Guarantor Performer (CONF:4537-16811)."
     * extension 0..0
+  * obeys should-time
   * time 0..1
-    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8963)."
+    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8963)." // auto-should
   * assignedEntity 1..1
     * obeys 4537-8967
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8962)."
@@ -116,8 +107,9 @@ Description: "A policy activity represents the policy or program providing the c
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)."
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)."
+      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)." // auto-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "templateId"
   * ^slicing.discriminator[+].type = #value
@@ -140,12 +132,15 @@ Description: "A policy activity represents the policy or program providing the c
     * root = "2.16.840.1.113883.10.20.22.4.89"
       * ^comment = "This templateId SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.89\" Covered Party Participant (CONF:4537-16814)."
     * extension 0..0
+  * obeys should-time
   * time 0..1
-    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8918)."
+    * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8918)." // auto-should
+    * obeys should-low
     * low 0..1
-      * ^comment = "The time, if present, SHOULD contain zero or one [0..1] low (CONF:4537-8919)."
+      * ^comment = "The time, if present, SHOULD contain zero or one [0..1] low (CONF:4537-8919)." // auto-should
+    * obeys should-high
     * high 0..1
-      * ^comment = "The time, if present, SHOULD contain zero or one [0..1] high (CONF:4537-8920)."
+      * ^comment = "The time, if present, SHOULD contain zero or one [0..1] high (CONF:4537-8920)." // auto-should
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4537-8921)."
     * id 1..*
@@ -159,8 +154,10 @@ Description: "A policy activity represents the policy or program providing the c
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)."
+    * obeys should-playingEntity
     * playingEntity 0..1
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)."
+      * ^short = "This playingEntity records the covered party name and birthTime as represented by the health plan. This could match the information in recordTarget, or be different due to marriage or other reasons."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)." // auto-should
       * name 1..1
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] name (CONF:4537-8930)."
       * sdtcBirthTime 1..1
@@ -168,7 +165,7 @@ Description: "A policy activity represents the policy or program providing the c
         * ^short = "sdtc:birthTime"
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] sdtc:birthTime (CONF:4537-31344)."
 * participant[participant2] obeys 4537-17139
-  * ^short = "participant"
+  * ^short = "When the Subscriber is the patient, the participant element describing the subscriber *SHALL NOT* be present. This information will be recorded instead in the data elements used to record member information."
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
   * typeCode 1..1
   * typeCode = #HLD (exactly)

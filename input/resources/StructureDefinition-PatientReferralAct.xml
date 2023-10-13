@@ -34,18 +34,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act.classCode">
-            <path value="Act.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; provision of care (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-30884)."/>
-            <fixedCode value="PCPR"/>
-        </element>
-        <element id="Act.moodCode">
-            <path value="Act.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Patient Referral Act moodCode urn:oid:2.16.840.1.113883.11.20.9.66 STATIC 2014-09-01 (CONF:1098-30885)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.66"/>
-            </binding>
+        <element id="Act">
+            <path value="Act"/>
+            <constraint>
+                <key value="should-priorityCode"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain priorityCode"/>
+                <expression value="priorityCode.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+            </constraint>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -58,22 +55,33 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Act.templateId:primary">
+        <element id="Act.templateId:patient-referral-act">
             <path value="Act.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-30886) such that it, SHALL not contain [0..0] extension."/>
+            <sliceName value="patient-referral-act"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:primary.root">
+        <element id="Act.templateId:patient-referral-act.root">
             <path value="Act.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.140&quot; (CONF:1098-30887)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.140"/>
         </element>
-        <element id="Act.templateId:primary.extension">
+        <element id="Act.templateId:patient-referral-act.extension">
             <path value="Act.templateId.extension"/>
             <max value="0"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; provision of care (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-30884)."/>
+            <fixedCode value="PCPR"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Patient Referral Act moodCode urn:oid:2.16.840.1.113883.11.20.9.66 STATIC 2014-09-01 (CONF:1098-30885)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.66"/>
+            </binding>
         </element>
         <element id="Act.id">
             <path value="Act.id"/>

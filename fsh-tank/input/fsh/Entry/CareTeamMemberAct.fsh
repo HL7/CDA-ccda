@@ -16,30 +16,15 @@ The performer/assignedEntity/id may be set equal to (a pointer to) an id on a pe
 This id must be a pointer to another Performer."""
 * ^meta.versionId = "5"
 * ^meta.lastUpdated = "2023-07-11T23:41:50.227Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.1:2022-06-01"
-* ^version = "2022-06-01"
+
+* insert LogicalModelTemplate(care-team-member-act, 2.16.840.1.113883.10.20.22.4.500.1, 2022-06-01)
+
 * classCode 1..1
 * classCode = #PCPR (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"PCPR\" Provision of Care (CONF:4515-53)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CONF:4515-54)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-45) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-45) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.500.1"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.500.1\" (CONF:4515-66)."
-  * extension 1..1
-  * extension = "2022-06-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2022-06-01\" (CONF:4515-67)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-27)."
   * code 1..1
@@ -78,15 +63,18 @@ This id must be a pointer to another Performer."""
       * obeys 4515-180
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-176)."
       * root 0..1
-      * root = "2.16.840.1.113883.4.6"
+        * obeys should-npi
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)."
+      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)." // auto-should
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4515-183)."
+      * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4515-183)." // auto-should
+    * obeys should-assignedPerson
     * assignedPerson 0..1
       * ^short = "This assignedPerson must be present on at least one performer in this document for each unique assignedEntity/id."
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-178)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-178)." // auto-should
       * name 1..1
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4515-179)."
@@ -102,7 +90,7 @@ This id must be a pointer to another Performer."""
 * participant contains
     participant2 0..* and
     participant1 0..*
-* participant[participant2] ^short = "participant"
+* participant[participant2] ^short = "particThis participant represents the location where the care team member provides the serviceipant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
   * typeCode 1..1
   * typeCode = #LOC (exactly)
@@ -110,7 +98,7 @@ This id must be a pointer to another Performer."""
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4515-173)."
 * participant[participant1] obeys 4515-172
-  * ^short = "participant"
+  * ^short = "This participant is used to express additional care team functions performed by this member of the team. Include additional participant to record additional roles (functionCode) this Care Team member plays."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-76) such that it"
   * typeCode 1..1
   * typeCode = #IND (exactly)
@@ -139,7 +127,7 @@ This id must be a pointer to another Performer."""
     * id 1..1
       * obeys 4515-90
       * ^comment = "This encounter SHALL contain exactly one [1..1] id (CONF:4515-89)."
-* entryRelationship[entryRelationship2] ^short = "entryRelationship"
+* entryRelationship[entryRelationship2] ^short = "This is the note activity to naratively describe information about the member on the care team."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-91) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -147,7 +135,7 @@ This id must be a pointer to another Performer."""
   * act 1..1
   * act only NoteActivity
     * ^comment = "SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-93)."
-* entryRelationship[entryRelationship3] ^short = "entryRelationship"
+* entryRelationship[entryRelationship3] ^short = "This is the schedule of when or how frequently the care team member participates (or provides care to the patient) on the care team."
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

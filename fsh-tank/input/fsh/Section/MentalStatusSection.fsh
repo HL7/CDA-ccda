@@ -13,34 +13,8 @@ Description: """The Mental Status Section contains observations and evaluations 
 *  Perception (e.g., voices, hallucinations)
 *  Cognition (e.g., memory, alertness/consciousness, attention, orientation)  which were included in Cognitive Status Observation in earlier publications of C-CDA.
 *  Insight and judgment (e.g., understanding of condition, decision making)"""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.2.56:2015-08-01"
-* ^version = "2015-08-01"
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28293) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.2.56"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.2.56\" (CONF:1198-28294)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32793)."
-* code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-28295)."
-  * code 1..1
-  * code = #10190-7
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"10190-7\" Mental Status (CONF:1198-28296)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30826)."
-* title 1..1
-  * ^comment = "SHALL contain exactly one [1..1] title (CONF:1198-28297)."
-* text 1..1
-  * ^comment = "SHALL contain exactly one [1..1] text (CONF:1198-28298)."
+
+* insert Section(#10190-7, Mental Status, 2.16.840.1.113883.10.20.22.2.56, 2015-08-01)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "organizer"

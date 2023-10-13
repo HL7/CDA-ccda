@@ -3,9 +3,9 @@
     xmlns="http://hl7.org/fhir">
     <id value="hl7.cda.us.ccda"/>
     <url value="http://hl7.org/cda/us/ccda/ImplementationGuide/hl7.cda.us.ccda"/>
-    <version value="2.1"/>
+    <version value="3.0"/>
     <name value="CCDA"/>
-    <title value="Consolidated CDA Release 2.1 StructureDefinition Publication"/>
+    <title value="Consolidated CDA"/>
     <status value="draft"/>
     <publisher value="Health Level Seven"/>
     <contact>
@@ -31,7 +31,7 @@
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
-        <version value="0.9.0"/>
+        <version value="0.12.0"/>
     </dependsOn>
     <definition>
       <grouping id="document">
@@ -1447,7 +1447,7 @@
                 <display value="Problem Concern Act"/>
             </reference>
             <name value="Problem Concern Act"/>
-            <description value="This template reflects an ongoing concern on behalf of the provider that placed the concern on a patient's problem list. So long as the underlying condition is of concern to the provider (i.e., as long as the condition, whether active or resolved, is of ongoing concern and interest to the provider), the statusCode is &quot;active&quot;. Only when the underlying condition is no longer of concern is the statusCode set to &quot;completed&quot;. The effectiveTime reflects the time that the underlying condition was felt to be a concern; it may or may not correspond to the effectiveTime of the condition (e.g., even five years later, the clinician may remain concerned about a prior heart attack).&#xA;&#xA;The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved.&#xA;&#xA;The effectiveTime/low of the Problem Concern Act asserts when the concern became active. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition).&#xA;&#xA;A Problem Concern Act can contain many Problem Observations (templateId 2.16.840.1.113883.10.20.22.4.4). Each Problem Observation is a discrete observation of a condition, and therefore will have a statusCode of &quot;completed&quot;. The many Problem Observations nested under a Problem Concern Act reflect the change in the clinical understanding of a condition over time. For instance, a Concern may initially contain a Problem Observation of &quot;chest pain&quot;:&#xA; - Problem Concern 1&#xA;   --- Problem Observation: Chest Pain &#xA;Later, a new Problem Observation of &quot;esophagitis&quot; will be added, reflecting a better understanding of the nature of the chest pain. The later problem observation will have a more recent author time stamp. &#xA; - Problem Concern 1&#xA;   --- Problem Observation (author/time Jan 3, 2012): Chest Pain &#xA;   --- Problem Observation (author/time Jan 6, 2012): Esophagitis&#xA;Many systems display the nested Problem Observation with the most recent author time stamp, and provide a mechanism for viewing prior observations."/>
+            <description value="This template reflects an ongoing concern on behalf of the provider that placed the concern on a patient's problem list. So long as the underlying condition is of concern to the provider (i.e., as long as the condition, whether active or resolved, is of ongoing concern and interest to the provider), the statusCode is &quot;active&quot;. Only when the underlying condition is no longer of concern is the statusCode set to &quot;completed&quot;. The effectiveTime reflects the time that the underlying condition was felt to be a concern; it may or may not correspond to the effectiveTime of the condition (e.g., even five years later, the clinician may remain concerned about a prior heart attack).&#xA;&#xA;The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved.&#xA;&#xA;The effectiveTime/low of the Problem Concern Act asserts when the concern became active. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition).&#xA;&#xA;A Problem Concern Act can contain one Problem Observation (templateId 2.16.840.1.113883.10.20.22.4.4). The Problem Observation is a discrete observation of a condition, and therefore will have a statusCode of &quot;completed&quot;. For instance, a Concern may contain a Problem Observation of &quot;chest pain&quot; that is still ongoing:&#xA; - Problem Concern 1&#xA;   --- Problem Observation: Chest Pain (effectiveTime.high is empty) &#xA;Or a Concern may contain a Problem Observation of &quot;chest pain&quot; that is still worrisome but the problem happened in the past:&#xA; - Problem Concern 1&#xA;   --- Problem Observation: Chest Pain (effectiveTime.high is present and in the past) &#xA;Many systems display the nested Problem Observation with the most recent author time stamp, and provide a mechanism for viewing prior observations."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1911,20 +1911,20 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
-                <display value="US Realm Date and Time (DT.US.FIELDED)"/>
+                <reference value="StructureDefinition/USRealmDateTimeInterval"/>
+                <display value="US Realm Date and Time (Interval)"/>
             </reference>
-            <name value="US Realm Date and Time (DT.US.FIELDED)"/>
-            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (DTM.US.FIELDED),  but is used with elements having a datatype of IVL_TS."/>
+            <name value="US Realm Date and Time (Interval)"/>
+            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Point in Time),  but is used with elements having a datatype of IVL_TS."/>
             <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
-                <display value="US Realm Date and Time (DTM.US.FIELDED)"/>
+                <reference value="StructureDefinition/USRealmDateTime"/>
+                <display value="US Realm Date and Time (Point in Time)"/>
             </reference>
-            <name value="US Realm Date and Time (DTM.US.FIELDED)"/>
-            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (DT.US.FIELDED), but is used with elements having a datatype of TS."/>
+            <name value="US Realm Date and Time (Point in Time)"/>
+            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Interval), but is used with elements having a datatype of TS."/>
             <groupingId value="other"/>
         </resource>
         <resource>
@@ -2014,19 +2014,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
             </extension>
             <reference>
                 <reference value="Binary/allergy-to-food-egg"/></reference>
             <name value="Example of Allergy Intolerance to Food Egg"/>
             <description value="Example of an allergy to egg"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
                 <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AdmissionDiagnosisSection"/>
             </extension>
             <reference>
                 <reference value="Binary/admission-diagnosis-section-example"/>
@@ -2041,6 +2044,9 @@
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
                 <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AdmissionMedication"/>
             </extension>
             <reference>
                 <reference value="Binary/admission-medication-example"/>
@@ -2087,21 +2093,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectivesSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/advance-directives-section-example"/></reference>
-            <name value="Advance Directives Section Example"/>
-            <description value="Advance Directives Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectivesSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AgeObservation"/>
             </extension>
             <reference>
@@ -2110,21 +2101,6 @@
             <description value="Age Observation example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AgeObservation"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/allergies-and-intolerances-section-example"/></reference>
-            <name value="Allergies and Intolerances Section Example"/>
-            <description value="Allergies and Intolerances Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -2170,21 +2146,6 @@
             <description value="Anesthesia Section example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AnesthesiaSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/assessment-and-plan-section-example"/></reference>
-            <name value="Assessment and Plan Section Example"/>
-            <description value="Assessment and Plan Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -2267,7 +2228,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
                 <reference value="Binary/care-plan-caregiver-participant-example"/></reference>
@@ -2282,7 +2243,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Authenticator"/>
             </extension>
             <reference>
                 <reference value="Binary/care-plan-patient-authenticator-example"/></reference>
@@ -2297,7 +2258,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Performer1"/>
             </extension>
             <reference>
                 <reference value="Binary/care-plan-performer-example"/></reference>
@@ -2312,7 +2273,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/RelatedDocument"/>
             </extension>
             <reference>
                 <reference value="Binary/care-plan-relateddocument-example"/></reference>
@@ -2327,7 +2288,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
                 <reference value="Binary/care-plan-review-example"/></reference>
@@ -2432,7 +2393,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
             </extension>
             <reference>
                 <reference value="Binary/ccd-author-example"/></reference>
@@ -2447,7 +2408,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Performer1"/>
             </extension>
             <reference>
                 <reference value="Binary/ccd-performer-example"/></reference>
@@ -2462,7 +2423,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/DocumentationOf"/>
             </extension>
             <reference>
                 <reference value="Binary/ccd-serviceevent-example"/></reference>
@@ -2477,7 +2438,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
                 <reference value="Binary/consultation-note-callback-participant-example"/></reference>
@@ -2492,22 +2453,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
-            </extension>
-            <reference>
-                <reference value="Binary/consultation-note-structuredbody-example"/></reference>
-            <name value="Consultation Note structuredBody"/>
-            <description value="Consultation Note structuredBody example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/InFulfillmentOf"/>
             </extension>
             <reference>
                 <reference value="Binary/consultation-note-infulfillmentof-example"/></reference>
@@ -2627,21 +2573,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeMedicationsSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/discharge-medication-section-example"/></reference>
-            <name value="Discharge Medications Section Example"/>
-            <description value="Discharge Medications Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeMedicationsSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeMedication"/>
             </extension>
             <reference>
@@ -2657,7 +2588,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ComponentOf"/>
             </extension>
             <reference>
                 <reference value="Binary/discharge-summary-encompassingencounter-example"/></reference>
@@ -2725,21 +2656,6 @@
             <description value="tEncounter Diagnosis example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterDiagnosis"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/EncountersSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/encounters-section-example"/></reference>
-            <name value="Encounters Section Example"/>
-            <description value="Encounters Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EncountersSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -2927,21 +2843,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalsSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/goals-section-example"/></reference>
-            <name value="Goals Section Example"/>
-            <description value="Goals Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalsSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HandoffCommunicationParticipants"/>
             </extension>
             <reference>
@@ -2965,36 +2866,6 @@
             <description value="Health Concern Act example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernsSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/health-concerns-section-example"/></reference>
-            <name value="Health Concerns Section Example"/>
-            <description value="Health Concerns Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernsSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/health-status-evaluations-and-outcomes-section-example"/></reference>
-            <name value="Health Status Evaluations and Outcomes Section Example"/>
-            <description value="Health Status Evaluations and Outcomes Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -3032,7 +2903,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ComponentOf"/>
             </extension>
             <reference>
                 <reference value="Binary/handp-encompassingencounter-example"/></reference>
@@ -3047,14 +2918,14 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.4.2"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryofPresentIllnessSection"/>
             </extension>
             <reference>
                 <reference value="Binary/history-of-present-illness-section-example"/></reference>
             <name value="History Of Present Illness Example"/>
             <description value="History of Present Illness example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.3.4.2"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryofPresentIllnessSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -3212,21 +3083,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationsSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/immunizations-section-example"/></reference>
-            <name value="Immunizations Section Example"/>
-            <description value="Immunizations Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationsSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
             </extension>
             <reference>
@@ -3280,21 +3136,6 @@
             <description value="Intervention Act example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InterventionAct"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ActivitiesSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/interventions-section-example"/></reference>
-            <name value="Interventions Section Example"/>
-            <description value="Interventions Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ActivitiesSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -3437,21 +3278,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/medications-section-example"/></reference>
-            <name value="Medications Section Example"/>
-            <description value="Medications Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
             </extension>
             <reference>
@@ -3475,21 +3301,6 @@
             <description value="Mental Status Organizer example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusOrganizer"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/mental-status-section-example"/></reference>
-            <name value="Mental Status Section Example"/>
-            <description value="Mental Status Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -3542,7 +3353,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/UnstructuredDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/NonXMLBody"/>
             </extension>
             <reference>
                 <reference value="Binary/nonxmlbody-example-with-compressed-content"/></reference>
@@ -3557,7 +3368,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/UnstructuredDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/NonXMLBody"/>
             </extension>
             <reference>
                 <reference value="Binary/nonxmlbody-example-with-embedded-content"/></reference>
@@ -3572,7 +3383,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/UnstructuredDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/NonXMLBody"/>
             </extension>
             <reference>
                 <reference value="Binary/nonxmlbody-example-with-referenced-content"/></reference>
@@ -3677,7 +3488,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Performer1"/>
             </extension>
             <reference>
                 <reference value="Binary/operative-note-performer-example"/></reference>
@@ -3692,7 +3503,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ServiceEvent"/>
             </extension>
             <reference>
                 <reference value="Binary/operative-note-serviceevent-example"/></reference>
@@ -3767,7 +3578,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Authenticator"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-authenticator-example"/></reference>
@@ -3782,7 +3593,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-author-device-example"/></reference>
@@ -3797,7 +3608,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-author-example"/></reference>
@@ -3812,7 +3623,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Custodian"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-custodian-example"/></reference>
@@ -3827,7 +3638,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/DataEnterer"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-dataenterer-example"/></reference>
@@ -3842,7 +3653,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Informant"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-informant-example-informant"/></reference>
@@ -3857,7 +3668,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Informant"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-informant-relent-example"/></reference>
@@ -3872,7 +3683,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/InformationRecipient"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-informationrecipient"/></reference>
@@ -3887,7 +3698,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/InFulfillmentOf"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-infulfillmentof-example"/></reference>
@@ -3902,7 +3713,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/LegalAuthenticator"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-legalauthenticator-example"/></reference>
@@ -3917,7 +3728,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-participant-example"/></reference>
@@ -3932,7 +3743,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/RecordTarget"/>
             </extension>
             <reference>
                 <reference value="Binary/patient-generated-document-recordtarget-example"/></reference>
@@ -4172,21 +3983,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosis"/>
-            </extension>
-            <reference>
-                <reference value="Binary/postprocedure-diagnosis-example"/></reference>
-            <name value="Postprocedure Diagnosis Example"/>
-            <description value="Postprocedure Diagnosis example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosis"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosisSection"/>
             </extension>
             <reference>
@@ -4307,22 +4103,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/problem-section-example"/></reference>
-            <name value="Problem Section Example"/>
-            <description value="Problem Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Performer1"/>
             </extension>
             <reference>
                 <reference value="Binary/procedure-note-performer-example"/></reference>
@@ -4337,7 +4118,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/DocumentationOf"/>
             </extension>
             <reference>
                 <reference value="Binary/procedure-note-serviceevent-example"/></reference>
@@ -4472,21 +4253,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/procedures-section-example"/></reference>
-            <name value="Procedures Section Example"/>
-            <description value="Procedures Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProductInstance"/>
             </extension>
             <reference>
@@ -4532,7 +4298,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ComponentOf"/>
             </extension>
             <reference>
                 <reference value="Binary/progress-note-encompassingencounter-example"/></reference>
@@ -4547,7 +4313,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/DocumentationOf"/>
             </extension>
             <reference>
                 <reference value="Binary/progress-note-serviceevent-example"/></reference>
@@ -4622,7 +4388,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
                 <reference value="Binary/referral-note-callback-contact-example"/></reference>
@@ -4637,7 +4403,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
                 <reference value="Binary/referral-note-caregiver-example"/></reference>
@@ -4652,7 +4418,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/InformationRecipient"/>
             </extension>
             <reference>
                 <reference value="Binary/referral-note-informationrecipient-example"/></reference>
@@ -4690,21 +4456,6 @@
             <description value="Result Organizer example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultsSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/results-section-example"/></reference>
-            <name value="Results Section Example"/>
-            <description value="Results Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultsSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -4907,7 +4658,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
                 <reference value="Binary/transfer-summary-callback-contact-example"/></reference>
@@ -4922,7 +4673,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
                 <reference value="Binary/transfer-summary-participant-support-example"/></reference>
@@ -4952,14 +4703,29 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
             </extension>
             <reference>
                 <reference value="Binary/us-realm-date-and-time-example"/></reference>
             <name value="US Realm Date and Time Example"/>
             <description value="US Realm Date and Time example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </extension>
+            <reference>
+                <reference value="Binary/us-realm-date-and-time-ivl-example"/></reference>
+            <name value="US Realm Date and Time Interval Example"/>
+            <description value="US Realm Date and Time Interval example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -4975,21 +4741,6 @@
             <description value="US Realm Header example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
-            </extension>
-            <reference>
-                <reference value="Binary/us-realm-patient-name-example"/></reference>
-            <name value="US Realm Patient Name Example"/>
-            <description value="US Realm Patient Name example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -5042,21 +4793,6 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsSection"/>
-            </extension>
-            <reference>
-                <reference value="Binary/vital-signs-section-example"/></reference>
-            <name value="Vital Signs Section Example"/>
-            <description value="Vital Signs Section example"/>
-            <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsSection"/>
-            <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
-                <valueCode value="application/xml"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundCharacteristic"/>
             </extension>
             <reference>
@@ -5082,8 +4818,6 @@
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundMeasurementObservation"/>
             <groupingId value="examples"/>
         </resource>
-        
-        <!-- SG: R5 Version -->
         <page>
             <sourceUrl value="index.html"/>
             <name value="index.html"/>
@@ -5186,88 +4920,6 @@
                 <generation value="markdown"/>
             </page>
         </page>
-        <!-- SG: R4 Version -->
-        <!--<page>
-            <nameUrl value="index.html"/>
-            <title value="IG Home Page"/>
-            <generation value="markdown"/>
-            <page>
-                <nameUrl value="background.html"/>
-                <title value="Background"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="designconsiderations.html"/>
-                <title value="Design Considerations"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="using.html"/>
-                <title value="Using this Implementation Guide"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="references.html"/>
-                <title value="References"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="appendix.html"/>
-                <title value="Appendix"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="validation.html"/>
-                <title value="Validation"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="howtoread.html"/>
-                <title value="How To Read"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="downloads.html"/>
-                <title value="Downloads"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="introduction.html"/>
-                <title value="Introduction"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="understanding_c-cda_and_the_c-cda_companion_guide.html"/>
-                <title value="Understanding C-CDA and the C-CDA Companion Guide"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="document_level_guidance.html"/>
-                <title value="Document Level Guidance"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="section_level_guidance.html"/>
-                <title value="Section Level Guidance"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="representation_of_discrete_data.html"/>
-                <title value="Representation of Discrete Data"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="uscdi_guidance.html"/>
-                <title value="USCDI Guidance"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <nameUrl value="resources.html"/>
-                <title value="Resources"/>
-                <generation value="markdown"/>
-            </page>
-        </page>-->
-        <!-- SG R5 -->
         <parameter>
             <code>
                 <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -5289,15 +4941,5 @@
             </code>
             <value value="false"/>
         </parameter>
-
-        <!-- SG R4 -->
-        <!--<parameter>
-            <code value="copyrightyear"/>
-            <value value="2020+"/>
-        </parameter>
-        <parameter>
-            <code value="releaselabel"/>
-            <value value="CI Build"/>
-        </parameter>-->
     </definition>
 </ImplementationGuide>

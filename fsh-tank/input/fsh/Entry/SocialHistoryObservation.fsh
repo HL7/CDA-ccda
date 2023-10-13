@@ -4,29 +4,15 @@ Id: SocialHistoryObservation
 Title: "Social History Observation"
 Description: """This template represents a patient's job (occupation and industry), lifestyle, and environmental health risk factors. Demographic data (e.g., marital status, race, ethnicity, religious affiliation) are captured in the header. Though tobacco use and exposure may be represented with a Social History Observation, it is recommended to use the Current Smoking Status template or the Tobacco Use template instead, to represent smoking or tobacco habits.
 There are supplemental templates and guidance for observations of [Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522), [nutrition](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=478) and [pregnancy](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=494) that could be captured in the Social History Observation, and implementers may want to consider using those more specific templates in the Social History section."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2022-06-01"
-* ^version = "2022-06-01"
+
+* insert LogicalModelTemplate(social-history-obs, 2.16.840.1.113883.10.20.22.4.38, 2022-06-01)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-8548)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-8549)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains social-history-obs 1..1
-* templateId[social-history-obs] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-8550) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.38"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.38\" (CONF:4515-10526)."
-  * extension 1..1
-  * extension = "2022-06-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2022-06-01\" (CONF:4515-32495)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-8551)."
 * code 1..1
@@ -40,9 +26,11 @@ There are supplemental templates and guidance for observations of [Occupational 
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-19117)."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-31868)."
+* obeys should-value
 * value 0..1
   * obeys 4515-8555 and 4515-32957
-  * ^comment = "SHOULD contain zero or one [0..1] value (CONF:4515-8559)."
+  * ^short = "NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
+  * ^comment = "SHOULD contain zero or one [0..1] value (CONF:4515-8559)." // auto-should
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31869)."
@@ -58,7 +46,7 @@ There are supplemental templates and guidance for observations of [Occupational 
 * entryRelationship contains
     social-history-entry-sprt-obs 0..* and
     social-history-entry-sprt-act 0..*
-* entryRelationship[social-history-entry-sprt-obs] ^short = "entryRelationship"
+* entryRelationship[social-history-entry-sprt-obs] ^short = "When an Assessment Scale Observation is contained in a Social History Observation instance that is a Social Determinant of Health Social History Observation, that Assessment Scale Observation MAY contain Assessment Scale Supporting Observations that contain LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32958) such that it"
   * typeCode 1..1
   * typeCode = #SPRT (exactly)
@@ -66,7 +54,7 @@ There are supplemental templates and guidance for observations of [Occupational 
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32959)."
-* entryRelationship[social-history-entry-sprt-act] ^short = "entryRelationship"
+* entryRelationship[social-history-entry-sprt-act] ^short = "When an Entry Reference is contained in a Social History Template instance that is a Social Determinant of Health Social History, that Entry Reference **MAY** reference an Assessment Scale Observation elsewhere in the document that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32969) such that it"
   * typeCode 1..1
   * typeCode = #SPRT (exactly)

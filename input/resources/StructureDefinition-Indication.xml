@@ -35,15 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7480)."/>
-            <fixedCode value="OBS"/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7481)."/>
-            <fixedCode value="EVN"/>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -58,27 +58,33 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-7482) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1">
+        <element id="Observation.templateId:indication">
             <path value="Observation.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="indication"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1.root">
+        <element id="Observation.templateId:indication.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.19&quot; (CONF:4537-10502)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.19"/>
         </element>
-        <element id="Observation.templateId:templateId1.extension">
+        <element id="Observation.templateId:indication.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-32570)."/>
             <min value="1"/>
             <patternString value="2023-05-01"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7480)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7481)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -111,6 +117,7 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
+            <short value="If the ID element does not reference a problem recorded elsewhere in the document, then observation/value must be populated with a coded entry."/>
             <comment value="MAY contain zero or one [0..1] value with @xsi:type=&quot;CD&quot;, where the code MAY be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:4537-7489)."/>
             <max value="1"/>
             <type>

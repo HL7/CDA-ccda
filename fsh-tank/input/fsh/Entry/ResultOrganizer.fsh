@@ -4,31 +4,18 @@ Id: ResultOrganizer
 Title: "Result Organizer"
 Description: """This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). 
 
-If any Result Observation within the organizer has a statusCode of "active", the Result Organizer must also have a statusCode of "active"."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2023-05-01"
-* ^version = "2023-05-01"
+If any Result Observation within the organizer has a statusCode of "active", the Result Organizer must also have a statusCode of "active". 
+
+Specimen(s) attached to a Result Organizer apply to all Result Observations contained in the Organizer. It is not recommended to record specimen information at the Result Observation."""
+
+* insert LogicalModelTemplate(result-org, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
+
 * ^status = #draft
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7121)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7122)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-7126) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-7126) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.1"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.1\" (CONF:4537-9134)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-32588)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7127)."
 * code 1..1
@@ -47,6 +34,7 @@ If any Result Observation within the organizer has a statusCode of "active", the
   * high 1..1
     * ^comment = "The effectiveTime, if present, SHALL contain exactly one [1..1] high (CONF:4537-32489)."
 * specimen 0..*
+  * ^short = "When an organizer is for laboratory,  observations are expected to include the specimen participant. The specimen included at specimenPlayingEntity/code must be consistent with the observation/code."
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4537-32615)."
   * specimenRole 1..1
     * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32616)."

@@ -35,14 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Procedure.classCode">
-            <path value="Procedure.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; Procedure (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-7652)."/>
-        </element>
-        <element id="Procedure.moodCode">
-            <path value="Procedure.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-7653)."/>
-            <fixedCode value="EVN"/>
+        <element id="Procedure">
+            <path value="Procedure"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.templateId">
             <path value="Procedure.templateId"/>
@@ -57,27 +58,32 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-7654) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Procedure.templateId:templateId1">
+        <element id="Procedure.templateId:procedure">
             <path value="Procedure.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="procedure"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Procedure.templateId:templateId1.root">
+        <element id="Procedure.templateId:procedure.root">
             <path value="Procedure.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.14&quot; (CONF:4515-10521)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.14"/>
         </element>
-        <element id="Procedure.templateId:templateId1.extension">
+        <element id="Procedure.templateId:procedure.extension">
             <path value="Procedure.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-32506)."/>
             <min value="1"/>
             <patternString value="2022-06-01"/>
+        </element>
+        <element id="Procedure.classCode">
+            <path value="Procedure.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PROC&quot; Procedure (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-7652)."/>
+        </element>
+        <element id="Procedure.moodCode">
+            <path value="Procedure.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-7653)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Procedure.id">
             <path value="Procedure.id"/>
@@ -100,10 +106,24 @@
                 <human value="If the Intervention Procedure is a Social Determinant of Health Intervention, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Procedures](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion) **DYNAMIC** (CONF:4515-32984)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
+            <constraint>
+                <key value="should-originalText"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain originalText"/>
+                <expression value="originalText.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.code.originalText">
             <path value="Procedure.code.originalText"/>
             <comment value="This code SHOULD contain zero or one [0..1] originalText (CONF:4515-19203)."/>
+            <constraint>
+                <key value="should-reference"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain reference"/>
+                <expression value="reference.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.code.originalText.reference">
             <path value="Procedure.code.originalText.reference"/>
@@ -158,6 +178,7 @@
         </element>
         <element id="Procedure.targetSiteCode">
             <path value="Procedure.targetSiteCode"/>
+            <short value="In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."/>
             <comment value="SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)."/>
             <binding>
                 <strength value="required"/>
@@ -177,6 +198,13 @@
         <element id="Procedure.specimen.specimenRole">
             <path value="Procedure.specimen.specimenRole"/>
             <comment value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4515-7704)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain id"/>
+                <expression value="id.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.specimen.specimenRole.id">
             <path value="Procedure.specimen.specimenRole.id"/>
@@ -209,6 +237,13 @@
         <element id="Procedure.performer:performer1.assignedEntity">
             <path value="Procedure.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."/>
+            <constraint>
+                <key value="should-representedOrganization"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain representedOrganization"/>
+                <expression value="representedOrganization.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.id">
             <path value="Procedure.performer.assignedEntity.id"/>
@@ -240,6 +275,13 @@
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization">
             <path value="Procedure.performer.assignedEntity.representedOrganization"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain id"/>
+                <expression value="id.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.id">
             <path value="Procedure.performer.assignedEntity.representedOrganization.id"/>
@@ -482,7 +524,7 @@
         <element id="Procedure.entryRelationship:entryRelationship6">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship6"/>
-            <short value="entryRelationship"/>
+            <short value="When an Assessment Scale Observation is contained in a Procedure Template instance that is a Social Determinant of Health intervention procedure, that Assessment scale **MAY** contain Assessment Scale observations that represent LOINC question and answer pairs from SDOH screening instruments."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32985) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -504,7 +546,7 @@
         <element id="Procedure.entryRelationship:entryRelationship7">
             <path value="Procedure.entryRelationship"/>
             <sliceName value="entryRelationship7"/>
-            <short value="entryRelationship"/>
+            <short value="When an Entry Reference Template is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Entry Reference **MAY** refer to Assessment Scale Observation in the same document that represent LOINC question and answer pairs from SDOH screening instruments."/>
             <min value="0"/>
             <max value="*"/>
         </element>

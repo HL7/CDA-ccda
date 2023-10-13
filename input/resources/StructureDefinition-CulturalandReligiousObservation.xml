@@ -34,16 +34,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-27924)."/>
-            <fixedCode value="OBS"/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-27925)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -55,22 +45,30 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:primary">
+        <element id="Observation.templateId:culturaland-religious-obs">
             <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-27926) such that it, SHALL not contain [0..0] extension."/>
+            <sliceName value="culturaland-religious-obs"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:primary.root">
+        <element id="Observation.templateId:culturaland-religious-obs.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.111&quot; (CONF:1098-27927)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.111"/>
         </element>
-        <element id="Observation.templateId:primary.extension">
+        <element id="Observation.templateId:culturaland-religious-obs.extension">
             <path value="Observation.templateId.extension"/>
             <max value="0"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-27924)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-27925)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -109,13 +107,11 @@
             <comment value="SHALL contain exactly one [1..1] value (CONF:1098-28442)."/>
             <min value="1"/>
             <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
-            </type>
             <constraint>
                 <key value="1098-32487"/>
                 <severity value="error"/>
-                <human value="If xsi:type is CD, **SHALL** contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED-CT  urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-32487)."/>
+                <human value="If value contains a @code, then @codeSystem SHALL = &quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED-CT  urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1098-32487)."/>
+                <expression value="code.exists() implies codeSystem='2.16.840.1.113883.6.96'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CulturalandReligiousObservation"/>
             </constraint>
         </element>

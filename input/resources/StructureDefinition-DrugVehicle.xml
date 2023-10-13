@@ -34,11 +34,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="ParticipantRole.classCode">
-            <path value="ParticipantRole.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7490)."/>
-            <fixedCode value="MANU"/>
-        </element>
         <element id="ParticipantRole.templateId">
             <path value="ParticipantRole.templateId"/>
             <slicing>
@@ -50,22 +45,25 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="ParticipantRole.templateId:primary">
+        <element id="ParticipantRole.templateId:drug-vehicle">
             <path value="ParticipantRole.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:81-7495) such that it, SHALL not contain [0..0] extension."/>
+            <sliceName value="drug-vehicle"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ParticipantRole.templateId:primary.root">
+        <element id="ParticipantRole.templateId:drug-vehicle.root">
             <path value="ParticipantRole.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.24&quot; (CONF:81-10493)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.24"/>
         </element>
-        <element id="ParticipantRole.templateId:primary.extension">
+        <element id="ParticipantRole.templateId:drug-vehicle.extension">
             <path value="ParticipantRole.templateId.extension"/>
             <max value="0"/>
+        </element>
+        <element id="ParticipantRole.classCode">
+            <path value="ParticipantRole.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:81-7490)."/>
+            <fixedCode value="MANU"/>
         </element>
         <element id="ParticipantRole.code">
             <path value="ParticipantRole.code"/>

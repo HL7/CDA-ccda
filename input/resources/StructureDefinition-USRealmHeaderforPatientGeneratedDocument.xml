@@ -12,7 +12,7 @@
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="clinicalDocument"/>
+        <valueUri value="ClinicalDocument"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
     <identifier>
@@ -39,22 +39,19 @@
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary">
+        <element id="ClinicalDocument.templateId:us-patient-gen-doc">
             <path value="ClinicalDocument.templateId"/>
-            <sliceName value="secondary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-28458) such that it"/>
+            <sliceName value="us-patient-gen-doc"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary.root">
+        <element id="ClinicalDocument.templateId:us-patient-gen-doc.root">
             <path value="ClinicalDocument.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.29.1&quot; (CONF:1198-28459)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.29.1"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary.extension">
+        <element id="ClinicalDocument.templateId:us-patient-gen-doc.extension">
             <path value="ClinicalDocument.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32917)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
         </element>
@@ -79,6 +76,13 @@
         <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian"/>
             <comment value="This patient MAY contain zero or more [0..*] guardian (CONF:1198-28469)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain id"/>
+                <expression value="id.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.id">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.id"/>
@@ -88,10 +92,6 @@
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.code"/>
             <comment value="The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28473)."/>
         </element>
-        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication">
-            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication"/>
-            <comment value="This patient SHOULD contain zero or more [0..*] languageCommunication (CONF:1198-28474)."/>
-        </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.preferenceInd">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.preferenceInd"/>
             <short value="Indicates a preference for information about care delivery and treatments be communicated (or translated if needed) into this language.&#xA;&#xA;If more than one languageCommunication is present, only one languageCommunication element SHALL have a preferenceInd with a value of 1.&#xA;"/>
@@ -100,7 +100,7 @@
         <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization">
             <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization"/>
             <label value="If present, this organization represents the provider organization where the person is claiming to be a patient."/>
-            <short value="If present, this organization represents the provider organization where the person is claiming to be a patient.&#xA;&#xA;undefined"/>
+            <short value="If present, this organization represents the provider organization where the person is claiming to be a patient."/>
             <comment value="This patientRole MAY contain zero or one [0..1] providerOrganization (CONF:1198-28476)."/>
         </element>
         <element id="ClinicalDocument.author">
@@ -111,6 +111,13 @@
         <element id="ClinicalDocument.author.assignedAuthor">
             <path value="ClinicalDocument.author.assignedAuthor"/>
             <comment value="Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:1198-28478)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.id">
             <path value="ClinicalDocument.author.assignedAuthor.id"/>
@@ -150,27 +157,30 @@
             <path value="ClinicalDocument.informant"/>
             <short value="The informant element describes the source of the information in a medical document.&#xA;&#xA;Assigned health care providers may be a source of information when a document is created. (e.g., a nurse's aide who provides information about a recent significant health care event that occurred within an acute care facility.) In these cases, the assignedEntity element is used.&#xA;&#xA;When the informant is a personal relation, that informant is represented in the relatedEntity element, even if the personal relation is a medical professional.  The code element of the relatedEntity describes the relationship between the informant and the patient. The relationship between the informant and the patient  needs to be described to help the receiver of the clinical document understand the information in the document. &#xA;&#xA;Each informant can be either an assignedEntity (a clinician serving the patient) OR a relatedEntity (a person with a personal or legal relationship with the patient). The constraints here apply to relatedEntity."/>
         </element>
-        <element id="ClinicalDocument.informant:informant1">
-            <path value="ClinicalDocument.informant"/>
-            <sliceName value="informant1"/>
-            <comment value="MAY contain zero or more [0..*] informant (CONF:1198-28681) such that it"/>
-        </element>
-        <element id="ClinicalDocument.informant:informant1.relatedEntity">
+        <element id="ClinicalDocument.informant.relatedEntity">
             <path value="ClinicalDocument.informant.relatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] relatedEntity (CONF:1198-28682)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.relatedEntity.code">
+        <element id="ClinicalDocument.informant.relatedEntity.code">
             <path value="ClinicalDocument.informant.relatedEntity.code"/>
             <comment value="This relatedEntity MAY contain zero or one [0..1] code (CONF:1198-28683)."/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.relatedEntity.code.code">
+        <element id="ClinicalDocument.informant.relatedEntity.code.code">
             <path value="ClinicalDocument.informant.relatedEntity.code.code"/>
             <comment value="The code, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28684)."/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
+        </element>
+        <element id="ClinicalDocument.informant:informant1">
+            <path value="ClinicalDocument.informant"/>
+            <sliceName value="informant1"/>
+        </element>
+        <element id="ClinicalDocument.informant:informant1.relatedEntity">
+            <path value="ClinicalDocument.informant.relatedEntity"/>
+            <min value="1"/>
         </element>
         <element id="ClinicalDocument.custodian">
             <path value="ClinicalDocument.custodian"/>
@@ -199,6 +209,13 @@
         <element id="ClinicalDocument.informationRecipient.intendedRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
             <comment value="The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-28691)."/>
+            <constraint>
+                <key value="should-id"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain id"/>
+                <expression value="id.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.id">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.id"/>
@@ -300,6 +317,20 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
             <comment value="The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-28711)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
+            <constraint>
+                <key value="should-performer"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain performer"/>
+                <expression value="performer.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.code"/>
@@ -310,10 +341,9 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <comment value="This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
-            <short value="The functionCode SHALL be selected from value set ParticipationType 2.16.840.1.113883.1.11.10901 &#xA;&#xA;When indicating the performer was the primary care physician the functionCode shall be ='PCP'"/>
-            <comment value="The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:1198-28714)."/>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
+            <short value="When indicating the performer was the primary care physician, implementers should indicate &quot;PCP&quot; as the functionCode"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>

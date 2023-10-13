@@ -12,7 +12,7 @@
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="clinicalDocument"/>
+        <valueUri value="ClinicalDocument"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
     <identifier>
@@ -35,26 +35,33 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="should-documentationOf"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain documentationOf"/>
+                <expression value="documentationOf.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary">
+        <element id="ClinicalDocument.templateId:progress-note">
             <path value="ClinicalDocument.templateId"/>
-            <sliceName value="secondary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-7588) such that it"/>
+            <sliceName value="progress-note"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary.root">
+        <element id="ClinicalDocument.templateId:progress-note.root">
             <path value="ClinicalDocument.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.9&quot; (CONF:1198-10052)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.9"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary.extension">
+        <element id="ClinicalDocument.templateId:progress-note.extension">
             <path value="ClinicalDocument.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32521)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
         </element>
@@ -81,11 +88,6 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
             <comment value="The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:1198-7604)."/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.classCode">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.classCode"/>
-            <comment value="This serviceEvent SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Care Provision (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-26420)."/>
-            <fixedCode value="PCPR"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.templateId">
             <path value="ClinicalDocument.documentationOf.serviceEvent.templateId"/>
@@ -115,13 +117,18 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.templateId.extension"/>
             <max value="0"/>
         </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.classCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.classCode"/>
+            <comment value="This serviceEvent SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Care Provision (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-26420)."/>
+            <fixedCode value="PCPR"/>
+        </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
             <short value="SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"/>
-            <comment value="This serviceEvent SHOULD contain zero or one [0..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-9481)."/>
+            <comment value="This serviceEvent SHOULD contain zero or one [0..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-9481)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
             <constraint>
                 <key value="1198-9482"/>
@@ -152,10 +159,10 @@
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime"/>
-            <comment value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-7598)."/>
+            <comment value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-7598)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime.low">
@@ -203,8 +210,8 @@
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="ClinicalDocument.section"/>
+                    <type value="profile"/>
+                    <path value="section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -447,6 +454,21 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionSection"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component17">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <sliceName value="component17"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-32626) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component17.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <comment value="SHALL contain exactly one [1..1] Mental Status Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.56)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusSection"/>
             </type>
         </element>
     </differential>

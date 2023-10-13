@@ -39,16 +39,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act.classCode">
-            <path value="Act.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Provision of Care (CONF:4515-53)."/>
-            <fixedCode value="PCPR"/>
-        </element>
-        <element id="Act.moodCode">
-            <path value="Act.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CONF:4515-54)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
             <slicing>
@@ -62,27 +52,33 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-45) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Act.templateId:templateId1">
+        <element id="Act.templateId:care-team-member-act">
             <path value="Act.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="care-team-member-act"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:templateId1.root">
+        <element id="Act.templateId:care-team-member-act.root">
             <path value="Act.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.500.1&quot; (CONF:4515-66)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.500.1"/>
         </element>
-        <element id="Act.templateId:templateId1.extension">
+        <element id="Act.templateId:care-team-member-act.extension">
             <path value="Act.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-67)."/>
             <min value="1"/>
             <patternString value="2022-06-01"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Provision of Care (CONF:4515-53)."/>
+            <fixedCode value="PCPR"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CONF:4515-54)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
@@ -163,6 +159,27 @@
         <element id="Act.performer:performer1.assignedEntity">
             <path value="Act.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4515-175)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
+            </constraint>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
+            </constraint>
+            <constraint>
+                <key value="should-assignedPerson"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain assignedPerson"/>
+                <expression value="assignedPerson.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
+            </constraint>
         </element>
         <element id="Act.performer:performer1.assignedEntity.id">
             <path value="Act.performer.assignedEntity.id"/>
@@ -177,7 +194,13 @@
         <element id="Act.performer:performer1.assignedEntity.id.root">
             <path value="Act.performer.assignedEntity.id.root"/>
             <comment value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4515-177)."/>
-            <patternString value="2.16.840.1.113883.4.6"/>
+            <constraint>
+                <key value="should-npi"/>
+                <severity value="warning"/>
+                <human value="SHOULD be NPI"/>
+                <expression value="$this = '2.16.840.1.113883.4.6'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
+            </constraint>
         </element>
         <element id="Act.performer:performer1.assignedEntity.addr">
             <path value="Act.performer.assignedEntity.addr"/>
@@ -230,7 +253,7 @@
         <element id="Act.participant:participant2">
             <path value="Act.participant"/>
             <sliceName value="participant2"/>
-            <short value="participant"/>
+            <short value="particThis participant represents the location where the care team member provides the serviceipant"/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -247,7 +270,7 @@
         <element id="Act.participant:participant1">
             <path value="Act.participant"/>
             <sliceName value="participant1"/>
-            <short value="participant"/>
+            <short value="This participant is used to express additional care team functions performed by this member of the team. Include additional participant to record additional roles (functionCode) this Care Team member plays."/>
             <comment value="MAY contain zero or more [0..*] participant (CONF:4515-76) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -322,7 +345,7 @@
         <element id="Act.entryRelationship:entryRelationship2">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship2"/>
-            <short value="entryRelationship"/>
+            <short value="This is the note activity to naratively describe information about the member on the care team."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-91) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -344,7 +367,7 @@
         <element id="Act.entryRelationship:entryRelationship3">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship3"/>
-            <short value="entryRelationship"/>
+            <short value="This is the schedule of when or how frequently the care team member participates (or provides care to the patient) on the care team."/>
             <min value="0"/>
             <max value="1"/>
         </element>

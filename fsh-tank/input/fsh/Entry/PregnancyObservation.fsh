@@ -3,23 +3,15 @@ Parent: $Observation
 Id: PregnancyObservation
 Title: "Pregnancy Observation"
 Description: "This clinical statement represents current and/or prior pregnancy dates enabling investigators to determine if the subject of the case report was pregnant during the course of a condition."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.15.3.8"
+
+* insert LogicalModelTemplateRootOnly(pregnancy-obs, 2.16.840.1.113883.10.20.15.3.8)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-451)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-452)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:81-16768) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.15.3.8"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.15.3.8\" (CONF:81-16868)."
-  * extension 0..0
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:81-19153)."
   * code 1..1
@@ -33,8 +25,9 @@ Description: "This clinical statement represents current and/or prior pregnancy 
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19110)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:81-2018)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:81-2018)." // auto-should
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\"."

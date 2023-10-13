@@ -3,23 +3,15 @@ Parent: $Act
 Id: NutritionRecommendation
 Title: "Nutrition Recommendation"
 Description: "This template represents nutrition regimens (e.g., fluid restrictions, calorie minimum), interventions (e.g., NPO, nutritional supplements), and procedures (e.g., G-Tube by bolus, TPN by central line). It may also depict the need for nutrition education."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.130"
+
+* insert LogicalModelTemplateRootOnly(nutrition-rec, 2.16.840.1.113883.10.20.22.4.130)
+
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-30385)."
 * moodCode 1..1
 * moodCode from $2.16.840.1.113883.11.20.9.23 (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-30386)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-30340) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.130"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.130\" (CONF:1098-30341)."
-  * extension 0..0
 * code 1..1
 * code from $2.16.840.1.113883.1.11.20.2.9 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Nutrition Recommendations urn:oid:2.16.840.1.113883.1.11.20.2.9 DYNAMIC (CONF:1098-30342)."
@@ -28,9 +20,10 @@ Description: "This template represents nutrition regimens (e.g., fluid restricti
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31698)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
   * ^short = "The effectiveTime indicates the time when the activity is intended to take place."
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-31699)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-31699)." // auto-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile

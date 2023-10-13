@@ -5,23 +5,10 @@ Title: "Transfer Summary"
 Description: """This document describes constraints on the Clinical Document Architecture (CDA) header and body elements for a Transfer Summary. The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings. 
 
 Standardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.13:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(transfer-summary, 2.16.840.1.113883.10.20.22.1.13, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28239) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.13"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.13\" (CONF:1198-28240)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32907)."
 * code 1..1
 * code from TransferDocumentType (required)
   * ^short = "The Transfer Summary recommends use of the document type code 18761-7 \"Provider Unspecified Transfer Summary\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Transfer Summary note would not be authored by a Pediatric Cardiologist.\n\nPre-coordinated codes are those that indicate the specialty or service provided in the LOINC Long Common Name (Print Name in the TransferDocumentType valueSet table).\n\nWhen using a generic type of code such as 18761-7 (Provider - Unspecified Transfer Summary), the types of services involved in the care are handled in documentationOf/serviceEvent with the use of serviceEvent/code (e.g., use a SNOMED CT procedure code such as 69031006 (Excision of breast tissue) while performers/providers involved in the care can be identified using the functionCode (bound to Healthcare Provider Taxonomy role codes)."
@@ -58,8 +45,9 @@ Standardization of information used in this form will promote interoperability; 
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] @classCode=\"ASSIGNED\" assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-31641)."
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31629)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31630)."
+      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31630)." // auto-should
     * telecom 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31631)."
     * associatedPerson 1..1
@@ -97,8 +85,8 @@ Standardization of information used in this form will promote interoperability; 
     * obeys 1198-31582 and 1198-31583
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28252)."
     * component 7..
-      * ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "section.code"
+      * ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         advanceDirectives 0..1 and

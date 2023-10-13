@@ -6,39 +6,26 @@ Description: """The common notion of "procedure" is broader than that specified 
 This template represents procedures whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient. Examples of these procedures are an appendectomy, hip replacement, and a creation of a gastrostomy.
 This template can be used with a contained Product Instance template to represent a device in or on a patient. In this case, targetSiteCode is used to record the location of the device in or on the patient's body. Equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs) is represented by the Non-Medicinal Supply Activity template.
 Procedure Activity Procedure Usage Note: Common practice in the industry has shown that Procedure Activity Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the "immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient" or not. As a result, it is recommended to use Procedure Activity Procedure when sending procedures also thought of as "interventions" such as "Home Environment Evaluation" or "Assessment of nutritional status"."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2022-06-01"
-* ^version = "2022-06-01"
+
+* insert LogicalModelTemplate(procedure, 2.16.840.1.113883.10.20.22.4.14, 2022-06-01)
+
 * classCode 1..1
 * classCode = #PROC (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"PROC\" Procedure (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-7652)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-7653)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-7654) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-7654) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.14"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.14\" (CONF:4515-10521)."
-  * extension 1..1
-  * extension = "2022-06-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2022-06-01\" (CONF:4515-32506)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-7655)."
 * code 1..1
   * obeys 4515-19207 and 4515-32984
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-7656)."
+  * obeys should-originalText
   * originalText 0..1
-    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:4515-19203)."
+    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:4515-19203)." // auto-should
+    * obeys should-reference
     * reference 0..1
-      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-19204)."
+      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-19204)." // auto-should
       * value 0..1
         * obeys 4515-19206
         * ^comment = "The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:4515-19205)."
@@ -47,8 +34,9 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.22 (required)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:4515-32366)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-7662)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-7662)." // auto-should
 * priorityCode 0..1
 * priorityCode from ActPriority (required)
   * ^comment = "MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:4515-7668)."
@@ -57,15 +45,17 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4515-7670)."
 * targetSiteCode 0..*
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
+  * ^short = "In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."
   * ^comment = "SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)."
 * specimen 0..*
   * obeys 4515-16842
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4515-7697)."
   * specimenRole 1..1
     * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4515-7704)."
+    * obeys should-id
     * id 0..*
       * obeys 4515-29744
-      * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)."
+      * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)." // auto-should
 * performer ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "assignedEntity"
   * ^slicing.rules = #open
@@ -86,10 +76,12 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED)."
+    * obeys should-representedOrganization
     * representedOrganization 0..1
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)." // auto-should
+      * obeys should-id
       * id 0..*
-        * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:4515-7734)."
+        * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:4515-7734)." // auto-should
       * name 0..*
         * ^comment = "The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:4515-7735)."
       * telecom 1..*
@@ -192,7 +184,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * observation 1..1
   * observation only ReactionObservation
     * ^comment = "SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:4515-32475)."
-* entryRelationship[entryRelationship6] ^short = "entryRelationship"
+* entryRelationship[entryRelationship6] ^short = "When an Assessment Scale Observation is contained in a Procedure Template instance that is a Social Determinant of Health intervention procedure, that Assessment scale **MAY** contain Assessment Scale observations that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32985) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -200,7 +192,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32986)."
-* entryRelationship[entryRelationship7] ^short = "entryRelationship"
+* entryRelationship[entryRelationship7] ^short = "When an Entry Reference Template is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Entry Reference **MAY** refer to Assessment Scale Observation in the same document that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)

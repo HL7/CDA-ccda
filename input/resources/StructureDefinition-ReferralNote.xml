@@ -12,7 +12,7 @@
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="clinicalDocument"/>
+        <valueUri value="ClinicalDocument"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
     <identifier>
@@ -39,22 +39,19 @@
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
         </element>
-        <element id="ClinicalDocument.templateId:primary">
+        <element id="ClinicalDocument.templateId:referral-note">
             <path value="ClinicalDocument.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-28947) such that it"/>
+            <sliceName value="referral-note"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.templateId:primary.root">
+        <element id="ClinicalDocument.templateId:referral-note.root">
             <path value="ClinicalDocument.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.14&quot; (CONF:1198-28948)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.14"/>
         </element>
-        <element id="ClinicalDocument.templateId:primary.extension">
+        <element id="ClinicalDocument.templateId:referral-note.extension">
             <path value="ClinicalDocument.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32911)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
         </element>
@@ -76,6 +73,20 @@
         <element id="ClinicalDocument.informationRecipient.intendedRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
             <comment value="This informationRecipient SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31590)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-telecom"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain telecom"/>
+                <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.addr">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.addr"/>
@@ -160,6 +171,13 @@
         <element id="ClinicalDocument.participant:participant2.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31649)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
@@ -215,8 +233,8 @@
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="section.code"/>
+                    <type value="profile"/>
+                    <path value="section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

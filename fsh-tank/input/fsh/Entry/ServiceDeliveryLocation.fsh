@@ -3,27 +3,21 @@ Parent: $ParticipantRole
 Id: ServiceDeliveryLocation
 Title: "Service Delivery Location"
 Description: "This clinical statement represents the location of a service event where an act, observation or procedure took place."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.32"
+
+* insert LogicalModelTemplateRootOnly(service-delivery-loc, 2.16.840.1.113883.10.20.22.4.32)
+
 * classCode 1..1
 * classCode = #SDLOC (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SDLOC\" (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111 STATIC) (CONF:81-7758)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:81-7635) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.32"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.32\" (CONF:81-10524)."
-  * extension 0..0
 * code 1..1
 * code from HealthcareServiceLocation (required)
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet HealthcareServiceLocation urn:oid:2.16.840.1.113883.1.11.20275 DYNAMIC (CONF:81-16850)."
+* obeys should-addr
 * addr 0..*
-  * ^comment = "SHOULD contain zero or more [0..*] addr (CONF:81-7760)."
+  * ^comment = "SHOULD contain zero or more [0..*] addr (CONF:81-7760)." // auto-should
+* obeys should-telecom
 * telecom 0..*
-  * ^comment = "SHOULD contain zero or more [0..*] telecom (CONF:81-7761)."
+  * ^comment = "SHOULD contain zero or more [0..*] telecom (CONF:81-7761)." // auto-should
 * playingEntity 0..1
   * ^comment = "MAY contain zero or one [0..1] playingEntity (CONF:81-7762)."
   * classCode 1..1

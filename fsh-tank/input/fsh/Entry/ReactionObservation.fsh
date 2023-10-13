@@ -3,28 +3,15 @@ Parent: $Observation
 Id: ReactionObservation
 Title: "Reaction Observation"
 Description: "This clinical statement represents the response to an undesired symptom, finding, etc. due to administered or exposed substance. A reaction can be defined described with respect to its severity, and can have been treated by one or more interventions."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09"
-* ^version = "2014-06-09"
+
+* insert LogicalModelTemplate(reaction-obs, 2.16.840.1.113883.10.20.22.4.9, 2014-06-09)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7325)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7326)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-7323) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.9"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.9\" (CONF:1098-10523)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32504)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-7329)."
 * code 1..1
@@ -40,12 +27,15 @@ Description: "This clinical statement represents the response to an undesired sy
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19114)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7332)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7332)." // auto-should
+  * obeys should-low
   * low 0..1
-    * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] low (CONF:1098-7333)."
+    * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] low (CONF:1098-7333)." // auto-should
+  * obeys should-high
   * high 0..1
-    * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] high (CONF:1098-7334)."
+    * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] high (CONF:1098-7334)." // auto-should
 * value 1..1
 * value only $CD
 * value from Problem (required)

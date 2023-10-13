@@ -35,16 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act.classCode">
-            <path value="Act.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CONF:1198-10090)."/>
-            <fixedCode value="ACT"/>
-        </element>
-        <element id="Act.moodCode">
-            <path value="Act.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CONF:1198-10091)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
             <slicing>
@@ -60,24 +50,31 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Act.templateId:primary">
+        <element id="Act.templateId:preoperative-dx">
             <path value="Act.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-16770) such that it"/>
+            <sliceName value="preoperative-dx"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:primary.root">
+        <element id="Act.templateId:preoperative-dx.root">
             <path value="Act.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.65&quot; (CONF:1198-16771)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.65"/>
         </element>
-        <element id="Act.templateId:primary.extension">
+        <element id="Act.templateId:preoperative-dx.extension">
             <path value="Act.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32540)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; (CONF:1198-10090)."/>
+            <fixedCode value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CONF:1198-10091)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>

@@ -1,29 +1,16 @@
 Profile: MedicationSupplyOrder
-Parent: CDAR2Supply
+Parent: $Supply
 Id: MedicationSupplyOrder
 Title: "Medication Supply Order"
 Description: "This template records the intent to supply a patient with medications."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09"
-* ^version = "2014-06-09"
+
+* insert LogicalModelTemplate(med-supplyOrder, 2.16.840.1.113883.10.20.22.4.17, 2014-06-09)
+
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SPLY\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7427)."
 * moodCode 1..1
 * moodCode = #INT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"INT\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7428)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-7429) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.17"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.17\" (CONF:1098-10507)."
-  * extension 1..1
-  * extension = "2014-06-09"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2014-06-09\" (CONF:1098-32578)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-7430)."
 * statusCode 1..1
@@ -39,11 +26,13 @@ Description: "This template records the intent to supply a patient with medicati
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15143) such that it"
   * high 1..1
     * ^comment = "SHALL contain exactly one [1..1] high (CONF:1098-15144)."
+* obeys should-repeatNumber
 * repeatNumber 0..1
   * ^short = "In \"INT\" (intent) mood, the repeatNumber defines the number of allowed supplies. For example, a repeatNumber of \"3\" means that the substance can be supplied up to 3 times."
-  * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:1098-7434)."
+  * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:1098-7434)." // auto-should
+* obeys should-quantity
 * quantity 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-7436)."
+  * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-7436)." // auto-should
 * product 0..1
   * ^comment = "MAY contain zero or one [0..1] product (CONF:1098-7439)."
   * manufacturedProduct 1..1

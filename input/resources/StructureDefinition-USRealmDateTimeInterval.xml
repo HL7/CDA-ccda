@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="USRealmDateTimeInterval"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+    <identifier>
+        <value value="urn:oid:2.16.840.1.113883.10.20.22.5.3"/>
+    </identifier>
+    <name value="USRealmDateTimeInterval"/>
+    <title value="US Realm Date and Time (Interval)"/>
+    <status value="draft"/>
+    <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If time is provided, it must include a time zone offset.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Point in Time), but is used with elements having a datatype of IVL_TS."/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/IVL_TS"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="IVL_TS.low">
+            <path value="IVL_TS.low"/>
+            <short value="**MAY** be precise to at least the second"/>
+            <constraint>
+                <key value="ts-shall-day"/>
+                <severity value="error"/>
+                <human value="**SHALL** be precise to at least the day"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 8"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </constraint>
+            <constraint>
+                <key value="ts-should-minute"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be precise to at least the minute"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 12"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </constraint>
+            <constraint>
+                <key value="ts-shall-timezone"/>
+                <severity value="error"/>
+                <human value="If more precise than minute, **SHALL** include time-zone offset"/>
+                <expression value="nullFlavor.exists() or value.length() &amp;lt;= 8 or value.contains('-') or value.contains('+')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </constraint>
+        </element>
+        <element id="IVL_TS.high">
+            <path value="IVL_TS.high"/>
+            <short value="**MAY** be precise to at least the second"/>
+            <constraint>
+                <key value="ts-shall-day"/>
+                <severity value="error"/>
+                <human value="**SHALL** be precise to at least the day"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 8"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </constraint>
+            <constraint>
+                <key value="ts-should-minute"/>
+                <severity value="warning"/>
+                <human value="**SHOULD** be precise to at least the minute"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 12"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </constraint>
+            <constraint>
+                <key value="ts-shall-timezone"/>
+                <severity value="error"/>
+                <human value="If more precise than minute, **SHALL** include time-zone offset"/>
+                <expression value="nullFlavor.exists() or value.length() &amp;lt;= 8 or value.contains('-') or value.contains('+')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </constraint>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -35,16 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-14434)."/>
-            <fixedCode value="OBS"/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-14435)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -58,27 +48,33 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-14436) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1">
+        <element id="Observation.templateId:assessment-scale-obs">
             <path value="Observation.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="assessment-scale-obs"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1.root">
+        <element id="Observation.templateId:assessment-scale-obs.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.69&quot; (CONF:4515-14437)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.69"/>
         </element>
-        <element id="Observation.templateId:templateId1.extension">
+        <element id="Observation.templateId:assessment-scale-obs.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-33037)."/>
             <min value="1"/>
             <patternString value="2022-06-01"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-14434)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-14435)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -91,6 +87,7 @@
         </element>
         <element id="Observation.derivationExpr">
             <path value="Observation.derivationExpr"/>
+            <short value="Such derivation expression can contain a text calculation of how the components total up to the summed score"/>
             <comment value="MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."/>
         </element>
         <element id="Observation.statusCode">
@@ -106,6 +103,7 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
+            <short value="Represents clinically effective time of the measurement, which may be when the measurement was performed (e.g., a BP measurement), or may be when sample was taken (and measured some time afterwards)"/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-14445)."/>
             <min value="1"/>
         </element>
@@ -165,15 +163,31 @@
         </element>
         <element id="Observation.referenceRange">
             <path value="Observation.referenceRange"/>
+            <short value="The referenceRange/observationRange/text, if present, MAY contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"/>
             <comment value="MAY contain zero or more [0..*] referenceRange (CONF:4515-16799)."/>
         </element>
         <element id="Observation.referenceRange.observationRange">
             <path value="Observation.referenceRange.observationRange"/>
             <comment value="The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4515-16800)."/>
+            <constraint>
+                <key value="should-text"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text"/>
+                <expression value="text.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
         </element>
         <element id="Observation.referenceRange.observationRange.text">
             <path value="Observation.referenceRange.observationRange.text"/>
+            <short value="The text may contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"/>
             <comment value="This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)."/>
+            <constraint>
+                <key value="should-reference"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain reference"/>
+                <expression value="reference.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
         </element>
         <element id="Observation.referenceRange.observationRange.text.reference">
             <path value="Observation.referenceRange.observationRange.text.reference"/>

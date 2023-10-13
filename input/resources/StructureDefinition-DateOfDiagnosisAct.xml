@@ -39,16 +39,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act.classCode">
-            <path value="Act.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:4515-33010)."/>
-            <fixedCode value="ACT"/>
-        </element>
-        <element id="Act.moodCode">
-            <path value="Act.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-33011)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
             <slicing>
@@ -62,27 +52,33 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4515-33000) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Act.templateId:templateId1">
+        <element id="Act.templateId:date-of-diagnosis-act">
             <path value="Act.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="date-of-diagnosis-act"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:templateId1.root">
+        <element id="Act.templateId:date-of-diagnosis-act.root">
             <path value="Act.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.502&quot; (CONF:4515-33002)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.502"/>
         </element>
-        <element id="Act.templateId:templateId1.extension">
+        <element id="Act.templateId:date-of-diagnosis-act.extension">
             <path value="Act.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2022-06-01&quot; (CONF:4515-33003)."/>
             <min value="1"/>
             <patternString value="2022-06-01"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;ACT&quot; Act (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:4515-33010)."/>
+            <fixedCode value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-33011)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Act.code">
             <path value="Act.code"/>

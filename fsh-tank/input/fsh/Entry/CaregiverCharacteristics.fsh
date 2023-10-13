@@ -4,23 +4,15 @@ Id: CaregiverCharacteristics
 Title: "Caregiver Characteristics"
 Description: """This clinical statement represents a caregiver's willingness to provide care and the abilities of that caregiver to provide assistance to a patient in relation to a specific need.
 """
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.72"
+
+* insert LogicalModelTemplateRootOnly(caregiver-characteristics, 2.16.840.1.113883.10.20.22.4.72)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-14219)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-14220)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:81-14221) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.72"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.72\" (CONF:81-14222)."
-  * extension 0..0
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:81-14223)."
 * code 1..1

@@ -45,48 +45,42 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Section.templateId:primary">
+        <element id="Section.templateId:section">
             <path value="Section.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:81-7873) such that it, SHALL not contain [0..0] extension."/>
+            <sliceName value="section"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Section.templateId:primary.root">
+        <element id="Section.templateId:section.root">
             <path value="Section.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.21.2.2&quot; (CONF:81-10470)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.21.2.2"/>
         </element>
-        <element id="Section.templateId:primary.extension">
+        <element id="Section.templateId:section.extension">
             <path value="Section.templateId.extension"/>
             <max value="0"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:81-15437)."/>
+            <short value="Subjective"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;61150-9&quot; Subjective (CONF:81-15438)."/>
             <min value="1"/>
             <patternCode value="61150-9"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-26496)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <comment value="SHALL contain exactly one [1..1] title (CONF:81-7875)."/>
             <min value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <comment value="SHALL contain exactly one [1..1] text (CONF:81-7876)."/>
             <min value="1"/>
         </element>
     </differential>

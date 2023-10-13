@@ -12,7 +12,7 @@
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="clinicalDocument"/>
+        <valueUri value="ClinicalDocument"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
     <identifier>
@@ -39,22 +39,19 @@
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary">
+        <element id="ClinicalDocument.templateId:operative-note">
             <path value="ClinicalDocument.templateId"/>
-            <sliceName value="secondary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8483) such that it"/>
+            <sliceName value="operative-note"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary.root">
+        <element id="ClinicalDocument.templateId:operative-note.root">
             <path value="ClinicalDocument.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.7&quot; (CONF:1198-10048)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.7"/>
         </element>
-        <element id="ClinicalDocument.templateId:secondary.extension">
+        <element id="ClinicalDocument.templateId:operative-note.extension">
             <path value="ClinicalDocument.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32519)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
         </element>
@@ -81,19 +78,24 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
             <comment value="Such documentationOfs SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8493)."/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.code">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.code"/>
+            <comment value="SHALL contain exactly one [1..1] code."/>
+            <min value="1"/>
             <constraint>
                 <key value="1198-8487"/>
                 <severity value="error"/>
-                <human value="The value of serviceEvent/code **SHALL** be from ICD9 CM Procedures (CodeSystem 2.16.840.1.113883.6.104), CPT-4 (CodeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (CodeSystem 2.16.840.1.113883.6.96) ValueSet Procedure 2.16.840.1.113883.3.88.12.80.28 *DYNAMIC* (CONF:1198-8487)."/>
+                <human value="The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD-9-CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT-4 (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC (CONF:1198-8511)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
-            <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."/>
+            <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
             <constraint>
                 <key value="1198-8488"/>
@@ -119,15 +121,7 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="assignedEntity"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
                     <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="functionCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -170,6 +164,7 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <sliceName value="performer2"/>
+            <short value="This performer represents any assistants"/>
             <comment value="This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -241,8 +236,8 @@
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="ClinicalDocument.section"/>
+                    <type value="profile"/>
+                    <path value="section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

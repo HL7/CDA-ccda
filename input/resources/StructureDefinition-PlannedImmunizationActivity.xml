@@ -34,18 +34,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="SubstanceAdministration.classCode">
-            <path value="SubstanceAdministration.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CONF:1098-32091)."/>
-        </element>
-        <element id="SubstanceAdministration.moodCode">
-            <path value="SubstanceAdministration.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (SubstanceAdministration/Supply) urn:oid:2.16.840.1.113883.11.20.9.24 STATIC 2014-09-01 (CONF:1098-32097)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24"/>
-            </binding>
-        </element>
         <element id="SubstanceAdministration.templateId">
             <path value="SubstanceAdministration.templateId"/>
             <slicing>
@@ -57,22 +45,32 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="SubstanceAdministration.templateId:primary">
+        <element id="SubstanceAdministration.templateId:planned-immunization-activity">
             <path value="SubstanceAdministration.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-32098) such that it, SHALL not contain [0..0] extension."/>
+            <sliceName value="planned-immunization-activity"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.templateId:primary.root">
+        <element id="SubstanceAdministration.templateId:planned-immunization-activity.root">
             <path value="SubstanceAdministration.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.120&quot; (CONF:1098-32099)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.120"/>
         </element>
-        <element id="SubstanceAdministration.templateId:primary.extension">
+        <element id="SubstanceAdministration.templateId:planned-immunization-activity.extension">
             <path value="SubstanceAdministration.templateId.extension"/>
             <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.classCode">
+            <path value="SubstanceAdministration.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CONF:1098-32091)."/>
+        </element>
+        <element id="SubstanceAdministration.moodCode">
+            <path value="SubstanceAdministration.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (SubstanceAdministration/Supply) urn:oid:2.16.840.1.113883.11.20.9.24 STATIC 2014-09-01 (CONF:1098-32097)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24"/>
+            </binding>
         </element>
         <element id="SubstanceAdministration.id">
             <path value="SubstanceAdministration.id"/>
@@ -132,6 +130,7 @@
         </element>
         <element id="SubstanceAdministration.doseQuantity.unit">
             <path value="SubstanceAdministration.doseQuantity.unit"/>
+            <short value="NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32130)."/>
             <binding>
                 <strength value="required"/>

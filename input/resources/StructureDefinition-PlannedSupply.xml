@@ -35,17 +35,15 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Supply.classCode">
-            <path value="Supply.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8577)."/>
-        </element>
-        <element id="Supply.moodCode">
-            <path value="Supply.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (SubstanceAdministration/Supply) urn:oid:2.16.840.1.113883.11.20.9.24 STATIC 2011-09-30 (CONF:1098-8578)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24"/>
-            </binding>
+        <element id="Supply">
+            <path value="Supply"/>
+            <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
+            </constraint>
         </element>
         <element id="Supply.templateId">
             <path value="Supply.templateId"/>
@@ -62,24 +60,33 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Supply.templateId:primary">
+        <element id="Supply.templateId:planned-supply">
             <path value="Supply.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-30463) such that it"/>
+            <sliceName value="planned-supply"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Supply.templateId:primary.root">
+        <element id="Supply.templateId:planned-supply.root">
             <path value="Supply.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.43&quot; (CONF:1098-30464)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.43"/>
         </element>
-        <element id="Supply.templateId:primary.extension">
+        <element id="Supply.templateId:planned-supply.extension">
             <path value="Supply.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32556)."/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="Supply.classCode">
+            <path value="Supply.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SPLY&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8577)."/>
+        </element>
+        <element id="Supply.moodCode">
+            <path value="Supply.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (SubstanceAdministration/Supply) urn:oid:2.16.840.1.113883.11.20.9.24 STATIC 2011-09-30 (CONF:1098-8578)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24"/>
+            </binding>
         </element>
         <element id="Supply.id">
             <path value="Supply.id"/>
@@ -114,7 +121,7 @@
         </element>
         <element id="Supply.product">
             <path value="Supply.product"/>
-            <short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD)."/>
+            <short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD). "/>
             <comment value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/>
             <constraint>
                 <key value="1098-32325"/>

@@ -7,9 +7,9 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
 """
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:52.905Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.505:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(disability-status-obs, 2.16.840.1.113883.10.20.22.4.505, 2023-05-01)
+
 * ^status = #draft
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -17,21 +17,6 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-32621)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-32619) such that it"
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-32619) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.505"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.505\" (CONF:4537-32622)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-32623)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-32624)."
   * code 1..1

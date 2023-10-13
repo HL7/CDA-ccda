@@ -22,7 +22,7 @@
     <name value="SeverityObservation"/>
     <title value="Severity Observation"/>
     <status value="draft"/>
-    <description value="This clinical statement represents the gravity of the problem, such as allergy or reaction, in terms of its actual or potential impact on the patient. The Severity Observation can be associated with an Allergy - Intolerance Observation, Substance or Device Allergy - Intolerance Observation, Reaction Observation or all. When the Severity Observation is associated directly with an allergy it characterizes the allergy. When the Severity Observation is associated with a Reaction Observation it characterizes a reaction. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity."/>
+    <description value="This clinical statement represents the gravity of the problem, such as allergy or reaction, in terms of its actual or potential impact on the patient. The Severity Observation can be associated with an Allergy - Intolerance Observation, Substance or Device Allergy - Intolerance Observation, Reaction Observation or other reaction. When the Severity Observation is associated directly with an allergy it characterizes the allergy. When the Severity Observation is associated with a Reaction Observation it characterizes a reaction. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity. The severity of problems may be precoordinated within the coding used to describe the problem."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -35,6 +35,37 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:severity-obs">
+            <path value="Observation.templateId"/>
+            <sliceName value="severity-obs"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId:severity-obs.root">
+            <path value="Observation.templateId.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.8"/>
+        </element>
+        <element id="Observation.templateId:severity-obs.extension">
+            <path value="Observation.templateId.extension"/>
+            <min value="1"/>
+            <patternString value="2014-06-09"/>
+        </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7345)."/>
@@ -44,40 +75,6 @@
             <path value="Observation.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7346)."/>
             <fixedCode value="EVN"/>
-        </element>
-        <element id="Observation.templateId">
-            <path value="Observation.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="extension"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.templateId:primary">
-            <path value="Observation.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-7347) such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.templateId:primary.root">
-            <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.8&quot; (CONF:1098-10525)."/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.22.4.8"/>
-        </element>
-        <element id="Observation.templateId:primary.extension">
-            <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32577)."/>
-            <min value="1"/>
-            <patternString value="2014-06-09"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
@@ -108,14 +105,14 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Reaction Severity urn:oid:2.16.840.1.113883.3.88.12.3221.6.8 DYNAMIC (CONF:1098-7356)."/>
+            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Reaction Severity urn:oid:2.16.840.1.113883.3.88.12.3221.6.8 DYNAMIC (CONF:1098-7356)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
             <binding>
-                <strength value="required"/>
+                <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.8"/>
             </binding>
         </element>

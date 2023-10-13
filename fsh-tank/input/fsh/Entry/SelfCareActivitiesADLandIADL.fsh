@@ -3,23 +3,15 @@ Parent: $Observation
 Id: SelfCareActivitiesADLandIADL
 Title: "Self-Care Activities (ADL and IADL)"
 Description: "This template represents a patient's daily self-care ability. These activities are called Activities of Daily Living (ADL) and Instrumental Activities of Daily Living (IADL). ADLs involve caring for and moving of the body (e.g., dressing, bathing, eating). IADLs support an independent life style (e.g., cooking, managing medications, driving, shopping)."
-* insert LogicalModelNA
-* ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.4.128"
+
+* insert LogicalModelTemplateRootOnly(self-care-activities, 2.16.840.1.113883.10.20.22.4.128)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31389)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31390)."
-* templateId ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1098-28190) such that it, SHALL not contain [0..0] extension."
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.128"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.128\" (CONF:1098-28457)."
-  * extension 0..0
 * code 1..1
 * code from $2.16.840.1.113883.11.20.9.47 (preferred)
   * ^short = "If more detailed ADL and IADL activities need to be recorded select the appropriate code from LOINC."

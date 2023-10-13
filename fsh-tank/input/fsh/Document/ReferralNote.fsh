@@ -5,23 +5,10 @@ Title: "Referral Note"
 Description: """A Referral Note communicates pertinent information from a provider who is requesting services of another provider of clinical or non-clinical services. The information in this document includes the reason for the referral and additional information that would augment decision making and care delivery. 
 
 Examples of referral situations are when a patient is referred from a family physician to a cardiologist for cardiac evaluation or when patient is sent by a cardiologist to an emergency department for angina or when a patient is referred by a nurse practitioner to an audiologist for hearing screening or when a patient is referred by a hospitalist to social services."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.14:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(referral-note, 2.16.840.1.113883.10.20.22.1.14, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-28947) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.14"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.14\" (CONF:1198-28948)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32911)."
 * code 1..1
 * code from ReferralDocumentType (required)
   * ^short = "The Referral Note recommends use of the document type code 57133-1 \"Referral Note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Referral note would not be authored by a Pediatric Cardiologist.  The type of referral and the target of the referral are specified via the participant (and not via the author)."
@@ -30,10 +17,12 @@ Examples of referral situations are when a patient is referred from a family phy
   * ^comment = "SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31589)."
   * intendedRecipient 1..1
     * ^comment = "This informationRecipient SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31590)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)." // auto-should
+    * obeys should-telecom
     * telecom 0..*
-      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31592)."
+      * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31592)." // auto-should
     * informationRecipient 1..1
       * ^comment = "This intendedRecipient SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31593)."
       * name 1..*
@@ -71,8 +60,9 @@ Examples of referral situations are when a patient is referred from a family phy
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] @classCode=\"ASSIGNED\" assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-32419)."
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31650)."
+    * obeys should-addr
     * addr 0..*
-      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)."
+      * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)." // auto-should
     * telecom 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31652)."
     * associatedPerson 1..1
@@ -85,8 +75,8 @@ Examples of referral situations are when a patient is referred from a family phy
   * structuredBody 1..1
     * obeys 1198-29102 and 1198-29103
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."
-    * component ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "section.code"
+    * component ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         planOfTreatment 0..1 and

@@ -6,9 +6,9 @@ Description: """This template represents a patient's reported intention or desir
 """
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:36.964Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.281:2023-05-01"
-* ^version = "2023-05-01"
+
+* insert LogicalModelTemplate(pregnancy-intention-next-year, 2.16.840.1.113883.10.20.22.4.281, 2023-05-01)
+
 * ^status = #draft
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -16,20 +16,6 @@ Description: """This template represents a patient's reported intention or desir
 * moodCode 1..1
 * moodCode = #INT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"INT\" Intent (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-26558)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-26549) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.281"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.281\" (CONF:4537-26552)."
-  * extension 1..1
-  * extension = "2023-05-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2023-05-01\" (CONF:4537-26553)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-26981)."
 * code 1..1

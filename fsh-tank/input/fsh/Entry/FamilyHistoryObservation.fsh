@@ -3,28 +3,15 @@ Parent: $Observation
 Id: FamilyHistoryObservation
 Title: "Family History Observation"
 Description: "Family History Observations related to a particular family member are contained within a Family History Organizer. The effectiveTime in the Family History Observation is the biologically or clinically relevant time of the observation. The biologically or clinically relevant time is the time at which the observation holds (is effective) for the family member (the subject of the observation)."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.46:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(family-history-obs, 2.16.840.1.113883.10.20.22.4.46, 2015-08-01)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8586)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8587)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8599) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.46"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.46\" (CONF:1198-10496)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32605)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8592)."
 * code 1..1
@@ -38,8 +25,9 @@ Description: "Family History Observations related to a particular family member 
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19098)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-8593)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-8593)." // auto-should
 * value 1..1
 * value only $CD
 * value from Problem (required)

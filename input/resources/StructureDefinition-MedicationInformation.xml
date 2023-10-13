@@ -35,11 +35,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="ManufacturedProduct.classCode">
-            <path value="ManufacturedProduct.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-7408)."/>
-            <min value="1"/>
-        </element>
         <element id="ManufacturedProduct.templateId">
             <path value="ManufacturedProduct.templateId"/>
             <slicing>
@@ -55,24 +50,26 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="ManufacturedProduct.templateId:primary">
+        <element id="ManufacturedProduct.templateId:med-information">
             <path value="ManufacturedProduct.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-7409) such that it"/>
+            <sliceName value="med-information"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ManufacturedProduct.templateId:primary.root">
+        <element id="ManufacturedProduct.templateId:med-information.root">
             <path value="ManufacturedProduct.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.23&quot; (CONF:1098-10506)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.23"/>
         </element>
-        <element id="ManufacturedProduct.templateId:primary.extension">
+        <element id="ManufacturedProduct.templateId:med-information.extension">
             <path value="ManufacturedProduct.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32579)."/>
             <min value="1"/>
             <patternString value="2014-06-09"/>
+        </element>
+        <element id="ManufacturedProduct.classCode">
+            <path value="ManufacturedProduct.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-7408)."/>
+            <min value="1"/>
         </element>
         <element id="ManufacturedProduct.id">
             <path value="ManufacturedProduct.id"/>

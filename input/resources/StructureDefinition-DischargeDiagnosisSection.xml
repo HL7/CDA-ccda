@@ -35,6 +35,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="should-entry"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain entry"/>
+                <expression value="entry.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeDiagnosisSection"/>
+            </constraint>
+        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -50,39 +60,34 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Section.templateId:primary">
+        <element id="Section.templateId:section">
             <path value="Section.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-7979) such that it"/>
+            <sliceName value="section"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Section.templateId:primary.root">
+        <element id="Section.templateId:section.root">
             <path value="Section.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.2.24&quot; (CONF:1198-10394)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.2.24"/>
         </element>
-        <element id="Section.templateId:primary.extension">
+        <element id="Section.templateId:section.extension">
             <path value="Section.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32549)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-15355)."/>
+            <short value="Hospital Discharge Diagnosis"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">
             <path value="Section.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;11535-2&quot; Hospital Discharge Diagnosis (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-15356)."/>
             <min value="1"/>
             <patternCode value="11535-2"/>
         </element>
         <element id="Section.code.codeSystem">
             <path value="Section.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-30861)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
@@ -122,12 +127,10 @@
         </element>
         <element id="Section.title">
             <path value="Section.title"/>
-            <comment value="SHALL contain exactly one [1..1] title (CONF:1198-7981)."/>
             <min value="1"/>
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <comment value="SHALL contain exactly one [1..1] text (CONF:1198-7982)."/>
             <min value="1"/>
         </element>
         <element id="Section.entry">

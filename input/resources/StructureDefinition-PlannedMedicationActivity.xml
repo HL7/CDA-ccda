@@ -35,6 +35,37 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="SubstanceAdministration.templateId">
+            <path value="SubstanceAdministration.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:planned-med-activity">
+            <path value="SubstanceAdministration.templateId"/>
+            <sliceName value="planned-med-activity"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:planned-med-activity.root">
+            <path value="SubstanceAdministration.templateId.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.42"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:planned-med-activity.extension">
+            <path value="SubstanceAdministration.templateId.extension"/>
+            <min value="1"/>
+            <patternString value="2014-06-09"/>
+        </element>
         <element id="SubstanceAdministration.classCode">
             <path value="SubstanceAdministration.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SBADM&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-8572)."/>
@@ -46,40 +77,6 @@
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24"/>
             </binding>
-        </element>
-        <element id="SubstanceAdministration.templateId">
-            <path value="SubstanceAdministration.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="extension"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="SubstanceAdministration.templateId:primary">
-            <path value="SubstanceAdministration.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1098-30465) such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="SubstanceAdministration.templateId:primary.root">
-            <path value="SubstanceAdministration.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.42&quot; (CONF:1098-30466)."/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.22.4.42"/>
-        </element>
-        <element id="SubstanceAdministration.templateId:primary.extension">
-            <path value="SubstanceAdministration.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2014-06-09&quot; (CONF:1098-32557)."/>
-            <min value="1"/>
-            <patternString value="2014-06-09"/>
         </element>
         <element id="SubstanceAdministration.id">
             <path value="SubstanceAdministration.id"/>
@@ -139,9 +136,16 @@
         <element id="SubstanceAdministration.doseQuantity">
             <path value="SubstanceAdministration.doseQuantity"/>
             <comment value="MAY contain zero or one [0..1] doseQuantity (CONF:1098-32068)."/>
+            <constraint>
+                <key value="1098-40000"/>
+                <severity value="warning"/>
+                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.doseQuantity.unit">
             <path value="SubstanceAdministration.doseQuantity.unit"/>
+            <short value="NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32133)."/>
             <binding>
                 <strength value="required"/>
@@ -154,6 +158,7 @@
         </element>
         <element id="SubstanceAdministration.rateQuantity.unit">
             <path value="SubstanceAdministration.rateQuantity.unit"/>
+            <short value="NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="The rateQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32134)."/>
             <binding>
                 <strength value="required"/>
@@ -167,6 +172,12 @@
         <element id="SubstanceAdministration.administrationUnitCode">
             <path value="SubstanceAdministration.administrationUnitCode"/>
             <comment value="MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-32081)."/>
+            <constraint>
+                <key value="1098-40000"/>
+                <severity value="warning"/>
+                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.30"/>

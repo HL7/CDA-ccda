@@ -12,7 +12,7 @@
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="clinicalDocument"/>
+        <valueUri value="ClinicalDocument"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
     <identifier>
@@ -39,22 +39,19 @@
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
         </element>
-        <element id="ClinicalDocument.templateId:primary">
+        <element id="ClinicalDocument.templateId:transfer-summary">
             <path value="ClinicalDocument.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-28239) such that it"/>
+            <sliceName value="transfer-summary"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.templateId:primary.root">
+        <element id="ClinicalDocument.templateId:transfer-summary.root">
             <path value="ClinicalDocument.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.1.13&quot; (CONF:1198-28240)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.1.13"/>
         </element>
-        <element id="ClinicalDocument.templateId:primary.extension">
+        <element id="ClinicalDocument.templateId:transfer-summary.extension">
             <path value="ClinicalDocument.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2015-08-01&quot; (CONF:1198-32907)."/>
             <min value="1"/>
             <patternString value="2015-08-01"/>
         </element>
@@ -132,6 +129,13 @@
         <element id="ClinicalDocument.participant:participant2.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31628)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.participant:participant2.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
@@ -244,8 +248,8 @@
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="section.code"/>
+                    <type value="profile"/>
+                    <path value="section"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

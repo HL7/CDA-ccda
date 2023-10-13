@@ -9,28 +9,15 @@ Interventions are actions taken to increase the likelihood of achieving the pati
 Planned Intervention Acts can be related to each other or to Intervention Acts. (E.g., a Planned Intervention Act with moodCode of INT could be related to a series of Intervention Acts with moodCode of EVN, each having an effectiveTime containing the time of the intervention.) 
 
 All interventions referenced in a Planned Intervention Act must have moodCodes indicating that that are planned (have not yet occurred)."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.146:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(planned-intervention-act, 2.16.840.1.113883.10.20.22.4.146, 2015-08-01)
+
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32678)."
 * moodCode 1..1
 * moodCode from $2.16.840.1.113883.11.20.9.54 (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned Intervention moodCode urn:oid:2.16.840.1.113883.11.20.9.54 DYNAMIC (CONF:1198-32679)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-32653) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.146"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.146\" (CONF:1198-32680)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32912)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-32681)."
 * code 1..1
@@ -46,8 +33,9 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-32684)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32723)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32723)." // auto-should
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32719)."

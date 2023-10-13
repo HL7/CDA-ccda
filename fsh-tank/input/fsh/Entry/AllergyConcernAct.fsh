@@ -7,28 +7,15 @@ Description: """This template reflects an ongoing concern on behalf of the provi
 The statusCode of the Allergy Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy is resolved. 
 
 The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.30:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(allergy-concern-act, 2.16.840.1.113883.10.20.22.4.30, 2015-08-01)
+
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-7469)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7470)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-7471) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.30"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.30\" (CONF:1198-10489)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32543)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-7472)."
 * code 1..1

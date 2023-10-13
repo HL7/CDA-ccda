@@ -9,29 +9,15 @@ Description: """This template represents the schedule of when the care team memb
 """
 * ^meta.versionId = "4"
 * ^meta.lastUpdated = "2023-07-11T23:41:50.902Z"
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.3:2022-06-01"
-* ^version = "2022-06-01"
+
+* insert LogicalModelTemplate(care-team-member-schedule-obs, 2.16.840.1.113883.10.20.22.4.500.3, 2022-06-01)
+
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4515-33026)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-33027)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains templateId1 1..1
-* templateId[templateId1] ^short = "templateId"
-  * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4515-33019) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.500.3"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.500.3\" (CONF:4515-33022)."
-  * extension 1..1
-  * extension = "2022-06-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2022-06-01\" (CONF:4515-19)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-13)."
   * code 1..1
@@ -53,8 +39,10 @@ Description: """This template represents the schedule of when the care team memb
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-33021)."
 * value 1..1
 * value only $IVL-TS
+  * ^short = "Observation/value Interval Time Stamp holds the time range the Care Team Member participated on the Care Team of the patient."
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"IVL_TS\" (CONF:4515-14)."
   * low 1..1
     * ^comment = "This value SHALL contain exactly one [1..1] low (CONF:4515-33030)."
+  * obeys should-high
   * high 0..1
-    * ^comment = "This value SHOULD contain zero or one [0..1] high (CONF:4515-33029)."
+    * ^comment = "This value SHOULD contain zero or one [0..1] high (CONF:4515-33029)." // auto-should

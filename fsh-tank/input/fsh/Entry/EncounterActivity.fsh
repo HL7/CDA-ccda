@@ -3,37 +3,26 @@ Parent: $Encounter
 Id: EncounterActivity
 Title: "Encounter Activity"
 Description: "This clinical statement describes an interaction between a patient and clinician. Interactions may include in-person encounters, telephone conversations, and email exchanges."
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(encounter-activity, 2.16.840.1.113883.10.20.22.4.49, 2015-08-01)
+
 * classCode 1..1
 * classCode = #ENC (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ENC\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8710)."
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains primary 1..1
-* templateId[primary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8712) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.4.49"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.49\" (CONF:1198-26353)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32546)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8713)."
 * code 1..1
 * code from EncounterTypeCode (preferred)
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."
+  * obeys should-originalText
   * originalText 0..1
-    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)."
+    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)." // auto-should
+    * obeys should-reference
     * reference 0..1
-      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)."
+      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)." // auto-should
       * value 0..1
         * obeys 1198-15972
         * ^comment = "The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1198-15971)."
@@ -50,6 +39,7 @@ Description: "This clinical statement describes an interaction between a patient
   * ^extension[=].valueUri = "dischargeDispositionCode"
   * ^short = "The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the dischargeDispositionCode element"
   * ^comment = "MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."
+* sdtcDischargeDispositionCode from $2.16.840.1.113883.3.88.12.80.33 (preferred)
 * performer 0..*
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1198-8725)."
   * assignedEntity 1..1

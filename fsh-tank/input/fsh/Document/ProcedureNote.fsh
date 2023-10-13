@@ -5,23 +5,10 @@ Title: "Procedure Note"
 Description: """A Procedure Note encompasses many types of non-operative procedures including interventional cardiology, gastrointestinal endoscopy, osteopathic manipulation, and many other specialty fields. Procedure Notes are differentiated from Operative Notes because they do not involve incision or excision as the primary act.
 
 The Procedure Note is created immediately following a non-operative procedure. It records the indications for the procedure and, when applicable, postprocedure diagnosis, pertinent events of the procedure, and the patient's tolerance for the procedure. It should be detailed enough to justify the procedure, describe the course of the procedure, and provide continuity of care."""
-* insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:2.16.840.1.113883.10.20.22.1.6:2015-08-01"
-* ^version = "2015-08-01"
+
+* insert LogicalModelTemplate(procedure-note, 2.16.840.1.113883.10.20.22.1.6, 2015-08-01)
+
 * ^status = #active
-* templateId ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "root"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "extension"
-  * ^slicing.rules = #open
-* templateId contains secondary 1..1
-* templateId[secondary] ^comment = "SHALL contain exactly one [1..1] templateId (CONF:1198-8496) such that it"
-  * root 1..1
-  * root = "2.16.840.1.113883.10.20.22.1.6"
-    * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.1.6\" (CONF:1198-10050)."
-  * extension 1..1
-  * extension = "2015-08-01"
-    * ^comment = "SHALL contain exactly one [1..1] @extension=\"2015-08-01\" (CONF:1198-32520)."
 * code 1..1
   * ^short = "The Procedure Note recommends use of a single document type code, 28570-0 \"Procedure Note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17182)."
@@ -29,11 +16,9 @@ The Procedure Note is created immediately following a non-operative procedure. I
   * code from ProcedureNoteDocumentTypeCodes (required)
     * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureNoteDocumentTypeCodes http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.6.1 DYNAMIC (CONF:1198-17183)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "associatedEntity.classCode"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "functionCode"
+  * ^slicing.discriminator[=].path = "functionCode.code"
   * ^slicing.rules = #open
   * ^short = "The participant element in the Procedure Note header follows the General Header Constraints for participants."
 * participant contains participant1 0..*
@@ -51,15 +36,11 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^comment = "SHALL contain exactly one [1..1] associatedEntity/@classCode=\"PROV\" Provider (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8507)."
     * associatedPerson 1..1
       * ^comment = "This associatedEntity/@classCode SHALL contain exactly one [1..1] associatedPerson (CONF:1198-8508)."
-* documentationOf ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "serviceEvent"
-  * ^slicing.rules = #open
+// Removed slicing on documentationOf since its only branch-id was serviceEvent, which is required anyway
+* documentationOf 1..*
   * ^short = "A serviceEvent is required in the Procedure Note to represent the main act, such as a colonoscopy or a cardiac stress study, being documented. It must be equivalent to or further specialize the value inherent in the ClinicalDocument/@code (such as where the ClinicalDocument/@code is simply \"Procedure Note\" and the procedure is \"colonoscopy\"), and it shall not conflict with the value inherent in the ClinicalDocument/@code, as such a conflict would create ambiguity. A serviceEvent/effectiveTime element indicates the time the actual event (as opposed to the encounter surrounding the event) took place. serviceEvent/effectiveTime may be represented two different ways in the Procedure Note. For accuracy to the second, the best method is effectiveTime/low together with effectiveTime/high. If a more general time, such as minutes or hours, is acceptable OR if the duration is unknown, an effectiveTime/low with a width element may be used. If the duration is unknown, the appropriate HL7 null value such as \"NI\" or \"NA\" must be used for the width element."
-* documentationOf contains documentationOf1 1..*
-  * serviceEvent
+  * serviceEvent 1..1
     * performer ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "assignedEntity"
-      * ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
       * ^short = "This performer identifies any assistants."
@@ -85,14 +66,12 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32735)."
-* documentationOf[documentationOf1] ^comment = "SHALL contain at least one [1..*] documentationOf (CONF:1198-8510) such that it"
-  * serviceEvent 1..1
     * obeys 1198-8511
     * ^comment = "SHALL contain exactly one [1..1] serviceEvent (CONF:1198-10061)."
     * effectiveTime 1..1
-    * effectiveTime only USRealmDateandTimeDTUSFIELDED
+    * effectiveTime only USRealmDateTimeInterval
       * obeys 1198-8513 and 1198-8514 and 1198-8515
-      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-10062)."
+      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-10062)."
       * low 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449)."
 * authorization 0..1
@@ -111,13 +90,15 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^comment = "This consent SHALL contain exactly one [1..1] @moodCode=\"EVN\" event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-32416)."
     * statusCode 1..1
       * ^comment = "This consent SHALL contain exactly one [1..1] statusCode (CONF:1198-32417)."
+* obeys should-componentOf
 * componentOf 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-30871)."
+  * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-30871)." // auto-should
   * encompassingEncounter 1..1
     * ^comment = "The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-30872)."
+    * obeys should-id
     * id ..*
       * ^short = "SG 20230709: EncompassingEncounter.id is required in US Realm Header - this is an illegal constraint - deleted min=0"
-      * ^comment = "This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)."
+      * ^comment = "This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)." // auto-should
       //"<min value=\"0\"/>"
     * code 1..1
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] code (CONF:1198-30873)."
@@ -142,8 +123,8 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * obeys 1198-30412 and 1198-30414 and 1198-30415
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30352)."
     * component 5..
-      * ^slicing.discriminator[0].type = #value
-      * ^slicing.discriminator[=].path = "ClinicalDocument.section"
+      * ^slicing.discriminator[0].type = #profile
+      * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
         component1 1..1 and

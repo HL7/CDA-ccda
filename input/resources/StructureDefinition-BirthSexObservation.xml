@@ -39,16 +39,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation.classCode">
-            <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-33041)."/>
-            <fixedCode value="OBS"/>
-        </element>
-        <element id="Observation.moodCode">
-            <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-33042)."/>
-            <fixedCode value="EVN"/>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -62,27 +52,33 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-33032) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1">
+        <element id="Observation.templateId:birth-sex-obs">
             <path value="Observation.templateId"/>
-            <sliceName value="templateId1"/>
-            <short value="templateId"/>
+            <sliceName value="birth-sex-obs"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:templateId1.root">
+        <element id="Observation.templateId:birth-sex-obs.root">
             <path value="Observation.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.200&quot; (CONF:4537-33036)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.200"/>
         </element>
-        <element id="Observation.templateId:templateId1.extension">
+        <element id="Observation.templateId:birth-sex-obs.extension">
             <path value="Observation.templateId.extension"/>
-            <comment value="SHALL contain exactly one [1..1] @extension=&quot;2023-05-01&quot; (CONF:4537-33037)."/>
             <min value="1"/>
             <patternString value="2023-05-01"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-33041)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-33042)."/>
+            <fixedCode value="EVN"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
@@ -113,6 +109,7 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
+            <short value="Note: This template represents a &quot;snapshot in time&quot; observation, simply reflecting the patient's sex at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp. Since this represents Birth Sex it SHALL match the birthTime."/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33043)."/>
             <min value="1"/>
         </element>
@@ -138,21 +135,14 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet ONC Administrative Sex urn:oid:2.16.840.1.113762.1.4.1 STATIC 2016-06-01 (CONF:4537-33034)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
-            <constraint>
-                <key value="4537-33040"/>
-                <severity value="error"/>
-                <human value="If value/@code not from value set ONC Administrative Sex urn:oid:2.16.840.1.113762.1.4.1 STATIC 2016-06-01, then value/@nullFlavor SHALL be “UNK” (CONF:4537-33040)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
-            </constraint>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.24"/>
             </binding>
         </element>
     </differential>
