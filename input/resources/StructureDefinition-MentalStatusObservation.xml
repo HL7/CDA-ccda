@@ -115,15 +115,29 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
+            <slicing>
+                <discriminator>
+                    <type value="type"/>
+                    <path value="$this"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <comment value="SHALL contain exactly one [1..1] value (CONF:1198-14263)."/>
             <min value="1"/>
             <max value="1"/>
-            <constraint>
-                <key value="1198-14271"/>
-                <severity value="warning"/>
-                <human value="If xsi:type=“CD”, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1198-14271)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
-            </constraint>
+        </element>
+        <element id="Observation.value:code">
+            <path value="Observation.value"/>
+            <sliceName value="code"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.1"/>
+            </binding>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
