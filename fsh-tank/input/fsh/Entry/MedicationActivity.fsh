@@ -32,6 +32,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * effectiveTime obeys 1098-7513
   * ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "operator"
+  * ^slicing.discriminator[+].type = #type
+  * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
 * effectiveTime contains
     duration 1..1 and
