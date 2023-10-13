@@ -2,7 +2,7 @@ Profile: SexObservation
 Parent: $Observation
 Id: SexObservation
 Title: "Sex Observation"
-Description: """This Sex Observation template is used to reflect the documentation of a person’s sex. Systems choosing to record the source of information should include the Provenance participation.
+Description: """This Sex Observation template is used to reflect the documentation of a person's sex. Systems choosing to record the source of information should include the Provenance participation.
 
 USCDI v3 includes a data element for sex, intended to support the exchange of a sex value that is not characterized as sex assigned at birth or birth sex. This version of the C-CDA companion guide supports USCDI v3 Sex data element. Sex assigned at birth or birth sex must be recorded using the Birth Sex Observation which falls under the broader category of a 'Sex observation'. A Data Absent Reason (DAR) code value of 'asked-declined' may be used when a person has chosen not to disclose their sex.
 
