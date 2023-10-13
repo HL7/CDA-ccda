@@ -8,6 +8,10 @@ When a Notes Section is present, Note Activity entries contain structured inform
 """
 
 * insert _SectionNoCode(2.16.840.1.113883.10.20.22.2.65, 2016-11-01)
+
+* title ^short = "This title should reflect the kind of notes included in this section, corresponding to the code."
+* text ^short = "The narrative SHOULD contain human-readable representations using standard CDA narrative markup of each note to ensure widest compatibility with receivers.&#10;&#10;While allowed by CDA, the use of <renderMultiMedia> elements, which contain a referencedObject attribute pointing to an <observationMedia> or <regionOfInterest> element in the discrete entries, is discouraged in Note Sections because rendering support for these elements is not widespread."
+
 * code 1..1
 * code from $2.16.840.1.113883.11.20.9.68 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16892)."

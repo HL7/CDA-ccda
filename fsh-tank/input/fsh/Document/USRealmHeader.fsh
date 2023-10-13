@@ -410,6 +410,11 @@ Description: "This template defines constraints that represent common administra
   * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
   * time 0..1
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
+
+// Missing 2nd participant - test slices
+// This templated participant represents a person that has a relationship to the patient. (e.g., parent, next-of-kin, neighbor). The related person's name is required and it is recommended that the person's contact information is present. The more specific CDA participant of Guardian (recordTarget/patientRole/patient/guardian) can be used to represent a legally responsible guardian of the patient within the header. This template may be used to represent a person with any relationship to the patient within the header, or at the entry level when pertinent to a particular clinical statement.
+// 22. SHOULD contain zero or more [0..*] participant which includes Related Person Relationship and Name Participant (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.5.8:2023-05-01) (CONF:4537-32994).
+
 * inFulfillmentOf 0..*
   * ^short = "The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists' report of an x-ray."
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:4537-9952)."
@@ -522,10 +527,10 @@ Invariant: 4537-5403
 Description: "If country is US, this addr **MAY** contain zero or one [0..1] postalCode, which **SHALL** be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 *DYNAMIC* (CONF:4537-5403)."
 Severity: #warning
 
-// TODO - delete pending outcome of https://jira.hl7.org/browse/CDA-20817
 Invariant: 4537-16790
 Description: "There **SHALL** be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice (CONF:4537-16790)."
 Severity: #error
+Expression: "assignedPerson.exists() or assignedAuthoringDevice.exists()"
 
 Invariant: 4537-9946
 Description: "If assignedEntity/id is a provider then this id, **SHOULD** include zero or one [0..1] id where id/@root =\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-9946)."

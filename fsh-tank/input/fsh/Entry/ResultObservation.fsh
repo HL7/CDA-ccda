@@ -44,6 +44,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-7140)."
 * value 1..1
   * obeys 4537-31484 and 4537-31866 and 4537-32610
+  * ^short = "NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:4537-7143)."
 * interpretationCode 0..*
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."

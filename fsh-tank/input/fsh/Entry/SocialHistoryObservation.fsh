@@ -29,6 +29,7 @@ There are supplemental templates and guidance for observations of [Occupational 
 * obeys should-value
 * value 0..1
   * obeys 4515-8555 and 4515-32957
+  * ^short = "NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
   * ^comment = "SHOULD contain zero or one [0..1] value (CONF:4515-8559)." // auto-should
 * author 0..*
 * author only AuthorParticipation
