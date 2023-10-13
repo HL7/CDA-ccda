@@ -3,9 +3,9 @@
     xmlns="http://hl7.org/fhir">
     <id value="hl7.cda.us.ccda"/>
     <url value="http://hl7.org/cda/us/ccda/ImplementationGuide/hl7.cda.us.ccda"/>
-    <version value="2.1"/>
+    <version value="3.0"/>
     <name value="CCDA"/>
-    <title value="Consolidated CDA Release 2.1 StructureDefinition Publication"/>
+    <title value="Consolidated CDA"/>
     <status value="draft"/>
     <publisher value="Health Level Seven"/>
     <contact>
@@ -1911,20 +1911,20 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
-                <display value="US Realm Date and Time (DT.US.FIELDED)"/>
+                <reference value="StructureDefinition/USRealmDateTimeInterval"/>
+                <display value="US Realm Date and Time (Interval)"/>
             </reference>
-            <name value="US Realm Date and Time (DT.US.FIELDED)"/>
-            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (DTM.US.FIELDED),  but is used with elements having a datatype of IVL_TS."/>
+            <name value="US Realm Date and Time (Interval)"/>
+            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Point in Time),  but is used with elements having a datatype of IVL_TS."/>
             <groupingId value="other"/>
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
-                <display value="US Realm Date and Time (DTM.US.FIELDED)"/>
+                <reference value="StructureDefinition/USRealmDateTime"/>
+                <display value="US Realm Date and Time (Point in Time)"/>
             </reference>
-            <name value="US Realm Date and Time (DTM.US.FIELDED)"/>
-            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (DT.US.FIELDED), but is used with elements having a datatype of TS."/>
+            <name value="US Realm Date and Time (Point in Time)"/>
+            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Interval), but is used with elements having a datatype of TS."/>
             <groupingId value="other"/>
         </resource>
         <resource>
@@ -4703,14 +4703,14 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
             </extension>
             <reference>
                 <reference value="Binary/us-realm-date-and-time-example"/></reference>
             <name value="US Realm Date and Time Example"/>
             <description value="US Realm Date and Time example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -4718,14 +4718,14 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </extension>
             <reference>
                 <reference value="Binary/us-realm-date-and-time-ivl-example"/></reference>
             <name value="US Realm Date and Time Interval Example"/>
             <description value="US Realm Date and Time Interval example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTUSFIELDED"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             <groupingId value="examples"/>
         </resource>
         <resource>

@@ -29,8 +29,8 @@ Description: "This template defines constraints that represent common administra
   * ^short = "The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code"
   * ^comment = "SHALL contain exactly one [1..1] title (CONF:4537-5254)."
 * effectiveTime 1..1
-* effectiveTime only USRealmDateandTimeDTMUSFIELDED
-  * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5256)."
+* effectiveTime only USRealmDateTime
+  * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (Point in Time) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5256)."
 * confidentialityCode 1..1
 * confidentialityCode from $2.16.840.1.113883.1.11.16926 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] confidentialityCode, which SHOULD be selected from ValueSet HL7 BasicConfidentialityKind urn:oid:2.16.840.1.113883.1.11.16926 DYNAMIC (CONF:4537-5259)."
@@ -172,8 +172,8 @@ Description: "This template defines constraints that represent common administra
   * ^short = "The author element represents the creator of the clinical document.  The author may be a device or a person."
   * ^comment = "SHALL contain at least one [1..*] author (CONF:4537-5444)."
   * time 1..1
-  * time only USRealmDateandTimeDTMUSFIELDED
-    * ^comment = "Such authors SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5445)."
+  * time only USRealmDateTime
+    * ^comment = "Such authors SHALL contain exactly one [1..1] US Realm Date and Time (Point in Time) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5445)."
   * assignedAuthor 1..1
     * obeys 4537-16790
     * ^comment = "Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:4537-5448)."
@@ -325,8 +325,8 @@ Description: "This template defines constraints that represent common administra
   * ^short = "The legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. A clinical document that does not contain this element has not been legally authenticated. The act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. Based on local practice, clinical documents may be released before legal authentication.  All clinical documents have the potential for legal authentication, given the appropriate credentials. Local policies MAY choose to delegate the function of legal authentication to a device or system that generates the clinical document. In these cases, the legal authenticator is a person accepting responsibility for the document, not the generating device or system. Note that the legal authenticator, if present, must be a person."
   * ^comment = "SHOULD contain zero or one [0..1] legalAuthenticator (CONF:4537-5579)." // auto-should
   * time 1..1
-  * time only USRealmDateandTimeDTMUSFIELDED
-    * ^comment = "The legalAuthenticator, if present, SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5580)."
+  * time only USRealmDateTime
+    * ^comment = "The legalAuthenticator, if present, SHALL contain exactly one [1..1] US Realm Date and Time (Point in Time) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5580)."
   * signatureCode 1..1
     * ^comment = "The legalAuthenticator, if present, SHALL contain exactly one [1..1] signatureCode (CONF:4537-5583)."
     * code 1..1
@@ -367,8 +367,8 @@ Description: "This template defines constraints that represent common administra
 * authenticator[authenticator1] ^short = "The authenticator identifies a participant or participants who attest to the accuracy of the information in the document."
   * ^comment = "MAY contain zero or more [0..*] authenticator (CONF:4537-5607) such that it"
   * time 1..1
-  * time only USRealmDateandTimeDTMUSFIELDED
-    * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (DTM.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5608)."
+  * time only USRealmDateTime
+    * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (Point in Time) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5608)."
   * signatureCode 1..1
     * ^comment = "SHALL contain exactly one [1..1] signatureCode (CONF:4537-5610)."
     * code 1..1

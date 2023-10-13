@@ -70,9 +70,9 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * typeCode = #LA (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"LA\" Legal Authenticator (CONF:3250-16925)."
   * time 1..1
-  * time only USRealmDateandTimeDTUSFIELDED
+  * time only USRealmDateTimeInterval
     * ^short = "Indicates the time of signing the note."
-    * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:3250-16926)."
+    * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:3250-16926)."
     //"SG 20230602 Updated this from IVL_TS to IVL-TS"
   * participantRole 1..1
     * obeys 3250-16930

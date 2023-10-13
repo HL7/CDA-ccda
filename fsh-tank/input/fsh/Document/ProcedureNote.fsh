@@ -69,9 +69,9 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * obeys 1198-8511
     * ^comment = "SHALL contain exactly one [1..1] serviceEvent (CONF:1198-10061)."
     * effectiveTime 1..1
-    * effectiveTime only USRealmDateandTimeDTUSFIELDED
+    * effectiveTime only USRealmDateTimeInterval
       * obeys 1198-8513 and 1198-8514 and 1198-8515
-      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (DT.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-10062)."
+      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-10062)."
       * low 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449)."
 * authorization 0..1

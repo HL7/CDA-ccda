@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="USRealmDateandTimeDTMUSFIELDED"/>
+    <id value="USRealmDateTime"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -11,14 +11,14 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.4"/>
     </identifier>
-    <name value="USRealmDateandTimeDTMUSFIELDED"/>
-    <title value="US Realm Date and Time (DTM.US.FIELDED)"/>
+    <name value="USRealmDateTime"/>
+    <title value="US Realm Date and Time (Point in Time)"/>
     <status value="draft"/>
-    <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xD;&#xA;&#xD;&#xA;This data type uses the same rules as US Realm Date and Time (DT.US.FIELDED), but is used with elements having a datatype of TS."/>
+    <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If time is provided, it must include a time zone offset.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Interval), but is used with elements having a datatype of TS."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -38,21 +38,21 @@
                 <severity value="error"/>
                 <human value="**SHALL** be precise to at least the day"/>
                 <expression value="nullFlavor.exists() or value.length() &gt;= 8"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
             </constraint>
             <constraint>
                 <key value="ts-should-minute"/>
                 <severity value="warning"/>
                 <human value="**SHOULD** be precise to at least the minute"/>
                 <expression value="nullFlavor.exists() or value.length() &gt;= 12"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
             </constraint>
             <constraint>
                 <key value="ts-shall-timezone"/>
                 <severity value="error"/>
                 <human value="If more precise than minute, **SHALL** include time-zone offset"/>
                 <expression value="nullFlavor.exists() or value.length() &amp;lt;= 8 or value.contains('-') or value.contains('+')"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateandTimeDTMUSFIELDED"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
             </constraint>
         </element>
     </differential>
