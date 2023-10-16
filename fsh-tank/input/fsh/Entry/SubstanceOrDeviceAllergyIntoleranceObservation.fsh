@@ -36,9 +36,9 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-31536)."
   * high 0..1
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31537)."
-* value 1..1
+* value 0..1
 * value only $CD
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF:1098-16312)."
+  * ^comment = "MAY contain zero to one [0..1] value with @xsi:type=\"CD\" (CONF:1098-16312)."
   * code 1..1
   * code from $2.16.840.1.113883.3.88.12.3221.6.2 (required)
     * ^short = "Many systems will simply assign a fixed value here (e.g., \"allergy to substance\")."
