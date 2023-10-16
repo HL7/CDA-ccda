@@ -15,8 +15,8 @@ if (fs.existsSync(filePath + '.orig')) {
   fs.copyFileSync(filePath, filePath + '.orig');
 }
 
-
-const searchString = new RegExp('throw new errors_1.BindingStrengthError', 'g');
+// Pick one to test against
+const searchString = new RegExp('matchesLogicalType = t2.code && t2.code === md.sdType;');
 
 fs.readFile(filePath, 'utf8', (err, data) => {
   if (err) {
@@ -30,10 +30,13 @@ fs.readFile(filePath, 'utf8', (err, data) => {
   }
 
   // Ignore the binding strength error - waiting on actually FIXING these in Sushi rather than in XML
-  let newData = data.replace(searchString, '//throw new errors_1.BindingStrengthError');
+  let newData = data.replace(new RegExp('throw new errors_1.BindingStrengthError', 'g'), '//throw new errors_1.BindingStrengthError');
+
+  // Magical expression interpolation (testing)
+  newData = newData.replace(new RegExp('expression: invariant.expression'), 'expression: invariant.expression.replace(new RegExp("{%thisSDUrl}"), this.structDef.url)');
 
   // Bug with how Sushi reconciles logical-model definitions based on .type instead of .url
-  newData = newData.replace(new RegExp('matchesLogicalType = t2.code && t2.code === md.sdType;'), 'matchesLogicalType = t2.code && (t2.code === md.sdType || t2.code === md.url);')
+  newData = newData.replace(searchString, 'matchesLogicalType = t2.code && (t2.code === md.sdType || t2.code === md.url);')
     .replace(new RegExp(': match.metadata.sdType;'), ": (this.structDef.kind == 'logical' ? match.code : match.metadata.sdType);")
     .replace(/match\.metadata\.sdType &&\n\s+match\.metadata\.sdType === /g, '');
 
