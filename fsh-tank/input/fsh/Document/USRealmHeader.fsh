@@ -182,7 +182,7 @@ Description: "This template defines constraints that represent common administra
       * ^slicing.rules = #open
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:4537-32882) such that it, This assignedAuthor SHALL contain at least one [1..*] id (CONF:4537-5449)."
     // This seems easier than using slice() which requires a structure parameter that isn't quite present in FSH
-    * insert ConstraintWarning(4537-32882, [[SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)]], [[id.where(root = '2.16.840.1.113883.4.6')]])
+    * obeys should-id-npi
     * id contains npi 0..1
     * id[npi]
       * nullFlavor ^short = "If NPI is unknown, set @nullFlavor to UNK"

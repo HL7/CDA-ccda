@@ -614,7 +614,14 @@
             <path value="ClinicalDocument.author.assignedAuthor"/>
             <comment value="Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:4537-5448)."/>
             <constraint>
-                <key value="4537-32882"/>
+                <key value="4537-16790"/>
+                <severity value="error"/>
+                <human value="There **SHALL** be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice (CONF:4537-16790)."/>
+                <expression value="assignedPerson.exists() or assignedAuthoringDevice.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
+                <key value="should-id-npi"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)"/>
                 <expression value="id.where(root = '2.16.840.1.113883.4.6')"/>

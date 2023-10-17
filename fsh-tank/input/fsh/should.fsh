@@ -241,3 +241,8 @@ Invariant: should-npi
 Description: "SHOULD be NPI"
 Severity: #warning
 Expression: "$this = '2.16.840.1.113883.4.6'"
+
+Invariant: should-id-npi
+Description: "SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)"
+Severity: #warning
+Expression: "id.where(root = '2.16.840.1.113883.4.6')"
