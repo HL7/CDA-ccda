@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="ClinicalDocument"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2023-05-01"/>
@@ -75,6 +78,14 @@
             <comment value="SHALL contain exactly one [1..1] typeId (CONF:4537-5361)."/>
             <min value="1"/>
         </element>
+        <element id="ClinicalDocument.typeId.root">
+            <path value="ClinicalDocument.typeId.root"/>
+            <comment value="This typeId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.1.3&quot; (CONF:4537-5250)."/>
+        </element>
+        <element id="ClinicalDocument.typeId.extension">
+            <path value="ClinicalDocument.typeId.extension"/>
+            <comment value="This typeId SHALL contain exactly one [1..1] @extension=&quot;POCD_HD000040&quot; (CONF:4537-5251)."/>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <slicing>
@@ -105,14 +116,6 @@
             <path value="ClinicalDocument.templateId.extension"/>
             <min value="1"/>
             <patternString value="2023-05-01"/>
-        </element>
-        <element id="ClinicalDocument.typeId.root">
-            <path value="ClinicalDocument.typeId.root"/>
-            <comment value="This typeId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.1.3&quot; (CONF:4537-5250)."/>
-        </element>
-        <element id="ClinicalDocument.typeId.extension">
-            <path value="ClinicalDocument.typeId.extension"/>
-            <comment value="This typeId SHALL contain exactly one [1..1] @extension=&quot;POCD_HD000040&quot; (CONF:4537-5251)."/>
         </element>
         <element id="ClinicalDocument.id">
             <path value="ClinicalDocument.id"/>
