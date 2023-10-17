@@ -45,9 +45,9 @@ The observation/value element contains the detailed patient directive which may 
 * statusCode 1..1
   * ^short = "SG 20230706: constraint not entered 'properly' deleted fixedCode='Completed here - it's already in the next element and shoudln't be here - entered weird/wrong in TWB"
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."
-  * code 1..1
-  * code = #completed (exactly)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19082)."
+    * code 1..1
+    * code from $2.16.840.1.113762.1.4.1240.6 (required)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8656)."
   * low 1..1

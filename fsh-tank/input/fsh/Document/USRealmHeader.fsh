@@ -465,10 +465,10 @@ Description: "This template defines constraints that represent common administra
       * ^short = "The type of consent (e.g., a consent to perform the related serviceEvent) is conveyed in consent/code."
       * ^comment = "This consent MAY contain zero or one [0..1] code (CONF:4537-16795)."
     * statusCode 1..1
-      * ^comment = "This consent SHALL contain exactly one [1..1] statusCode (CONF:4537-16797)."
+      * ^comment = "This consent SHALL contain exactly one [1..1] statusCode (CONF:4537-16797)."    
       * code 1..1
-      * code = #completed (exactly)
-        * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-16798)."
+      * code from $2.16.840.1.113762.1.4.1240.6 (required)
+      * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * componentOf 0..1
   * ^short = "The encompassing encounter represents the setting of the clinical encounter during which the document act(s) or ServiceEvent(s) occurred. In order to represent providers associated with a specific encounter, they are recorded within the encompassingEncounter as participants. In a CCD, the encompassingEncounter may be used when documenting a specific encounter and its participants. All relevant encounters in a CCD may be listed in the encounters section."
   * ^comment = "MAY contain zero or one [0..1] componentOf (CONF:4537-9955)."

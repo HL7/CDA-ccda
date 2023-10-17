@@ -29,8 +29,8 @@ Description: """This template represents a patient's reported intention or desir
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-26551)."
   * code 1..1
-  * code = #completed (exactly)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-26556)."
+  * code from $2.16.840.1.113762.1.4.1240.6 (required)
+  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-26560)."
   * low 1..1
