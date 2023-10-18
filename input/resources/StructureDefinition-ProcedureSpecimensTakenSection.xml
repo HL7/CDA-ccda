@@ -37,15 +37,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-            <constraint>
-                <key value="81-8742"/>
-                <severity value="warning"/>
-                <human value="The Procedure Specimens Taken section SHALL list all specimens removed or SHALL explicitly state that no specimens were taken (CONF:81-8742)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureSpecimensTakenSection"/>
-            </constraint>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -93,6 +84,7 @@
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
+            <short value="The Procedure Specimens Taken section SHALL list all specimens removed or SHALL explicitly state that no specimens were taken (CONF:81-8742)."/>
             <min value="1"/>
         </element>
     </differential>

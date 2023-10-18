@@ -37,15 +37,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-            <constraint>
-                <key value="81-8054"/>
-                <severity value="warning"/>
-                <human value="If the surgical procedure section is present there SHALL be text indicating the procedure performed (CONF:81-8054)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNoteSurgicalProcedureSection"/>
-            </constraint>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -93,6 +84,7 @@
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
+            <short value="There SHALL be text indicating the procedure performed (CONF:81-8054)."/>
             <min value="1"/>
         </element>
     </differential>
