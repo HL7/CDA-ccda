@@ -153,27 +153,23 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
             <constraint>
-                <key value="1198-8513"/>
-                <severity value="error"/>
-                <human value="The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8513)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
-            </constraint>
-            <constraint>
                 <key value="1198-8514"/>
                 <severity value="error"/>
                 <human value="If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-8514)."/>
+                <expression value="width.empty() implies high.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
             </constraint>
             <constraint>
                 <key value="1198-8515"/>
                 <severity value="error"/>
                 <human value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-8515)."/>
+                <expression value="width.exists() implies high.exmpty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
             </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
-            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449) / (CONF:1198-8513)."/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>

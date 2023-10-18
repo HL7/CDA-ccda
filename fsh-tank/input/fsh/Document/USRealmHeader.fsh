@@ -20,10 +20,11 @@ Description: "This template defines constraints that represent common administra
   * extension = "POCD_HD000040" (exactly)
     * ^comment = "This typeId SHALL contain exactly one [1..1] @extension=\"POCD_HD000040\" (CONF:4537-5251)."
 * id 1..1
-  * obeys 4537-9991
+  * ^short = "**SHALL** be a globally unique identifier for the document (CONF:4537-9991)."
   * ^comment = "SHALL contain exactly one [1..1] id (CONF:4537-5363)."
 * code 1..1
-  * obeys 4537-9992 and 4537-32948
+  * ^short = "**SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:4537-9992)."
+  * obeys 4537-32948
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-5253)."
 * title 1..1
   * ^short = "The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code"
@@ -488,14 +489,6 @@ Description: "This template defines constraints that represent common administra
         * obeys 1198-32905
         * ^comment = "The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."
 
-Invariant: 4537-9991
-Description: "This id **SHALL** be a globally unique identifier for the document (CONF:4537-9991)."
-Severity: #warning
-
-Invariant: 4537-9992
-Description: "This code **SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:4537-9992)."
-Severity: #error
-
 Invariant: 4537-32948
 Description: "This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:4537-32948)."
 Severity: #error
@@ -523,7 +516,7 @@ Expression: "sdtcDeceasedTime.exists() implies sdtcDeceasedInd.exists()"
 
 Invariant: 4537-5402
 Description: "If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet StateValueSet 2.16.840.1.113883.3.88.12.80.1 *DYNAMIC* (CONF:4537-5402)."
-Severity: #warning
+Severity: #error
 
 Invariant: 4537-5403
 Description: "If country is US, this addr **MAY** contain zero or one [0..1] postalCode, which **SHALL** be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 *DYNAMIC* (CONF:4537-5403)."

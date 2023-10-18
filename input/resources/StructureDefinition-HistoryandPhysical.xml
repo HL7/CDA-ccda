@@ -127,6 +127,7 @@
                 <key value="1198-8348"/>
                 <severity value="error"/>
                 <human value="The responsibleParty element, if present, **SHALL** contain an assignedEntity element, which **SHALL** contain an assignedPerson element, a representedOrganization element, or both (CONF:1198-8348)."/>
+                <expression value="assignedEntity.assignedPerson.exists() or assignedEntity.representedOrganization.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
             </constraint>
         </element>
@@ -138,6 +139,7 @@
                 <key value="1198-8343"/>
                 <severity value="error"/>
                 <human value="An encounterParticipant element, if present, SHALL contain an assignedEntity element, which SHALL contain an assignedPerson element, a representedOrganization element, or both (CONF:1198-8343)."/>
+                <expression value="assignedEntity.assignedPerson.exists() or assignedEntity.representedOrganization.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
             </constraint>
         </element>

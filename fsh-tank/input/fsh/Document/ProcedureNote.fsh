@@ -70,10 +70,10 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * ^comment = "SHALL contain exactly one [1..1] serviceEvent (CONF:1198-10061)."
     * effectiveTime 1..1
     * effectiveTime only USRealmDateTimeInterval
-      * obeys 1198-8513 and 1198-8514 and 1198-8515
+      * obeys 1198-8514 and 1198-8515
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-10062)."
       * low 1..1
-        * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449)."
+        * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449) / (CONF:1198-8513)."  
 * authorization 0..1
   * ^short = "Authorization represents consent. Consent, if present, shall be represented by authorization/consent."
   * ^comment = "MAY contain zero or one [0..1] authorization (CONF:1198-32412)."
@@ -245,17 +245,15 @@ Invariant: 1198-8511
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), CPT-4 (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."
 Severity: #error
 
-Invariant: 1198-8513
-Description: "The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8513)."
-Severity: #error
-
 Invariant: 1198-8514
 Description: "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-8514)."
 Severity: #error
+Expression: "width.empty() implies high.exists()"
 
 Invariant: 1198-8515
 Description: "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-8515)."
 Severity: #error
+Expression: "width.exists() implies high.exmpty()"
 
 Invariant: 1198-30412
 Description: "This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30412)."

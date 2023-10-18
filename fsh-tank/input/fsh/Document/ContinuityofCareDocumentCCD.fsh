@@ -142,7 +142,9 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
 Invariant: 1198-8456
 Description: "Such assignedAuthors **SHALL** contain (exactly one [1..1] assignedPerson) or (exactly one [1..1] assignedAuthoringDevice and exactly one [1..1] representedOrganization) (CONF:1198-8456)."
 Severity: #error
+Expression: "assignedPerson.exists() or (assignedAuthoringDevice.exists() and representedOrganization.exists())"
 
+// Pending deletion - https://jira.hl7.org/browse/CDA-20820
 Invariant: 1198-8457
 Description: "If assignedAuthor has an associated representedOrganization with no assignedPerson or assignedAuthoringDevice, then the value for “ClinicalDocument/author/assignedAuthor/id/@NullFlavor” **SHALL** be “NA” “Not applicable” 2.16.840.1.113883.5.1008 NullFlavor STATIC (CONF:1198-8457)."
 Severity: #error
@@ -150,3 +152,4 @@ Severity: #error
 Invariant: 1198-32466
 Description: "If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:1198-32466)."
 Severity: #warning
+Expression: "assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"

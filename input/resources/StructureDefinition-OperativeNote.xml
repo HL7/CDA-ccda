@@ -101,9 +101,10 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
             <constraint>
-                <key value="1198-8488"/>
+                <key value="width-or-high"/>
                 <severity value="error"/>
-                <human value="The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."/>
+                <human value="Width and high are mutually exclusive. If width is known, high **SHALL NOT** be present. If with is not present, **SHALL** include high."/>
+                <expression value="(width | high).count() = 1"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
             <constraint>
@@ -118,6 +119,31 @@
                 <human value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
+        </element>
+        <!-- Manually added - don't let SUSHI remove -->
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVXB-TS"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.width">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.width"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PQ"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVXB-TS"/>
+            </type>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>

@@ -178,6 +178,7 @@ A Consultation Note includes the reason for the referral, history of present ill
 Invariant: 1198-32906
 Description: "This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32906)."
 Severity: #error
+Expression: "assignedPerson.exists() or representedOrganization.exists()"
 
 Invariant: 1198-28939
 Description: "This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-28939)."

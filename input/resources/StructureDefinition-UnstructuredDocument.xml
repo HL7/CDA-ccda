@@ -99,14 +99,16 @@
                 <key value="1198-7624"/>
                 <severity value="error"/>
                 <human value="If the text element does not contain a reference element with a value attribute, then it **SHALL** contain exactly one [1..1] @representation=&quot;B64&quot; and exactly one [1..1] @mediaType (CONF:1198-7624)."/>
+                <expression value="reference.value.empty() implies (representation = 'B64' and mediaType.exists())"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/UnstructuredDocument"/>
             </constraint>
-            <constraint>
-                <key value="1198-7623"/>
-                <severity value="error"/>
-                <human value="The value of @mediaType, if present, **SHALL** be drawn from the value set 2.16.840.1.113883.11.20.7.1 SupportedFileFormats STATIC 2010-05-12 (CONF:1198-7623)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/UnstructuredDocument"/>
-            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.nonXMLBody.text.mediaType">
+            <path value="ClinicalDocument.component.nonXMLBody.text.mediaType"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/Valueset/2.16.840.1.113883.11.20.7.1"/>
+            </binding>
         </element>
     </differential>
 </StructureDefinition>

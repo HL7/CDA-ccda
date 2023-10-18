@@ -85,6 +85,7 @@
                 <key value="1198-8456"/>
                 <severity value="error"/>
                 <human value="Such assignedAuthors **SHALL** contain (exactly one [1..1] assignedPerson) or (exactly one [1..1] assignedAuthoringDevice and exactly one [1..1] representedOrganization) (CONF:1198-8456)."/>
+                <expression value="assignedPerson.exists() or (assignedAuthoringDevice.exists() and representedOrganization.exists())"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>
             <constraint>
@@ -153,6 +154,7 @@
                 <key value="1198-32466"/>
                 <severity value="warning"/>
                 <human value="If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32466)."/>
+                <expression value="assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>
         </element>

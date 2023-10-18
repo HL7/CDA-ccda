@@ -31,13 +31,11 @@ For conformance with both specifications, implementers need to ensure that their
     * ^short = "An Unstructured Document must include a nonXMLBody component with a single text element. The text element can reference an external file using a reference element, or include unstructured content directly with a mediaType attribute. The nonXMLBody/text element also has a \"compression\" attribute that can be used to indicate that the unstructured content was compressed before being Base64Encoded. At a minimum, a compression value of \"DF\" for the deflate compression algorithm (RFC 1951 [URL:http://www.ietf.org/rfc/rfc1951.txt]) must be supported although it is not required that content be compressed."
     * ^comment = "This component SHALL contain exactly one [1..1] nonXMLBody (CONF:1198-31086)."
     * text 1..1
-      * obeys 1198-7624 and 1198-7623
+      * obeys 1198-7624
       * ^comment = "This nonXMLBody SHALL contain exactly one [1..1] text (CONF:1198-31087)."
+      * mediaType from $2.16.840.1.113883.11.20.7.1
 
 Invariant: 1198-7624
 Description: "If the text element does not contain a reference element with a value attribute, then it **SHALL** contain exactly one [1..1] @representation=\"B64\" and exactly one [1..1] @mediaType (CONF:1198-7624)."
 Severity: #error
-
-Invariant: 1198-7623
-Description: "The value of @mediaType, if present, **SHALL** be drawn from the value set 2.16.840.1.113883.11.20.7.1 SupportedFileFormats STATIC 2010-05-12 (CONF:1198-7623)."
-Severity: #error
+Expression: "reference.value.empty() implies (representation = 'B64' and mediaType.exists())"
