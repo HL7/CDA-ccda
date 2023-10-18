@@ -25,12 +25,17 @@ The Operative Note is created immediately following a surgical or other high-ris
       * ^comment = "SHALL contain exactly one [1..1] code."
     * effectiveTime 1..1
       * low 1..1
+        // Need to keep SOMETHING different from USRealmHeader in these 3 fields to keep them in the diff
+        * ^short = "Low is required"
+        * ^comment = "The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."
       * width 0..1
+        * ^short = "Represents the duration"
+        * ^comment = "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."
       * high 0..1
+        * ^short = "Equals low if only the date is known"
+        * ^comment = "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."
     * effectiveTime only USRealmDateTimeInterval
-      *   ^comment = "The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."
       * obeys width-or-high
-      * obeys 1198-10058 and 1198-10060
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."
     * performer ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
@@ -162,13 +167,3 @@ Invariant: width-or-high
 Description: "Width and high are mutually exclusive. If width is known, high **SHALL NOT** be present. If with is not present, **SHALL** include high."
 Severity: #error
 Expression: "(width | high).count() = 1"
-
-
-// Testing replacing the two below with the one above (renders nicely - at least in snapshot)
-Invariant: 1198-10058
-Description: "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."
-Severity: #error
-
-Invariant: 1198-10060
-Description: "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."
-Severity: #error

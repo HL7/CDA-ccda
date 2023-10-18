@@ -107,43 +107,21 @@
                 <expression value="(width | high).count() = 1"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
-            <constraint>
-                <key value="1198-10058"/>
-                <severity value="error"/>
-                <human value="If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
-            </constraint>
-            <constraint>
-                <key value="1198-10060"/>
-                <severity value="error"/>
-                <human value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
-            </constraint>
         </element>
-        <!-- Manually added - don't let SUSHI remove -->
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVXB-TS"/>
-            </type>
+            <short value="Low is required"/>
+            <comment value="The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.width">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.width"/>
-            <min value="0"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PQ"/>
-            </type>
+            <short value="Represents the duration"/>
+            <comment value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high"/>
-            <min value="0"/>
-            <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVXB-TS"/>
-            </type>
+            <short value="Equals low if only the date is known"/>
+            <comment value="If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
