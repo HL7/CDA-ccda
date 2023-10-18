@@ -38,6 +38,23 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Act">
+            <path value="Act"/>
+            <constraint>
+                <key value="1198-10085"/>
+                <severity value="error"/>
+                <human value="If statusCode/@code=&quot;completed&quot; Completed, then effectiveTime **SHALL** contain [1..1] high (CONF:1198-10085)."/>
+                <expression value="(statusCode.code = 'completed') implies effectiveTime.high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct"/>
+            </constraint>
+            <constraint>
+                <key value="1198-7504"/>
+                <severity value="error"/>
+                <human value="If statusCode/@code=&quot;active&quot; Active, then effectiveTime **SHALL** contain [1..1] low (CONF:1198-7504)."/>
+                <expression value="(statusCode.code = 'active') implies effectiveTime.low.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct"/>
+            </constraint>
+        </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
             <slicing>
@@ -118,18 +135,6 @@
             <path value="Act.effectiveTime"/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7498)."/>
             <min value="1"/>
-            <constraint>
-                <key value="1198-10085"/>
-                <severity value="error"/>
-                <human value="If statusCode/@code=&quot;completed&quot; Completed, then effectiveTime **SHALL** contain [1..1] high (CONF:1198-10085)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct"/>
-            </constraint>
-            <constraint>
-                <key value="1198-7504"/>
-                <severity value="error"/>
-                <human value="If statusCode/@code=&quot;active&quot; Active, then effectiveTime **SHALL** contain [1..1] low (CONF:1198-7504)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct"/>
-            </constraint>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>

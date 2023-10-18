@@ -80,13 +80,8 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
+            <short value="This code MAY be drawn from LOINC (CodeSystem: LOINC 2.16.840.1.113883.6.1)  or MAY be bound to ASSERTION (CodeSystem: ActCode 2.16.840.1.113883.5.4 STATIC) (CONF:81-26513)."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:81-14230)."/>
-            <constraint>
-                <key value="81-26513"/>
-                <severity value="warning"/>
-                <human value="This code MAY be drawn from LOINC (CodeSystem: LOINC 2.16.840.1.113883.6.1)  or MAY be bound to ASSERTION (CodeSystem: ActCode 2.16.840.1.113883.5.4 STATIC) (CONF:81-26513)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CaregiverCharacteristics"/>
-            </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -113,6 +108,7 @@
                 <key value="81-14600"/>
                 <severity value="error"/>
                 <human value="The code **SHALL** be selected from LOINC (codeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:81-14600)."/>
+                <expression value="codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CaregiverCharacteristics"/>
             </constraint>
         </element>

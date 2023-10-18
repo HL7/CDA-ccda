@@ -93,20 +93,15 @@
         <element id="Act.entryRelationship:target">
             <path value="Act.entryRelationship"/>
             <sliceName value="target"/>
+            <short value="The target of an authorization activity MAY contain one or more performer, to indicate the providers that have been authorized to provide treatment (CONF:81-8952)."/>
             <comment value="SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"/>
             <min value="1"/>
             <max value="*"/>
             <constraint>
                 <key value="81-8951"/>
-                <severity value="warning"/>
+                <severity value="error"/>
                 <human value="The target of an authorization activity with act/entryRelationship/@typeCode=&quot;SUBJ&quot; SHALL be a clinical statement with moodCode=&quot;PRMS&quot; Promise (CONF:81-8951)."/>
-                <expression value="act or observation or procedure or substanceAdministration or supply"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorizationActivity"/>
-            </constraint>
-            <constraint>
-                <key value="81-8952"/>
-                <severity value="warning"/>
-                <human value="The target of an authorization activity MAY contain one or more performer, to indicate the providers that have been authorized to provide treatment (CONF:81-8952)."/>
+                <expression value="(act | encounter | observation | observationMedia | organizer | procedure | regionOfInterest | substanceAdministration | supply).where(moodCode='PRMS').exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorizationActivity"/>
             </constraint>
         </element>

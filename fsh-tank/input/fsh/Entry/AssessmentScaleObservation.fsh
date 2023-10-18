@@ -71,3 +71,4 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
 Invariant: 4515-16804
 Description: "This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:4515-16804)."
 Severity: #error
+Expression: "value.exists() implies value.startsWith('#')"

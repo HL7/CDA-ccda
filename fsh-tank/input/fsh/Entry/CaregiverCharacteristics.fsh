@@ -16,7 +16,7 @@ Description: """This clinical statement represents a caregiver's willingness to 
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:81-14223)."
 * code 1..1
-  * obeys 81-26513
+  * ^short = "This code MAY be drawn from LOINC (CodeSystem: LOINC 2.16.840.1.113883.6.1)  or MAY be bound to ASSERTION (CodeSystem: ActCode 2.16.840.1.113883.5.4 STATIC) (CONF:81-26513)."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:81-14230)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:81-14233)."
@@ -44,10 +44,7 @@ Description: """This clinical statement represents a caregiver's willingness to 
     * classCode = #CAREGIVER (exactly)
       * ^comment = "This participantRole SHALL contain exactly one [1..1] @classCode=\"CAREGIVER\" (CONF:81-14229)."
 
-Invariant: 81-26513
-Description: "This code MAY be drawn from LOINC (CodeSystem: LOINC 2.16.840.1.113883.6.1)  or MAY be bound to ASSERTION (CodeSystem: ActCode 2.16.840.1.113883.5.4 STATIC) (CONF:81-26513)."
-Severity: #warning
-
 Invariant: 81-14600
 Description: "The code **SHALL** be selected from LOINC (codeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:81-14600)."
 Severity: #error
+Expression: "codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96'"

@@ -22,9 +22,5 @@ Description: "An Assessment Scale Supporting Observation represents the componen
   * code from $2.16.840.1.113762.1.4.1240.6 (required)
   * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * value 1..*
-  * obeys 4515-16755
   * ^comment = "SHALL contain at least one [1..*] value (CONF:4515-16754)."
-
-Invariant: 4515-16755
-Description: "If xsi:type=\"CD\", MAY have a translation code to further specify the source if the instrument has an applicable code system and value set for the integer (CONF:14639) (CONF:4515-16755)."
-Severity: #warning
+  * ^short = "If xsi:type=\"CD\", MAY have a translation code to further specify the source if the instrument has an applicable code system and value set for the integer (CONF:14639) (CONF:4515-16755)."

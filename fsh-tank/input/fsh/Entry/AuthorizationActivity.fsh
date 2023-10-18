@@ -20,7 +20,8 @@ Authorizations are represented using an act subordinate to the policy or program
   * ^slicing.discriminator.path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains target 1..*
-* entryRelationship[target] obeys 81-8951 and 81-8952
+* entryRelationship[target] obeys 81-8951
+  * ^short = "The target of an authorization activity MAY contain one or more performer, to indicate the providers that have been authorized to provide treatment (CONF:81-8952)."
   * ^comment = "SHALL contain at least one [1..*] entryRelationship (CONF:81-8948) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
@@ -28,9 +29,5 @@ Authorizations are represented using an act subordinate to the policy or program
 
 Invariant: 81-8951
 Description: "The target of an authorization activity with act/entryRelationship/@typeCode=\"SUBJ\" SHALL be a clinical statement with moodCode=\"PRMS\" Promise (CONF:81-8951)."
-Severity: #warning
-Expression: "act or observation or procedure or substanceAdministration or supply"
-
-Invariant: 81-8952
-Description: "The target of an authorization activity MAY contain one or more performer, to indicate the providers that have been authorized to provide treatment (CONF:81-8952)."
-Severity: #warning
+Severity: #error
+Expression: "(act | encounter | observation | observationMedia | organizer | procedure | regionOfInterest | substanceAdministration | supply).where(moodCode='PRMS').exists()"
