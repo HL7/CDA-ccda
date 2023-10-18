@@ -37,15 +37,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-            <constraint>
-                <key value="81-8056"/>
-                <severity value="warning"/>
-                <human value="If the Surgical Drains section is present, there SHALL be a statement providing details of the drains placed or SHALL explicitly state there were no drains placed (CONF:81-8056)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SurgicalDrainsSection"/>
-            </constraint>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -93,6 +84,7 @@
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
+            <short value="There SHALL be a statement providing details of the drains placed or SHALL explicitly state there were no drains placed (CONF:81-8056)."/>
             <min value="1"/>
         </element>
     </differential>
