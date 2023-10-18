@@ -101,7 +101,8 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^comment = "This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)." // auto-should
       //"<min value=\"0\"/>"
     * code 1..1
-      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] code (CONF:1198-30873)."
+    * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
+      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
     * encounterParticipant ^slicing.discriminator[0].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open

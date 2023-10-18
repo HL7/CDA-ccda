@@ -476,6 +476,9 @@ Description: "This template defines constraints that represent common administra
     * ^comment = "The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:4537-9956)."
     * id 1..*
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:4537-9959)."
+    * code 0..1
+    * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
+      * ^comment = "This encompassingEncounter MAY contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
     * effectiveTime 1..1
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:4537-9958)."
     * obeys should-responsibleParty
