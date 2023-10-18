@@ -39,7 +39,7 @@ Implementers wishing to convey more advanced Occupation detail, such as employer
 * value 1..1
 * value only $CD
 * value from $2.16.840.1.114222.4.11.7901 (required)
-  * ^comment = "SHALL contain exactly one [1..1] value, which SHALL be selected from ValueSet Occupation ONETSOC Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7901 DYNAMIC (CONF:4537-33006)."
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which SHALL be selected from ValueSet Occupation ONETSOC Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7901 DYNAMIC (CONF:4537-33006)."
 * subject 0..1
   * ^short = "Indicates that this observation is for a related person whose occupation may affect the patient."
   * ^comment = "MAY contain zero or one [0..1] subject (CONF:4537-33058)."

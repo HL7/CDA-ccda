@@ -32,7 +32,7 @@ Description: "This template describes the overall nutritional status of the pati
 * value 1..1
 * value only $CD
 * value from $2.16.840.1.113883.1.11.20.2.7 (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] value, which SHOULD be selected from ValueSet Nutritional Status urn:oid:2.16.840.1.113883.1.11.20.2.7 DYNAMIC (CONF:1098-29854)."
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which SHOULD be selected from ValueSet Nutritional Status urn:oid:2.16.840.1.113883.1.11.20.2.7 DYNAMIC (CONF:1098-29854)."
 * entryRelationship ^slicing.discriminator.type = #value
   * ^slicing.discriminator.path = "Observation.typeCode"
   * ^slicing.rules = #open

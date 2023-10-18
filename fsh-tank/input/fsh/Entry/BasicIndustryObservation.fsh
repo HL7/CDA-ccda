@@ -31,4 +31,4 @@ Description: """This template represents a simple observation about the type of 
 * value 1..1
 * value only $CD
 * value from $2.16.840.1.114222.4.11.7900 (required)
-  * ^comment = "SHALL contain exactly one [1..1] value, which SHALL be selected from ValueSet Industry NAICS Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7900 DYNAMIC (CONF:4537-33022)."
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which SHALL be selected from ValueSet Industry NAICS Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7900 DYNAMIC (CONF:4537-33022)."
