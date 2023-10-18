@@ -39,7 +39,7 @@ Description: "This template defines constraints that represent common administra
     * ^comment = "SHALL NOT contain [0..0] @nullFlavor."
   * code 1..1
 * languageCode 1..1
-* languageCode from $2.16.840.1.113883.1.11.11526 (required)
+* languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
   * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC."
 * obeys 4537-6380
 * setId 0..1
@@ -138,8 +138,7 @@ Description: "This template defines constraints that represent common administra
       * languageCommunication 0..*
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."
         * languageCode 1..1
-        * languageCode from $2.16.840.1.113883.1.11.11526 (required)
-          * ^comment = "The languageCommunication, if present, SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet Language urn:oid:2.16.840.1.113883.1.11.11526 DYNAMIC (CONF:4537-5407)."
+        * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
         * modeCode 0..1
         * modeCode from LanguageAbilityMode (required)
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:4537-5409)."
