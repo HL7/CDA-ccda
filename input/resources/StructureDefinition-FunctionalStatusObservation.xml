@@ -126,7 +126,8 @@
             <constraint>
                 <key value="1098-14234"/>
                 <severity value="warning"/>
-                <human value="If xsi:type=“CD”, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-14234)."/>
+                <human value="If coded, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-14234)."/>
+                <expression value="codeSystem.exists() implies codeSystem = '2.16.840.1.113883.6.96'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusObservation"/>
             </constraint>
         </element>

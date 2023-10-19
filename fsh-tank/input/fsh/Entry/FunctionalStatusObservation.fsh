@@ -70,5 +70,6 @@ Description: "This template represents the patient's physical function (e.g., mo
   * ^comment = "MAY contain zero or more [0..*] referenceRange (CONF:1098-13937)."
 
 Invariant: 1098-14234
-Description: "If xsi:type=“CD”, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-14234)."
+Description: "If coded, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-14234)."
 Severity: #warning
+Expression: "codeSystem.exists() implies codeSystem = '2.16.840.1.113883.6.96'"
