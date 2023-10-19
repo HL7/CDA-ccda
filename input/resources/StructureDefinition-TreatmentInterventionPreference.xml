@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="MedicationAdherence"/>
+    <id value="TreatmentInterventionPreference"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -17,15 +17,15 @@
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
     </extension>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/TreatmentInterventionPreference"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.508:2023-05-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.510:2024-01-01"/>
     </identifier>
-    <version value="2023-05-01"/>
-    <name value="MedicationAdherence"/>
-    <title value="Medication Adherence"/>
+    <version value="2024-01-01"/>
+    <name value="TreatmentInterventionPreference"/>
+    <title value="Treatment Intervention Preference"/>
     <status value="draft"/>
-    <description value="This profile represents whether a medication has been consumed according to instructions."/>
+    <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is required to represent the situation when a person would prefer the stated intervention preferences."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -38,16 +38,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <constraint>
-                <key value="should-informant"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain informant"/>
-                <expression value="informant.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
-            </constraint>
-        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -63,25 +53,33 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:med-adherence">
+        <element id="Observation.templateId:treatment-intervention-pref">
             <path value="Observation.templateId"/>
-            <sliceName value="med-adherence"/>
+            <sliceName value="treatment-intervention-pref"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:med-adherence.root">
+        <element id="Observation.templateId:treatment-intervention-pref.root">
             <path value="Observation.templateId.root"/>
             <min value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.22.4.508"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.510"/>
         </element>
-        <element id="Observation.templateId:med-adherence.extension">
+        <element id="Observation.templateId:treatment-intervention-pref.extension">
             <path value="Observation.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2023-05-01"/>
+            <patternString value="2024-01-01"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <fixedCode value="EVN"/>
+            <fixedCode value="INT"/>
+        </element>
+        <element id="Observation.negationInd">
+            <path value="Observation.negationInd"/>
+            <max value="0"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
@@ -89,45 +87,26 @@
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <short value="Adherence to prescribed medication instructions [Reported]"/>
-            <min value="1"/>
-            <patternCode value="71799-1"/>
-        </element>
-        <element id="Observation.code.codeSystem">
-            <path value="Observation.code.codeSystem"/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.6.1"/>
-        </element>
-        <element id="Observation.statusCode">
-            <path value="Observation.statusCode"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.effectiveTime">
-            <path value="Observation.effectiveTime"/>
-            <min value="1"/>
+            <patternCode value="75773-2"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
+            <short value="This will most often by a ST"/>
             <min value="1"/>
             <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
-            </type>
         </element>
-        <element id="Observation.value.code">
-            <path value="Observation.value.code"/>
+        <element id="Observation.precondition">
+            <path value="Observation.precondition"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.precondition.criterion.code">
+            <path value="Observation.precondition.criterion.code"/>
             <min value="1"/>
             <binding>
-                <strength value="extensible"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.59"/>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.23"/>
             </binding>
-        </element>
-        <element id="Observation.informant">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.informant"/>
-            <short value="(USCDI) 'The person or organization that provided the information about the medication adherence.'"/>
         </element>
     </differential>
 </StructureDefinition>

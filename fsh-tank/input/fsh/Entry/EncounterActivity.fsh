@@ -13,6 +13,7 @@ Description: "This clinical statement describes an interaction between a patient
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."
 * id 1..*
+  * insert USCDI([[Encounter Identifier]])
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8713)."
 * code 1..1
 * code from EncounterTypeCode (preferred)

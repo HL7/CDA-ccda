@@ -131,8 +131,11 @@
             <min value="1"/>
         </element>
         <element id="Observation.value">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.value"/>
-            <short value="NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
+            <short value="(USCDI) @unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="SHALL contain exactly one [1..1] value (CONF:4537-7143)."/>
             <min value="1"/>
             <max value="1"/>
@@ -156,7 +159,11 @@
             </constraint>
         </element>
         <element id="Observation.interpretationCode">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.interpretationCode"/>
+            <short value="(USCDI) Result Interpretation"/>
             <comment value="SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."/>
         </element>
         <element id="Observation.methodCode">
@@ -201,7 +208,11 @@
             </type>
         </element>
         <element id="Observation.referenceRange">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.referenceRange"/>
+            <short value="(USCDI) Result Reference Range"/>
             <comment value="SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)."/>
         </element>
         <element id="Observation.referenceRange.observationRange">

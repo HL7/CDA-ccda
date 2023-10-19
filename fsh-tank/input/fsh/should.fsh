@@ -40,6 +40,11 @@ Description: "SHOULD contain country"
 Severity: #warning
 Expression: "item.country.exists()"
 
+Invariant: should-criterion
+Description: "SHOULD contain criterion"
+Severity: #warning
+Expression: "criterion.exists()"
+
 Invariant: should-documentationOf
 Description: "SHOULD contain documentationOf"
 Severity: #warning
@@ -79,6 +84,11 @@ Invariant: should-id
 Description: "SHOULD contain id"
 Severity: #warning
 Expression: "id.exists()"
+
+Invariant: should-informant
+Description: "SHOULD contain informant"
+Severity: #warning
+Expression: "informant.exists()"
 
 Invariant: should-informationRecipient
 Description: "SHOULD contain informationRecipient"
@@ -134,6 +144,11 @@ Invariant: should-playingEntity
 Description: "SHOULD contain playingEntity"
 Severity: #warning
 Expression: "playingEntity.exists()"
+
+Invariant: should-precondition
+Description: "SHOULD contain precondition"
+Severity: #warning
+Expression: "precondition.exists()"
 
 Invariant: should-priorityCode
 Description: "SHOULD contain priorityCode"

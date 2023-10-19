@@ -33,6 +33,11 @@
         <packageId value="us.nlm.vsac"/>
         <version value="0.12.0"/>
     </dependsOn>
+    <dependsOn id="uscore">
+        <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
+        <packageId value="hl7.fhir.us.core"/>
+        <version value="current"/>
+    </dependsOn>
     <definition>
       <grouping id="document">
           <name value="Document Templates"/>
@@ -260,6 +265,15 @@
             </reference>
             <name value="Brand Name Observation"/>
             <description value="This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Brand Name**.  The UDI-DI of the medical device may be used to retrieve the **Brand Name** in accessGUDID, which should be considered the source of truth."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/CareExperiencePreference"/>
+                <display value="Care Experience Preference"/>
+            </reference>
+            <name value="Care Experience Preference"/>
+            <description value="This Care Experience Preference template represents a person's care preferences during their care and treatment. Examples include, but are not limited to religious preferences, dislikes and fears, and thoughts and feelings to be shared. This templates does not represent actual order, but holds observations about wishes. These observations may inform the placement of future orders. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situations when a person would prefer the stated care experiences, such as during childbirth or interventional procedures."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1872,6 +1886,15 @@
             <name value="Transfer Summary"/>
             <description value="This document describes constraints on the Clinical Document Architecture (CDA) header and body elements for a Transfer Summary. The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings. &#xA;&#xA;Standardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement."/>
             <groupingId value="document"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/TreatmentInterventionPreference"/>
+                <display value="Treatment Intervention Preference"/>
+            </reference>
+            <name value="Treatment Intervention Preference"/>
+            <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is required to represent the situation when a person would prefer the stated intervention preferences."/>
+            <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>

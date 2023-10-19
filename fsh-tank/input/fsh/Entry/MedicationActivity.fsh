@@ -196,7 +196,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * act 1..1
   * act only SubstanceAdministeredAct
     * ^comment = "SHALL contain exactly one [1..1] Substance Administered Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.118) (CONF:1098-31519)."
-* entryRelationship[adherence] ^short = "The following entryRelationship is used to indicate the patient's adherence to the medication order."
+* entryRelationship[adherence]
+  * insert USCDI([[Medication Adherence]])
   * ^comment = "MAY contain zero or more [0..*] entryRelationship such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -204,7 +205,9 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * observation 1..1
   * observation only MedicationAdherence
     * ^comment = "SHALL contain exactly one [1..1] Medication Adherence (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.508)."
-* entryRelationship[signature] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32907) such that it"
+* entryRelationship[signature]
+  * insert USCDI([[Medication Instructions]])
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32907) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32908)."

@@ -38,16 +38,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Procedure">
-            <path value="Procedure"/>
-            <constraint>
-                <key value="should-effectiveTime"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain effectiveTime"/>
-                <expression value="effectiveTime.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </constraint>
-        </element>
         <element id="Procedure.templateId">
             <path value="Procedure.templateId"/>
             <slicing>
@@ -157,8 +147,33 @@
             </binding>
         </element>
         <element id="Procedure.effectiveTime">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Procedure.effectiveTime"/>
-            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-7662)."/>
+            <short value="(USCDI) Performance Time"/>
+            <min value="1"/>
+            <constraint>
+                <key value="should-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain value"/>
+                <expression value="value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+        </element>
+        <element id="Procedure.effectiveTime.value">
+            <path value="Procedure.effectiveTime.value"/>
+            <short value="Indicates historical procedure or an instance of a procedure where precision may be only a date or even a year."/>
+        </element>
+        <element id="Procedure.effectiveTime.low">
+            <path value="Procedure.effectiveTime.low"/>
+            <short value="Indicates when a procedure started"/>
+            <comment value="MAY contain zero or one [0..1] low"/>
+        </element>
+        <element id="Procedure.effectiveTime.high">
+            <path value="Procedure.effectiveTime.high"/>
+            <short value="Indicates when a procedure ended"/>
+            <comment value="MAY contain zero or one [0..1] high"/>
         </element>
         <element id="Procedure.priorityCode">
             <path value="Procedure.priorityCode"/>

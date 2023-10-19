@@ -555,9 +555,12 @@
             </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:adherence">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="adherence"/>
-            <short value="The following entryRelationship is used to indicate the patient's adherence to the medication order."/>
+            <short value="(USCDI) Medication Adherence"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -577,8 +580,12 @@
             </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:signature">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="signature"/>
+            <short value="(USCDI) Medication Instructions"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32907) such that it"/>
             <min value="0"/>
             <max value="*"/>

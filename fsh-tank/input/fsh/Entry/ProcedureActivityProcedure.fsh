@@ -34,9 +34,16 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.22 (required)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:4515-32366)."
-* obeys should-effectiveTime
-* effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-7662)." // auto-should
+* effectiveTime 1..1
+  * insert USCDI([[Performance Time]])
+  * obeys should-value
+  * value ^short = "Indicates historical procedure or an instance of a procedure where precision may be only a date or even a year."
+  * low
+    * ^short = "Indicates when a procedure started"
+    * ^comment = "MAY contain zero or one [0..1] low"
+  * high
+    * ^short = "Indicates when a procedure ended"
+    * ^comment = "MAY contain zero or one [0..1] high"
 * priorityCode 0..1
 * priorityCode from ActPriority (required)
   * ^comment = "MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:4515-7668)."

@@ -114,6 +114,21 @@
             <path value="Observation.author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31143)."/>
         </element>
+        <element id="Observation.participant:participant1">
+            <path value="Observation.participant"/>
+            <sliceName value="participant1"/>
+        </element>
+        <element id="Observation.participant:participant1.participantRole.playingEntity.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="Observation.participant.participantRole.playingEntity.code"/>
+            <short value="(USCDI) Substance"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1186.8"/>
+            </binding>
+        </element>
         <element id="Observation.entryRelationship:criticality">
             <path value="Observation.entryRelationship"/>
             <sliceName value="criticality"/>
