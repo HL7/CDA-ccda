@@ -41,9 +41,10 @@
         <element id="SubstanceAdministration">
             <path value="SubstanceAdministration"/>
             <constraint>
-                <key value="1098-30800"/>
-                <severity value="warning"/>
-                <human value="Medication Activity **SHOULD** include doseQuantity **OR** rateQuantity (CONF:1098-30800)."/>
+                <key value="dose-unit-or-admin-unit"/>
+                <severity value="error"/>
+                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
+                <expression value="doseQuantity.unit.exists() implies administrationUnitCode.empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
         </element>
@@ -150,6 +151,7 @@
                 <key value="1098-32890"/>
                 <severity value="error"/>
                 <human value="This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."/>
+                <expression value="(value | low).count = 1"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
             <constraint>
@@ -239,37 +241,14 @@
         </element>
         <element id="SubstanceAdministration.doseQuantity">
             <path value="SubstanceAdministration.doseQuantity"/>
+            <definition value="If the consumable code is not pre-coordinated (e.g., is &quot;simply metoprolol Oral Product&quot; (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., &quot;25&quot; and &quot;mg&quot;, specifying the amount of product given per administration (CONF:1098-16879).&amp;#10;If the consumable code is a pre-coordinated unit dose (e.g., &quot;metoprolol 25mg tablet&quot;) then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., &quot;2&quot;, meaning 2 x &quot;metoprolol 25mg tablet&quot; per administration) (CONF:1098-16878)."/>
             <comment value="SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."/>
             <min value="1"/>
-            <constraint>
-                <key value="1098-16879"/>
-                <severity value="warning"/>
-                <human value="Not pre-coordinated consumable: If the consumable code is not pre-coordinated (e.g., is &quot;simply metoprolol Oral Product&quot; (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., &quot;25&quot; and &quot;mg&quot;, specifying the amount of product given per administration (CONF:1098-16879)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
-            </constraint>
-            <constraint>
-                <key value="1098-16878"/>
-                <severity value="warning"/>
-                <human value="Pre-coordinated consumable: If the consumable code is a pre-coordinated unit dose (e.g., &quot;metoprolol 25mg tablet&quot;) then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., &quot;2&quot;, meaning 2 x &quot;metoprolol 25mg tablet&quot; per administration) (CONF:1098-16878)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
-            </constraint>
-            <constraint>
-                <key value="1098-40000"/>
-                <severity value="warning"/>
-                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
-            </constraint>
         </element>
         <element id="SubstanceAdministration.doseQuantity.unit">
             <path value="SubstanceAdministration.doseQuantity.unit"/>
             <short value="NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)."/>
-            <constraint>
-                <key value="1098-40000"/>
-                <severity value="warning"/>
-                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
-            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839"/>
@@ -297,12 +276,6 @@
             <path value="SubstanceAdministration.administrationUnitCode"/>
             <short value="administrationUnitCode@code describes the units of medication administration for an item using a code that is pre-coordinated to include a physical unit form (ointment, powder, solution, etc.) which differs from the units used in administering the consumable (capful, spray, drop, etc.). For example when recording medication administrations, 'metric drop (C48491)'' would be appropriate to accompany the RxNorm code of 198283 (Timolol 0.25% Ophthalmic Solution) where the number of drops would be specified in doseQuantity@value."/>
             <comment value="MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519)."/>
-            <constraint>
-                <key value="1098-40000"/>
-                <severity value="warning"/>
-                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
-            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.30"/>

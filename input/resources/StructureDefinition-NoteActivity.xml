@@ -112,17 +112,18 @@
             <path value="Act.text"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:3250-16896)."/>
             <min value="1"/>
+            <constraint>
+                <key value="3250-16912"/>
+                <severity value="error"/>
+                <human value="If @mediaType is present, the text SHALL contain exactly one [1..1] @representation=&quot;B64&quot; and mixed content corresponding to the contents of the note (CONF:3250-16912)."/>
+                <expression value="mediaType.exists() implies (representation = 'B64' and xmlText.exists())"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+            </constraint>
         </element>
         <element id="Act.text.mediaType">
             <path value="Act.text.mediaType"/>
             <short value="If the note was originally in another format, such as RTF, this element may also contain the base-64-encoded raw data of the note in addition to a reference to the narrative."/>
             <comment value="This text MAY contain zero or one [0..1] @mediaType, which SHOULD be selected from ValueSet SupportedFileFormats urn:oid:2.16.840.1.113883.11.20.7.1 DYNAMIC (CONF:3250-16906)."/>
-            <constraint>
-                <key value="3250-16912"/>
-                <severity value="error"/>
-                <human value="If @mediaType is present, the text SHALL contain exactly one [1..1] @representation=&quot;B64&quot; and mixed content corresponding to the contents of the note (CONF:3250-16912)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
-            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.7.1"/>
@@ -132,6 +133,13 @@
             <path value="Act.text.reference"/>
             <comment value="This text SHALL contain exactly one [1..1] reference (CONF:3250-16897)."/>
             <min value="1"/>
+            <constraint>
+                <key value="3250-16902"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:3250-16902)."/>
+                <expression value="value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+            </constraint>
         </element>
         <element id="Act.text.reference.nullFlavor">
             <path value="Act.text.reference.nullFlavor"/>
@@ -143,12 +151,6 @@
             <path value="Act.text.reference.value"/>
             <comment value="This reference SHALL contain exactly one [1..1] @value (CONF:3250-16898)."/>
             <min value="1"/>
-            <constraint>
-                <key value="3250-16902"/>
-                <severity value="error"/>
-                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:3250-16902)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
-            </constraint>
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>

@@ -25,7 +25,6 @@ Description: "The Mental Status Organizer template may be used to group related 
   * code from $2.16.840.1.113762.1.4.1240.6 (required)
   * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 0..1
-  * obeys 1198-32426
   * ^short = "The effectiveTime is an interval that spans the effectiveTimes of the contained mental status observations. Because all contained mental status observations have a required time stamp, it is not required that this effectiveTime be populated."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)."
 * component ^slicing.discriminator[0].type = #value
@@ -40,7 +39,3 @@ Description: "The Mental Status Organizer template may be used to group related 
 Invariant: 1198-14698
 Description: "**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (codeSystem 2.16.840.1.113883.6.96) (CONF:1198-14698)."
 Severity: #warning
-
-Invariant: 1198-32426
-Description: "The Organizer **SHALL** have at least one of *code* or *effectiveTime* (CONF:1198-32426)."
-Severity: #error

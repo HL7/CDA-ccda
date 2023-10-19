@@ -46,7 +46,6 @@ Description: "This template records the act of supplying medications (i.e., disp
     * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-7467)."
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
-      * obeys 4537-10565
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-7468)."
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "supply"
@@ -66,8 +65,4 @@ Description: "This template records the act of supplying medications (i.e., disp
 
 Invariant: 4537-9333
 Description: "A supply act  **SHALL** contain one product/Medication Information *OR* one product/Immunization Medication Information template (CONF:4537-9333)."
-Severity: #error
-
-Invariant: 4537-10565
-Description: "The content of addr **SHALL** be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2) (CONF:4537-10565)."
 Severity: #error
