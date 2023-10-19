@@ -44,15 +44,8 @@ This id must be a pointer to another Performer."""
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4515-167)."
   * high 0..1
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4515-168)."
-* performer ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "sdtcFunctionCode"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "assignedEntity"
-  * ^slicing.rules = #open
-  * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4515-160) such that it"
-* performer contains performer1 1..1
-* performer[performer1] ^short = "performer"
-  * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4515-160) such that it"
+* performer 1..1
+  * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4515-160)"
   * sdtcFunctionCode 0..1
   * sdtcFunctionCode from $2.16.840.1.113762.1.4.1099.30 (preferred)
     * ^short = "This sdtc:functionCode represents the function or role of the member on the care team. For example, the care team member roles on the care team can be a caregiver and a professional nurse or a primary care provider and the care coordinator."
@@ -79,25 +72,24 @@ This id must be a pointer to another Performer."""
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4515-179)."
     * representedOrganization 0..1
-      * obeys 4515-184
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] representedOrganization (CONF:4515-181)."
+      * addr 1..*
+      * telecom 1..*
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
 * participant contains
-    participant2 0..* and
-    participant1 0..*
-* participant[participant2] ^short = "particThis participant represents the location where the care team member provides the serviceipant"
+    location 0..* and
+    addl-functions 0..*
+* participant[location] ^short = "particThis participant represents the location where the care team member provides the serviceipant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
   * typeCode 1..1
   * typeCode = #LOC (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"LOC\" Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-174)."
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4515-173)."
-* participant[participant1] obeys 4515-172
+* participant[addl-functions]
   * ^short = "This participant is used to express additional care team functions performed by this member of the team. Include additional participant to record additional roles (functionCode) this Care Team member plays."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-76) such that it"
   * typeCode 1..1
@@ -107,10 +99,17 @@ This id must be a pointer to another Performer."""
   * sdtcFunctionCode from $2.16.840.1.113762.1.4.1099.30 (required)
     * ^short = "sdtc:functionCode"
     * ^comment = "SHALL contain exactly one [1..1] sdtc:functionCode, which SHALL be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-169)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+  * participantRole 1..1
+    * ^comment = "required element with fixed nullFlavor"
+    * nullFlavor 1..1
+    * nullFlavor = #NA
+      * ^comment = "This participantRole SHALL contain exactly one [1..1] @nullFlavor=\"NI\" No Information. (CONF:4515-172)."
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"
 * entryRelationship contains
@@ -146,14 +145,6 @@ This id must be a pointer to another Performer."""
 
 Invariant: 4515-180
 Description: "If the assignedEntity/id is not referencing a Performer elsewhere in the document with an assignedPerson populated, this assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4515-180)."
-Severity: #error
-
-Invariant: 4515-184
-Description: "When a provider is working on behalf of an organization an addr & telecom **SHALL** be present in representedOrganization (CONF:4515-184)."
-Severity: #error
-
-Invariant: 4515-172
-Description: "This participantRole SHALL contain exactly one [1..1] @nullFlavor=\"NI\" No Information. (CONF:4515-172)."
 Severity: #error
 
 Invariant: 4515-90

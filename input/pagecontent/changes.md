@@ -82,3 +82,4 @@ The changes in this version of Consolidated CDA have been made from STU comments
 67. CDA-1278 - Changed the GoalObservation statusCode to be bound to a value set.
 68. CDA-1760 - Changed any statusCode that were set to 'completed' to be bound to a value set.
 69. CDA-20736 - Relaxed AllergyIntolerance value and updated the Allergy and Intolerance type value set.
+70. CDA-20822 - Updated CareTeamMemberAct to clean up untestable constraints and unnecessary "such that it".
