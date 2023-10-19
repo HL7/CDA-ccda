@@ -210,6 +210,11 @@ Description: "SHOULD contain subject"
 Severity: #warning
 Expression: "subject.exists()"
 
+Invariant: should-sdtcId
+Description: "SHOULD contain sdtcId"
+Severity: #warning
+Expression: "sdtcId.exists()"
+
 Invariant: should-telecom
 Description: "SHOULD contain telecom"
 Severity: #warning
