@@ -8,6 +8,8 @@ The changes in this version of Consolidated CDA have been made from STU comments
 * Removed any templates that are DEPRECATED
 * Removed Entries Optional templates if an equivalent Entries Required template exists
 * Combined Companion Guide and C-CDA narrative into one guide
+* Added Treatment Intervention Preference and Care Experience Preference USCDI Entry templates
+* Added USCDI tag and extensions to USCDI elements
 
 #### Tracker Issues Applied
 
