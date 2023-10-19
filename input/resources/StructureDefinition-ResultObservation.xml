@@ -136,19 +136,13 @@
             </extension>
             <path value="Observation.value"/>
             <short value="(USCDI) @unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
-            <comment value="SHALL contain exactly one [1..1] value (CONF:4537-7143)."/>
+            <comment value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866). / SHALL contain exactly one [1..1] value (CONF:4537-7143)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
                 <key value="4537-31484"/>
                 <severity value="warning"/>
                 <human value="If Observation/value is a physical quantity (xsi:type=&quot;PQ&quot;): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
-            </constraint>
-            <constraint>
-                <key value="4537-31866"/>
-                <severity value="warning"/>
-                <human value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
             <constraint>

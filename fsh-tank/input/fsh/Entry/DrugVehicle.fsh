@@ -23,9 +23,5 @@ Description: "This template represents the vehicle (e.g., saline, dextrose) for 
     * ^short = "This playingEntity/code is used to supply a coded term for the drug vehicle."
     * ^comment = "This playingEntity SHALL contain exactly one [1..1] code (CONF:81-7493)."
   * name 0..1
-    * obeys 81-10087
+    * ^short = "This playingEntity/name MAY be used for the vehicle name in text, such as Normal Saline (CONF:81-10087)."
     * ^comment = "This playingEntity MAY contain zero or one [0..1] name (CONF:81-7494)."
-
-Invariant: 81-10087
-Description: "This playingEntity/name MAY be used for the vehicle name in text, such as Normal Saline (CONF:81-10087)."
-Severity: #warning

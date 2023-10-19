@@ -50,9 +50,5 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has component (CONF:4537-32631)."
   * observation 1..1
   * observation only AssessmentScaleObservation
-    * obeys 4537-33057
+    * ^short = "A system **MAY** record the six-item set of questions and their answers options from the American Community Survey (ACS) in the Assessment Scale Observation using the [Disability Status Assessment ](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.49/expansion) value set (CONF:4537-33057)."
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.69:2022-06-01) (CONF:4537-32630)."
-
-Invariant: 4537-33057
-Description: "A system **MAY** record the six-item set of questions and their answers options from the American Community Survey (ACS) in the Assessment Scale Observation using the [Disability Status Assessment ](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.49/expansion) value set (CONF:4537-33057)."
-Severity: #warning

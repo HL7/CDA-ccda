@@ -28,7 +28,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" LOINC (CONF:3250-16941)."
   * translation 0..*
   * translation from $2.16.840.1.113883.11.20.9.68 (preferred)
-    * obeys 3250-16942 and 3250-16943
+    * ^short = "If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943). If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."
     * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."
 * text 1..1
   * ^comment = "SHALL contain exactly one [1..1] text (CONF:3250-16896)."
@@ -124,14 +124,6 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * obeys should-code
     * code 0..1
       * ^comment = "This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)." // auto-should
-
-Invariant: 3250-16942
-Description: "If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."
-Severity: #warning
-
-Invariant: 3250-16943
-Description: "If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943)."
-Severity: #warning
 
 Invariant: 3250-16912
 Description: "If @mediaType is present, the text SHALL contain exactly one [1..1] @representation=\"B64\" and mixed content corresponding to the contents of the note (CONF:3250-16912)."

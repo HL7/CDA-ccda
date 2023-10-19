@@ -101,19 +101,8 @@
         </element>
         <element id="Act.code.translation">
             <path value="Act.code.translation"/>
+            <short value="If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943). If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."/>
             <comment value="This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."/>
-            <constraint>
-                <key value="3250-16942"/>
-                <severity value="warning"/>
-                <human value="If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
-            </constraint>
-            <constraint>
-                <key value="3250-16943"/>
-                <severity value="warning"/>
-                <human value="If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
-            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68"/>
