@@ -77,8 +77,9 @@ The changes in this version of Consolidated CDA have been made from STU comments
 62. CDA-20478/CDA-1806 - Update OperativeNote/ProcedureNote binding on serviceEvent.
 63. CDA-20516 - Updated guidance on how to specify when NullFlavors are allowed.
 64. CDA-1922 - NullFlavor is not allowed on confidentialityCode.
-65. CDA-20005 - Add table to ResultsObservation template associating LOINC Scales to Observation value types.
-66. CDA-20076 - Updated SeverityObservation guidance and loosened value binding to SHOULD.
-67. CDA-1278 - Changed the GoalObservation statusCode to be bound to a value set.
-68. CDA-1760 - Changed any statusCode that were set to 'completed' to be bound to a value set.
-69. CDA-20736 - Relaxed AllergyIntolerance value and updated the Allergy and Intolerance type value set.
+65. CDA-1278 - Changed the GoalObservation statusCode to be bound to a value set.
+66. CDA-1760 - Changed any statusCode that were set to 'completed' to be bound to a value set.
+67. CDA-20736 - Relaxed AllergyIntolerance value and updated the Allergy and Intolerance type value set.
+68. CDA-1627 - Bind Procedure Act Procedure code to US Core Procedure value set.
+69. CDA-20444 - Bind Problem Observation code to US Core Condition value set.
+70. CDA-20022 - Added a page that lists all of the used value sets and used code systems.

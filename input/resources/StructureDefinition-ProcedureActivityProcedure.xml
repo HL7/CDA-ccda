@@ -88,12 +88,6 @@
             <comment value="SHALL contain exactly one [1..1] code (CONF:4515-7656)."/>
             <min value="1"/>
             <constraint>
-                <key value="4515-19207"/>
-                <severity value="warning"/>
-                <human value="This @code SHOULD be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) or CPT (CodeSystem: 2.16.840.1.113883.6.12) or ICD-10-PCS (CodeSystem: 2.16.840.1.113883.6.4) or HCPCS (Code System: 2.16.840.1.113762.1.4.1247.9) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:4515-19207)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </constraint>
-            <constraint>
                 <key value="4515-32984"/>
                 <severity value="warning"/>
                 <human value="If the Intervention Procedure is a Social Determinant of Health Intervention, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Procedures](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion) **DYNAMIC** (CONF:4515-32984)."/>
@@ -106,6 +100,10 @@
                 <expression value="originalText.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"/>
+            </binding>
         </element>
         <element id="Procedure.code.originalText">
             <path value="Procedure.code.originalText"/>
