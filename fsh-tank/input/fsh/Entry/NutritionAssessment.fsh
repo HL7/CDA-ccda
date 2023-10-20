@@ -37,5 +37,6 @@ Description: "This template represents the patient's nutrition abilities and hab
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32924)."
 
 Invariant: 1098-32925
-Description: "If xsi:type=“CD”, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-32925)."
+Description: "If coded, **SHOULD** contain a code from SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-32925)."
 Severity: #warning
+Expression: "codeSystem.exists() implies codeSystem = '2.16.840.1.113883.6.96'"

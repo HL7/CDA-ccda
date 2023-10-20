@@ -98,20 +98,20 @@
         </element>
         <element id="Procedure.code">
             <path value="Procedure.code"/>
+            <short value="If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet Social Determinant of Health Service Request (CONF:4515-32993)"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4515-31976)."/>
             <min value="1"/>
             <constraint>
                 <key value="4515-31977"/>
                 <severity value="warning"/>
                 <human value="This @code SHOULD be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) or CPT (CodeSystem: 2.16.840.1.113883.6.12) or ICD-10-PCS (CodeSystem: 2.16.840.1.113883.6.4) or HCPCS (Code System: 2.16.840.1.113883.6.285) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:4515-31977)."/>
+                <expression value="codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96' or codeSystem = '2.16.840.1.113883.6.12' or codeSystem = '2.16.840.1.113883.6.4' or codeSystem = '2.16.840.1.113883.6.285' or codeSystem = '2.16.840.1.113883.6.13'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
             </constraint>
-            <constraint>
-                <key value="4515-32993"/>
-                <severity value="warning"/>
-                <human value="If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Service Request](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.790/expansion/) **DYNAMIC** (CONF:4515-32993)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
-            </constraint>
+            <binding>
+                <strength value="example"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.790"/>
+            </binding>
         </element>
         <element id="Procedure.statusCode">
             <path value="Procedure.statusCode"/>

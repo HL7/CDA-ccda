@@ -70,3 +70,4 @@ The priority of the activity to the patient and provider is communicated through
 Invariant: 1098-32030
 Description: "This code in a Planned Act **SHOULD** be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) *OR* SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) (CONF:1098-32030)."
 Severity: #warning
+Expression: "codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96'"

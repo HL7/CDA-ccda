@@ -40,12 +40,6 @@
         <element id="Observation">
             <path value="Observation"/>
             <constraint>
-                <key value="1098-32782"/>
-                <severity value="error"/>
-                <human value="SHALL contain at least one [1..*] entryRelationships (CONF:1098-32782)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
-            </constraint>
-            <constraint>
                 <key value="should-value"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain value"/>
@@ -125,6 +119,7 @@
                 <rules value="open"/>
             </slicing>
             <short value="Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry."/>
+            <min value="1"/>
         </element>
         <element id="Observation.entryRelationship:entryReference">
             <path value="Observation.entryRelationship"/>

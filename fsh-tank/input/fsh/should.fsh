@@ -160,6 +160,11 @@ Description: "SHOULD contain priorityCode"
 Severity: #warning
 Expression: "priorityCode.exists()"
 
+Invariant: should-product
+Description: "SHOULD contain product"
+Severity: #warning
+Expression: "product.exists()"
+
 Invariant: should-proficiencyLevelCode
 Description: "SHOULD contain proficiencyLevelCode"
 Severity: #warning

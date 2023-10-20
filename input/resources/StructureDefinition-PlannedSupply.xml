@@ -47,6 +47,13 @@
                 <expression value="effectiveTime.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
             </constraint>
+            <constraint>
+                <key value="should-product"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain product"/>
+                <expression value="product.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
+            </constraint>
         </element>
         <element id="Supply.templateId">
             <path value="Supply.templateId"/>
@@ -126,12 +133,6 @@
             <path value="Supply.product"/>
             <short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD). "/>
             <comment value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/>
-            <constraint>
-                <key value="1098-32325"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain zero or one [0..1] product (CONF:1098-32325)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
-            </constraint>
             <constraint>
                 <key value="1098-32092"/>
                 <severity value="error"/>

@@ -8,7 +8,6 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
 
 * insert LogicalModelTemplateRootOnly(outcome-obs, 2.16.840.1.113883.10.20.22.4.144)
 
-* obeys 1098-32782
 * classCode 1..1
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31219)."
@@ -25,6 +24,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)."
+* entryRelationship 1..*
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
@@ -72,10 +72,6 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * externalDocument 1..1
   * externalDocument only ExternalDocumentReference
     * ^comment = "The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:1098-32765)."
-
-Invariant: 1098-32782
-Description: "SHALL contain at least one [1..*] entryRelationships (CONF:1098-32782)."
-Severity: #error
 
 Invariant: 1098-32461
 Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1098-32461)."
