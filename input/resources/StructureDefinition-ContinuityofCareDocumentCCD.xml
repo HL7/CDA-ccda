@@ -88,12 +88,6 @@
                 <expression value="assignedPerson.exists() or (assignedAuthoringDevice.exists() and representedOrganization.exists())"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>
-            <constraint>
-                <key value="1198-8457"/>
-                <severity value="error"/>
-                <human value="If assignedAuthor has an associated representedOrganization with no assignedPerson or assignedAuthoringDevice, then the value for “ClinicalDocument/author/assignedAuthor/id/@NullFlavor” **SHALL** be “NA” “Not applicable” 2.16.840.1.113883.5.1008 NullFlavor STATIC (CONF:1198-8457)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf">
             <path value="ClinicalDocument.documentationOf"/>

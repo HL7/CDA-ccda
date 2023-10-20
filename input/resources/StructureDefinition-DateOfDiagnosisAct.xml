@@ -115,17 +115,18 @@
             <path value="Act.effectiveTime"/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-33007)."/>
             <min value="1"/>
+            <constraint>
+                <key value="ts-shall-year"/>
+                <severity value="error"/>
+                <human value="**SHALL** be precise to at least the year"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 4"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
+            </constraint>
         </element>
         <element id="Act.effectiveTime.value">
             <path value="Act.effectiveTime.value"/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] @value (CONF:4515-33008)."/>
             <min value="1"/>
-            <constraint>
-                <key value="4515-33009"/>
-                <severity value="error"/>
-                <human value="**SHALL** be precise to at least the year (CONF:4515-33009)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
-            </constraint>
         </element>
         <element id="Act.effectiveTime.low">
             <path value="Act.effectiveTime.low"/>

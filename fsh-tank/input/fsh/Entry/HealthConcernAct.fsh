@@ -12,7 +12,6 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
 
 * insert LogicalModelTemplate(health-concern-act, 2.16.840.1.113883.10.20.22.4.132, 2022-06-01)
 
-* obeys 4515-32962
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4515-30750)."
@@ -40,71 +39,48 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
 * author only AuthorParticipation
   * ^short = "A health concern may be a patient or provider concern. If the author is set to the recordTarget (patient), this is a patient concern. If the author is set to a provider, this is a provider concern. If both patient and provider are set as authors, this is a concern of both the patient and the provider."
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31546)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
+  * ^short = "When this Health Concern Act is a Social Determinant of Health Health Concern it **SHOULD** contain zero or more [0..*] entryRelationship subentries such that it contains an observation with an observation/value selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32962)."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"
 * entryRelationship contains
-    entryRelationship1 0..* and
-    entryRelationship2 0..* and
-    entryRelationship3 0..* and
-    entryRelationship4 0..* and
-    entryRelationship5 0..* and
-    entryRelationship6 0..* and
-    entryRelationship7 0..* and
-    entryRelationship8 0..* and
-    entryRelationship9 0..* and
-    entryRelationship10 0..* and
-    entryRelationship11 0..* and
-    entryRelationship12 0..* and
-    entryRelationship13 0..* and
-    entryRelationship14 0..* and
-    entryRelationship15 0..* and
-    entryRelationship16 0..* and
-    entryRelationship17 0..* and
-    entryRelationship18 0..* and
-    entryRelationship19 0..* and
-    entryRelationship20 0..* and
-    entryRelationship21 0..* and
-    entryRelationship22 0..* and
-    entryRelationship23 0..* and
-    entryRelationship24 0..* and
-    entryRelationship25 0..* and
-    entryRelationship26 0..* and
-    entryRelationship27 0..* and
-    entryRelationship28 0..* and
-    entryRelationship29 0..* and
-    entryRelationship30 0..* and
-    entryRelationship31 0..* and
-    entryRelationship32 0..*
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-30761) such that it"
+    observations 0..* and
+    acts 0..* and
+    organizers 0..* and
+    related-entries 0..* and
+    component-health-concern-acts 0..*
+* entryRelationship[observations] 
   * typeCode 1..1
   * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-30762)."
   * observation 1..1
-  * observation only ProblemObservation
-    * ^comment = "SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:4515-31001)."
-* entryRelationship[entryRelationship2] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31007) such that it"
+  * observation only ProblemObservation or AllergyIntoleranceObservation or AssessmentScaleObservation or SelfCareActivitiesADLandIADL or MentalStatusObservation or SmokingStatusMeaningfulUse or FunctionalStatusObservation or NutritionAssessment or PregnancyObservation or ReactionObservation or ResultObservation or SensoryStatus or SocialHistoryObservation or SubstanceOrDeviceAllergyIntoleranceObservation or TobaccoUse or VitalSignObservation or LongitudinalCareWoundObservation or ProblemObservation or CaregiverCharacteristics or CulturalandReligiousObservation or CharacteristicsofHomeEnvironment or NutritionalStatusObservation or PriorityPreference
+* entryRelationship[acts]
   * typeCode 1..1
   * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31008)."
-  * observation 1..1
-  * observation only AllergyIntoleranceObservation
-    * ^comment = "SHALL contain exactly one [1..1] Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09) (CONF:4515-31186)."
-* entryRelationship[entryRelationship3] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern REFERS TO Health Concern).  For example, a patient has 2 health concerns identified in a CARE Plan: Failure to Thrive and Poor Feeding, while it could be that one may have caused the other, at the time of care planning and documentation it is not necessary, nor desirable to have to assert what caused what. The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."
+  * act 1..1
+  * act only EncounterDiagnosis or HospitalAdmissionDiagnosis or PostprocedureDiagnosis or PreoperativeDiagnosis or EntryReference
+* entryRelationship[organizers]
+  * typeCode 1..1
+  * typeCode = #REFR (exactly)
+  * organizer 1..1
+  * organizer only FamilyHistoryOrganizer or ResultOrganizer
+
+* entryRelationship[related-entries] ^short = "Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry. This may also be used to refer to other Health Concern Acts where there is a general relationship between the source and the target (Health Concern REFERS TO Health Concern).  For example, a patient has 2 health concerns identified in a CARE Plan: Failure to Thrive and Poor Feeding, while it could be that one may have caused the other, at the time of care planning and documentation it is not necessary, nor desirable to have to assert what caused what. The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31157) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31158)."
   * act 1..1
   * act only EntryReference
-    * obeys 4515-32860
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32106)."
-* entryRelationship[entryRelationship4] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where the target is a component of the source (Health Concern HAS COMPONENT Health Concern). For example, a patient has an Impaired Mobility Health Concern. There may then be the need to document several component health concerns, such as \"Unable to Transfer Bed to Chair\",\"Unable to Rise from Commode\", \"Short of Breath Walking with Walker\". The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."
+* entryRelationship[component-health-concern-acts] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where the target is a component of the source (Health Concern HAS COMPONENT Health Concern). For example, a patient has an Impaired Mobility Health Concern. There may then be the need to document several component health concerns, such as \"Unable to Transfer Bed to Chair\",\"Unable to Rise from Commode\", \"Short of Breath Walking with Walker\". The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31160) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -113,230 +89,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * act only EntryReference
     * obeys 4515-32745
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32107)."
-* entryRelationship[entryRelationship5] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31190) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31191)."
-  * observation 1..1
-  * observation only AssessmentScaleObservation
-    * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-31192)."
-* entryRelationship[entryRelationship6] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31232) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31264)."
-  * observation 1..1
-  * observation only SelfCareActivitiesADLandIADL
-    * ^comment = "SHALL contain exactly one [1..1] Self-Care Activities (ADL and IADL) (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.128) (CONF:4515-31265)."
-* entryRelationship[entryRelationship7] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31234) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31268)."
-  * observation 1..1
-  * observation only MentalStatusObservation
-    * ^comment = "SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:4515-31273)."
-* entryRelationship[entryRelationship8] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31235) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31269)."
-  * observation 1..1
-  * observation only SmokingStatusMeaningfulUse
-    * ^comment = "SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:4515-31275)."
-* entryRelationship[entryRelationship9] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31236) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31270)."
-  * act 1..1
-  * act only EncounterDiagnosis
-    * ^comment = "SHALL contain exactly one [1..1] Encounter Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:4515-31277)."
-* entryRelationship[entryRelationship10] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31237) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers To (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31279)."
-  * organizer 1..1
-  * organizer only FamilyHistoryOrganizer
-    * ^comment = "SHALL contain exactly one [1..1] Family History Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.45:2015-08-01) (CONF:4515-31280)."
-* entryRelationship[entryRelationship11] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31238) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31282)."
-  * observation 1..1
-  * observation only FunctionalStatusObservation
-    * ^comment = "SHALL contain exactly one [1..1] Functional Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:4515-31283)."
-* entryRelationship[entryRelationship12] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31241) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31291)."
-  * act 1..1
-  * act only HospitalAdmissionDiagnosis
-    * ^comment = "SHALL contain exactly one [1..1] Hospital Admission Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.34:2015-08-01) (CONF:4515-31292)."
-* entryRelationship[entryRelationship13] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31244) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31300)."
-  * observation 1..1
-  * observation only NutritionAssessment
-    * ^comment = "SHALL contain exactly one [1..1] Nutrition Assessment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.138) (CONF:4515-31301)."
-* entryRelationship[entryRelationship14] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31246) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31306)."
-  * act 1..1
-  * act only PostprocedureDiagnosis
-    * ^comment = "SHALL contain exactly one [1..1] Postprocedure Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.51:2015-08-01) (CONF:4515-31307)."
-* entryRelationship[entryRelationship15] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31247) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31309)."
-  * observation 1..1
-  * observation only PregnancyObservation
-    * ^comment = "SHALL contain exactly one [1..1] Pregnancy Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:4515-31310)."
-* entryRelationship[entryRelationship16] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31248) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31312)."
-  * act 1..1
-  * act only PreoperativeDiagnosis
-    * ^comment = "SHALL contain exactly one [1..1] Preoperative Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.65:2015-08-01) (CONF:4515-31313)."
-* entryRelationship[entryRelationship17] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31250) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31318)."
-  * observation 1..1
-  * observation only ReactionObservation
-    * ^comment = "SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:4515-31319)."
-* entryRelationship[entryRelationship18] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31251) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31321)."
-  * observation 1..1
-  * observation only ResultObservation
-    * ^comment = "SHALL contain exactly one [1..1] Result Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:4515-31322)."
-* entryRelationship[entryRelationship19] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31252) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31324)."
-  * observation 1..1
-  * observation only SensoryStatus
-    * ^comment = "SHALL contain exactly one [1..1] Sensory Status (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.127) (CONF:4515-31325)."
-* entryRelationship[entryRelationship20] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31253) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31327)."
-  * observation 1..1
-  * observation only SocialHistoryObservation
-    * ^comment = "SHALL contain exactly one [1..1] Social History Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2015-08-01) (CONF:4515-31328)."
-* entryRelationship[entryRelationship21] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31254) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32961)."
-  * observation 1..1
-  * observation only SubstanceOrDeviceAllergyIntoleranceObservation
-    * ^comment = "SHALL contain exactly one [1..1] Substance or Device Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.24.3.90:2014-06-09) (CONF:4515-31331)."
-* entryRelationship[entryRelationship22] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31255) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31333)."
-  * observation 1..1
-  * observation only TobaccoUse
-    * ^comment = "SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:4515-31334)."
-* entryRelationship[entryRelationship23] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31256) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31336)."
-  * observation 1..1
-  * observation only VitalSignObservation
-    * ^comment = "SHALL contain exactly one [1..1] Vital Sign Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:4515-31337)."
-* entryRelationship[entryRelationship24] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31257) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31339)."
-  * observation 1..1
-  * observation only LongitudinalCareWoundObservation
-    * ^comment = "SHALL contain exactly one [1..1] Longitudinal Care Wound Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01) (CONF:4515-31340)."
-* entryRelationship[entryRelationship25] ^short = "The following entryRelationship represents the relationship Health Concern HAS SUPPORT Observation."
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31365) such that it"
-  * typeCode 1..1
-  * typeCode = #SPRT (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRT\" Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31366)."
-  * observation 1..1
-  * observation only ProblemObservation
-    * ^comment = "SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:4515-31367)."
-* entryRelationship[entryRelationship26] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31368) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31369)."
-  * observation 1..1
-  * observation only CaregiverCharacteristics
-    * ^comment = "SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:4515-31370)."
-* entryRelationship[entryRelationship27] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31371) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31372)."
-  * observation 1..1
-  * observation only CulturalandReligiousObservation
-    * ^comment = "SHALL contain exactly one [1..1] Cultural and Religious Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.111) (CONF:4515-31373)."
-* entryRelationship[entryRelationship28] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31374) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31375)."
-  * observation 1..1
-  * observation only CharacteristicsofHomeEnvironment
-    * ^comment = "SHALL contain exactly one [1..1] Characteristics of Home Environment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.109) (CONF:4515-31376)."
-* entryRelationship[entryRelationship29] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31377) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31378)."
-  * observation 1..1
-  * observation only NutritionalStatusObservation
-    * ^comment = "SHALL contain exactly one [1..1] Nutritional Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.124) (CONF:4515-31379)."
-* entryRelationship[entryRelationship30] ^short = "entryRelationship"
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31380) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31381)."
-  * organizer 1..1
-  * organizer only ResultOrganizer
-    * ^comment = "SHALL contain exactly one [1..1] Result Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01) (CONF:4515-31382)."
-* entryRelationship[entryRelationship31] ^short = "The following entryRelationship represents the priority that the patient or a provider puts on the health concern."
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31442) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31443)."
-  * observation 1..1
-  * observation only PriorityPreference
-    * ^comment = "SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-31444)."
-* entryRelationship[entryRelationship32] ^short = "Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31550)."
-  * act 1..1
-  * act only EntryReference
-    * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31551)."
+
 * reference 0..*
   * ^short = "Where it is necessary to reference an external clinical document such as a Referral document, Discharge Summary document etc., the External Document Reference template can be used to reference this document.  However, if this Care Plan document is replacing or appending another Care Plan document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:4515-32757)."
@@ -346,14 +99,6 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * externalDocument 1..1
   * externalDocument only ExternalDocumentReference
     * ^comment = "The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:4515-32759)."
-
-Invariant: 4515-32962
-Description: "When this Health Concern Act is a Social Determinant of Health Health Concern it **SHOULD** contain zero or more [0..*] entryRelationship subentries such that it contains an observation with an observation/value selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32962)."
-Severity: #error
-
-Invariant: 4515-32860
-Description: "The Entry Reference template **SHALL** contain an id that references a Health Concern Act (CONF:4515-32860)."
-Severity: #error
 
 Invariant: 4515-32745
 Description: "The Entry Reference template **SHALL** contain an id that references a Health Concern Act (CONF:4515-32745)."

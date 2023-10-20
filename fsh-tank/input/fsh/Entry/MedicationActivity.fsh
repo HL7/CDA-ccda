@@ -12,7 +12,6 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 
 * insert LogicalModelTemplate(medication-activity, 2.16.840.1.113883.10.20.22.4.16, 2014-06-09)
 
-* obeys 1098-30800
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7496)."
 * moodCode 1..1
@@ -76,11 +75,10 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-7515)."
 * doseQuantity 1..1
-  * obeys 1098-16879 and 1098-16878 and 1098-40000
+  * ^definition = "If the consumable code is not pre-coordinated (e.g., is \"simply metoprolol Oral Product\" (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., \"25\" and \"mg\", specifying the amount of product given per administration (CONF:1098-16879).&#10;If the consumable code is a pre-coordinated unit dose (e.g., \"metoprolol 25mg tablet\") then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., \"2\", meaning 2 x \"metoprolol 25mg tablet\" per administration) (CONF:1098-16878)."
   * ^comment = "SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
-    * obeys 1098-40000
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)."
 * rateQuantity 0..1
@@ -91,9 +89,9 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     * ^comment = "The rateQuantity, if present, SHALL contain exactly one [1..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7525)."
 * maxDoseQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] maxDoseQuantity (CONF:1098-7518)."
+* obeys dose-unit-or-admin-unit
 * administrationUnitCode 0..1
 * administrationUnitCode from AdministrationUnitDoseForm (required)
-  * obeys 1098-40000
   * ^short = "administrationUnitCode@code describes the units of medication administration for an item using a code that is pre-coordinated to include a physical unit form (ointment, powder, solution, etc.) which differs from the units used in administering the consumable (capful, spray, drop, etc.). For example when recording medication administrations, 'metric drop (C48491)'' would be appropriate to accompany the RxNorm code of 198283 (Timolol 0.25% Ophthalmic Solution) where the number of drops would be specified in doseQuantity@value."
   * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519)."
 * consumable 1..1
@@ -223,10 +221,6 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * criterion only PreconditionforSubstanceAdministration
     * ^comment = "The precondition, if present, SHALL contain exactly one [1..1] Precondition for Substance Administration (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.25:2014-06-09) (CONF:1098-31883)."
 
-Invariant: 1098-30800
-Description: "Medication Activity **SHOULD** include doseQuantity **OR** rateQuantity (CONF:1098-30800)."
-Severity: #warning
-
 Invariant: 1098-7513
 Description: "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it **SHALL** contain exactly one [1..1] @xsi:type=\"PIVL_TS\" or \"EIVL_TS\" (CONF:1098-28499)."
 Severity: #error
@@ -234,15 +228,9 @@ Severity: #error
 Invariant: 1098-32890
 Description: "This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."
 Severity: #error
+Expression: "(value | low).count = 1"
 
-Invariant: 1098-16879
-Description: "Not pre-coordinated consumable: If the consumable code is not pre-coordinated (e.g., is \"simply metoprolol Oral Product\" (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., \"25\" and \"mg\", specifying the amount of product given per administration (CONF:1098-16879)."
-Severity: #warning
-
-Invariant: 1098-16878
-Description: "Pre-coordinated consumable: If the consumable code is a pre-coordinated unit dose (e.g., \"metoprolol 25mg tablet\") then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., \"2\", meaning 2 x \"metoprolol 25mg tablet\" per administration) (CONF:1098-16878)."
-Severity: #warning
-
-Invariant: 1098-40000
+Invariant: dose-unit-or-admin-unit
 Description: "If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."
-Severity: #warning
+Severity: #error
+Expression: "doseQuantity.unit.exists() implies administrationUnitCode.empty()"

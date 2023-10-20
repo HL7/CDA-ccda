@@ -43,10 +43,9 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * ^short = "Represents the clinically relevant time of the measurement (e.g., the time a blood pressure reading is obtained, the time the blood sample was obtained for a chemistry test)."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-7140)."
 * value 1..1
-  * obeys 4537-31484 and 4537-31866 and 4537-32610
+  * obeys 4537-31484 and 4537-32610
   * insert USCDI([[@unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units]])
-  * ^comment = "SHALL contain exactly one [1..1] value (CONF:4537-7143)."
-
+  * ^comment = "A coded or physical quantity value **MAY** contain zero or more [0..&ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866). / SHALL contain exactly one [1..1] value (CONF:4537-7143)."
 * interpretationCode from http://terminology.hl7.org/ValueSet/v3-ObservationInterpretation
   * insert USCDI([[Result Interpretation]])
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."
@@ -84,10 +83,6 @@ Severity: #warning
 
 Invariant: 4537-31484
 Description: "If Observation/value is a physical quantity (xsi:type=\"PQ\"): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."
-Severity: #warning
-
-Invariant: 4537-31866
-Description: "A coded or physical quantity value **MAY** contain zero or more [0..&ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866)."
 Severity: #warning
 
 Invariant: 4537-32610

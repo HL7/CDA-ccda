@@ -83,3 +83,4 @@ The changes in this version of Consolidated CDA have been made from STU comments
 68. CDA-1627 - Bind Procedure Act Procedure code to US Core Procedure value set.
 69. CDA-20444 - Bind Problem Observation code to US Core Condition value set.
 70. CDA-20022 - Added a page that lists all of the used value sets and used code systems.
+71. CDA-20822 - Updated CareTeamMemberAct to clean up untestable constraints and unnecessary "such that it".

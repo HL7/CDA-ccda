@@ -38,15 +38,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Act">
-            <path value="Act"/>
-            <constraint>
-                <key value="4515-32962"/>
-                <severity value="error"/>
-                <human value="When this Health Concern Act is a Social Determinant of Health Health Concern it **SHOULD** contain zero or more [0..*] entryRelationship subentries such that it contains an observation with an observation/value selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32962)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct"/>
-            </constraint>
-        </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
             <slicing>
@@ -140,8 +131,16 @@
             <path value="Act.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="act"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="organizer"/>
                 </discriminator>
                 <discriminator>
                     <type value="value"/>
@@ -149,66 +148,104 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <short value="When this Health Concern Act is a Social Determinant of Health Health Concern it **SHOULD** contain zero or more [0..*] entryRelationship subentries such that it contains an observation with an observation/value selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32962)."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:observations">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-30761) such that it"/>
+            <sliceName value="observations"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:observations.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-30762)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation">
+        <element id="Act.entryRelationship:observations.observation">
             <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:4515-31001)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SelfCareActivitiesADLandIADL"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionAssessment"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SensoryStatus"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/LongitudinalCareWoundObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CaregiverCharacteristics"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CulturalandReligiousObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CharacteristicsofHomeEnvironment"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionalStatusObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PriorityPreference"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2">
+        <element id="Act.entryRelationship:acts">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31007) such that it"/>
+            <sliceName value="acts"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.typeCode">
+        <element id="Act.entryRelationship:acts.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31008)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09) (CONF:4515-31186)."/>
+        <element id="Act.entryRelationship:acts.act">
+            <path value="Act.entryRelationship.act"/>
             <min value="1"/>
             <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterDiagnosis"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalAdmissionDiagnosis"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosis"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PreoperativeDiagnosis"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3">
+        <element id="Act.entryRelationship:organizers">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
-            <short value="The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern REFERS TO Health Concern).  For example, a patient has 2 health concerns identified in a CARE Plan: Failure to Thrive and Poor Feeding, while it could be that one may have caused the other, at the time of care planning and documentation it is not necessary, nor desirable to have to assert what caused what. The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."/>
+            <sliceName value="organizers"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.entryRelationship:organizers.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <fixedCode value="REFR"/>
+        </element>
+        <element id="Act.entryRelationship:organizers.organizer">
+            <path value="Act.entryRelationship.organizer"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship:related-entries">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="related-entries"/>
+            <short value="Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry. This may also be used to refer to other Health Concern Acts where there is a general relationship between the source and the target (Health Concern REFERS TO Health Concern).  For example, a patient has 2 health concerns identified in a CARE Plan: Failure to Thrive and Poor Feeding, while it could be that one may have caused the other, at the time of care planning and documentation it is not necessary, nor desirable to have to assert what caused what. The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31157) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.typeCode">
+        <element id="Act.entryRelationship:related-entries.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31158)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.act">
+        <element id="Act.entryRelationship:related-entries.act">
             <path value="Act.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32106)."/>
             <min value="1"/>
@@ -216,27 +253,21 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
-            <constraint>
-                <key value="4515-32860"/>
-                <severity value="error"/>
-                <human value="The Entry Reference template **SHALL** contain an id that references a Health Concern Act (CONF:4515-32860)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct"/>
-            </constraint>
         </element>
-        <element id="Act.entryRelationship:entryRelationship4">
+        <element id="Act.entryRelationship:component-health-concern-acts">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="component-health-concern-acts"/>
             <short value="The following entryRelationship represents the relationship between two Health Concern Acts where the target is a component of the source (Health Concern HAS COMPONENT Health Concern). For example, a patient has an Impaired Mobility Health Concern. There may then be the need to document several component health concerns, such as &quot;Unable to Transfer Bed to Chair&quot;,&quot;Unable to Rise from Commode&quot;, &quot;Short of Breath Walking with Walker&quot;. The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31160) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship4.typeCode">
+        <element id="Act.entryRelationship:component-health-concern-acts.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31161)."/>
             <fixedCode value="COMP"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship4.act">
+        <element id="Act.entryRelationship:component-health-concern-acts.act">
             <path value="Act.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32107)."/>
             <min value="1"/>
@@ -250,621 +281,6 @@
                 <human value="The Entry Reference template **SHALL** contain an id that references a Health Concern Act (CONF:4515-32745)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct"/>
             </constraint>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship5">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship5"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31190) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship5.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31191)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship5.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-31192)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship6">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship6"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31232) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship6.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31264)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship6.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Self-Care Activities (ADL and IADL) (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.128) (CONF:4515-31265)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SelfCareActivitiesADLandIADL"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship7">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship7"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31234) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship7.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31268)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship7.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:4515-31273)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship8">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship8"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31235) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship8.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31269)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship8.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:4515-31275)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship9">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship9"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31236) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship9.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31270)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship9.act">
-            <path value="Act.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Encounter Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:4515-31277)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterDiagnosis"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship10">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship10"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31237) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship10.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers To (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31279)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship10.organizer">
-            <path value="Act.entryRelationship.organizer"/>
-            <comment value="SHALL contain exactly one [1..1] Family History Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.45:2015-08-01) (CONF:4515-31280)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship11">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship11"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31238) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship11.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31282)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship11.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Functional Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.67:2014-06-09) (CONF:4515-31283)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship12">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship12"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31241) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship12.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31291)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship12.act">
-            <path value="Act.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Hospital Admission Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.34:2015-08-01) (CONF:4515-31292)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalAdmissionDiagnosis"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship13">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship13"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31244) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship13.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31300)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship13.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Nutrition Assessment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.138) (CONF:4515-31301)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionAssessment"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship14">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship14"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31246) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship14.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31306)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship14.act">
-            <path value="Act.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Postprocedure Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.51:2015-08-01) (CONF:4515-31307)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosis"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship15">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship15"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31247) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship15.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31309)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship15.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Pregnancy Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:4515-31310)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship16">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship16"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31248) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship16.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31312)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship16.act">
-            <path value="Act.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Preoperative Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.65:2015-08-01) (CONF:4515-31313)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PreoperativeDiagnosis"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship17">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship17"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31250) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship17.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31318)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship17.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:4515-31319)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship18">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship18"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31251) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship18.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31321)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship18.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Result Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:4515-31322)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship19">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship19"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31252) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship19.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31324)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship19.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Sensory Status (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.127) (CONF:4515-31325)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SensoryStatus"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship20">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship20"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31253) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship20.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31327)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship20.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Social History Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2015-08-01) (CONF:4515-31328)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship21">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship21"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31254) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship21.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32961)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship21.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Substance or Device Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.24.3.90:2014-06-09) (CONF:4515-31331)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship22">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship22"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31255) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship22.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31333)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship22.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:4515-31334)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship23">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship23"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31256) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship23.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31336)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship23.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Vital Sign Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:4515-31337)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship24">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship24"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31257) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship24.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31339)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship24.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Longitudinal Care Wound Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01) (CONF:4515-31340)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/LongitudinalCareWoundObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship25">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship25"/>
-            <short value="The following entryRelationship represents the relationship Health Concern HAS SUPPORT Observation."/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31365) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship25.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31366)."/>
-            <fixedCode value="SPRT"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship25.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:4515-31367)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship26">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship26"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31368) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship26.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31369)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship26.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:4515-31370)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CaregiverCharacteristics"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship27">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship27"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31371) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship27.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31372)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship27.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Cultural and Religious Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.111) (CONF:4515-31373)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CulturalandReligiousObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship28">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship28"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31374) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship28.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31375)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship28.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Characteristics of Home Environment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.109) (CONF:4515-31376)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CharacteristicsofHomeEnvironment"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship29">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship29"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31377) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship29.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31378)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship29.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Nutritional Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.124) (CONF:4515-31379)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionalStatusObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship30">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship30"/>
-            <short value="entryRelationship"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31380) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship30.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31381)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship30.organizer">
-            <path value="Act.entryRelationship.organizer"/>
-            <comment value="SHALL contain exactly one [1..1] Result Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01) (CONF:4515-31382)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship31">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship31"/>
-            <short value="The following entryRelationship represents the priority that the patient or a provider puts on the health concern."/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31442) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship31.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31443)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship31.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-31444)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PriorityPreference"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship32">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship32"/>
-            <short value="Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship32.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31550)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryRelationship32.act">
-            <path value="Act.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31551)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
-            </type>
         </element>
         <element id="Act.reference">
             <path value="Act.reference"/>

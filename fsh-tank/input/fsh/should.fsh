@@ -20,6 +20,11 @@ Description: "SHOULD contain assignedPerson"
 Severity: #warning
 Expression: "assignedPerson.exists()"
 
+Invariant: should-author
+Description: "SHOULD contain author"
+Severity: #warning
+Expression: "author.exists()"
+
 Invariant: should-birthTime
 Description: "SHOULD contain birthTime"
 Severity: #warning
@@ -209,6 +214,11 @@ Invariant: should-subject
 Description: "SHOULD contain subject"
 Severity: #warning
 Expression: "subject.exists()"
+
+Invariant: should-sdtcId
+Description: "SHOULD contain sdtcId"
+Severity: #warning
+Expression: "sdtcId.exists()"
 
 Invariant: should-telecom
 Description: "SHOULD contain telecom"

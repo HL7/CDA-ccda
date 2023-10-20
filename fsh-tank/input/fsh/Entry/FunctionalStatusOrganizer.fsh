@@ -15,6 +15,7 @@ Description: "This template groups related functional status observations into c
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-14363)."
 * code 1..1
+  // TODO - remove the obeys and invariant and replace with value set preferred binding to VS containing ICF and LOINC
   * obeys 1098-31417
   * ^short = "The code selected should indicate the category that groups the contained functional status evaluation observations (e.g., mobility, self-care, communication)."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-14364)."

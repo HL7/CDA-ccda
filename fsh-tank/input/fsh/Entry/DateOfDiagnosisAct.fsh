@@ -30,14 +30,10 @@ The date of diagnosis is usually not the same date as the date of condition onse
   * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-33007)."
+  * obeys ts-shall-year
   * value 1..1
-    * obeys 4515-33009
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] @value (CONF:4515-33008)."
   * low 0..0
     * ^comment = "This effectiveTime SHALL NOT contain [0..0] low (CONF:4515-33016)."
   * high 0..0
     * ^comment = "This effectiveTime SHALL NOT contain [0..0] high (CONF:4515-33017)."
-
-Invariant: 4515-33009
-Description: "**SHALL** be precise to at least the year (CONF:4515-33009)."
-Severity: #error

@@ -146,7 +146,8 @@ The observation/value element contains the detailed patient directive which may 
     * text 0..1
       * ^comment = "This externalDocument MAY contain zero or one [0..1] text (CONF:1198-8696)."
       * reference 0..1
-        * obeys 1198-8698 and 1198-8699
+        * obeys 1198-8699
+        * ^short = "The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."
         * ^comment = "The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."
 
 Invariant: 1198-32449
@@ -159,10 +160,6 @@ Severity: #error
 
 Invariant: 1198-8666
 Description: "The data type of Observation/participant/time in a verification **SHALL** be *TS* (time stamp) (CONF:1198-8666)."
-Severity: #warning
-
-Invariant: 1198-8698
-Description: "The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."
 Severity: #warning
 
 Invariant: 1198-8699

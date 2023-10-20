@@ -28,13 +28,13 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" LOINC (CONF:3250-16941)."
   * translation 0..*
   * translation from $2.16.840.1.113883.11.20.9.68 (preferred)
-    * obeys 3250-16942 and 3250-16943
+    * ^short = "If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943). If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."
     * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."
 * text 1..1
   * ^comment = "SHALL contain exactly one [1..1] text (CONF:3250-16896)."
+  * obeys 3250-16912
   * mediaType 0..1
   * mediaType from SupportedFileFormats (preferred)
-    * obeys 3250-16912
     * ^short = "If the note was originally in another format, such as RTF, this element may also contain the base-64-encoded raw data of the note in addition to a reference to the narrative."
     * ^comment = "This text MAY contain zero or one [0..1] @mediaType, which SHOULD be selected from ValueSet SupportedFileFormats urn:oid:2.16.840.1.113883.11.20.7.1 DYNAMIC (CONF:3250-16906)."
   * reference 1..1
@@ -42,8 +42,8 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * nullFlavor 0..0
       * ^short = "The note activity must reference human-readable content in the narrative, so this reference must not be null."
       * ^comment = "This reference SHALL NOT contain [0..0] @nullFlavor (CONF:3250-16920)."
+    * obeys 3250-16902
     * value 1..1
-      * obeys 3250-16902
       * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:3250-16898)."
 * statusCode 1..1
   * ^short = "Indicates the status of the note. The most common statusCode is completed indicating the note is signed and finalized."
@@ -125,21 +125,15 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * code 0..1
       * ^comment = "This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)." // auto-should
 
-Invariant: 3250-16942
-Description: "If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."
-Severity: #warning
-
-Invariant: 3250-16943
-Description: "If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943)."
-Severity: #warning
-
 Invariant: 3250-16912
 Description: "If @mediaType is present, the text SHALL contain exactly one [1..1] @representation=\"B64\" and mixed content corresponding to the contents of the note (CONF:3250-16912)."
 Severity: #error
+Expression: "mediaType.exists() implies (representation = 'B64' and xmlText.exists())"
 
 Invariant: 3250-16902
 Description: "This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:3250-16902)."
 Severity: #error
+Expression: "value.startsWith('#')"
 
 Invariant: 3250-16930
 Description: "If no id matches an author or participant elsewhere in the document, then playingEntity SHALL be present (CONF:3250-16930)."
