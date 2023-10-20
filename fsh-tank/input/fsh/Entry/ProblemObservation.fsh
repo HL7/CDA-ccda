@@ -21,7 +21,9 @@ The effectiveTime of the Problem Observation is the definitive indication of whe
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-9043)."
 * code 1..1
 * code from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (preferred)
+  // !!! If either of these bindings changes, be sure to update the values in the Invariant as well
   * obeys 1198-32950
+  * translation from $2.16.840.1.113762.1.4.1099.28 (example)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-9049)."
   * code 1..1
@@ -97,5 +99,6 @@ The effectiveTime of the Problem Observation is the definitive indication of whe
     * ^comment = "SHALL contain exactly one [1..1] Problem Status (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.6:2019-06-20) (CONF:1198-15591)."
 
 Invariant: 1198-32950
-Description: "If code is selected from ValueSet US Core Condition Codes, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950) (CONF:1198-32950)."
-Severity: #error
+Description: "If code is selected from ValueSet US Core Condition Codes, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950)."
+Severity: #warning
+Expression: "code.memberOf('http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code') implies translation.where(code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.28')).exists()"
