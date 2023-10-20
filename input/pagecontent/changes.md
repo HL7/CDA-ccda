@@ -84,3 +84,5 @@ The changes in this version of Consolidated CDA have been made from STU comments
 69. CDA-20444 - Bind Problem Observation code to US Core Condition value set.
 70. CDA-20022 - Added a page that lists all of the used value sets and used code systems.
 71. CDA-20822 - Updated CareTeamMemberAct to clean up untestable constraints and unnecessary "such that it".
+72. CDA-20803 - Updated description in ResultOrganizer to include specimin clarification
+73. CDA-20772 - Updated RelatedPersonRelationshipandNameParticipant associatedEntity.code to new valueset
