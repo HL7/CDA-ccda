@@ -12,9 +12,12 @@ Description: """This Care Experience Preference template represents a person's c
 * moodCode = #INT (exactly)
 * id 1..*
 * code 1..1
-  * code = https://loinc.org#95541-9 "Care Experience Preference"
+  * code = #95541-9 
+  * codeSystem = "https://loinc.org"
+  * displayName = "Care Experience Preference"
 * value 1..1
-  * ^short = "This will most often by a ST"
+* value only CD or ED
+  * ^short = "This will most often by a string"
 * obeys should-precondition
 * precondition
   * obeys should-criterion

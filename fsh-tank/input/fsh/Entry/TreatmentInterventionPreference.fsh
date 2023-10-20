@@ -13,9 +13,12 @@ Description: """This Treatment Intervention Preference template represents perso
 * negationInd 0..0
 * id 1..*
 * code 1..1
-  * code = https://loinc.org#75773-2 "Goals, preferences, and priorities for medical treatment [Reported]"
+  * code = #75773-2
+  * codeSystem = "https://loinc.org"
+  * displayName = "Goals, preferences, and priorities for medical treatment [Reported]"
 * value 1..1
-  * ^short = "This will most often by a ST"
+* value only CD or ED
+  * ^short = "This will most often by a string"
 * precondition 1..1
   * criterion 1..1
     * code 1..1
