@@ -99,8 +99,9 @@
             <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Social History Type urn:oid:2.16.840.1.113883.3.88.12.80.60 DYNAMIC (CONF:4515-8558)."/>
             <constraint>
                 <key value="4515-32956"/>
-                <severity value="error"/>
+                <severity value="warning"/>
                 <human value="If @codeSystem is not LOINC, then this code **SHALL** contain at least one [1..*] translation, which **SHOULD** be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4515-32956)."/>
+                <expression value="codeSystem = '2.16.840.1.113883.6.1' or translation.where(codeSystem = '2.16.840.1.113883.6.1').exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
             </constraint>
             <binding>

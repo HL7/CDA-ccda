@@ -19,7 +19,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-7655)."
 * code 1..1
 * code from http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code (preferred)
-  * insert AdditionalBinding(#preferred, $SDoHProcedures, For Social Determiner of Health Interventions, [[If the Intervention Procedure is a Social Determinant of Health Intervention, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Procedures](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion) **DYNAMIC** (CONF:4515-32984).]])
+  * insert AdditionalBinding(preferred, $SDoHProcedures, For Social Determinant of Health Interventions, [[If the Intervention Procedure is a Social Determinant of Health Intervention, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Procedures](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion) **DYNAMIC** (CONF:4515-32984).]])
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-7656)."
   * obeys should-originalText
   * originalText 0..1
@@ -27,8 +27,8 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
     * obeys should-reference
     * reference 0..1
       * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-19204)." // auto-should
+      * obeys 4515-19206
       * value 0..1
-        * obeys 4515-19206
         * ^comment = "The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:4515-19205)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-7661)."
@@ -49,20 +49,20 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
 * priorityCode from ActPriority (required)
   * ^comment = "MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:4515-7668)."
 * methodCode 0..1
-  * obeys 4515-7890
+  * ^short = "MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4515-7670)."
 * targetSiteCode 0..*
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^short = "In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."
   * ^comment = "SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)."
 * specimen 0..*
-  * obeys 4515-16842
+  * ^short = "This specimen is for representing specimens obtained from a procedure (CONF:4515-16842)."
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4515-7697)."
   * specimenRole 1..1
     * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4515-7704)."
     * obeys should-id
     * id 0..*
-      * obeys 4515-29744
+      * ^short = "If you want to indicate that the Procedure and the Results are referring to the same specimen, the Procedure/specimen/specimenRole/id **SHOULD** be set to equal an Organizer/specimen/specimenRole/id (CONF:4515-29744)."
       * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)." // auto-should
 * performer ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "assignedEntity"
@@ -155,7 +155,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
     * moodCode = #EVN (exactly)
       * ^comment = "This encounter SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-7772)."
     * id 1..1
-      * obeys 4515-16843
+      * ^short = "Set the encounter ID to the ID of an encounter in another section to signify they are the same encounter (CONF:4515-16843)."
       * ^comment = "This encounter SHALL contain exactly one [1..1] id (CONF:4515-7773)."
 * entryRelationship[entryRelationship2] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-7775) such that it"
@@ -212,19 +212,4 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
 Invariant: 4515-19206
 Description: "This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:4515-19206)."
 Severity: #error
-
-Invariant: 4515-7890
-Description: "MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."
-Severity: #error
-
-Invariant: 4515-16842
-Description: "This specimen is for representing specimens obtained from a procedure (CONF:4515-16842)."
-Severity: #error
-
-Invariant: 4515-29744
-Description: "If you want to indicate that the Procedure and the Results are referring to the same specimen, the Procedure/specimen/specimenRole/id **SHOULD** be set to equal an Organizer/specimen/ specimenRole/id (CONF:4515-29744)."
-Severity: #warning
-
-Invariant: 4515-16843
-Description: "Set the encounter ID to the ID of an encounter in another section to signify they are the same encounter (CONF:4515-16843)."
-Severity: #warning
+Expression: "value.exists() implies value.startsWith('#')"

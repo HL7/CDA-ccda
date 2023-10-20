@@ -84,18 +84,14 @@
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
+            <short value="Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:4537-19219)."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4537-7128)."/>
             <min value="1"/>
             <constraint>
                 <key value="4537-19218"/>
                 <severity value="warning"/>
                 <human value="**SHOULD** be selected from LOINC (codeSystem 2.16.840.1.113883.6.1) **OR** SNOMED CT (codeSystem 2.16.840.1.113883.6.96), and **MAY** be selected from CPT (codeSystem 2.16.840.1.113883.6.12) (CONF:4537-19218)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
-            </constraint>
-            <constraint>
-                <key value="4537-19219"/>
-                <severity value="warning"/>
-                <human value="Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:4537-19219)."/>
+                <expression value="codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
             </constraint>
         </element>

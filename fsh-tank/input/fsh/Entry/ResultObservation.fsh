@@ -32,7 +32,8 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7137)."
 * code 1..1
-  * obeys 4537-19212 and 1098-40001
+  * insert ShallCodeOrNullFlavor
+  * obeys 4537-19212
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7134)."
@@ -43,9 +44,23 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * ^short = "Represents the clinically relevant time of the measurement (e.g., the time a blood pressure reading is obtained, the time the blood sample was obtained for a chemistry test)."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-7140)."
 * value 1..1
-  * obeys 4537-31484 and 4537-32610
-  * insert USCDI([[@unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units]])
-  * ^comment = "A coded or physical quantity value **MAY** contain zero or more [0..&ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866). / SHALL contain exactly one [1..1] value (CONF:4537-7143)."
+  * ^slicing.discriminator[0].type = #type
+  * ^slicing.discriminator[=].path = "$this"
+  * ^slicing.rules = #open
+  * ^short = "Value can be any type, but certain types have additional rules listed below."
+* value contains physical-quantity 0..1 and coded 0..1
+* value[physical-quantity] only $PQ
+  * unit 1..1
+    * insert USCDI(Result Units)
+  * translation 0..1
+    * ^short = "Can be used to represent the original results as output by the lab"
+* value[coded] only $CD
+  * obeys 4537-32610
+  * translation 0..1
+    * ^short = "Can be used to represent the original results as output by the lab"
+  // * obeys 4537-31484 and 4537-32610
+  // * insert USCDI([[@unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units]])
+  // * ^comment = "A coded or physical quantity value **MAY** contain zero or more [0..&ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866). / SHALL contain exactly one [1..1] value (CONF:4537-7143)."
 * interpretationCode from http://terminology.hl7.org/ValueSet/v3-ObservationInterpretation
   * insert USCDI([[Result Interpretation]])
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."
@@ -94,6 +109,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 Invariant: 4537-19212
 Description: "This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."
 Severity: #warning
+Expression: "codeSystem = '2.16.840.1.113883.6.1'"
 
 Invariant: 4537-31484
 Description: "If Observation/value is a physical quantity (xsi:type=\"PQ\"): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."
@@ -102,7 +118,4 @@ Severity: #warning
 Invariant: 4537-32610
 Description: "If Observation/value is a CD (**xsi:type=\"CD\"**) the value **SHOULD** be SNOMED-CT or LOINC (CONF:4537-32610)."
 Severity: #warning
-
-Invariant: 1098-40001
-Description: "SHALL contain either a @code attribute or a @nullFlavor attribute, but not both."
-Severity: #warning
+Expression: "codeSystem = '2.16.840.1.113883.6.96' or codeSystem = '2.16.840.1.113883.6.1'"
