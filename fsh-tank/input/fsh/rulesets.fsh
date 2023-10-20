@@ -13,6 +13,17 @@ RuleSet: USCDI(label)
 
 ////////////////////////////////////////////////////////////
 //                                                        //
+//                      Misc Rulesets                     //
+//                                                        //
+////////////////////////////////////////////////////////////
+RuleSet: AdditionalBinding(purpose, valueSet, short, documentation)
+* ^binding.additional[+].purpose = {purpose}
+* ^binding.additional[=].valueSet = {valueSet}
+* ^binding.additional[=].shortDoco = "{short}"
+* ^binding.additional[=].documentation = "{documentation}"
+
+////////////////////////////////////////////////////////////
+//                                                        //
 //          Constrinat (Invariant) Generation             //
 //                                                        //
 ////////////////////////////////////////////////////////////
