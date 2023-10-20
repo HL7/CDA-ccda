@@ -19,7 +19,8 @@ Specimen(s) attached to a Result Organizer apply to all Result Observations cont
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7127)."
 * code 1..1
-  * obeys 4537-19218 and 4537-19219
+  * obeys 4537-19218
+  * ^short = "Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:4537-19219)."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-7128)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7123)."
@@ -60,7 +61,4 @@ Specimen(s) attached to a Result Organizer apply to all Result Observations cont
 Invariant: 4537-19218
 Description: "**SHOULD** be selected from LOINC (codeSystem 2.16.840.1.113883.6.1) **OR** SNOMED CT (codeSystem 2.16.840.1.113883.6.96), and **MAY** be selected from CPT (codeSystem 2.16.840.1.113883.6.12) (CONF:4537-19218)."
 Severity: #warning
-
-Invariant: 4537-19219
-Description: "Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:4537-19219)."
-Severity: #warning
+Expression: "codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96'"

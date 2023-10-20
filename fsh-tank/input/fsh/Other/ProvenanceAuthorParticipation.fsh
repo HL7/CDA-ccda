@@ -40,9 +40,11 @@ Note: The Provenance template title includes a version 2 to support moving from 
       * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-23)."
   * obeys should-code
   * code 0..1
-    * obeys 4515-56 and 4515-57
     * ^short = "When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."
     * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)." // auto-should
+    * ^binding.description = "See additional bindings"
+    * insert AdditionalBinding(preferred, $2.16.840.1.114222.4.11.1066, Providers, [[If the content is provider authored, the code SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4515-56).]])
+    * insert AdditionalBinding(preferred, $2.16.840.1.113883.11.20.12.1, Non-clinicians, [[If the author is a person who is not acting in the role of a clinician, the code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4515-57).]])
   * obeys should-assignedPerson
   * assignedPerson 0..1
     * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-32976)." // auto-should
@@ -100,11 +102,3 @@ Note: The Provenance template title includes a version 2 to support moving from 
 Invariant: 4515-64
 Description: "If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (CONF:4515-64)."
 Severity: #error
-
-Invariant: 4515-56
-Description: "If the content is provider authored, the code SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4515-56)."
-Severity: #warning
-
-Invariant: 4515-57
-Description: "If the author is a person who is not acting in the role of a clinician, the code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4515-57)."
-Severity: #warning

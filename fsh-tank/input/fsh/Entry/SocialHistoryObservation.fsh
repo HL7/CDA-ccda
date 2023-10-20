@@ -65,8 +65,10 @@ There are supplemental templates and guidance for observations of [Occupational 
 
 Invariant: 4515-32956
 Description: "If @codeSystem is not LOINC, then this code **SHALL** contain at least one [1..*] translation, which **SHOULD** be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4515-32956)."
-Severity: #error
+Severity: #warning
+Expression: "codeSystem = '2.16.840.1.113883.6.1' or translation.where(codeSystem = '2.16.840.1.113883.6.1').exists()"
 
+// TODO - update like Result Observation IF that is the correct way to do it
 Invariant: 4515-8555
 Description: "If Observation/value is a physical quantity (xsi:type=\"PQ\"): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."
 Severity: #error
