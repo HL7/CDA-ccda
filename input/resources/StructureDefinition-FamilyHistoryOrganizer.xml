@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="organizer"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.45:2015-08-01"/>
@@ -82,13 +85,15 @@
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8602)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19099)."/>
             <min value="1"/>
-            <fixedCode value="completed"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
+            </binding>
         </element>
         <element id="Organizer.subject">
             <path value="Organizer.subject"/>
@@ -124,36 +129,24 @@
             <path value="Organizer.subject.relatedSubject.subject"/>
             <comment value="This relatedSubject SHOULD contain zero or one [0..1] subject (CONF:1198-15248)."/>
             <constraint>
-                <key value="1198-15249"/>
-                <severity value="warning"/>
-                <human value="The subject **SHOULD** contain zero or more [0..*] sdtc:id. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the id element (CONF:1198-15249)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
-            </constraint>
-            <constraint>
-                <key value="1198-15981"/>
-                <severity value="warning"/>
-                <human value="The subject **MAY** contain zero or one [0..1] *sdtc:deceasedInd*. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the deceasedInd element (CONF:1198-15981)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
-            </constraint>
-            <constraint>
-                <key value="1198-15982"/>
-                <severity value="warning"/>
-                <human value="The subject **MAY** contain zero or one [0..1] *sdtc:deceasedTime*. The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the deceasedTime element (CONF:1198-15982)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
-            </constraint>
-            <constraint>
-                <key value="1198-15983"/>
-                <severity value="warning"/>
-                <human value="The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
-            </constraint>
-            <constraint>
                 <key value="should-birthTime"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain birthTime"/>
                 <expression value="birthTime.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
             </constraint>
+            <constraint>
+                <key value="should-sdtcId"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain sdtcId"/>
+                <expression value="sdtcId.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+            </constraint>
+        </element>
+        <element id="Organizer.subject.relatedSubject.subject.sdtcId">
+            <path value="Organizer.subject.relatedSubject.subject.sdtcId"/>
+            <short value="SHOULD contain sdtc:id"/>
+            <max value="1"/>
         </element>
         <element id="Organizer.subject.relatedSubject.subject.administrativeGenderCode">
             <path value="Organizer.subject.relatedSubject.subject.administrativeGenderCode"/>
@@ -166,7 +159,16 @@
         </element>
         <element id="Organizer.subject.relatedSubject.subject.birthTime">
             <path value="Organizer.subject.relatedSubject.subject.birthTime"/>
+            <short value="The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."/>
             <comment value="The subject, if present, SHOULD contain zero or one [0..1] birthTime (CONF:1198-15976)."/>
+        </element>
+        <element id="Organizer.subject.relatedSubject.subject.sdtcDeceasedInd">
+            <path value="Organizer.subject.relatedSubject.subject.sdtcDeceasedInd"/>
+            <short value="MAY contain sdtc:deceasedInd"/>
+        </element>
+        <element id="Organizer.subject.relatedSubject.subject.sdtcDeceasedTime">
+            <path value="Organizer.subject.relatedSubject.subject.sdtcDeceasedTime"/>
+            <short value="MAY contain sdtc:deceasedTime"/>
         </element>
         <element id="Organizer.component">
             <path value="Organizer.component"/>

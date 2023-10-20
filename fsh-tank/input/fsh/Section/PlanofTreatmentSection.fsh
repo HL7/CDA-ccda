@@ -4,13 +4,13 @@ Id: PlanofTreatmentSection
 Title: "Plan of Treatment Section"
 Description: """This section, formerly known as "Plan of Care", contains data that define pending orders, interventions, encounters, services, and procedures for the patient. It is limited to prospective, unfulfilled, or incomplete orders and requests only. These are indicated by the @moodCode of the entries within this section. All active, incomplete, or pending orders, appointments, referrals, procedures, services, or any other pending event of clinical significance to the current care of the patient should be listed. 
 
-This section may also contain information about ongoing care of the patient, clinical reminders, patient’s values, beliefs, preferences, care expectations, and overarching care goals. 
+This section may also contain information about ongoing care of the patient, clinical reminders, patient's values, beliefs, preferences, care expectations, and overarching care goals. 
 
 Clinical reminders are placed here to provide prompts for disease prevention and management, patient safety, and healthcare quality improvements, including widely accepted performance measures. 
 
 Values may include the importance of quality of life over longevity. These values are taken into account when prioritizing all problems and their treatments. 
 
-Beliefs may include comfort with dying or the refusal of blood transfusions because of the patient’s religious convictions. 
+Beliefs may include comfort with dying or the refusal of blood transfusions because of the patient's religious convictions. 
 
 Preferences may include liquid medicines over tablets, or treatment via secure email instead of in person. 
 

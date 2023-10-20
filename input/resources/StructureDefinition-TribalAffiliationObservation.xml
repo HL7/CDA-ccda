@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="observation"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/TribalAffiliationObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.506:2023-05-01"/>
@@ -79,14 +82,6 @@
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
-        <element id="Observation.statusCode">
-            <path value="Observation.statusCode"/>
-            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-9)."/>
-        </element>
-        <element id="Observation.statusCode.code">
-            <path value="Observation.statusCode.code"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-10)."/>
-        </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <short value="The effectiveTime reflects a point in time observation when the current tribal affiliation status was observed. Note: This template represents a &quot;snapshot in time&quot; observation, simply reflecting the patient's tribal affiliation at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp."/>
@@ -114,7 +109,7 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value, which SHALL be selected from ValueSet TribalEntityUS http://terminology.hl7.org/ValueSet/v3-TribalEntityUS DYNAMIC (CONF:4537-12)."/>
+            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, which SHALL be selected from ValueSet TribalEntityUS http://terminology.hl7.org/ValueSet/v3-TribalEntityUS DYNAMIC (CONF:4537-12)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>

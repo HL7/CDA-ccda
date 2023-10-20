@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="organizer"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusOrganizer"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.66:2014-06-09"/>
@@ -94,13 +97,15 @@
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-14358)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31434)."/>
             <min value="1"/>
-            <fixedCode value="completed"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
+            </binding>
         </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>

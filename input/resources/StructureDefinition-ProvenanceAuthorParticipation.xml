@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="author"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.5.6:2019-10-01"/>
@@ -152,21 +155,28 @@
             <comment value="The assignedPerson, if present, SHALL contain at least one [1..*] name (CONF:4515-32977)."/>
             <min value="1"/>
             <constraint>
+                <key value="shall-family"/>
+                <severity value="error"/>
+                <human value="SHALL contain exactly one [1..1] family (CONF:81-7159)."/>
+                <expression value="nullFlavor.exists() or item.family.count() = 1"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
+            </constraint>
+            <constraint>
                 <key value="should-given"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain given"/>
-                <expression value="given.exists()"/>
+                <expression value="item.given.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
             </constraint>
         </element>
-        <element id="Author.assignedAuthor.assignedPerson.name.family">
-            <path value="Author.assignedAuthor.assignedPerson.name.family"/>
+        <element id="Author.assignedAuthor.assignedPerson.name.item.family">
+            <path value="Author.assignedAuthor.assignedPerson.name.item.family"/>
+            <short value="Family required"/>
             <comment value="Such names SHALL contain exactly one [1..1] family (CONF:4515-17)."/>
-            <min value="1"/>
-            <max value="1"/>
         </element>
-        <element id="Author.assignedAuthor.assignedPerson.name.given">
-            <path value="Author.assignedAuthor.assignedPerson.name.given"/>
+        <element id="Author.assignedAuthor.assignedPerson.name.item.given">
+            <path value="Author.assignedAuthor.assignedPerson.name.item.given"/>
+            <short value="SHOULD contain given"/>
             <comment value="Such names SHOULD contain zero or more [0..*] given (CONF:4515-18)."/>
         </element>
         <element id="Author.assignedAuthor.assignedAuthoringDevice">

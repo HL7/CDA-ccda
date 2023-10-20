@@ -20,6 +20,11 @@ Description: "SHOULD contain assignedPerson"
 Severity: #warning
 Expression: "assignedPerson.exists()"
 
+Invariant: should-author
+Description: "SHOULD contain author"
+Severity: #warning
+Expression: "author.exists()"
+
 Invariant: should-birthTime
 Description: "SHOULD contain birthTime"
 Severity: #warning
@@ -38,7 +43,12 @@ Expression: "componentOf.exists()"
 Invariant: should-country
 Description: "SHOULD contain country"
 Severity: #warning
-Expression: "country.exists()"
+Expression: "item.country.exists()"
+
+Invariant: should-criterion
+Description: "SHOULD contain criterion"
+Severity: #warning
+Expression: "criterion.exists()"
 
 Invariant: should-documentationOf
 Description: "SHOULD contain documentationOf"
@@ -68,7 +78,7 @@ Expression: "extension.exists()"
 Invariant: should-given
 Description: "SHOULD contain given"
 Severity: #warning
-Expression: "given.exists()"
+Expression: "item.given.exists()"
 
 Invariant: should-high
 Description: "SHOULD contain high"
@@ -79,6 +89,11 @@ Invariant: should-id
 Description: "SHOULD contain id"
 Severity: #warning
 Expression: "id.exists()"
+
+Invariant: should-informant
+Description: "SHOULD contain informant"
+Severity: #warning
+Expression: "informant.exists()"
 
 Invariant: should-informationRecipient
 Description: "SHOULD contain informationRecipient"
@@ -135,10 +150,20 @@ Description: "SHOULD contain playingEntity"
 Severity: #warning
 Expression: "playingEntity.exists()"
 
+Invariant: should-precondition
+Description: "SHOULD contain precondition"
+Severity: #warning
+Expression: "precondition.exists()"
+
 Invariant: should-priorityCode
 Description: "SHOULD contain priorityCode"
 Severity: #warning
 Expression: "priorityCode.exists()"
+
+Invariant: should-product
+Description: "SHOULD contain product"
+Severity: #warning
+Expression: "product.exists()"
 
 Invariant: should-proficiencyLevelCode
 Description: "SHOULD contain proficiencyLevelCode"
@@ -195,6 +220,11 @@ Description: "SHOULD contain subject"
 Severity: #warning
 Expression: "subject.exists()"
 
+Invariant: should-sdtcId
+Description: "SHOULD contain sdtcId"
+Severity: #warning
+Expression: "sdtcId.exists()"
+
 Invariant: should-telecom
 Description: "SHOULD contain telecom"
 Severity: #warning
@@ -241,3 +271,8 @@ Invariant: should-npi
 Description: "SHOULD be NPI"
 Severity: #warning
 Expression: "$this = '2.16.840.1.113883.4.6'"
+
+Invariant: should-id-npi
+Description: "SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)"
+Severity: #warning
+Expression: "id.where(root = '2.16.840.1.113883.4.6')"

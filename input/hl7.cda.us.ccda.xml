@@ -31,7 +31,17 @@
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
+        <version value="0.13.0"/>
+    </dependsOn>
+    <dependsOn id="phinvads">
+        <uri value="http://fhir.org/packages/us.cdc.phinvads/ImplementationGuide/us.cdc.phinvads"/>
+        <packageId value="us.cdc.phinvads"/>
         <version value="0.12.0"/>
+    </dependsOn>
+     <dependsOn id="uscore">
+        <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
+        <packageId value="hl7.fhir.us.core"/>
+        <version value="current"/>
     </dependsOn>
     <definition>
       <grouping id="document">
@@ -260,6 +270,15 @@
             </reference>
             <name value="Brand Name Observation"/>
             <description value="This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Brand Name**.  The UDI-DI of the medical device may be used to retrieve the **Brand Name** in accessGUDID, which should be considered the source of truth."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/CareExperiencePreference"/>
+                <display value="Care Experience Preference"/>
+            </reference>
+            <name value="Care Experience Preference"/>
+            <description value="This Care Experience Preference template represents a person's care preferences during their care and treatment. Examples include, but are not limited to religious preferences, dislikes and fears, and thoughts and feelings to be shared. This templates does not represent actual order, but holds observations about wishes. These observations may inform the placement of future orders. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situations when a person would prefer the stated care experiences, such as during childbirth or interventional procedures."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1258,7 +1277,7 @@
                 <display value="Plan of Treatment Section"/>
             </reference>
             <name value="Plan of Treatment Section"/>
-            <description value="This section, formerly known as &quot;Plan of Care&quot;, contains data that define pending orders, interventions, encounters, services, and procedures for the patient. It is limited to prospective, unfulfilled, or incomplete orders and requests only. These are indicated by the @moodCode of the entries within this section. All active, incomplete, or pending orders, appointments, referrals, procedures, services, or any other pending event of clinical significance to the current care of the patient should be listed. &#xA;&#xA;This section may also contain information about ongoing care of the patient, clinical reminders, patient’s values, beliefs, preferences, care expectations, and overarching care goals. &#xA;&#xA;Clinical reminders are placed here to provide prompts for disease prevention and management, patient safety, and healthcare quality improvements, including widely accepted performance measures. &#xA;&#xA;Values may include the importance of quality of life over longevity. These values are taken into account when prioritizing all problems and their treatments. &#xA;&#xA;Beliefs may include comfort with dying or the refusal of blood transfusions because of the patient’s religious convictions. &#xA;&#xA;Preferences may include liquid medicines over tablets, or treatment via secure email instead of in person. &#xA;&#xA;Care expectations may range from being treated only by female clinicians, to expecting all calls to be returned within 24 hours. &#xA;&#xA;Overarching goals described in this section are not tied to a specific condition, problem, health concern, or intervention. Examples of overarching goals could be to minimize pain or dependence on others, or to walk a daughter down the aisle for her marriage. &#xA;&#xA;The plan may also indicate that patient education will be provided."/>
+            <description value="This section, formerly known as &quot;Plan of Care&quot;, contains data that define pending orders, interventions, encounters, services, and procedures for the patient. It is limited to prospective, unfulfilled, or incomplete orders and requests only. These are indicated by the @moodCode of the entries within this section. All active, incomplete, or pending orders, appointments, referrals, procedures, services, or any other pending event of clinical significance to the current care of the patient should be listed. &#xA;&#xA;This section may also contain information about ongoing care of the patient, clinical reminders, patient's values, beliefs, preferences, care expectations, and overarching care goals. &#xA;&#xA;Clinical reminders are placed here to provide prompts for disease prevention and management, patient safety, and healthcare quality improvements, including widely accepted performance measures. &#xA;&#xA;Values may include the importance of quality of life over longevity. These values are taken into account when prioritizing all problems and their treatments. &#xA;&#xA;Beliefs may include comfort with dying or the refusal of blood transfusions because of the patient's religious convictions. &#xA;&#xA;Preferences may include liquid medicines over tablets, or treatment via secure email instead of in person. &#xA;&#xA;Care expectations may range from being treated only by female clinicians, to expecting all calls to be returned within 24 hours. &#xA;&#xA;Overarching goals described in this section are not tied to a specific condition, problem, health concern, or intervention. Examples of overarching goals could be to minimize pain or dependence on others, or to walk a daughter down the aisle for her marriage. &#xA;&#xA;The plan may also indicate that patient education will be provided."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -1872,6 +1891,15 @@
             <name value="Transfer Summary"/>
             <description value="This document describes constraints on the Clinical Document Architecture (CDA) header and body elements for a Transfer Summary. The Transfer Summary standardizes critical information for exchange of information between providers of care when a patient moves between health care settings. &#xA;&#xA;Standardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement."/>
             <groupingId value="document"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/TreatmentInterventionPreference"/>
+                <display value="Treatment Intervention Preference"/>
+            </reference>
+            <name value="Treatment Intervention Preference"/>
+            <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is required to represent the situation when a person would prefer the stated intervention preferences."/>
+            <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>
@@ -2663,7 +2691,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/StructuredBody"/>
             </extension>
             <reference>
                 <reference value="Binary/entry-reference-example"/></reference>
@@ -4907,10 +4935,22 @@
                 <title value="USCDI Guidance"/>
                 <generation value="markdown"/>
             </page>
+			        <page>
+                <sourceUrl value="uscdi.html"/>
+                <name value="uscdi.html"/>
+                <title value="USCDI Table"/>
+                <generation value="markdown"/>
+            </page>
             <page>
                 <sourceUrl value="resources.html"/>
                 <name value="resources.html"/>
                 <title value="Resources"/>
+                <generation value="markdown"/>
+            </page>
+            <page>
+                <sourceUrl value="terminology.html"/>
+                <name value="terminology.html"/>
+                <title value="Terminology"/>
                 <generation value="markdown"/>
             </page>
             <page>

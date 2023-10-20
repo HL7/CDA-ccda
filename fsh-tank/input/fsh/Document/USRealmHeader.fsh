@@ -20,10 +20,11 @@ Description: "This template defines constraints that represent common administra
   * extension = "POCD_HD000040" (exactly)
     * ^comment = "This typeId SHALL contain exactly one [1..1] @extension=\"POCD_HD000040\" (CONF:4537-5251)."
 * id 1..1
-  * obeys 4537-9991
+  * ^short = "**SHALL** be a globally unique identifier for the document (CONF:4537-9991)."
   * ^comment = "SHALL contain exactly one [1..1] id (CONF:4537-5363)."
 * code 1..1
-  * obeys 4537-9992 and 4537-32948
+  * ^short = "**SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:4537-9992)."
+  * obeys 4537-32948
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-5253)."
 * title 1..1
   * ^short = "The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code"
@@ -38,7 +39,7 @@ Description: "This template defines constraints that represent common administra
     * ^comment = "SHALL NOT contain [0..0] @nullFlavor."
   * code 1..1
 * languageCode 1..1
-* languageCode from $2.16.840.1.113883.1.11.11526 (required)
+* languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
   * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC."
 * obeys 4537-6380
 * setId 0..1
@@ -131,15 +132,13 @@ Description: "This template defines constraints that represent common administra
           * addr 1..1
             * obeys 4537-5402 and 4537-5403 and should-country
             * ^comment = "This place SHALL contain exactly one [1..1] addr (CONF:4537-5397)."
-            * country 0..1
-            * country from $2.16.840.1.113883.3.88.12.80.63 (required)
+            * item.country from $2.16.840.1.113883.3.88.12.80.63 (required)
               * ^comment = "This addr SHOULD contain zero or one [0..1] country, which SHALL be selected from ValueSet Country urn:oid:2.16.840.1.113883.3.88.12.80.63 DYNAMIC (CONF:4537-5404)."
       * obeys should-languageCommunication
       * languageCommunication 0..*
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."
         * languageCode 1..1
-        * languageCode from $2.16.840.1.113883.1.11.11526 (required)
-          * ^comment = "The languageCommunication, if present, SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet Language urn:oid:2.16.840.1.113883.1.11.11526 DYNAMIC (CONF:4537-5407)."
+        * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
         * modeCode 0..1
         * modeCode from LanguageAbilityMode (required)
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:4537-5409)."
@@ -183,7 +182,7 @@ Description: "This template defines constraints that represent common administra
       * ^slicing.rules = #open
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:4537-32882) such that it, This assignedAuthor SHALL contain at least one [1..*] id (CONF:4537-5449)."
     // This seems easier than using slice() which requires a structure parameter that isn't quite present in FSH
-    * insert ConstraintWarning(4537-32882, [[SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)]], [[id.where(root = '2.16.840.1.113883.4.6')]])
+    * obeys should-id-npi
     * id contains npi 0..1
     * id[npi]
       * nullFlavor ^short = "If NPI is unknown, set @nullFlavor to UNK"
@@ -466,10 +465,10 @@ Description: "This template defines constraints that represent common administra
       * ^short = "The type of consent (e.g., a consent to perform the related serviceEvent) is conveyed in consent/code."
       * ^comment = "This consent MAY contain zero or one [0..1] code (CONF:4537-16795)."
     * statusCode 1..1
-      * ^comment = "This consent SHALL contain exactly one [1..1] statusCode (CONF:4537-16797)."
+      * ^comment = "This consent SHALL contain exactly one [1..1] statusCode (CONF:4537-16797)."    
       * code 1..1
-      * code = #completed (exactly)
-        * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-16798)."
+      * code from $2.16.840.1.113762.1.4.1240.6 (required)
+      * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * componentOf 0..1
   * ^short = "The encompassing encounter represents the setting of the clinical encounter during which the document act(s) or ServiceEvent(s) occurred. In order to represent providers associated with a specific encounter, they are recorded within the encompassingEncounter as participants. In a CCD, the encompassingEncounter may be used when documenting a specific encounter and its participants. All relevant encounters in a CCD may be listed in the encounters section."
   * ^comment = "MAY contain zero or one [0..1] componentOf (CONF:4537-9955)."
@@ -477,6 +476,9 @@ Description: "This template defines constraints that represent common administra
     * ^comment = "The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:4537-9956)."
     * id 1..*
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:4537-9959)."
+    * code 0..1
+    * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
+      * ^comment = "This encompassingEncounter MAY contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
     * effectiveTime 1..1
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:4537-9958)."
     * obeys should-responsibleParty
@@ -485,14 +487,6 @@ Description: "This template defines constraints that represent common administra
       * assignedEntity 1..1
         * obeys 1198-32905
         * ^comment = "The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."
-
-Invariant: 4537-9991
-Description: "This id **SHALL** be a globally unique identifier for the document (CONF:4537-9991)."
-Severity: #warning
-
-Invariant: 4537-9992
-Description: "This code **SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:4537-9992)."
-Severity: #error
 
 Invariant: 4537-32948
 Description: "This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:4537-32948)."
@@ -521,7 +515,7 @@ Expression: "sdtcDeceasedTime.exists() implies sdtcDeceasedInd.exists()"
 
 Invariant: 4537-5402
 Description: "If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet StateValueSet 2.16.840.1.113883.3.88.12.80.1 *DYNAMIC* (CONF:4537-5402)."
-Severity: #warning
+Severity: #error
 
 Invariant: 4537-5403
 Description: "If country is US, this addr **MAY** contain zero or one [0..1] postalCode, which **SHALL** be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 *DYNAMIC* (CONF:4537-5403)."

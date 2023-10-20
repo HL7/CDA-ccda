@@ -18,6 +18,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="participant"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/RelatedPersonRelationshipAndNameParticipant"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.5.8:2023-05-01"/>
@@ -89,7 +92,7 @@
         </element>
         <element id="Participant1.associatedEntity.classCode">
             <path value="Participant1.associatedEntity.classCode"/>
-            <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;PRS&quot; Person (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111) (CONF:4537-33076)."/>
+            <comment value="This associatedEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type  2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-32985)."/>
             <fixedCode value="PRS"/>
         </element>
         <element id="Participant1.associatedEntity.code">

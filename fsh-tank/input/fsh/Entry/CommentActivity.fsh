@@ -6,7 +6,6 @@ Description: "Comments are free text data that cannot otherwise be recorded usin
 
 * insert LogicalModelTemplateRootOnly(comment-activity, 2.16.840.1.113883.10.20.22.4.64)
 
-* obeys 81-9429
 * classCode 1..1
 * classCode = #ACT (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"ACT\" Act (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-9425)."
@@ -25,17 +24,16 @@ Description: "Comments are free text data that cannot otherwise be recorded usin
   * ^comment = "SHALL contain exactly one [1..1] text (CONF:81-9430)."
   * reference 1..1
     * ^comment = "This text SHALL contain exactly one [1..1] reference (CONF:81-15967)."
+
+    * obeys 81-15969
     * value 1..1
-      * obeys 81-15969
       * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:81-15968)."
+* obeys should-author
 * author 0..1
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:81-9433)."
 
-Invariant: 81-9429
-Description: "Data elements defined elsewhere in the specification SHALL NOT be recorded using the Comment Activity (CONF:81-9429)."
-Severity: #warning
-
 Invariant: 81-15969
 Description: "This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-15969)."
 Severity: #error
+Expression: "value.startsWith('#')"

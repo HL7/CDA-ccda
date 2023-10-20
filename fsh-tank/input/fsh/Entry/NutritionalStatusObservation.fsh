@@ -25,14 +25,14 @@ Description: "This template describes the overall nutritional status of the pati
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-29852)."
   * code 1..1
-  * code = #completed (exactly)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-29853)."
+  * code from $2.16.840.1.113762.1.4.1240.6 (required)
+  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31867)."
 * value 1..1
 * value only $CD
 * value from $2.16.840.1.113883.1.11.20.2.7 (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] value, which SHOULD be selected from ValueSet Nutritional Status urn:oid:2.16.840.1.113883.1.11.20.2.7 DYNAMIC (CONF:1098-29854)."
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which SHOULD be selected from ValueSet Nutritional Status urn:oid:2.16.840.1.113883.1.11.20.2.7 DYNAMIC (CONF:1098-29854)."
 * entryRelationship ^slicing.discriminator.type = #value
   * ^slicing.discriminator.path = "Observation.typeCode"
   * ^slicing.rules = #open

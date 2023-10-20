@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="ClinicalDocument"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.7:2015-08-01"/>
@@ -98,23 +101,27 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
             <constraint>
-                <key value="1198-8488"/>
+                <key value="width-or-high"/>
                 <severity value="error"/>
-                <human value="The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."/>
+                <human value="Width and high are mutually exclusive. If width is known, high **SHALL NOT** be present. If with is not present, **SHALL** include high."/>
+                <expression value="(width | high).count() = 1"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             </constraint>
-            <constraint>
-                <key value="1198-10058"/>
-                <severity value="error"/>
-                <human value="If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
-            </constraint>
-            <constraint>
-                <key value="1198-10060"/>
-                <severity value="error"/>
-                <human value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
-            </constraint>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
+            <short value="Low is required"/>
+            <comment value="The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.width">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.width"/>
+            <short value="Represents the duration"/>
+            <comment value="When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high"/>
+            <short value="Equals low if only the date is known"/>
+            <comment value="If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>

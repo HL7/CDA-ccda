@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="observation"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01"/>
@@ -126,14 +129,16 @@
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
             <short value="SG 20230706: constraint not entered 'properly' deleted fixedCode='Completed here - it's already in the next element and shoudln't be here - entered weird/wrong in TWB"/>
-            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
             <min value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19082)."/>
             <min value="1"/>
-            <fixedCode value="completed"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
+            </binding>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -396,13 +401,8 @@
         </element>
         <element id="Observation.reference:reference1.externalDocument.text.reference">
             <path value="Observation.reference.externalDocument.text.reference"/>
+            <short value="The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."/>
             <comment value="The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."/>
-            <constraint>
-                <key value="1198-8698"/>
-                <severity value="warning"/>
-                <human value="The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
-            </constraint>
             <constraint>
                 <key value="1198-8699"/>
                 <severity value="warning"/>

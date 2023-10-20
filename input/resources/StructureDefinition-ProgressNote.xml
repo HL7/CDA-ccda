@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="ClinicalDocument"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.9:2015-08-01"/>
@@ -131,15 +134,10 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
             <constraint>
-                <key value="1198-9482"/>
-                <severity value="warning"/>
-                <human value="The serviceEvent/effectiveTime element **SHOULD** be present with effectiveTime/low element (CONF:1198-9482)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
-            </constraint>
-            <constraint>
                 <key value="1198-10066"/>
                 <severity value="error"/>
                 <human value="If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."/>
+                <expression value="width.empty() implies high.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
             </constraint>
         </element>

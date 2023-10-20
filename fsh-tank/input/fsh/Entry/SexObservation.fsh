@@ -2,7 +2,7 @@ Profile: SexObservation
 Parent: $Observation
 Id: SexObservation
 Title: "Sex Observation"
-Description: """This Sex Observation template is used to reflect the documentation of a person’s sex. Systems choosing to record the source of information should include the Provenance participation.
+Description: """This Sex Observation template is used to reflect the documentation of a person's sex. Systems choosing to record the source of information should include the Provenance participation.
 
 USCDI v3 includes a data element for sex, intended to support the exchange of a sex value that is not characterized as sex assigned at birth or birth sex. This version of the C-CDA companion guide supports USCDI v3 Sex data element. Sex assigned at birth or birth sex must be recorded using the Birth Sex Observation which falls under the broader category of a 'Sex observation'. A Data Absent Reason (DAR) code value of 'asked-declined' may be used when a person has chosen not to disclose their sex.
 
@@ -32,8 +32,8 @@ It is recommended systems include the Sex Observation in the Social History sect
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-33077)."
   * code 1..1
-  * code = #completed (exactly)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-33082)."
+  * code from $2.16.840.1.113762.1.4.1240.6 (required)
+  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33081)."
   * low 0..0

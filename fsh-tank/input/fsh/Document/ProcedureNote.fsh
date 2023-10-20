@@ -70,10 +70,18 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * ^comment = "SHALL contain exactly one [1..1] serviceEvent (CONF:1198-10061)."
     * effectiveTime 1..1
     * effectiveTime only USRealmDateTimeInterval
-      * obeys 1198-8513 and 1198-8514 and 1198-8515
+      * obeys width-or-high   // From OperativeNote
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-10062)."
       * low 1..1
-        * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449)."
+        // Need to keep SOMETHING different from USRealmHeader in these 3 fields to keep them in the diff
+        * ^short = "Low is required"
+        * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449) / (CONF:1198-8513)."
+      * width 0..1
+        * ^short = "Represents the duration"
+        * ^comment = "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-8515)."
+      * high 0..1
+        * ^short = "Equals low if only the date is known"
+        * ^comment = "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-8514)."
 * authorization 0..1
   * ^short = "Authorization represents consent. Consent, if present, shall be represented by authorization/consent."
   * ^comment = "MAY contain zero or one [0..1] authorization (CONF:1198-32412)."
@@ -101,7 +109,8 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^comment = "This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)." // auto-should
       //"<min value=\"0\"/>"
     * code 1..1
-      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] code (CONF:1198-30873)."
+    * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
+      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
     * encounterParticipant ^slicing.discriminator[0].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
@@ -242,18 +251,6 @@ The Procedure Note is created immediately following a non-operative procedure. I
 
 Invariant: 1198-8511
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), CPT-4 (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."
-Severity: #error
-
-Invariant: 1198-8513
-Description: "The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8513)."
-Severity: #error
-
-Invariant: 1198-8514
-Description: "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-8514)."
-Severity: #error
-
-Invariant: 1198-8515
-Description: "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-8515)."
 Severity: #error
 
 Invariant: 1198-30412

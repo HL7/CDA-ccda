@@ -29,8 +29,8 @@ An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."
   * reference 1..1
     * ^short = "Reference into the section/text to a tag that only contains free text sig."
     * ^comment = "This text SHALL contain exactly one [1..1] reference (CONF:81-32755)."
+    * obeys 81-32774
     * value 0..1
-      * obeys 81-32774
       * ^comment = "This reference SHOULD contain zero or one [0..1] @value (CONF:81-32756)."
 * consumable 1..1
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:81-32776)."
@@ -45,6 +45,7 @@ An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."
 Invariant: 81-32774
 Description: "This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-32774)."
 Severity: #error
+Expression: "value.exists() implies value.startsWith('#')"
 
 Invariant: sig-closed
 Description: "This is a closed template and shall not contain any elements besides code, text, and consumable"

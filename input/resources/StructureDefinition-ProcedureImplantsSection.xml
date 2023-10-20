@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="section"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureImplantsSection"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.2.40"/>
@@ -34,15 +37,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-            <constraint>
-                <key value="81-8769"/>
-                <severity value="error"/>
-                <human value="The Procedure Implants section **SHALL** include a statement providing details of the implants placed, or assert no implants were placed (CONF:81-8769)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureImplantsSection"/>
-            </constraint>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -90,6 +84,7 @@
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
+            <short value="The Procedure Implants section **SHALL** include a statement providing details of the implants placed, or assert no implants were placed (CONF:81-8769)."/>
             <min value="1"/>
         </element>
     </differential>

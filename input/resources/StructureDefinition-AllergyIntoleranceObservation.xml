@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="observation"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09"/>
@@ -84,14 +87,6 @@
             <path value="Observation.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-32153)."/>
         </element>
-        <element id="Observation.statusCode">
-            <path value="Observation.statusCode"/>
-            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-19084)."/>
-        </element>
-        <element id="Observation.statusCode.code">
-            <path value="Observation.statusCode.code"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19085)."/>
-        </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <short value="If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'."/>
@@ -111,13 +106,28 @@
             <path value="Observation.value"/>
             <short value="The consumable participant points to the precise allergen or substance of intolerance. Because the consumable and the reaction are more clinically relevant than a categorization of the allergy/adverse event type, many systems will simply assign a fixed value here (e.g., &quot;allergy to substance&quot;)."/>
             <binding>
-                <strength value="required"/>
+                <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2"/>
             </binding>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31143)."/>
+        </element>
+        <element id="Observation.participant:participant1">
+            <path value="Observation.participant"/>
+            <sliceName value="participant1"/>
+        </element>
+        <element id="Observation.participant:participant1.participantRole.playingEntity.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="Observation.participant.participantRole.playingEntity.code"/>
+            <short value="(USCDI) Substance"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1186.8"/>
+            </binding>
         </element>
         <element id="Observation.entryRelationship:criticality">
             <path value="Observation.entryRelationship"/>

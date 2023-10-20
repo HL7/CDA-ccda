@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="ClinicalDocument"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.2:2015-08-01"/>
@@ -82,12 +85,7 @@
                 <key value="1198-8456"/>
                 <severity value="error"/>
                 <human value="Such assignedAuthors **SHALL** contain (exactly one [1..1] assignedPerson) or (exactly one [1..1] assignedAuthoringDevice and exactly one [1..1] representedOrganization) (CONF:1198-8456)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
-            </constraint>
-            <constraint>
-                <key value="1198-8457"/>
-                <severity value="error"/>
-                <human value="If assignedAuthor has an associated representedOrganization with no assignedPerson or assignedAuthoringDevice, then the value for “ClinicalDocument/author/assignedAuthor/id/@NullFlavor” **SHALL** be “NA” “Not applicable” 2.16.840.1.113883.5.1008 NullFlavor STATIC (CONF:1198-8457)."/>
+                <expression value="assignedPerson.exists() or (assignedAuthoringDevice.exists() and representedOrganization.exists())"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>
         </element>
@@ -150,6 +148,7 @@
                 <key value="1198-32466"/>
                 <severity value="warning"/>
                 <human value="If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32466)."/>
+                <expression value="assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>
         </element>

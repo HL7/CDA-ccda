@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="participantRole"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.32"/>
@@ -82,8 +85,60 @@
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;SDLOC&quot; (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111 STATIC) (CONF:81-7758)."/>
             <fixedCode value="SDLOC"/>
         </element>
+        <element id="ParticipantRole.id">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="ParticipantRole.id"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <short value="(USCDI) Facility Identifier"/>
+            <comment value="Systems SHALL support National Provider Identifier (NPI) for organizations and SHOULD support Clinical Laboratory Improvement Amendments (CLIA) for laboratories and the National Association of Insurance Commissioners NAIC Company code (sometimes called “NAIC Number” or “cocode”) for payers."/>
+        </element>
+        <element id="ParticipantRole.id:NPI">
+            <path value="ParticipantRole.id"/>
+            <sliceName value="NPI"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ParticipantRole.id:NPI.root">
+            <path value="ParticipantRole.id.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.4.6"/>
+        </element>
+        <element id="ParticipantRole.id:CLIA">
+            <path value="ParticipantRole.id"/>
+            <sliceName value="CLIA"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ParticipantRole.id:CLIA.root">
+            <path value="ParticipantRole.id.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.4.7"/>
+        </element>
+        <element id="ParticipantRole.id:NAIC">
+            <path value="ParticipantRole.id"/>
+            <sliceName value="NAIC"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ParticipantRole.id:NAIC.root">
+            <path value="ParticipantRole.id.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.300"/>
+        </element>
         <element id="ParticipantRole.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ParticipantRole.code"/>
+            <short value="(USCDI) Facility Type"/>
             <comment value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet HealthcareServiceLocation urn:oid:2.16.840.1.113883.1.11.20275 DYNAMIC (CONF:81-16850)."/>
             <min value="1"/>
             <binding>
@@ -109,7 +164,11 @@
             <fixedCode value="PLC"/>
         </element>
         <element id="ParticipantRole.playingEntity.name">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ParticipantRole.playingEntity.name"/>
+            <short value="(USCDI) Facility Name"/>
             <comment value="The playingEntity, if present, MAY contain zero or one [0..1] name (CONF:81-16037)."/>
             <max value="1"/>
         </element>

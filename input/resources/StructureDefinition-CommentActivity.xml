@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="act"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CommentActivity"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.64"/>
@@ -37,9 +40,10 @@
         <element id="Act">
             <path value="Act"/>
             <constraint>
-                <key value="81-9429"/>
+                <key value="should-author"/>
                 <severity value="warning"/>
-                <human value="Data elements defined elsewhere in the specification SHALL NOT be recorded using the Comment Activity (CONF:81-9429)."/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CommentActivity"/>
             </constraint>
         </element>
@@ -104,17 +108,18 @@
             <path value="Act.text.reference"/>
             <comment value="This text SHALL contain exactly one [1..1] reference (CONF:81-15967)."/>
             <min value="1"/>
+            <constraint>
+                <key value="81-15969"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-15969)."/>
+                <expression value="value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CommentActivity"/>
+            </constraint>
         </element>
         <element id="Act.text.reference.value">
             <path value="Act.text.reference.value"/>
             <comment value="This reference SHALL contain exactly one [1..1] @value (CONF:81-15968)."/>
             <min value="1"/>
-            <constraint>
-                <key value="81-15969"/>
-                <severity value="error"/>
-                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-15969)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CommentActivity"/>
-            </constraint>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>

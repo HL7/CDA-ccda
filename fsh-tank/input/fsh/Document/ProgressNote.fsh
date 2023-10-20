@@ -37,9 +37,10 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
       * root = "2.16.840.1.113883.10.20.21.3.1"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.21.3.1\" (CONF:1198-10068)."
       * extension 0..0
-    * effectiveTime ..1
+    * effectiveTime 1..1
     * effectiveTime only USRealmDateTimeInterval
-      * obeys 1198-9482 and 1198-10066
+      * low 1..1
+      * obeys 1198-10066
       * ^short = "SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"
       * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-9481)."
       //"<min value=\"0\"/>"
@@ -141,13 +142,10 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
       * section only MentalStatusSection
         * ^comment = "SHALL contain exactly one [1..1] Mental Status Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.56)."
 
-Invariant: 1198-9482
-Description: "The serviceEvent/effectiveTime element **SHOULD** be present with effectiveTime/low element (CONF:1198-9482)."
-Severity: #warning
-
 Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."
 Severity: #error
+Expression: "width.empty() implies high.exists()"
 
 Invariant: 1198-30657
 Description: "This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30657)."

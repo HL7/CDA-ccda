@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="procedure"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2022-06-01"/>
@@ -35,16 +38,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Procedure">
-            <path value="Procedure"/>
-            <constraint>
-                <key value="should-effectiveTime"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain effectiveTime"/>
-                <expression value="effectiveTime.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </constraint>
-        </element>
         <element id="Procedure.templateId">
             <path value="Procedure.templateId"/>
             <slicing>
@@ -95,12 +88,6 @@
             <comment value="SHALL contain exactly one [1..1] code (CONF:4515-7656)."/>
             <min value="1"/>
             <constraint>
-                <key value="4515-19207"/>
-                <severity value="warning"/>
-                <human value="This @code SHOULD be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) or CPT (CodeSystem: 2.16.840.1.113883.6.12) or ICD-10-PCS (CodeSystem: 2.16.840.1.113883.6.4) or HCPCS (Code System: 2.16.840.1.113762.1.4.1247.9) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:4515-19207)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </constraint>
-            <constraint>
                 <key value="4515-32984"/>
                 <severity value="warning"/>
                 <human value="If the Intervention Procedure is a Social Determinant of Health Intervention, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Procedures](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion) **DYNAMIC** (CONF:4515-32984)."/>
@@ -113,6 +100,10 @@
                 <expression value="originalText.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"/>
+            </binding>
         </element>
         <element id="Procedure.code.originalText">
             <path value="Procedure.code.originalText"/>
@@ -154,8 +145,33 @@
             </binding>
         </element>
         <element id="Procedure.effectiveTime">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Procedure.effectiveTime"/>
-            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-7662)."/>
+            <short value="(USCDI) Performance Time"/>
+            <min value="1"/>
+            <constraint>
+                <key value="should-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain value"/>
+                <expression value="value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+        </element>
+        <element id="Procedure.effectiveTime.value">
+            <path value="Procedure.effectiveTime.value"/>
+            <short value="Indicates historical procedure or an instance of a procedure where precision may be only a date or even a year."/>
+        </element>
+        <element id="Procedure.effectiveTime.low">
+            <path value="Procedure.effectiveTime.low"/>
+            <short value="Indicates when a procedure started"/>
+            <comment value="MAY contain zero or one [0..1] low"/>
+        </element>
+        <element id="Procedure.effectiveTime.high">
+            <path value="Procedure.effectiveTime.high"/>
+            <short value="Indicates when a procedure ended"/>
+            <comment value="MAY contain zero or one [0..1] high"/>
         </element>
         <element id="Procedure.priorityCode">
             <path value="Procedure.priorityCode"/>

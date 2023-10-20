@@ -11,9 +11,6 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-no-order">
-        <valueBoolean value="true"/>
-    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.1"/>
@@ -37,9 +34,31 @@
         <element id="PN">
             <path value="PN"/>
             <constraint>
+                <key value="shall-family"/>
+                <severity value="error"/>
+                <human value="SHALL contain exactly one [1..1] family (CONF:81-7159)."/>
+                <expression value="nullFlavor.exists() or item.family.count() = 1"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
+            </constraint>
+            <constraint>
+                <key value="shall-given"/>
+                <severity value="error"/>
+                <human value="SHALL contain at least one [1..*] given (CONF:81-7157)."/>
+                <expression value="nullFlavor.exists() or item.given.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
+            </constraint>
+            <constraint>
+                <key value="shall-max-suffix"/>
+                <severity value="error"/>
+                <human value="There may be at most one suffix"/>
+                <expression value="(item.suffix.empty() or item.suffix.count() = 1)"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
+            </constraint>
+            <constraint>
                 <key value="81-7278"/>
                 <severity value="error"/>
                 <human value="**SHALL NOT** have mixed content except for white space (CONF:81-7278)."/>
+                <expression value="item.xmlText.empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
             </constraint>
         </element>
@@ -49,14 +68,8 @@
             <comment value="MAY contain zero or one [0..1] @use, which SHALL be selected from ValueSet EntityNameUse urn:oid:2.16.840.1.113883.1.11.15913 STATIC 2005-05-01 (CONF:81-7154)."/>
             <max value="1"/>
         </element>
-        <element id="PN.family">
-            <path value="PN.family"/>
-            <comment value="SHALL contain exactly one [1..1] family (CONF:81-7159)."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="PN.family.qualifier">
-            <path value="PN.family.qualifier"/>
+        <element id="PN.item.family.qualifier">
+            <path value="PN.item.family.qualifier"/>
             <comment value="This family MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7160)."/>
             <max value="1"/>
             <binding>
@@ -64,19 +77,13 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26"/>
             </binding>
         </element>
-        <element id="PN.given">
-            <path value="PN.given"/>
+        <element id="PN.item.given">
+            <path value="PN.item.given"/>
+            <short value="The first given is the first name. The second occurrence of given, if provided, SHALL include middle nam eor middle initial."/>
             <comment value="SHALL contain at least one [1..*] given (CONF:81-7157)."/>
-            <min value="1"/>
-            <constraint>
-                <key value="81-7163"/>
-                <severity value="warning"/>
-                <human value="The second occurrence of given (given[2]) if provided, SHALL include middle name or middle initial (CONF:81-7163)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
-            </constraint>
         </element>
-        <element id="PN.given.qualifier">
-            <path value="PN.given.qualifier"/>
+        <element id="PN.item.given.qualifier">
+            <path value="PN.item.given.qualifier"/>
             <comment value="Such givens MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7158)."/>
             <max value="1"/>
             <binding>
@@ -84,12 +91,12 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26"/>
             </binding>
         </element>
-        <element id="PN.prefix">
-            <path value="PN.prefix"/>
+        <element id="PN.item.prefix">
+            <path value="PN.item.prefix"/>
             <comment value="MAY contain zero or more [0..*] prefix (CONF:81-7155)."/>
         </element>
-        <element id="PN.prefix.qualifier">
-            <path value="PN.prefix.qualifier"/>
+        <element id="PN.item.prefix.qualifier">
+            <path value="PN.item.prefix.qualifier"/>
             <comment value="The prefix, if present, MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7156)."/>
             <max value="1"/>
             <binding>
@@ -97,13 +104,12 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26"/>
             </binding>
         </element>
-        <element id="PN.suffix">
-            <path value="PN.suffix"/>
+        <element id="PN.item.suffix">
+            <path value="PN.item.suffix"/>
             <comment value="MAY contain zero or one [0..1] suffix (CONF:81-7161)."/>
-            <max value="1"/>
         </element>
-        <element id="PN.suffix.qualifier">
-            <path value="PN.suffix.qualifier"/>
+        <element id="PN.item.suffix.qualifier">
+            <path value="PN.item.suffix.qualifier"/>
             <comment value="The suffix, if present, MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7162)."/>
             <max value="1"/>
             <binding>

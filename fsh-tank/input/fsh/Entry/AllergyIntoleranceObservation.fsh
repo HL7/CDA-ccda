@@ -32,8 +32,8 @@ The agent responsible for an allergy or adverse reaction is not always a manufac
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-19084)."
   * code 1..1
-  * code = #completed (exactly)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19085)."
+  * code from $2.16.840.1.113762.1.4.1240.6 (required)
+  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 1..1
   * ^short = "If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7387)."
@@ -43,13 +43,16 @@ The agent responsible for an allergy or adverse reaction is not always a manufac
   * high 0..1
     * ^short = "The effectiveTime/high (a.k.a. \"resolution date\") asserts when the allergy/intolerance became biologically resolved."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31539)."
-* value 1..1
+* value 0..1
 * value only $CD
-* value from $2.16.840.1.113883.3.88.12.3221.6.2 (required)
+* value from $2.16.840.1.113883.3.88.12.3221.6.2 (preferred)
   * ^short = "The consumable participant points to the precise allergen or substance of intolerance. Because the consumable and the reaction are more clinically relevant than a categorization of the allergy/adverse event type, many systems will simply assign a fixed value here (e.g., \"allergy to substance\")."
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31143)."
+* participant[participant1].participantRole.playingEntity
+  * code from $2.16.840.1.113762.1.4.1186.8 (preferred)
+    * insert USCDI([[Substance]])
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.discriminator[+].type = #profile

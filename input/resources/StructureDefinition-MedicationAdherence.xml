@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="observation"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.508:2023-05-01"/>
@@ -35,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-informant"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain informant"/>
+                <expression value="informant.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
+            </constraint>
+        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -76,7 +89,7 @@
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <label value="Adherence to prescribed medication instructions [Reported]"/>
+            <short value="Adherence to prescribed medication instructions [Reported]"/>
             <min value="1"/>
             <patternCode value="71799-1"/>
         </element>
@@ -108,6 +121,13 @@
                 <strength value="extensible"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.59"/>
             </binding>
+        </element>
+        <element id="Observation.informant">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="Observation.informant"/>
+            <short value="(USCDI) 'The person or organization that provided the information about the medication adherence.'"/>
         </element>
     </differential>
 </StructureDefinition>

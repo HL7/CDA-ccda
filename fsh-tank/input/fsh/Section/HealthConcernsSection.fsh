@@ -20,7 +20,7 @@ Problem Concerns are a subset of Health Concerns that have risen to the level of
   * observation 1..1
   * observation only HealthStatusObservation
     * ^comment = "The entry, if present, SHALL contain exactly one [1..1] Health Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30484)."
-* entry[healthConcern] obeys sectionNullFlavorNotPresent
+* entry[healthConcern]
   * ^short = "If section/@nullFlavor is not present:"
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-30768)"
   * act 1..1
@@ -30,7 +30,3 @@ Problem Concerns are a subset of Health Concerns that have risen to the level of
   * act 1..1
   * act only RiskConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Risk Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.136:2015-08-01) (CONF:1198-32309)."
-
-Invariant: sectionNullFlavorNotPresent
-Description: "Required when section/@nullFlavor is not present."
-Severity: #error

@@ -31,8 +31,8 @@ The effectiveTime/low of the Allergy Concern Act asserts when the concern became
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.19 (required)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:1198-19086)."
+* obeys 1198-10085 and 1198-7504
 * effectiveTime 1..1
-  * obeys 1198-10085 and 1198-7504
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7498)."
 * author 0..*
 * author only AuthorParticipation
@@ -52,7 +52,9 @@ The effectiveTime/low of the Allergy Concern Act asserts when the concern became
 Invariant: 1198-10085
 Description: "If statusCode/@code=\"completed\" Completed, then effectiveTime **SHALL** contain [1..1] high (CONF:1198-10085)."
 Severity: #error
+Expression: "(statusCode.code = 'completed') implies effectiveTime.high.exists()"
 
 Invariant: 1198-7504
 Description: "If statusCode/@code=\"active\" Active, then effectiveTime **SHALL** contain [1..1] low (CONF:1198-7504)."
 Severity: #error
+Expression: "(statusCode.code = 'active') implies effectiveTime.low.exists()"

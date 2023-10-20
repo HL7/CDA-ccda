@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="participantRole"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DrugVehicle"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.24"/>
@@ -95,14 +98,9 @@
         </element>
         <element id="ParticipantRole.playingEntity.name">
             <path value="ParticipantRole.playingEntity.name"/>
+            <short value="This playingEntity/name MAY be used for the vehicle name in text, such as Normal Saline (CONF:81-10087)."/>
             <comment value="This playingEntity MAY contain zero or one [0..1] name (CONF:81-7494)."/>
             <max value="1"/>
-            <constraint>
-                <key value="81-10087"/>
-                <severity value="warning"/>
-                <human value="This playingEntity/name MAY be used for the vehicle name in text, such as Normal Saline (CONF:81-10087)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DrugVehicle"/>
-            </constraint>
         </element>
     </differential>
 </StructureDefinition>

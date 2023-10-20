@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="substanceAdministration"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.147"/>
@@ -110,16 +113,17 @@
             <short value="Reference into the section/text to a tag that only contains free text sig."/>
             <comment value="This text SHALL contain exactly one [1..1] reference (CONF:81-32755)."/>
             <min value="1"/>
-        </element>
-        <element id="SubstanceAdministration.text.reference.value">
-            <path value="SubstanceAdministration.text.reference.value"/>
-            <comment value="This reference SHOULD contain zero or one [0..1] @value (CONF:81-32756)."/>
             <constraint>
                 <key value="81-32774"/>
                 <severity value="error"/>
                 <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-32774)."/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
             </constraint>
+        </element>
+        <element id="SubstanceAdministration.text.reference.value">
+            <path value="SubstanceAdministration.text.reference.value"/>
+            <comment value="This reference SHOULD contain zero or one [0..1] @value (CONF:81-32756)."/>
         </element>
         <element id="SubstanceAdministration.consumable">
             <path value="SubstanceAdministration.consumable"/>

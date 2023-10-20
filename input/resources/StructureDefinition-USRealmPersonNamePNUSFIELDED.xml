@@ -11,9 +11,6 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-no-order">
-        <valueBoolean value="true"/>
-    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.5.1.1"/>
@@ -40,12 +37,14 @@
                 <key value="81-9371"/>
                 <severity value="error"/>
                 <human value="The content of name **SHALL** be either a conformant Patient Name (PTN.US.FIELDED), or a string (CONF:81-9371)."/>
+                <expression value="conformsTo('http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED') or item.xmlText.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
             </constraint>
             <constraint>
                 <key value="81-9372"/>
                 <severity value="error"/>
                 <human value="The string **SHALL NOT** contain name parts (CONF:81-9372)."/>
+                <expression value="item.xmlText.exists() implies (item.delimiter | item.family | item.given | item.prefix | item.suffix).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
             </constraint>
         </element>

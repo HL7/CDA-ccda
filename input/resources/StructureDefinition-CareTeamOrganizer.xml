@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="organizer"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamOrganizer"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.500:2022-06-01"/>
@@ -153,31 +156,27 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="participantRole"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
                     <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <comment value="MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"/>
         </element>
-        <element id="Organizer.participant:participant1">
+        <element id="Organizer.participant:lead">
             <path value="Organizer.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="lead"/>
             <short value="This Participant represents the Care Team lead."/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Organizer.participant:participant1.typeCode">
+        <element id="Organizer.participant:lead.typeCode">
             <path value="Organizer.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;PPRF&quot; Primary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-129)."/>
             <min value="1"/>
             <fixedCode value="PPRF"/>
         </element>
-        <element id="Organizer.participant:participant1.sdtcFunctionCode">
+        <element id="Organizer.participant:lead.sdtcFunctionCode">
             <path value="Organizer.participant.sdtcFunctionCode"/>
             <short value="Describes the person's, caregiver's or health care provider's functional role on the care team."/>
             <comment value="MAY contain zero or one [0..1] sdtc:functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-130)."/>
@@ -186,11 +185,11 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.30"/>
             </binding>
         </element>
-        <element id="Organizer.participant:participant1.participantRole">
+        <element id="Organizer.participant:lead.participantRole">
             <path value="Organizer.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:4515-131)."/>
         </element>
-        <element id="Organizer.participant:participant1.participantRole.id">
+        <element id="Organizer.participant:lead.participantRole.id">
             <path value="Organizer.participant.participantRole.id"/>
             <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:4515-132)."/>
             <min value="1"/>
@@ -201,20 +200,20 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamOrganizer"/>
             </constraint>
         </element>
-        <element id="Organizer.participant:participant2">
+        <element id="Organizer.participant:addl-participants">
             <path value="Organizer.participant"/>
-            <sliceName value="participant2"/>
+            <sliceName value="addl-participants"/>
             <short value="participant"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Organizer.participant:participant2.typeCode">
+        <element id="Organizer.participant:addl-participants.typeCode">
             <path value="Organizer.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-137)."/>
             <min value="1"/>
             <fixedCode value="LOC"/>
         </element>
-        <element id="Organizer.participant:participant2.participantRole">
+        <element id="Organizer.participant:addl-participants.participantRole">
             <path value="Organizer.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:4515-135)."/>
             <constraint>
@@ -232,31 +231,31 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamOrganizer"/>
             </constraint>
         </element>
-        <element id="Organizer.participant:participant2.participantRole.id">
+        <element id="Organizer.participant:addl-participants.participantRole.id">
             <path value="Organizer.participant.participantRole.id"/>
             <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."/>
             <min value="1"/>
         </element>
-        <element id="Organizer.participant:participant2.participantRole.addr">
+        <element id="Organizer.participant:addl-participants.participantRole.addr">
             <path value="Organizer.participant.participantRole.addr"/>
             <comment value="This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)."/>
             <max value="1"/>
         </element>
-        <element id="Organizer.participant:participant2.participantRole.telecom">
+        <element id="Organizer.participant:addl-participants.participantRole.telecom">
             <path value="Organizer.participant.participantRole.telecom"/>
             <comment value="This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)."/>
         </element>
-        <element id="Organizer.participant:participant2.participantRole.playingEntity">
+        <element id="Organizer.participant:addl-participants.participantRole.playingEntity">
             <path value="Organizer.participant.participantRole.playingEntity"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:4515-136)."/>
             <min value="1"/>
         </element>
-        <element id="Organizer.participant:participant2.participantRole.playingEntity.classCode">
+        <element id="Organizer.participant:addl-participants.participantRole.playingEntity.classCode">
             <path value="Organizer.participant.participantRole.playingEntity.classCode"/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] @classCode=&quot;PLC&quot; Place (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:4515-141)."/>
             <fixedCode value="PLC"/>
         </element>
-        <element id="Organizer.participant:participant2.participantRole.playingEntity.name">
+        <element id="Organizer.participant:addl-participants.participantRole.playingEntity.name">
             <path value="Organizer.participant.participantRole.playingEntity.name"/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] name (CONF:4515-142)."/>
             <min value="1"/>
@@ -266,8 +265,16 @@
             <path value="Organizer.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="act"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="exists"/>
+                    <path value="encounter"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

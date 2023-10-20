@@ -35,8 +35,8 @@ Description: "This template represents planned medication activities. The priori
 * approachSiteCode 0..*
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or more [0..*] approachSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32078)."
+* obeys dose-unit-or-admin-unit
 * doseQuantity 0..1
-  * obeys 1098-40000
   * ^comment = "MAY contain zero or one [0..1] doseQuantity (CONF:1098-32068)."
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
@@ -52,7 +52,6 @@ Description: "This template represents planned medication activities. The priori
   * ^comment = "MAY contain zero or one [0..1] maxDoseQuantity (CONF:1098-32080)."
 * administrationUnitCode 0..1
 * administrationUnitCode from AdministrationUnitDoseForm (required)
-  * obeys 1098-40000
   * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-32081)."
 * consumable 1..1
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:1098-32082)."

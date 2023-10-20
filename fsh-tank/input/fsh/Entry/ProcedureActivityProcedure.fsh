@@ -18,7 +18,8 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-7655)."
 * code 1..1
-  * obeys 4515-19207 and 4515-32984
+* code from http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code (preferred)
+  * obeys 4515-32984
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-7656)."
   * obeys should-originalText
   * originalText 0..1
@@ -34,9 +35,16 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.22 (required)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:4515-32366)."
-* obeys should-effectiveTime
-* effectiveTime 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-7662)." // auto-should
+* effectiveTime 1..1
+  * insert USCDI([[Performance Time]])
+  * obeys should-value
+  * value ^short = "Indicates historical procedure or an instance of a procedure where precision may be only a date or even a year."
+  * low
+    * ^short = "Indicates when a procedure started"
+    * ^comment = "MAY contain zero or one [0..1] low"
+  * high
+    * ^short = "Indicates when a procedure ended"
+    * ^comment = "MAY contain zero or one [0..1] high"
 * priorityCode 0..1
 * priorityCode from ActPriority (required)
   * ^comment = "MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:4515-7668)."
@@ -200,10 +208,6 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32989)."
-
-Invariant: 4515-19207
-Description: "This @code SHOULD be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) or CPT (CodeSystem: 2.16.840.1.113883.6.12) or ICD-10-PCS (CodeSystem: 2.16.840.1.113883.6.4) or HCPCS (Code System: 2.16.840.1.113762.1.4.1247.9) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:4515-19207)."
-Severity: #warning
 
 Invariant: 4515-32984
 Description: "If the Intervention Procedure is a Social Determinant of Health Intervention, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Procedures](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion) **DYNAMIC** (CONF:4515-32984)."

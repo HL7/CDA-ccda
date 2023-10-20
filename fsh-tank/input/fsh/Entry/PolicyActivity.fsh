@@ -33,8 +33,8 @@ Description: "A policy activity represents the policy or program providing the c
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."
   * code 1..1
-  * code = #completed (exactly)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19109)."
+  * code from $2.16.840.1.113762.1.4.1240.6 (required)
+  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * performer ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "templateId"
   * ^slicing.discriminator[+].type = #value
@@ -111,17 +111,13 @@ Description: "A policy activity represents the policy or program providing the c
     * telecom 0..*
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)." // auto-should
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "templateId"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
 * participant contains
-    participant1 1..1 and
-    participant2 0..1
-* participant[participant1] ^short = "participant"
+    coverage-target 1..1 and
+    policy-holder 0..1
+* participant[coverage-target] ^short = "participant"
   * ^comment = "SHALL contain exactly one [1..1] participant (CONF:4537-8916) such that it"
   * typeCode 1..1
   * typeCode = #COV (exactly)
@@ -144,7 +140,7 @@ Description: "A policy activity represents the policy or program providing the c
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4537-8921)."
     * id 1..*
-      * obeys 4537-8984
+      * ^short = "This id is a unique identifier for  the covered party member. Implementers **SHOULD** use the same GUID for each instance of a member identifier from the same health plan (CONF:4537-8984)."
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8922)."
     * code 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] code (CONF:4537-8923)."
@@ -161,10 +157,9 @@ Description: "A policy activity represents the policy or program providing the c
       * name 1..1
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] name (CONF:4537-8930)."
       * sdtcBirthTime 1..1
-        * obeys 4537-31345
         * ^short = "sdtc:birthTime"
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] sdtc:birthTime (CONF:4537-31344)."
-* participant[participant2] obeys 4537-17139
+* participant[policy-holder] obeys 4537-17139
   * ^short = "When the Subscriber is the patient, the participant element describing the subscriber *SHALL NOT* be present. This information will be recorded instead in the data elements used to record member information."
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
   * typeCode 1..1
@@ -181,46 +176,48 @@ Description: "A policy activity represents the policy or program providing the c
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4537-8936)."
     * id 1..*
-      * obeys 4537-10120
+      * ^short = "This id is a unique identifier for the subscriber of the coverage (CONF:4537-10120)."
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8937)."
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)."
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "act.moodCode"
   * ^slicing.rules = #open
-* entryRelationship contains entryRelationship1 0..*
-* entryRelationship[entryRelationship1] obeys 4537-8942 and 4537-8943
+* entryRelationship contains 
+  authorization 0..* and
+  plan 0..*
+* entryRelationship[authorization]
   * ^short = "entryRelationship"
   * ^comment = "MAY contain one [0..*] entryRelationship (CONF:4537-8939) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4537-8940)."
+  * act 1..1
+  * act only AuthorizationActivity
+    * moodCode = #EVN (exactly) // Copied from AuthorizationActivity
+* entryRelationship[plan] ^short = "Represents the Coverage Plan"
+  * typeCode 1..1
+  * typeCode = #REFR (exactly)
+  * act 1..1
+    * ^comment = "A description of the coverage plan **SHALL** contain one or more act/id, to represent the plan identifier, and an act/text with the name of the plan (CONF:4537-8943)."
+    * classCode = #ACT (exactly)
+    * moodCode = #DEF (exactly)
+    * id 1..*
+      * ^short = "Plan identifier"
+    * text 1..1
+      * ^short = "Name of the plan"
+    
+
 
 Invariant: 4537-8967
 Description: "**SHOULD** include assignedEntity/assignedPerson/name AND/OR assignedEntity/representedOrganization/name (CONF:4537-8967)."
 Severity: #warning
+Expression: "assignedPerson.name.exists() or representedOrganization.name.exists()"
 
-Invariant: 4537-8984
-Description: "This id is a unique identifier for  the covered party member. Implementers **SHOULD** use the same GUID for each instance of a member identifier from the same health plan (CONF:4537-8984)."
-Severity: #warning
-
-Invariant: 4537-31345
-Description: "The prefix sdtc: **SHALL** be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the birthTime element (CONF:4537-31345)."
-Severity: #error
-
+// Slice check based on coverage-target.participantRole.code = SELF, then policy-holder slice should not exist
 Invariant: 4537-17139
 Description: "When the Subscriber is the patient, the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139)."
-Severity: #warning
-
-Invariant: 4537-10120
-Description: "This id is a unique identifier for the subscriber of the coverage (CONF:4537-10120)."
-Severity: #warning
-
-Invariant: 4537-8942
-Description: "The target of a policy activity with act/entryRelationship/@typeCode=\"REFR\" **SHALL** be an authorization activity (templateId 2.16.840.1.113883.10.20.1.19) *OR* an act, with act[@classCode=\"ACT\"] and act[@moodCode=\"DEF\"], representing a description of the coverage plan (CONF:4537-8942)."
-Severity: #warning
-
-Invariant: 4537-8943
-Description: "A description of the coverage plan **SHALL** contain one or more act/id, to represent the plan identifier, and an act/text with the name of the plan (CONF:4537-8943)."
-Severity: #warning
+Severity: #error

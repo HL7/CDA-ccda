@@ -17,14 +17,14 @@ Description: "This template records the act of supplying medications (i.e., disp
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7454)."
 * code 1..1
-* code from $2.16.840.1.113883.4.642.3.1312 (required)
+* code from http://hl7.org/fhir/ValueSet/medicationdispense-status (required)
   * ^short = "The MedicationDispense Status Codes value set is the same value set used in the FHIR Dispense Resource, is broader than and has more meaningful codes for the act of dispensing than are permitted at actStatus in CDA, thus actStatus code is fixed to \"completed\".&#10;&#10;Comments are welcome as to if this will confuse the industry and instead there should not be constraints on Supply/actCode, and instead we should bind actStatus to the closest codes available in the [HL7 v3 Code System ActStatus ](https://fhir-ru.github.io/v3/ActStatus/cs.html) and provide a mapping to the FHIR set."
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet MedicationDispense Status Codes urn:oid:2.16.840.1.113883.4.642.3.1312 DYNAMIC (CONF:4537-32974)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7455)."
   * code 1..1
-  * code = #completed (exactly)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-32361)."
+  * code from $2.16.840.1.113762.1.4.1240.6 (required)
+  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * obeys should-effectiveTime
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7456)." // auto-should
@@ -46,7 +46,6 @@ Description: "This template records the act of supplying medications (i.e., disp
     * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-7467)."
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
-      * obeys 4537-10565
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-7468)."
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "supply"
@@ -66,8 +65,4 @@ Description: "This template records the act of supplying medications (i.e., disp
 
 Invariant: 4537-9333
 Description: "A supply act  **SHALL** contain one product/Medication Information *OR* one product/Immunization Medication Information template (CONF:4537-9333)."
-Severity: #error
-
-Invariant: 4537-10565
-Description: "The content of addr **SHALL** be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2) (CONF:4537-10565)."
 Severity: #error

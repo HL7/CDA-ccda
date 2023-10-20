@@ -181,10 +181,12 @@ Severity: #error
 Invariant: 1198-32898
 Description: "This assignedEntity **SHALL** contain an assignedPerson or a representedOrganization or both (CONF:1198-32898)."
 Severity: #error
+Expression: "assignedPerson.exists() or representedOrganization.exists()"
 
 Invariant: 1198-32899
 Description: "This assignedEntity **SHALL** contain an assignedPerson or a representedOrganization or both (CONF:1198-32899)."
 Severity: #error
+Expression: "assignedPerson.exists() or representedOrganization.exists()"
 
 Invariant: 1198-30569
 Description: "This structuredBody ***SHALL NOT*** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present (CONF:1198-30569)."

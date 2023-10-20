@@ -8,6 +8,8 @@ The changes in this version of Consolidated CDA have been made from STU comments
 * Removed any templates that are DEPRECATED
 * Removed Entries Optional templates if an equivalent Entries Required template exists
 * Combined Companion Guide and C-CDA narrative into one guide
+* Added Treatment Intervention Preference and Care Experience Preference USCDI Entry templates
+* Added USCDI tag and extensions to USCDI elements
 
 #### Tracker Issues Applied
 
@@ -55,3 +57,32 @@ The changes in this version of Consolidated CDA have been made from STU comments
 42. CDA-1873 - Changed Encounter Diagnosis statusCode to be 'completed'.
 43. CDA-20814 - Updated all UDI templates to allow additional templateIds.
 44. CDA-1469 - Updated MentalStatusObservation.value to be from new SNOMED cognitive function value set.
+45. CDA-20324 - Moved binding to ObservationInterpretation from interpretationCode/@code to interpretationCode.
+46. CDA-20568 - Add the word DYNAMIC to Encounter Activity binding.
+47. CDA-20673 - Update Policy Activity to be "SHOULD contain 0..1 address".
+48. CDA-20687 - Update MedicationActivity doseQuantity guidance.
+49. CDA-20698, CDA-20697 - Add sections to Discharge Summary document.
+50. CDA-20737 - Remove Procedure Activity Act and Procedure Activity Observation templates.
+51. CDA-1429 - Remove Goal Observation value constraint
+52. CDA-1430 - Added code constraints to Findings Section
+53. CDA-1505 - Patient Generated Document header has the same bindings as US Realm Header for performer functionCode.
+54. CDA-1757 - Updated BirthSex template to align with Gender Harmony.
+55. CDA-1637/CDA-1638 - Update Discharge Disposition code binding.
+56. CDA-1762 - Update the encompassingEncounter responsibleParty to be SHOULD.
+57. CDA-20713 - Care Team Member Function value set updated.
+58. CDA-1381 - Constraint that doseQuantity/@unit and administrationUnitCode SHALL NOT both be present.
+59. CDA-20053 - Updated value set binding for languageCode to be AllLanguages.
+60. CDA-20085 - Allow Result Observation value to be from SNOMED or LOING.
+61. CDA-20449 - Allow Mental Status section in Progress Note document.
+62. CDA-20478/CDA-1806 - Update OperativeNote/ProcedureNote binding on serviceEvent.
+63. CDA-20516 - Updated guidance on how to specify when NullFlavors are allowed.
+64. CDA-1922 - NullFlavor is not allowed on confidentialityCode.
+65. CDA-1278 - Changed the GoalObservation statusCode to be bound to a value set.
+66. CDA-1760 - Changed any statusCode that were set to 'completed' to be bound to a value set.
+67. CDA-20736 - Relaxed AllergyIntolerance value and updated the Allergy and Intolerance type value set.
+68. CDA-1627 - Bind Procedure Act Procedure code to US Core Procedure value set.
+69. CDA-20444 - Bind Problem Observation code to US Core Condition value set.
+70. CDA-20022 - Added a page that lists all of the used value sets and used code systems.
+71. CDA-20822 - Updated CareTeamMemberAct to clean up untestable constraints and unnecessary "such that it".
+72. CDA-20803 - Updated description in ResultOrganizer to include specimin clarification
+73. CDA-20772 - Updated RelatedPersonRelationshipandNameParticipant associatedEntity.code to new valueset

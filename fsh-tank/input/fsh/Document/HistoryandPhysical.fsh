@@ -154,10 +154,12 @@ Severity: #warning
 Invariant: 1198-8348
 Description: "The responsibleParty element, if present, **SHALL** contain an assignedEntity element, which **SHALL** contain an assignedPerson element, a representedOrganization element, or both (CONF:1198-8348)."
 Severity: #error
+Expression: "assignedEntity.assignedPerson.exists() or assignedEntity.representedOrganization.exists()"
 
 Invariant: 1198-8343
 Description: "An encounterParticipant element, if present, SHALL contain an assignedEntity element, which SHALL contain an assignedPerson element, a representedOrganization element, or both (CONF:1198-8343)."
 Severity: #error
+Expression: "assignedEntity.assignedPerson.exists() or assignedEntity.representedOrganization.exists()"
 
 Invariant: 1198-30613
 Description: "This structuredBody **SHALL** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) or a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) (CONF:1198-30613)."

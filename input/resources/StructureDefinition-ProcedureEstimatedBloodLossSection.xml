@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="section"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureEstimatedBloodLossSection"/>
     <identifier>
         <value value="urn:oid:2.16.840.1.113883.10.20.18.2.9"/>
@@ -34,15 +37,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="Section">
-            <path value="Section"/>
-            <constraint>
-                <key value="81-8741"/>
-                <severity value="warning"/>
-                <human value="The Estimated Blood Loss section SHALL include a statement providing an estimate of the amount of blood lost during the procedure, even if the estimate is text, such as &quot;minimal&quot; or &quot;none&quot; (CONF:81-8741)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureEstimatedBloodLossSection"/>
-            </constraint>
-        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -90,6 +84,7 @@
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
+            <short value="The Estimated Blood Loss section SHALL include a statement providing an estimate of the amount of blood lost during the procedure, even if the estimate is text, such as &amp;quot;minimal&amp;quot; or &amp;quot;none&amp;quot; (CONF:81-8741)."/>
             <min value="1"/>
         </element>
     </differential>

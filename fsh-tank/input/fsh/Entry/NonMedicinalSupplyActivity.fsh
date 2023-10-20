@@ -21,7 +21,7 @@ Description: "This template represents equipment supplied to the patient (e.g., 
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32363)."
 * effectiveTime 0..1
 * effectiveTime only $EIVL-TS
-  * obeys 1098-16867
+  * obeys should-high
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."
 * obeys should-quantity
 * quantity 0..1
@@ -53,7 +53,3 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * act 1..1
   * act only Instruction
     * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31393)."
-
-Invariant: 1098-16867
-Description: "The effectiveTime, if present, **SHOULD** contain zero or one [0..1] *high* (CONF:1098-16867)."
-Severity: #warning

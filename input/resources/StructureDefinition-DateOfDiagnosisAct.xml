@@ -18,6 +18,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="act"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.502:2022-06-01"/>
@@ -97,29 +100,33 @@
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
             <min value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
-            <comment value="SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4515-33006)."/>
             <min value="1"/>
-            <fixedCode value="completed"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
+            </binding>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4515-33007)."/>
             <min value="1"/>
+            <constraint>
+                <key value="ts-shall-year"/>
+                <severity value="error"/>
+                <human value="**SHALL** be precise to at least the year"/>
+                <expression value="nullFlavor.exists() or value.length() &gt;= 4"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
+            </constraint>
         </element>
         <element id="Act.effectiveTime.value">
             <path value="Act.effectiveTime.value"/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] @value (CONF:4515-33008)."/>
             <min value="1"/>
-            <constraint>
-                <key value="4515-33009"/>
-                <severity value="error"/>
-                <human value="**SHALL** be precise to at least the year (CONF:4515-33009)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
-            </constraint>
         </element>
         <element id="Act.effectiveTime.low">
             <path value="Act.effectiveTime.low"/>

@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="substanceAdministration"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09"/>
@@ -35,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="SubstanceAdministration">
+            <path value="SubstanceAdministration"/>
+            <constraint>
+                <key value="dose-unit-or-admin-unit"/>
+                <severity value="error"/>
+                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
+                <expression value="doseQuantity.unit.exists() implies administrationUnitCode.empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
+        </element>
         <element id="SubstanceAdministration.templateId">
             <path value="SubstanceAdministration.templateId"/>
             <slicing>
@@ -136,12 +149,6 @@
         <element id="SubstanceAdministration.doseQuantity">
             <path value="SubstanceAdministration.doseQuantity"/>
             <comment value="MAY contain zero or one [0..1] doseQuantity (CONF:1098-32068)."/>
-            <constraint>
-                <key value="1098-40000"/>
-                <severity value="warning"/>
-                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
-            </constraint>
         </element>
         <element id="SubstanceAdministration.doseQuantity.unit">
             <path value="SubstanceAdministration.doseQuantity.unit"/>
@@ -172,12 +179,6 @@
         <element id="SubstanceAdministration.administrationUnitCode">
             <path value="SubstanceAdministration.administrationUnitCode"/>
             <comment value="MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-32081)."/>
-            <constraint>
-                <key value="1098-40000"/>
-                <severity value="warning"/>
-                <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
-            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.30"/>

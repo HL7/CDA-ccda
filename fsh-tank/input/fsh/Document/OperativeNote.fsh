@@ -24,8 +24,18 @@ The Operative Note is created immediately following a surgical or other high-ris
       * obeys 1198-8487
       * ^comment = "SHALL contain exactly one [1..1] code."
     * effectiveTime 1..1
+      * low 1..1
+        // Need to keep SOMETHING different from USRealmHeader in these 3 fields to keep them in the diff
+        * ^short = "Low is required"
+        * ^comment = "The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."
+      * width 0..1
+        * ^short = "Represents the duration"
+        * ^comment = "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."
+      * high 0..1
+        * ^short = "Equals low if only the date is known"
+        * ^comment = "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."
     * effectiveTime only USRealmDateTimeInterval
-      * obeys 1198-8488 and 1198-10058 and 1198-10060
+      * obeys width-or-high
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8494)."
     * performer ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
@@ -153,14 +163,7 @@ Invariant: 1198-8487
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD-9-CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT-4 (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC (CONF:1198-8511)."
 Severity: #error
 
-Invariant: 1198-8488
-Description: "The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."
+Invariant: width-or-high
+Description: "Width and high are mutually exclusive. If width is known, high **SHALL NOT** be present. If with is not present, **SHALL** include high."
 Severity: #error
-
-Invariant: 1198-10058
-Description: "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."
-Severity: #error
-
-Invariant: 1198-10060
-Description: "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."
-Severity: #error
+Expression: "(width | high).count() = 1"

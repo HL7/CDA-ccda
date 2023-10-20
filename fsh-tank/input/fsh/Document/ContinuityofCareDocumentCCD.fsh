@@ -24,7 +24,7 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
 * author 1..*
   * ^comment = "SHALL contain at least one [1..*] author (CONF:1198-9442)."
   * assignedAuthor 1..1
-    * obeys 1198-8456 and 1198-8457
+    * obeys 1198-8456
     * ^comment = "Such authors SHALL contain exactly one [1..1] assignedAuthor (CONF:1198-9443)."
 * documentationOf 1..1
   * ^short = "The documentationOf relationship in a Continuity Care Document contains the representation of providers who are wholly or partially responsible for the safety and well-being of a subject of care."
@@ -142,11 +142,9 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
 Invariant: 1198-8456
 Description: "Such assignedAuthors **SHALL** contain (exactly one [1..1] assignedPerson) or (exactly one [1..1] assignedAuthoringDevice and exactly one [1..1] representedOrganization) (CONF:1198-8456)."
 Severity: #error
-
-Invariant: 1198-8457
-Description: "If assignedAuthor has an associated representedOrganization with no assignedPerson or assignedAuthoringDevice, then the value for “ClinicalDocument/author/assignedAuthor/id/@NullFlavor” **SHALL** be “NA” “Not applicable” 2.16.840.1.113883.5.1008 NullFlavor STATIC (CONF:1198-8457)."
-Severity: #error
+Expression: "assignedPerson.exists() or (assignedAuthoringDevice.exists() and representedOrganization.exists())"
 
 Invariant: 1198-32466
 Description: "If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:1198-32466)."
 Severity: #warning
+Expression: "assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"

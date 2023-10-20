@@ -45,9 +45,9 @@ The observation/value element contains the detailed patient directive which may 
 * statusCode 1..1
   * ^short = "SG 20230706: constraint not entered 'properly' deleted fixedCode='Completed here - it's already in the next element and shoudln't be here - entered weird/wrong in TWB"
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."
-  * code 1..1
-  * code = #completed (exactly)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19082)."
+    * code 1..1
+    * code from $2.16.840.1.113762.1.4.1240.6 (required)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8656)."
   * low 1..1
@@ -146,7 +146,8 @@ The observation/value element contains the detailed patient directive which may 
     * text 0..1
       * ^comment = "This externalDocument MAY contain zero or one [0..1] text (CONF:1198-8696)."
       * reference 0..1
-        * obeys 1198-8698 and 1198-8699
+        * obeys 1198-8699
+        * ^short = "The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."
         * ^comment = "The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."
 
 Invariant: 1198-32449
@@ -159,10 +160,6 @@ Severity: #error
 
 Invariant: 1198-8666
 Description: "The data type of Observation/participant/time in a verification **SHALL** be *TS* (time stamp) (CONF:1198-8666)."
-Severity: #warning
-
-Invariant: 1198-8698
-Description: "The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."
 Severity: #warning
 
 Invariant: 1198-8699

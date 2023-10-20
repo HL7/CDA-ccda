@@ -25,8 +25,12 @@ This data type uses the same rules as US Realm Date and Time (Interval), but is 
 * obeys ts-shall-day and ts-should-minute and ts-shall-timezone
 
 
+////////////////////////////////////////////////////////////
+//                                                        //
+//             Date/Time Related Invariants               //
+//                                                        //
+////////////////////////////////////////////////////////////
 
-// Create a number of time-related Invaraints which are used both here and elsewhere in the document (when USRealmDateandTime cannot, for some reason)
 Invariant: ts-shall-year
 Description: "**SHALL** be precise to at least the year"
 Severity: #error

@@ -14,6 +14,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
         <valueUri value="observation"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
     <identifier>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2023-05-01"/>
@@ -128,21 +131,18 @@
             <min value="1"/>
         </element>
         <element id="Observation.value">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.value"/>
-            <short value="NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
-            <comment value="SHALL contain exactly one [1..1] value (CONF:4537-7143)."/>
+            <short value="(USCDI) @unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
+            <comment value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866). / SHALL contain exactly one [1..1] value (CONF:4537-7143)."/>
             <min value="1"/>
             <max value="1"/>
             <constraint>
                 <key value="4537-31484"/>
                 <severity value="warning"/>
                 <human value="If Observation/value is a physical quantity (xsi:type=&quot;PQ&quot;): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
-            </constraint>
-            <constraint>
-                <key value="4537-31866"/>
-                <severity value="warning"/>
-                <human value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
             <constraint>
@@ -153,7 +153,11 @@
             </constraint>
         </element>
         <element id="Observation.interpretationCode">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.interpretationCode"/>
+            <short value="(USCDI) Result Interpretation"/>
             <comment value="SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."/>
         </element>
         <element id="Observation.methodCode">
@@ -198,7 +202,11 @@
             </type>
         </element>
         <element id="Observation.referenceRange">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.referenceRange"/>
+            <short value="(USCDI) Result Reference Range"/>
             <comment value="SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)."/>
         </element>
         <element id="Observation.referenceRange.observationRange">

@@ -30,8 +30,9 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1098-32063)."
 * quantity 0..1
   * ^comment = "MAY contain zero or one [0..1] quantity (CONF:1098-32064)."
+* obeys should-product
 * product 0..1
-  * obeys 1098-32325 and 1098-32092
+  * obeys 1098-32092
   * ^short = "A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD). "
   * ^comment = "MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."
   * manufacturedProduct 1..1
@@ -97,10 +98,6 @@ Depending on the type of supply, the product or participant will be either a Med
   * act 1..1
   * act only PlannedCoverage
     * ^comment = "SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:1098-32062)."
-
-Invariant: 1098-32325
-Description: "SHOULD contain zero or one [0..1] product (CONF:1098-32325)."
-Severity: #warning
 
 Invariant: 1098-32092
 Description: "If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) or Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) then the participant **SHALL NOT** be Product Instance (CONF:1098-32092 and CONF:1098-32093)."

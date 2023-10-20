@@ -56,15 +56,13 @@ The components of the organizer contain the following information:
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-116)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"
 * participant contains
-    participant1 0..* and
-    participant2 0..*
-* participant[participant1] ^short = "This Participant represents the Care Team lead."
+    lead 0..* and
+    addl-participants 0..*
+* participant[lead] ^short = "This Participant represents the Care Team lead."
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"
   * typeCode 1..1
   * typeCode = #PPRF (exactly)
@@ -78,7 +76,7 @@ The components of the organizer contain the following information:
     * id 1..*
       * obeys 4515-133
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4515-132)."
-* participant[participant2] ^short = "participant"
+* participant[addl-participants] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"
   * typeCode 1..1
   * typeCode = #LOC (exactly)
@@ -100,8 +98,12 @@ The components of the organizer contain the following information:
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] @classCode=\"PLC\" Place (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:4515-141)."
       * name 1..1
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] name (CONF:4515-142)."
-* component ^slicing.discriminator[0].type = #value
+* component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4515-152) such that it"
 * component contains
@@ -141,3 +143,5 @@ The components of the organizer contain the following information:
 Invariant: 4515-133
 Description: "This id **SHALL** match a performer/assignedEntity/id of at least one Care Team Member described in component/act (CONF:4515-133)."
 Severity: #error
+// Possible first crazy-draft attempt at this expression
+// Expression: "(participant.where(typeCode='PPRF').select(participantRole.id.first().select(root + extension))).where(%context.component.where(act.code.code='85847-2').act.id.where((root + extension) = $this)).allTrue()"

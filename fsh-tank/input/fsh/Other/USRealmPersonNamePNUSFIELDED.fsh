@@ -10,7 +10,9 @@ Description: "The US Realm Clinical Document Person Name datatype flavor is a se
 Invariant: 81-9371
 Description: "The content of name **SHALL** be either a conformant Patient Name (PTN.US.FIELDED), or a string (CONF:81-9371)."
 Severity: #error
+Expression: "conformsTo('http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED') or item.xmlText.exists()"
 
 Invariant: 81-9372
 Description: "The string **SHALL NOT** contain name parts (CONF:81-9372)."
 Severity: #error
+Expression: "item.xmlText.exists() implies (item.delimiter | item.family | item.given | item.prefix | item.suffix).empty()"

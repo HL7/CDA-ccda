@@ -13,6 +13,7 @@ Description: "This clinical statement describes an interaction between a patient
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."
 * id 1..*
+  * insert USCDI([[Encounter Identifier]])
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8713)."
 * code 1..1
 * code from EncounterTypeCode (preferred)
@@ -23,23 +24,16 @@ Description: "This clinical statement describes an interaction between a patient
     * obeys should-reference
     * reference 0..1
       * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)." // auto-should
+      * obeys 1198-15972
       * value 0..1
-        * obeys 1198-15972
         * ^comment = "The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1198-15971)."
   * translation 0..1
     * ^short = "The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."
     * ^comment = "This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8715)."
-* sdtcDischargeDispositionCode 0..1
-  * obeys 1198-32177 and 1198-32377
-  * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"
-  * ^extension[=].valueUri = "urn:hl7-org:sdtc"
-  * ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name"
-  * ^extension[=].valueUri = "dischargeDispositionCode"
-  * ^short = "The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the dischargeDispositionCode element"
-  * ^comment = "MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."
 * sdtcDischargeDispositionCode from $2.16.840.1.113883.3.88.12.80.33 (preferred)
+  * ^comment = "MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."
 * performer 0..*
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1198-8725)."
   * assignedEntity 1..1
@@ -81,11 +75,4 @@ Description: "This clinical statement describes an interaction between a patient
 Invariant: 1198-15972
 Description: "This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1198-15972)."
 Severity: #error
-
-Invariant: 1198-32177
-Description: "This sdtc:dischargeDispositionCode **SHOULD** contain exactly [0..1] *code*, which **SHOULD** be selected from ValueSet 2.16.840.1.113883.3.88.12.80.33 NUBC UB-04 FL17-Patient Status (code system 2.16.840.1.113883.6.301.5) *DYNAMIC*.  NOTE: This requires a license from the AHA to access these codes."
-Severity: #warning
-
-Invariant: 1198-32377
-Description: "This sdtc:dischargeDispositionCode **SHOULD** contain exactly [0..1] *codeSystem*, which **SHOULD** be CodeSystem: NUBC 2.16.840.1.113883.6.301.5."
-Severity: #warning
+Expression: "value.exists() implies value.startsWith('#')"
