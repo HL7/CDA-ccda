@@ -19,7 +19,7 @@ RuleSet: USCDI(label)
 
 // Add an additional binding to a bindable element. short must be text; documentation can be markdown. If either contin , or ) surround with [[ ]]
 RuleSet: AdditionalBinding(purpose, valueSet, short, documentation)
-* ^binding.additional[+].purpose = {purpose}
+* ^binding.additional[+].purpose = #{purpose}
 * ^binding.additional[=].valueSet = {valueSet}
 * ^binding.additional[=].shortDoco = "{short}"
 * ^binding.additional[=].documentation = "{documentation}"
