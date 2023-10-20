@@ -119,16 +119,17 @@
         <element id="Procedure.code.originalText.reference">
             <path value="Procedure.code.originalText.reference"/>
             <comment value="The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-19204)."/>
-        </element>
-        <element id="Procedure.code.originalText.reference.value">
-            <path value="Procedure.code.originalText.reference.value"/>
-            <comment value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:4515-19205)."/>
             <constraint>
                 <key value="4515-19206"/>
                 <severity value="error"/>
                 <human value="This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:4515-19206)."/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
+        </element>
+        <element id="Procedure.code.originalText.reference.value">
+            <path value="Procedure.code.originalText.reference.value"/>
+            <comment value="The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:4515-19205)."/>
         </element>
         <element id="Procedure.statusCode">
             <path value="Procedure.statusCode"/>
@@ -183,14 +184,9 @@
         </element>
         <element id="Procedure.methodCode">
             <path value="Procedure.methodCode"/>
+            <short value="MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."/>
             <comment value="MAY contain zero or one [0..1] methodCode (CONF:4515-7670)."/>
             <max value="1"/>
-            <constraint>
-                <key value="4515-7890"/>
-                <severity value="error"/>
-                <human value="MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </constraint>
         </element>
         <element id="Procedure.targetSiteCode">
             <path value="Procedure.targetSiteCode"/>
@@ -203,13 +199,8 @@
         </element>
         <element id="Procedure.specimen">
             <path value="Procedure.specimen"/>
+            <short value="This specimen is for representing specimens obtained from a procedure (CONF:4515-16842)."/>
             <comment value="MAY contain zero or more [0..*] specimen (CONF:4515-7697)."/>
-            <constraint>
-                <key value="4515-16842"/>
-                <severity value="error"/>
-                <human value="This specimen is for representing specimens obtained from a procedure (CONF:4515-16842)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </constraint>
         </element>
         <element id="Procedure.specimen.specimenRole">
             <path value="Procedure.specimen.specimenRole"/>
@@ -224,13 +215,8 @@
         </element>
         <element id="Procedure.specimen.specimenRole.id">
             <path value="Procedure.specimen.specimenRole.id"/>
+            <short value="If you want to indicate that the Procedure and the Results are referring to the same specimen, the Procedure/specimen/specimenRole/id **SHOULD** be set to equal an Organizer/specimen/specimenRole/id (CONF:4515-29744)."/>
             <comment value="This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)."/>
-            <constraint>
-                <key value="4515-29744"/>
-                <severity value="warning"/>
-                <human value="If you want to indicate that the Procedure and the Results are referring to the same specimen, the Procedure/specimen/specimenRole/id **SHOULD** be set to equal an Organizer/specimen/ specimenRole/id (CONF:4515-29744)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </constraint>
         </element>
         <element id="Procedure.performer">
             <path value="Procedure.performer"/>
@@ -433,15 +419,10 @@
         </element>
         <element id="Procedure.entryRelationship:entryRelationship1.encounter.id">
             <path value="Procedure.entryRelationship.encounter.id"/>
+            <short value="Set the encounter ID to the ID of an encounter in another section to signify they are the same encounter (CONF:4515-16843)."/>
             <comment value="This encounter SHALL contain exactly one [1..1] id (CONF:4515-7773)."/>
             <min value="1"/>
             <max value="1"/>
-            <constraint>
-                <key value="4515-16843"/>
-                <severity value="warning"/>
-                <human value="Set the encounter ID to the ID of an encounter in another section to signify they are the same encounter (CONF:4515-16843)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
-            </constraint>
         </element>
         <element id="Procedure.entryRelationship:entryRelationship2">
             <path value="Procedure.entryRelationship"/>
