@@ -427,7 +427,8 @@ Description: "This template defines constraints that represent common administra
     * ^short = "A serviceEvent represents the main act being documented, such as a colonoscopy or a cardiac stress study. In a provision of healthcare serviceEvent, the care providers, PCP, or other longitudinal providers, are recorded within the serviceEvent. If the document is about a single encounter, the providers associated can be recorded in the componentOf/encompassingEncounter template."
     * ^comment = "The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:4537-14836)."
     * effectiveTime 1..1
-      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] effectiveTime (CONF:4537-14837)."
+    * effectiveTime only USRealmDateTimeInterval
+      * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:4537-14837)."
       * low 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-14838)."
     * obeys should-performer
@@ -480,7 +481,8 @@ Description: "This template defines constraints that represent common administra
     * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
       * ^comment = "This encompassingEncounter MAY contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
     * effectiveTime 1..1
-      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:4537-9958)."
+    * effectiveTime only USRealmDateTimeInterval
+      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:4537-9958)."
     * obeys should-responsibleParty
     * responsibleParty 0..1
       * ^comment = "This encompassingEncounter SHOULD contain zero or one [0..1] responsibleParty (CONF:1198-8391)." // auto-should
