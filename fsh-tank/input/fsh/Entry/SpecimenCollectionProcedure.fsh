@@ -11,9 +11,7 @@ Description: """This template represents clinical information about the specimen
 * moodCode 1..1
 * moodCode = #EVN (exactly)
 * code 1..1
-  * code = #17636008
-  * codeSystem = "http://snomed.info/sct"
-  * displayName = "Specimen collection (procedure)"
+  * insert CodedSnomed(17636008, [[Specimen collection (procedure)]])
 * obeys should-effectiveTime
 * effectiveTime 0..1
 * obeys should-targetSiteCode

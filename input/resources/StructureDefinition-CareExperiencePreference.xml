@@ -25,7 +25,7 @@
     <name value="CareExperiencePreference"/>
     <title value="Care Experience Preference"/>
     <status value="draft"/>
-    <description value="This Care Experience Preference template represents a person's care preferences during their care and treatment. Examples include, but are not limited to religious preferences, dislikes and fears, and thoughts and feelings to be shared. This templates does not represent actual order, but holds observations about wishes. These observations may inform the placement of future orders. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situations when a person would prefer the stated care experiences, such as during childbirth or interventional procedures."/>
+    <description value="This Care Experience Preference template represents a person's care preferences during their care and treatment. Examples include, but are not limited to religious preferences, dislikes and fears, and thoughts and feelings to be shared. This templates does not represent actual order, but holds observations about wishes. These observations may inform the placement of future orders. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situations when a person would prefer the stated care experiences, such as during childbirth or interventional procedures.&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -91,21 +91,21 @@
             <path value="Observation.id"/>
             <min value="1"/>
         </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <short value="Care Experience Preference"/>
+        </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
             <patternCode value="95541-9"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <patternString value="https://loinc.org"/>
-        </element>
-        <element id="Observation.code.displayName">
-            <path value="Observation.code.displayName"/>
-            <patternString value="Care Experience Preference"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="This will most often by a string"/>
+            <short value="Most of the time, the value will be a string representing the person's words."/>
             <min value="1"/>
             <max value="1"/>
             <type>

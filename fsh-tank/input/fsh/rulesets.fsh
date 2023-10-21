@@ -17,13 +17,23 @@ RuleSet: USCDI(label)
 //                                                        //
 ////////////////////////////////////////////////////////////
 
-// Add an additional binding to a bindable element. short must be text; documentation can be markdown. If either contin , or ) surround with [[ ]]
+// Add an additional binding to a bindable element. short must be text; documentation can be markdown. If either contain , or ) surround with [[ ]]
 RuleSet: AdditionalBinding(purpose, valueSet, short, documentation)
 * ^binding.additional[+].purpose = #{purpose}
 * ^binding.additional[=].valueSet = {valueSet}
 * ^binding.additional[=].shortDoco = "{short}"
 * ^binding.additional[=].documentation = "{documentation}"
 
+// Flag an element as meeting a USCDI requirement. If label contains, or ), surround the text witn [[ ]]
+RuleSet: CodedLoinc(code, display)
+* ^short = "{display}"
+* code = #{code}
+* codeSystem = "2.16.840.1.113883.6.1"
+
+RuleSet: CodedSnomed(code, display)
+* ^short = "{display}"
+* code = #{code}
+* codeSystem = "2.16.840.1.113883.6.96"
 
 // Use to require code or nullFlavor on an element - makes the display look nice
 RuleSet: ShallCodeOrNullFlavor

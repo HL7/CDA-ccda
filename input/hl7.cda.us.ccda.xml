@@ -278,7 +278,7 @@
                 <display value="Care Experience Preference"/>
             </reference>
             <name value="Care Experience Preference"/>
-            <description value="This Care Experience Preference template represents a person's care preferences during their care and treatment. Examples include, but are not limited to religious preferences, dislikes and fears, and thoughts and feelings to be shared. This templates does not represent actual order, but holds observations about wishes. These observations may inform the placement of future orders. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situations when a person would prefer the stated care experiences, such as during childbirth or interventional procedures."/>
+            <description value="This Care Experience Preference template represents a person's care preferences during their care and treatment. Examples include, but are not limited to religious preferences, dislikes and fears, and thoughts and feelings to be shared. This templates does not represent actual order, but holds observations about wishes. These observations may inform the placement of future orders. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situations when a person would prefer the stated care experiences, such as during childbirth or interventional procedures.&#xA;&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1840,6 +1840,24 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/SpecimenCollectionProcedure"/>
+                <display value="Specimen Collection Procedure"/>
+            </reference>
+            <name value="Specimen Collection Procedure"/>
+            <description value="This template represents clinical information about the specimen including when it was collected, the type and source of specimen, as well as related observations regarding the specimen."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/SpecimenRejectReasonObservation"/>
+                <display value="Specimen Reject Reason Observation"/>
+            </reference>
+            <name value="Specimen Reject Reason Observation"/>
+            <description value="This template describes a reason the specimen was rejected for the specified observation/result/analysis. A specimen may be rejected due to multiple reasons, in which case, multiple instances of this template should be used."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/SubjectiveSection"/>
                 <display value="Subjective Section"/>
             </reference>
@@ -1898,7 +1916,7 @@
                 <display value="Treatment Intervention Preference"/>
             </reference>
             <name value="Treatment Intervention Preference"/>
-            <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is required to represent the situation when a person would prefer the stated intervention preferences."/>
+            <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is required to represent the situation when a person would prefer the stated intervention preferences.&#xA;&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
