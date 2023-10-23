@@ -3,6 +3,8 @@ This page lists all the ValueSets, CodeSystems, and ConceptMaps defined as part 
 
 ### Value Sets
 
+{% include valueset-list.xhtml %}
+
 These value sets are used in this implementation guide:
 
 <div class="bg-success" markdown="1">
