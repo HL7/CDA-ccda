@@ -1,13 +1,27 @@
 const Fhir = require('fhir').Fhir;
+const ParseConformance = require('fhir').ParseConformance;
+const FhirVersions = require('fhir').Versions;
 const fs = require('fs');
 const path = require('path');
 const xmlFormat = require('xml-formatter');
+
+
+// Need to load R5 for this to work....for now
+// Get the data
+const newValueSets = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'r5.valuesets.json')).toString());
+const newTypes = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'r5.profiles-types.json')).toString());
+const newResources = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'r5.profiles-resources.json')).toString());
+// Create a parser and parse it using the parser
+var parser = new ParseConformance(false, FhirVersions.R5);           // don't load pre-parsed data
+parser.parseBundle(newValueSets);
+parser.parseBundle(newTypes);
+parser.parseBundle(newResources);
 
 /**
  * Convert Sushi's JSON output to XML and move into the input directory
  */
 
-const fhir = new Fhir();
+const fhir = new Fhir(parser);
 
 const fshDirectory = 'fsh-tank/fsh-generated/resources';
 const xmlDirectory = 'input/resources';

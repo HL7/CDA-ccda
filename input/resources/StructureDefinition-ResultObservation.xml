@@ -98,17 +98,27 @@
             <path value="Observation.code"/>
             <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."/>
             <constraint>
-                <key value="4537-19212"/>
-                <severity value="warning"/>
-                <human value="This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."/>
+                <key value="shall-code-or-nullflavor"/>
+                <severity value="error"/>
+                <human value="SHALL contain either a @code attribute or a @nullFlavor attribute, but not both."/>
+                <expression value="(code | nullFlavor).count() = 1"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
             <constraint>
-                <key value="1098-40001"/>
+                <key value="4537-19212"/>
                 <severity value="warning"/>
-                <human value="SHALL contain either a @code attribute or a @nullFlavor attribute, but not both."/>
+                <human value="This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."/>
+                <expression value="codeSystem = '2.16.840.1.113883.6.1'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
+        </element>
+        <element id="Observation.code.nullFlavor">
+            <path value="Observation.code.nullFlavor"/>
+            <comment value="Either code or nullFlavor MUST be present"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <comment value="Either code or nullFlavor MUST be present"/>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
@@ -131,26 +141,60 @@
             <min value="1"/>
         </element>
         <element id="Observation.value">
+            <path value="Observation.value"/>
+            <slicing>
+                <discriminator>
+                    <type value="type"/>
+                    <path value="$this"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <short value="Value can be any type, but certain types have additional rules listed below."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value:physical-quantity">
+            <path value="Observation.value"/>
+            <sliceName value="physical-quantity"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PQ"/>
+            </type>
+        </element>
+        <element id="Observation.value:physical-quantity.unit">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
                 <valueBoolean value="true"/>
             </extension>
-            <path value="Observation.value"/>
-            <short value="(USCDI) @unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
-            <comment value="A coded or physical quantity value **MAY** contain zero or more [0..&amp;ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866). / SHALL contain exactly one [1..1] value (CONF:4537-7143)."/>
+            <path value="Observation.value.unit"/>
+            <short value="(USCDI) Result Units"/>
             <min value="1"/>
+        </element>
+        <element id="Observation.value:physical-quantity.translation">
+            <path value="Observation.value.translation"/>
+            <short value="Can be used to represent the original results as output by the lab"/>
             <max value="1"/>
-            <constraint>
-                <key value="4537-31484"/>
-                <severity value="warning"/>
-                <human value="If Observation/value is a physical quantity (xsi:type=&quot;PQ&quot;): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
-            </constraint>
+        </element>
+        <element id="Observation.value:coded">
+            <path value="Observation.value"/>
+            <sliceName value="coded"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
             <constraint>
                 <key value="4537-32610"/>
                 <severity value="warning"/>
                 <human value="If Observation/value is a CD (**xsi:type=&quot;CD&quot;**) the value **SHOULD** be SNOMED-CT or LOINC (CONF:4537-32610)."/>
+                <expression value="codeSystem = '2.16.840.1.113883.6.96' or codeSystem = '2.16.840.1.113883.6.1'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
+        </element>
+        <element id="Observation.value:coded.translation">
+            <path value="Observation.value.translation"/>
+            <short value="Can be used to represent the original results as output by the lab"/>
+            <max value="1"/>
         </element>
         <element id="Observation.interpretationCode">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
@@ -176,8 +220,16 @@
             <comment value="MAY contain zero or more [0..*] specimen (CONF:4537-32611)."/>
         </element>
         <element id="Observation.specimen.specimenRole">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.specimen.specimenRole"/>
+            <short value="(USCDI) Specimen Identifier"/>
             <comment value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32612)."/>
+        </element>
+        <element id="Observation.specimen.specimenRole.id">
+            <path value="Observation.specimen.specimenRole.id"/>
+            <min value="1"/>
         </element>
         <element id="Observation.specimen.specimenRole.specimenPlayingEntity">
             <path value="Observation.specimen.specimenRole.specimenPlayingEntity"/>
@@ -199,6 +251,38 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+            </type>
+        </element>
+        <element id="Observation.entryRelationship">
+            <path value="Observation.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="procedure"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:specimenProc">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="specimenProc"/>
+            <comment value="SHALL contain exactly one [1..1] entryRelationship such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:specimenProc.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers To (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."/>
+            <fixedCode value="REFR"/>
+        </element>
+        <element id="Observation.entryRelationship:specimenProc.procedure">
+            <path value="Observation.entryRelationship.procedure"/>
+            <comment value="SHALL contain exactly one [1..1] Specimen Collection Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.415:2018-09-01)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SpecimenCollectionProcedure"/>
             </type>
         </element>
         <element id="Observation.referenceRange">

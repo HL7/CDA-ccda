@@ -225,6 +225,11 @@ Description: "SHOULD contain sdtcId"
 Severity: #warning
 Expression: "sdtcId.exists()"
 
+Invariant: should-targetSiteCode
+Description: "SHOULD contain targetSiteCode"
+Severity: #warning
+Expression: "targetSiteCode.exists()"
+
 Invariant: should-telecom
 Description: "SHOULD contain telecom"
 Severity: #warning

@@ -44,7 +44,7 @@ If the patient's current smoking status is unknown, the value element must be po
     * ^comment = "This effectiveTime SHALL NOT contain [0..0] center (CONF:1098-32897)."
 * value 1..1
 * value only $CD
-  * obeys 1098-31019
+  * ^short = "If the patient's current smoking status is unknown, @code **SHALL** contain '266927001' (Unknown if ever smoked) from ValueSet Current Smoking Status (2.16.840.1.113883.11.20.9.38 STATIC 2014-09-01) (CONF:1098-31019)."
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF:1098-14810)."
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.38 (example)
@@ -52,7 +52,3 @@ If the patient's current smoking status is unknown, the value element must be po
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31148)."
-
-Invariant: 1098-31019
-Description: "If the patient's current smoking status is unknown, @code **SHALL** contain '266927001' (Unknown if ever smoked) from ValueSet Current Smoking Status (2.16.840.1.113883.11.20.9.38 STATIC 2014-09-01) (CONF:1098-31019)."
-Severity: #warning

@@ -1257,8 +1257,12 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
-            <comment value="This serviceEvent SHALL contain exactly one [1..1] effectiveTime (CONF:4537-14837)."/>
+            <comment value="This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:4537-14837)."/>
             <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </type>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
@@ -1392,7 +1396,11 @@
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.effectiveTime"/>
-            <comment value="This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime (CONF:4537-9958)."/>
+            <comment value="This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:4537-9958)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </type>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty"/>

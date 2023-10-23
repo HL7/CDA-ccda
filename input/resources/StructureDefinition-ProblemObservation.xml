@@ -93,13 +93,21 @@
             <path value="Observation.code"/>
             <constraint>
                 <key value="1198-32950"/>
-                <severity value="error"/>
-                <human value="If code is selected from ValueSet US Core Condition Codes, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950) (CONF:1198-32950)."/>
+                <severity value="warning"/>
+                <human value="If code is selected from ValueSet US Core Condition Codes, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950)."/>
+                <expression value="code.memberOf('http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code') implies translation.where(code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.28')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
             </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"/>
+            </binding>
+        </element>
+        <element id="Observation.code.translation">
+            <path value="Observation.code.translation"/>
+            <binding>
+                <strength value="example"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.28"/>
             </binding>
         </element>
         <element id="Observation.statusCode">
