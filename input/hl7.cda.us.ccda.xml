@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ImplementationGuide
-    xmlns="http://hl7.org/fhir">
+<ImplementationGuide xmlns="http://hl7.org/fhir">
     <id value="hl7.cda.us.ccda"/>
     <url value="http://hl7.org/cda/us/ccda/ImplementationGuide/hl7.cda.us.ccda"/>
     <version value="3.0"/>
@@ -38,42 +37,42 @@
         <packageId value="us.cdc.phinvads"/>
         <version value="0.12.0"/>
     </dependsOn>
-     <dependsOn id="uscore">
+    <dependsOn id="uscore">
         <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
         <packageId value="hl7.fhir.us.core"/>
         <version value="current"/>
     </dependsOn>
     <definition>
-      <grouping id="document">
-          <name value="Document Templates"/>
-          <description value="Document-level templates describe the purpose and rules for constructing a conforming CDA document. Document templates include constraints on the CDA header and indicate contained section-level templates.&#xA;&#xA;Each document-level template contains the following information:&#xA;* Scope and intended use of the document type&#xA;* Description and explanatory narrative&#xA;* Template metadata (e.g., templateId)&#xA;* Header constraints (e.g., document type, template id, participants)&#xA;* Required and optional section-level templates"/>
-      </grouping>
-      <grouping id="section">
-          <name value="Section Templates"/>
-          <description value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.&#xA;&#xA;Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).&#xA;&#xA;Each section-level template contains the following:&#xA;* Template metadata (e.g., templateId, etc.)&#xA;* Description and explanatory narrative&#xA;* LOINC section code&#xA;* Section title&#xA;* Requirements for a text element&#xA;* Entry-level template names and Ids for referenced templates (required and optional)&#xA;&#xA;Narrative Text&#xA;&#xA;The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.&#xA;&#xA;The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.&#xA;&#xA;As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.&#xA;&#xA;As for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.&#xA;&#xA;By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.&#xA;&#xA;Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6."/>
-      </grouping>
-      <grouping id="entry">
-          <name value="Entry Templates"/>
-          <description value="This chapter describes the clinical statement entry templates used within the sections of the document types of this consolidated guide. Entry templates contain constraints that are required for conformance.&#xA;&#xA;Entry-level templates are always in sections.&#xA;&#xA;Each entry-level template description contains the following information:&#xA;* Key template metadata (e.g., template identifier, etc.)&#xA;* Description and explanatory narrative.&#xA;* Required CDA acts, participants and vocabularies.&#xA;* Optional CDA acts, participants and vocabularies.&#xD;&#xA;Several entry-level templates require an effectiveTime:&#xA;&#xA;The effectiveTime of an observation is the time interval over which the observation is known to be true. The low and high values should be as precise as possible, but no more precise than known. While CDA has multiple mechanisms to record this time interval (e.g., by low and high values, low and width, high and width, or center point and width), this guide constrains most to use only the low/high form. The low value is the earliest point for which the condition is known to have existed. The high value, when present, indicates the time at which the observation was no longer known to be true. The full description of effectiveTime and time intervals is contained in the CDA R2 normative edition.&#xA;&#xA;Provenance in entry templates:&#xA;&#xA;In this version of Consolidated CDA (C-CDA), we have added a &quot;SHOULD&quot; Author constraint on several entry-level templates. Authorship and Author timestamps must be explicitly asserted in these cases, unless the values propagated from the document header hold true.&#xA;&#xA;ID in entry templates:&#xA;&#xA;Entry-level templates may also describe an id element, which is an identifier for that entry. This id may be referenced within the document, or by the system receiving the document. The id assigned must be globally unique."/>
-      </grouping>
-      <grouping id="other">
-          <name value="Participation &amp; Other Templates"/>
-          <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."/>
-      </grouping>
-      <grouping id="examples">
-          <name value="C-CDA Template Examples"/>
-          <description value="These examples show how the C-CDA logical model templates are constructed."/>
-      </grouping>
-      <resource>
-          <reference>
-              <reference value="StructureDefinition/ActivitiesSection"/>
-              <display value="Activities Section"/>
-          </reference>
-          <name value="Activities Section"/>
-          <description value="This template represents Activities. Activities are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Activities can be planned, ordered, historical, etc.&#xA;&#xA;Interventions include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Activities Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
-          <exampleBoolean value="false"/>
-          <groupingId value="section"/>
-      </resource>
+        <grouping id="document">
+            <name value="Document Templates"/>
+            <description value="Document-level templates describe the purpose and rules for constructing a conforming CDA document. Document templates include constraints on the CDA header and indicate contained section-level templates.&#xA;&#xA;Each document-level template contains the following information:&#xA;* Scope and intended use of the document type&#xA;* Description and explanatory narrative&#xA;* Template metadata (e.g., templateId)&#xA;* Header constraints (e.g., document type, template id, participants)&#xA;* Required and optional section-level templates"/>
+        </grouping>
+        <grouping id="section">
+            <name value="Section Templates"/>
+            <description value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.&#xA;&#xA;Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).&#xA;&#xA;Each section-level template contains the following:&#xA;* Template metadata (e.g., templateId, etc.)&#xA;* Description and explanatory narrative&#xA;* LOINC section code&#xA;* Section title&#xA;* Requirements for a text element&#xA;* Entry-level template names and Ids for referenced templates (required and optional)&#xA;&#xA;Narrative Text&#xA;&#xA;The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.&#xA;&#xA;The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.&#xA;&#xA;As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.&#xA;&#xA;As for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.&#xA;&#xA;By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.&#xA;&#xA;Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6."/>
+        </grouping>
+        <grouping id="entry">
+            <name value="Entry Templates"/>
+            <description value="This chapter describes the clinical statement entry templates used within the sections of the document types of this consolidated guide. Entry templates contain constraints that are required for conformance.&#xA;&#xA;Entry-level templates are always in sections.&#xA;&#xA;Each entry-level template description contains the following information:&#xA;* Key template metadata (e.g., template identifier, etc.)&#xA;* Description and explanatory narrative.&#xA;* Required CDA acts, participants and vocabularies.&#xA;* Optional CDA acts, participants and vocabularies.&#xD;&#xA;Several entry-level templates require an effectiveTime:&#xA;&#xA;The effectiveTime of an observation is the time interval over which the observation is known to be true. The low and high values should be as precise as possible, but no more precise than known. While CDA has multiple mechanisms to record this time interval (e.g., by low and high values, low and width, high and width, or center point and width), this guide constrains most to use only the low/high form. The low value is the earliest point for which the condition is known to have existed. The high value, when present, indicates the time at which the observation was no longer known to be true. The full description of effectiveTime and time intervals is contained in the CDA R2 normative edition.&#xA;&#xA;Provenance in entry templates:&#xA;&#xA;In this version of Consolidated CDA (C-CDA), we have added a &quot;SHOULD&quot; Author constraint on several entry-level templates. Authorship and Author timestamps must be explicitly asserted in these cases, unless the values propagated from the document header hold true.&#xA;&#xA;ID in entry templates:&#xA;&#xA;Entry-level templates may also describe an id element, which is an identifier for that entry. This id may be referenced within the document, or by the system receiving the document. The id assigned must be globally unique."/>
+        </grouping>
+        <grouping id="other">
+            <name value="Participation &amp; Other Templates"/>
+            <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."/>
+        </grouping>
+        <grouping id="examples">
+            <name value="C-CDA Template Examples"/>
+            <description value="These examples show how the C-CDA logical model templates are constructed."/>
+        </grouping>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/ActivitiesSection"/>
+                <display value="Activities Section"/>
+            </reference>
+            <name value="Activities Section"/>
+            <description value="This template represents Activities. Activities are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Activities can be planned, ordered, historical, etc.&#xA;&#xA;Activities include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Activities Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/AdmissionDiagnosisSection"/>
@@ -118,7 +117,7 @@
             <name value="Advance Directive Organizer"/>
             <description value="This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented.&#xA;&#xA;The effectiveTime of the organizer (TS) indicates the point in time when the advance directive observations were reviewed/verified. Or, if not reviewed/verified, then the time when the advance directive observations were made. The time element of the author indicates when the advance directive observations were recorded in the patient's record. The effectiveTime of the organizer and the time element of the associated author element may often be the same. Note also for clarity: the effectiveTime of the individual advance directive observations indicates the interval in time when the directive went into effect (effectiveTime/low) and out of effect (effectiveTime/high). The author time element on an advance directive observation indicates the time when the observation was documented."/>
             <groupingId value="entry"/>
-        </resource>        
+        </resource>
         <resource>
             <reference>
                 <reference value="StructureDefinition/AdvanceDirectivesSection"/>
@@ -170,7 +169,7 @@
                 <display value="Allergy Status Observation"/>
             </reference>
             <name value="Allergy Status Observation"/>
-            <description value="This template represents the clinical status attributed to the allergy or intolerance. There can be only one allergy status observation per allergy - intolerance observation.&#xA;"/>
+            <description value="This template represents the clinical status attributed to the allergy or intolerance. There can be only one allergy status observation per allergy - intolerance observation."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -278,7 +277,7 @@
                 <display value="Care Experience Preference"/>
             </reference>
             <name value="Care Experience Preference"/>
-            <description value="This Care Experience Preference template represents a person's care preferences during their care and treatment. Examples include, but are not limited to religious preferences, dislikes and fears, and thoughts and feelings to be shared. This templates does not represent actual order, but holds observations about wishes. These observations may inform the placement of future orders. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situations when a person would prefer the stated care experiences, such as during childbirth or interventional procedures.&#xA;&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
+            <description value="This Care Experience Preference template represents a person's care preferences during their care and treatment. Examples include, but are not limited to religious preferences, dislikes and fears, and thoughts and feelings to be shared. This templates does not represent actual order, but holds observations about wishes. These observations may inform the placement of future orders. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situations when a person would prefer the stated care experiences, such as during childbirth or interventional procedures.&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -287,7 +286,7 @@
                 <display value="Care Plan"/>
             </reference>
             <name value="Care Plan"/>
-            <description value="CARE PLAN FRAMEWORK&#xA;&#xA;A Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):&#xA;There are 2 required sections:&#xA;*    Health Concerns&#xA;*    Interventions&#xA;&#xA;There are 2 optional sections:&#xA;*    Goals&#xA;*    Outcomes&#xA;	Provides the ability to identify patient and provider priorities with each act&#xA;	Provides a header participant to indicate occurrences of Care Plan review&#xA;&#xA;A care plan document can include entry references from the information in these sections to the information (entries) in other sections.&#xA;&#xA;Please see Volume 1 of this guide to view a Care Plan Relationship diagram and story board."/>
+            <description value="CARE PLAN FRAMEWORK&#xA;&#xA;A Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):&#xA;There are 2 required sections:&#xA;*    Health Concerns&#xA;*    Activities&#xA;&#xA;There are 2 optional sections:&#xA;*    Goals&#xA;*    Outcomes&#xA;&#x9;Provides the ability to identify patient and provider priorities with each act&#xA;&#x9;Provides a header participant to indicate occurrences of Care Plan review&#xA;&#xA;A care plan document can include entry references from the information in these sections to the information (entries) in other sections.&#xA;&#xA;Please see Volume 1 of this guide to view a Care Plan Relationship diagram and story board."/>
             <groupingId value="document"/>
         </resource>
         <resource>
@@ -296,7 +295,7 @@
                 <display value="Care Team Member Act"/>
             </reference>
             <name value="Care Team Member Act"/>
-            <description value="This template is used to represent a member of the care team. Care team members can include healthcare and community services providers, caregivers, relatives, the patient themselves, etc. A care team member can be another care team or an organization. &#xA;Care team member attributes include the following:&#xA;	Care team member status on the care team&#xA;	Care team member time (e.g. duration, point-in-time, etc.) on the care team&#xA;	Schedule of the care team member describing when the care team member usually participates on the care team&#xA;	Care team member function on the care team such as the care team member specialty, relationship to the patient, and also role on the care team&#xA;	Care team member name, address, telecom, organization, etc. &#xA;	Care team member information (narrative description about the care team member)&#xA;&#xA;The performer/assignedEntity/id may be set equal to (a pointer to) an id on a performer elsewhere in the document (header or entries) or a new performer can be described here. If the id is pointing to a performer already described elsewhere in the document, assignedEntity/id is sufficient to identify this performer and none of the remaining details of assignedEntity are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text.&#xA;&#xA;This id must be a pointer to another Performer. "/>
+            <description value="This template is used to represent a member of the care team. Care team members can include healthcare and community services providers, caregivers, relatives, the patient themselves, etc. A care team member can be another care team or an organization. &#xA;Care team member attributes include the following:&#xA;&#x9;Care team member status on the care team&#xA;&#x9;Care team member time (e.g. duration, point-in-time, etc.) on the care team&#xA;&#x9;Schedule of the care team member describing when the care team member usually participates on the care team&#xA;&#x9;Care team member function on the care team such as the care team member specialty, relationship to the patient, and also role on the care team&#xA;&#x9;Care team member name, address, telecom, organization, etc. &#xA;&#x9;Care team member information (narrative description about the care team member)&#xA;&#xA;The performer/assignedEntity/id may be set equal to (a pointer to) an id on a performer elsewhere in the document (header or entries) or a new performer can be described here. If the id is pointing to a performer already described elsewhere in the document, assignedEntity/id is sufficient to identify this performer and none of the remaining details of assignedEntity are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text.&#xA;&#xA;This id must be a pointer to another Performer."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -305,7 +304,7 @@
                 <display value="Care Team Member Schedule Observation"/>
             </reference>
             <name value="Care Team Member Schedule Observation"/>
-            <description value="This template represents the schedule of when the care team member participates on the care team. Examples include: &#xA; An oncologist who participated on the care team for one week.&#xA; A primary care provider who participated on a care team during one summer (e.g. in the case of patients who are snow-birds).&#xA; A crisis team who participated on the care team for the patient during an inpatient stay (e.g. in the case of children with special needs).&#xA;"/>
+            <description value="This template represents the schedule of when the care team member participates on the care team. Examples include: &#xA; An oncologist who participated on the care team for one week.&#xA; A primary care provider who participated on a care team during one summer (e.g. in the case of patients who are snow-birds).&#xA; A crisis team who participated on the care team for the patient during an inpatient stay (e.g. in the case of children with special needs)."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -314,7 +313,7 @@
                 <display value="Care Team Organizer"/>
             </reference>
             <name value="Care Team Organizer"/>
-            <description value="This organizer template contains information about a single care team. &#xA;The author of the organizer is the person who documented the care team information.&#xA;The participants of the organizer are the care team lead(s) and the care team organization.&#xA;&#xA;The components of the organizer contain the following information:&#xA;* The encounter that caused the care team to be formed&#xA;* Narrative information about the care team&#xA;* The care team members&#xA;* Reasons for the care team&#xA;* The care team type(s) - a care team can have multiple care team types &#xA;&#xA;"/>
+            <description value="This organizer template contains information about a single care team. &#xA;The author of the organizer is the person who documented the care team information.&#xA;The participants of the organizer are the care team lead(s) and the care team organization.&#xA;&#xA;The components of the organizer contain the following information:&#xA;* The encounter that caused the care team to be formed&#xA;* Narrative information about the care team&#xA;* The care team members&#xA;* Reasons for the care team&#xA;* The care team type(s) - a care team can have multiple care team types &#xA;"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -323,7 +322,7 @@
                 <display value="Care Team Type Observation"/>
             </reference>
             <name value="Care Team Type Observation"/>
-            <description value="This template is used to express the care team type. A care team can have multiple care team types. Examples include but are not limited to: &#xA;* Condition focused, longitudinal care team&#xA;* Event focused, Home &amp; Community Based Services care team&#xA;* Condition focused, clinical research care team &#xA;* Public health focused, Longitudinal care-coordination care team&#xA;&#xA;"/>
+            <description value="This template is used to express the care team type. A care team can have multiple care team types. Examples include but are not limited to: &#xA;* Condition focused, longitudinal care team&#xA;* Event focused, Home &amp; Community Based Services care team&#xA;* Condition focused, clinical research care team &#xA;* Public health focused, Longitudinal care-coordination care team&#xA;"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -332,7 +331,7 @@
                 <display value="Care Teams Section"/>
             </reference>
             <name value="Care Teams Section"/>
-            <description value="The Care Team Section is used to share historical and current Care Team information. &#xA;&#xA;The Care Team Section may be included in any type of C-CDA structured document that is an open template.&#xA;&#xA;An individual can have more than one Care Team.  A Care Team can exist over time such as a longitudinal care team which includes historical members that may be active or inactive on the care team as needed. Or a Care Team, such as a rehabilitation team, may exist to address a person's needs associated with a particular care event, or a team can be based on addressing a specific condition. &#xA;&#xA;The Care Team Organizer entry template used in the C-CDA Care Teams Section is meant to support the foundation of effective communication, interaction channels and maintenance of current clinical context awareness for the patient, caregivers and care providers to promote care coordination. &#xA;&#xA;"/>
+            <description value="The Care Team Section is used to share historical and current Care Team information. &#xA;&#xA;The Care Team Section may be included in any type of C-CDA structured document that is an open template.&#xA;&#xA;An individual can have more than one Care Team.  A Care Team can exist over time such as a longitudinal care team which includes historical members that may be active or inactive on the care team as needed. Or a Care Team, such as a rehabilitation team, may exist to address a person's needs associated with a particular care event, or a team can be based on addressing a specific condition. &#xA;&#xA;The Care Team Organizer entry template used in the C-CDA Care Teams Section is meant to support the foundation of effective communication, interaction channels and maintenance of current clinical context awareness for the patient, caregivers and care providers to promote care coordination. &#xA;"/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -341,7 +340,7 @@
                 <display value="Caregiver Characteristics"/>
             </reference>
             <name value="Caregiver Characteristics"/>
-            <description value="This clinical statement represents a caregiver's willingness to provide care and the abilities of that caregiver to provide assistance to a patient in relation to a specific need.&#xA;"/>
+            <description value="This clinical statement represents a caregiver's willingness to provide care and the abilities of that caregiver to provide assistance to a patient in relation to a specific need."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -494,7 +493,7 @@
                 <display value="Disability Status Observation"/>
             </reference>
             <name value="Disability Status Observation"/>
-            <description value="This template represents an assessment of patients perception of their physical, cognitive, intellectual, or psychiatric disabilities. It may contain an Assessment Scale Observation that holds the six-item set of questions used on the American Community Survey (ACS) to gauge disability, defined here: [HHS Implementation Guidance on Data Collection Standards for Race, Ethnicity, Sex, Primary Language, and Disability Status](https://aspe.hhs.gov/basic-report/hhs-implementation-guidance-data-collection-standards-race-ethnicity-sex-primary-language-and-disability-status)&#xA;This template SHOULD be included zero or more times [0..*] in the Functional Status Section or the Functional Status Organizer.&#xA;"/>
+            <description value="This template represents an assessment of patients perception of their physical, cognitive, intellectual, or psychiatric disabilities. It may contain an Assessment Scale Observation that holds the six-item set of questions used on the American Community Survey (ACS) to gauge disability, defined here: [HHS Implementation Guidance on Data Collection Standards for Race, Ethnicity, Sex, Primary Language, and Disability Status](https://aspe.hhs.gov/basic-report/hhs-implementation-guidance-data-collection-standards-race-ethnicity-sex-primary-language-and-disability-status)&#xA;This template SHOULD be included zero or more times [0..*] in the Functional Status Section or the Functional Status Organizer."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -575,7 +574,7 @@
                 <display value="Encounter Diagnosis"/>
             </reference>
             <name value="Encounter Diagnosis"/>
-            <description value="This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit. If the encounter is associated with a Hospital Discharge, the Hospital Discharge Diagnosis must be used. This entry requires at least one Problem Observation entry."/>
+            <description value="This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit. If the encounter is associated with a Hospital Discharge, the Hospital Discharge Diagnosis must be used. This entry requires at least one Problem Observation entry.  The Problem Status template in the Problem Observation entry indicates the status of the diagnosis."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -584,7 +583,7 @@
                 <display value="Encounters Section"/>
             </reference>
             <name value="Encounters Section"/>
-            <description value="This section lists and describes any healthcare encounters pertinent to the patient's current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patient's condition. It may include visits, appointments, as well as non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters."/>
+            <description value="This section lists and describes any healthcare encounters pertinent to the patient's current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patient's condition. It may include visits, appointments, as well as non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters.  NOTE: Since the EncounterActivity entry template has a moodCode of EVN, it is not possible to use it for planned encounters.  The PlannedEncounter entry template should be used if future encounters are being included in this section."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -593,7 +592,7 @@
                 <display value="Entry Reference"/>
             </reference>
             <name value="Entry Reference"/>
-            <description value="This template represents the act of referencing another entry in the same CDA document instance. Its purpose is to remove the need to repeat the complete XML representation of the referred entry when relating one entry to another. This template can be used to reference many types of Act class derivations, such as encounters, observations, procedures etc., as it is often necessary when authoring CDA documents to repeatedly reference other Acts of these types. For example, in a Care Plan it is necessary to repeatedly relate Health Concerns, Goals, Interventions and Outcomes.&#xA;&#xA;The id is required and must be the same id as the entry/id it is referencing. The id cannot be a null value. Act/Code is set to nullFlavor=&quot;NP&quot; (Not Present). This means the value is not present in the message (in act/Code)."/>
+            <description value="This template represents the act of referencing another entry in the same CDA document instance. Its purpose is to remove the need to repeat the complete XML representation of the referred entry when relating one entry to another. This template can be used to reference many types of Act class derivations, such as encounters, observations, procedures etc., as it is often necessary when authoring CDA documents to repeatedly reference other Acts of these types. For example, in a Care Plan it is necessary to repeatedly relate Health Concerns, Goals, Activities and Outcomes.&#xA;&#xA;The id is required and must be the same id as the entry/id it is referencing. The id cannot be a null value. Act/Code is set to nullFlavor=&quot;NP&quot; (Not Present). This means the value is not present in the message (in act/Code)."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -692,7 +691,7 @@
                 <display value="Gender Identity Observation"/>
             </reference>
             <name value="Gender Identity Observation"/>
-            <description value="This observation represents the gender identity of the patient, defined as:&#xA;&#xA;&gt; &quot;Ones basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with ones sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)&#xA;&#xA;This template follows the guidelines from the HL7 Gender Harmony project. This template is based on C-CDA Social History Observation template.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender) or birth sex. "/>
+            <description value="This observation represents the gender identity of the patient, defined as:&#xA;&#xA;> &quot;Ones basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with ones sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)&#xA;&#xA;This template follows the guidelines from the HL7 Gender Harmony project. This template is based on C-CDA Social History Observation template.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender) or birth sex."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -782,7 +781,7 @@
                 <display value="History and Physical"/>
             </reference>
             <name value="History and Physical"/>
-            <description value="A History and Physical (H&amp;P) note is a medical report that documents the current and past conditions of the patient. It contains essential information that helps determine an individual's health status.  &#xA;The first portion of the report is a current collection of organized information unique to an individual. This is typically supplied by the patient or the caregiver, concerning the current medical problem or the reason for the patient encounter. This information is followed by a description of any past or ongoing medical issues, including current medications and allergies. Information is also obtained about the patient's lifestyle, habits, and diseases among family members.&#xA;The next portion of the report contains information obtained by physically examining the patient and gathering diagnostic information in the form of laboratory tests, imaging, or other diagnostic procedures. &#xA;The report ends with the clinician's assessment of the patient's situation and the intended plan to address those issues. &#xA;A History and Physical Examination is required upon hospital admission as well as before operative procedures. An initial evaluation in an ambulatory setting is often documented in the form of an H&amp;P note.&#xA;"/>
+            <description value="A History and Physical (H&amp;P) note is a medical report that documents the current and past conditions of the patient. It contains essential information that helps determine an individual's health status.  &#xA;The first portion of the report is a current collection of organized information unique to an individual. This is typically supplied by the patient or the caregiver, concerning the current medical problem or the reason for the patient encounter. This information is followed by a description of any past or ongoing medical issues, including current medications and allergies. Information is also obtained about the patient's lifestyle, habits, and diseases among family members.&#xA;The next portion of the report contains information obtained by physically examining the patient and gathering diagnostic information in the form of laboratory tests, imaging, or other diagnostic procedures. &#xA;The report ends with the clinician's assessment of the patient's situation and the intended plan to address those issues. &#xA;A History and Physical Examination is required upon hospital admission as well as before operative procedures. An initial evaluation in an ambulatory setting is often documented in the form of an H&amp;P note."/>
             <groupingId value="document"/>
         </resource>
         <resource>
@@ -800,7 +799,7 @@
                 <display value="Hospital Admission Diagnosis"/>
             </reference>
             <name value="Hospital Admission Diagnosis"/>
-            <description value="This template represents problems or diagnoses identified by the clinician at the time of the patient's admission.&#xA;&#xA;This Hospital Admission Diagnosis act may contain more than one Problem Observation to represent multiple diagnoses for a Hospital Admission. &#xA;"/>
+            <description value="This template represents problems or diagnoses identified by the clinician at the time of the patient's admission.&#xA;&#xA;This Hospital Admission Diagnosis act may contain more than one Problem Observation to represent multiple diagnoses for a Hospital Admission. "/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1007,7 +1006,7 @@
                 <display value="Medication Activity"/>
             </reference>
             <name value="Medication Activity"/>
-            <description value="A Medication Activity describes substance administrations that have actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &quot;take 2 tablets twice a day for the next 10 days&quot;). Medication activities in &quot;INT&quot; mood are reflections of what a clinician intends a patient to be taking. For example, a clinician may intend that a patient be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &quot;EVN&quot; mood would reflect actual use.&#xA;&#xA;A moodCode of INT is allowed, but it is recommended that the Planned Medication Activity template be used for moodCodes other than EVN if the document type contains a section that includes Planned Medication Activity (for example a Care Plan document with Plan of Treatment, Intervention, or Goal sections).&#xA;&#xA;At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single &quot;metoprolol 25mg tablet&quot; per administration will have a doseQuantity of &quot;1&quot;, whereas a patient consuming &quot;metoprolol&quot; will have a dose of &quot;25 mg&quot;."/>
+            <description value="A Medication Activity describes substance administrations that have actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &quot;take 2 tablets twice a day for the next 10 days&quot;). Medication activities in &quot;INT&quot; mood are reflections of what a clinician intends a patient to be taking. For example, a clinician may intend that a patient be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &quot;EVN&quot; mood would reflect actual use.&#xA;&#xA;A moodCode of INT is allowed, but it is recommended that the Planned Medication Activity template be used for moodCodes other than EVN if the document type contains a section that includes Planned Medication Activity (for example a Care Plan document with Plan of Treatment, Intervention, or Goal sections).&#xA;&#xA;At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.&#xA;&#xA;The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single  &quot;metoprolol 25mg tablet &quot; per administration will have a doseQuantity of  &quot;1 &quot;, whereas a patient consuming  &quot;metoprolol Oral Product &quot; (RxCUI 1163523) will have a dose of  &quot;25 mg &quot;."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1070,7 +1069,7 @@
                 <display value="Medications Section"/>
             </reference>
             <name value="Medications Section"/>
-            <description value="The Medications Section contains a patient's current medications and pertinent medication history. At a minimum, the currently active medications are listed. An entire medication history is an option. The section can describe a patient's prescription and dispense history and information about intended drug monitoring. &#xD;&#xA;&#xD;&#xA;This section requires either an entry indicating the subject is not known to be on any medications or entries summarizing the subject's medications."/>
+            <description value="The Medications Section contains a patient's current medications and pertinent medication history. At a minimum, the currently active medications are listed. An entire medication history is an option. The section can describe a patient's prescription and dispense history and information about intended drug monitoring. &#xA;&#xA;This section requires either an entry indicating the subject is not known to be on any medications or entries summarizing the subject's medications."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -1142,7 +1141,7 @@
                 <display value="Notes Section"/>
             </reference>
             <name value="Notes Section"/>
-            <description value="The Notes Section allow for inclusion of clinical documentation which does not fit precisely within any other C-CDA section. Multiple Notes sections may be included in a document provided they each include different types of note content as indicated by a different section.code.&#xA;The Notes Section SHOULD NOT be used in place of a more specific C-CDA section. For example, notes about procedure should be placed within the Procedures Section, not a Notes Section.&#xA;When a Notes Section is present, Note Activity entries contain structured information about the note information allowing it to be more machine processable. &#xA;"/>
+            <description value="The Notes Section allow for inclusion of clinical documentation which does not fit precisely within any other C-CDA section. Multiple Notes sections may be included in a document provided they each include different types of note content as indicated by a different section.code.&#xA;The Notes Section SHOULD NOT be used in place of a more specific C-CDA section. For example, notes about procedure should be placed within the Procedures Section, not a Notes Section.&#xA;When a Notes Section is present, Note Activity entries contain structured information about the note information allowing it to be more machine processable. "/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -1286,7 +1285,7 @@
                 <display value="Planned Act"/>
             </reference>
             <name value="Planned Act"/>
-            <description value="This template represents planned acts that are not classified as an observation or a procedure according to the HL7 RIM. Examples of these acts are a dressing change, the teaching or feeding of a patient or the providing of comfort measures. &#xD;&#xA;The priority of the activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the activity is intended to take place."/>
+            <description value="This template represents planned acts that are not classified as an observation or a procedure according to the HL7 RIM. Examples of these acts are a dressing change, the teaching or feeding of a patient or the providing of comfort measures. &#xA;The priority of the activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the activity is intended to take place."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1313,7 +1312,7 @@
                 <display value="Planned Immunization Activity"/>
             </reference>
             <name value="Planned Immunization Activity"/>
-            <description value="This template represents planned immunizations. Planned Immunization Activity is very similar to Planned Medication Activity with some key differences, for example, the drug code system is constrained to CVX codes. &#xD;&#xA;The priority of the immunization activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the immunization activity is intended to take place and authorTime indicates when the documentation of the plan occurred."/>
+            <description value="This template represents planned immunizations. Planned Immunization Activity is very similar to Planned Medication Activity with some key differences, for example, the drug code system is constrained to CVX codes. &#xA;The priority of the immunization activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the immunization activity is intended to take place and authorTime indicates when the documentation of the plan occurred."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1340,7 +1339,7 @@
                 <display value="Planned Observation"/>
             </reference>
             <name value="Planned Observation"/>
-            <description value="This template represents planned observations that result in new information about the patient which cannot be classified as a procedure according to the HL7 RIM, i.e., procedures alter the patient's body. Examples of these observations are laboratory tests, diagnostic imaging tests, EEGs, and EKGs.&#xD;&#xA;&#xD;&#xA;The importance of the planned observation to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the observation is intended to take place and authorTime indicates when the documentation of the plan occurred. &#xD;&#xA;The Planned Observation template may also indicate the potential insurance coverage for the observation.&#xD;&#xA;&#xD;&#xA;"/>
+            <description value="This template represents planned observations that result in new information about the patient which cannot be classified as a procedure according to the HL7 RIM, i.e., procedures alter the patient's body. Examples of these observations are laboratory tests, diagnostic imaging tests, EEGs, and EKGs.&#xA;&#xA;The importance of the planned observation to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the observation is intended to take place and authorTime indicates when the documentation of the plan occurred. &#xA;The Planned Observation template may also indicate the potential insurance coverage for the observation.&#xA;"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1349,7 +1348,7 @@
                 <display value="Planned Procedure"/>
             </reference>
             <name value="Planned Procedure"/>
-            <description value="This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure.&#xA;&#xA;Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;.&#xA;"/>
+            <description value="This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure.&#xA;&#xA;Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1367,7 +1366,7 @@
                 <display value="Planned Supply"/>
             </reference>
             <name value="Planned Supply"/>
-            <description value="This template represents both medicinal and non-medicinal supplies ordered, requested, or intended for the patient (e.g., medication prescription, order for wheelchair). The importance of the supply order or request to the patient and provider may be indicated in the Priority Preference. &#xD;&#xA;The effective time indicates the time when the supply is intended to take place and author time indicates when the documentation of the plan occurred. The Planned Supply template may also indicate the potential insurance coverage for the procedure. &#xD;&#xA;Depending on the type of supply, the product or participant will be either a Medication Information product (medication), an Immunization Medication Information product (immunization), or a Product Instance participant (device/equipment)."/>
+            <description value="This template represents both medicinal and non-medicinal supplies ordered, requested, or intended for the patient (e.g., medication prescription, order for wheelchair). The importance of the supply order or request to the patient and provider may be indicated in the Priority Preference. &#xA;The effective time indicates the time when the supply is intended to take place and author time indicates when the documentation of the plan occurred. The Planned Supply template may also indicate the potential insurance coverage for the procedure. &#xA;Depending on the type of supply, the product or participant will be either a Medication Information product (medication), an Immunization Medication Information product (immunization), or a Product Instance participant (device/equipment)."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1421,7 +1420,7 @@
                 <display value="Pregnancy Intention in Next Year"/>
             </reference>
             <name value="Pregnancy Intention in Next Year"/>
-            <description value="This template represents a patient's reported intention or desire in the next year to either become pregnant or prevent a future pregnancy. The effectiveTime.low represents the date the intention was recorded and the effectiveTime.high represents the date a year from the recorded date.&#xA;"/>
+            <description value="This template represents a patient's reported intention or desire in the next year to either become pregnant or prevent a future pregnancy. The effectiveTime.low represents the date the intention was recorded and the effectiveTime.high represents the date a year from the recorded date."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1475,7 +1474,7 @@
                 <display value="Problem Observation"/>
             </reference>
             <name value="Problem Observation"/>
-            <description value="This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the &quot;biologically relevant time&quot; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago. &#xD;&#xA;&#xD;&#xA;The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is resolved. If the problem is known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;."/>
+            <description value="This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the &quot;biologically relevant time&quot; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago. &#xA;&#xA;The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is resolved. If the problem is known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1493,7 +1492,7 @@
                 <display value="Problem Status"/>
             </reference>
             <name value="Problem Status"/>
-            <description value="The Problem Status records the clinical status attributed to the problem.&#xA;&#xA;"/>
+            <description value="The Problem Status records the clinical status attributed to the problem.&#xA;"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1583,7 +1582,7 @@
                 <display value="Procedures Section"/>
             </reference>
             <name value="Procedures Section"/>
-            <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act. Observation, and Procedure. Procedure act is for procedures that alter the physical condition of a patient (e.g., splenectomy). Observation act is for procedures that result in new information about a patient but do not cause physical alteration (e.g., EEG). Act is for all other types of procedures (e.g., dressing change)."/>
+            <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure is for procedures that alter the physical condition of a patient (e.g., splenectomy)."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -1601,7 +1600,7 @@
                 <display value="Prognosis Observation"/>
             </reference>
             <name value="Prognosis Observation"/>
-            <description value="This template represents the patient's prognosis, which must be associated with a problem observation. It may serve as an alert to scope intervention plans. &#xD;&#xA;The effectiveTime represents the clinically relevant time of the observation. The observation/value is not constrained and can represent the expected life duration in PQ, an anticipated course of the disease in text, or coded term."/>
+            <description value="This template represents the patient's prognosis, which must be associated with a problem observation. It may serve as an alert to scope intervention plans. &#xA;The effectiveTime represents the clinically relevant time of the observation. The observation/value is not constrained and can represent the expected life duration in PQ, an anticipated course of the disease in text, or coded term."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1655,7 +1654,7 @@
                 <display value="Reason"/>
             </reference>
             <name value="Reason"/>
-            <description value="This template describes the thought process or justification for an action or for not performing an action. Examples include patient, system, or non-problem/diagnosis medical-related reasons for declining to perform specific actions, or any reason for performing an action. Note that the parent template that calls this template can be asserted to have occurred or to not have occurred. Therefore, this template simply adds a reason to some other (possibly negated) act. As such, there is nothing in this template that says whether the parent act did or did not occur. It is expected that the primary use of this template within C-CDA is to provide the rationale for why something was not done. If this template is called by a template that is not negated, the Reason template should contain something other than a problem or a diagnosis, such as a patient preference.&#xA;The	Indication observation: 2.16.840.1.113883.10.20.22.4.19 should be used to represent a diagnosis or problem to indicate the diagnosis or problem is the rationale for an action.&#xA;Immunization Refusal Reason: 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.&#xA;&#xA;"/>
+            <description value="This template describes the thought process or justification for an action or for not performing an action. Examples include patient, system, or non-problem/diagnosis medical-related reasons for declining to perform specific actions, or any reason for performing an action. Note that the parent template that calls this template can be asserted to have occurred or to not have occurred. Therefore, this template simply adds a reason to some other (possibly negated) act. As such, there is nothing in this template that says whether the parent act did or did not occur. It is expected that the primary use of this template within C-CDA is to provide the rationale for why something was not done. If this template is called by a template that is not negated, the Reason template should contain something other than a problem or a diagnosis, such as a patient preference.&#xA;The&#x9;Indication observation: 2.16.840.1.113883.10.20.22.4.19 should be used to represent a diagnosis or problem to indicate the diagnosis or problem is the rationale for an action.&#xA;Immunization Refusal Reason: 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.&#xA;"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1700,7 +1699,7 @@
                 <display value="Result Observation"/>
             </reference>
             <name value="Result Observation"/>
-            <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus."/>
+            <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus.&#xA;&#xA;If code contains a valid non-null LOINC then the xsi:type value SHOULD match the LOINC Scale Part based on the table below:&#xA;&#xA;| LOINC Scale Part     | Value xsi:type |&#xA;| -------- | ------- |&#xA;| Qn - Quantitative | INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Ord - Ordinal | CD |&#xA;| Nom - Nominal | CD |&#xA;| Nar - Narrative | ED, ST |&#xA;| OrdQn - Quantitative or Ordinal | CD, INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Multi - Multi | ED |&#xA;| Doc - Document | ED |&#xA;"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1709,7 +1708,7 @@
                 <display value="Result Organizer"/>
             </reference>
             <name value="Result Organizer"/>
-            <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;."/>
+            <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;. &#xA;&#xA;Specimen(s) attached to a Result Organizer apply to all Result Observations contained in the Organizer. It is not recommended to record specimen information at the Result Observation."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1736,7 +1735,7 @@
                 <display value="Risk Concern Act"/>
             </reference>
             <name value="Risk Concern Act"/>
-            <description value="This template represents a risk concern. &#xD;&#xA;&#xD;&#xA;It is a wrapper for a single risk concern which may be derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). &#xD;&#xA;&#xD;&#xA;A Risk Concern Act represents a health concern that is a risk. A risk is a clinical or socioeconomic condition that the patient does not currently have, but the probability of developing that condition rises to the level of concern such that an intervention and/or monitoring is needed."/>
+            <description value="This template represents a risk concern. &#xA;&#xA;It is a wrapper for a single risk concern which may be derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). &#xA;&#xA;A Risk Concern Act represents a health concern that is a risk. A risk is a clinical or socioeconomic condition that the patient does not currently have, but the probability of developing that condition rises to the level of concern such that an intervention and/or monitoring is needed."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1745,7 +1744,7 @@
                 <display value="Section Time Range Observation"/>
             </reference>
             <name value="Section Time Range Observation"/>
-            <description value="This observation represents the date and time range of the information contained in a section. It is an optional entry and may be used in any section. "/>
+            <description value="This observation represents the date and time range of the information contained in a section. It is an optional entry and may be used in any section."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1790,7 +1789,7 @@
                 <display value="Severity Observation"/>
             </reference>
             <name value="Severity Observation"/>
-            <description value="This clinical statement represents the gravity of the problem, such as allergy or reaction, in terms of its actual or potential impact on the patient. The Severity Observation can be associated with an Allergy - Intolerance Observation, Substance or Device Allergy - Intolerance Observation, Reaction Observation or all. When the Severity Observation is associated directly with an allergy it characterizes the allergy. When the Severity Observation is associated with a Reaction Observation it characterizes a reaction. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity."/>
+            <description value="This clinical statement represents the gravity of the problem, such as allergy or reaction, in terms of its actual or potential impact on the patient. The Severity Observation can be associated with an Allergy - Intolerance Observation, Substance or Device Allergy - Intolerance Observation, Reaction Observation or other reaction. When the Severity Observation is associated directly with an allergy it characterizes the allergy. When the Severity Observation is associated with a Reaction Observation it characterizes a reaction. A person may manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity. The severity of problems may be precoordinated within the coding used to describe the problem."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1799,7 +1798,7 @@
                 <display value="Sex Observation"/>
             </reference>
             <name value="Sex Observation"/>
-            <description value="This template represents sex notations that occur in various instances, such as encounters that reflect information derived from driver's licenses or other IDs and meets the USCDI Data element Sex.&#xA;&#xA;The Birth Sex Observation template is available for use in C-CDA and reflects specifically the sex assigned at birth concept present in USCDI V1 and V2.&#xA;&#xA;This Sex observation MAY also mean sex at the time of birth if it was documented at the time of delivery.&#xA;Future versions of the template be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation 1.0.0. when published.&#xA;&#xA;It is recommended systems include the Sex Observation in the Social History section."/>
+            <description value="This Sex Observation template is used to reflect the documentation of a person's sex. Systems choosing to record the source of information should include the Provenance participation.&#xA;&#xA;USCDI v3 includes a data element for sex, intended to support the exchange of a sex value that is not characterized as sex assigned at birth or birth sex. This version of the C-CDA companion guide supports USCDI v3 Sex data element. Sex assigned at birth or birth sex must be recorded using the Birth Sex Observation which falls under the broader category of a 'Sex observation'. A Data Absent Reason (DAR) code value of 'asked-declined' may be used when a person has chosen not to disclose their sex.&#xA;&#xA;Future versions of the template may be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation, which may include additional guidance on this Sex observation and the relationship to administrative gender (administrativeGenderCode).&#xA;&#xA;It is recommended systems include the Sex Observation in the Social History section."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1808,7 +1807,7 @@
                 <display value="Sexual Orientation Observation"/>
             </reference>
             <name value="Sexual Orientation Observation"/>
-            <description value="This observation represents the sexual orientation of the patient, defined as:&#xA;&#xA;&gt; A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.&#xA;&#xA;This template was informed by the HL7 Gender Harmony project.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender), Gender Identity (Gender Identity Observation), or birth sex (Birth Sex Observation). "/>
+            <description value="This observation represents the sexual orientation of the patient, defined as:&#xA;&#xA;> A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.&#xA;&#xA;This template was informed by the HL7 Gender Harmony project.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender), Gender Identity (Gender Identity Observation), or birth sex (Birth Sex Observation)."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1916,7 +1915,7 @@
                 <display value="Treatment Intervention Preference"/>
             </reference>
             <name value="Treatment Intervention Preference"/>
-            <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is required to represent the situation when a person would prefer the stated intervention preferences.&#xA;&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
+            <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is required to represent the situation when a person would prefer the stated intervention preferences.&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1934,7 +1933,7 @@
                 <display value="UDI Organizer"/>
             </reference>
             <name value="UDI Organizer"/>
-            <description value="This template is nested in an entryRelationship/Procedure Activity Procedure to record all the UDI-related templates to exchange the parsed UDI data elements and associated data.&#xA;&#xA;* **Device Identifier**&#xA;      urn:hl7ii:2.16.840.1.113883.10.20.22.4.304: 2019-06-21 NCIt: C101722 SHALL be included in UDI Organizer &#xA;* **Lot or Batch Number**&#xA; urn:hl7ii:2.16.840.1.113883.10.20.22.4.315: 2019-06-21 NCIt:C101672 SHOULD be included in UDI Organizer if present in UDI&#xA;* **Serial Number** &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.319: 2019-06-21 NCIt: C101671 SHOULD be included in UDI Organizer if present in UDI &#xA;* **Manufacturing Date**  &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.316: 2019-06-21  NCIt:C101669 SHOULD be included in UDI Organizer if present in UDI  &#xA;*  **Expiration Date**&#xA;      urn:hl7ii:2.16.840.1.113883.10.20.22.4.309: 2019-06-21 NCIt: C101670 SHOULD be included in UDI Organizer if present in UDI &#xA;* **Distinct Identification Code** &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.308: 2019-06-21 NCIt: C113843 SHOULD be included in UDI Organizer if present in UDI&#xA;* **Brand Name**&#xA;      urn:hl7ii:2.16.840.1.113883.10.20.22.4.301: 2019-06-21 NCIt: C71898 MAY be included in the UDI Organizer if available&#xA;* **Model Number** &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.317: 2019-06-21 NCIt: C99285 MAY be included in the UDI Organizer if available&#xA;* **Catalog Number**&#xA;      urn:hl7ii:2.16.840.1.113883.10.20.22.4.302: 2019-06-21 NCIt: C99286 MAY be included in the UDI Organizer if available&#xA;* **Company Name** &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.303: 2019-06-21   NCIt: C54131 MAY be included in the UDI Organizer if available&#xA;* **MRI Safety**&#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.318: 2019-06-21 NCIt: C106044 MAY be included in the UDI Organizer if available&#xA;* **Latex Safety**&#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.314: 2019-06-21 NCIt: C160938 MAY be included in the UDI Organizer if available&#xA;* **Implantable Device Status**&#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.305 2019-06-21 NCIt: C160939 MAY be included in the UDI Organizer if available "/>
+            <description value="This template is nested in an entryRelationship/Procedure Activity Procedure to record all the UDI-related templates to exchange the parsed UDI data elements and associated data.&#xA;&#xA;* **Device Identifier**&#xA;      urn:hl7ii:2.16.840.1.113883.10.20.22.4.304: 2019-06-21 NCIt: C101722 SHALL be included in UDI Organizer &#xA;* **Lot or Batch Number**&#xA; urn:hl7ii:2.16.840.1.113883.10.20.22.4.315: 2019-06-21 NCIt:C101672 SHOULD be included in UDI Organizer if present in UDI&#xA;* **Serial Number** &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.319: 2019-06-21 NCIt: C101671 SHOULD be included in UDI Organizer if present in UDI &#xA;* **Manufacturing Date**  &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.316: 2019-06-21  NCIt:C101669 SHOULD be included in UDI Organizer if present in UDI  &#xA;*  **Expiration Date**&#xA;      urn:hl7ii:2.16.840.1.113883.10.20.22.4.309: 2019-06-21 NCIt: C101670 SHOULD be included in UDI Organizer if present in UDI &#xA;* **Distinct Identification Code** &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.308: 2019-06-21 NCIt: C113843 SHOULD be included in UDI Organizer if present in UDI&#xA;* **Brand Name**&#xA;      urn:hl7ii:2.16.840.1.113883.10.20.22.4.301: 2019-06-21 NCIt: C71898 MAY be included in the UDI Organizer if available&#xA;* **Model Number** &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.317: 2019-06-21 NCIt: C99285 MAY be included in the UDI Organizer if available&#xA;* **Catalog Number**&#xA;      urn:hl7ii:2.16.840.1.113883.10.20.22.4.302: 2019-06-21 NCIt: C99286 MAY be included in the UDI Organizer if available&#xA;* **Company Name** &#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.303: 2019-06-21   NCIt: C54131 MAY be included in the UDI Organizer if available&#xA;* **MRI Safety**&#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.318: 2019-06-21 NCIt: C106044 MAY be included in the UDI Organizer if available&#xA;* **Latex Safety**&#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.314: 2019-06-21 NCIt: C160938 MAY be included in the UDI Organizer if available&#xA;* **Implantable Device Status**&#xA;urn:hl7ii:2.16.840.1.113883.10.20.22.4.305 2019-06-21 NCIt: C160939 MAY be included in the UDI Organizer if available"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1961,7 +1960,7 @@
                 <display value="US Realm Date and Time (Interval)"/>
             </reference>
             <name value="US Realm Date and Time (Interval)"/>
-            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Point in Time),  but is used with elements having a datatype of IVL_TS."/>
+            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If time is provided, it must include a time zone offset.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Point in Time), but is used with elements having a datatype of IVL_TS."/>
             <groupingId value="other"/>
         </resource>
         <resource>
@@ -1970,7 +1969,7 @@
                 <display value="US Realm Date and Time (Point in Time)"/>
             </reference>
             <name value="US Realm Date and Time (Point in Time)"/>
-            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If no time zone offset is provided, you can make no assumption about time, unless you have made a local exchange agreement.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Interval), but is used with elements having a datatype of TS."/>
+            <description value="The US Realm Clinical Document Date and Time datatype flavor records date and time information. If time is provided, it must include a time zone offset.&#xA;&#xA;This data type uses the same rules as US Realm Date and Time (Interval), but is used with elements having a datatype of TS."/>
             <groupingId value="other"/>
         </resource>
         <resource>
@@ -1988,7 +1987,7 @@
                 <display value="US Realm Header for Patient Generated Document"/>
             </reference>
             <name value="US Realm Header for Patient Generated Document"/>
-            <description value="This template is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. &#xD;&#xA;The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."/>
+            <description value="This template is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. &#xA;The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."/>
             <groupingId value="document"/>
         </resource>
         <resource>
@@ -2015,7 +2014,7 @@
                 <display value="Vital Sign Observation"/>
             </reference>
             <name value="Vital Sign Observation"/>
-            <description value="This template represents measurement of common vital signs. Vital signs are represented with additional vocabulary constraints for type of vital sign and unit of measure.&#xA;&#xA;The following is a list of recommended units for common types of vital sign measurements:&#xA;&#xA;| Name | Unit |&#xA;| -------- | ------- |&#xA;| PulseOx | % |&#xA;| Height/Head Circumf | cm |&#xA;| Weight | kg |&#xA;| Temp | Cel |&#xA;| BP | mm[Hg] |&#xA;| Pulse/Resp Rate | /min |&#xA;| BMI | kg/m2 |&#xA;| BSA | m2 |&#xA;| inhaled oxygen concentration | % |&#xA;&#xA;"/>
+            <description value="This template represents measurement of common vital signs. Vital signs are represented with additional vocabulary constraints for type of vital sign and unit of measure.&#xA;&#xA;The following is a list of recommended units for common types of vital sign measurements:&#xA;&#xA;| Name | Unit |&#xA;| -------- | ------- |&#xA;| PulseOx | % |&#xA;| Height/Head Circumf | cm |&#xA;| Weight | kg |&#xA;| Temp | Cel |&#xA;| BP | mm[Hg] |&#xA;| Pulse/Resp Rate | /min |&#xA;| BMI | kg/m2 |&#xA;| BSA | m2 |&#xA;| inhaled oxygen concentration | % |&#xA;"/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -2024,7 +2023,7 @@
                 <display value="Vital Signs Organizer"/>
             </reference>
             <name value="Vital Signs Organizer"/>
-            <description value="This template provides a mechanism for grouping vital signs (e.g., grouping systolic blood pressure and diastolic blood pressure).&#xA;"/>
+            <description value="This template provides a mechanism for grouping vital signs (e.g., grouping systolic blood pressure and diastolic blood pressure)."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -2033,7 +2032,7 @@
                 <display value="Vital Signs Section"/>
             </reference>
             <name value="Vital Signs Section"/>
-            <description value="The Vital Signs Section contains relevant vital signs for the context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight, body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends.&#xD;&#xA;Vital signs are represented in the same way as other results, but are aggregated into their own section to follow clinical conventions."/>
+            <description value="The Vital Signs Section contains relevant vital signs for the context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight, body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends.&#xA;Vital signs are represented in the same way as other results, but are aggregated into their own section to follow clinical conventions."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -2054,7 +2053,6 @@
             <description value="This template represents the Wound Measurement Observations of wound width, depth and length."/>
             <groupingId value="entry"/>
         </resource>
-        <!--Examples-->
         <resource>
             <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
                 <valueCode value="application/xml"/>
@@ -2063,7 +2061,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
             </extension>
             <reference>
-                <reference value="Binary/allergy-to-food-egg"/></reference>
+                <reference value="Binary/allergy-to-food-egg"/>
+            </reference>
             <name value="Example of Allergy Intolerance to Food Egg"/>
             <description value="Example of an allergy to egg"/>
             <isExample value="true"/>
@@ -2112,7 +2111,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/advance-directive-observation-example"/></reference>
+                <reference value="Binary/advance-directive-observation-example"/>
+            </reference>
             <name value="Advance Directive Observation Example"/>
             <description value="Advance Directive Observation example"/>
             <isExample value="true"/>
@@ -2127,7 +2127,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer"/>
             </extension>
             <reference>
-                <reference value="Binary/advance-directive-organizer-example"/></reference>
+                <reference value="Binary/advance-directive-organizer-example"/>
+            </reference>
             <name value="Advance Directive Organizer Example"/>
             <description value="Advance Directive Organizer example"/>
             <isExample value="true"/>
@@ -2142,7 +2143,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AgeObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/age-observation-example"/></reference>
+                <reference value="Binary/age-observation-example"/>
+            </reference>
             <name value="Age Observation Example"/>
             <description value="Age Observation example"/>
             <isExample value="true"/>
@@ -2157,7 +2159,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct"/>
             </extension>
             <reference>
-                <reference value="Binary/allergy-concern-act-example"/></reference>
+                <reference value="Binary/allergy-concern-act-example"/>
+            </reference>
             <name value="Allergy Concern Act Example"/>
             <description value="Allergy Concern Act example"/>
             <isExample value="true"/>
@@ -2172,7 +2175,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/allergy-intolerance-observation-example"/></reference>
+                <reference value="Binary/allergy-intolerance-observation-example"/>
+            </reference>
             <name value="Allergy Intolerance Observation Example"/>
             <description value="Allergy Intolerance Observation example"/>
             <isExample value="true"/>
@@ -2187,7 +2191,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AnesthesiaSection"/>
             </extension>
             <reference>
-                <reference value="Binary/anesthesia-section-example"/></reference>
+                <reference value="Binary/anesthesia-section-example"/>
+            </reference>
             <name value="Anesthesia Section Example"/>
             <description value="Anesthesia Section example"/>
             <isExample value="true"/>
@@ -2202,7 +2207,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/assessment-scale-observation-example"/></reference>
+                <reference value="Binary/assessment-scale-observation-example"/>
+            </reference>
             <name value="Assessment Scale Observation Example"/>
             <description value="Assessment Scale Observation example"/>
             <isExample value="true"/>
@@ -2217,7 +2223,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleSupportingObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/assessment-scale-supporting-observation-example"/></reference>
+                <reference value="Binary/assessment-scale-supporting-observation-example"/>
+            </reference>
             <name value="Assessment Scale Supporting Observation Example"/>
             <description value="Assessment Scale Supporting Observation example"/>
             <isExample value="true"/>
@@ -2232,7 +2239,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection"/>
             </extension>
             <reference>
-                <reference value="Binary/assessment-section-example"/></reference>
+                <reference value="Binary/assessment-section-example"/>
+            </reference>
             <name value="Assessment Section Example"/>
             <description value="Assessment Section example"/>
             <isExample value="true"/>
@@ -2247,7 +2255,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </extension>
             <reference>
-                <reference value="Binary/new-author-participant-example"/></reference>
+                <reference value="Binary/new-author-participant-example"/>
+            </reference>
             <name value="Author Participation Example"/>
             <description value="Author Participation example"/>
             <isExample value="true"/>
@@ -2262,7 +2271,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorizationActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/authorization-activity-example"/></reference>
+                <reference value="Binary/authorization-activity-example"/>
+            </reference>
             <name value="Authorization Activity Example"/>
             <description value="Authorization Activity example"/>
             <isExample value="true"/>
@@ -2277,7 +2287,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
-                <reference value="Binary/care-plan-caregiver-participant-example"/></reference>
+                <reference value="Binary/care-plan-caregiver-participant-example"/>
+            </reference>
             <name value="Care Plan Caregiver participant Example"/>
             <description value="Care Plan Caregiver participant example"/>
             <isExample value="true"/>
@@ -2292,7 +2303,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Authenticator"/>
             </extension>
             <reference>
-                <reference value="Binary/care-plan-patient-authenticator-example"/></reference>
+                <reference value="Binary/care-plan-patient-authenticator-example"/>
+            </reference>
             <name value="Care Plan Patient authenticator Example"/>
             <description value="Care Plan Patient authenticator example"/>
             <isExample value="true"/>
@@ -2307,7 +2319,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Performer1"/>
             </extension>
             <reference>
-                <reference value="Binary/care-plan-performer-example"/></reference>
+                <reference value="Binary/care-plan-performer-example"/>
+            </reference>
             <name value="Care Plan performer Example"/>
             <description value="Care Plan performer example"/>
             <isExample value="true"/>
@@ -2322,7 +2335,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/RelatedDocument"/>
             </extension>
             <reference>
-                <reference value="Binary/care-plan-relateddocument-example"/></reference>
+                <reference value="Binary/care-plan-relateddocument-example"/>
+            </reference>
             <name value="Care Plan relatedDocument Example"/>
             <description value="Care Plan relatedDocument example"/>
             <isExample value="true"/>
@@ -2337,7 +2351,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
-                <reference value="Binary/care-plan-review-example"/></reference>
+                <reference value="Binary/care-plan-review-example"/>
+            </reference>
             <name value="Care Plan Review Example"/>
             <description value="BCare Plan Review example"/>
             <isExample value="true"/>
@@ -2352,7 +2367,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CaregiverCharacteristics"/>
             </extension>
             <reference>
-                <reference value="Binary/caregiver-characteristics-example"/></reference>
+                <reference value="Binary/caregiver-characteristics-example"/>
+            </reference>
             <name value="Caregiver Characteristics Example"/>
             <description value="Caregiver Characteristics example"/>
             <isExample value="true"/>
@@ -2367,7 +2383,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CharacteristicsofHomeEnvironment"/>
             </extension>
             <reference>
-                <reference value="Binary/characteristics-of-home-environment-example"/></reference>
+                <reference value="Binary/characteristics-of-home-environment-example"/>
+            </reference>
             <name value="Characteristics of Home Environment Example"/>
             <description value="Characteristics of Home Environment example"/>
             <isExample value="true"/>
@@ -2382,7 +2399,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintandReasonforVisitSection"/>
             </extension>
             <reference>
-                <reference value="Binary/chief-complaint-and-reason-for-visit-section-example"/></reference>
+                <reference value="Binary/chief-complaint-and-reason-for-visit-section-example"/>
+            </reference>
             <name value="Chief Complaint and Reason for Visit Section Example"/>
             <description value="Chief Complaint and Reason for Visit Section example"/>
             <isExample value="true"/>
@@ -2397,7 +2415,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintSection"/>
             </extension>
             <reference>
-                <reference value="Binary/chief-complaint-section-example"/></reference>
+                <reference value="Binary/chief-complaint-section-example"/>
+            </reference>
             <name value="Chief Complaint Section Example"/>
             <description value="Chief Complaint Section example"/>
             <isExample value="true"/>
@@ -2412,7 +2431,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CommentActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/comment-activity-example"/></reference>
+                <reference value="Binary/comment-activity-example"/>
+            </reference>
             <name value="Comment Activity Example"/>
             <description value="Comment Activity example"/>
             <isExample value="true"/>
@@ -2427,7 +2447,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ComplicationsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/complications-section-example"/></reference>
+                <reference value="Binary/complications-section-example"/>
+            </reference>
             <name value="Complications Section Example"/>
             <description value="Complications Section example"/>
             <isExample value="true"/>
@@ -2442,7 +2463,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
             </extension>
             <reference>
-                <reference value="Binary/ccd-author-example"/></reference>
+                <reference value="Binary/ccd-author-example"/>
+            </reference>
             <name value="Continuity Of Care Document Author Example"/>
             <description value="Continuity Of Care Document Author example"/>
             <isExample value="true"/>
@@ -2457,7 +2479,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Performer1"/>
             </extension>
             <reference>
-                <reference value="Binary/ccd-performer-example"/></reference>
+                <reference value="Binary/ccd-performer-example"/>
+            </reference>
             <name value="Continuity Of Care Document Performer"/>
             <description value="Continuity Of Care Document Performer example"/>
             <isExample value="true"/>
@@ -2472,7 +2495,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/DocumentationOf"/>
             </extension>
             <reference>
-                <reference value="Binary/ccd-serviceevent-example"/></reference>
+                <reference value="Binary/ccd-serviceevent-example"/>
+            </reference>
             <name value="Continuity Of Care Document serviceEvent Example"/>
             <description value="Continuity Of Care Document serviceEvent example"/>
             <isExample value="true"/>
@@ -2487,7 +2511,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
-                <reference value="Binary/consultation-note-callback-participant-example"/></reference>
+                <reference value="Binary/consultation-note-callback-participant-example"/>
+            </reference>
             <name value="Consultation Note Callback participant Example"/>
             <description value="Consultation Note Callback participant example"/>
             <isExample value="true"/>
@@ -2502,7 +2527,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/InFulfillmentOf"/>
             </extension>
             <reference>
-                <reference value="Binary/consultation-note-infulfillmentof-example"/></reference>
+                <reference value="Binary/consultation-note-infulfillmentof-example"/>
+            </reference>
             <name value="Consultation Note inFulfillmentOf Example"/>
             <description value="Consultation Note inFulfillmentOf example"/>
             <isExample value="true"/>
@@ -2517,7 +2543,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CourseofCareSection"/>
             </extension>
             <reference>
-                <reference value="Binary/course-of-care-section-example"/></reference>
+                <reference value="Binary/course-of-care-section-example"/>
+            </reference>
             <name value="Course of Care Section Example"/>
             <description value="Course of Care Section example"/>
             <isExample value="true"/>
@@ -2532,7 +2559,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CoverageActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/coverage-activity-example"/></reference>
+                <reference value="Binary/coverage-activity-example"/>
+            </reference>
             <name value="Coverage Activity Example"/>
             <description value="Coverage Activity example"/>
             <isExample value="true"/>
@@ -2547,7 +2575,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CriticalityObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/criticality-observation-example"/></reference>
+                <reference value="Binary/criticality-observation-example"/>
+            </reference>
             <name value="Criticality Observation Example"/>
             <description value="Criticality Observation example"/>
             <isExample value="true"/>
@@ -2562,7 +2591,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CulturalandReligiousObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/cultural-and-religious-observation-example"/></reference>
+                <reference value="Binary/cultural-and-religious-observation-example"/>
+            </reference>
             <name value="Cultural and Religious Observation Example"/>
             <description value="Cultural and Religious Observation example"/>
             <isExample value="true"/>
@@ -2577,7 +2607,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DeceasedObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/deceased-observation-example"/></reference>
+                <reference value="Binary/deceased-observation-example"/>
+            </reference>
             <name value="Deceased Observation Example"/>
             <description value="Deceased Observation example"/>
             <isExample value="true"/>
@@ -2592,7 +2623,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </extension>
             <reference>
-                <reference value="Binary/diagnosis-reference-example"/></reference>
+                <reference value="Binary/diagnosis-reference-example"/>
+            </reference>
             <name value="Diagnosis Reference Example"/>
             <description value="Diagnosis Reference example"/>
             <isExample value="true"/>
@@ -2607,7 +2639,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeDiagnosisSection"/>
             </extension>
             <reference>
-                <reference value="Binary/discharge-diagnosis-section-example"/></reference>
+                <reference value="Binary/discharge-diagnosis-section-example"/>
+            </reference>
             <name value="Discharge Diagnosis Example"/>
             <description value="Discharge Diagnosis example"/>
             <isExample value="true"/>
@@ -2622,7 +2655,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeMedication"/>
             </extension>
             <reference>
-                <reference value="Binary/discharge-medication-example"/></reference>
+                <reference value="Binary/discharge-medication-example"/>
+            </reference>
             <name value="Discharge Medication Example"/>
             <description value="Discharge Medication example"/>
             <isExample value="true"/>
@@ -2637,7 +2671,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ComponentOf"/>
             </extension>
             <reference>
-                <reference value="Binary/discharge-summary-encompassingencounter-example"/></reference>
+                <reference value="Binary/discharge-summary-encompassingencounter-example"/>
+            </reference>
             <name value="Discharge Summary encompassingEncounter Example"/>
             <description value="Discharge Summary (encompassingEncounter) example"/>
             <isExample value="true"/>
@@ -2652,7 +2687,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DrugMonitoringAct"/>
             </extension>
             <reference>
-                <reference value="Binary/drug-monitoring-act-example"/></reference>
+                <reference value="Binary/drug-monitoring-act-example"/>
+            </reference>
             <name value="Drug Monitoring Act Example"/>
             <description value="Drug Monitoring Act example"/>
             <isExample value="true"/>
@@ -2667,7 +2703,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DrugVehicle"/>
             </extension>
             <reference>
-                <reference value="Binary/drug-vehicle-example"/></reference>
+                <reference value="Binary/drug-vehicle-example"/>
+            </reference>
             <name value="Drug Vehicle Example"/>
             <description value="Drug Vehicle example"/>
             <isExample value="true"/>
@@ -2682,7 +2719,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/encounter-activity-example"/></reference>
+                <reference value="Binary/encounter-activity-example"/>
+            </reference>
             <name value="Encounter Activity Example"/>
             <description value="Encounter Activity example"/>
             <isExample value="true"/>
@@ -2697,7 +2735,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterDiagnosis"/>
             </extension>
             <reference>
-                <reference value="Binary/encounter-diagnosis-example"/></reference>
+                <reference value="Binary/encounter-diagnosis-example"/>
+            </reference>
             <name value="Encounter Diagnosis Example"/>
             <description value="tEncounter Diagnosis example"/>
             <isExample value="true"/>
@@ -2712,7 +2751,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/StructuredBody"/>
             </extension>
             <reference>
-                <reference value="Binary/entry-reference-example"/></reference>
+                <reference value="Binary/entry-reference-example"/>
+            </reference>
             <name value="Entry Reference Example"/>
             <description value="Entry Reference example"/>
             <isExample value="true"/>
@@ -2727,7 +2767,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/EstimatedDateofDelivery"/>
             </extension>
             <reference>
-                <reference value="Binary/estimated-date-of-delivery-example"/></reference>
+                <reference value="Binary/estimated-date-of-delivery-example"/>
+            </reference>
             <name value="Estimated Date of Delivery Example"/>
             <description value="Estimated Date of Delivery example"/>
             <isExample value="true"/>
@@ -2742,7 +2783,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ExternalDocumentReference"/>
             </extension>
             <reference>
-                <reference value="Binary/external-document-reference-example"/></reference>
+                <reference value="Binary/external-document-reference-example"/>
+            </reference>
             <name value="External Document Reference Example"/>
             <description value="External Document Reference example"/>
             <isExample value="true"/>
@@ -2757,7 +2799,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryDeathObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/family-history-death-observation-example"/></reference>
+                <reference value="Binary/family-history-death-observation-example"/>
+            </reference>
             <name value="Family History Death Observation Example"/>
             <description value="Family History Death Observation example"/>
             <isExample value="true"/>
@@ -2772,7 +2815,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/family-history-observation-example"/></reference>
+                <reference value="Binary/family-history-observation-example"/>
+            </reference>
             <name value="Family History Observation Example"/>
             <description value="Family History Observation example"/>
             <isExample value="true"/>
@@ -2787,7 +2831,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
             </extension>
             <reference>
-                <reference value="Binary/family-history-organizer-example"/></reference>
+                <reference value="Binary/family-history-organizer-example"/>
+            </reference>
             <name value="Family History Organizer Example"/>
             <description value="Family History Organizer example"/>
             <isExample value="true"/>
@@ -2802,7 +2847,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistorySection"/>
             </extension>
             <reference>
-                <reference value="Binary/family-history-section-example"/></reference>
+                <reference value="Binary/family-history-section-example"/>
+            </reference>
             <name value="Family History Section Example"/>
             <description value="Family History Section example"/>
             <isExample value="true"/>
@@ -2817,7 +2863,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/functional-status-observation-example"/></reference>
+                <reference value="Binary/functional-status-observation-example"/>
+            </reference>
             <name value="Functional Status Observation Example"/>
             <description value="Functional Status Observation example"/>
             <isExample value="true"/>
@@ -2832,7 +2879,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusOrganizer"/>
             </extension>
             <reference>
-                <reference value="Binary/functional-status-organizer-example"/></reference>
+                <reference value="Binary/functional-status-organizer-example"/>
+            </reference>
             <name value="Functional Status Organizer Example"/>
             <description value="Functional Status Organizer example"/>
             <isExample value="true"/>
@@ -2847,7 +2895,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusSection"/>
             </extension>
             <reference>
-                <reference value="Binary/functional-status-section-example"/></reference>
+                <reference value="Binary/functional-status-section-example"/>
+            </reference>
             <name value="Functional Status Section Example"/>
             <description value="Functional Status Section example"/>
             <isExample value="true"/>
@@ -2862,7 +2911,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/GeneralStatusSection"/>
             </extension>
             <reference>
-                <reference value="Binary/general-status-section-example"/></reference>
+                <reference value="Binary/general-status-section-example"/>
+            </reference>
             <name value="General Status Section Example"/>
             <description value="General Status Section example"/>
             <isExample value="true"/>
@@ -2877,7 +2927,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/goal-observation-example"/></reference>
+                <reference value="Binary/goal-observation-example"/>
+            </reference>
             <name value="Goal Observation Example"/>
             <description value="Goal Observation example"/>
             <isExample value="true"/>
@@ -2892,7 +2943,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HandoffCommunicationParticipants"/>
             </extension>
             <reference>
-                <reference value="Binary/handoff-communication-example"/></reference>
+                <reference value="Binary/handoff-communication-example"/>
+            </reference>
             <name value="Handoff Communication Participants Example"/>
             <description value="Handoff Communication Participants example"/>
             <isExample value="true"/>
@@ -2907,7 +2959,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct"/>
             </extension>
             <reference>
-                <reference value="Binary/health-concern-act-example"/></reference>
+                <reference value="Binary/health-concern-act-example"/>
+            </reference>
             <name value="Health Concern Act Example"/>
             <description value="Health Concern Act example"/>
             <isExample value="true"/>
@@ -2922,7 +2975,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/health-status-observation-example"/></reference>
+                <reference value="Binary/health-status-observation-example"/>
+            </reference>
             <name value="Health Status Observation Example"/>
             <description value="Health Status Observation example"/>
             <isExample value="true"/>
@@ -2937,7 +2991,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HighestPressureUlcerStage"/>
             </extension>
             <reference>
-                <reference value="Binary/highest-pressure-ulcer-stage-example"/></reference>
+                <reference value="Binary/highest-pressure-ulcer-stage-example"/>
+            </reference>
             <name value="Highest Pressure Ulcer Stage Example"/>
             <description value="Highest Pressure Ulcer Stage example"/>
             <isExample value="true"/>
@@ -2952,7 +3007,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ComponentOf"/>
             </extension>
             <reference>
-                <reference value="Binary/handp-encompassingencounter-example"/></reference>
+                <reference value="Binary/handp-encompassingencounter-example"/>
+            </reference>
             <name value="History and Physical Encompassing Encounter Example"/>
             <description value="History and Physical Encompassing Encounter example"/>
             <isExample value="true"/>
@@ -2967,7 +3023,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryofPresentIllnessSection"/>
             </extension>
             <reference>
-                <reference value="Binary/history-of-present-illness-section-example"/></reference>
+                <reference value="Binary/history-of-present-illness-section-example"/>
+            </reference>
             <name value="History Of Present Illness Example"/>
             <description value="History of Present Illness example"/>
             <isExample value="true"/>
@@ -2982,7 +3039,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalAdmissionDiagnosis"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-admission-diagnosis-example"/></reference>
+                <reference value="Binary/hospital-admission-diagnosis-example"/>
+            </reference>
             <name value="Hospital Admission Diagnosis Example"/>
             <description value="Hospital Admission Diagnosis example"/>
             <isExample value="true"/>
@@ -2997,7 +3055,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalConsultationsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-consultations-section-example"/></reference>
+                <reference value="Binary/hospital-consultations-section-example"/>
+            </reference>
             <name value="Hospital Consultations Section Example"/>
             <description value="Hospital Consultations Section example"/>
             <isExample value="true"/>
@@ -3012,7 +3071,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalCourseSection"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-course-section-example"/></reference>
+                <reference value="Binary/hospital-course-section-example"/>
+            </reference>
             <name value="Hospital Course Section Example"/>
             <description value="Hospital Course Section example"/>
             <isExample value="true"/>
@@ -3027,7 +3087,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalDischargeDiagnosis"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-discharge-diagnosis-example"/></reference>
+                <reference value="Binary/hospital-discharge-diagnosis-example"/>
+            </reference>
             <name value="Hospital Discharge Diagnosis Example"/>
             <description value="Hospital Discharge Diagnosis example"/>
             <isExample value="true"/>
@@ -3042,7 +3103,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalDischargeInstructionsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-discharge-instructions-section-example"/></reference>
+                <reference value="Binary/hospital-discharge-instructions-section-example"/>
+            </reference>
             <name value="Hospital Discharge Instructions Section Example"/>
             <description value="Hospital Discharge InstructionsSection example"/>
             <isExample value="true"/>
@@ -3057,7 +3119,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalDischargePhysicalSection"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-discharge-physical-section-example"/></reference>
+                <reference value="Binary/hospital-discharge-physical-section-example"/>
+            </reference>
             <name value="Hospital Discharge Physical Section Example"/>
             <description value="Hospital Discharge Physical Section example"/>
             <isExample value="true"/>
@@ -3072,7 +3135,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalDischargeStudiesSummarySection"/>
             </extension>
             <reference>
-                <reference value="Binary/hospital-discharge-studies-summary-section-example"/></reference>
+                <reference value="Binary/hospital-discharge-studies-summary-section-example"/>
+            </reference>
             <name value="Hospital Discharge Studies Summary Section Example"/>
             <description value="Hospital Discharge Studies Summary Section example"/>
             <isExample value="true"/>
@@ -3087,7 +3151,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/immunization-activity-example"/></reference>
+                <reference value="Binary/immunization-activity-example"/>
+            </reference>
             <name value="Immunization Activity Example"/>
             <description value="Immunization Activity example"/>
             <isExample value="true"/>
@@ -3102,7 +3167,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
             </extension>
             <reference>
-                <reference value="Binary/immunization-medication-information-example"/></reference>
+                <reference value="Binary/immunization-medication-information-example"/>
+            </reference>
             <name value="Immunization Medication Information Example"/>
             <description value="Immunization Medication Information example"/>
             <isExample value="true"/>
@@ -3117,7 +3183,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationRefusalReason"/>
             </extension>
             <reference>
-                <reference value="Binary/immunization-refusal-reason-example"/></reference>
+                <reference value="Binary/immunization-refusal-reason-example"/>
+            </reference>
             <name value="Immunization Refusal Reason Example"/>
             <description value="Immunization Refusal Reason example"/>
             <isExample value="true"/>
@@ -3132,7 +3199,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
             </extension>
             <reference>
-                <reference value="Binary/indication-example"/></reference>
+                <reference value="Binary/indication-example"/>
+            </reference>
             <name value="Indication Example"/>
             <description value="Indication example"/>
             <isExample value="true"/>
@@ -3147,7 +3215,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/instructions-section-example"/></reference>
+                <reference value="Binary/instructions-section-example"/>
+            </reference>
             <name value="Instructions Section Example"/>
             <description value="Instructions Section example"/>
             <isExample value="true"/>
@@ -3162,7 +3231,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
             </extension>
             <reference>
-                <reference value="Binary/instruction-example"/></reference>
+                <reference value="Binary/instruction-example"/>
+            </reference>
             <name value="Instruction Example"/>
             <description value="Instruction example"/>
             <isExample value="true"/>
@@ -3177,7 +3247,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/InterventionAct"/>
             </extension>
             <reference>
-                <reference value="Binary/intervention-act-moodcodeint-example"/></reference>
+                <reference value="Binary/intervention-act-moodcodeint-example"/>
+            </reference>
             <name value="Intervention Act Example"/>
             <description value="Intervention Act example"/>
             <isExample value="true"/>
@@ -3192,7 +3263,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/LongitudinalCareWoundObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/longitudinal-care-wound-observation-example"/></reference>
+                <reference value="Binary/longitudinal-care-wound-observation-example"/>
+            </reference>
             <name value="Longitudinal Care Wound Observation Example"/>
             <description value="Longitudinal Care Wound Observation example"/>
             <isExample value="true"/>
@@ -3207,7 +3279,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentOrganizer"/>
             </extension>
             <reference>
-                <reference value="Binary/medical-equipment-organizer-example"/></reference>
+                <reference value="Binary/medical-equipment-organizer-example"/>
+            </reference>
             <name value="Medical Equipment Organizer Example"/>
             <description value="Medical Equipment Organizer example"/>
             <isExample value="true"/>
@@ -3222,7 +3295,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentSection"/>
             </extension>
             <reference>
-                <reference value="Binary/medical-equipment-section-example"/></reference>
+                <reference value="Binary/medical-equipment-section-example"/>
+            </reference>
             <name value="Medical Equipment Section Example"/>
             <description value="Medical Equipment Section example"/>
             <isExample value="true"/>
@@ -3237,7 +3311,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-activity-example"/></reference>
+                <reference value="Binary/medication-activity-example"/>
+            </reference>
             <name value="Medication Activity Example"/>
             <description value="Medication Activity example"/>
             <isExample value="true"/>
@@ -3252,7 +3327,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-dispense-example"/></reference>
+                <reference value="Binary/medication-dispense-example"/>
+            </reference>
             <name value="Medication Dispense Example"/>
             <description value="Medication Dispense example"/>
             <isExample value="true"/>
@@ -3267,7 +3343,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-free-text-sig-example"/></reference>
+                <reference value="Binary/medication-free-text-sig-example"/>
+            </reference>
             <name value="Medication Free Text Sig Example"/>
             <description value="Medication Free Text Sig example"/>
             <isExample value="true"/>
@@ -3282,7 +3359,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationInformation"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-information-example"/></reference>
+                <reference value="Binary/medication-information-example"/>
+            </reference>
             <name value="Medication Information Example"/>
             <description value="Medication Information example"/>
             <isExample value="true"/>
@@ -3297,7 +3375,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationSupplyOrder"/>
             </extension>
             <reference>
-                <reference value="Binary/medication-supply-order-example"/></reference>
+                <reference value="Binary/medication-supply-order-example"/>
+            </reference>
             <name value="Medication Supply Order Example"/>
             <description value="Medication Supply Order example"/>
             <isExample value="true"/>
@@ -3312,7 +3391,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsAdministeredSection"/>
             </extension>
             <reference>
-                <reference value="Binary/medications-administered-section-example"/></reference>
+                <reference value="Binary/medications-administered-section-example"/>
+            </reference>
             <name value="Medications Administered Section Example"/>
             <description value="Medications Administered Section example"/>
             <isExample value="true"/>
@@ -3327,7 +3407,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/mental-status-observation-example"/></reference>
+                <reference value="Binary/mental-status-observation-example"/>
+            </reference>
             <name value="Mental Status Organizer Example"/>
             <description value="Mental Status Organizer example"/>
             <isExample value="true"/>
@@ -3342,7 +3423,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusOrganizer"/>
             </extension>
             <reference>
-                <reference value="Binary/mental-status-organizer-example"/></reference>
+                <reference value="Binary/mental-status-organizer-example"/>
+            </reference>
             <name value="Mental Status Organizer Example"/>
             <description value="Mental Status Organizer example"/>
             <isExample value="true"/>
@@ -3357,7 +3439,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/no-known-medications-example"/></reference>
+                <reference value="Binary/no-known-medications-example"/>
+            </reference>
             <name value="No Known Medications Example"/>
             <description value="No Known Medications example"/>
             <isExample value="true"/>
@@ -3372,7 +3455,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemSection"/>
             </extension>
             <reference>
-                <reference value="Binary/no-known-problems-section-example"/></reference>
+                <reference value="Binary/no-known-problems-section-example"/>
+            </reference>
             <name value="No Known Problem Section Example"/>
             <description value="No Known Problem Section example"/>
             <isExample value="true"/>
@@ -3387,7 +3471,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/non-medicinal-supply-activity-example"/></reference>
+                <reference value="Binary/non-medicinal-supply-activity-example"/>
+            </reference>
             <name value="Non-Medicinal Supply Activity Example"/>
             <description value="Non-Medicinal Supply Activity example"/>
             <isExample value="true"/>
@@ -3402,7 +3487,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/NonXMLBody"/>
             </extension>
             <reference>
-                <reference value="Binary/nonxmlbody-example-with-compressed-content"/></reference>
+                <reference value="Binary/nonxmlbody-example-with-compressed-content"/>
+            </reference>
             <name value="nonXML Body Example with Compressed Content"/>
             <description value="nonXMLBody Example with Compressed Content"/>
             <isExample value="true"/>
@@ -3417,7 +3503,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/NonXMLBody"/>
             </extension>
             <reference>
-                <reference value="Binary/nonxmlbody-example-with-embedded-content"/></reference>
+                <reference value="Binary/nonxmlbody-example-with-embedded-content"/>
+            </reference>
             <name value="nonXML Body Example with Embedded Content"/>
             <description value="nonXMLBody Example with Embedded Content"/>
             <isExample value="true"/>
@@ -3432,7 +3519,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/NonXMLBody"/>
             </extension>
             <reference>
-                <reference value="Binary/nonxmlbody-example-with-referenced-content"/></reference>
+                <reference value="Binary/nonxmlbody-example-with-referenced-content"/>
+            </reference>
             <name value="nonXML Body Example with Referenced Content"/>
             <description value="nonXMLBody Example with Referenced Content"/>
             <isExample value="true"/>
@@ -3447,7 +3535,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/NumberofPressureUlcersObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/number-of-pressure-ulcers-observation-example"/></reference>
+                <reference value="Binary/number-of-pressure-ulcers-observation-example"/>
+            </reference>
             <name value="Number of Pressure Ulcers Observation Example"/>
             <description value="Number of Pressure Ulcers Observation example"/>
             <isExample value="true"/>
@@ -3462,7 +3551,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionAssessment"/>
             </extension>
             <reference>
-                <reference value="Binary/nutrition-assessment-example"/></reference>
+                <reference value="Binary/nutrition-assessment-example"/>
+            </reference>
             <name value="Nutrition Assessment Example"/>
             <description value="Nutrition Assessment example"/>
             <isExample value="true"/>
@@ -3477,7 +3567,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionRecommendation"/>
             </extension>
             <reference>
-                <reference value="Binary/nutrition-recommendation-example"/></reference>
+                <reference value="Binary/nutrition-recommendation-example"/>
+            </reference>
             <name value="Nutrition Recommendation Example"/>
             <description value="Nutrition Recommendation example"/>
             <isExample value="true"/>
@@ -3492,7 +3583,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionSection"/>
             </extension>
             <reference>
-                <reference value="Binary/nutrition-section-example"/></reference>
+                <reference value="Binary/nutrition-section-example"/>
+            </reference>
             <name value="Nutrition Section Example"/>
             <description value="Nutrition Section example"/>
             <isExample value="true"/>
@@ -3507,7 +3599,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionalStatusObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/nutritional-status-observation-example"/></reference>
+                <reference value="Binary/nutritional-status-observation-example"/>
+            </reference>
             <name value="Nutritional Status Observation Example"/>
             <description value="Nutritional Status Observation example"/>
             <isExample value="true"/>
@@ -3522,7 +3615,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ObjectiveSection"/>
             </extension>
             <reference>
-                <reference value="Binary/objective-section-example"/></reference>
+                <reference value="Binary/objective-section-example"/>
+            </reference>
             <name value="Objective Section Example"/>
             <description value="Objective Section example"/>
             <isExample value="true"/>
@@ -3537,7 +3631,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Performer1"/>
             </extension>
             <reference>
-                <reference value="Binary/operative-note-performer-example"/></reference>
+                <reference value="Binary/operative-note-performer-example"/>
+            </reference>
             <name value="Operative Note performer Example"/>
             <description value="Operative Note performer example"/>
             <isExample value="true"/>
@@ -3552,7 +3647,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ServiceEvent"/>
             </extension>
             <reference>
-                <reference value="Binary/operative-note-serviceevent-example"/></reference>
+                <reference value="Binary/operative-note-serviceevent-example"/>
+            </reference>
             <name value="Operative Note serviceEvent Example"/>
             <description value="Operative Note serviceEvent example"/>
             <isExample value="true"/>
@@ -3567,7 +3663,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNoteFluidsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/operative-note-fluids-section-example"/></reference>
+                <reference value="Binary/operative-note-fluids-section-example"/>
+            </reference>
             <name value="Operative Note Fluids Section Example"/>
             <description value="Operative Note Fluids Section example"/>
             <isExample value="true"/>
@@ -3582,7 +3679,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNoteSurgicalProcedureSection"/>
             </extension>
             <reference>
-                <reference value="Binary/operative-note-surgical-procedure-section-example"/></reference>
+                <reference value="Binary/operative-note-surgical-procedure-section-example"/>
+            </reference>
             <name value="Operative Note Surgical Procedure Section Example"/>
             <description value="Operative Note Surgical Procedure Section example"/>
             <isExample value="true"/>
@@ -3597,7 +3695,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/outcome-observation-example"/></reference>
+                <reference value="Binary/outcome-observation-example"/>
+            </reference>
             <name value="Outcome Observation Example"/>
             <description value="Outcome Observation example"/>
             <isExample value="true"/>
@@ -3612,7 +3711,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PastMedicalHistory"/>
             </extension>
             <reference>
-                <reference value="Binary/past-medical-history-example"/></reference>
+                <reference value="Binary/past-medical-history-example"/>
+            </reference>
             <name value="Past Medical History Example"/>
             <description value="Past Medical History example"/>
             <isExample value="true"/>
@@ -3627,7 +3727,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Authenticator"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-authenticator-example"/></reference>
+                <reference value="Binary/patient-generated-document-authenticator-example"/>
+            </reference>
             <name value="Patient Generated Document authenticator"/>
             <description value="Patient Generated Document authenticator example"/>
             <isExample value="true"/>
@@ -3642,7 +3743,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-author-device-example"/></reference>
+                <reference value="Binary/patient-generated-document-author-device-example"/>
+            </reference>
             <name value="Patient Generated Document author device Example"/>
             <description value="Patient Generated Document author device example"/>
             <isExample value="true"/>
@@ -3657,7 +3759,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-author-example"/></reference>
+                <reference value="Binary/patient-generated-document-author-example"/>
+            </reference>
             <name value="Patient Generated Document author"/>
             <description value="Patient Generated Document author example"/>
             <isExample value="true"/>
@@ -3672,7 +3775,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Custodian"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-custodian-example"/></reference>
+                <reference value="Binary/patient-generated-document-custodian-example"/>
+            </reference>
             <name value="Patient Generated Document custodian Example"/>
             <description value="PPatient Generated Document custodian example"/>
             <isExample value="true"/>
@@ -3687,7 +3791,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/DataEnterer"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-dataenterer-example"/></reference>
+                <reference value="Binary/patient-generated-document-dataenterer-example"/>
+            </reference>
             <name value="Patient Generated Document dataEnterer"/>
             <description value="Patient Generated Document dataEnterer example"/>
             <isExample value="true"/>
@@ -3702,7 +3807,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Informant"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-informant-example-informant"/></reference>
+                <reference value="Binary/patient-generated-document-informant-example-informant"/>
+            </reference>
             <name value="Patient Generated Document informant Example informant"/>
             <description value="Patient Generated Document informant Example informant"/>
             <isExample value="true"/>
@@ -3717,7 +3823,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Informant"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-informant-relent-example"/></reference>
+                <reference value="Binary/patient-generated-document-informant-relent-example"/>
+            </reference>
             <name value="Patient Generated Document informant RelEnt Example"/>
             <description value="Patient Generated Document informant RelEnt example"/>
             <isExample value="true"/>
@@ -3732,7 +3839,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/InformationRecipient"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-informationrecipient"/></reference>
+                <reference value="Binary/patient-generated-document-informationrecipient"/>
+            </reference>
             <name value="Patient Generated Document informationRecipient Example"/>
             <description value="Patient Generated Document informationRecipient example"/>
             <isExample value="true"/>
@@ -3747,7 +3855,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/InFulfillmentOf"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-infulfillmentof-example"/></reference>
+                <reference value="Binary/patient-generated-document-infulfillmentof-example"/>
+            </reference>
             <name value="Patient Generated Document inFulfillmentOf Example"/>
             <description value="Patient Generated Document inFulfillmentOf example"/>
             <isExample value="true"/>
@@ -3762,7 +3871,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/LegalAuthenticator"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-legalauthenticator-example"/></reference>
+                <reference value="Binary/patient-generated-document-legalauthenticator-example"/>
+            </reference>
             <name value="Patient Generated Document legalAuthenticator Example"/>
             <description value="PPatient Generated Document legalAuthenticator example"/>
             <isExample value="true"/>
@@ -3777,7 +3887,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-participant-example"/></reference>
+                <reference value="Binary/patient-generated-document-participant-example"/>
+            </reference>
             <name value="Patient Generated Document participant Example"/>
             <description value="Patient Generated Document participant example"/>
             <isExample value="true"/>
@@ -3792,7 +3903,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/RecordTarget"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-generated-document-recordtarget-example"/></reference>
+                <reference value="Binary/patient-generated-document-recordtarget-example"/>
+            </reference>
             <name value="Patient Generated Document recordTarget"/>
             <description value="Patient Generated Document recordTarget example"/>
             <isExample value="true"/>
@@ -3807,7 +3919,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-referral-act-example"/></reference>
+                <reference value="Binary/patient-referral-act-example"/>
+            </reference>
             <name value="Patient Referral Act Example"/>
             <description value="Patient Referral Act example"/>
             <isExample value="true"/>
@@ -3822,7 +3935,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PayersSection"/>
             </extension>
             <reference>
-                <reference value="Binary/payers-section-example"/></reference>
+                <reference value="Binary/payers-section-example"/>
+            </reference>
             <name value="Payers Section Example"/>
             <description value="Payers Section example"/>
             <isExample value="true"/>
@@ -3837,7 +3951,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PhysicalExamSection"/>
             </extension>
             <reference>
-                <reference value="Binary/physical-exam-section-example"/></reference>
+                <reference value="Binary/physical-exam-section-example"/>
+            </reference>
             <name value="Physical Exam Section Example"/>
             <description value="Physical Exam Section example"/>
             <isExample value="true"/>
@@ -3852,7 +3967,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection"/>
             </extension>
             <reference>
-                <reference value="Binary/plan-of-treatment-section-example"/></reference>
+                <reference value="Binary/plan-of-treatment-section-example"/>
+            </reference>
             <name value="Plan of Treatment Section Example"/>
             <description value="Plan of Treatment Section example"/>
             <isExample value="true"/>
@@ -3867,7 +3983,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedAct"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-act-example"/></reference>
+                <reference value="Binary/planned-act-example"/>
+            </reference>
             <name value="Planned Act Example"/>
             <description value="Planned Act example Example"/>
             <isExample value="true"/>
@@ -3882,7 +3999,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedCoverage"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-coverage-example"/></reference>
+                <reference value="Binary/planned-coverage-example"/>
+            </reference>
             <name value="Planned Coverage Example"/>
             <description value="Planned Coverage example"/>
             <isExample value="true"/>
@@ -3897,7 +4015,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-encounter-example"/></reference>
+                <reference value="Binary/planned-encounter-example"/>
+            </reference>
             <name value="Planned Encounter Example"/>
             <description value="Planned Encounter example"/>
             <isExample value="true"/>
@@ -3912,7 +4031,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedImmunizationActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-immunization-activity"/></reference>
+                <reference value="Binary/planned-immunization-activity"/>
+            </reference>
             <name value="Planned Immunization Activity Example"/>
             <description value="Planned Immunization Activity example"/>
             <isExample value="true"/>
@@ -3927,7 +4047,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-medication-activity-example"/></reference>
+                <reference value="Binary/planned-medication-activity-example"/>
+            </reference>
             <name value="Planned Medication Activity Example"/>
             <description value="Planned Medication Activity example"/>
             <isExample value="true"/>
@@ -3942,7 +4063,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-observation-example"/></reference>
+                <reference value="Binary/planned-observation-example"/>
+            </reference>
             <name value="Planned Observation Example"/>
             <description value="Planned Observation example"/>
             <isExample value="true"/>
@@ -3957,7 +4079,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedureSection"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-procedure-section-example"/></reference>
+                <reference value="Binary/planned-procedure-section-example"/>
+            </reference>
             <name value="Planned Procedure Section Example"/>
             <description value="Planned Procedure Section example"/>
             <isExample value="true"/>
@@ -3972,7 +4095,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-procedure-example"/></reference>
+                <reference value="Binary/planned-procedure-example"/>
+            </reference>
             <name value="Planned Procedure Example"/>
             <description value="Planned Procedure example"/>
             <isExample value="true"/>
@@ -3987,7 +4111,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
             </extension>
             <reference>
-                <reference value="Binary/planned-supply-example"/></reference>
+                <reference value="Binary/planned-supply-example"/>
+            </reference>
             <name value="Planned Supply Example"/>
             <description value="Planned Supply example"/>
             <isExample value="true"/>
@@ -4002,7 +4127,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
             </extension>
             <reference>
-                <reference value="Binary/policy-activity-example"/></reference>
+                <reference value="Binary/policy-activity-example"/>
+            </reference>
             <name value="Policy Activity Example"/>
             <description value="Policy Activity example"/>
             <isExample value="true"/>
@@ -4017,7 +4143,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PostoperativeDiagnosisSection"/>
             </extension>
             <reference>
-                <reference value="Binary/postoperative-diagnosis-section-example"/></reference>
+                <reference value="Binary/postoperative-diagnosis-section-example"/>
+            </reference>
             <name value="Postoperative Diagnosis Section Example"/>
             <description value="Postoperative Diagnosis Section example"/>
             <isExample value="true"/>
@@ -4032,7 +4159,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosisSection"/>
             </extension>
             <reference>
-                <reference value="Binary/postprocedure-diagnosis-section-example"/></reference>
+                <reference value="Binary/postprocedure-diagnosis-section-example"/>
+            </reference>
             <name value="Postprocedure Diagnosis Section Example"/>
             <description value="Postprocedure Diagnosis Section example"/>
             <isExample value="true"/>
@@ -4047,7 +4175,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PreconditionforSubstanceAdministration"/>
             </extension>
             <reference>
-                <reference value="Binary/precondition-for-substance-administration-example"/></reference>
+                <reference value="Binary/precondition-for-substance-administration-example"/>
+            </reference>
             <name value="Precondition for Substance Administration Example"/>
             <description value="Precondition for Substance Administration example"/>
             <isExample value="true"/>
@@ -4062,7 +4191,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/pregnancy-observation-example"/></reference>
+                <reference value="Binary/pregnancy-observation-example"/>
+            </reference>
             <name value="Pregnancy Observation Example"/>
             <description value="Pregnancy Observation example"/>
             <isExample value="true"/>
@@ -4077,7 +4207,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PreoperativeDiagnosisSection"/>
             </extension>
             <reference>
-                <reference value="Binary/preoperative-diagnosis-section-example"/></reference>
+                <reference value="Binary/preoperative-diagnosis-section-example"/>
+            </reference>
             <name value="Preoperative Diagnosis Section Example"/>
             <description value="Preoperative Diagnosis Section example"/>
             <isExample value="true"/>
@@ -4092,7 +4223,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PreoperativeDiagnosis"/>
             </extension>
             <reference>
-                <reference value="Binary/preoperative-diagnosis-example"/></reference>
+                <reference value="Binary/preoperative-diagnosis-example"/>
+            </reference>
             <name value="Preoperative Diagnosis Example"/>
             <description value="Preoperative Diagnosis example"/>
             <isExample value="true"/>
@@ -4107,7 +4239,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PriorityPreference"/>
             </extension>
             <reference>
-                <reference value="Binary/priority-preference-example"/></reference>
+                <reference value="Binary/priority-preference-example"/>
+            </reference>
             <name value="Priority Preference Example"/>
             <description value="Priority Preference example"/>
             <isExample value="true"/>
@@ -4122,7 +4255,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemConcernAct"/>
             </extension>
             <reference>
-                <reference value="Binary/problem-concern-act-example"/></reference>
+                <reference value="Binary/problem-concern-act-example"/>
+            </reference>
             <name value="Problem Concern Act Example"/>
             <description value="Problem Concern Act example"/>
             <isExample value="true"/>
@@ -4137,7 +4271,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/problem-observation-example"/></reference>
+                <reference value="Binary/problem-observation-example"/>
+            </reference>
             <name value="Problem Observation Example"/>
             <description value="Problem Observation example"/>
             <isExample value="true"/>
@@ -4152,7 +4287,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Performer1"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-note-performer-example"/></reference>
+                <reference value="Binary/procedure-note-performer-example"/>
+            </reference>
             <name value="Procedure Note performer Example"/>
             <description value="Procedure Note performer example"/>
             <isExample value="true"/>
@@ -4167,7 +4303,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/DocumentationOf"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-note-serviceevent-example"/></reference>
+                <reference value="Binary/procedure-note-serviceevent-example"/>
+            </reference>
             <name value="Procedure Note serviceEvent Example"/>
             <description value="Procedure Note serviceEvent example"/>
             <isExample value="true"/>
@@ -4182,7 +4319,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-activity-procedure-example"/></reference>
+                <reference value="Binary/procedure-activity-procedure-example"/>
+            </reference>
             <name value="Procedure Activity Procedure Example"/>
             <description value="Procedure Activity Procedure example"/>
             <isExample value="true"/>
@@ -4197,7 +4335,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureDescriptionSection"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-description-section-example"/></reference>
+                <reference value="Binary/procedure-description-section-example"/>
+            </reference>
             <name value="Procedure Description Section Example"/>
             <description value="Procedure Description Section example"/>
             <isExample value="true"/>
@@ -4212,7 +4351,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureDispositionSection"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-disposition-section-example"/></reference>
+                <reference value="Binary/procedure-disposition-section-example"/>
+            </reference>
             <name value="Procedure Disposition Section Example"/>
             <description value="Procedure Disposition Section example"/>
             <isExample value="true"/>
@@ -4227,7 +4367,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureEstimatedBloodLossSection"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-estimated-blood-loss-section-example"/></reference>
+                <reference value="Binary/procedure-estimated-blood-loss-section-example"/>
+            </reference>
             <name value="Procedure Estimated Blood Loss Section Example"/>
             <description value="Procedure Estimated Blood Loss Section example"/>
             <isExample value="true"/>
@@ -4242,7 +4383,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureFindingsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-findings-section-example"/></reference>
+                <reference value="Binary/procedure-findings-section-example"/>
+            </reference>
             <name value="Procedure Findings Section Example"/>
             <description value="Procedure Findings Section dexample"/>
             <isExample value="true"/>
@@ -4257,7 +4399,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureImplantsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-implants-section-example"/></reference>
+                <reference value="Binary/procedure-implants-section-example"/>
+            </reference>
             <name value="Procedure Implants Section Example"/>
             <description value="Procedure Implants Section example"/>
             <isExample value="true"/>
@@ -4272,7 +4415,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureIndicationsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-indications-section-example"/></reference>
+                <reference value="Binary/procedure-indications-section-example"/>
+            </reference>
             <name value="Procedure Indications Section Example"/>
             <description value="Procedure Indications Section example"/>
             <isExample value="true"/>
@@ -4287,7 +4431,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureSpecimensTakenSection"/>
             </extension>
             <reference>
-                <reference value="Binary/procedure-specimens-taken-section-example"/></reference>
+                <reference value="Binary/procedure-specimens-taken-section-example"/>
+            </reference>
             <name value="Procedure Specimens Taken Section Example"/>
             <description value="Procedure Specimens Taken Section example"/>
             <isExample value="true"/>
@@ -4302,7 +4447,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProductInstance"/>
             </extension>
             <reference>
-                <reference value="Binary/product-instance-example"/></reference>
+                <reference value="Binary/product-instance-example"/>
+            </reference>
             <name value="Product Instance Example"/>
             <description value="Product Instance example"/>
             <isExample value="true"/>
@@ -4317,7 +4463,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PrognosisObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/prognosis-coded-example"/></reference>
+                <reference value="Binary/prognosis-coded-example"/>
+            </reference>
             <name value="Prognosis Coded Example"/>
             <description value="Prognosis Coded example"/>
             <isExample value="true"/>
@@ -4332,7 +4479,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PrognosisObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/prognosis-free-text-example"/></reference>
+                <reference value="Binary/prognosis-free-text-example"/>
+            </reference>
             <name value="Prognosis Free Text Example"/>
             <description value="Prognosis Free Text example"/>
             <isExample value="true"/>
@@ -4347,7 +4495,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ComponentOf"/>
             </extension>
             <reference>
-                <reference value="Binary/progress-note-encompassingencounter-example"/></reference>
+                <reference value="Binary/progress-note-encompassingencounter-example"/>
+            </reference>
             <name value="Progress Note encompassingEncounter Example"/>
             <description value="Progress Note encompassingEncounter example"/>
             <isExample value="true"/>
@@ -4362,7 +4511,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/DocumentationOf"/>
             </extension>
             <reference>
-                <reference value="Binary/progress-note-serviceevent-example"/></reference>
+                <reference value="Binary/progress-note-serviceevent-example"/>
+            </reference>
             <name value="Progress Note serviceEvent Example"/>
             <description value="Progress Note serviceEvent example"/>
             <isExample value="true"/>
@@ -4377,7 +4527,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressTowardGoalObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/progress-toward-goal-observation-example"/></reference>
+                <reference value="Binary/progress-toward-goal-observation-example"/>
+            </reference>
             <name value="Progress Toward Goal Observation Example"/>
             <description value="Progress Toward Goal Observation example"/>
             <isExample value="true"/>
@@ -4392,7 +4543,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/reaction-observation-example"/></reference>
+                <reference value="Binary/reaction-observation-example"/>
+            </reference>
             <name value="Reaction Observation Example"/>
             <description value="Reaction Observation example"/>
             <isExample value="true"/>
@@ -4407,7 +4559,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforReferralSection"/>
             </extension>
             <reference>
-                <reference value="Binary/reason-for-referral-section-example"/></reference>
+                <reference value="Binary/reason-for-referral-section-example"/>
+            </reference>
             <name value="Reason For Referral"/>
             <description value="Reason For Referral example"/>
             <isExample value="true"/>
@@ -4422,7 +4575,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforVisitSection"/>
             </extension>
             <reference>
-                <reference value="Binary/reason-for-visit-section-example"/></reference>
+                <reference value="Binary/reason-for-visit-section-example"/>
+            </reference>
             <name value="Reason for Visit Section Example"/>
             <description value="Reason for Visit Section example"/>
             <isExample value="true"/>
@@ -4437,7 +4591,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
-                <reference value="Binary/referral-note-callback-contact-example"/></reference>
+                <reference value="Binary/referral-note-callback-contact-example"/>
+            </reference>
             <name value="Referral Note Callback Contact Example"/>
             <description value="Referral Note Callback Contact example"/>
             <isExample value="true"/>
@@ -4452,7 +4607,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
-                <reference value="Binary/referral-note-caregiver-example"/></reference>
+                <reference value="Binary/referral-note-caregiver-example"/>
+            </reference>
             <name value="Referral Note Caregiver"/>
             <description value="Referral Note Caregiver example"/>
             <isExample value="true"/>
@@ -4467,7 +4623,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/InformationRecipient"/>
             </extension>
             <reference>
-                <reference value="Binary/referral-note-informationrecipient-example"/></reference>
+                <reference value="Binary/referral-note-informationrecipient-example"/>
+            </reference>
             <name value="Referral Note informationRecipient Example"/>
             <description value="Referral Note informationRecipient example"/>
             <isExample value="true"/>
@@ -4482,7 +4639,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/result-observation-example"/></reference>
+                <reference value="Binary/result-observation-example"/>
+            </reference>
             <name value="Result Observation Example"/>
             <description value="Result Observation example"/>
             <isExample value="true"/>
@@ -4497,7 +4655,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
             </extension>
             <reference>
-                <reference value="Binary/result-organizer-example"/></reference>
+                <reference value="Binary/result-organizer-example"/>
+            </reference>
             <name value="Result Organizer Example"/>
             <description value="Result Organizer example"/>
             <isExample value="true"/>
@@ -4512,7 +4671,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReviewofSystemsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/review-of-systems-section-example"/></reference>
+                <reference value="Binary/review-of-systems-section-example"/>
+            </reference>
             <name value="Review Of Systems Section Example"/>
             <description value="Review of Systems Section example"/>
             <isExample value="true"/>
@@ -4527,7 +4687,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/RiskConcernAct"/>
             </extension>
             <reference>
-                <reference value="Binary/risk-concern-act-example"/></reference>
+                <reference value="Binary/risk-concern-act-example"/>
+            </reference>
             <name value="Risk Concern Act Example"/>
             <description value="Risk Concern Act example"/>
             <isExample value="true"/>
@@ -4542,7 +4703,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SelfCareActivitiesADLandIADL"/>
             </extension>
             <reference>
-                <reference value="Binary/self-care-activities-adl-and-iadl-example"/></reference>
+                <reference value="Binary/self-care-activities-adl-and-iadl-example"/>
+            </reference>
             <name value="Self-Care Activities ADL and IADL Example"/>
             <description value="Self-Care Activities (ADL and IADL) example"/>
             <isExample value="true"/>
@@ -4557,7 +4719,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SensoryStatus"/>
             </extension>
             <reference>
-                <reference value="Binary/sensory-and-speech-status-example"/></reference>
+                <reference value="Binary/sensory-and-speech-status-example"/>
+            </reference>
             <name value="Sensory Status Example"/>
             <description value="Sensory Status example"/>
             <isExample value="true"/>
@@ -4572,7 +4735,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
             </extension>
             <reference>
-                <reference value="Binary/service-delivery-location-example"/></reference>
+                <reference value="Binary/service-delivery-location-example"/>
+            </reference>
             <name value="Service Delivery Location Example"/>
             <description value="Service Delivery Location example"/>
             <isExample value="true"/>
@@ -4587,7 +4751,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SeverityObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/severity-observation-example"/></reference>
+                <reference value="Binary/severity-observation-example"/>
+            </reference>
             <name value="Severity Observation Example"/>
             <description value="Severity Observation example"/>
             <isExample value="true"/>
@@ -4602,7 +4767,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse"/>
             </extension>
             <reference>
-                <reference value="Binary/smoking-status-meaningful-use-example"/></reference>
+                <reference value="Binary/smoking-status-meaningful-use-example"/>
+            </reference>
             <name value="Smoking Status Meaningful Use Example"/>
             <description value="Smoking Status - Meaningful Use example"/>
             <isExample value="true"/>
@@ -4617,7 +4783,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/social-history-observation-example"/></reference>
+                <reference value="Binary/social-history-observation-example"/>
+            </reference>
             <name value="Social History Observation Example"/>
             <description value="Social History Observation example"/>
             <isExample value="true"/>
@@ -4632,7 +4799,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistorySection"/>
             </extension>
             <reference>
-                <reference value="Binary/social-history-section-example"/></reference>
+                <reference value="Binary/social-history-section-example"/>
+            </reference>
             <name value="Social History Section Example"/>
             <description value="Social History Section example"/>
             <isExample value="true"/>
@@ -4647,7 +4815,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SubjectiveSection"/>
             </extension>
             <reference>
-                <reference value="Binary/subjective-section-example"/></reference>
+                <reference value="Binary/subjective-section-example"/>
+            </reference>
             <name value="Subjective Section Example"/>
             <description value="Subjective Section example"/>
             <isExample value="true"/>
@@ -4662,7 +4831,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceAdministeredAct"/>
             </extension>
             <reference>
-                <reference value="Binary/substance-administered-act-example"/></reference>
+                <reference value="Binary/substance-administered-act-example"/>
+            </reference>
             <name value="Substance Administered Act Example"/>
             <description value="Substance Administered Act example"/>
             <isExample value="true"/>
@@ -4677,7 +4847,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SurgicalDrainsSection"/>
             </extension>
             <reference>
-                <reference value="Binary/surgical-drains-section-example"/></reference>
+                <reference value="Binary/surgical-drains-section-example"/>
+            </reference>
             <name value="Surgical Drains Section Example"/>
             <description value="Surgical Drains Section example"/>
             <isExample value="true"/>
@@ -4692,7 +4863,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse"/>
             </extension>
             <reference>
-                <reference value="Binary/tobacco-use-example"/></reference>
+                <reference value="Binary/tobacco-use-example"/>
+            </reference>
             <name value="Tobacco Use Example"/>
             <description value="Tobacco Use example"/>
             <isExample value="true"/>
@@ -4707,7 +4879,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
-                <reference value="Binary/transfer-summary-callback-contact-example"/></reference>
+                <reference value="Binary/transfer-summary-callback-contact-example"/>
+            </reference>
             <name value="Transfer Summary Callback Contact Example"/>
             <description value="Transfer Summary Callback Contact example"/>
             <isExample value="true"/>
@@ -4722,7 +4895,8 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
-                <reference value="Binary/transfer-summary-participant-support-example"/></reference>
+                <reference value="Binary/transfer-summary-participant-support-example"/>
+            </reference>
             <name value="Transfer Summary participant (Support) Example"/>
             <description value="Transfer Summary participant (Support) example"/>
             <isExample value="true"/>
@@ -4737,7 +4911,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
             </extension>
             <reference>
-                <reference value="Binary/us-realm-address-example"/></reference>
+                <reference value="Binary/us-realm-address-example"/>
+            </reference>
             <name value="US Realm Address Example"/>
             <description value="US Realm Address example"/>
             <isExample value="true"/>
@@ -4752,7 +4927,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
             </extension>
             <reference>
-                <reference value="Binary/us-realm-date-and-time-example"/></reference>
+                <reference value="Binary/us-realm-date-and-time-example"/>
+            </reference>
             <name value="US Realm Date and Time Example"/>
             <description value="US Realm Date and Time example"/>
             <isExample value="true"/>
@@ -4767,7 +4943,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </extension>
             <reference>
-                <reference value="Binary/us-realm-date-and-time-ivl-example"/></reference>
+                <reference value="Binary/us-realm-date-and-time-ivl-example"/>
+            </reference>
             <name value="US Realm Date and Time Interval Example"/>
             <description value="US Realm Date and Time Interval example"/>
             <isExample value="true"/>
@@ -4782,7 +4959,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </extension>
             <reference>
-                <reference value="Binary/us-realm-header-example"/></reference>
+                <reference value="Binary/us-realm-header-example"/>
+            </reference>
             <name value="US Realm Header Example"/>
             <description value="US Realm Header example"/>
             <isExample value="true"/>
@@ -4797,7 +4975,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
             </extension>
             <reference>
-                <reference value="Binary/us-realm-person-name-example"/></reference>
+                <reference value="Binary/us-realm-person-name-example"/>
+            </reference>
             <name value="US Realm Person Name Example"/>
             <description value="US Realm Person Name example"/>
             <isExample value="true"/>
@@ -4812,7 +4991,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/vital-sign-observation-example"/></reference>
+                <reference value="Binary/vital-sign-observation-example"/>
+            </reference>
             <name value="Vital Sign Observation Example"/>
             <description value="Vital Sign Observation example"/>
             <isExample value="true"/>
@@ -4827,7 +5007,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsOrganizer"/>
             </extension>
             <reference>
-                <reference value="Binary/vital-signs-organizer-example"/></reference>
+                <reference value="Binary/vital-signs-organizer-example"/>
+            </reference>
             <name value="Vital Signs Organizer Example"/>
             <description value="Vital Signs Organizer example"/>
             <isExample value="true"/>
@@ -4842,7 +5023,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundCharacteristic"/>
             </extension>
             <reference>
-                <reference value="Binary/wound-characteristic-example"/></reference>
+                <reference value="Binary/wound-characteristic-example"/>
+            </reference>
             <name value="Wound Characteristic Example"/>
             <description value="Wound Characteristic example"/>
             <isExample value="true"/>
@@ -4857,7 +5039,8 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundMeasurementObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/wound-measurement-observation-example"/></reference>
+                <reference value="Binary/wound-measurement-observation-example"/>
+            </reference>
             <name value="Wound Measurement Observation Example"/>
             <description value="Wound Measurement Observation example"/>
             <isExample value="true"/>
@@ -4953,7 +5136,7 @@
                 <title value="USCDI Guidance"/>
                 <generation value="markdown"/>
             </page>
-			        <page>
+            <page>
                 <sourceUrl value="uscdi.html"/>
                 <name value="uscdi.html"/>
                 <title value="USCDI Table"/>
