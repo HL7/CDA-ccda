@@ -24,12 +24,13 @@ RuleSet: AdditionalBinding(purpose, valueSet, short, documentation)
 * ^binding.additional[=].shortDoco = "{short}"
 * ^binding.additional[=].documentation = "{documentation}"
 
-// Flag an element as meeting a USCDI requirement. If label contains, or ), surround the text witn [[ ]]
+// Assign a fixed LOINC code
 RuleSet: CodedLoinc(code, display)
 * ^short = "{display}"
 * code = #{code}
 * codeSystem = "2.16.840.1.113883.6.1"
 
+// Assign a fixed SNOMED code
 RuleSet: CodedSnomed(code, display)
 * ^short = "{display}"
 * code = #{code}
@@ -46,26 +47,6 @@ Invariant: shall-code-or-nullflavor
 Severity: #error
 Description: "SHALL contain either a @code attribute or a @nullFlavor attribute, but not both."
 Expression: "(code | nullFlavor).count() = 1"
-
-////////////////////////////////////////////////////////////
-//                                                        //
-//          Constrinat (Invariant) Generation             //
-//                                                        //
-////////////////////////////////////////////////////////////
-
-// Creates an error-level constraint. Pass strings unquoted. If they contain , or ) surround the string with [[ ]] 
-RuleSet: ConstraintError(key, human, expression)
-* ^constraint[+].key = "{key}"
-* ^constraint[=].severity = #error
-* ^constraint[=].human = "{human}"
-* ^constraint[=].expression = "{expression}"
-
-// Creates a warning-level constraint. Pass strings unquoted. If they contain , or ) surround the string with [[ ]] 
-RuleSet: ConstraintWarning(key, human, expression)
-* ^constraint[+].key = "{key}"
-* ^constraint[=].severity = #warning
-* ^constraint[=].human = "{human}"
-* ^constraint[=].expression = "{expression}"
 
 
 ////////////////////////////////////////////////////////////
