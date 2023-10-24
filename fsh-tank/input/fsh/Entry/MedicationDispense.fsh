@@ -47,7 +47,7 @@ Description: "This template records the act of supplying medications (i.e., disp
     * addr 0..1
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-7468)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"

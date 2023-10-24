@@ -74,8 +74,6 @@ This information should be included in an Immunization Activity when available. 
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31151)."
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #profile
-  * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.rules = #open
 * participant contains drugVehicle 0..*
 * participant[drugVehicle] ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8850) such that it"

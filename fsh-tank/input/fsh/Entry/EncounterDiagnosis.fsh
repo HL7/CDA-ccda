@@ -22,6 +22,8 @@ Description: "This template wraps relevant problems or diagnoses at the close of
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32160)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * statusCode 1..1
   * code 1..1

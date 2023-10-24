@@ -41,7 +41,7 @@ Description: "This clinical statement describes an interaction between a patient
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8727)."
-* participant ^slicing.discriminator[0].type = #value
+* participant ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
@@ -54,8 +54,10 @@ Description: "This clinical statement describes an interaction between a patient
   * participantRole 1..1
   * participantRole only ServiceDeliveryLocation
     * ^comment = "SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1198-14903)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains
     indication 0..* and

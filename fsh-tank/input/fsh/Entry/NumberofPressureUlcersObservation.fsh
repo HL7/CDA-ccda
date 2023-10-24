@@ -48,7 +48,9 @@ Description: "This template represents the number of pressure ulcers observed at
 * author 0..1
   * ^comment = "MAY contain zero or one [0..1] author (CONF:1198-14717)."
 * entryRelationship ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "Observation.typeCode"
+  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains entryRelationship1 1..1
 * entryRelationship[entryRelationship1] ^comment = "SHALL contain exactly one [1..1] entryRelationship (CONF:1198-14718) such that it"

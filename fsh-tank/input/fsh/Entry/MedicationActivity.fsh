@@ -105,8 +105,6 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31150)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains drugVehicle 0..*

@@ -45,10 +45,10 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
 * author only AuthorParticipation
   * ^short = "The author in a planned procedure represents the clinician who is requesting or planning the procedure."
   * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31979)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32996) such that it"
 * entryRelationship contains

@@ -183,10 +183,6 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="participantRole"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
                     <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
@@ -249,16 +245,8 @@
             <path value="Act.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="exists"/>
                     <path value="encounter"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="inversionInd"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -307,7 +295,7 @@
             <path value="Act.reference"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="exists"/>
                     <path value="externalDocument"/>
                 </discriminator>
                 <rules value="open"/>

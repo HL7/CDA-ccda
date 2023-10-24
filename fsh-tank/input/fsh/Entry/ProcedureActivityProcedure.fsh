@@ -64,12 +64,8 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
     * id 0..*
       * ^short = "If you want to indicate that the Procedure and the Results are referring to the same specimen, the Procedure/specimen/specimenRole/id **SHOULD** be set to equal an Organizer/specimen/specimenRole/id (CONF:4515-29744)."
       * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)." // auto-should
-* performer ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "assignedEntity"
-  * ^slicing.rules = #open
-  * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"
-* performer contains performer1 0..*
-* performer[performer1] ^short = "performer"
+* obeys should-performer
+* performer 0..*
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."
@@ -100,8 +96,6 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-32479)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
@@ -124,10 +118,12 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * participantRole 1..1
   * participantRole only ServiceDeliveryLocation
     * ^comment = "SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:4515-15912)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
 * entryRelationship contains

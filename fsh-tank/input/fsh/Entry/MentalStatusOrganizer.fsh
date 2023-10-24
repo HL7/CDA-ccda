@@ -27,7 +27,7 @@ Description: "The Mental Status Organizer template may be used to group related 
 * effectiveTime 0..1
   * ^short = "The effectiveTime is an interval that spans the effectiveTimes of the contained mental status observations. Because all contained mental status observations have a required time stamp, it is not required that this effectiveTime be populated."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)."
-* component ^slicing.discriminator[0].type = #value
+* component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * component contains mentalStatus 1..*

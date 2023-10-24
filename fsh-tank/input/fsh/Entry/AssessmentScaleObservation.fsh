@@ -37,7 +37,7 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
     * ^comment = "The interpretationCode, if present, MAY contain zero or more [0..*] translation (CONF:4515-14888)."
 * author 0..*
   * ^comment = "MAY contain zero or more [0..*] author (CONF:4515-14460)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"

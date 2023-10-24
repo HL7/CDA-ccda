@@ -30,7 +30,7 @@ Description: "This template represents the insurance coverage intended to cover 
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "MAY contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32178)."
-* entryRelationship ^slicing.discriminator.type = #profile
+* entryRelationship ^slicing.discriminator.type = #exists
   * ^slicing.discriminator.path = "act"
   * ^slicing.rules = #open
 * entryRelationship contains entryRelationship1 1..1

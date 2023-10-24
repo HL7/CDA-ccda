@@ -34,6 +34,8 @@ Description: "Family History Observations related to a particular family member 
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1198-8591)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains
     ageObservation 0..1 and

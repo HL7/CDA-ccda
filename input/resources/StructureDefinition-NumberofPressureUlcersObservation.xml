@@ -171,7 +171,11 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="Observation.typeCode"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <discriminator>
+                    <type value="exists"/>
+                    <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

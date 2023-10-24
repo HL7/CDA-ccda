@@ -58,8 +58,6 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * ^short = "Represents the person(s) who wrote the note."
   * ^comment = "SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:3250-16913)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"
@@ -85,12 +83,8 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The playingEntity, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:3250-16929)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #exists
   * ^slicing.discriminator[=].path = "encounter"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "inversionInd"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"
 * entryRelationship contains entryRelationship1 0..*
@@ -110,7 +104,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * id 1..*
       * obeys 3250-16914
       * ^comment = "This encounter SHALL contain at least one [1..*] id (CONF:3250-16909)."
-* reference ^slicing.discriminator[0].type = #value
+* reference ^slicing.discriminator[0].type = #exists
   * ^slicing.discriminator[=].path = "externalDocument"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"

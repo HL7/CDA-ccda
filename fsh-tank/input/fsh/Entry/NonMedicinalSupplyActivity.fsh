@@ -28,8 +28,6 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)." // auto-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.rules = #open
 * participant contains participant1 0..1
 * participant[participant1] ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-8752) such that it"

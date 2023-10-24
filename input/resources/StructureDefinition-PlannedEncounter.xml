@@ -122,23 +122,10 @@
         </element>
         <element id="Encounter.performer">
             <path value="Encounter.performer"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="Encounter.assignedEntity"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="Performers represent clinicians who are responsible for assessing and treating the patient."/>
-        </element>
-        <element id="Encounter.performer:performer">
-            <path value="Encounter.performer"/>
-            <sliceName value="performer"/>
             <comment value="MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
         </element>
-        <element id="Encounter.performer:performer.assignedEntity">
+        <element id="Encounter.performer.assignedEntity">
             <path value="Encounter.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-31874)."/>
         </element>
@@ -157,10 +144,6 @@
                 <discriminator>
                     <type value="value"/>
                     <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="participantRole"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

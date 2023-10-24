@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Procedure">
+            <path value="Procedure"/>
+            <constraint>
+                <key value="should-performer"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain performer"/>
+                <expression value="performer.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+        </element>
         <element id="Procedure.templateId">
             <path value="Procedure.templateId"/>
             <slicing>
@@ -220,23 +230,9 @@
         </element>
         <element id="Procedure.performer">
             <path value="Procedure.performer"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="assignedEntity"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <comment value="SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"/>
         </element>
-        <element id="Procedure.performer:performer1">
-            <path value="Procedure.performer"/>
-            <sliceName value="performer1"/>
-            <short value="performer"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Procedure.performer:performer1.assignedEntity">
+        <element id="Procedure.performer.assignedEntity">
             <path value="Procedure.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."/>
             <constraint>
@@ -247,25 +243,25 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.id">
+        <element id="Procedure.performer.assignedEntity.id">
             <path value="Procedure.performer.assignedEntity.id"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-7722)."/>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.addr">
+        <element id="Procedure.performer.assignedEntity.addr">
             <path value="Procedure.performer.assignedEntity.addr"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] addr (CONF:4515-7731)."/>
             <min value="1"/>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.telecom">
+        <element id="Procedure.performer.assignedEntity.telecom">
             <path value="Procedure.performer.assignedEntity.telecom"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4515-7732)."/>
             <min value="1"/>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.assignedPerson">
+        <element id="Procedure.performer.assignedEntity.assignedPerson">
             <path value="Procedure.performer.assignedEntity.assignedPerson"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] assignedPerson."/>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.assignedPerson.name">
+        <element id="Procedure.performer.assignedEntity.assignedPerson.name">
             <path value="Procedure.performer.assignedEntity.assignedPerson.name"/>
             <comment value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED)."/>
             <min value="1"/>
@@ -274,7 +270,7 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
             </type>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.representedOrganization">
+        <element id="Procedure.performer.assignedEntity.representedOrganization">
             <path value="Procedure.performer.assignedEntity.representedOrganization"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)."/>
             <constraint>
@@ -285,20 +281,20 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.id">
+        <element id="Procedure.performer.assignedEntity.representedOrganization.id">
             <path value="Procedure.performer.assignedEntity.representedOrganization.id"/>
             <comment value="The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:4515-7734)."/>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.name">
+        <element id="Procedure.performer.assignedEntity.representedOrganization.name">
             <path value="Procedure.performer.assignedEntity.representedOrganization.name"/>
             <comment value="The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:4515-7735)."/>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.telecom">
+        <element id="Procedure.performer.assignedEntity.representedOrganization.telecom">
             <path value="Procedure.performer.assignedEntity.representedOrganization.telecom"/>
             <comment value="The representedOrganization, if present, SHALL contain at least one [1..*] telecom (CONF:4515-7737)."/>
             <min value="1"/>
         </element>
-        <element id="Procedure.performer:performer1.assignedEntity.representedOrganization.addr">
+        <element id="Procedure.performer.assignedEntity.representedOrganization.addr">
             <path value="Procedure.performer.assignedEntity.representedOrganization.addr"/>
             <comment value="The representedOrganization, if present, SHALL contain at least one [1..*] addr (CONF:4515-7736)."/>
             <min value="1"/>
@@ -314,10 +310,6 @@
         <element id="Procedure.participant">
             <path value="Procedure.participant"/>
             <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="participantRole"/>
-                </discriminator>
                 <discriminator>
                     <type value="value"/>
                     <path value="typeCode"/>
@@ -373,12 +365,16 @@
             <path value="Procedure.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="act"/>
                 </discriminator>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="exists"/>
+                    <path value="encounter"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

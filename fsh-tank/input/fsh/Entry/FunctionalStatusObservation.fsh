@@ -39,6 +39,8 @@ Description: "This template represents the patient's physical function (e.g., mo
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains
     nonMedSupply 0..1 and

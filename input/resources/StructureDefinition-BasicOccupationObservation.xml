@@ -118,23 +118,20 @@
             <path value="Observation.subject.relatedSubject"/>
             <comment value="The subject, if present, SHALL contain exactly one [1..1] relatedSubject (CONF:4537-33059)."/>
         </element>
-        <element id="Observation.entryRelationship">
+        <element id="Observation.entryRelationship:basic-industry">
             <path value="Observation.entryRelationship"/>
-            <comment value="SHOULD contain zero or one [0..1] entryRelationship (CONF:4537-33060) such that it"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
-            <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="basic-industry"/>
             <short value="entryRelationship"/>
+            <comment value="SHOULD contain zero or one [0..1] entryRelationship (CONF:4537-33060) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:basic-industry.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4537-33062)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:basic-industry.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Basic Industry Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.504:2023-05-01) (CONF:4537-33063)."/>
             <min value="1"/>

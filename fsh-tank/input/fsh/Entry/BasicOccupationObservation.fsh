@@ -45,16 +45,8 @@ Implementers wishing to convey more advanced Occupation detail, such as employer
   * ^comment = "MAY contain zero or one [0..1] subject (CONF:4537-33058)."
   * relatedSubject 1..1
     * ^comment = "The subject, if present, SHALL contain exactly one [1..1] relatedSubject (CONF:4537-33059)."
-* entryRelationship ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "act"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "observation"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.rules = #open
-  * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:4537-33060) such that it"
-* entryRelationship contains entryRelationship1 0..1
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+* entryRelationship contains basic-industry 0..1
+* entryRelationship[basic-industry] ^short = "entryRelationship"
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:4537-33060) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

@@ -69,9 +69,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
       * code 1..1
       * code from $2.16.840.1.113762.1.4.1010.1 (example)
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Substance Reactant for Intolerance urn:oid:2.16.840.1.113762.1.4.1010.1 DYNAMIC (CONF:1098-16324)."
-* entryRelationship ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #profile
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32935) such that it"

@@ -18,7 +18,9 @@ Description: """This template represents clinical information about the specimen
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * insert USCDI([[Specimen Source Site]])
 * entryRelationship ^slicing.discriminator[0].type = #profile
-  * ^slicing.discriminator[=].path = "procedure"
+  * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains specimenRef 1..1 and rejectReason 0..*
 * entryRelationship[specimenRef] ^comment = "SHALL contain exactly one [1..1] entryRelationship such that it"

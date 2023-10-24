@@ -47,7 +47,7 @@ Specimen(s) attached to a Result Organizer apply to all Result Observations cont
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-31149)."
-* component ^slicing.discriminator[0].type = #value
+* component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"

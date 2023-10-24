@@ -36,11 +36,7 @@ Description: "A policy activity represents the policy or program providing the c
   * code from $2.16.840.1.113762.1.4.1240.6 (required)
   * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * performer ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "templateId"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "assignedEntity"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[=].path = "templateId.root"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
 * performer contains
@@ -182,8 +178,6 @@ Description: "A policy activity represents the policy or program providing the c
     * addr only USRealmAddressADUSFIELDED
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)."
 * entryRelationship ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "act.moodCode"
   * ^slicing.rules = #open
 * entryRelationship contains 

@@ -38,6 +38,8 @@ Description: "This template represents the observation that a patient has died. 
     * ^comment = "This value SHALL contain exactly one [1..1] @code=\"419099009\" Dead (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1198-15142)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains problemObservation 0..1
 * entryRelationship[problemObservation] ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1198-14868) such that it"
