@@ -1,11 +1,15 @@
-### Purpose
+### Introduction
 
-This two-volume implementation guide (IG) contains an overview of Clinical Document Architecture (CDA) markup standards, design, and use (Volume 1) and a consolidated library of CDA templates for clinical notes applicable to the US Realm (Volume 2). These two volumes comprise a Draft Standard for Trial Use (DSTU).
-It has been adapted from the Release 2.0 version of the Consolidated CDA Templates for Clinical Notes to support backward compatibility “on the wire” with the 1.1 Release of the templates described in this guide. This will enable implementers of systems conforming to this guide to produce documents that can be understood by systems which only support the C-CDA Release 1.1 specification.
-The consolidated library incorporates previous efforts from Health Level Seven (HL7), Integrating the Healthcare Enterprise (IHE), the Health Information Technology Standards Panel (HITSP), the HL7 Health Story guides, HITSP C32, and related components of IHE Patient Care Coordination (IHE PCC). It has additional or enhanced document types for greater expressivity and decrease ambiguity (see Volume 2 Summary of Changes). Volume 1 adds new general guidance (see Summary of Changes).
-This guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to be used for implementing the following CDA documents and header constraints for clinical notes.
+This Consolidated Clinical Document Architecture (C-CDA) guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to be used for implementing the following CDA documents and header constraints for clinical notes.
 
-* <a href="StructureDefinition-CarePlan.html">Care Plan including Home Health Plan of Care (HHPoC)</a>
+Header Constraints:
+
+* <a href="StructureDefinition-USRealmHeader.html">US Realm Header</a>
+* <a href="StructureDefinition-USRealmHeaderforPatientGeneratedDocument.html">Patient Generated Document (US Realm Header)</a>
+
+Document Types:
+
+* <a href="StructureDefinition-CarePlan.html">Care Plan</a>
 * <a href="StructureDefinition-ConsultationNote.html">Consultation Note</a>
 * <a href="StructureDefinition-ContinuityofCareDocumentCCD.html">Continuity of Care Document (CCD)</a>
 * <a href="StructureDefinition-DischargeSummary.html">Discharge Summary</a>
@@ -16,41 +20,38 @@ This guide, in conjunction with the HL7 CDA Release 2 (CDA R2) standard, is to b
 * <a href="StructureDefinition-ReferralNote.html">Referral Note</a>
 * <a href="StructureDefinition-TransferSummary.html">Transfer Summary</a>
 * <a href="StructureDefinition-UnstructuredDocument.html">Unstructured Document</a>
-* <a href="StructureDefinition-USRealmHeaderforPatientGeneratedDocument.html">Patient Generated Document (US Realm Header)</a>
 
-### Audience
+Section templates, which help organize content within a document, and entry templates, that represent discrete computable data within sections, are defined in this implementation Guide.
 
-The audience for this implementation guide includes architects and developers of healthcare information technology (HIT) systems in the US Realm that exchange patient clinical data. Business analysts and policy managers can also benefit from a basic understanding of the use of CDA templates across multiple implementation use cases.
+The [Artifact Index page](artifacts.html) lists the C-CDA Templates that have been defined for this IG. The templates are the most recent versions of each C-CDA template which was drawn from either C-CDA R2.1 or the C-CDA Companion Guide R4.1. New templates and/or new additions to existing templates were added to represent the U.S. Core Data for Interoperability (USCDI) V4 <https://www.healthit.gov/isa/sites/isa/files/2023-10/USCDI-Version-4-October-2023-Errata-Final.pdf>.
 
-### Organization of the Guide
+The Guidance pages provide USCDI guidance, calls out key information from the underlying CDA standard, provides learnings gleaned from vendors and CDA Implementation-a-thons, etc., added since C-CDA’s inception in 2011. The Guidance was drawn from  C-CDA 2.1 Introduction (Volume 1) Sept 2022 Errata  and  C-CDA 2.1 Companion Guide R4.1 June 2023 Publication and edited to be appropriate for this StructureDefinition publication.
 
-This implementation guide is organized into two volumes. Volume 1 contains primarily narrative text describing the Consolidated CDA Release 2 (C-CDA R2) guide, whereas Volume 2 contains normative CDA template definitions.
+### Background
+Consolidated CDA (C-CDA) is a library of CDA templates developed by HL7. It leveraged prior CDA implementation guides developed under the HL7 Health Story Project, Integrating the Healthcare Enterprise (IHE), and the Health Information Technology Standards Panel (HITSP). It harmonized and consolidated the templates into the C-CDA guide. The C-CDA guide was developed within the ONC’s Standards and Interoperability (S&I) Framework to provide a definitive set of harmonized CDA templates for the US Realm.
 
-### Acknowledgments
+Since 2017, separate C-CDA Companion Guides were developed to provide supplemental implementer guidance, and new templates, initially to meet Meaningful Use criteria, and next with designs and guidance for the USCDI annual data element releases. The C-CDA 2.1 guide has had only errata releases since 2015 and no new design.
 
-This R2.1 guide was developed and produced through the efforts of Health Level Seven (HL7).
+### This Project
 
-The editors appreciate the support and sponsorship of the HL7 Structured Documents Working Group (SDWG), the HL7 Patient Care Work Group, the HL7 Child Health Work Group, and all volunteers and staff associated with the creation of this document. This guide would not have been possible without the support of the Department of Defense/Department of Veterans Affairs Interagency Program Office (DoD/VA IPO).
+C-CDA 3.0 merges the C-CDA R2.1 and the C-CDA Companion Guides, adds C-CDA enhancement requests, and incorporates new design and guidance for USCDI V4.  Annual updates will occur to provide design for USCDI releases and to address comments or requests from the US Realm C-CDA community. 
 
-This material contains content from SNOMED CT® (http://www.ihtsdo.org/snomed-ct/). SNOMED CT is a registered trademark of the International Health Terminology Standard Development Organisation (IHTSDO).
+Within HL7, since 2020, an initiative to develop the same underlying publication process tech stack across all HL7 standards has been underway. The intent is to provide the same look and feel, to leverage inherent [validation and versioning](validation.html), to ease annual updates, and to avoid the unwieldy word and pdf publication process. This publication of C-CDA R3.0 is the realization of that intent for the CDA product family.
 
-This material contains content from the Logical Observation Identifiers Names and Codes (LOINC) organization (http://loinc.org). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.
+The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is built upon the underlying [CDA standard’s structures defined as Logical Models in CDA 2.0 StructureDefinition](https://build.fhir.org/ig/HL7/CDA-core-2.0/). These FHIR Logical models are abstract data structures which have been instantiated into physical CDA templates to be implemented in CDA data exchange. As such, it adheres to the [CDA Release 2.0 standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=7) and remains a CDA-based Implementation Guide (IG). 
 
-### Authors
+### Acknowledgements
 
-| Primary Editor / Co-Chair: | Rick Geimer<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[rick.geimer@lantanagroup.com](mailto:rick.geimer@lantanagroup.com) | Co-Editor: | Benjamin Flessner<br/>[Epic](http://www.epic.com)<br />[Benjamin@epic.com](mailto:Benjamin@epic.com) |
-| Primary Editor / Co-Chair: | Brett Marquard<br/>[River Rock Associates](http://www.riverrockassociates.com)<br/>[brett@riverrockassociates.com](mailto:brett@riverrockassociates.com) | Co-Editor: | Larry Garber, MD<br/>[Reliant Medical Group](http://www.reliantmedicalgroup.org)<br/>[Lawrence.Garber@ReliantMedicalGroup.org](mailto:Lawrence.Garber@ReliantMedicalGroup.org) |
-| Co-Chair: | Calvin Beebe<br/>[Mayo Clinic](http://www.mayo.edu)<br/>[cbeebe@mayo.edu](mailto:cbeebe@mayo.edu) | Co-Editor: | Jennie Harvell, M.Ed US Health and Human Services<br/>[Jennie.harvell@hhs.gov](mailto:Jennie.harvell@hhs.gov) |
-| Co-Chair: | Diana Behling<br/>[Iatric Systems](http://iatric.com)<br/>[Diana.Behling@iatric.com](mailto:Diana.Behling@iatric.com) | Co-Editor: | Laura Heermann Langford, RN, PhD<br/>Intermountain Healthcare<br/>[Laura.Heermann@imail.org](mailto:Laura.Heermann@imail.org) |
-| Co-Chair: | Austin Kreisler<br/>SAIC Consultant to CDC/NHSN<br/>[duz1@cdc.gov](mailto:duz1@cdc.gov) | Co-Editor: | Emma Jones RN-BC, MSN<br/>Allscripts<br/>[emma.jones@allscripts.com](mailto:emma.jones@allscripts.com) |
-| Co-Chair: | Patrick Lloyd<br/>Icode Solutions<br/>[patrick.e.loyd@gmail.com](mailto:patrick.e.loyd@gmail.com) | Co-Editor: | Josh Mandel, MD<br/>Harvard Medical School / Boston Children's Hospital<br/>[Joshua.Mandel@childrens.harvard.edu](mailto:Joshua.Mandel@childrens.harvard.edu) |
-| Primary Editor / Co-Chair: | Gaye Dolin, MSN, RN<br/>[Intelligent Medical Objects, Inc.](http://www.imo-online.com)<br/>[gdolin@imo-online.com](mailto:gdolin@imo-online.com) | Co-Editor: | Susan Matney, MSN, RN 3M<br/>Health Information Systems<br/>[samatney@mmm.com](mailto:samatney@mmm.com) |
-| Primary Editor: | Sarah Gaunt<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[sarah.gaunt@lantanagroup.com](mailto:sarah.gaunt@lantanagroup.com) | Co-Editor: | Sean McIlvenna<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[sean.mcilvenna@lantanagroup.com](mailto:sean.mcilvenna@lantanagroup.com) |
-| Primary Editor: | Zabrina Gonzaga<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[zabrina.gonzaga@lantanagroup.com](mailto:zabrina.gonzaga@lantanagroup.com) | Co-Editor: | Dale Nelson<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[dale.nelson@lantanagroup.com](mailto:dale.nelson@lantanagroup.com) |
-| Co-Editor: | Liora Alschuler<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[liora.alschuler@lantanagroup.com](mailto:liora.alschuler@lantanagroup.com) | Co-Editor: | Lisa Nelson<br/>Life Over Time Solutions<br/>[LisaRNelson@cox.net](mailto:LisaRNelson@cox.net) |
-| Co-Editor: | Virinder Batra<br/>Intuit Health<br/>[virinder.batra@gmail.com](mailto:virinder.batra@gmail.com) | Co-Editor: | Terrence A. O'Malley, MD<br/>Partners Healthcare<br/>[tomalley@partners.org](mailto:tomalley@partners.org) |
-| Co-Editor: | Keith W. Boone<br/>GE Healthcare<br/>[keith.boone@ge.com](mailto:keith.boone@ge.com) | Co-Editor: | Eric Parapini<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[eric.parapini@lantanagroup.com](mailto:eric.parapini@lantanagroup.com) |
-| Co-Editor: | Stephen Chu<br/>National E-Health Transition, Australia<br/>[stephen.chu@nehta.gov.au](mailto:stephen.chu@nehta.gov.au) | Co-Editor: | David Tao, D.Sc.<br/>ICSA Labs<br/>[dtao12@gmail.com](mailto:dtao12@gmail.com) |
-| Co-Editor: | John D'Amore<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[john.damore@lantanagroup.com](mailto:john.damore@lantanagroup.com) | Technical Editor: | Adrienne Giannone<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[adrienne.giannone@lantanagroup.com](mailto:adrienne.giannone@lantanagroup.com) |
-| Co-Editor: | Robert H. Dolin, MD<br/>[bobdolin@gmail.com](mailto:bobdolin@gmail.com) | Technical Editor: | Diana Wright<br/>[Lantana Consulting Group](http://www.lantanagroup.com)<br/>[diana.wright@lantanagroup.com](mailto:diana.wright@lantanagroup.com) |
-| Co-Editor: | Susan Campbell, PhD, RN<br/>[bostoncampbell@mindspring.com](mailto:bostoncampbell@mindspring.com) | Technical Editor: | Veronica Kwok<br/>Deloitte<br/>[vkwok@deloitte.com](mailto:vkwok@deloitte.com) |
+This C-CDA guide was developed and produced through the efforts of Health Level Seven (HL7).
+
+The editors appreciate the support and sponsorship of the HL7 Structured Documents Working Group (SDWG), the HL7 Patient Care Work Group, the HL7 Cross Group Projects Work Group, the CDA Management Group, HL7’s Chief Standards Development Officer, and all volunteers and staff associated with the creation of this Implementation Guide.  Much appreciated are the many individual authors from those work groups who contributed to the design and build of C-CDA and CDA Implementation Guides since 2007.
+This guide would not have been possible without the support of the [Office of the National Coordinator](https://www.healthit.gov), and the [Federal Electronic Health Record Modernization (FEHRM)](https://www.fehrm.gov>).
+	
+### C-CDA Primary Authors
+
+|Name|Organization|Email|
+|Jean Duteau|Dogwood Health Consulting|jean.duteau@dogwoodhealthconsulting.com|
+|Benjamin Flessner|Availity|benjamin.flessner@availity.com|
+|Brett Marquard|Wave One Associates|brett@waveoneassociates.com|
+|Gay Dolin|Namaste Informatics|gdolin@NamasteInformatics.com|
+|Rosemary Hofstede|Dogwood Health Consulting|rosemary@dutaeudesign.com|
