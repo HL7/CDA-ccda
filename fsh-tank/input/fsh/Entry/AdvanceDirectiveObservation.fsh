@@ -81,10 +81,10 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
     * obeys 1198-32449
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-15521)."
 * value 1..1
-  * obeys 1198-32493
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:1198-30804)."
 * value only CD
   * code from $2.16.840.1.113762.1.4.1115.5
+  * codeSystem = "2.16.840.1.113883.6.96"
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32406)."
@@ -179,11 +179,9 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
 Invariant: 1198-32449
 Description: "If the Advance Directive does not have a specified ending time, the <high> element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."
 Severity: #error
+Expression: "value.exists() or nullFlavor = 'NA'"
 
-Invariant: 1198-32493
-Description: "If type CD, then value will be SNOMED-CT 2.16.840.1.113883.6.96 (CONF:1198-32493)."
-Severity: #error
-
+// TODO - delete pending https://jira.hl7.org/browse/CDA-20828
 Invariant: 1198-8666
 Description: "The data type of Observation/participant/time in a verification **SHALL** be *TS* (time stamp) (CONF:1198-8666)."
 Severity: #warning
@@ -191,3 +189,4 @@ Severity: #warning
 Invariant: 1198-8699
 Description: "If a URL is referenced, then it **SHOULD** have a corresponding linkHTML element in narrative block (CONF:1198-8699)."
 Severity: #warning
+// Not implementing right now
