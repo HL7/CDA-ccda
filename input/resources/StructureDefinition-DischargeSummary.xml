@@ -80,8 +80,27 @@
                 <key value="1198-8469"/>
                 <severity value="error"/>
                 <human value="When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30 (CONF:1198-8469)."/>
+                <expression value="typeCode = 'IND' implies associatedEntity.classCode.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary"/>
             </constraint>
+        </element>
+        <element id="ClinicalDocument.participant.typeCode">
+            <path value="ClinicalDocument.participant.typeCode"/>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.classCode">
+            <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
+            <binding>
+                <strength value="required"/>
+                <description value="See additional bindings"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleClassAssociative"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33"/>
+                    <documentation value="When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30 (CONF:1198-8469)."/>
+                    <shortDoco value="When typeCode=IND"/>
+                </additional>
+            </binding>
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
