@@ -31,61 +31,54 @@ const xml2js = require('xml2js');
   const xmlParser = new xml2js.Parser({ explicitArray: false });
 
   const ccdaIg = await xmlParser.parseStringPromise(ig);
-
   const resources = ccdaIg.ImplementationGuide.definition.resource;
 
-  // Read the files in the directory
-  fs.readdir(fshDirectory, (err, files) => {
-    if (err) {
-      console.error('Error reading directory:', err);
-      return;
+  const files = fs.readdirSync(fshDirectory);
+
+  let tempCnt = 0;
+  // Iterate through each file
+  files.forEach(async (file) => {
+    if (path.extname(file) === '.json') {
+      const filePath = path.join(fshDirectory, file);
+
+      const data = fs.readFileSync(filePath, 'utf8');
+      const json = JSON.parse(data);
+
+      // Make sure the description in the IG matches the description from the SD
+      const sdId = json.id;
+      const igResource = resources.find(r => r.reference.reference.$.value == `StructureDefinition/${sdId}`);
+      if (!igResource) {
+        console.warn(`SD ${sdId} is not in the IG!`);
+      } else {
+        igResource.description.$.value = json.description;
+      }
+
+      const xml = fhir.jsonToXml(JSON.stringify(json));
+      if (!xml) {
+        console.error(`Failed to convert ${filePath}`);
+        return;
+      }
+      const pretty = xmlFormat(xml, {});
+
+      const newPath = path.join(xmlDirectory, file.replace('.json', '.xml'));
+      fs.writeFileSync(newPath, pretty, 'utf8');
     }
-
-    let tempCnt = 0;
-    // Iterate through each file
-    files.forEach(async (file) => {
-      if (path.extname(file) === '.json') {
-        const filePath = path.join(fshDirectory, file);
-
-        const data = fs.readFileSync(filePath, 'utf8');
-        const json = JSON.parse(data);
-
-        // Make sure the description in the IG matches the description from the SD
-        const sdId = json.id;
-        const igResource = resources.find(r => r.reference.reference.$.value == `StructureDefinition/${sdId}`);
-        if (!igResource) {
-          console.warn(`SD ${sdId} is not in the IG!`);
-        } else {
-          igResource.description.$.value = json.description;
-        }
-
-        const xml = fhir.jsonToXml(JSON.stringify(json));
-        if (!xml) {
-          console.error(`Failed to convert ${filePath}`);
-          return;
-        }
-        const pretty = xmlFormat(xml, {});
-
-        const newPath = path.join(xmlDirectory, file.replace('.json', '.xml'));
-        fs.writeFileSync(newPath, pretty, 'utf8');
-      }
-    });
-
-
-    // Write the updated IG resource
-    const builder = new xml2js.Builder({
-      renderOpts: {
-        pretty: true,
-        indent: '    ',
-        newline: '\n'
-      },
-      xmldec: {
-        version: '1.0',
-        encoding: 'UTF-8',
-      }
-    });
-    const newXml = builder.buildObject(ccdaIg);
-    fs.writeFileSync('input/hl7.cda.us.ccda.xml', newXml);
-
   });
+
+
+  // Write the updated IG resource
+  const builder = new xml2js.Builder({
+    renderOpts: {
+      pretty: true,
+      indent: '    ',
+      newline: '\n'
+    },
+    xmldec: {
+      version: '1.0',
+      encoding: 'UTF-8',
+    }
+  });
+  const newXml = builder.buildObject(ccdaIg);
+  fs.writeFileSync('input/hl7.cda.us.ccda.xml', newXml);
+
 })();
