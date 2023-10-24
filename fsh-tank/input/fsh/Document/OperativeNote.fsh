@@ -42,7 +42,6 @@ The Operative Note is created immediately following a surgical or other high-ris
     * performer ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
-      * ^short = "This performer represents any assistants."
     * performer contains
         performer1 1..* and
         performer2 0..*

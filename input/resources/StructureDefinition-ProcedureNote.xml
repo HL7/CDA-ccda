@@ -193,7 +193,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="This performer identifies any assistants."/>
             <min value="1"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
@@ -309,14 +308,14 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:encounterParticipant1">
+        <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:referrer">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
-            <sliceName value="encounterParticipant1"/>
+            <sliceName value="referrer"/>
             <comment value="This encompassingEncounter MAY contain zero or one [0..1] encounterParticipant (CONF:1198-30874) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:encounterParticipant1.typeCode">
+        <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:referrer.typeCode">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REF&quot; Referrer (CONF:1198-30875)."/>
             <min value="1"/>

@@ -167,8 +167,8 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."
       * high 0..1
         * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-32331)."
-* relatedDocument ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
+* relatedDocument ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "parentDocument"
   * ^slicing.rules = #open
 * relatedDocument contains relatedDocument1 0..*
 * relatedDocument[relatedDocument1] ^comment = "MAY contain zero or more [0..*] relatedDocument (CONF:1198-29893) such that it"

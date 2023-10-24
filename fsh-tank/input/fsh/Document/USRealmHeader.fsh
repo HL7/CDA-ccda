@@ -255,11 +255,12 @@ Description: "This template defines constraints that represent common administra
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"
 * informant contains
-    informant1 0..* and
-    informant2 0..*
-* informant[informant1] ^short = "informant"
+    provider 0..* and
+    non-provider 0..*
+* informant[provider] ^short = "The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
   * ^short = "The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-8001) such that it"
+  * relatedEntity 0..0
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8002)."
     * id 1..*
@@ -276,8 +277,9 @@ Description: "This template defines constraints that represent common administra
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-8222)."
-* informant[informant2] ^short = "The informant element describes an information source (who is not a provider) for any content within the clinical document. This informant would be used when the source of information has a personal relationship with the patient or is the patient."
+* informant[non-provider] ^short = "The informant element describes an information source (who is not a provider) for any content within the clinical document. This informant would be used when the source of information has a personal relationship with the patient or is the patient."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"
+  * assignedEntity 0..0
   * relatedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:4537-31356)."
 * custodian 1..1
@@ -358,6 +360,7 @@ Description: "This template defines constraints that represent common administra
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5598)."
+// TODO - remove slicing: https://jira.hl7.org/browse/CDA-20827
 * authenticator ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "signatureCode.code"
   * ^slicing.rules = #open

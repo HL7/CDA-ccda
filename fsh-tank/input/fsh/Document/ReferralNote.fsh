@@ -31,11 +31,10 @@ Examples of referral situations are when a patient is referred from a family phy
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-  * ^short = "This participant represents the clinician to contact for questions about the referral note.  This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."
 * participant contains
-    participant1 0..* and
-    participant2 0..*
-* participant[participant1] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"
+    indirect 0..* and
+    callback 0..*
+* participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"
   * typeCode 1..1
   * typeCode = #IND (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"IND\" Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31924)."
@@ -49,7 +48,8 @@ Examples of referral situations are when a patient is referred from a family phy
       * name 1..*
       * name only USRealmPatientNamePTNUSFIELDED
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] US Realm Patient Name (PTN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1) (CONF:1198-31645)."
-* participant[participant2] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"
+* participant[callback] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"
+  * ^short = "This participant represents the clinician to contact for questions about the referral note.  This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."
   * typeCode 1..1
   * typeCode = #CALLBCK (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"CALLBCK\" call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31648)."

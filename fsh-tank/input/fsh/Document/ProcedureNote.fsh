@@ -43,7 +43,6 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * performer ^slicing.discriminator[0].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
-      * ^short = "This performer identifies any assistants."
     * performer contains
         performer1 1..1 and
         performer2 0..*
@@ -117,8 +116,8 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * encounterParticipant ^slicing.discriminator[0].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
-    * encounterParticipant contains encounterParticipant1 0..1
-    * encounterParticipant[encounterParticipant1] ^comment = "This encompassingEncounter MAY contain zero or one [0..1] encounterParticipant (CONF:1198-30874) such that it"
+    * encounterParticipant contains referrer 0..1
+    * encounterParticipant[referrer] ^comment = "This encompassingEncounter MAY contain zero or one [0..1] encounterParticipant (CONF:1198-30874) such that it"
       * typeCode 1..1
       * typeCode = #REF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REF\" Referrer (CONF:1198-30875)."

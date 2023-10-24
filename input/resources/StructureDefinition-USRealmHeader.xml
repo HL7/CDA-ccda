@@ -830,20 +830,20 @@
             </slicing>
             <comment value="MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1">
+        <element id="ClinicalDocument.informant:provider">
             <path value="ClinicalDocument.informant"/>
-            <sliceName value="informant1"/>
+            <sliceName value="provider"/>
             <short value="The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."/>
             <comment value="MAY contain zero or more [0..*] informant (CONF:4537-8001) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity">
+        <element id="ClinicalDocument.informant:provider.assignedEntity">
             <path value="ClinicalDocument.informant.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8002)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.id">
+        <element id="ClinicalDocument.informant:provider.assignedEntity.id">
             <path value="ClinicalDocument.informant.assignedEntity.id"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-9945)."/>
             <constraint>
@@ -853,7 +853,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.code">
+        <element id="ClinicalDocument.informant:provider.assignedEntity.code">
             <path value="ClinicalDocument.informant.assignedEntity.code"/>
             <comment value="This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32174)."/>
             <binding>
@@ -861,7 +861,7 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.addr">
+        <element id="ClinicalDocument.informant:provider.assignedEntity.addr">
             <path value="ClinicalDocument.informant.assignedEntity.addr"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8220)."/>
             <min value="1"/>
@@ -870,12 +870,12 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
             </type>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.assignedPerson">
+        <element id="ClinicalDocument.informant:provider.assignedEntity.assignedPerson">
             <path value="ClinicalDocument.informant.assignedEntity.assignedPerson"/>
             <comment value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4537-8221)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.informant:informant1.assignedEntity.assignedPerson.name">
+        <element id="ClinicalDocument.informant:provider.assignedEntity.assignedPerson.name">
             <path value="ClinicalDocument.informant.assignedEntity.assignedPerson.name"/>
             <comment value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-8222)."/>
             <min value="1"/>
@@ -884,14 +884,22 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
             </type>
         </element>
-        <element id="ClinicalDocument.informant:informant2">
+        <element id="ClinicalDocument.informant:provider.relatedEntity">
+            <path value="ClinicalDocument.informant.relatedEntity"/>
+            <max value="0"/>
+        </element>
+        <element id="ClinicalDocument.informant:non-provider">
             <path value="ClinicalDocument.informant"/>
-            <sliceName value="informant2"/>
+            <sliceName value="non-provider"/>
             <short value="The informant element describes an information source (who is not a provider) for any content within the clinical document. This informant would be used when the source of information has a personal relationship with the patient or is the patient."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.informant:informant2.relatedEntity">
+        <element id="ClinicalDocument.informant:non-provider.assignedEntity">
+            <path value="ClinicalDocument.informant.assignedEntity"/>
+            <max value="0"/>
+        </element>
+        <element id="ClinicalDocument.informant:non-provider.relatedEntity">
             <path value="ClinicalDocument.informant.relatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] relatedEntity (CONF:4537-31356)."/>
             <min value="1"/>
