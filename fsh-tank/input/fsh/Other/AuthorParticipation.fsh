@@ -18,8 +18,8 @@ The Author Participation template was added to those templates in scope for anal
     * ^comment = "This assignedAuthor SHALL contain at least one [1..*] id (CONF:1098-31473)."
   * code 0..1
   * code from $2.16.840.1.114222.4.11.1066 (preferred)
-    * obeys 1098-32315
     * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31671)."
+    * insert AdditionalBinding(preferred, $2.16.840.1.113883.11.20.12.1, Patient-authored content, [[If the content is patient authored the code **SHOULD** be selected from Personal And Legal Relationship Role Type (2.16.840.1.113883.11.20.12.1) (CONF:1098-32315).]])
   * assignedPerson 0..1
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] assignedPerson (CONF:1098-31474)."
     * name 0..*
@@ -34,11 +34,3 @@ The Author Participation template was added to those templates in scope for anal
       * ^comment = "The representedOrganization, if present, MAY contain zero or more [0..*] telecom (CONF:1098-31480)."
     * addr 0..*
       * ^comment = "The representedOrganization, if present, MAY contain zero or more [0..*] addr (CONF:1098-31481)."
-
-Invariant: 1098-32628
-Description: "If the ID isn't referencing an author described elsewhere in the document, then the author components required in US Realm Header are required here as well (CONF:1098-32628)."
-Severity: #error
-
-Invariant: 1098-32315
-Description: "If the content is patient authored the code **SHOULD** be selected from Personal And Legal Relationship Role Type (2.16.840.1.113883.11.20.12.1) (CONF:1098-32315)."
-Severity: #warning

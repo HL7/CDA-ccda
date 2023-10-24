@@ -25,6 +25,10 @@ The best practice for a Discharge Summary is to include the discharge dispositio
   * obeys 1198-8469
   * ^short = "The participant element in the Discharge Summary header follows the General Header Constraints for participants. Discharge Summary does not specify any use for functionCode for participants. Local policies will determine how this element should be used in implementations."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8467)."
+  * typeCode 1..1  // TEMP until CDA is fixed
+  * associatedEntity 1..1
+    * classCode ^binding.description = "See additional bindings"
+      * insert AdditionalBinding(preferred, $2.16.840.1.113883.11.20.9.33, When typeCode=IND, [[When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30 (CONF:1198-8469).]])
 * componentOf 1..1
   * ^short = "The Discharge Summary is always associated with a Hospital Admission using the encompassingEncounter element in the header."
   * ^comment = "SHALL contain exactly one [1..1] componentOf (CONF:1198-8471)."
@@ -177,6 +181,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
 Invariant: 1198-8469
 Description: "When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30 (CONF:1198-8469)."
 Severity: #error
+Expression: "typeCode = 'IND' implies associatedEntity.classCode.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33')"
 
 Invariant: 1198-32898
 Description: "This assignedEntity **SHALL** contain an assignedPerson or a representedOrganization or both (CONF:1198-32898)."
