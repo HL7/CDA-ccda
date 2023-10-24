@@ -46,3 +46,4 @@ Description: "This template groups related functional status observations into c
 Invariant: 1098-31417
 Description: "**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (2.16.840.1.113883.6.1) (CONF:1098-31417)."
 Severity: #warning
+Expression: "codeSystem = '2.16.840.1.113883.6.254' or codeSystem = '2.16.840.1.113883.6.1'"
