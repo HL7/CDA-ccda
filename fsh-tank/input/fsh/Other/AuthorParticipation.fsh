@@ -13,7 +13,7 @@ The Author Participation template was added to those templates in scope for anal
 * assignedAuthor 1..1
   * ^comment = "SHALL contain exactly one [1..1] assignedAuthor (CONF:1098-31472)."
   * id 1..*
-    * obeys 1098-32628
+    // * obeys 1098-32628
     * ^short = "This id may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here. If the id is pointing to a participant already described elsewhere in the document, assignedAuthor/id is sufficient to identify this participant and none of the remaining details of assignedAuthor are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. This id must be a pointer to another author participant."
     * ^comment = "This assignedAuthor SHALL contain at least one [1..*] id (CONF:1098-31473)."
   * code 0..1
