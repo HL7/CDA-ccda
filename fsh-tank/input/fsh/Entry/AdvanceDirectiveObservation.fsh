@@ -2,21 +2,46 @@ Profile: AdvanceDirectiveObservation
 Parent: $Observation
 Id: AdvanceDirectiveObservation
 Title: "Advance Directive Observation"
-Description: """This clinical statement represents Advance Directive Observation findings (e.g., "resuscitation status is Full Code") rather than orders. It should not be considered a legal document or a substitute for the actual Advance Directive document. The related legal documents are referenced using the reference/externalReference element.
+Description: """An Advance Directive Observation template is used to record information about a document authored by the person and containing goals, preferences, and priorities for care. The observation records that the document was available and may have been reviewed (verified). It records the kind (category) of advance directive document, where the document can be accessed, who verified it, and the type of content that was determined to be present. When a person has more than one advance directive document, each document is recorded using an Advance Directive Observation template. A set of Advance Directive Observations are grouped together using an Advance Directive Organizer. 
 
-The Advance Directive Observation describes the patient's directives, including but not limited to:
-*  Medications
-*  Transfer of Care to Hospital
-*  Treatment
-*  Procedures
-*  Intubation and Ventilation
-*  Diagnostic Tests
-*  Tests
+An Advance Directive Observation template is not used to record information about portable medical orders, such as Medical Orders for Life Sustaining Treatments (MOLST), Physician Orders for Life Sustaining Treatments (POLST), or out-of-hospital Do Not Resuscitate (DNR) Orders. Portable medical order documents are authored by physicians, not patients. They document medical treatment intervention decisions that have been made rather than goals, preferences and priorities that a patient intends to be used as guidance when making care decisions.
 
-The observation/value element contains the detailed patient directive which may be coded or text. For example, a category directive may be antibiotics, and the details would be intravenous antibiotics only.
-"""
+The Advance Directive Observation template differs from the Advance Care Planning Intervention template. The Advance Directive Observation template is used to record that a person’s advance directive document has been accessed and reviewed. The Advance Care Planning Intervention template is used to document interactions, such as discussions or education, with the patient about advance care planning and personal advance care plans.
 
-* insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2015-08-01)
+The categories of advance directives source documents could include, but are not limited to, the following:
+• Personal advance care plan
+• Living Will
+• Durable Healthcare (Medical) Power of Attorney
+
+Note: Under common law, a “power of attorney” was automatically revoked by the incompetency or incapacity of the principal, so the common law power of attorney was not useful as a planning for incapacity. Accordingly, states adopted “durable” power of attorney statutes allowing an agent to continue to act as empowered by a power of attorney even after the principal became disabled, incompetent or incapacitated.
+
+The types of content in an advance directive could include, but are not limited to:
+• Healthcare agent consent
+• Antibiotics administration preference
+• Artificial nutrition and hydration administration preference
+• Intubation and Ventilation procedure preference
+• Resuscitation procedure preference
+• Diagnostic Testing procedure preference
+• Preferences relating to palliative care
+• Preferences relating to hospice care at the end of life
+• Organ donation preference
+• Autopsy procedure preference
+• Burial preference
+• Care preference that is general in nature which the patient wants care providers to take into consideration
+• Information about a personal goal, such as seeing a grandchild born, attending a child’s wedding, finding care for a beloved pet, or dying in a certain place.
+
+Examples:
+A person may have a durable healthcare power of attorney that appoints a Healthcare Power of Attorney. It may indicate that the person’s spouse has been established as the primary healthcare agent, and the person’s daughter as the first alternative healthcare agent. If the spouse was deceased, or was unavailable at the time, or unwilling to act as healthcare agent during the encounter being documented, then the person’s daughter would be identified as the acting healthcare agent at that time. In this example, “personal advance care plan” is the category of advance directive and “Healthcare Agent” is the type of advance directive content that is present. In this example, “durable healthcare power of attorney” is the category of advance directive and “Healthcare agent” is the type of advance directive content that is present. 
+
+A personal advance care plan may contain information about a person’s treatment preferences regarding resuscitation. In this example, “personal advance care plan” is the category of advance directive and “Resuscitation” is the type of advance directive content that is present.
+
+The author of the Advance Directive Observation is the person documenting that the directives were reviewed and verified. The verifier is the person who read the document and verified the advance directive information. The role of verifier and the role of author need not be fulfilled by the same person, so each role is documented separately. However, the author and the verifier often will be the same person. This template supports Context Conduction. The author of the organizer can be assumed to be the author of the Advance Directive Observations within the organizer unless explicitly overridden an observation. When author identity confidence is high, implementers should explicitly assert conformance to the Provenance Author Participation template.
+
+When an Advance Directive Observation template indicates that the advance directives include healthcare agent appointment information, each healthcare agent can be included in a participation with @typeCode=”CST”. If the participation context (e.g. provenance) for an Advance Directive Observation is not established for the observation, then the participations for the encompassing Advance Directive Organizer apply to the observation.
+
+Advance directives are effective over a range of time. The effectiveTime/low tells when they went into effect (or will go into effect) and the high tells when they ceased or will cease to be in effect. If the starting effective time is not known, effectiveTime/low is UNK, but this would still be considered "Active". If effectiveTime/high contains a value of "NA" or it is not valued, the advance directive remains active until some action is taken to make it inactive. (Explicit use of nullFlavor="NA" is the preferred approach for indicating an Advance Directive that is not time bounded.) That action may update the existing information with an effectiveTime/high or it may replace the open-ended entry with a new entry that includes the effectiveTime/high information. An advance directive is active so long as the effectiveTime/high has not been passed."""
+
+* insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2022-02-14)
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -27,8 +52,8 @@ The observation/value element contains the detailed patient directive which may 
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8654)."
 * code 1..1
-* code from $2.16.840.1.113883.1.11.20.2 (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Advance Directive Type Code urn:oid:2.16.840.1.113883.1.11.20.2 DYNAMIC (CONF:1198-8651)."
+* code from $2.16.840.1.113883.11.20.9.69.4 (preferred)
+  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Advance Directive Categories urn:oid:2.16.840.1.113883.11.20.9.69.4 DYNAMIC (CONF:1198-8651)."
   * translation ^slicing.discriminator[0].type = #value
     * ^slicing.discriminator[=].path = "code"
     * ^slicing.discriminator[+].type = #value
@@ -42,8 +67,8 @@ The observation/value element contains the detailed patient directive which may 
     * codeSystem 1..1
     * codeSystem = "2.16.840.1.113883.6.1"
       * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32844)."
+* text 1..1
 * statusCode 1..1
-  * ^short = "SG 20230706: constraint not entered 'properly' deleted fixedCode='Completed here - it's already in the next element and shoudln't be here - entered weird/wrong in TWB"
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."
     * code 1..1
     * code from $2.16.840.1.113762.1.4.1240.6 (required)
@@ -58,7 +83,8 @@ The observation/value element contains the detailed patient directive which may 
 * value 1..1
   * obeys 1198-32493
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:1198-30804)."
-  //"<sliceName value=\"value1\"/>"
+* value only CD
+  * code from $2.16.840.1.113762.1.4.1115.5
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32406)."

@@ -2,9 +2,10 @@ Profile: AdvanceDirectiveOrganizer
 Parent: $Organizer
 Id: AdvanceDirectiveOrganizer
 Title: "Advance Directive Organizer"
-Description: "This clinical statement groups a set of advance directive observations."
+Description: "This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented.
+The effectiveTime of the organizer (TS) indicates the point in time when the advance directive observations were reviewed/verified. Or, if not reviewed/verified, then the time when the advance directive observations were made. The time element of the author indicates when the advance directive observations were recorded in the patient's record. The effectiveTime of the organizer and the time element of the associated author element may often be the same. Note also for clarity: the effectiveTime of the individual advance directive observations indicates the interval in time when the directive went into effect (effectiveTime/low) and out of effect (effectiveTime/high). The author time element on an advance directive observation indicates the time when the observation was documented."
 
-* insert LogicalModelTemplate(advance-directive-org, 2.16.840.1.113883.10.20.22.4.108, 2015-08-01)
+* insert LogicalModelTemplate(advance-directive-org, 2.16.840.1.113883.10.20.22.4.108, 2022-02-14)
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)
@@ -37,4 +38,4 @@ Description: "This clinical statement groups a set of advance directive observat
 * component[component1] ^comment = "SHALL contain at least one [1..*] component (CONF:1198-28420) such that it"
   * observation 1..1
   * observation only AdvanceDirectiveObservation
-    * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-28421)."
+    * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2022-02-14) (CONF:1198-28421)."
