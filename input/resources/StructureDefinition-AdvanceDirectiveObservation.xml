@@ -161,6 +161,7 @@
                 <key value="1198-32449"/>
                 <severity value="error"/>
                 <human value="If the Advance Directive does not have a specified ending time, the &lt;high&gt; element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."/>
+                <expression value="value.exists() or nullFlavor = 'NA'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
         </element>
@@ -172,12 +173,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
-            <constraint>
-                <key value="1198-32493"/>
-                <severity value="error"/>
-                <human value="If type CD, then value will be SNOMED-CT 2.16.840.1.113883.6.96 (CONF:1198-32493)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
-            </constraint>
         </element>
         <element id="Observation.value.code">
             <path value="Observation.value.code"/>
@@ -185,6 +180,10 @@
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.5"/>
             </binding>
+        </element>
+        <element id="Observation.value.codeSystem">
+            <path value="Observation.value.codeSystem"/>
+            <patternString value="2.16.840.1.113883.6.96"/>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
