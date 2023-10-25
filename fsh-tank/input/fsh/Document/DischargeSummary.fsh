@@ -95,7 +95,8 @@ The best practice for a Discharge Summary is to include the discharge dispositio
         component24 0..1 and
         component25 0..1 and
         component26 0..1 and
-        component27 1..1
+        component27 1..1 and
+        component28 0..1
     * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30519)."
       * section only AllergiesAndIntolerancesSection
         * ^comment = "This component SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01) (CONF:1198-30520)."
@@ -177,6 +178,9 @@ The best practice for a Discharge Summary is to include the discharge dispositio
     * component[component27] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30559) such that it"
       * section only ResultsSection
         * ^comment = "SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2014-06-09) (CONF:1198-30560)."
+    * component[component28] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
+      * section only AdvanceDirectivesSection
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
 
 Invariant: 1198-8469
 Description: "When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30 (CONF:1198-8469)."
