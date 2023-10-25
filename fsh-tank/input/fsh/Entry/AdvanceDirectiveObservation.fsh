@@ -9,26 +9,26 @@ An Advance Directive Observation template is not used to record information abou
 The Advance Directive Observation template differs from the Advance Care Planning Intervention template. The Advance Directive Observation template is used to record that a person’s advance directive document has been accessed and reviewed. The Advance Care Planning Intervention template is used to document interactions, such as discussions or education, with the patient about advance care planning and personal advance care plans.
 
 The categories of advance directives source documents could include, but are not limited to, the following:
-• Personal advance care plan
-• Living Will
-• Durable Healthcare (Medical) Power of Attorney
+*    Personal advance care plan
+*    Living Will
+*    Durable Healthcare (Medical) Power of Attorney
 
 Note: Under common law, a “power of attorney” was automatically revoked by the incompetency or incapacity of the principal, so the common law power of attorney was not useful as a planning for incapacity. Accordingly, states adopted “durable” power of attorney statutes allowing an agent to continue to act as empowered by a power of attorney even after the principal became disabled, incompetent or incapacitated.
 
 The types of content in an advance directive could include, but are not limited to:
-• Healthcare agent consent
-• Antibiotics administration preference
-• Artificial nutrition and hydration administration preference
-• Intubation and Ventilation procedure preference
-• Resuscitation procedure preference
-• Diagnostic Testing procedure preference
-• Preferences relating to palliative care
-• Preferences relating to hospice care at the end of life
-• Organ donation preference
-• Autopsy procedure preference
-• Burial preference
-• Care preference that is general in nature which the patient wants care providers to take into consideration
-• Information about a personal goal, such as seeing a grandchild born, attending a child’s wedding, finding care for a beloved pet, or dying in a certain place.
+*    Healthcare agent consent
+*    Antibiotics administration preference
+*    Artificial nutrition and hydration administration preference
+*    Intubation and Ventilation procedure preference
+*    Resuscitation procedure preference
+*    Diagnostic Testing procedure preference
+*    Preferences relating to palliative care
+*    Preferences relating to hospice care at the end of life
+*    Organ donation preference
+*    Autopsy procedure preference
+*    Burial preference
+*    Care preference that is general in nature which the patient wants care providers to take into consideration
+*    Information about a personal goal, such as seeing a grandchild born, attending a child’s wedding, finding care for a beloved pet, or dying in a certain place.
 
 Examples:
 A person may have a durable healthcare power of attorney that appoints a Healthcare Power of Attorney. It may indicate that the person’s spouse has been established as the primary healthcare agent, and the person’s daughter as the first alternative healthcare agent. If the spouse was deceased, or was unavailable at the time, or unwilling to act as healthcare agent during the encounter being documented, then the person’s daughter would be identified as the acting healthcare agent at that time. In this example, “personal advance care plan” is the category of advance directive and “Healthcare Agent” is the type of advance directive content that is present. In this example, “durable healthcare power of attorney” is the category of advance directive and “Healthcare agent” is the type of advance directive content that is present. 
