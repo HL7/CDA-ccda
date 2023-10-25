@@ -87,8 +87,8 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
-* entryRelationship contains specimenProc 1..1
-* entryRelationship[specimenProc] ^comment = "SHALL contain exactly one [1..1] entryRelationship such that it"
+* entryRelationship contains specimenProc 0..1
+* entryRelationship[specimenProc] ^comment = "SHOULD contain exactly one [1..1] entryRelationship such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers To (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."

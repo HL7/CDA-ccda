@@ -18,7 +18,7 @@ This template may be used directly in any section, such as Care Plan Document Se
 * value 1..1
 * value only CD or ED
   * ^short = "Most of the time, the value will be a string representing the person's words."
-* precondition 1..1
+* sdtcPrecondition2 1..1
   * criterion 1..1
     * code 1..1
     * code from $2.16.840.1.113762.1.4.1115.23 (preferred)

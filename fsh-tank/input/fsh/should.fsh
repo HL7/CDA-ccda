@@ -150,11 +150,6 @@ Description: "SHOULD contain playingEntity"
 Severity: #warning
 Expression: "playingEntity.exists()"
 
-Invariant: should-precondition
-Description: "SHOULD contain precondition"
-Severity: #warning
-Expression: "precondition.exists()"
-
 Invariant: should-priorityCode
 Description: "SHOULD contain priorityCode"
 Severity: #warning
@@ -224,6 +219,11 @@ Invariant: should-sdtcId
 Description: "SHOULD contain sdtcId"
 Severity: #warning
 Expression: "sdtcId.exists()"
+
+Invariant: should-sdtcPrecondition2
+Description: "SHOULD contain sdtc:Precondition2"
+Severity: #warning
+Expression: "sdtcPrecondition2.exists()"
 
 Invariant: should-targetSiteCode
 Description: "SHOULD contain targetSiteCode"
