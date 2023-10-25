@@ -71,22 +71,22 @@
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8648)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC)."/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8649)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC)."/>
             <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <comment value="SHALL contain at least one [1..*] id (CONF:1198-8654)."/>
+            <comment value="SHALL contain at least one [1..*] id."/>
             <min value="1"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Advance Directive Categories urn:oid:2.16.840.1.113883.11.20.9.69.4 DYNAMIC (CONF:1198-8651)."/>
+            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Advance Directive Categories urn:oid:2.16.840.1.113883.11.20.9.69.4 DYNAMIC."/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4"/>
@@ -116,13 +116,13 @@
         </element>
         <element id="Observation.code.translation:advanceDirective.code">
             <path value="Observation.code.translation.code"/>
-            <comment value="SHALL contain exactly one [1..1] @code=&quot;75320-2&quot; Advance directive (CONF:1198-32843)."/>
+            <comment value="SHALL contain exactly one [1..1] @code=&quot;75320-2&quot; Advance directive."/>
             <min value="1"/>
             <patternCode value="75320-2"/>
         </element>
         <element id="Observation.code.translation:advanceDirective.codeSystem">
             <path value="Observation.code.translation.codeSystem"/>
-            <comment value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32844)."/>
+            <comment value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
@@ -145,17 +145,17 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8656)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime."/>
             <min value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
-            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-28719)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] low."/>
             <min value="1"/>
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
-            <comment value="This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-15521)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] high."/>
             <min value="1"/>
             <constraint>
                 <key value="1198-32449"/>
@@ -187,7 +187,7 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32406)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
@@ -206,7 +206,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="This custodian (CST) participant identifies a legal representative for the patient's advance directive. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  If there is more than one  legal representative, a qualifier may be used to designate the  legal representative as primary or secondary."/>
         </element>
         <element id="Observation.participant.templateId">
             <path value="Observation.participant.templateId"/>
@@ -240,7 +239,7 @@
         <element id="Observation.participant:participant1">
             <path value="Observation.participant"/>
             <sliceName value="participant1"/>
-            <short value="The participant &quot;VRF&quot; represents the clinician(s) who verified the patient advance directive observation."/>
+            <short value="The participant &quot;VRF&quot; represents the clinician(s) who verified the patient advance directive."/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -290,11 +289,14 @@
         </element>
         <element id="Observation.participant:participant1.participantRole.playingEntity">
             <path value="Observation.participant.participantRole.playingEntity"/>
-            <comment value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1198-28428)."/>
+            <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-28428)."/>
+            <min value="1"/>
         </element>
         <element id="Observation.participant:participant1.participantRole.playingEntity.name">
             <path value="Observation.participant.participantRole.playingEntity.name"/>
-            <comment value="The playingEntity, if present, MAY contain zero or more [0..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."/>
+            <comment value="The playingEntity SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
@@ -303,6 +305,7 @@
         <element id="Observation.participant:participant2">
             <path value="Observation.participant"/>
             <sliceName value="participant2"/>
+            <short value="This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -331,10 +334,10 @@
         </element>
         <element id="Observation.participant:participant2.participantRole.code">
             <path value="Observation.participant.participantRole.code"/>
-            <comment value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28440)."/>
+            <comment value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent or Proxy Choices urn:oid:2.16.840.1.113762.1.4.1046.35 DYNAMIC (CONF:1198-28440)."/>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.35"/>
             </binding>
         </element>
         <element id="Observation.participant:participant2.participantRole.addr">
@@ -365,7 +368,7 @@
         </element>
         <element id="Observation.participant:participant2.participantRole.playingEntity.name">
             <path value="Observation.participant.participantRole.playingEntity.name"/>
-            <short value="Record the name of the agent who can provide a copy of the Advance Directive in the name element."/>
+            <short value="The name of the healthcare agent."/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."/>
             <min value="1"/>
             <max value="1"/>

@@ -52,11 +52,13 @@ Alias: $2.16.840.1.113762.1.4.1115.23 = http://cts.nlm.nih.gov/fhir/ValueSet/2.1
 Alias: $2.16.840.1.113762.1.4.1166.22 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.22
 Alias: $SDoHProcedures = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.789
 Alias: $SDoHServiceRequest = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.790
+Alias: $2.16.840.1.113762.1.4.1115.5 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.5
 Alias: $2.16.840.1.113762.1.4.1186.8 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1186.8
 Alias: $2.16.840.1.113762.1.4.1240.1 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.1
 Alias: $2.16.840.1.113762.1.4.1240.3 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.3
 Alias: $2.16.840.1.113762.1.4.1240.5 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.5
 Alias: $2.16.840.1.113762.1.4.1240.6 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6
+Alias: $2.16.840.1.113762.1.4.1046.35 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.35
 Alias: $2.16.840.1.113883.1.11.1 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1
 Alias: $2.16.840.1.113883.1.11.10416 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.10416
 Alias: $2.16.840.1.113883.1.11.11526 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.11526
@@ -122,9 +124,8 @@ Alias: $2.16.840.1.113883.11.20.9.61 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16
 Alias: $2.16.840.1.113883.11.20.9.65 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.65
 Alias: $2.16.840.1.113883.11.20.9.66 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.66
 Alias: $2.16.840.1.113883.11.20.9.68 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68
-Alias: $Payer = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591
 Alias: $2.16.840.1.113883.11.20.9.69.4 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4
-Alias: $2.16.840.1.113762.1.4.1115.5 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.5
+Alias: $Payer = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591
 
 Alias: $1.3.6.1.4.1.12009.10.1.3932 =  http://loinc.org/vs/LL5052-7
 
