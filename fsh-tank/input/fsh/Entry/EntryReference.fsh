@@ -7,6 +7,7 @@ Description: """This template represents the act of referencing another entry in
 The id is required and must be the same id as the entry/id it is referencing. The id cannot be a null value. Act/Code is set to nullFlavor="NP" (Not Present). This means the value is not present in the message (in act/Code)."""
 
 * insert LogicalModelTemplateRootOnly(entry-reference, 2.16.840.1.113883.10.20.22.4.122)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

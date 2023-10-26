@@ -9,6 +9,7 @@ All the types of tobacco use are represented using the codes from the tobacco us
 The effectiveTime element is used to describe dates associated with the patient's tobacco use. Whereas the Smoking Status - Meaningful Use template (2.16.840.1.113883.10.20.22.4.78:2014-06-09) represents a "snapshot in time" observation, simply reflecting what the patient's current smoking status is at the time of the observation, this Tobacco Use template uses effectiveTime to represent the biologically relevant time of the observation. Thus, to record a former smoker, an observation of "cigarette smoker" will have an effectiveTime/low defining the time the patient started to smoke cigarettes and an effectiveTime/high defining the time the patient ceased to smoke cigarettes. To record a current smoker, the effectiveTime/low will define the time the patient started smoking and will have no effectiveTime/high to indicated that the patient is still smoking."""
 
 * insert LogicalModelTemplate(tobacco-use, 2.16.840.1.113883.10.20.22.4.85, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

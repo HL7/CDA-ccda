@@ -6,6 +6,7 @@ Description: """This template represents planned acts that are not classified as
 The priority of the activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the activity is intended to take place."""
 
 * insert LogicalModelTemplate(planned-act, 2.16.840.1.113883.10.20.22.4.39, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

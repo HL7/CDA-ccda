@@ -7,6 +7,7 @@ Description: """This template represents the outcome of care resulting from the 
 Often thought of as an "actual outcome", the Outcome Observation may be related to goals, progression toward goals, and the associated interventions. For example, an observation outcome of a blood oxygen saturation level of 95% is related to the goal of "Maintain Pulse Ox greater than 92", which in turn is related to the health concern of respiratory insufficiency and the problem of pneumonia. The template makes use of the Entry Reference (templateId:2.16.840.1.113883.10.20.22.4.122) to reference the interventions and goals defined elsewhere in the Care Plan CDA instance."""
 
 * insert LogicalModelTemplateRootOnly(outcome-obs, 2.16.840.1.113883.10.20.22.4.144)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

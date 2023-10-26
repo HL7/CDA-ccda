@@ -11,6 +11,7 @@ A goal usually has a related health concern and/or risk.
 A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships."""
 
 * insert LogicalModelTemplate(goal-obs, 2.16.840.1.113883.10.20.22.4.121, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

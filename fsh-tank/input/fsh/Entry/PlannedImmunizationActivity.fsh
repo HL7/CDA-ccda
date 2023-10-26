@@ -6,6 +6,7 @@ Description: """This template represents planned immunizations. Planned Immuniza
 The priority of the immunization activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the immunization activity is intended to take place and authorTime indicates when the documentation of the plan occurred."""
 
 * insert LogicalModelTemplateRootOnly(planned-immunization-activity, 2.16.840.1.113883.10.20.22.4.120)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #SBADM (exactly)

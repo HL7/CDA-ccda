@@ -42,6 +42,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SectionTimeRangeObservation"/>
+            </constraint>
+        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -101,6 +111,7 @@
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:3250-32962)."/>
             <min value="1"/>
         </element>
@@ -108,6 +119,13 @@
             <path value="Observation.text.reference"/>
             <comment value="This text SHALL contain exactly one [1..1] reference (CONF:3250-32963)."/>
             <min value="1"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SectionTimeRangeObservation"/>
+            </constraint>
         </element>
         <element id="Observation.text.reference.value">
             <path value="Observation.text.reference.value"/>

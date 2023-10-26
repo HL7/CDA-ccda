@@ -8,6 +8,7 @@ This Hospital Admission Diagnosis act may contain more than one Problem Observat
 """
 
 * insert LogicalModelTemplate(hospital-admission-dx, 2.16.840.1.113883.10.20.22.4.34, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

@@ -5,6 +5,7 @@ Title: "Substance Administered Act"
 Description: "This template represents the administration course in a series. The entryRelationship/sequenceNumber in the containing template shows the order of this particular administration in that medication series."
 
 * insert LogicalModelTemplateRootOnly(substance-administered-act, 2.16.840.1.113883.10.20.22.4.118)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

@@ -10,6 +10,7 @@ The Planned Observation template may also indicate the potential insurance cover
 """
 
 * insert LogicalModelTemplate(planned-obs, 2.16.840.1.113883.10.20.22.4.44, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

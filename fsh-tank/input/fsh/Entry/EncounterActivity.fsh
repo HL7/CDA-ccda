@@ -5,6 +5,7 @@ Title: "Encounter Activity"
 Description: "This clinical statement describes an interaction between a patient and clinician. Interactions may include in-person encounters, telephone conversations, and email exchanges."
 
 * insert LogicalModelTemplate(encounter-activity, 2.16.840.1.113883.10.20.22.4.49, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ENC (exactly)

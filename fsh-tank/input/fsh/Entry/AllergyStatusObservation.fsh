@@ -6,6 +6,7 @@ Description: """This template represents the clinical status attributed to the a
 """
 
 * insert LogicalModelTemplate(allergy-status-obs, 2.16.840.1.113883.10.20.22.4.28, 2019-06-20)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

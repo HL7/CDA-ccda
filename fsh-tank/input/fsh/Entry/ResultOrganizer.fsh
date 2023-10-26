@@ -9,6 +9,7 @@ If any Result Observation within the organizer has a statusCode of "active", the
 Specimen(s) attached to a Result Organizer apply to all Result Observations contained in the Organizer. It is not recommended to record specimen information at the Result Observation."""
 
 * insert LogicalModelTemplate(result-org, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
+* insert NarrativeLinkOrganizer
 
 * ^status = #draft
 * classCode 1..1

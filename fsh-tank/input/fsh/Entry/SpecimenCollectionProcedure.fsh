@@ -5,6 +5,7 @@ Title: "Specimen Collection Procedure"
 Description: """This template represents clinical information about the specimen including when it was collected, the type and source of specimen, as well as related observations regarding the specimen."""
 
 * insert LogicalModelTemplate(specimen-collection-proc, 2.16.840.1.113883.10.20.22.4.415, 2018-09-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #PROC (exactly)

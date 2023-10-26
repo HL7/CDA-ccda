@@ -7,6 +7,7 @@ Description: """The template is available to explicitly identify the free text S
 An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."""
 
 * insert LogicalModelTemplateRootOnly(med-freeTextSig, 2.16.840.1.113883.10.20.22.4.147)
+* insert NarrativeLink
 
 * obeys sig-closed
 

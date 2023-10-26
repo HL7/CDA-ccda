@@ -41,6 +41,13 @@
         <element id="SubstanceAdministration">
             <path value="SubstanceAdministration"/>
             <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
+            <constraint>
                 <key value="dose-unit-or-admin-unit"/>
                 <severity value="error"/>
                 <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
@@ -100,6 +107,20 @@
             <path value="SubstanceAdministration.code"/>
             <short value="SubstanceAdministration.code is an optional field. Per HL7 Pharmacy Committee, &quot;this is intended to further specify the nature of the substance administration act. To date the committee has made no use of this attribute&quot;. Because the type of substance administration is generally implicit in the routeCode, in the consumable participant, etc., the field is generally not used, and there is no defined value set."/>
             <comment value="MAY contain zero or one [0..1] code (CONF:1098-7506)."/>
+        </element>
+        <element id="SubstanceAdministration.text">
+            <path value="SubstanceAdministration.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="SubstanceAdministration.text.reference">
+            <path value="SubstanceAdministration.text.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.statusCode">
             <path value="SubstanceAdministration.statusCode"/>

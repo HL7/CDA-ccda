@@ -5,6 +5,7 @@ Title: "Planned Encounter"
 Description: "This template represents a planned or ordered encounter. The type of encounter (e.g., comprehensive outpatient visit) is represented. Clinicians participating in the encounter and the location of the planned encounter may be captured. The priority that the patient and providers place on the encounter may be represented."
 
 * insert LogicalModelTemplate(planned-enc, 2.16.840.1.113883.10.20.22.4.40, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ENC (exactly)

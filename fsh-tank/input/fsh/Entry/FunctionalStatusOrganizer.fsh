@@ -5,6 +5,7 @@ Title: "Functional Status Organizer"
 Description: "This template groups related functional status observations into categories (e.g., mobility, self-care)."
 
 * insert LogicalModelTemplate(functional-status-org, 2.16.840.1.113883.10.20.22.4.66, 2014-06-09)
+* insert NarrativeLinkOrganizer
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)

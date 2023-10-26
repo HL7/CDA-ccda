@@ -7,6 +7,7 @@ The effective time indicates the time when the supply is intended to take place 
 Depending on the type of supply, the product or participant will be either a Medication Information product (medication), an Immunization Medication Information product (immunization), or a Product Instance participant (device/equipment)."""
 
 * insert LogicalModelTemplate(planned-supply, 2.16.840.1.113883.10.20.22.4.43, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #SPLY (exactly)
