@@ -274,37 +274,6 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship">
-            <path value="Observation.entryRelationship"/>
-            <slicing>
-                <discriminator>
-                    <type value="profile"/>
-                    <path value="procedure"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.entryRelationship:specimenProc">
-            <path value="Observation.entryRelationship"/>
-            <sliceName value="specimenProc"/>
-            <comment value="SHOULD contain exactly one [1..1] entryRelationship such that it"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.entryRelationship:specimenProc.typeCode">
-            <path value="Observation.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers To (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Observation.entryRelationship:specimenProc.procedure">
-            <path value="Observation.entryRelationship.procedure"/>
-            <comment value="SHALL contain exactly one [1..1] Specimen Collection Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.415:2018-09-01)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SpecimenCollectionProcedure"/>
-            </type>
-        </element>
         <element id="Observation.referenceRange">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
                 <valueBoolean value="true"/>
