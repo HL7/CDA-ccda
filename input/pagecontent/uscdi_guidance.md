@@ -343,22 +343,20 @@ the null flavor attribute set to "UNK", and the ID still sent in the extension a
 | ---- | ------ | ------ | ------ |
 |[Coverage Status](https://www.healthit.gov/isa/taxonomy/term/3601/uscdi-v3)<br />Presence or absence of health care insurance.|None (follow C-CDA)|Coverage Activity|act/effectiveTime/@value|
 |[Coverage Type](https://www.healthit.gov/isa/taxonomy/term/2351/uscdi-v3)<br />Category of health care payers. (e.g., Medicare, TRICARE, Commercial Managed Care - PPO)|None (follow C-CDA)|Policy Activity|act/code|
-|[Relationship to Subscriber](https://www.healthit.gov/isa/taxonomy/term/3581/uscdi-v3)<br />Relationship of a patient to the primary insured person.|None (follow C-CDA)|Policy Activity<br />participant/@typeCode="COV" Coverage target<br />("2.16.840.1.113883.10.20.22.4.89" Covered Party Participant)|participant/@typeCode="COV"/participantRole/code/@code|
-|[Member Identifier](https://www.healthit.gov/isa/taxonomy/term/2751/uscdi-v3)<br />Sequence of characters used to uniquely refer to an individual with respect to their insurance.|None (follow C-CDA)|Policy Activity<br />participant/@typeCode="COV" Coverage target<br />("2.16.840.1.113883.10.20.22.4.89" Covered Party Participant)|act/participant/templateId/@root="2.16.840.1.113883.10.20.22.4.89"/participantRole/id|
-|[Subscriber Identifier](https://www.healthit.gov/isa/taxonomy/term/2341/uscdi-v3)<br />Sequence of characters used to uniquely refer to the individual that selects insurance benefits.|None (follow C-CDA)|Policy Activity|act/participant/@typeCode="HLD"/templateId/@root="2.16.840.1.113883.10.20.22.4.90"/participantRole/id<br />OR if SELF<br />@typeCode="COV"/templateId/@root="2.16.840.1.113883.10.20.22.4.89"/participantRole/id|
-|[Group Identifier](https://www.healthit.gov/isa/taxonomy/term/2361/uscdi-v3)<br />Sequence of characters used to uniquely refer to a specific health insurance plan.|None (follow C-CDA)|Policy Activity|act/templateId/@root="2.16.840.1.113883.10.20.22.4.61"/id|
-|[Payer Identifier](https://www.healthit.gov/isa/taxonomy/term/2346/uscdi-v3)<br />Sequence of characters used to uniquely refer to an insurance payer.|None (follow C-CDA)|j Activity|act/performer[@typeCode="PRF" AND code/@code="PAYER"]/templateId/@root="2.16.840.1.113883.10.20.22.4.87"/assignedEntity/id|
+|[Relationship to Subscriber](https://www.healthit.gov/isa/taxonomy/term/3581/uscdi-v3)<br />Relationship of a patient to the primary insured person.|None (follow C-CDA)|Policy Activity<br />participant/@typeCode="COV" Coverage target<br />("2.16.840.1.113883.10.20.22.4.89" Covered Party Participant)|participant[@typeCode="COV"]/participantRole/code/@code|
+|[Member Identifier](https://www.healthit.gov/isa/taxonomy/term/2751/uscdi-v3)<br />Sequence of characters used to uniquely refer to an individual with respect to their insurance.|None (follow C-CDA)|Policy Activity<br />participant/@typeCode="COV" Coverage target<br />("2.16.840.1.113883.10.20.22.4.89" Covered Party Participant)|act/participant[templateId/@root="2.16.840.1.113883.10.20.22.4.89"]/participantRole/id|
+|[Subscriber Identifier](https://www.healthit.gov/isa/taxonomy/term/2341/uscdi-v3)<br />Sequence of characters used to uniquely refer to the individual that selects insurance benefits.|None (follow C-CDA)|Policy Activity|act/participant[@typeCode="HLD" AND templateId/@root="2.16.840.1.113883.10.20.22.4.90"]/participantRole/id
+OR if SELF
+act/participant[@typeCode="COV" AND templateId/@root="2.16.840.1.113883.10.20.22.4.89"]/participantRole/id|
+|[Group Identifier](https://www.healthit.gov/isa/taxonomy/term/2361/uscdi-v3)<br />Sequence of characters used to uniquely refer to a specific health insurance plan.|None (follow C-CDA)|Policy Activity|act[templateId/@root="2.16.840.1.113883.10.20.22.4.61"]/id|
+|[Payer Identifier](https://www.healthit.gov/isa/taxonomy/term/2346/uscdi-v3)<br />Sequence of characters used to uniquely refer to an insurance payer.|None (follow C-CDA)|j Activity|act/performer[@typeCode="PRF" AND templateId/@root="2.16.840.1.113883.10.20.22.4.87"]/assignedEntity[code/@code="PAYOR"]/id|
 {:.grid}
 
 ##### Coverage Status
 
 The C-CDA model records the coverage status for a patient using the coverage activity effectiveTime.
 
-The act/effectiveTime@value records the date when you checked the coverage for a patient, and applies for all
-policies within the coverage activity. If systems choose to include a time they may need multiple Coverage Activity
-Acts to represent the moment of the eligibility check. Details on a specific Policy coverage period, or self-pay
-period, systems can record an additional effectiveTime inside the Policy Activity. Systems may prioritize Coverages
-using the sequenceNumber.
+The act/effectiveTime@value records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional effectiveTime inside the Policy Activity. Systems may prioritize Coverages using the sequenceNumber.
 
 ##### Coverage Type
 

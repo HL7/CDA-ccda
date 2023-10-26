@@ -138,6 +138,11 @@ In Operative and Procedure Notes, the following information is typically display
 * The surgery or procedure performed (serviceEvent)
 * The date of the surgery or procedure
 
+### Use of Sub-Sections
+Section templates are open templates and therefore support/permit the use of subsections to further organize narrative content for easier and more meaningful/less burdensome consumption of the information. The entries associated with the outermost section can also be nested under the corresponding subsection. Machine processing of the sections of a CDA document should be robust enough to anticipate the possibility of a document being organized into subsections.
+To manage complexity when applying subsections, best practice would be to limit the amount of sub-sectioning to a depth no greater than three levels–a top-level section with no more than two levels deep of subsections.   
+Subsections are coded using codes from the LOINC Document Ontology to indicate the meaning of information contained within that sub-section. Entries intended to be included in a specific sub-section should include a translation on the primary code element of the entry which matches the LOINC code used for the subsection.  This approach to categorizing the entries makes machine processing of the entry content according to the intended sub-section organization within the document context.
+
 ### Narrative Reference
 
 The C-CDA R1.1 release recommended that clinical statements include a link between the narrative (section.text) and coded clinical data (entry). Rather than repeat these constraints in every applicable entry, SDWG agreed in R2.0 to apply the following constraint to all entry templates, unless explicitly prohibited.

@@ -52,12 +52,17 @@ Specimen(s) attached to a Result Organizer apply to all Result Observations cont
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
-* component contains component1 1..*
-* component[component1] ^short = "component"
+* component contains resultObs 1..* and specimenProc 0..1
+* component[resultObs] ^short = "component"
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
   * observation 1..1
   * observation only ResultObservation
     * ^comment = "SHALL contain exactly one [1..1] Result Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:4537-14850)."
+* component[specimenProc] ^comment = "SHOULD contain exactly one [0..1] component such that it"
+  * ^comment = "SHALL contain at least one [1..*] component such that it"
+  * procedure 1..1
+  * procedure only SpecimenCollectionProcedure
+    * ^comment = "SHALL contain exactly one [1..1] Specimen Collection Procedure."
 
 Invariant: 4537-19218
 Description: "**SHOULD** be selected from LOINC (codeSystem 2.16.840.1.113883.6.1) **OR** SNOMED CT (codeSystem 2.16.840.1.113883.6.96), and **MAY** be selected from CPT (codeSystem 2.16.840.1.113883.6.12) (CONF:4537-19218)."

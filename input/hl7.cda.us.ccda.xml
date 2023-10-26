@@ -2,7 +2,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
     <id value="hl7.cda.us.ccda"/>
     <url value="http://hl7.org/cda/us/ccda/ImplementationGuide/hl7.cda.us.ccda"/>
-    <version value="3.0"/>
+    <version value="3.0.0"/>
     <name value="CCDA"/>
     <title value="Consolidated CDA"/>
     <status value="draft"/>
@@ -1375,7 +1375,7 @@
                 <display value="Policy Activity"/>
             </reference>
             <name value="Policy Activity"/>
-            <description value="A policy activity represents the policy or program providing the coverage. The person for whom payment is being provided (i.e., the patient) is the covered party. The subscriber of the policy or program is represented as a participant that is the holder of the coverage. The payer is represented as the performer of the policy activity."/>
+            <description value="A policy activity represents the policy or program providing the coverage. The person for whom payment is being provided (i.e., the patient) is the covered party. The subscriber of the policy or program is represented as a participant that is the holder of the coverage. The payer is represented as the performer of the policy activity.&#xA;Note that the absence of a Policy Activity Act is not confirmation the patient does not have coverage. A Patient's coverage may not have been documented yet or not known to the healthcare provider. &#xA;*    Absence of a Policy Activity Act may mean that the patient has no coverage or the healthcare provider may not know it.&#xA;*    A self pay payer type MAY be used to imply that the patient has no coverage or that an individual or organization other than an insurer is taking responsibility for payment for a portion of the health care costs."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1582,7 +1582,7 @@
                 <display value="Procedures Section"/>
             </reference>
             <name value="Procedures Section"/>
-            <description value="This section describes all interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient historically at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure is for procedures that alter the physical condition of a patient (e.g., splenectomy)."/>
+            <description value="This section describes all historical or current interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure is for procedures that alter the physical condition of a patient (e.g., splenectomy)."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -2629,6 +2629,22 @@
             <description value="Diagnosis Reference example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DisablityStatusObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/disability-status-observation-example"/>
+            </reference>
+            <name value="Disability Status Observation Example"/>
+            <description value="Disability Status Observation Example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DisablityStatusObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -4275,6 +4291,22 @@
             </reference>
             <name value="Problem Observation Example"/>
             <description value="Problem Observation example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/problem-observation-postcoordsnomed-example"/>
+            </reference>
+            <name value="Problem Observation with Post-Coordinated SNOMED Example"/>
+            <description value="Problem Observation with Post-Coordinated SNOMED example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
             <groupingId value="examples"/>
