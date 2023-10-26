@@ -75,7 +75,7 @@ Description: "This template defines constraints that represent common administra
         * ^short = "**MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)"
         * ^comment = "This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."
       * sdtcDeceasedInd 0..1
-        * obeys 4537-32993
+        * obeys 4537-32993 and 4537-21000
         * ^short = "sdtc:deceasedInd"
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."
       * sdtcDeceasedTime 0..1
@@ -508,7 +508,7 @@ Severity: #error
 Expression: "versionNumber.exists() implies setId.exists()"
 
 Invariant: 4537-32993
-Description: "If sdtc:deceasedInd=\"true\", then sdtc:deceasedTime **SHALL** be present (CONF:4537-32993)."
+Description: "If sdtc:deceasedInd=\"true\", then sdtc:deceasedTime **SHALL** be present with either a @value or @nullFlavor=UNK (CONF:4537-32993)."
 Severity: #error
 Expression: "sdtcDeceasedTime.exists() implies sdtcDeceasedInd.exists()"
 
@@ -549,3 +549,7 @@ Invariant: 1198-32905
 Description: "This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."
 Severity: #error
 Expression: "assignedPerson.exists() or representedOrganization.exists()"
+
+Invariant: 4537-21000
+Description: "If sdtc:deceacedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"
+Severity: #error

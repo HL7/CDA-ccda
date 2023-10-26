@@ -283,8 +283,14 @@
             <constraint>
                 <key value="4537-32993"/>
                 <severity value="error"/>
-                <human value="If sdtc:deceasedInd=&quot;true&quot;, then sdtc:deceasedTime **SHALL** be present (CONF:4537-32993)."/>
+                <human value="If sdtc:deceasedInd=&quot;true&quot;, then sdtc:deceasedTime **SHALL** be present with either a @value or @nullFlavor=UNK (CONF:4537-32993)."/>
                 <expression value="sdtcDeceasedTime.exists() implies sdtcDeceasedInd.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
+                <key value="4537-21000"/>
+                <severity value="error"/>
+                <human value="If sdtc:deceacedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
