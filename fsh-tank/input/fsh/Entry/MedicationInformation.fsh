@@ -18,8 +18,15 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * code 1..1
   * code from $2.16.840.1.113762.1.4.1010.4 (required)
     * ^comment = "This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Medication Clinical Drug urn:oid:2.16.840.1.113762.1.4.1010.4 DYNAMIC (CONF:1098-7412)."
-    * translation 0..*
-    * translation from $2.16.840.1.113762.1.4.1010.2 (example)
-      * ^comment = "This code MAY contain zero or more [0..*] translation, which MAY be selected from ValueSet Clinical Substance urn:oid:2.16.840.1.113762.1.4.1010.2 DYNAMIC (CONF:1098-31884)."
+    * translation ^slicing.discriminator[0].type = #value
+      * ^slicing.discriminator[=].path = "code"
+      * ^slicing.discriminator[+].type = #value
+      * ^slicing.discriminator[=].path = "codeSystem"
+      * ^slicing.rules = #open
+    * translation contains snomed 0..1 and ndc 0..1
+    * translation[snomed] from $2.16.840.1.113762.1.4.1010.2 (example)
+      * ^comment = "This code MAY contain zero or more [0..*] translation, which SHALL be selected from ValueSet Clinical Substance urn:oid:2.16.840.1.113762.1.4.1010.2 DYNAMIC (CONF:1098-31884)."
+    * translation[ndc].codeSystem = "2.16.840.1.113883.6.69"
+      * ^comment = "This code MAY contain zero or more [0..*] translation, which SHALL be selected from CodeSystem NDC urn:oid:2.16.840.1.113883.6.69."
 * manufacturerOrganization 0..1
   * ^comment = "MAY contain zero or one [0..1] manufacturerOrganization (CONF:1098-7416)."
