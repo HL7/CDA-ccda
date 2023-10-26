@@ -3,7 +3,7 @@ const fs = require('fs');
 /**
  * Modify sushi with fixes to support CDA logical model development
  *  x Allow binding on code (and ADXP) elements (no longer needed!)
- *  - Disable binding strength checks (to be removed once all profiles are fixed up)
+ *  x Disable binding strength checks (to be removed once all profiles are fixed up - which is now!)
  *  - Fix sushi's logical-model-type-matching to be based on url rather than type
  */
 
@@ -29,11 +29,8 @@ fs.readFile(filePath, 'utf8', (err, data) => {
     return;
   }
 
-  // Ignore the binding strength error - waiting on actually FIXING these in Sushi rather than in XML
-  let newData = data.replace(new RegExp('throw new errors_1.BindingStrengthError', 'g'), '//throw new errors_1.BindingStrengthError');
-
   // Magical expression interpolation (testing)
-  newData = newData.replace(new RegExp('expression: invariant.expression'), 'expression: invariant.expression.replace(new RegExp("{%thisSDUrl}"), this.structDef.url)');
+  newData = data.replace(new RegExp('expression: invariant.expression'), 'expression: invariant.expression.replace(new RegExp("{%thisSDUrl}"), this.structDef.url)');
 
   // Bug with how Sushi reconciles logical-model definitions based on .type instead of .url
   newData = newData.replace(searchString, 'matchesLogicalType = t2.code && (t2.code === md.sdType || t2.code === md.url);')
