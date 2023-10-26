@@ -43,6 +43,12 @@ This information should be included in an Immunization Activity when available. 
 * repeatNumber 0..1
   * ^short = "In \"INT\" (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of \"3\" means that the substance can be administered up to 3 times. In \"EVN\" (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of \"3\" in a substance administration event means that the current administration is the 3rd in a series."
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1198-8838)."
+  * value 1..1
+  * operator 0..0
+  * low 0..0
+  * center 0..0
+  * width 0..0
+  * high 0..0
 * routeCode 0..1
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1198-8839)."
