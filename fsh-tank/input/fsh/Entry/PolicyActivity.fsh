@@ -8,6 +8,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
 *    A self pay payer type MAY be used to imply that the patient has no coverage or that an individual or organization other than an insurer is taking responsibility for payment for a portion of the health care costs."
 
 * insert LogicalModelTemplate(policy-activity, 2.16.840.1.113883.10.20.22.4.61, 2023-05-01)
+* insert NarrativeLink
 
 * ^status = #draft
 * classCode 1..1

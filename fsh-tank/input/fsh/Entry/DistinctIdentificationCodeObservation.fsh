@@ -7,6 +7,7 @@ Description: """This template is intended to be used in addition to the **Produc
 The distinct identification code may be equivalent to the serial number, lot or batch number, or the donation identification number. The appropriate value should be provided as the distinct identification code."""
 
 * insert LogicalModelTemplate(distinct-id-code-obs, 2.16.840.1.113883.10.20.22.4.308, 2019-06-21)
+* insert NarrativeLink
 
 * code 1..1
   * ^short = "Distinct Identification Code from NCIt"

@@ -5,6 +5,7 @@ Title: "Manufacturing Date Observation"
 Description: "This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Manufacturing Date** of the device.  The manufacturing date is parsed from the UDI value, if present."
 
 * insert LogicalModelTemplate(manufact-date-obs, 2.16.840.1.113883.10.20.22.4.316, 2019-06-21)
+* insert NarrativeLink
 
 * code 1..1
   * ^short = "Code for \"Manufacturing Date\""

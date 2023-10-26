@@ -6,6 +6,7 @@ Description: """This Care Experience Preference template represents a person's c
 This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."""
 
 * insert LogicalModelTemplate(care-experience-pref, 2.16.840.1.113883.10.20.22.4.509, 2024-01-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

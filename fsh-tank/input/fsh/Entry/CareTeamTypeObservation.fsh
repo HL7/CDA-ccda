@@ -13,6 +13,7 @@ Description: """This template is used to express the care team type. A care team
 * ^meta.lastUpdated = "2023-07-11T23:41:50.575Z"
 
 * insert LogicalModelTemplate(care-team-type-obs, 2.16.840.1.113883.10.20.22.4.500.2, 2019-07-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

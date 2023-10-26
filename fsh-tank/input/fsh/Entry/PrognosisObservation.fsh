@@ -6,6 +6,7 @@ Description: """This template represents the patient's prognosis, which must be 
 The effectiveTime represents the clinically relevant time of the observation. The observation/value is not constrained and can represent the expected life duration in PQ, an anticipated course of the disease in text, or coded term."""
 
 * insert LogicalModelTemplateRootOnly(prognosis-obs, 2.16.840.1.113883.10.20.22.4.113)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

@@ -9,6 +9,7 @@ The date of diagnosis is usually not the same date as the date of condition onse
 * ^meta.lastUpdated = "2023-07-11T23:41:51.895Z"
 
 * insert LogicalModelTemplate(date-of-diagnosis-act, 2.16.840.1.113883.10.20.22.4.502, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

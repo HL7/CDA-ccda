@@ -5,6 +5,7 @@ Title: "Nutritional Status Observation"
 Description: "This template describes the overall nutritional status of the patient including findings related to nutritional status."
 
 * insert LogicalModelTemplateRootOnly(nutritional-status-obs, 2.16.840.1.113883.10.20.22.4.124)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

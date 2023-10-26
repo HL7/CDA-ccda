@@ -6,6 +6,7 @@ Description: """This template represents a patient's job (occupation and industr
 There are supplemental templates and guidance for observations of [Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522), [nutrition](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=478) and [pregnancy](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=494) that could be captured in the Social History Observation, and implementers may want to consider using those more specific templates in the Social History section."""
 
 * insert LogicalModelTemplate(social-history-obs, 2.16.840.1.113883.10.20.22.4.38, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

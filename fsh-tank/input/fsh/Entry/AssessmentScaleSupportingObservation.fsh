@@ -5,6 +5,7 @@ Title: "Assessment Scale Supporting Observation"
 Description: "An Assessment Scale Supporting Observation represents the components of a scale used in an Assessment Scale Observation. The individual parts that make up the component may be a group of physical, cognitive, functional status, social observations or answers to questions."
 
 * insert LogicalModelTemplate(assessment-scale-supporting-obs, 2.16.840.1.113883.10.20.22.4.86, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

@@ -5,6 +5,7 @@ Title: "Family History Organizer"
 Description: "The Family History Organizer associates a set of observations with a family member. For example, the Family History Organizer can group a set of observations about the patient's father."
 
 * insert LogicalModelTemplate(family-history-org, 2.16.840.1.113883.10.20.22.4.45, 2015-08-01)
+* insert NarrativeLinkOrganizer
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)

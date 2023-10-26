@@ -18,6 +18,7 @@ This id must be a pointer to another Performer."""
 * ^meta.lastUpdated = "2023-07-11T23:41:50.227Z"
 
 * insert LogicalModelTemplate(care-team-member-act, 2.16.840.1.113883.10.20.22.4.500.1, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #PCPR (exactly)

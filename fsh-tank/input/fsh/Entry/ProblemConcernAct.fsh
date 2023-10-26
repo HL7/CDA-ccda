@@ -17,6 +17,7 @@ Or a Concern may contain a Problem Observation of "chest pain" that is still wor
 Many systems display the nested Problem Observation with the most recent author time stamp, and provide a mechanism for viewing prior observations."""
 
 * insert LogicalModelTemplate(problem-concern-act, 2.16.840.1.113883.10.20.22.4.3, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

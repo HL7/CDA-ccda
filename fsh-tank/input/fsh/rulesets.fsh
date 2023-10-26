@@ -77,6 +77,18 @@ Severity: #warning
 Description: "SHOULD contain originalText/reference/@value"
 Expression: "originalText.reference.value.exists()"
 
+// Similar to NarrativeLink, but for <originalText> elements
+RuleSet: NarrativeLinkOrganizer
+* obeys should-sdtctext-ref-value
+* sdtcText 0..1
+  * ^short = "SHOULD reference the portion of section narrative text corresponding to this entry"
+  * reference 0..1
+    * obeys value-starts-octothorpe
+Invariant: should-sdtctext-ref-value
+Severity: #warning
+Description: "SHOULD contain text/reference/@value"
+Expression: "sdtcText.reference.value.exists()"
+
 ////////////////////////////////////////////////////////////
 //                                                        //
 //              Common Rules for all Models               //

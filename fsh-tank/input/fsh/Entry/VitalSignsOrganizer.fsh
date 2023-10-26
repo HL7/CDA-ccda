@@ -6,6 +6,7 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
 """
 
 * insert LogicalModelTemplate(vital-signs-org, 2.16.840.1.113883.10.20.22.4.26, 2015-08-01)
+* insert NarrativeLinkOrganizer
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)

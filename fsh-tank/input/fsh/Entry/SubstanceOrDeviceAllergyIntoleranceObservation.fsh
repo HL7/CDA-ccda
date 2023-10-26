@@ -7,6 +7,7 @@ Description: """This template reflects a discrete observation about a patient's 
 The effectiveTime of the Substance or Device Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK"."""
 
 * insert LogicalModelTemplate(substance-device-allergy-intolerance-obs, 2.16.840.1.113883.10.20.24.3.90, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

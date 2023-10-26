@@ -5,6 +5,7 @@ Title: "Deceased Observation"
 Description: "This template represents the observation that a patient has died. It also represents the cause of death, indicated by an entryRelationship type of CAUS. This template allows for more specific representation of data than is available with the use of dischargeDispositionCode."
 
 * insert LogicalModelTemplate(deceased-obs, 2.16.840.1.113883.10.20.22.4.79, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

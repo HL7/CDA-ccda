@@ -8,6 +8,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
 """
 
 * insert LogicalModelTemplate(planned-proc, 2.16.840.1.113883.10.20.22.4.41, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #PROC (exactly)
