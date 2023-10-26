@@ -49,6 +49,34 @@ Description: "SHALL contain either a @code attribute or a @nullFlavor attribute,
 Expression: "(code | nullFlavor).count() = 1"
 
 
+// Inserts a "SHOULD" on the <text> element down to @value, and then requires that @value starts with #
+RuleSet: NarrativeLink
+* obeys should-text-ref-value
+* text 0..1
+  * ^short = "SHOULD reference the portion of section narrative text corresponding to this entry"
+  * reference 0..1
+    * obeys value-starts-octothorpe
+Invariant: should-text-ref-value
+Severity: #warning
+Description: "SHOULD contain text/reference/@value"
+Expression: "text.reference.value.exists()"
+Invariant: value-starts-octothorpe
+Severity: #error
+Description: "If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"
+Expression: "value.exists() implies value.startsWith('#')"
+
+// Similar to NarrativeLink, but for <originalText> elements
+RuleSet: NarrativeOriginalText
+* obeys should-otext-ref-value
+* originalText 0..1
+  * ^short = "SHOULD reference the portion of narrative corresponding to this code"
+  * reference 0..1
+    * obeys value-starts-octothorpe
+Invariant: should-otext-ref-value
+Severity: #warning
+Description: "SHOULD contain originalText/reference/@value"
+Expression: "originalText.reference.value.exists()"
+
 ////////////////////////////////////////////////////////////
 //                                                        //
 //              Common Rules for all Models               //

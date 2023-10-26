@@ -25,15 +25,10 @@ Description: "Comments are free text data that cannot otherwise be recorded usin
   * reference 1..1
     * ^comment = "This text SHALL contain exactly one [1..1] reference (CONF:81-15967)."
 
-    * obeys 81-15969
+    * obeys value-starts-octothorpe
     * value 1..1
       * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:81-15968)."
 * obeys should-author
 * author 0..1
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:81-9433)."
-
-Invariant: 81-15969
-Description: "This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:81-15969)."
-Severity: #error
-Expression: "value.startsWith('#')"

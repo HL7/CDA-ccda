@@ -58,17 +58,7 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4515-16800)."
     * obeys should-text
+    * insert NarrativeLink
     * text 0..1
       * ^comment = "This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)." // auto-should
       * ^short = "The text may contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"
-      * obeys should-reference
-      * reference 0..1
-        * ^comment = "The text, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-16802)." // auto-should
-        * value 0..1
-          * obeys 4515-16804
-          * ^comment = "The reference, if present, MAY contain zero or one [0..1] @value (CONF:4515-16803)."
-
-Invariant: 4515-16804
-Description: "This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:4515-16804)."
-Severity: #error
-Expression: "value.exists() implies value.startsWith('#')"

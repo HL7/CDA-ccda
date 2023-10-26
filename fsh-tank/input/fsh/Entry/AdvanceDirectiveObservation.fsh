@@ -42,6 +42,7 @@ When an Advance Directive Observation template indicates that the advance direct
 Advance directives are effective over a range of time. The effectiveTime/low tells when they went into effect (or will go into effect) and the high tells when they ceased or will cease to be in effect. If the starting effective time is not known, effectiveTime/low is UNK, but this would still be considered "Active". If effectiveTime/high contains a value of "NA" or it is not valued, the advance directive remains active until some action is taken to make it inactive. (Explicit use of nullFlavor="NA" is the preferred approach for indicating an Advance Directive that is not time bounded.) That action may update the existing information with an effectiveTime/high or it may replace the open-ended entry with a new entry that includes the effectiveTime/high information. An advance directive is active so long as the effectiveTime/high has not been passed."""
 
 * insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2022-02-14)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
