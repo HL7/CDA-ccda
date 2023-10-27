@@ -55,7 +55,7 @@ Description: "This template defines constraints that represent common administra
     * id 1..*
       * ^comment = "This patientRole SHALL contain at least one [1..*] id (CONF:4537-5268)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This patientRole SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5271)."
     * telecom 1..*
       * obeys should-use
@@ -111,7 +111,7 @@ Description: "This template defines constraints that represent common administra
           * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-5326)."
         * obeys should-addr
         * addr 0..*
-        * addr only USRealmAddressADUSFIELDED
+        * addr only USRealmAddress
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)."
         * obeys should-telecom
         * telecom 0..*
@@ -165,7 +165,7 @@ Description: "This template defines constraints that represent common administra
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7994)."
       * addr 1..*
-      * addr only USRealmAddressADUSFIELDED
+      * addr only USRealmAddress
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5422)."
 * author 1..*
   * ^short = "The author element represents the creator of the clinical document.  The author may be a device or a person."
@@ -200,7 +200,7 @@ Description: "This template defines constraints that represent common administra
       * code from $2.16.840.1.114222.4.11.1066 (preferred)
         * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-16788)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5452)."
     * telecom 1..*
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] telecom (CONF:4537-5428)."
@@ -235,7 +235,7 @@ Description: "This template defines constraints that represent common administra
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32173)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5460)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5466)."
@@ -270,7 +270,7 @@ Description: "This template defines constraints that represent common administra
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32174)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8220)."
     * assignedPerson 1..1
       * ^comment = "This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4537-8221)."
@@ -303,7 +303,7 @@ Description: "This template defines constraints that represent common administra
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7998)."
       * addr 1..1
-      * addr only USRealmAddressADUSFIELDED
+      * addr only USRealmAddress
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5559)."
 * informationRecipient 0..*
   * ^short = "The informationRecipient element records the intended recipient of the information at the time the document was created. In cases where the intended recipient of the document is the patient's health chart, set the receivedOrganization to the scoping organization for that chart."
@@ -347,7 +347,7 @@ Description: "This template defines constraints that represent common administra
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-17000)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5589)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5595)."
@@ -392,7 +392,7 @@ Description: "This template defines constraints that represent common administra
       * code from $2.16.840.1.114222.4.11.1066 (preferred)
         * ^comment = "The code, if present, MAY contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-16826)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5616)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5622)."

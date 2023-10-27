@@ -1,8 +1,8 @@
-Profile: USRealmAddressADUSFIELDED
+Profile: USRealmAddress
 Parent: AD
-Id: USRealmAddressADUSFIELDED
-Title: "US Realm Address (AD.US.FIELDED)"
-Description: "Reusable address template, for use in US Realm CDA Header."
+Id: USRealmAddress
+Title: "US Realm Address"
+Description: "Reusable address template, for use in US Realm documents"
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.2"
 * obeys shall-city and shall-streetAddressLine and should-use and should-country and 81-7296 and 81-10024 and 81-10025 and shall-max-ad-parts

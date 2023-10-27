@@ -59,7 +59,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * code from $2.16.840.1.113883.1.11.10416 (preferred)
         * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Financially Responsible Party Type Value Set urn:oid:2.16.840.1.113883.1.11.10416 DYNAMIC (CONF:4537-15992)."
     * addr 0..1
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8910)."
     * telecom 0..*
       * ^comment = "This assignedEntity MAY contain zero or more [0..*] telecom (CONF:4537-8911)."
@@ -95,7 +95,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * codeSystem = "2.16.840.1.113883.5.110"
         * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.5.110\" (CONF:4537-32165)."
     * addr 0..1
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)."
     * obeys should-telecom
     * telecom 0..*
@@ -138,7 +138,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * code from $2.16.840.1.113883.1.11.18877 (preferred)
         * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Coverage Role Type Value Set urn:oid:2.16.840.1.113883.1.11.18877 DYNAMIC (CONF:4537-16078)."
     * addr 0..1
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)."
     * obeys should-playingEntity
     * playingEntity 0..1
@@ -169,7 +169,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^short = "This id is a unique identifier for the subscriber of the coverage (CONF:4537-10120)."
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8937)."
     * addr 0..1
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)."
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "act.moodCode"

@@ -122,7 +122,7 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)."
     * addr 0..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-28428)."
@@ -143,7 +143,7 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
     * code from $2.16.840.1.113762.1.4.1046.35 (preferred)
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent or Proxy Choices urn:oid:2.16.840.1.113762.1.4.1046.35 DYNAMIC (CONF:1198-28440)."
     * addr 0..1
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."
     * obeys should-telecom
     * telecom 0..*

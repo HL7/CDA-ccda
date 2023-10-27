@@ -22,7 +22,7 @@ Description: "This template represents a generic participant person that has a r
     * ^short = "This associatedEntity/code represents the person's relationship to the patient."
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-32985)."
   * addr 0..*
-  * addr only USRealmAddressADUSFIELDED
+  * addr only USRealmAddress
     * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-32979)."
   * obeys should-telecom
   * telecom 0..*
