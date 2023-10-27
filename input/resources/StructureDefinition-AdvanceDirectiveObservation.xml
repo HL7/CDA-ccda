@@ -282,11 +282,16 @@
             <path value="Observation.participant.time"/>
             <comment value="SHOULD contain zero or one [0..1] time (CONF:1198-8665)."/>
             <constraint>
-                <key value="1198-8666"/>
-                <severity value="warning"/>
-                <human value="The data type of Observation/participant/time in a verification **SHALL** be *TS* (time stamp) (CONF:1198-8666)."/>
+                <key value="value-only"/>
+                <severity value="error"/>
+                <human value="Interval fields SHALL not be present"/>
+                <expression value="(low | high | width | center).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
+        </element>
+        <element id="Observation.participant:participant1.time.value">
+            <path value="Observation.participant.time.value"/>
+            <short value="value should be used instead of low/high"/>
         </element>
         <element id="Observation.participant:participant1.participantRole">
             <path value="Observation.participant.participantRole"/>

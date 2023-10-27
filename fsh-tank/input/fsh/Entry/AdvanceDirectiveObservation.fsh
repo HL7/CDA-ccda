@@ -114,8 +114,8 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"VRF\" Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."
   * obeys should-time
   * time 0..1
-    * obeys 1198-8666
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:1198-8665)." // auto-should
+    * insert IntervalValueOnly
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:1198-8825)."
     * code 0..1
