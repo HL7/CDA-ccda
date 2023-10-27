@@ -510,7 +510,7 @@ Expression: "versionNumber.exists() implies setId.exists()"
 Invariant: 4537-32993
 Description: "If sdtc:deceasedInd=\"true\", then sdtc:deceasedTime **SHALL** be present with either a @value or @nullFlavor=UNK (CONF:4537-32993)."
 Severity: #error
-Expression: "sdtcDeceasedTime.exists() implies sdtcDeceasedInd.exists()"
+Expression: "sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exists()"
 
 // This is redundant - patient always requires 1..1 raceCode
 // Invariant: 4537-31347
@@ -551,5 +551,6 @@ Severity: #error
 Expression: "assignedPerson.exists() or representedOrganization.exists()"
 
 Invariant: 4537-21000
-Description: "If sdtc:deceacedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"
+Description: "If sdtc:deceasedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"
 Severity: #error
+Expression: "sdtcDeceasedTime.value.exists() implies sdtcDeceasedInd.exists(value='true')"
