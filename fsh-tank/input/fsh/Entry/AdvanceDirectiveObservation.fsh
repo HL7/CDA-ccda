@@ -182,11 +182,6 @@ Description: "If the Advance Directive does not have a specified ending time, th
 Severity: #error
 Expression: "value.exists() or nullFlavor = 'NA'"
 
-// TODO - delete pending https://jira.hl7.org/browse/CDA-20828
-Invariant: 1198-8666
-Description: "The data type of Observation/participant/time in a verification **SHALL** be *TS* (time stamp) (CONF:1198-8666)."
-Severity: #warning
-
 Invariant: 1198-8699
 Description: "If a URL is referenced, then it **SHOULD** have a corresponding linkHTML element in narrative block (CONF:1198-8699)."
 Severity: #warning
