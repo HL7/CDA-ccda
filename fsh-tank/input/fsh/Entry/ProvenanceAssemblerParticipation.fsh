@@ -25,6 +25,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
   * code = #assembler
     * ^comment = "This functionCode SHALL contain exactly one [1..1] @code=\"assembler\" Assembler (CONF:4537-32972)."
   * codeSystem 1..1
+  * codeSystem = "2.16.840.1.113883.4.642.4.1131"
     * ^comment = "This functionCode SHALL contain exactly one [1..1] @codeSystem (CodeSystem: ProvenanceParticipantType urn:oid:2.16.840.1.113883.4.642.4.1131) (CONF:4537-41)."
 * time 1..1
   * ^comment = "SHALL contain exactly one [1..1] time (CONF:4537-42)."
