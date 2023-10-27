@@ -165,31 +165,17 @@
         <element id="SubstanceAdministration.repeatNumber">
             <path value="SubstanceAdministration.repeatNumber"/>
             <short value="In &quot;INT&quot; (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of &quot;3&quot; means that the substance can be administered up to 3 times. In &quot;EVN&quot; (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of &quot;3&quot; in a substance administration event means that the current administration is the 3rd in a series."/>
-            <comment value="MAY contain zero or one [0..1] repeatNumber (CONF:1198-8838)."/>
+            <constraint>
+                <key value="value-only"/>
+                <severity value="error"/>
+                <human value="Interval fields SHALL not be present"/>
+                <expression value="(low | high | width | center).empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.repeatNumber.value">
             <path value="SubstanceAdministration.repeatNumber.value"/>
-            <min value="1"/>
-        </element>
-        <element id="SubstanceAdministration.repeatNumber.operator">
-            <path value="SubstanceAdministration.repeatNumber.operator"/>
-            <max value="0"/>
-        </element>
-        <element id="SubstanceAdministration.repeatNumber.low">
-            <path value="SubstanceAdministration.repeatNumber.low"/>
-            <max value="0"/>
-        </element>
-        <element id="SubstanceAdministration.repeatNumber.center">
-            <path value="SubstanceAdministration.repeatNumber.center"/>
-            <max value="0"/>
-        </element>
-        <element id="SubstanceAdministration.repeatNumber.width">
-            <path value="SubstanceAdministration.repeatNumber.width"/>
-            <max value="0"/>
-        </element>
-        <element id="SubstanceAdministration.repeatNumber.high">
-            <path value="SubstanceAdministration.repeatNumber.high"/>
-            <max value="0"/>
+            <short value="value should be used instead of low/high"/>
         </element>
         <element id="SubstanceAdministration.routeCode">
             <path value="SubstanceAdministration.routeCode"/>

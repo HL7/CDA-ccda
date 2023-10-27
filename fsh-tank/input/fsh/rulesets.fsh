@@ -89,6 +89,16 @@ Severity: #warning
 Description: "SHOULD contain text/reference/@value"
 Expression: "sdtcText.reference.value.exists()"
 
+// Use on IVL_TS / IVL_INT / etc when you want to only allow the value (cleaner than a bunch of 0..0's)
+RuleSet: IntervalValueOnly
+* obeys value-only
+* value 0..1
+  * ^short = "value should be used instead of low/high"
+Invariant: value-only
+Severity: #error
+Description: "Interval fields SHALL not be present"
+Expression: "(low | high | width | center).empty()"
+
 ////////////////////////////////////////////////////////////
 //                                                        //
 //              Common Rules for all Models               //
