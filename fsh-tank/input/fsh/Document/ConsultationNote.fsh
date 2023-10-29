@@ -31,6 +31,7 @@ A Consultation Note includes the reason for the referral, history of present ill
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31660)."
     * obeys should-addr
     * addr 0..*
+    * addr only USRealmAddress
       * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31661)." // auto-should
     * telecom 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31662)."

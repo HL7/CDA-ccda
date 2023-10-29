@@ -33,4 +33,5 @@ The Author Participation template was added to those templates in scope for anal
     * telecom 0..*
       * ^comment = "The representedOrganization, if present, MAY contain zero or more [0..*] telecom (CONF:1098-31480)."
     * addr 0..*
+    * addr only USRealmAddress
       * ^comment = "The representedOrganization, if present, MAY contain zero or more [0..*] addr (CONF:1098-31481)."

@@ -132,8 +132,7 @@ Description: "This template defines constraints that represent common administra
           * addr 1..1
             * obeys 4537-5402 and 4537-5403 and should-country
             * ^comment = "This place SHALL contain exactly one [1..1] addr (CONF:4537-5397)."
-            * item.country from $2.16.840.1.113883.3.88.12.80.63 (required)
-              * ^comment = "This addr SHOULD contain zero or one [0..1] country, which SHALL be selected from ValueSet Country urn:oid:2.16.840.1.113883.3.88.12.80.63 DYNAMIC (CONF:4537-5404)."
+            * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
       * obeys should-languageCommunication
       * languageCommunication 0..*
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."

@@ -19,6 +19,7 @@ Examples of referral situations are when a patient is referred from a family phy
     * ^comment = "This informationRecipient SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31590)."
     * obeys should-addr
     * addr 0..*
+    * addr only USRealmAddress
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)." // auto-should
     * obeys should-telecom
     * telecom 0..*
@@ -62,6 +63,7 @@ Examples of referral situations are when a patient is referred from a family phy
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31650)."
     * obeys should-addr
     * addr 0..*
+    * addr only USRealmAddress
       * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)." // auto-should
     * telecom 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31652)."

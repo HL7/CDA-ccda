@@ -65,6 +65,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-7722)."
     * addr 1..*
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] addr (CONF:4515-7731)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4515-7732)."
@@ -84,6 +85,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
       * telecom 1..*
         * ^comment = "The representedOrganization, if present, SHALL contain at least one [1..*] telecom (CONF:4515-7737)."
       * addr 1..*
+      * addr only USRealmAddress
         * ^comment = "The representedOrganization, if present, SHALL contain at least one [1..*] addr (CONF:4515-7736)."
 * author 0..*
 * author only AuthorParticipation

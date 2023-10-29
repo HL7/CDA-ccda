@@ -25,6 +25,7 @@ Description: "This clinical statement represents the location of a service event
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet HealthcareServiceLocation urn:oid:2.16.840.1.113883.1.11.20275 DYNAMIC (CONF:81-16850)."
 * obeys should-addr
 * addr 0..*
+* addr only USRealmAddress
   * ^comment = "SHOULD contain zero or more [0..*] addr (CONF:81-7760)." // auto-should
 * obeys should-telecom
 * telecom 0..*

@@ -87,6 +87,7 @@ The components of the organizer contain the following information:
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."
     * obeys should-addr
     * addr 0..1
+    * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)." // auto-should
     * obeys should-telecom
     * telecom 0..*

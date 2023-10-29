@@ -43,7 +43,7 @@ Expression: "componentOf.exists()"
 Invariant: should-country
 Description: "SHOULD contain country"
 Severity: #warning
-Expression: "item.country.exists()"
+Expression: "nullFlavor.exists() or item.country.exists()"
 
 Invariant: should-criterion
 Description: "SHOULD contain criterion"
@@ -248,7 +248,7 @@ Expression: "time.exists()"
 Invariant: should-use
 Description: "SHOULD contain @use"
 Severity: #warning
-Expression: "use.exists()"
+Expression: "nullFlavor.exists() or use.exists()"
 
 Invariant: should-value
 Description: "SHOULD contain value"

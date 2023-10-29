@@ -49,6 +49,7 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
       * ^comment = "This intendedRecipient SHALL contain at least one [1..*] id (CONF:1198-31996)."
     * obeys should-addr
     * addr 0..*
+    * addr only USRealmAddress
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)." // auto-should
     * obeys should-telecom
     * telecom 0..*
