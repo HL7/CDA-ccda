@@ -41,9 +41,7 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
     * effectiveTime only USRealmDateTimeInterval
       * low 1..1
       * obeys 1198-10066
-      * ^short = "SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"
       * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-9481)."
-      //"<min value=\"0\"/>"
 * componentOf 1..1
   * ^short = "The Progress Note is always associated with an encounter by the componentOf/encompassingEncounter element in the header. The effectiveTime element for an encompassingEncounter represents the time or time interval in which the encounter took place. A single encounter may contain multiple Progress Notes; hence the effectiveTime elements for a Progress Note (recorded in serviceEvent) and for an encounter (recorded in encompassingEncounter) represent different time intervals. For outpatient encounters that are a point in time, set effectiveTime/high, effectiveTime/low, and effectiveTime/@value to the same time. All visits take place at a specific location. When available, the location ID is included in the encompassingEncounter/location/healthCareFacility/id element."
   * ^comment = "SHALL contain exactly one [1..1] componentOf (CONF:1198-7595)."
@@ -89,7 +87,8 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
         component14 0..1 and
         component15 0..1 and
         component16 0..1 and
-        component17 0..1
+        component17 0..1 and
+        component18 0..1
     * component[component1] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30618)."
       * section only AssessmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30619)."
@@ -141,6 +140,9 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
     * component[component17] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-32626) such that it"
       * section only MentalStatusSection
         * ^comment = "SHALL contain exactly one [1..1] Mental Status Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.56)."
+    * component[component18] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
+      * section only AdvanceDirectivesSection
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
 
 Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."

@@ -75,12 +75,6 @@
             <path value="Author.assignedAuthor.id"/>
             <short value="This id may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here. If the id is pointing to a participant already described elsewhere in the document, assignedAuthor/id is sufficient to identify this participant and none of the remaining details of assignedAuthor are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. This id must be a pointer to another author participant."/>
             <comment value="This assignedAuthor SHALL contain at least one [1..*] id (CONF:1098-31473)."/>
-            <constraint>
-                <key value="1098-32628"/>
-                <severity value="error"/>
-                <human value="If the ID isn't referencing an author described elsewhere in the document, then the author components required in US Realm Header are required here as well (CONF:1098-32628)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
-            </constraint>
         </element>
         <element id="Author.assignedAuthor.code">
             <path value="Author.assignedAuthor.code"/>
@@ -123,6 +117,10 @@
         <element id="Author.assignedAuthor.representedOrganization.addr">
             <path value="Author.assignedAuthor.representedOrganization.addr"/>
             <comment value="The representedOrganization, if present, MAY contain zero or more [0..*] addr (CONF:1098-31481)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
+            </type>
         </element>
     </differential>
 </StructureDefinition>

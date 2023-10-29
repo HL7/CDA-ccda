@@ -53,9 +53,7 @@ The agent responsible for an allergy or adverse reaction is not always a manufac
 * participant[participant1].participantRole.playingEntity
   * code from $2.16.840.1.113762.1.4.1186.8 (preferred)
     * insert USCDI([[Substance]])
-* entryRelationship ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #profile
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains criticality 0..1

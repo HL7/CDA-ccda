@@ -5,6 +5,7 @@ Title: "Family History Death Observation"
 Description: "This clinical statement records whether the family member is deceased."
 
 * insert LogicalModelTemplateRootOnly(family-history-death-obs, 2.16.840.1.113883.10.20.22.4.47)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

@@ -5,6 +5,7 @@ Title: "Non-Medicinal Supply Activity"
 Description: "This template represents equipment supplied to the patient (e.g., pumps, inhalers, wheelchairs). Devices applied to, or placed in, the patient are represented with the Product Instance entry contained within a Procedure Activity Procedure (identifier: urn:hl7ii: 2.16.840.1.113883.10.20.22.4.14)"
 
 * insert LogicalModelTemplate(non-medicinal-supply-activity, 2.16.840.1.113883.10.20.22.4.50, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #SPLY (exactly)
@@ -28,8 +29,6 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)." // auto-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.rules = #open
 * participant contains participant1 0..1
 * participant[participant1] ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-8752) such that it"

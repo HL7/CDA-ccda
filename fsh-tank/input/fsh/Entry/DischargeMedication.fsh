@@ -5,6 +5,7 @@ Title: "Discharge Medication"
 Description: "This template represents medications that the patient is intended to take (or stop) after discharge."
 
 * insert LogicalModelTemplate(discharge-med, 2.16.840.1.113883.10.20.22.4.35, 2016-03-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -35,6 +36,8 @@ Description: "This template represents medications that the patient is intended 
   * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "substanceAdministration"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains medicationActivity 1..*
 * entryRelationship[medicationActivity] ^comment = "SHALL contain at least one [1..*] entryRelationship (CONF:1198-7692) such that it"

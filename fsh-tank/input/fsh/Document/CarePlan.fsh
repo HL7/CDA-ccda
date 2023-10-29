@@ -49,6 +49,7 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
       * ^comment = "This intendedRecipient SHALL contain at least one [1..*] id (CONF:1198-31996)."
     * obeys should-addr
     * addr 0..*
+    * addr only USRealmAddress
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)." // auto-should
     * obeys should-telecom
     * telecom 0..*
@@ -167,8 +168,8 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."
       * high 0..1
         * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-32331)."
-* relatedDocument ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
+* relatedDocument ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "parentDocument"
   * ^slicing.rules = #open
 * relatedDocument contains relatedDocument1 0..*
 * relatedDocument[relatedDocument1] ^comment = "MAY contain zero or more [0..*] relatedDocument (CONF:1198-29893) such that it"
@@ -203,7 +204,8 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
         component1 1..1 and
         component2 1..1 and
         component3 1..1 and
-        component4 0..1
+        component4 0..1 and
+        component5 0..1
     * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755)."
       * section only HealthConcernsSection
         * ^comment = "This component SHALL contain exactly one [1..1] Health Concerns Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.58:2015-08-01) (CONF:1198-28756)."
@@ -216,6 +218,9 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
     * component[component4] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
       * section only HealthStatusEvaluationsandOutcomesSection
         * ^comment = "SHALL contain exactly one [1..1] Health Status Evaluations and Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."
+    * component[component5] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
+      * section only AdvanceDirectivesSection
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
 
 Invariant: 1198-31044
 Description: "This structuredBody **SHALL NOT** contain a Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-31044)."

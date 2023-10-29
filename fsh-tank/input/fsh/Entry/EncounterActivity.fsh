@@ -5,6 +5,7 @@ Title: "Encounter Activity"
 Description: "This clinical statement describes an interaction between a patient and clinician. Interactions may include in-person encounters, telephone conversations, and email exchanges."
 
 * insert LogicalModelTemplate(encounter-activity, 2.16.840.1.113883.10.20.22.4.49, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ENC (exactly)
@@ -18,15 +19,7 @@ Description: "This clinical statement describes an interaction between a patient
 * code 1..1
 * code from EncounterTypeCode (preferred)
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."
-  * obeys should-originalText
-  * originalText 0..1
-    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:1198-8719)." // auto-should
-    * obeys should-reference
-    * reference 0..1
-      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:1198-15970)." // auto-should
-      * obeys 1198-15972
-      * value 0..1
-        * ^comment = "The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:1198-15971)."
+  * insert NarrativeOriginalText
   * translation 0..1
     * ^short = "The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."
     * ^comment = "This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."
@@ -41,7 +34,7 @@ Description: "This clinical statement describes an interaction between a patient
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8727)."
-* participant ^slicing.discriminator[0].type = #value
+* participant ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
@@ -54,8 +47,10 @@ Description: "This clinical statement describes an interaction between a patient
   * participantRole 1..1
   * participantRole only ServiceDeliveryLocation
     * ^comment = "SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:1198-14903)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains
     indication 0..* and
@@ -71,8 +66,3 @@ Description: "This clinical statement describes an interaction between a patient
   * act 1..1
   * act only EncounterDiagnosis
     * ^comment = "SHALL contain exactly one [1..1] Encounter Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:1198-15973)."
-
-Invariant: 1198-15972
-Description: "This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:1198-15972)."
-Severity: #error
-Expression: "value.exists() implies value.startsWith('#')"

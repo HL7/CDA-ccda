@@ -7,6 +7,7 @@ Description: """This template reflects a discrete observation about a patient's 
 The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is resolved. If the problem is known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK"."""
 
 * insert LogicalModelTemplate(problem-obs, 2.16.840.1.113883.10.20.22.4.4, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -46,7 +47,8 @@ The effectiveTime of the Problem Observation is the definitive indication of whe
     * ^short = "A negationInd of \"true\" coupled with an observation/value/@code of SNOMED code 64572001 \"Disease (disorder)\" indicates that the patient has no known conditions."
     * ^comment = "This value MAY contain zero or one [0..1] @code (CONF:1198-31871)."
   * qualifier 0..*
-    * ^short = "The observation/value and all the qualifiers together (often referred to as a post-coordinated expression) make up one concept. Qualifiers constrain the meaning of the primary code, and cannot negate it or change its meaning. Qualifiers can only be used according to well-defined rules of post-coordination and only if the underlying code system defines the use of such qualifiers or if there is a third code system that specifies how other code systems may be combined.\n\nFor example, SNOMED CT allows constructing concepts as a combination of multiple codes. SNOMED CT defines a concept \"pneumonia (disorder)\" (233604007) an attribute \"finding site\" (363698007) and another concept \"left lower lobe of lung (body structure)\" (41224006). SNOMED CT allows one to combine these codes in a code phrase, as shown in the sample XML."
+    * ^short = "The observation/value and all the qualifiers together (often referred to as a post-coordinated expression) make up one concept. Qualifiers constrain the meaning of the primary code, and cannot negate it or change its meaning. Qualifiers can only be used according to well-defined rules of post-coordination and only if the underlying code system defines the use of such qualifiers or if there is a third code system that specifies how other code systems may be combined.\n\n In cases where SNOMED CT does not have a precoordinated code that would be appropriate for the problem list, concept post coordination may be used in CDA following the principles outlined in HL7 Version 3 Implementation Guide: TermInfo -
+Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  This is shown in the sample XML."
     * ^comment = "This value MAY contain zero or more [0..*] qualifier (CONF:1198-31870)."
   * translation ^slicing.discriminator[0].type = #value
     * ^slicing.discriminator[=].path = "code"

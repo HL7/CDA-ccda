@@ -58,8 +58,7 @@ The Patient Generated Document Header template is not a separate document type. 
     * code from $2.16.840.1.113883.11.20.12.1 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28680)."
 // Removing slicing since only discriminator is always required
-* informant 0..*
-  * ^short = "The informant element describes the source of the information in a medical document.\n\nAssigned health care providers may be a source of information when a document is created. (e.g., a nurse's aide who provides information about a recent significant health care event that occurred within an acute care facility.) In these cases, the assignedEntity element is used.\n\nWhen the informant is a personal relation, that informant is represented in the relatedEntity element, even if the personal relation is a medical professional.  The code element of the relatedEntity describes the relationship between the informant and the patient. The relationship between the informant and the patient  needs to be described to help the receiver of the clinical document understand the information in the document. \n\nEach informant can be either an assignedEntity (a clinician serving the patient) OR a relatedEntity (a person with a personal or legal relationship with the patient). The constraints here apply to relatedEntity."
+* informant[non-provider]
   * relatedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:1198-28682)."
     * code 0..1

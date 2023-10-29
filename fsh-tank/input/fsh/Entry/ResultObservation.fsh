@@ -21,6 +21,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 """
 
 * insert LogicalModelTemplate(result-obs, 2.16.840.1.113883.10.20.22.4.2, 2023-05-01)
+* insert NarrativeLink
 
 * ^status = #draft
 * classCode 1..1
@@ -83,18 +84,6 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)."
-
-* entryRelationship ^slicing.discriminator[0].type = #profile
-  * ^slicing.discriminator[=].path = "procedure"
-  * ^slicing.rules = #open
-* entryRelationship contains specimenProc 1..1
-* entryRelationship[specimenProc] ^comment = "SHALL contain exactly one [1..1] entryRelationship such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers To (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."
-  * procedure 1..1
-  * procedure only SpecimenCollectionProcedure
-    * ^comment = "SHALL contain exactly one [1..1] Specimen Collection Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.415:2018-09-01)."
 * obeys should-referenceRange
 * referenceRange 0..*
   * insert USCDI([[Result Reference Range]])

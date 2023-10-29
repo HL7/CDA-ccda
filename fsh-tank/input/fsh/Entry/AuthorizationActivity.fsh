@@ -7,6 +7,7 @@ Description: """An Authorization Activity represents authorizations or pre-autho
 Authorizations are represented using an act subordinate to the policy or program that provided it. The authorization refers to the policy or program. Authorized treatments can be grouped into an organizer class, where common properties, such as the reason for the authorization, can be expressed. Subordinate acts represent what was authorized."""
 
 * insert LogicalModelTemplateRootOnly(authorization-activity, 2.16.840.1.113883.10.20.1.19)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

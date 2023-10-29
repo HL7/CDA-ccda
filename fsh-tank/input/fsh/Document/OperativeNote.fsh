@@ -42,7 +42,6 @@ The Operative Note is created immediately following a surgical or other high-ris
     * performer ^slicing.discriminator[+].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
-      * ^short = "This performer represents any assistants."
     * performer contains
         performer1 1..* and
         performer2 0..*
@@ -111,7 +110,8 @@ The Operative Note is created immediately following a surgical or other high-ris
         component13 0..1 and
         component14 0..1 and
         component15 0..1 and
-        component16 0..1
+        component16 0..1 and
+        component17 0..1
     * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30486)."
       * section only AnesthesiaSection
         * ^comment = "This component SHALL contain exactly one [1..1] Anesthesia Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09) (CONF:1198-30487)."
@@ -160,6 +160,9 @@ The Operative Note is created immediately following a surgical or other high-ris
     * component[component16] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30516) such that it"
       * section only SurgicalDrainsSection
         * ^comment = "SHALL contain exactly one [1..1] Surgical Drains Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.13) (CONF:1198-30517)."
+    * component[component17] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
+      * section only AdvanceDirectivesSection
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
 
 Invariant: 1198-8487
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD-9-CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC (CONF:1198-8487)."

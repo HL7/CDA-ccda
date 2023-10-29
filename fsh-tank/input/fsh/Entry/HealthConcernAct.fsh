@@ -11,6 +11,7 @@ When the underlying condition is of concern (i.e., as long as the condition, whe
 Health concerns require intervention(s) to increase the likelihood of achieving the goals of care for the patient and they specify the condition oriented reasons for creating the plan."""
 
 * insert LogicalModelTemplate(health-concern-act, 2.16.840.1.113883.10.20.22.4.132, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

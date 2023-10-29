@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Organizer">
+            <path value="Organizer"/>
+            <constraint>
+                <key value="should-sdtctext-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="sdtcText.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamOrganizer"/>
+            </constraint>
+        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -115,6 +125,20 @@
             <comment value="This reference SHALL contain exactly one [1..1] @value (CONF:4515-156)."/>
             <min value="1"/>
         </element>
+        <element id="Organizer.sdtcText">
+            <path value="Organizer.sdtcText"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Organizer.sdtcText.reference">
+            <path value="Organizer.sdtcText.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamOrganizer"/>
+            </constraint>
+        </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4515-113)."/>
@@ -160,7 +184,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <comment value="MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"/>
         </element>
         <element id="Organizer.participant:lead">
             <path value="Organizer.participant"/>
@@ -200,20 +223,21 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamOrganizer"/>
             </constraint>
         </element>
-        <element id="Organizer.participant:addl-participants">
+        <element id="Organizer.participant:location">
             <path value="Organizer.participant"/>
-            <sliceName value="addl-participants"/>
+            <sliceName value="location"/>
             <short value="participant"/>
+            <comment value="MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Organizer.participant:addl-participants.typeCode">
+        <element id="Organizer.participant:location.typeCode">
             <path value="Organizer.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-137)."/>
             <min value="1"/>
             <fixedCode value="LOC"/>
         </element>
-        <element id="Organizer.participant:addl-participants.participantRole">
+        <element id="Organizer.participant:location.participantRole">
             <path value="Organizer.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:4515-135)."/>
             <constraint>
@@ -231,31 +255,35 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamOrganizer"/>
             </constraint>
         </element>
-        <element id="Organizer.participant:addl-participants.participantRole.id">
+        <element id="Organizer.participant:location.participantRole.id">
             <path value="Organizer.participant.participantRole.id"/>
             <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."/>
             <min value="1"/>
         </element>
-        <element id="Organizer.participant:addl-participants.participantRole.addr">
+        <element id="Organizer.participant:location.participantRole.addr">
             <path value="Organizer.participant.participantRole.addr"/>
             <comment value="This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)."/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
+            </type>
         </element>
-        <element id="Organizer.participant:addl-participants.participantRole.telecom">
+        <element id="Organizer.participant:location.participantRole.telecom">
             <path value="Organizer.participant.participantRole.telecom"/>
             <comment value="This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)."/>
         </element>
-        <element id="Organizer.participant:addl-participants.participantRole.playingEntity">
+        <element id="Organizer.participant:location.participantRole.playingEntity">
             <path value="Organizer.participant.participantRole.playingEntity"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:4515-136)."/>
             <min value="1"/>
         </element>
-        <element id="Organizer.participant:addl-participants.participantRole.playingEntity.classCode">
+        <element id="Organizer.participant:location.participantRole.playingEntity.classCode">
             <path value="Organizer.participant.participantRole.playingEntity.classCode"/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] @classCode=&quot;PLC&quot; Place (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:4515-141)."/>
             <fixedCode value="PLC"/>
         </element>
-        <element id="Organizer.participant:addl-participants.participantRole.playingEntity.name">
+        <element id="Organizer.participant:location.participantRole.playingEntity.name">
             <path value="Organizer.participant.participantRole.playingEntity.name"/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] name (CONF:4515-142)."/>
             <min value="1"/>

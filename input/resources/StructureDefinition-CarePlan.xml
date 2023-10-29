@@ -143,6 +143,10 @@
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.addr">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.addr"/>
             <comment value="This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
+            </type>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.telecom">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.telecom"/>
@@ -414,8 +418,8 @@
             <path value="ClinicalDocument.relatedDocument"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
+                    <type value="exists"/>
+                    <path value="parentDocument"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -550,6 +554,21 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component5">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <sliceName value="component5"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component5.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <comment value="SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectivesSection"/>
             </type>
         </element>
     </differential>

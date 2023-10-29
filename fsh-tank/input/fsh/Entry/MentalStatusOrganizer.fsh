@@ -5,6 +5,7 @@ Title: "Mental Status Organizer"
 Description: "The Mental Status Organizer template may be used to group related Mental Status Observations (e.g., results of mental tests) and associated Assessment Scale Observations into subcategories and/or groupings by time. Subcategories can be things such as Mood and Affect, Behavior, Thought Process, Perception, Cognition, etc."
 
 * insert LogicalModelTemplate(mental-status-org, 2.16.840.1.113883.10.20.22.4.75, 2015-08-01)
+* insert NarrativeLinkOrganizer
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)
@@ -27,7 +28,7 @@ Description: "The Mental Status Organizer template may be used to group related 
 * effectiveTime 0..1
   * ^short = "The effectiveTime is an interval that spans the effectiveTimes of the contained mental status observations. Because all contained mental status observations have a required time stamp, it is not required that this effectiveTime be populated."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)."
-* component ^slicing.discriminator[0].type = #value
+* component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * component contains mentalStatus 1..*

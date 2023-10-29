@@ -47,6 +47,7 @@ Standardization of information used in this form will promote interoperability; 
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31629)."
     * obeys should-addr
     * addr 0..*
+    * addr only USRealmAddress
       * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31630)." // auto-should
     * telecom 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31631)."

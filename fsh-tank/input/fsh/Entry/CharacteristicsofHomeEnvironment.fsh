@@ -5,6 +5,7 @@ Title: "Characteristics of Home Environment"
 Description: "This template represents the patient's home environment including, but not limited to, type of residence (trailer, single family home, assisted living), living arrangement (e.g., alone, with parents), and housing status (e.g., evicted, homeless, home owner)."
 
 * insert LogicalModelTemplateRootOnly(characteristics-home-env, 2.16.840.1.113883.10.20.22.4.109)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

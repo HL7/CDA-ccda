@@ -43,6 +43,5 @@ This observation is not appropriate for recording patient gender (administrative
 * value from $2.16.840.1.113762.1.4.1021.33 (required)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Sexual Orientation urn:oid:2.16.840.1.113762.1.4.1021.33 DYNAMIC (CONF:4537-187)."
   * nullFlavor 0..1
-  * nullFlavor from $2.16.840.1.113762.1.4.1021.103 (preferred)
+    * insert AdditionalBinding(preferred, $2.16.840.1.113762.1.4.1021.103, Recommended nullFlavors, [[This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Other or unknown or refused to answer urn:oid:2.16.840.1.113762.1.4.1021.103 DYNAMIC (CONF:4537-192).]])
     * ^short = "To represent additional orientations, set nullFlavor=\"OTH\". To represent \"choose not to disclose\", set nullFlavor=\"ASKU\". To represent \"Don't know\", set nullFlavor=\"UNK\""
-    * ^comment = "This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Other or unknown or refused to answer urn:oid:2.16.840.1.113762.1.4.1021.103 DYNAMIC (CONF:4537-192)."

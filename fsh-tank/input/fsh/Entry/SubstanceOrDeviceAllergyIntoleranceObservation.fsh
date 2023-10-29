@@ -7,6 +7,7 @@ Description: """This template reflects a discrete observation about a patient's 
 The effectiveTime of the Substance or Device Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK"."""
 
 * insert LogicalModelTemplate(substance-device-allergy-intolerance-obs, 2.16.840.1.113883.10.20.24.3.90, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -69,9 +70,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
       * code 1..1
       * code from $2.16.840.1.113762.1.4.1010.1 (example)
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Substance Reactant for Intolerance urn:oid:2.16.840.1.113762.1.4.1010.1 DYNAMIC (CONF:1098-16324)."
-* entryRelationship ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #profile
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32935) such that it"

@@ -19,13 +19,13 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2015-08-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2022-02-14"/>
     </identifier>
-    <version value="2015-08-01"/>
+    <version value="2022-02-14"/>
     <name value="AdvanceDirectiveOrganizer"/>
     <title value="Advance Directive Organizer"/>
     <status value="draft"/>
-    <description value="This clinical statement groups a set of advance directive observations."/>
+    <description value="This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented.&#xA;The effectiveTime of the organizer (TS) indicates the point in time when the advance directive observations were reviewed/verified. Or, if not reviewed/verified, then the time when the advance directive observations were made. The time element of the author indicates when the advance directive observations were recorded in the patient's record. The effectiveTime of the organizer and the time element of the associated author element may often be the same. Note also for clarity: the effectiveTime of the individual advance directive observations indicates the interval in time when the directive went into effect (effectiveTime/low) and out of effect (effectiveTime/high). The author time element on an advance directive observation indicates the time when the observation was documented."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Organizer">
+            <path value="Organizer"/>
+            <constraint>
+                <key value="should-sdtctext-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="sdtcText.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer"/>
+            </constraint>
+        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -67,7 +77,7 @@
         <element id="Organizer.templateId:advance-directive-org.extension">
             <path value="Organizer.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2015-08-01"/>
+            <patternString value="2022-02-14"/>
         </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
@@ -99,6 +109,20 @@
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-31231)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Organizer.sdtcText">
+            <path value="Organizer.sdtcText"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Organizer.sdtcText.reference">
+            <path value="Organizer.sdtcText.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer"/>
+            </constraint>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
@@ -140,7 +164,7 @@
         </element>
         <element id="Organizer.component:component1.observation">
             <path value="Organizer.component.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-28421)."/>
+            <comment value="SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2022-02-14) (CONF:1198-28421)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>

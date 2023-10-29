@@ -6,6 +6,7 @@ Description: """This Treatment Intervention Preference template represents perso
 This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."""
 
 * insert LogicalModelTemplate(treatment-intervention-pref, 2.16.840.1.113883.10.20.22.4.510, 2024-01-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -18,7 +19,7 @@ This template may be used directly in any section, such as Care Plan Document Se
 * value 1..1
 * value only CD or ED
   * ^short = "Most of the time, the value will be a string representing the person's words."
-* precondition 1..1
+* sdtcPrecondition2 1..1
   * criterion 1..1
     * code 1..1
     * code from $2.16.840.1.113762.1.4.1115.23 (preferred)

@@ -41,6 +41,13 @@
         <element id="Encounter">
             <path value="Encounter"/>
             <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
+            </constraint>
+            <constraint>
                 <key value="should-effectiveTime"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain effectiveTime"/>
@@ -105,6 +112,20 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.52"/>
             </binding>
         </element>
+        <element id="Encounter.text">
+            <path value="Encounter.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Encounter.text.reference">
+            <path value="Encounter.text.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
+            </constraint>
+        </element>
         <element id="Encounter.statusCode">
             <path value="Encounter.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-30439)."/>
@@ -122,23 +143,10 @@
         </element>
         <element id="Encounter.performer">
             <path value="Encounter.performer"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="Encounter.assignedEntity"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="Performers represent clinicians who are responsible for assessing and treating the patient."/>
-        </element>
-        <element id="Encounter.performer:performer">
-            <path value="Encounter.performer"/>
-            <sliceName value="performer"/>
             <comment value="MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
         </element>
-        <element id="Encounter.performer:performer.assignedEntity">
+        <element id="Encounter.performer.assignedEntity">
             <path value="Encounter.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1098-31874)."/>
         </element>
@@ -157,10 +165,6 @@
                 <discriminator>
                     <type value="value"/>
                     <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="participantRole"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

@@ -5,6 +5,7 @@ Title: "Estimated Date of Delivery"
 Description: "This clinical statement represents the anticipated date when a woman will give birth."
 
 * insert LogicalModelTemplateRootOnly(est-date-delivery, 2.16.840.1.113883.10.20.15.3.1)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

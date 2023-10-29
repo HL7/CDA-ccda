@@ -9,6 +9,7 @@ In the Care Planning workflow, the judgment about how well the person is progres
 For example, an observation outcome of a blood oxygen saturation level of 95% is related to the goal of "Maintain Pulse Ox greater than 92" and in this case the Progress Toward Goal Observation template would record that the related goal has been achieved."""
 
 * insert LogicalModelTemplateRootOnly(progress-toward-goal-obs, 2.16.840.1.113883.10.20.22.4.110)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

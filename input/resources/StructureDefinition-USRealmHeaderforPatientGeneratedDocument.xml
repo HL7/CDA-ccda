@@ -156,34 +156,25 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.informant">
+        <element id="ClinicalDocument.informant:non-provider">
             <path value="ClinicalDocument.informant"/>
-            <short value="The informant element describes the source of the information in a medical document.&#xA;&#xA;Assigned health care providers may be a source of information when a document is created. (e.g., a nurse's aide who provides information about a recent significant health care event that occurred within an acute care facility.) In these cases, the assignedEntity element is used.&#xA;&#xA;When the informant is a personal relation, that informant is represented in the relatedEntity element, even if the personal relation is a medical professional.  The code element of the relatedEntity describes the relationship between the informant and the patient. The relationship between the informant and the patient  needs to be described to help the receiver of the clinical document understand the information in the document. &#xA;&#xA;Each informant can be either an assignedEntity (a clinician serving the patient) OR a relatedEntity (a person with a personal or legal relationship with the patient). The constraints here apply to relatedEntity."/>
+            <sliceName value="non-provider"/>
         </element>
-        <element id="ClinicalDocument.informant.relatedEntity">
+        <element id="ClinicalDocument.informant:non-provider.relatedEntity">
             <path value="ClinicalDocument.informant.relatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] relatedEntity (CONF:1198-28682)."/>
-            <min value="1"/>
         </element>
-        <element id="ClinicalDocument.informant.relatedEntity.code">
+        <element id="ClinicalDocument.informant:non-provider.relatedEntity.code">
             <path value="ClinicalDocument.informant.relatedEntity.code"/>
             <comment value="This relatedEntity MAY contain zero or one [0..1] code (CONF:1198-28683)."/>
         </element>
-        <element id="ClinicalDocument.informant.relatedEntity.code.code">
+        <element id="ClinicalDocument.informant:non-provider.relatedEntity.code.code">
             <path value="ClinicalDocument.informant.relatedEntity.code.code"/>
             <comment value="The code, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28684)."/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
-        </element>
-        <element id="ClinicalDocument.informant:informant1">
-            <path value="ClinicalDocument.informant"/>
-            <sliceName value="informant1"/>
-        </element>
-        <element id="ClinicalDocument.informant:informant1.relatedEntity">
-            <path value="ClinicalDocument.informant.relatedEntity"/>
-            <min value="1"/>
         </element>
         <element id="ClinicalDocument.custodian">
             <path value="ClinicalDocument.custodian"/>

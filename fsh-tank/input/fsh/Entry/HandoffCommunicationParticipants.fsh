@@ -5,6 +5,7 @@ Title: "Handoff Communication Participants"
 Description: "This template represents the sender (author) and receivers (participants) of a handoff communication in a plan of treatment. It does not convey details about the communication. The \"handoff\" process involves senders, those transmitting the patient's information and releasing the care of that patient to the next clinician, and receivers, those who accept the patient information and care of that patient."
 
 * insert LogicalModelTemplateRootOnly(handoff-comm-participants, 2.16.840.1.113883.10.20.22.4.141)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -49,6 +50,7 @@ Description: "This template represents the sender (author) and receivers (partic
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31676)."
     * addr 1..*
+    * addr only USRealmAddress
       * ^comment = "This participantRole SHALL contain at least one [1..*] addr (CONF:1098-32392)."
     * playingEntity 0..1
       * ^comment = "This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1098-32393)."

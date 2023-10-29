@@ -5,6 +5,7 @@ Title: "Planned Encounter"
 Description: "This template represents a planned or ordered encounter. The type of encounter (e.g., comprehensive outpatient visit) is represented. Clinicians participating in the encounter and the location of the planned encounter may be captured. The priority that the patient and providers place on the encounter may be represented."
 
 * insert LogicalModelTemplate(planned-enc, 2.16.840.1.113883.10.20.22.4.40, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ENC (exactly)
@@ -26,12 +27,9 @@ Description: "This template represents a planned or ordered encounter. The type 
 * obeys should-effectiveTime
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30440)." // auto-should
-* performer ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "Encounter.assignedEntity"
-  * ^slicing.rules = #open
+* performer 0..*
   * ^short = "Performers represent clinicians who are responsible for assessing and treating the patient."
-* performer contains performer 0..*
-* performer[performer] ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"
+  * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1098-31874)."
 * author 0..*
@@ -40,8 +38,6 @@ Description: "This template represents a planned or ordered encounter. The type 
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32045)."
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.rules = #open
   * ^short = "This location participation captures where the planned or ordered encounter may take place."
 * participant contains location 0..*

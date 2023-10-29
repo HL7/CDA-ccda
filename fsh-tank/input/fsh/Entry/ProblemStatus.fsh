@@ -7,6 +7,7 @@ Description: """The Problem Status records the clinical status attributed to the
 """
 
 * insert LogicalModelTemplate(problem-status, 2.16.840.1.113883.10.20.22.4.6, 2019-06-20)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

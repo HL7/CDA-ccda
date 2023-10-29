@@ -24,12 +24,13 @@ RuleSet: AdditionalBinding(purpose, valueSet, short, documentation)
 * ^binding.additional[=].shortDoco = "{short}"
 * ^binding.additional[=].documentation = "{documentation}"
 
-// Flag an element as meeting a USCDI requirement. If label contains, or ), surround the text witn [[ ]]
+// Assign a fixed LOINC code
 RuleSet: CodedLoinc(code, display)
 * ^short = "{display}"
 * code = #{code}
 * codeSystem = "2.16.840.1.113883.6.1"
 
+// Assign a fixed SNOMED code
 RuleSet: CodedSnomed(code, display)
 * ^short = "{display}"
 * code = #{code}
@@ -47,26 +48,56 @@ Severity: #error
 Description: "SHALL contain either a @code attribute or a @nullFlavor attribute, but not both."
 Expression: "(code | nullFlavor).count() = 1"
 
-////////////////////////////////////////////////////////////
-//                                                        //
-//          Constrinat (Invariant) Generation             //
-//                                                        //
-////////////////////////////////////////////////////////////
 
-// Creates an error-level constraint. Pass strings unquoted. If they contain , or ) surround the string with [[ ]] 
-RuleSet: ConstraintError(key, human, expression)
-* ^constraint[+].key = "{key}"
-* ^constraint[=].severity = #error
-* ^constraint[=].human = "{human}"
-* ^constraint[=].expression = "{expression}"
+// Inserts a "SHOULD" on the <text> element down to @value, and then requires that @value starts with #
+RuleSet: NarrativeLink
+* obeys should-text-ref-value
+* text 0..1
+  * ^short = "SHOULD reference the portion of section narrative text corresponding to this entry"
+  * reference 0..1
+    * obeys value-starts-octothorpe
+Invariant: should-text-ref-value
+Severity: #warning
+Description: "SHOULD contain text/reference/@value"
+Expression: "text.reference.value.exists()"
+Invariant: value-starts-octothorpe
+Severity: #error
+Description: "If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"
+Expression: "value.exists() implies value.startsWith('#')"
 
-// Creates a warning-level constraint. Pass strings unquoted. If they contain , or ) surround the string with [[ ]] 
-RuleSet: ConstraintWarning(key, human, expression)
-* ^constraint[+].key = "{key}"
-* ^constraint[=].severity = #warning
-* ^constraint[=].human = "{human}"
-* ^constraint[=].expression = "{expression}"
+// Similar to NarrativeLink, but for <originalText> elements
+RuleSet: NarrativeOriginalText
+* obeys should-otext-ref-value
+* originalText 0..1
+  * ^short = "SHOULD reference the portion of narrative corresponding to this code"
+  * reference 0..1
+    * obeys value-starts-octothorpe
+Invariant: should-otext-ref-value
+Severity: #warning
+Description: "SHOULD contain originalText/reference/@value"
+Expression: "originalText.reference.value.exists()"
 
+// Similar to NarrativeLink, but for <originalText> elements
+RuleSet: NarrativeLinkOrganizer
+* obeys should-sdtctext-ref-value
+* sdtcText 0..1
+  * ^short = "SHOULD reference the portion of section narrative text corresponding to this entry"
+  * reference 0..1
+    * obeys value-starts-octothorpe
+Invariant: should-sdtctext-ref-value
+Severity: #warning
+Description: "SHOULD contain text/reference/@value"
+Expression: "sdtcText.reference.value.exists()"
+
+// Use on IVL_TS / IVL_INT / etc when you want to only allow the value (cleaner than a bunch of 0..0's)
+RuleSet: IntervalValueOnly
+* obeys value-only
+* value 0..1
+  * ^short = "value should be used instead of low/high"
+Invariant: value-only
+Severity: #error
+Description: "Interval fields SHALL not be present"
+Expression: "(low | high | width | center).empty()"
 
 ////////////////////////////////////////////////////////////
 //                                                        //

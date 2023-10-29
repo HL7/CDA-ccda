@@ -11,6 +11,7 @@ A goal usually has a related health concern and/or risk.
 A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships."""
 
 * insert LogicalModelTemplate(goal-obs, 2.16.840.1.113883.10.20.22.4.121, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -37,8 +38,10 @@ A goal may have components consisting of other goals (milestones). These milesto
 * author only AuthorParticipation
   * ^short = "If the author is the recordTarget (patient), this is a patient goal.  If the author is a provider, this is a provider goal. If both patient and provider are authors, this is a negotiated goal. If no author is present, it is assumed the document or section author(s) is the author of this goal."
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-30995)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open

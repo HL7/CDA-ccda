@@ -25,6 +25,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
   * code = #assembler
     * ^comment = "This functionCode SHALL contain exactly one [1..1] @code=\"assembler\" Assembler (CONF:4537-32972)."
   * codeSystem 1..1
+  * codeSystem = "2.16.840.1.113883.4.642.4.1131"
     * ^comment = "This functionCode SHALL contain exactly one [1..1] @codeSystem (CodeSystem: ProvenanceParticipantType urn:oid:2.16.840.1.113883.4.642.4.1131) (CONF:4537-41)."
 * time 1..1
   * ^comment = "SHALL contain exactly one [1..1] time (CONF:4537-42)."
@@ -44,5 +45,5 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * telecom 0..*
       * ^comment = "This scopingOrganization SHOULD contain zero or more [0..*] telecom (CONF:4537-52)." // auto-should
     * addr 0..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This scopingOrganization SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-47)."

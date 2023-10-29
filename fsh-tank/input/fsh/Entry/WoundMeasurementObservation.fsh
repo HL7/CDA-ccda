@@ -5,6 +5,7 @@ Title: "Wound Measurement Observation"
 Description: "This template represents the Wound Measurement Observations of wound width, depth and length."
 
 * insert LogicalModelTemplateRootOnly(wound-measurement-obs, 2.16.840.1.113883.10.20.22.4.133)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

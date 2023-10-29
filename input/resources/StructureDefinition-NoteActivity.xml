@@ -42,6 +42,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Act">
+            <path value="Act"/>
+            <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+            </constraint>
+        </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
             <slicing>
@@ -110,6 +120,7 @@
         </element>
         <element id="Act.text">
             <path value="Act.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
             <comment value="SHALL contain exactly one [1..1] text (CONF:3250-16896)."/>
             <min value="1"/>
             <constraint>
@@ -134,10 +145,17 @@
             <comment value="This text SHALL contain exactly one [1..1] reference (CONF:3250-16897)."/>
             <min value="1"/>
             <constraint>
-                <key value="3250-16902"/>
+                <key value="value-starts-octothorpe"/>
                 <severity value="error"/>
-                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:3250-16902)."/>
-                <expression value="value.startsWith('#')"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+            </constraint>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
             </constraint>
         </element>
@@ -181,10 +199,6 @@
         <element id="Act.participant">
             <path value="Act.participant"/>
             <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="participantRole"/>
-                </discriminator>
                 <discriminator>
                     <type value="value"/>
                     <path value="typeCode"/>
@@ -249,16 +263,8 @@
             <path value="Act.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="exists"/>
                     <path value="encounter"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="inversionInd"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -307,7 +313,7 @@
             <path value="Act.reference"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="exists"/>
                     <path value="externalDocument"/>
                 </discriminator>
                 <rules value="open"/>

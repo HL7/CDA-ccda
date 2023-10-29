@@ -5,6 +5,7 @@ Title: "Functional Status Organizer"
 Description: "This template groups related functional status observations into categories (e.g., mobility, self-care)."
 
 * insert LogicalModelTemplate(functional-status-org, 2.16.840.1.113883.10.20.22.4.66, 2014-06-09)
+* insert NarrativeLinkOrganizer
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)
@@ -46,3 +47,4 @@ Description: "This template groups related functional status observations into c
 Invariant: 1098-31417
 Description: "**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (2.16.840.1.113883.6.1) (CONF:1098-31417)."
 Severity: #warning
+Expression: "codeSystem = '2.16.840.1.113883.6.254' or codeSystem = '2.16.840.1.113883.6.1'"

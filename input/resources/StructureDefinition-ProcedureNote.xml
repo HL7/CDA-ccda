@@ -193,7 +193,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="This performer identifies any assistants."/>
             <min value="1"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
@@ -309,14 +308,14 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:encounterParticipant1">
+        <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:referrer">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
-            <sliceName value="encounterParticipant1"/>
+            <sliceName value="referrer"/>
             <comment value="This encompassingEncounter MAY contain zero or one [0..1] encounterParticipant (CONF:1198-30874) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:encounterParticipant1.typeCode">
+        <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:referrer.typeCode">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REF&quot; Referrer (CONF:1198-30875)."/>
             <min value="1"/>
@@ -793,6 +792,21 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistorySection"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component29">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <sliceName value="component29"/>
+            <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component29.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <comment value="SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectivesSection"/>
             </type>
         </element>
     </differential>

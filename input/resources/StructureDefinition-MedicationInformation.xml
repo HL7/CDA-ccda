@@ -95,11 +95,40 @@
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.code.translation">
             <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
-            <comment value="This code MAY contain zero or more [0..*] translation, which MAY be selected from ValueSet Clinical Substance urn:oid:2.16.840.1.113762.1.4.1010.2 DYNAMIC (CONF:1098-31884)."/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="codeSystem"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.code.translation:snomed">
+            <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
+            <sliceName value="snomed"/>
+            <comment value="This code MAY contain zero or more [0..*] translation, which SHALL be selected from ValueSet Clinical Substance urn:oid:2.16.840.1.113762.1.4.1010.2 DYNAMIC (CONF:1098-31884)."/>
+            <min value="0"/>
+            <max value="1"/>
             <binding>
                 <strength value="example"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.2"/>
             </binding>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.code.translation:ndc">
+            <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
+            <sliceName value="ndc"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.code.translation:ndc.codeSystem">
+            <path value="ManufacturedProduct.manufacturedMaterial.code.translation.codeSystem"/>
+            <comment value="This code MAY contain zero or more [0..*] translation, which SHALL be selected from CodeSystem NDC urn:oid:2.16.840.1.113883.6.69."/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.69"/>
         </element>
         <element id="ManufacturedProduct.manufacturerOrganization">
             <path value="ManufacturedProduct.manufacturerOrganization"/>

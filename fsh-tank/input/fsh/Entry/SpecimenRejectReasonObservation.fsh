@@ -5,6 +5,7 @@ Title: "Specimen Reject Reason Observation"
 Description: """This template describes a reason the specimen was rejected for the specified observation/result/analysis. A specimen may be rejected due to multiple reasons, in which case, multiple instances of this template should be used."""
 
 * insert LogicalModelTemplate(specimen-reject-reason-obs, 2.16.840.1.113883.10.20.22.4.420, 2018-09-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)

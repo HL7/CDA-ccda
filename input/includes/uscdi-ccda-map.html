@@ -73,9 +73,10 @@
           <th class="col-sm-4">
             {% assign profiles = item.uscore_profile | split: "|" %}
             {% for profile in profiles %}
-            {% capture title %}{{profile | strip}}{% endcapture %}
-            <th class="col-sm-4">{{ item.resource_type }}</th>
+             {% capture title %}{{profile | strip}}{% endcapture %}
+              <a href="{% include sd_link.html title = title %}">{{ title }}</a>
             {% unless forloop.last %}
+
             <br />
             {% endunless %}
             {% endfor %}

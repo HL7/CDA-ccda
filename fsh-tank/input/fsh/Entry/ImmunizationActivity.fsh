@@ -18,6 +18,7 @@ b. Date VIS given to patient or parent/guardian.
 This information should be included in an Immunization Activity when available. (Reference: [https://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/c/vis-instruct.pdf])"""
 
 * insert LogicalModelTemplate(immunization-activity, 2.16.840.1.113883.10.20.22.4.52, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8826)."
@@ -41,7 +42,7 @@ This information should be included in an Immunization Activity when available. 
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8834)."
 * repeatNumber 0..1
   * ^short = "In \"INT\" (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of \"3\" means that the substance can be administered up to 3 times. In \"EVN\" (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of \"3\" in a substance administration event means that the current administration is the 3rd in a series."
-  * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1198-8838)."
+  * insert IntervalValueOnly
 * routeCode 0..1
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1198-8839)."
@@ -74,8 +75,6 @@ This information should be included in an Immunization Activity when available. 
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31151)."
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #profile
-  * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.rules = #open
 * participant contains drugVehicle 0..*
 * participant[drugVehicle] ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8850) such that it"

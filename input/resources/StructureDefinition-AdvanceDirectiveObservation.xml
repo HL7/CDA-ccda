@@ -19,13 +19,13 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2022-02-14"/>
     </identifier>
-    <version value="2015-08-01"/>
+    <version value="2022-02-14"/>
     <name value="AdvanceDirectiveObservation"/>
     <title value="Advance Directive Observation"/>
     <status value="draft"/>
-    <description value="This clinical statement represents Advance Directive Observation findings (e.g., &quot;resuscitation status is Full Code&quot;) rather than orders. It should not be considered a legal document or a substitute for the actual Advance Directive document. The related legal documents are referenced using the reference/externalReference element.&#xA;&#xA;The Advance Directive Observation describes the patient's directives, including but not limited to:&#xA;*  Medications&#xA;*  Transfer of Care to Hospital&#xA;*  Treatment&#xA;*  Procedures&#xA;*  Intubation and Ventilation&#xA;*  Diagnostic Tests&#xA;*  Tests&#xA;&#xA;The observation/value element contains the detailed patient directive which may be coded or text. For example, a category directive may be antibiotics, and the details would be intravenous antibiotics only."/>
+    <description value="An Advance Directive Observation template is used to record information about a document authored by the person and containing goals, preferences, and priorities for care. The observation records that the document was available and may have been reviewed (verified). It records the kind (category) of advance directive document, where the document can be accessed, who verified it, and the type of content that was determined to be present. When a person has more than one advance directive document, each document is recorded using an Advance Directive Observation template. A set of Advance Directive Observations are grouped together using an Advance Directive Organizer. &#xA;&#xA;An Advance Directive Observation template is not used to record information about portable medical orders, such as Medical Orders for Life Sustaining Treatments (MOLST), Physician Orders for Life Sustaining Treatments (POLST), or out-of-hospital Do Not Resuscitate (DNR) Orders. Portable medical order documents are authored by physicians, not patients. They document medical treatment intervention decisions that have been made rather than goals, preferences and priorities that a patient intends to be used as guidance when making care decisions.&#xA;&#xA;The Advance Directive Observation template differs from the Advance Care Planning Intervention template. The Advance Directive Observation template is used to record that a person’s advance directive document has been accessed and reviewed. The Advance Care Planning Intervention template is used to document interactions, such as discussions or education, with the patient about advance care planning and personal advance care plans.&#xA;&#xA;The categories of advance directives source documents could include, but are not limited to, the following:&#xA;*    Personal advance care plan&#xA;*    Living Will&#xA;*    Durable Healthcare (Medical) Power of Attorney&#xA;&#xA;Note: Under common law, a “power of attorney” was automatically revoked by the incompetency or incapacity of the principal, so the common law power of attorney was not useful as a planning for incapacity. Accordingly, states adopted “durable” power of attorney statutes allowing an agent to continue to act as empowered by a power of attorney even after the principal became disabled, incompetent or incapacitated.&#xA;&#xA;The types of content in an advance directive could include, but are not limited to:&#xA;*    Healthcare agent consent&#xA;*    Antibiotics administration preference&#xA;*    Artificial nutrition and hydration administration preference&#xA;*    Intubation and Ventilation procedure preference&#xA;*    Resuscitation procedure preference&#xA;*    Diagnostic Testing procedure preference&#xA;*    Preferences relating to palliative care&#xA;*    Preferences relating to hospice care at the end of life&#xA;*    Organ donation preference&#xA;*    Autopsy procedure preference&#xA;*    Burial preference&#xA;*    Care preference that is general in nature which the patient wants care providers to take into consideration&#xA;*    Information about a personal goal, such as seeing a grandchild born, attending a child’s wedding, finding care for a beloved pet, or dying in a certain place.&#xA;&#xA;Examples:&#xA;A person may have a durable healthcare power of attorney that appoints a Healthcare Power of Attorney. It may indicate that the person’s spouse has been established as the primary healthcare agent, and the person’s daughter as the first alternative healthcare agent. If the spouse was deceased, or was unavailable at the time, or unwilling to act as healthcare agent during the encounter being documented, then the person’s daughter would be identified as the acting healthcare agent at that time. In this example, “personal advance care plan” is the category of advance directive and “Healthcare Agent” is the type of advance directive content that is present. In this example, “durable healthcare power of attorney” is the category of advance directive and “Healthcare agent” is the type of advance directive content that is present. &#xA;&#xA;A personal advance care plan may contain information about a person’s treatment preferences regarding resuscitation. In this example, “personal advance care plan” is the category of advance directive and “Resuscitation” is the type of advance directive content that is present.&#xA;&#xA;The author of the Advance Directive Observation is the person documenting that the directives were reviewed and verified. The verifier is the person who read the document and verified the advance directive information. The role of verifier and the role of author need not be fulfilled by the same person, so each role is documented separately. However, the author and the verifier often will be the same person. This template supports Context Conduction. The author of the organizer can be assumed to be the author of the Advance Directive Observations within the organizer unless explicitly overridden an observation. When author identity confidence is high, implementers should explicitly assert conformance to the Provenance Author Participation template.&#xA;&#xA;When an Advance Directive Observation template indicates that the advance directives include healthcare agent appointment information, each healthcare agent can be included in a participation with @typeCode=”CST”. If the participation context (e.g. provenance) for an Advance Directive Observation is not established for the observation, then the participations for the encompassing Advance Directive Organizer apply to the observation.&#xA;&#xA;Advance directives are effective over a range of time. The effectiveTime/low tells when they went into effect (or will go into effect) and the high tells when they ceased or will cease to be in effect. If the starting effective time is not known, effectiveTime/low is UNK, but this would still be considered &quot;Active&quot;. If effectiveTime/high contains a value of &quot;NA&quot; or it is not valued, the advance directive remains active until some action is taken to make it inactive. (Explicit use of nullFlavor=&quot;NA&quot; is the preferred approach for indicating an Advance Directive that is not time bounded.) That action may update the existing information with an effectiveTime/high or it may replace the open-ended entry with a new entry that includes the effectiveTime/high information. An advance directive is active so long as the effectiveTime/high has not been passed."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
+        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
             <slicing>
@@ -67,29 +77,29 @@
         <element id="Observation.templateId:advance-directive-obs.extension">
             <path value="Observation.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2015-08-01"/>
+            <patternString value="2022-02-14"/>
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-8648)."/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; Observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC)."/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8649)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC)."/>
             <fixedCode value="EVN"/>
         </element>
         <element id="Observation.id">
             <path value="Observation.id"/>
-            <comment value="SHALL contain at least one [1..*] id (CONF:1198-8654)."/>
+            <comment value="SHALL contain at least one [1..*] id."/>
             <min value="1"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Advance Directive Type Code urn:oid:2.16.840.1.113883.1.11.20.2 DYNAMIC (CONF:1198-8651)."/>
+            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Advance Directive Categories urn:oid:2.16.840.1.113883.11.20.9.69.4 DYNAMIC."/>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.2"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4"/>
             </binding>
         </element>
         <element id="Observation.code.translation">
@@ -116,19 +126,33 @@
         </element>
         <element id="Observation.code.translation:advanceDirective.code">
             <path value="Observation.code.translation.code"/>
-            <comment value="SHALL contain exactly one [1..1] @code=&quot;75320-2&quot; Advance directive (CONF:1198-32843)."/>
+            <comment value="SHALL contain exactly one [1..1] @code=&quot;75320-2&quot; Advance directive."/>
             <min value="1"/>
             <patternCode value="75320-2"/>
         </element>
         <element id="Observation.code.translation:advanceDirective.codeSystem">
             <path value="Observation.code.translation.codeSystem"/>
-            <comment value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32844)."/>
+            <comment value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
+        <element id="Observation.text">
+            <path value="Observation.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <min value="1"/>
+        </element>
+        <element id="Observation.text.reference">
+            <path value="Observation.text.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
+        </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <short value="SG 20230706: constraint not entered 'properly' deleted fixedCode='Completed here - it's already in the next element and shoudln't be here - entered weird/wrong in TWB"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
             <min value="1"/>
         </element>
@@ -142,22 +166,23 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8656)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime."/>
             <min value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
-            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-28719)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] low."/>
             <min value="1"/>
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
-            <comment value="This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-15521)."/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] high."/>
             <min value="1"/>
             <constraint>
                 <key value="1198-32449"/>
                 <severity value="error"/>
                 <human value="If the Advance Directive does not have a specified ending time, the &lt;high&gt; element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."/>
+                <expression value="value.exists() or nullFlavor = 'NA'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
         </element>
@@ -166,16 +191,24 @@
             <comment value="SHALL contain exactly one [1..1] value (CONF:1198-30804)."/>
             <min value="1"/>
             <max value="1"/>
-            <constraint>
-                <key value="1198-32493"/>
-                <severity value="error"/>
-                <human value="If type CD, then value will be SNOMED-CT 2.16.840.1.113883.6.96 (CONF:1198-32493)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
-            </constraint>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+        </element>
+        <element id="Observation.value.code">
+            <path value="Observation.value.code"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.5"/>
+            </binding>
+        </element>
+        <element id="Observation.value.codeSystem">
+            <path value="Observation.value.codeSystem"/>
+            <patternString value="2.16.840.1.113883.6.96"/>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
-            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32406)."/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
@@ -194,7 +227,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="This custodian (CST) participant identifies a legal representative for the patient's advance directive. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  If there is more than one  legal representative, a qualifier may be used to designate the  legal representative as primary or secondary."/>
         </element>
         <element id="Observation.participant.templateId">
             <path value="Observation.participant.templateId"/>
@@ -228,7 +260,7 @@
         <element id="Observation.participant:participant1">
             <path value="Observation.participant"/>
             <sliceName value="participant1"/>
-            <short value="The participant &quot;VRF&quot; represents the clinician(s) who verified the patient advance directive observation."/>
+            <short value="The participant &quot;VRF&quot; represents the clinician(s) who verified the patient advance directive."/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -250,11 +282,16 @@
             <path value="Observation.participant.time"/>
             <comment value="SHOULD contain zero or one [0..1] time (CONF:1198-8665)."/>
             <constraint>
-                <key value="1198-8666"/>
-                <severity value="warning"/>
-                <human value="The data type of Observation/participant/time in a verification **SHALL** be *TS* (time stamp) (CONF:1198-8666)."/>
+                <key value="value-only"/>
+                <severity value="error"/>
+                <human value="Interval fields SHALL not be present"/>
+                <expression value="(low | high | width | center).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
+        </element>
+        <element id="Observation.participant:participant1.time.value">
+            <path value="Observation.participant.time.value"/>
+            <short value="value should be used instead of low/high"/>
         </element>
         <element id="Observation.participant:participant1.participantRole">
             <path value="Observation.participant.participantRole"/>
@@ -273,16 +310,19 @@
             <comment value="This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
         </element>
         <element id="Observation.participant:participant1.participantRole.playingEntity">
             <path value="Observation.participant.participantRole.playingEntity"/>
-            <comment value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1198-28428)."/>
+            <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-28428)."/>
+            <min value="1"/>
         </element>
         <element id="Observation.participant:participant1.participantRole.playingEntity.name">
             <path value="Observation.participant.participantRole.playingEntity.name"/>
-            <comment value="The playingEntity, if present, MAY contain zero or more [0..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."/>
+            <comment value="The playingEntity SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
@@ -291,6 +331,7 @@
         <element id="Observation.participant:participant2">
             <path value="Observation.participant"/>
             <sliceName value="participant2"/>
+            <short value="This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -319,10 +360,10 @@
         </element>
         <element id="Observation.participant:participant2.participantRole.code">
             <path value="Observation.participant.participantRole.code"/>
-            <comment value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28440)."/>
+            <comment value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent or Proxy Choices urn:oid:2.16.840.1.113762.1.4.1046.35 DYNAMIC (CONF:1198-28440)."/>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.35"/>
             </binding>
         </element>
         <element id="Observation.participant:participant2.participantRole.addr">
@@ -331,7 +372,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddressADUSFIELDED"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
         </element>
         <element id="Observation.participant:participant2.participantRole.telecom">
@@ -353,7 +394,7 @@
         </element>
         <element id="Observation.participant:participant2.participantRole.playingEntity.name">
             <path value="Observation.participant.participantRole.playingEntity.name"/>
-            <short value="Record the name of the agent who can provide a copy of the Advance Directive in the name element."/>
+            <short value="The name of the healthcare agent."/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."/>
             <min value="1"/>
             <max value="1"/>

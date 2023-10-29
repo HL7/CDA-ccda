@@ -5,6 +5,7 @@ Title: "Encounter Diagnosis"
 Description: "This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit. If the encounter is associated with a Hospital Discharge, the Hospital Discharge Diagnosis must be used. This entry requires at least one Problem Observation entry.  The Problem Status template in the Problem Observation entry indicates the status of the diagnosis."
 
 * insert LogicalModelTemplate(encounter-dx, 2.16.840.1.113883.10.20.22.4.80, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -22,6 +23,8 @@ Description: "This template wraps relevant problems or diagnoses at the close of
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32160)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * statusCode 1..1
   * code 1..1

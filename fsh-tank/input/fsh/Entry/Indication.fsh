@@ -10,6 +10,7 @@ The Reason 2.16.840.1.113883.10.20.24.3.88:2023-05-01 should used to represent t
 Immunization Refusal Reason 2.16.840.1.113883.10.20.22.4.53 should be used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case."""
 
 * insert LogicalModelTemplate(indication, 2.16.840.1.113883.10.20.22.4.19, 2023-05-01)
+* insert NarrativeLink
 
 * ^status = #draft
 * classCode 1..1

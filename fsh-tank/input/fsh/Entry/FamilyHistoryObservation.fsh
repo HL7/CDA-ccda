@@ -5,6 +5,7 @@ Title: "Family History Observation"
 Description: "Family History Observations related to a particular family member are contained within a Family History Organizer. The effectiveTime in the Family History Observation is the biologically or clinically relevant time of the observation. The biologically or clinically relevant time is the time at which the observation holds (is effective) for the family member (the subject of the observation)."
 
 * insert LogicalModelTemplate(family-history-obs, 2.16.840.1.113883.10.20.22.4.46, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -34,6 +35,8 @@ Description: "Family History Observations related to a particular family member 
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1198-8591)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains
     ageObservation 0..1 and

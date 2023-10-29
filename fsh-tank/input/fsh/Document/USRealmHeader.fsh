@@ -55,7 +55,7 @@ Description: "This template defines constraints that represent common administra
     * id 1..*
       * ^comment = "This patientRole SHALL contain at least one [1..*] id (CONF:4537-5268)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This patientRole SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5271)."
     * telecom 1..*
       * obeys should-use
@@ -75,7 +75,7 @@ Description: "This template defines constraints that represent common administra
         * ^short = "**MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)"
         * ^comment = "This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."
       * sdtcDeceasedInd 0..1
-        * obeys 4537-32993
+        * obeys 4537-32993 and 4537-21000
         * ^short = "sdtc:deceasedInd"
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."
       * sdtcDeceasedTime 0..1
@@ -111,7 +111,7 @@ Description: "This template defines constraints that represent common administra
           * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-5326)."
         * obeys should-addr
         * addr 0..*
-        * addr only USRealmAddressADUSFIELDED
+        * addr only USRealmAddress
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)."
         * obeys should-telecom
         * telecom 0..*
@@ -132,8 +132,7 @@ Description: "This template defines constraints that represent common administra
           * addr 1..1
             * obeys 4537-5402 and 4537-5403 and should-country
             * ^comment = "This place SHALL contain exactly one [1..1] addr (CONF:4537-5397)."
-            * item.country from $2.16.840.1.113883.3.88.12.80.63 (required)
-              * ^comment = "This addr SHOULD contain zero or one [0..1] country, which SHALL be selected from ValueSet Country urn:oid:2.16.840.1.113883.3.88.12.80.63 DYNAMIC (CONF:4537-5404)."
+            * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
       * obeys should-languageCommunication
       * languageCommunication 0..*
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."
@@ -165,7 +164,7 @@ Description: "This template defines constraints that represent common administra
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7994)."
       * addr 1..*
-      * addr only USRealmAddressADUSFIELDED
+      * addr only USRealmAddress
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5422)."
 * author 1..*
   * ^short = "The author element represents the creator of the clinical document.  The author may be a device or a person."
@@ -200,7 +199,7 @@ Description: "This template defines constraints that represent common administra
       * code from $2.16.840.1.114222.4.11.1066 (preferred)
         * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-16788)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5452)."
     * telecom 1..*
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] telecom (CONF:4537-5428)."
@@ -235,7 +234,7 @@ Description: "This template defines constraints that represent common administra
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32173)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5460)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5466)."
@@ -255,11 +254,12 @@ Description: "This template defines constraints that represent common administra
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"
 * informant contains
-    informant1 0..* and
-    informant2 0..*
-* informant[informant1] ^short = "informant"
+    provider 0..* and
+    non-provider 0..*
+* informant[provider] ^short = "The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
   * ^short = "The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-8001) such that it"
+  * relatedEntity 0..0
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8002)."
     * id 1..*
@@ -269,15 +269,16 @@ Description: "This template defines constraints that represent common administra
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32174)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8220)."
     * assignedPerson 1..1
       * ^comment = "This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4537-8221)."
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-8222)."
-* informant[informant2] ^short = "The informant element describes an information source (who is not a provider) for any content within the clinical document. This informant would be used when the source of information has a personal relationship with the patient or is the patient."
+* informant[non-provider] ^short = "The informant element describes an information source (who is not a provider) for any content within the clinical document. This informant would be used when the source of information has a personal relationship with the patient or is the patient."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"
+  * assignedEntity 0..0
   * relatedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:4537-31356)."
 * custodian 1..1
@@ -301,7 +302,7 @@ Description: "This template defines constraints that represent common administra
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7998)."
       * addr 1..1
-      * addr only USRealmAddressADUSFIELDED
+      * addr only USRealmAddress
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5559)."
 * informationRecipient 0..*
   * ^short = "The informationRecipient element records the intended recipient of the information at the time the document was created. In cases where the intended recipient of the document is the patient's health chart, set the receivedOrganization to the scoping organization for that chart."
@@ -345,7 +346,7 @@ Description: "This template defines constraints that represent common administra
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-17000)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5589)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5595)."
@@ -358,6 +359,7 @@ Description: "This template defines constraints that represent common administra
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5598)."
+// TODO - remove slicing: https://jira.hl7.org/browse/CDA-20827
 * authenticator ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "signatureCode.code"
   * ^slicing.rules = #open
@@ -389,7 +391,7 @@ Description: "This template defines constraints that represent common administra
       * code from $2.16.840.1.114222.4.11.1066 (preferred)
         * ^comment = "The code, if present, MAY contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-16826)."
     * addr 1..*
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5616)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5622)."
@@ -505,9 +507,9 @@ Severity: #error
 Expression: "versionNumber.exists() implies setId.exists()"
 
 Invariant: 4537-32993
-Description: "If sdtc:deceasedInd=\"true\", then sdtc:deceasedTime **SHALL** be present (CONF:4537-32993)."
+Description: "If sdtc:deceasedInd=\"true\", then sdtc:deceasedTime **SHALL** be present with either a @value or @nullFlavor=UNK (CONF:4537-32993)."
 Severity: #error
-Expression: "sdtcDeceasedTime.exists() implies sdtcDeceasedInd.exists()"
+Expression: "sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exists()"
 
 // This is redundant - patient always requires 1..1 raceCode
 // Invariant: 4537-31347
@@ -546,3 +548,8 @@ Invariant: 1198-32905
 Description: "This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."
 Severity: #error
 Expression: "assignedPerson.exists() or representedOrganization.exists()"
+
+Invariant: 4537-21000
+Description: "If sdtc:deceasedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"
+Severity: #error
+Expression: "sdtcDeceasedTime.value.exists() implies sdtcDeceasedInd.exists(value='true')"

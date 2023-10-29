@@ -18,6 +18,7 @@ This id must be a pointer to another Performer."""
 * ^meta.lastUpdated = "2023-07-11T23:41:50.227Z"
 
 * insert LogicalModelTemplate(care-team-member-act, 2.16.840.1.113883.10.20.22.4.500.1, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #PCPR (exactly)
@@ -60,6 +61,7 @@ This id must be a pointer to another Performer."""
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)."
     * obeys should-addr
     * addr 0..*
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)." // auto-should
     * obeys should-telecom
     * telecom 0..*
@@ -74,6 +76,7 @@ This id must be a pointer to another Performer."""
     * representedOrganization 0..1
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] representedOrganization (CONF:4515-181)."
       * addr 1..*
+      * addr only USRealmAddress
       * telecom 1..*
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"

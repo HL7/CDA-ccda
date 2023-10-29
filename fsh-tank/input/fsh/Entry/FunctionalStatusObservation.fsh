@@ -5,6 +5,7 @@ Title: "Functional Status Observation"
 Description: "This template represents the patient's physical function (e.g., mobility status, instrumental activities of daily living, self-care status) and problems that limit function (dyspnea, dysphagia). The template may include assessment scale observations, identify supporting caregivers, and provide information about non-medicinal supplies. This template is used to represent physical or developmental function of all patient populations."
 
 * insert LogicalModelTemplate(functional-status-obs, 2.16.840.1.113883.10.20.22.4.67, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -39,6 +40,8 @@ Description: "This template represents the patient's physical function (e.g., mo
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains
     nonMedSupply 0..1 and

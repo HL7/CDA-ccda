@@ -81,7 +81,8 @@ A History and Physical Examination is required upon hospital admission as well a
         component18 1..1 and
         component19 1..1 and
         component20 1..1 and
-        component21 1..1
+        component21 1..1 and
+        component22 0..1
     * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30571)."
       * section only AllergiesAndIntolerancesSection
         * ^comment = "SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01) (CONF:1198-30572)."
@@ -145,6 +146,9 @@ A History and Physical Examination is required upon hospital admission as well a
     * component[component21] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30611) such that it"
       * section only VitalSignsSection
         * ^comment = "SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2015-08-01) (CONF:1198-30612)."
+    * component[component22] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
+      * section only AdvanceDirectivesSection
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
 
 Invariant: 1198-8333
 Description: """When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes *STATIC* 2011-09-30 (CONF:1198-8333).

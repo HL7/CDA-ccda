@@ -111,10 +111,15 @@
         <element id="Observation.value.nullFlavor">
             <path value="Observation.value.nullFlavor"/>
             <short value="To represent additional Gender Identities, set nullFlavor=&quot;OTH&quot;. To represent &quot;choose not to disclose&quot;, set nullFlavor=&quot;ASKU&quot;."/>
-            <comment value="This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Asked but Unknown and Other urn:oid:2.16.840.1.113762.1.4.1114.17 DYNAMIC (CONF:4537-1232)."/>
             <binding>
-                <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1114.17"/>
+                <strength value="required"/>
+                <valueSet value="http://hl7.org/cda/stds/core/ValueSet/CDANullFlavor"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1114.17"/>
+                    <documentation value="This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Asked but Unknown and Other urn:oid:2.16.840.1.113762.1.4.1114.17 DYNAMIC (CONF:4537-1232)."/>
+                    <shortDoco value="Recommended nullFlavors"/>
+                </additional>
             </binding>
         </element>
     </differential>

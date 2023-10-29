@@ -8,6 +8,7 @@ This template can be used with a contained Product Instance template to represen
 Procedure Activity Procedure Usage Note: Common practice in the industry has shown that Procedure Activity Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the "immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient" or not. As a result, it is recommended to use Procedure Activity Procedure when sending procedures also thought of as "interventions" such as "Home Environment Evaluation" or "Assessment of nutritional status"."""
 
 * insert LogicalModelTemplate(procedure, 2.16.840.1.113883.10.20.22.4.14, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #PROC (exactly)
@@ -21,15 +22,7 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
 * code from http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code (preferred)
   * insert AdditionalBinding(preferred, $SDoHProcedures, For Social Determinant of Health Interventions, [[If the Intervention Procedure is a Social Determinant of Health Intervention, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Procedures](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion) **DYNAMIC** (CONF:4515-32984).]])
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-7656)."
-  * obeys should-originalText
-  * originalText 0..1
-    * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:4515-19203)." // auto-should
-    * obeys should-reference
-    * reference 0..1
-      * ^comment = "The originalText, if present, SHOULD contain zero or one [0..1] reference (CONF:4515-19204)." // auto-should
-      * obeys 4515-19206
-      * value 0..1
-        * ^comment = "The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:4515-19205)."
+  * insert NarrativeOriginalText
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-7661)."
   * code 1..1
@@ -64,18 +57,15 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
     * id 0..*
       * ^short = "If you want to indicate that the Procedure and the Results are referring to the same specimen, the Procedure/specimen/specimenRole/id **SHOULD** be set to equal an Organizer/specimen/specimenRole/id (CONF:4515-29744)."
       * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)." // auto-should
-* performer ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "assignedEntity"
-  * ^slicing.rules = #open
-  * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"
-* performer contains performer1 0..*
-* performer[performer1] ^short = "performer"
+* obeys should-performer
+* performer 0..*
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-7722)."
     * addr 1..*
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] addr (CONF:4515-7731)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4515-7732)."
@@ -95,13 +85,12 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
       * telecom 1..*
         * ^comment = "The representedOrganization, if present, SHALL contain at least one [1..*] telecom (CONF:4515-7737)."
       * addr 1..*
+      * addr only USRealmAddress
         * ^comment = "The representedOrganization, if present, SHALL contain at least one [1..*] addr (CONF:4515-7736)."
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-32479)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
@@ -124,10 +113,12 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * participantRole 1..1
   * participantRole only ServiceDeliveryLocation
     * ^comment = "SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:4515-15912)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
 * entryRelationship contains
@@ -208,8 +199,3 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32989)."
-
-Invariant: 4515-19206
-Description: "This reference/@value **SHALL** begin with a '#' and **SHALL** point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:4515-19206)."
-Severity: #error
-Expression: "value.exists() implies value.startsWith('#')"

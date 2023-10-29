@@ -94,6 +94,10 @@
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.addr">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.addr"/>
             <comment value="This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
+            </type>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.telecom">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.telecom"/>
@@ -117,26 +121,25 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="This participant represents the clinician to contact for questions about the referral note.  This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."/>
         </element>
-        <element id="ClinicalDocument.participant:participant1">
+        <element id="ClinicalDocument.participant:indirect">
             <path value="ClinicalDocument.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="indirect"/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.typeCode">
+        <element id="ClinicalDocument.participant:indirect.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31924)."/>
             <min value="1"/>
             <fixedCode value="IND"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31643)."/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.classCode">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode, which SHALL be selected from ValueSet INDRoleclassCodes urn:oid:2.16.840.1.113883.11.20.9.33 DYNAMIC (CONF:1198-31925)."/>
             <binding>
@@ -144,12 +147,12 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31644)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson.name">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.associatedPerson.name">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
             <comment value="This associatedPerson SHALL contain at least one [1..*] US Realm Patient Name (PTN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1) (CONF:1198-31645)."/>
             <min value="1"/>
@@ -158,20 +161,21 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED"/>
             </type>
         </element>
-        <element id="ClinicalDocument.participant:participant2">
+        <element id="ClinicalDocument.participant:callback">
             <path value="ClinicalDocument.participant"/>
-            <sliceName value="participant2"/>
+            <sliceName value="callback"/>
+            <short value="This participant represents the clinician to contact for questions about the referral note.  This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.typeCode">
+        <element id="ClinicalDocument.participant:callback.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31648)."/>
             <min value="1"/>
             <fixedCode value="CALLBCK"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity">
+        <element id="ClinicalDocument.participant:callback.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31649)."/>
             <constraint>
@@ -182,36 +186,40 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.classCode">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;ASSIGNED&quot; assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-32419)."/>
             <fixedCode value="ASSIGNED"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.id">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.id">
             <path value="ClinicalDocument.participant.associatedEntity.id"/>
             <comment value="This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31650)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.addr">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.addr">
             <path value="ClinicalDocument.participant.associatedEntity.addr"/>
             <comment value="This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
+            </type>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.telecom">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.telecom">
             <path value="ClinicalDocument.participant.associatedEntity.telecom"/>
             <comment value="This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31652)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31653)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson.name">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.associatedPerson.name">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
             <comment value="This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31654)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.scopingOrganization">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.scopingOrganization">
             <path value="ClinicalDocument.participant.associatedEntity.scopingOrganization"/>
             <comment value="This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31655)."/>
         </element>

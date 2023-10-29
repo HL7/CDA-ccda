@@ -9,6 +9,7 @@ The statusCode of the Allergy Concern Act is the definitive indication of the st
 The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."""
 
 * insert LogicalModelTemplate(allergy-concern-act, 2.16.840.1.113883.10.20.22.4.30, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -34,6 +35,10 @@ The effectiveTime/low of the Allergy Concern Act asserts when the concern became
 * obeys 1198-10085 and 1198-7504
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7498)."
+  * low 0..1
+    * ^short = "Required if statusCode = 'active'"
+  * high 0..1
+    * ^short = "Required if statusCode = 'completed'"
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31145)."

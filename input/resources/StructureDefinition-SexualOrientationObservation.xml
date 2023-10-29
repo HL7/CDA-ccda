@@ -111,10 +111,15 @@
         <element id="Observation.value.nullFlavor">
             <path value="Observation.value.nullFlavor"/>
             <short value="To represent additional orientations, set nullFlavor=&quot;OTH&quot;. To represent &quot;choose not to disclose&quot;, set nullFlavor=&quot;ASKU&quot;. To represent &quot;Don't know&quot;, set nullFlavor=&quot;UNK&quot;"/>
-            <comment value="This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Other or unknown or refused to answer urn:oid:2.16.840.1.113762.1.4.1021.103 DYNAMIC (CONF:4537-192)."/>
             <binding>
-                <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.103"/>
+                <strength value="required"/>
+                <valueSet value="http://hl7.org/cda/stds/core/ValueSet/CDANullFlavor"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.103"/>
+                    <documentation value="This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Other or unknown or refused to answer urn:oid:2.16.840.1.113762.1.4.1021.103 DYNAMIC (CONF:4537-192)."/>
+                    <shortDoco value="Recommended nullFlavors"/>
+                </additional>
             </binding>
         </element>
     </differential>

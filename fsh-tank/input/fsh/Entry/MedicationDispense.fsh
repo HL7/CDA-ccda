@@ -5,6 +5,7 @@ Title: "Medication Dispense"
 Description: "This template records the act of supplying medications (i.e., dispensing). The moodCode equaling \"EVN\" (Event), signals that the \"supply\" has occurred and thus has been dispensed."
 
 * insert LogicalModelTemplate(med-dispense, 2.16.840.1.113883.10.20.22.4.18, 2023-05-01)
+* insert NarrativeLink
 
 * ^status = #draft
 * obeys 4537-9333
@@ -45,9 +46,9 @@ Description: "This template records the act of supplying medications (i.e., disp
   * assignedEntity 1..1
     * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-7467)."
     * addr 0..1
-    * addr only USRealmAddressADUSFIELDED
+    * addr only USRealmAddress
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-7468)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"

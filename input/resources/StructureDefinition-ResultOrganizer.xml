@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Organizer">
+            <path value="Organizer"/>
+            <constraint>
+                <key value="should-sdtctext-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="sdtcText.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
+            </constraint>
+        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -92,6 +102,20 @@
                 <severity value="warning"/>
                 <human value="**SHOULD** be selected from LOINC (codeSystem 2.16.840.1.113883.6.1) **OR** SNOMED CT (codeSystem 2.16.840.1.113883.6.96), and **MAY** be selected from CPT (codeSystem 2.16.840.1.113883.6.12) (CONF:4537-19218)."/>
                 <expression value="codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
+            </constraint>
+        </element>
+        <element id="Organizer.sdtcText">
+            <path value="Organizer.sdtcText"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Organizer.sdtcText.reference">
+            <path value="Organizer.sdtcText.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
             </constraint>
         </element>
@@ -158,7 +182,7 @@
             <path value="Organizer.component"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
@@ -166,20 +190,36 @@
             <comment value="SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Organizer.component:component1">
+        <element id="Organizer.component:resultObs">
             <path value="Organizer.component"/>
-            <sliceName value="component1"/>
+            <sliceName value="resultObs"/>
             <short value="component"/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Organizer.component:component1.observation">
+        <element id="Organizer.component:resultObs.observation">
             <path value="Organizer.component.observation"/>
             <comment value="SHALL contain exactly one [1..1] Result Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:4537-14850)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:specimenProc">
+            <path value="Organizer.component"/>
+            <sliceName value="specimenProc"/>
+            <comment value="SHALL contain at least one [1..*] component such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:specimenProc.procedure">
+            <path value="Organizer.component.procedure"/>
+            <comment value="SHALL contain exactly one [1..1] Specimen Collection Procedure."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SpecimenCollectionProcedure"/>
             </type>
         </element>
     </differential>

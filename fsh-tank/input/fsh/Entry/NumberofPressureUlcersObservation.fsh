@@ -5,6 +5,7 @@ Title: "Number of Pressure Ulcers Observation"
 Description: "This template represents the number of pressure ulcers observed at a particular stage."
 
 * insert LogicalModelTemplate(numberof-pressure-ulcers-obs, 2.16.840.1.113883.10.20.22.4.76, 2015-08-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -48,7 +49,9 @@ Description: "This template represents the number of pressure ulcers observed at
 * author 0..1
   * ^comment = "MAY contain zero or one [0..1] author (CONF:1198-14717)."
 * entryRelationship ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "Observation.typeCode"
+  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains entryRelationship1 1..1
 * entryRelationship[entryRelationship1] ^comment = "SHALL contain exactly one [1..1] entryRelationship (CONF:1198-14718) such that it"

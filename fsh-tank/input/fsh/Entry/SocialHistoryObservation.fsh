@@ -6,6 +6,7 @@ Description: """This template represents a patient's job (occupation and industr
 There are supplemental templates and guidance for observations of [Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522), [nutrition](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=478) and [pregnancy](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=494) that could be captured in the Social History Observation, and implementers may want to consider using those more specific templates in the Social History section."""
 
 * insert LogicalModelTemplate(social-history-obs, 2.16.840.1.113883.10.20.22.4.38, 2022-06-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -35,12 +36,10 @@ There are supplemental templates and guidance for observations of [Occupational 
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31869)."
 * entryRelationship 1..
-  * ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
-  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32969) such that it"
 * entryRelationship contains

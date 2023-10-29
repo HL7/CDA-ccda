@@ -43,7 +43,7 @@ Expression: "componentOf.exists()"
 Invariant: should-country
 Description: "SHOULD contain country"
 Severity: #warning
-Expression: "item.country.exists()"
+Expression: "nullFlavor.exists() or item.country.exists()"
 
 Invariant: should-criterion
 Description: "SHOULD contain criterion"
@@ -150,11 +150,6 @@ Description: "SHOULD contain playingEntity"
 Severity: #warning
 Expression: "playingEntity.exists()"
 
-Invariant: should-precondition
-Description: "SHOULD contain precondition"
-Severity: #warning
-Expression: "precondition.exists()"
-
 Invariant: should-priorityCode
 Description: "SHOULD contain priorityCode"
 Severity: #warning
@@ -225,6 +220,11 @@ Description: "SHOULD contain sdtcId"
 Severity: #warning
 Expression: "sdtcId.exists()"
 
+Invariant: should-sdtcPrecondition2
+Description: "SHOULD contain sdtc:Precondition2"
+Severity: #warning
+Expression: "sdtcPrecondition2.exists()"
+
 Invariant: should-targetSiteCode
 Description: "SHOULD contain targetSiteCode"
 Severity: #warning
@@ -248,7 +248,7 @@ Expression: "time.exists()"
 Invariant: should-use
 Description: "SHOULD contain @use"
 Severity: #warning
-Expression: "use.exists()"
+Expression: "nullFlavor.exists() or use.exists()"
 
 Invariant: should-value
 Description: "SHOULD contain value"

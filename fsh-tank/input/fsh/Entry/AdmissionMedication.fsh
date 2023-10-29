@@ -5,6 +5,7 @@ Title: "Admission Medication"
 Description: "This template represents the medications taken by the patient prior to and at the time of admission."
 
 * insert LogicalModelTemplate(admission-med, 2.16.840.1.113883.10.20.22.4.36, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)

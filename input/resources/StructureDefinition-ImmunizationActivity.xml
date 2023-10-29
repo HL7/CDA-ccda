@@ -41,6 +41,13 @@
         <element id="SubstanceAdministration">
             <path value="SubstanceAdministration"/>
             <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
+            </constraint>
+            <constraint>
                 <key value="should-doseQuantity"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain doseQuantity"/>
@@ -121,6 +128,20 @@
             <comment value="SHALL contain exactly one [1..1] @negationInd (CONF:1198-8985)."/>
             <min value="1"/>
         </element>
+        <element id="SubstanceAdministration.text">
+            <path value="SubstanceAdministration.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="SubstanceAdministration.text.reference">
+            <path value="SubstanceAdministration.text.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
+            </constraint>
+        </element>
         <element id="SubstanceAdministration.statusCode">
             <path value="SubstanceAdministration.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8833)."/>
@@ -144,7 +165,17 @@
         <element id="SubstanceAdministration.repeatNumber">
             <path value="SubstanceAdministration.repeatNumber"/>
             <short value="In &quot;INT&quot; (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of &quot;3&quot; means that the substance can be administered up to 3 times. In &quot;EVN&quot; (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of &quot;3&quot; in a substance administration event means that the current administration is the 3rd in a series."/>
-            <comment value="MAY contain zero or one [0..1] repeatNumber (CONF:1198-8838)."/>
+            <constraint>
+                <key value="value-only"/>
+                <severity value="error"/>
+                <human value="Interval fields SHALL not be present"/>
+                <expression value="(low | high | width | center).empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
+            </constraint>
+        </element>
+        <element id="SubstanceAdministration.repeatNumber.value">
+            <path value="SubstanceAdministration.repeatNumber.value"/>
+            <short value="value should be used instead of low/high"/>
         </element>
         <element id="SubstanceAdministration.routeCode">
             <path value="SubstanceAdministration.routeCode"/>
@@ -223,10 +254,6 @@
                 <discriminator>
                     <type value="value"/>
                     <path value="typeCode"/>
-                </discriminator>
-                <discriminator>
-                    <type value="profile"/>
-                    <path value="participantRole"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

@@ -13,6 +13,7 @@ It is recommended systems include the Sex Observation in the Social History sect
 * ^meta.lastUpdated = "2023-07-11T23:41:53.603Z"
 
 * insert LogicalModelTemplate(sex-obs, 2.16.840.1.113883.10.20.22.4.507, 2023-07-01)
+* insert NarrativeLink
 
 * ^status = #draft
 * classCode 1..1

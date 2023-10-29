@@ -11,6 +11,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
 * ^meta.lastUpdated = "2023-07-11T23:41:34.630Z"
 
 * insert LogicalModelTemplate(note-activity, 2.16.840.1.113883.10.20.22.4.202, 2016-11-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #ACT (exactly)
@@ -42,7 +43,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * nullFlavor 0..0
       * ^short = "The note activity must reference human-readable content in the narrative, so this reference must not be null."
       * ^comment = "This reference SHALL NOT contain [0..0] @nullFlavor (CONF:3250-16920)."
-    * obeys 3250-16902
+    * obeys value-starts-octothorpe
     * value 1..1
       * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:3250-16898)."
 * statusCode 1..1
@@ -58,8 +59,6 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * ^short = "Represents the person(s) who wrote the note."
   * ^comment = "SHALL contain at least one [1..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:3250-16913)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"
@@ -85,12 +84,8 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The playingEntity, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:3250-16929)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #exists
   * ^slicing.discriminator[=].path = "encounter"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "inversionInd"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"
 * entryRelationship contains entryRelationship1 0..*
@@ -110,7 +105,7 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * id 1..*
       * obeys 3250-16914
       * ^comment = "This encounter SHALL contain at least one [1..*] id (CONF:3250-16909)."
-* reference ^slicing.discriminator[0].type = #value
+* reference ^slicing.discriminator[0].type = #exists
   * ^slicing.discriminator[=].path = "externalDocument"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"
@@ -129,11 +124,6 @@ Invariant: 3250-16912
 Description: "If @mediaType is present, the text SHALL contain exactly one [1..1] @representation=\"B64\" and mixed content corresponding to the contents of the note (CONF:3250-16912)."
 Severity: #error
 Expression: "mediaType.exists() implies (representation = 'B64' and xmlText.exists())"
-
-Invariant: 3250-16902
-Description: "This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:3250-16902)."
-Severity: #error
-Expression: "value.startsWith('#')"
 
 Invariant: 3250-16930
 Description: "If no id matches an author or participant elsewhere in the document, then playingEntity SHALL be present (CONF:3250-16930)."

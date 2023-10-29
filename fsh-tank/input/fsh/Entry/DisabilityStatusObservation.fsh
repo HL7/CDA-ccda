@@ -9,6 +9,7 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
 * ^meta.lastUpdated = "2023-07-11T23:41:52.905Z"
 
 * insert LogicalModelTemplate(disability-status-obs, 2.16.840.1.113883.10.20.22.4.505, 2023-05-01)
+* insert NarrativeLink
 
 * ^status = #draft
 * classCode 1..1
@@ -36,7 +37,7 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
 * value only $CD
 * value from $1.3.6.1.4.1.12009.10.1.3932 (example)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which MAY be selected from ValueSet CUBS_Disability urn:oid:1.3.6.1.4.1.12009.10.1.3932 DYNAMIC (CONF:4537-32628)."
-* entryRelationship ^slicing.discriminator[0].type = #value
+* entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"

@@ -5,6 +5,7 @@ Title: "Specimen Collection Procedure"
 Description: """This template represents clinical information about the specimen including when it was collected, the type and source of specimen, as well as related observations regarding the specimen."""
 
 * insert LogicalModelTemplate(specimen-collection-proc, 2.16.840.1.113883.10.20.22.4.415, 2018-09-01)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #PROC (exactly)
@@ -18,7 +19,9 @@ Description: """This template represents clinical information about the specimen
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * insert USCDI([[Specimen Source Site]])
 * entryRelationship ^slicing.discriminator[0].type = #profile
-  * ^slicing.discriminator[=].path = "procedure"
+  * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains specimenRef 1..1 and rejectReason 0..*
 * entryRelationship[specimenRef] ^comment = "SHALL contain exactly one [1..1] entryRelationship such that it"

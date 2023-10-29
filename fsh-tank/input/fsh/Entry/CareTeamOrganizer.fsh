@@ -16,6 +16,7 @@ The components of the organizer contain the following information:
 """
 
 * insert LogicalModelTemplate(care-team-org, 2.16.840.1.113883.10.20.22.4.500, 2022-06-01)
+* insert NarrativeLinkOrganizer
 
 * classCode 1..1
 * classCode = #CLUSTER (exactly)
@@ -58,10 +59,9 @@ The components of the organizer contain the following information:
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-  * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"
 * participant contains
     lead 0..* and
-    addl-participants 0..*
+    location 0..*
 * participant[lead] ^short = "This Participant represents the Care Team lead."
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"
   * typeCode 1..1
@@ -76,7 +76,7 @@ The components of the organizer contain the following information:
     * id 1..*
       * obeys 4515-133
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4515-132)."
-* participant[addl-participants] ^short = "participant"
+* participant[location] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"
   * typeCode 1..1
   * typeCode = #LOC (exactly)
@@ -87,6 +87,7 @@ The components of the organizer contain the following information:
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."
     * obeys should-addr
     * addr 0..1
+    * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)." // auto-should
     * obeys should-telecom
     * telecom 0..*

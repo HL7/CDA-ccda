@@ -7,6 +7,7 @@ Description: """This template is intended to be used in addition to the **Produc
 The Device Identifier number can be used as a key to look-up device identification information in the publicly available version of the US FDA Global UDI Database (GUDID) - the AccessGUDID: https://accessgudid.nlm.nih.gov/resources/home"""
 
 * insert LogicalModelTemplate(device-id-obs, 2.16.840.1.113883.10.20.22.4.304, 2022-06-01)
+* insert NarrativeLink
 
 * code 1..1
   * ^short = "Primary DI Number Code from NCIt"

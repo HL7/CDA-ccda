@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Organizer">
+            <path value="Organizer"/>
+            <constraint>
+                <key value="should-sdtctext-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="sdtcText.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+            </constraint>
+        </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
             <slicing>
@@ -82,6 +92,20 @@
             <path value="Organizer.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1198-32485)."/>
             <min value="1"/>
+        </element>
+        <element id="Organizer.sdtcText">
+            <path value="Organizer.sdtcText"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Organizer.sdtcText.reference">
+            <path value="Organizer.sdtcText.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
+            </constraint>
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>

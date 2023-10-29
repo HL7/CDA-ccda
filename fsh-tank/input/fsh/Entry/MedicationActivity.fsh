@@ -11,6 +11,7 @@ At a minimum, a Medication Activity shall include an effectiveTime indicating th
 The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single  "metoprolol 25mg tablet " per administration will have a doseQuantity of  "1 ", whereas a patient consuming  "metoprolol Oral Product " (RxCUI 1163523) will have a dose of  "25 mg "."""
 
 * insert LogicalModelTemplate(medication-activity, 2.16.840.1.113883.10.20.22.4.16, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1098-7496)."
@@ -105,8 +106,6 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31150)."
 * participant ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "participantRole"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains drugVehicle 0..*

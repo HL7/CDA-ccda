@@ -5,6 +5,7 @@ Title: "Planned Medication Activity"
 Description: "This template represents planned medication activities. The priority of the medication activity to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the medication activity is intended to take place. The authorTime indicates when the documentation of the plan occurred."
 
 * insert LogicalModelTemplate(planned-med-activity, 2.16.840.1.113883.10.20.22.4.42, 2014-06-09)
+* insert NarrativeLink
 
 * classCode 1..1
 * classCode = #SBADM (exactly)

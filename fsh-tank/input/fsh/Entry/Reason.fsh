@@ -11,6 +11,7 @@ Immunization Refusal Reason: 2.16.840.1.113883.10.20.22.4.53 should be used to r
 * ^meta.lastUpdated = "2023-07-11T23:42:06.692Z"
 
 * insert LogicalModelTemplate(reason, 2.16.840.1.113883.10.20.24.3.88, 2023-05-01)
+* insert NarrativeLink
 
 * ^status = #draft
 * classCode 1..1
