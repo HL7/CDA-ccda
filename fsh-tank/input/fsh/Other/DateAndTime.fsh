@@ -82,3 +82,8 @@ Description: "When time is present, there **SHALL** be a time-zone offset"
 Severity: #error
 // Combines above rules - if there's a time, it's automatically 19 characters long. If it has an offset, it's 25
 Expression: "nullFlavor.exists() or value.toString().length() <= 10 or value.toString().length() >= 25"
+
+Invariant: ts-value-before-document
+Severity: #error
+Description: "Time value must be equal to or before ClinicalDocument/effectiveTime"
+Expression: "value.exists() implies value <= %resource.effectiveTime.value"

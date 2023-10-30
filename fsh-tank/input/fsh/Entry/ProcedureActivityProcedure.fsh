@@ -28,15 +28,18 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.22 (required)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:4515-32366)."
+* obeys active-high-ts-after-document
 * effectiveTime 1..1
+* effectiveTime only USRealmDateTimeInterval
   * insert USCDI([[Performance Time]])
-  * obeys should-value
+  * obeys should-value and ts-value-before-document
   * value ^short = "Indicates historical procedure or an instance of a procedure where precision may be only a date or even a year."
   * low
+    * obeys ts-value-before-document
     * ^short = "Indicates when a procedure started"
     * ^comment = "MAY contain zero or one [0..1] low"
   * high
-    * ^short = "Indicates when a procedure ended"
+    * ^short = "Indicates when a procedure ended. If the statusCode='active', this must be after the ClinicalDcument/effectiveTime"
     * ^comment = "MAY contain zero or one [0..1] high"
 * priorityCode 0..1
 * priorityCode from ActPriority (required)
@@ -199,3 +202,8 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32989)."
+
+Invariant: active-high-ts-after-document
+Severity: #error
+Description: "If the procedure is active and contains a high effectiveTime, this time SHALL be after the ClinicalDocument/effectiveTime"
+Expression: "(statusCode.code = 'active' and effectiveTime.high.value.exists()) implies effectiveTime.high.value > %resource.effectiveTime.value"
