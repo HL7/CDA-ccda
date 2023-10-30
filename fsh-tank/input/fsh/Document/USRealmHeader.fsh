@@ -207,15 +207,13 @@ Description: "This template defines constraints that represent common administra
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7995)."
-    * obeys should-assignedPerson
     * assignedPerson 0..1
-      * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4537-5430)." // auto-should
+      * ^comment = "MAY contain assignedPerson"
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-16789)."
-    * obeys should-assignedAuthoringDevice
     * assignedAuthoringDevice 0..1
-      * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] assignedAuthoringDevice (CONF:4537-16783)." // auto-should
+      * ^comment = "MAY contain assignedAuthoringDevice"
       * manufacturerModelName 1..1
         * ^comment = "The assignedAuthoringDevice, if present, SHALL contain exactly one [1..1] manufacturerModelName (CONF:4537-16784)."
       * softwareName 1..1
@@ -528,7 +526,7 @@ Severity: #warning
 Invariant: 4537-16790
 Description: "There **SHALL** be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice (CONF:4537-16790)."
 Severity: #error
-Expression: "assignedPerson.exists() or assignedAuthoringDevice.exists()"
+Expression: "(assignedPerson | assignedAuthoringDevice).count() = 1"
 
 Invariant: 4537-9946
 Description: "If assignedEntity/id is a provider then this id, **SHOULD** include zero or one [0..1] id where id/@root =\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-9946)."

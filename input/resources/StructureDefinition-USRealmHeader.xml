@@ -604,7 +604,7 @@
                 <key value="4537-16790"/>
                 <severity value="error"/>
                 <human value="There **SHALL** be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice (CONF:4537-16790)."/>
-                <expression value="assignedPerson.exists() or assignedAuthoringDevice.exists()"/>
+                <expression value="(assignedPerson | assignedAuthoringDevice).count() = 1"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
@@ -619,20 +619,6 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
-            <constraint>
-                <key value="should-assignedPerson"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain assignedPerson"/>
-                <expression value="assignedPerson.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
-            <constraint>
-                <key value="should-assignedAuthoringDevice"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain assignedAuthoringDevice"/>
-                <expression value="assignedAuthoringDevice.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
@@ -720,7 +706,7 @@
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.assignedPerson">
             <path value="ClinicalDocument.author.assignedAuthor.assignedPerson"/>
-            <comment value="This assignedAuthor SHOULD contain zero or one [0..1] assignedPerson (CONF:4537-5430)."/>
+            <comment value="MAY contain assignedPerson"/>
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.assignedPerson.name">
             <path value="ClinicalDocument.author.assignedAuthor.assignedPerson.name"/>
@@ -733,7 +719,7 @@
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice">
             <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice"/>
-            <comment value="This assignedAuthor SHOULD contain zero or one [0..1] assignedAuthoringDevice (CONF:4537-16783)."/>
+            <comment value="MAY contain assignedAuthoringDevice"/>
         </element>
         <element id="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.manufacturerModelName">
             <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.manufacturerModelName"/>
