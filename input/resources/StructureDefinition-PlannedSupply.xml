@@ -19,9 +19,9 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2024-01-01"/>
     </identifier>
-    <version value="2014-06-09"/>
+    <version value="2024-01-01"/>
     <name value="PlannedSupply"/>
     <title value="Planned Supply"/>
     <status value="draft"/>
@@ -55,10 +55,10 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
             </constraint>
             <constraint>
-                <key value="should-product"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain product"/>
-                <expression value="product.exists()"/>
+                <key value="shall-product-or-device"/>
+                <severity value="error"/>
+                <human value="The supply SHALL contain either 1 product or 1 device participant (@typeCode='DEV')"/>
+                <expression value="(product | participant.where(typeCode='DEV')).count() = 1"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
             </constraint>
         </element>
@@ -91,7 +91,7 @@
         <element id="Supply.templateId:planned-supply.extension">
             <path value="Supply.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2014-06-09"/>
+            <patternString value="2024-01-01"/>
         </element>
         <element id="Supply.classCode">
             <path value="Supply.classCode"/>
@@ -152,14 +152,7 @@
         </element>
         <element id="Supply.product">
             <path value="Supply.product"/>
-            <short value="A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD). "/>
-            <comment value="MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."/>
-            <constraint>
-                <key value="1098-32092"/>
-                <severity value="error"/>
-                <human value="If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) or Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) then the participant **SHALL NOT** be Product Instance (CONF:1098-32092 and CONF:1098-32093)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
-            </constraint>
+            <short value="Represents either a medication or an immunization supply"/>
         </element>
         <element id="Supply.product.manufacturedProduct">
             <path value="Supply.product.manufacturedProduct"/>
@@ -188,8 +181,8 @@
             <path value="Supply.participant"/>
             <slicing>
                 <discriminator>
-                    <type value="profile"/>
-                    <path value="participantRole"/>
+                    <type value="value"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -201,12 +194,11 @@
             <comment value="MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"/>
             <min value="0"/>
             <max value="1"/>
-            <constraint>
-                <key value="1098-32096"/>
-                <severity value="error"/>
-                <human value="If the participant is Product Instance then the product **SHALL NOT** be Medication Information (2.16.840.1.113883.10.20.22.4.23.2) and the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) (CONF:1098-32096)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
-            </constraint>
+        </element>
+        <element id="Supply.participant:productInstance.typeCode">
+            <path value="Supply.participant.typeCode"/>
+            <min value="1"/>
+            <patternCode value="DEV"/>
         </element>
         <element id="Supply.participant:productInstance.participantRole">
             <path value="Supply.participant.participantRole"/>

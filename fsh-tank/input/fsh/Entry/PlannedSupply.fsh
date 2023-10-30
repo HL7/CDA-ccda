@@ -6,7 +6,7 @@ Description: """This template represents both medicinal and non-medicinal suppli
 The effective time indicates the time when the supply is intended to take place and author time indicates when the documentation of the plan occurred. The Planned Supply template may also indicate the potential insurance coverage for the procedure. 
 Depending on the type of supply, the product or participant will be either a Medication Information product (medication), an Immunization Medication Information product (immunization), or a Product Instance participant (device/equipment)."""
 
-* insert LogicalModelTemplate(planned-supply, 2.16.840.1.113883.10.20.22.4.43, 2014-06-09)
+* insert LogicalModelTemplate(planned-supply, 2.16.840.1.113883.10.20.22.4.43, 2024-01-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -31,13 +31,11 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1098-32063)."
 * quantity 0..1
   * ^comment = "MAY contain zero or one [0..1] quantity (CONF:1098-32064)."
-* obeys should-product
-* product 0..1
-  * obeys 1098-32092
-  * ^short = "A product is recommended or even required under certain implementations. This IG makes product as recommended (SHOULD). "
-  * ^comment = "MAY contain zero or one [0..1] product (CONF:1098-32049 and CONF:1098-32051 and CONF:1098-32325)."
+* obeys shall-product-or-device
+* product 0..1 
+  * ^short = "Represents either a medication or an immunization supply"
   * manufacturedProduct 1..1
-  * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation or $ManufacturedProduct
+  * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
 * performer 0..*
   * ^short = "The clinician who is expected to perform the supply could be identified using supply/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-32048)."
@@ -45,14 +43,15 @@ Depending on the type of supply, the product or participant will be either a Med
 * author only AuthorParticipation
   * ^short = "The author in a supply represents the clinician who is requesting or planning the supply."
   * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)."
-* participant ^slicing.discriminator[0].type = #profile
-  * ^slicing.discriminator[=].path = "participantRole"
+* participant ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^short = "This participant represents a device that is ordered, requested or intended for the patient."
 * participant contains productInstance 0..1
-* participant[productInstance] obeys 1098-32096
-  * ^short = "This participant represents a device that is ordered, requested or intended for the patient."
+* participant[productInstance] ^short = "This participant represents a device that is ordered, requested or intended for the patient."
   * ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"
+  * typeCode 1..1
+  * typeCode = #DEV
   * participantRole 1..1
   * participantRole only ProductInstance
     * ^comment = "SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-32095)."
@@ -100,10 +99,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * act only PlannedCoverage
     * ^comment = "SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:1098-32062)."
 
-Invariant: 1098-32092
-Description: "If the product is Medication Information (2.16.840.1.113883.10.20.22.4.23.2) or Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) then the participant **SHALL NOT** be Product Instance (CONF:1098-32092 and CONF:1098-32093)."
+Invariant: shall-product-or-device
 Severity: #error
-
-Invariant: 1098-32096
-Description: "If the participant is Product Instance then the product **SHALL NOT** be Medication Information (2.16.840.1.113883.10.20.22.4.23.2) and the product **SHALL NOT** be Immunization Medication Information (2.16.840.1.113883.10.20.22.4.54.2) (CONF:1098-32096)."
-Severity: #error
+Description: "The supply SHALL contain either 1 product or 1 device participant (@typeCode='DEV')"
+Expression: "(product | participant.where(typeCode='DEV')).count() = 1"
