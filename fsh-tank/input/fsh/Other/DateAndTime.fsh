@@ -7,7 +7,7 @@ Description: "The US Realm Clinical Document Date and Time datatype flavor recor
 This data type uses the same rules as US Realm Date and Time (Point in Time), but is used with elements having a datatype of IVL_TS."
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.3"
-// TODO - need new invariants to validate @value
+* obeys ivl-value-shall and ivl-value-should
 * insert RequireTimezone
 * value ^short = "Either @value or low/high should be present, but not both"
 * low obeys ts-shall-day and ts-should-minute and ts-shall-timezone
@@ -17,6 +17,15 @@ This data type uses the same rules as US Realm Date and Time (Point in Time), bu
   * ^short = "**MAY** be precise to at least the second"
   * insert RequireTimezone
 
+Invariant: ivl-value-shall
+Severity: #error
+Description: "If a time interval contains @value, then it shall be precise to at least the day. If it is more precise than to the day, it SHALL have a timezone offset."
+Expression: "value.exists() implies (value.toString().length() = 10 or value.toString().length() >= 25)"
+// See ts-shall-timezone for explanation of lengths
+Invariant: ivl-value-should
+Severity: #warning
+Description: "If a time interval contains @value, then it SHOULD contain a time component."
+Expression: "value.exists() implies value.toString().length() > 10"
 
 Profile: USRealmDateTime
 Parent: TS

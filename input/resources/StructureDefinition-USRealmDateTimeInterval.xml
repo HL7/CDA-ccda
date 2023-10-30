@@ -31,6 +31,23 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="IVL_TS">
+            <path value="IVL_TS"/>
+            <constraint>
+                <key value="ivl-value-shall"/>
+                <severity value="error"/>
+                <human value="If a time interval contains @value, then it shall be precise to at least the day. If it is more precise than to the day, it SHALL have a timezone offset."/>
+                <expression value="value.exists() implies (value.toString().length() = 10 or value.toString().length() &gt;= 25)"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </constraint>
+            <constraint>
+                <key value="ivl-value-should"/>
+                <severity value="warning"/>
+                <human value="If a time interval contains @value, then it SHOULD contain a time component."/>
+                <expression value="value.exists() implies value.toString().length() &gt; 10"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </constraint>
+        </element>
         <element id="IVL_TS.value">
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/elementdefinition-date-format">
                 <valueString value="YYYYMMDDHHMMSS.UUUU[+|-ZZzz]"/>
