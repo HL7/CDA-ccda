@@ -7,7 +7,7 @@ Description: "The US Realm Clinical Document Date and Time datatype flavor recor
 This data type uses the same rules as US Realm Date and Time (Point in Time), but is used with elements having a datatype of IVL_TS."
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.3"
-* obeys ts-shall-day and ts-should-minute and ts-shall-timezone
+// TODO - need new invariants to validate @value
 * insert RequireTimezone
 * value ^short = "Either @value or low/high should be present, but not both"
 * low obeys ts-shall-day and ts-should-minute and ts-shall-timezone

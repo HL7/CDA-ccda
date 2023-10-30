@@ -31,30 +31,6 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
     <derivation value="constraint"/>
     <differential>
-        <element id="IVL_TS">
-            <path value="IVL_TS"/>
-            <constraint>
-                <key value="ts-shall-day"/>
-                <severity value="error"/>
-                <human value="**SHALL** be precise to at least the day"/>
-                <expression value="nullFlavor.exists() or value.toString().length() &gt;= 10"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
-            </constraint>
-            <constraint>
-                <key value="ts-should-minute"/>
-                <severity value="warning"/>
-                <human value="**SHOULD** be precise to at least the minute"/>
-                <expression value="nullFlavor.exists() or value.toString().length() &gt; 10"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
-            </constraint>
-            <constraint>
-                <key value="ts-shall-timezone"/>
-                <severity value="error"/>
-                <human value="When time is present, there **SHALL** be a time-zone offset"/>
-                <expression value="nullFlavor.exists() or value.toString().length() &lt;= 10 or value.toString().length() &gt;= 25"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
-            </constraint>
-        </element>
         <element id="IVL_TS.value">
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/elementdefinition-date-format">
                 <valueString value="YYYYMMDDHHMMSS.UUUU[+|-ZZzz]"/>
