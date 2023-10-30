@@ -69,8 +69,7 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
       * standardIndustryClassCode 0..1
       * standardIndustryClassCode from $2.16.840.1.114222.4.11.1066 (required)
         * ^comment = "The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."
-* authenticator contains authenticator2 0..1
-* authenticator[authenticator2] ^comment = "SHOULD contain zero or one [0..1] authenticator (CONF:1198-31910) such that it"
+* authenticator
   * time 1..1
     * ^comment = "SHALL contain exactly one [1..1] time (CONF:1198-31911)."
   * signatureCode 1..1

@@ -1090,23 +1090,9 @@
         </element>
         <element id="ClinicalDocument.authenticator">
             <path value="ClinicalDocument.authenticator"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="signatureCode.code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <comment value="MAY contain zero or more [0..*] authenticator (CONF:4537-5607) such that it"/>
-        </element>
-        <element id="ClinicalDocument.authenticator:authenticator1">
-            <path value="ClinicalDocument.authenticator"/>
-            <sliceName value="authenticator1"/>
             <short value="The authenticator identifies a participant or participants who attest to the accuracy of the information in the document."/>
-            <min value="0"/>
-            <max value="*"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.time">
+        <element id="ClinicalDocument.authenticator.time">
             <path value="ClinicalDocument.authenticator.time"/>
             <comment value="SHALL contain exactly one [1..1] US Realm Date and Time (Point in Time) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5608)."/>
             <type>
@@ -1114,30 +1100,30 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
             </type>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.signatureCode">
+        <element id="ClinicalDocument.authenticator.signatureCode">
             <path value="ClinicalDocument.authenticator.signatureCode"/>
             <comment value="SHALL contain exactly one [1..1] signatureCode (CONF:4537-5610)."/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.signatureCode.code">
+        <element id="ClinicalDocument.authenticator.signatureCode.code">
             <path value="ClinicalDocument.authenticator.signatureCode.code"/>
             <comment value="This signatureCode SHALL contain exactly one [1..1] @code=&quot;S&quot; (CodeSystem: HL7ParticipationSignature urn:oid:2.16.840.1.113883.5.89 STATIC) (CONF:4537-5611)."/>
             <min value="1"/>
             <patternCode value="S"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.sdtcSignatureText">
+        <element id="ClinicalDocument.authenticator.sdtcSignatureText">
             <path value="ClinicalDocument.authenticator.sdtcSignatureText"/>
             <short value="The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:&#xA;1) Electronic signature: this attribute can represent virtually any electronic signature scheme.&#xA;2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.&#xA; The sdtc:signatureText extension provides a location in CDA for a textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. Details of what goes in the field are described in the HL7 CDA Digital Signature Standard balloted in Fall of 2013."/>
             <comment value="MAY contain zero or one [0..1] sdtc:signatureText (CONF:4537-30811)."/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity">
+        <element id="ClinicalDocument.authenticator.assignedEntity">
             <path value="ClinicalDocument.authenticator.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5612)."/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.id">
+        <element id="ClinicalDocument.authenticator.assignedEntity.id">
             <path value="ClinicalDocument.authenticator.assignedEntity.id"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5613)."/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.id.root">
+        <element id="ClinicalDocument.authenticator.assignedEntity.id.root">
             <path value="ClinicalDocument.authenticator.assignedEntity.id.root"/>
             <comment value="Such ids SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier  (CONF:4537-16824)."/>
             <constraint>
@@ -1148,11 +1134,11 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code">
+        <element id="ClinicalDocument.authenticator.assignedEntity.code">
             <path value="ClinicalDocument.authenticator.assignedEntity.code"/>
             <comment value="This assignedEntity MAY contain zero or one [0..1] code (CONF:4537-16825)."/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.code.code">
+        <element id="ClinicalDocument.authenticator.assignedEntity.code.code">
             <path value="ClinicalDocument.authenticator.assignedEntity.code.code"/>
             <comment value="The code, if present, MAY contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-16826)."/>
             <binding>
@@ -1160,7 +1146,7 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.addr">
+        <element id="ClinicalDocument.authenticator.assignedEntity.addr">
             <path value="ClinicalDocument.authenticator.assignedEntity.addr"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5616)."/>
             <min value="1"/>
@@ -1169,7 +1155,7 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.telecom">
+        <element id="ClinicalDocument.authenticator.assignedEntity.telecom">
             <path value="ClinicalDocument.authenticator.assignedEntity.telecom"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5622)."/>
             <min value="1"/>
@@ -1181,7 +1167,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.telecom.use">
+        <element id="ClinicalDocument.authenticator.assignedEntity.telecom.use">
             <path value="ClinicalDocument.authenticator.assignedEntity.telecom.use"/>
             <comment value="Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-8000)."/>
             <max value="1"/>
@@ -1190,12 +1176,12 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.assignedPerson">
+        <element id="ClinicalDocument.authenticator.assignedEntity.assignedPerson">
             <path value="ClinicalDocument.authenticator.assignedEntity.assignedPerson"/>
             <comment value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4537-5624)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.authenticator:authenticator1.assignedEntity.assignedPerson.name">
+        <element id="ClinicalDocument.authenticator.assignedEntity.assignedPerson.name">
             <path value="ClinicalDocument.authenticator.assignedEntity.assignedPerson.name"/>
             <comment value="This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5625)."/>
             <min value="1"/>

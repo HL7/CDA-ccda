@@ -357,14 +357,7 @@ Description: "This template defines constraints that represent common administra
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5598)."
-// TODO - remove slicing: https://jira.hl7.org/browse/CDA-20827
-* authenticator ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "signatureCode.code"
-  * ^slicing.rules = #open
-  * ^comment = "MAY contain zero or more [0..*] authenticator (CONF:4537-5607) such that it"
-* authenticator contains authenticator1 0..*
-* authenticator[authenticator1] ^short = "The authenticator identifies a participant or participants who attest to the accuracy of the information in the document."
-  * ^comment = "MAY contain zero or more [0..*] authenticator (CONF:4537-5607) such that it"
+* authenticator ^short = "The authenticator identifies a participant or participants who attest to the accuracy of the information in the document."
   * time 1..1
   * time only USRealmDateTime
     * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (Point in Time) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5608)."
