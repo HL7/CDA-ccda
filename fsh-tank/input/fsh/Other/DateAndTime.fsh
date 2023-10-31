@@ -10,10 +10,10 @@ This data type uses the same rules as US Realm Date and Time (Point in Time), bu
 * obeys ivl-value-shall and ivl-value-should
 * insert RequireTimezone
 * value ^short = "Either @value or low/high should be present, but not both"
-* low obeys ts-shall-day and ts-should-minute and ts-shall-timezone
+* low obeys ts-shall-day and ts-should-minute
   * ^short = "**MAY** be precise to at least the second"
   * insert RequireTimezone
-* high obeys ts-shall-day and ts-should-minute and ts-shall-timezone
+* high obeys ts-shall-day and ts-should-minute
   * ^short = "**MAY** be precise to at least the second"
   * insert RequireTimezone
 
