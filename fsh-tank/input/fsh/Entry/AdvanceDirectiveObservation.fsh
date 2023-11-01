@@ -131,6 +131,7 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The playingEntity SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."
 * obeys should-informant
+* informant ^short = "SHOULD contain informant"
 * participant[participant2] ^short = "This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."
 * participant[participant2] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"
   * typeCode 1..1
