@@ -8,7 +8,6 @@ Description: "This template records the act of supplying medications (i.e., disp
 * insert NarrativeLink
 
 * ^status = #draft
-* obeys 4537-9333
 * classCode 1..1
 * classCode = #SPLY (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SPLY\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-7451)."
@@ -36,10 +35,10 @@ Description: "This template records the act of supplying medications (i.e., disp
 * obeys should-quantity
 * quantity 0..1
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:4537-7458)." // auto-should
-* product 0..1
+* product 1..1
   * ^comment = "MAY contain zero or one [0..1] product (CONF:4537-7459)."
   * manufacturedProduct 1..1
-  * manufacturedProduct only MedicationInformation
+  * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
     * ^comment = "The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:4537-15607)."
 * performer 0..1
   * ^comment = "MAY contain zero or one [0..1] performer (CONF:4537-7461)."
@@ -64,6 +63,4 @@ Description: "This template records the act of supplying medications (i.e., disp
   * supply only MedicationSupplyOrder
     * ^comment = "SHALL contain exactly one [1..1] Medication Supply Order (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09) (CONF:4537-15606)."
 
-Invariant: 4537-9333
-Description: "A supply act  **SHALL** contain one product/Medication Information *OR* one product/Immunization Medication Information template (CONF:4537-9333)."
-Severity: #error
+

@@ -48,12 +48,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
             </constraint>
             <constraint>
-                <key value="4537-9333"/>
-                <severity value="error"/>
-                <human value="A supply act  **SHALL** contain one product/Medication Information *OR* one product/Immunization Medication Information template (CONF:4537-9333)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
-            </constraint>
-            <constraint>
                 <key value="should-effectiveTime"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain effectiveTime"/>
@@ -173,7 +167,7 @@
         </element>
         <element id="Supply.product">
             <path value="Supply.product"/>
-            <comment value="MAY contain zero or one [0..1] product (CONF:4537-7459)."/>
+            <min value="1"/>
         </element>
         <element id="Supply.product.manufacturedProduct">
             <path value="Supply.product.manufacturedProduct"/>
@@ -181,6 +175,7 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationInformation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationMedicationInformation"/>
             </type>
         </element>
         <element id="Supply.performer">
