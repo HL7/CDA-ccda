@@ -140,6 +140,11 @@ Description: "SHOULD contain originalText"
 Severity: #warning
 Expression: "originalText.exists()"
 
+Invariant: should-participant
+Description: "SHOULD contain participant"
+Severity: #warning
+Expression: "participant.exists()"
+
 Invariant: should-performer
 Description: "SHOULD contain performer"
 Severity: #warning

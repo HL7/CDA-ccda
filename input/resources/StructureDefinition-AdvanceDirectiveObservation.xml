@@ -47,6 +47,20 @@
                 <expression value="text.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-informant"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain informant"/>
+                <expression value="informant.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -275,7 +289,6 @@
         <element id="Observation.participant:participant1.typeCode">
             <path value="Observation.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;VRF&quot; Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."/>
-            <min value="1"/>
             <fixedCode value="VRF"/>
         </element>
         <element id="Observation.participant:participant1.time">
@@ -339,7 +352,6 @@
         <element id="Observation.participant:participant2.typeCode">
             <path value="Observation.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CST&quot; Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."/>
-            <min value="1"/>
             <fixedCode value="CST"/>
         </element>
         <element id="Observation.participant:participant2.participantRole">

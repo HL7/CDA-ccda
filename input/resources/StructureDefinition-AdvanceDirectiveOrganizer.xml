@@ -47,6 +47,20 @@
                 <expression value="sdtcText.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer"/>
             </constraint>
+            <constraint>
+                <key value="should-informant"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain informant"/>
+                <expression value="informant.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-participant"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain participant"/>
+                <expression value="participant.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer"/>
+            </constraint>
         </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
