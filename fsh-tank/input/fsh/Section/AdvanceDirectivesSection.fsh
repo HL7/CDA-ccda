@@ -19,8 +19,8 @@ This section differentiates between an "advance care plan document" and an “ad
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"
 * entry contains
     observation 0..* and
-    organizer 0..*
-* entry[organizer] ^comment = "SHALL contain one or more [0..*] entry such that it"
+    organizer 1..*
+* entry[organizer] ^comment = "SHALL contain one or more [1.*] entry such that it"
   * organizer 1..1
   * organizer only AdvanceDirectiveOrganizer
     * ^comment = "SHALL contain exactly one [1..1] Advance Directive Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.108:2022-02-14)."
