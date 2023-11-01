@@ -70,10 +70,17 @@
         <element id="Author.assignedAuthor">
             <path value="Author.assignedAuthor"/>
             <comment value="SHALL contain exactly one [1..1] assignedAuthor (CONF:1098-31472)."/>
+            <constraint>
+                <key value="author-details"/>
+                <severity value="error"/>
+                <human value="Authors require addr, telecom, and either assignedPerson/name or assignedAuthoringDevice/manufacturerModelName. These may be present on this author or on another instance of an Author Participation in the document that has an id that matches the first id of this author."/>
+                <expression value="nullFlavor.exists() or (addr.exists() and telecom.exists() and (assignedPerson.name.exists() or assignedAuthoringDevice.manufacturerModelName.exists())) or (%resource.descendants().ofType(CDA.AssignedAuthor).where(id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension) and addr.exists() and telecom.exists() and (assignedPerson.name.exists() or assignedAuthoringDevice.manufacturerModelName.exists())))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+            </constraint>
         </element>
         <element id="Author.assignedAuthor.id">
             <path value="Author.assignedAuthor.id"/>
-            <short value="This id may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here. If the id is pointing to a participant already described elsewhere in the document, assignedAuthor/id is sufficient to identify this participant and none of the remaining details of assignedAuthor are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. This id must be a pointer to another author participant."/>
+            <short value="The first id may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here. If the id is pointing to a participant already described elsewhere in the document, assignedAuthor/id is sufficient to identify this participant and none of the remaining details of assignedAuthor are required to be set. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. This id must be a pointer to another author participant."/>
             <comment value="This assignedAuthor SHALL contain at least one [1..*] id (CONF:1098-31473)."/>
         </element>
         <element id="Author.assignedAuthor.code">
@@ -90,8 +97,21 @@
                 </additional>
             </binding>
         </element>
+        <element id="Author.assignedAuthor.addr">
+            <path value="Author.assignedAuthor.addr"/>
+            <short value="Required on at least one instance of this author in the document"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
+            </type>
+        </element>
+        <element id="Author.assignedAuthor.telecom">
+            <path value="Author.assignedAuthor.telecom"/>
+            <short value="Required on at least one instance of this author in the document"/>
+        </element>
         <element id="Author.assignedAuthor.assignedPerson">
             <path value="Author.assignedAuthor.assignedPerson"/>
+            <short value="assignedPerson/name or assignedAuthoringDevice/manufacturerModelName is required on at least one instance of this author in the document"/>
             <comment value="This assignedAuthor MAY contain zero or one [0..1] assignedPerson (CONF:1098-31474)."/>
         </element>
         <element id="Author.assignedAuthor.assignedPerson.name">
@@ -100,6 +120,7 @@
         </element>
         <element id="Author.assignedAuthor.representedOrganization">
             <path value="Author.assignedAuthor.representedOrganization"/>
+            <short value="assignedPerson/name or representedOrganization/name is required on at least one instance of this author in the document"/>
             <comment value="This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:1098-31476)."/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization.id">
