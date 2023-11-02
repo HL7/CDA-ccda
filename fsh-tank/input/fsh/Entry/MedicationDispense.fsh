@@ -36,7 +36,6 @@ Description: "This template records the act of supplying medications (i.e., disp
 * quantity 0..1
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:4537-7458)." // auto-should
 * product 1..1
-  * ^comment = "MAY contain zero or one [0..1] product (CONF:4537-7459)."
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
     * ^comment = "The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:4537-15607)."
