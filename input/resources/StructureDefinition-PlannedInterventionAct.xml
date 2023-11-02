@@ -106,6 +106,7 @@
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
+            <short value="procedure / intervention (navigational concept)"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-32654)."/>
         </element>
         <element id="Act.code.code">
@@ -161,24 +162,28 @@
             <path value="Act.entryRelationship"/>
             <slicing>
                 <discriminator>
-                    <type value="profile"/>
+                    <type value="exists"/>
                     <path value="observation"/>
                 </discriminator>
                 <discriminator>
-                    <type value="profile"/>
+                    <type value="exists"/>
                     <path value="substanceAdministration"/>
                 </discriminator>
                 <discriminator>
-                    <type value="profile"/>
+                    <type value="exists"/>
                     <path value="act"/>
                 </discriminator>
                 <discriminator>
-                    <type value="profile"/>
+                    <type value="exists"/>
                     <path value="procedure"/>
                 </discriminator>
                 <discriminator>
-                    <type value="profile"/>
+                    <type value="exists"/>
                     <path value="encounter"/>
+                </discriminator>
+                <discriminator>
+                    <type value="exists"/>
+                    <path value="supply"/>
                 </discriminator>
                 <discriminator>
                     <type value="profile"/>
@@ -200,6 +205,14 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32685)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:advanceDirectiveObservation.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:advanceDirectiveObservation.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:advanceDirectiveObservation.observation">
             <path value="Act.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2015-08-01) (CONF:1198-32677)."/>
@@ -208,6 +221,18 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:advanceDirectiveObservation.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:advanceDirectiveObservation.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:advanceDirectiveObservation.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:immunizationActivity">
             <path value="Act.entryRelationship"/>
@@ -221,6 +246,22 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32686)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:immunizationActivity.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:immunizationActivity.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:immunizationActivity.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:immunizationActivity.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:immunizationActivity.substanceAdministration">
             <path value="Act.entryRelationship.substanceAdministration"/>
             <comment value="SHALL contain exactly one [1..1] Immunization Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01) (CONF:1198-32687)."/>
@@ -229,6 +270,10 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:immunizationActivity.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:medicationActivity">
             <path value="Act.entryRelationship"/>
@@ -242,6 +287,22 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32688)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:medicationActivity.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:medicationActivity.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:medicationActivity.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:medicationActivity.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:medicationActivity.substanceAdministration">
             <path value="Act.entryRelationship.substanceAdministration"/>
             <comment value="SHALL contain exactly one [1..1] Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1198-32689)."/>
@@ -250,6 +311,10 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:medicationActivity.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:interventionAct">
             <path value="Act.entryRelationship"/>
@@ -273,6 +338,26 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InterventionAct"/>
             </type>
         </element>
+        <element id="Act.entryRelationship:interventionAct.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:interventionAct.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:interventionAct.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:interventionAct.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:interventionAct.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:procedureActivityProcedure">
             <path value="Act.entryRelationship"/>
             <sliceName value="procedureActivityProcedure"/>
@@ -285,6 +370,18 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32696)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:procedureActivityProcedure.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:procedureActivityProcedure.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:procedureActivityProcedure.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:procedureActivityProcedure.procedure">
             <path value="Act.entryRelationship.procedure"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Activity Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1198-32697)."/>
@@ -293,6 +390,14 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:procedureActivityProcedure.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:procedureActivityProcedure.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:encounterActivity">
             <path value="Act.entryRelationship"/>
@@ -306,6 +411,10 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32698)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:encounterActivity.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:encounterActivity.encounter">
             <path value="Act.entryRelationship.encounter"/>
             <comment value="SHALL contain exactly one [1..1] Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:1198-32699)."/>
@@ -314,6 +423,22 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:encounterActivity.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:encounterActivity.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:encounterActivity.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:encounterActivity.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:instruction">
             <path value="Act.entryRelationship"/>
@@ -336,6 +461,26 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
             </type>
         </element>
+        <element id="Act.entryRelationship:instruction.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:instruction.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:instruction.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:instruction.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:instruction.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:entryRelationship10">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryRelationship10"/>
@@ -347,6 +492,26 @@
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32702)."/>
             <fixedCode value="REFR"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship10.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship10.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship10.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship10.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship10.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship10.supply">
             <path value="Act.entryRelationship.supply"/>
@@ -378,6 +543,26 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedAct"/>
             </type>
         </element>
+        <element id="Act.entryRelationship:plannedAct.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedAct.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedAct.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedAct.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedAct.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:plannedEncounter">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedEncounter"/>
@@ -390,6 +575,10 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32706)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:plannedEncounter.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:plannedEncounter.encounter">
             <path value="Act.entryRelationship.encounter"/>
             <comment value="SHALL contain exactly one [1..1] Planned Encounter (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.40:2014-06-09) (CONF:1198-32707)."/>
@@ -398,6 +587,22 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:plannedEncounter.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedEncounter.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedEncounter.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedEncounter.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:plannedObservation">
             <path value="Act.entryRelationship"/>
@@ -411,6 +616,14 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32708)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:plannedObservation.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedObservation.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:plannedObservation.observation">
             <path value="Act.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Planned Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1198-32709)."/>
@@ -419,6 +632,18 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedObservation"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:plannedObservation.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedObservation.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedObservation.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:plannedProcedure">
             <path value="Act.entryRelationship"/>
@@ -432,6 +657,18 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32710)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:plannedProcedure.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedProcedure.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedProcedure.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:plannedProcedure.procedure">
             <path value="Act.entryRelationship.procedure"/>
             <comment value="SHALL contain exactly one [1..1] Planned Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09) (CONF:1198-32711)."/>
@@ -440,6 +677,14 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:plannedProcedure.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedProcedure.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:plannedMedicationActivity">
             <path value="Act.entryRelationship"/>
@@ -453,6 +698,22 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32712)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:plannedMedicationActivity.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedMedicationActivity.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedMedicationActivity.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedMedicationActivity.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:plannedMedicationActivity.substanceAdministration">
             <path value="Act.entryRelationship.substanceAdministration"/>
             <comment value="SHALL contain exactly one [1..1] Planned Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1198-32713)."/>
@@ -461,6 +722,10 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:plannedMedicationActivity.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship16">
             <path value="Act.entryRelationship"/>
@@ -473,6 +738,26 @@
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32714)."/>
             <fixedCode value="REFR"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship16.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship16.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship16.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship16.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship16.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship16.supply">
             <path value="Act.entryRelationship.supply"/>
@@ -490,6 +775,10 @@
             <min value="0"/>
             <max value="*"/>
         </element>
+        <element id="Act.entryRelationship:nutritionRecommendation.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <fixedCode value="REFR"/>
+        </element>
         <element id="Act.entryRelationship:nutritionRecommendation.act">
             <path value="Act.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Nutrition Recommendation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.130) (CONF:1198-32716)."/>
@@ -498,6 +787,26 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionRecommendation"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:nutritionRecommendation.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:nutritionRecommendation.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:nutritionRecommendation.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:nutritionRecommendation.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:nutritionRecommendation.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:entryReference">
             <path value="Act.entryRelationship"/>
@@ -520,6 +829,26 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:entryReference.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryReference.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryReference.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryReference.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryReference.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.entryRelationship:entryReference2">
             <path value="Act.entryRelationship"/>
@@ -549,6 +878,26 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
+        <element id="Act.entryRelationship:entryReference2.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryReference2.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryReference2.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryReference2.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:entryReference2.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:handoffCommunicationParticipants">
             <path value="Act.entryRelationship"/>
             <sliceName value="handoffCommunicationParticipants"/>
@@ -570,6 +919,26 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HandoffCommunicationParticipants"/>
             </type>
         </element>
+        <element id="Act.entryRelationship:handoffCommunicationParticipants.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:handoffCommunicationParticipants.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:handoffCommunicationParticipants.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:handoffCommunicationParticipants.substanceAdministration">
+            <path value="Act.entryRelationship.substanceAdministration"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:handoffCommunicationParticipants.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:plannedImmunizationActivity">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedImmunizationActivity"/>
@@ -582,6 +951,22 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32728)."/>
             <fixedCode value="REFR"/>
         </element>
+        <element id="Act.entryRelationship:plannedImmunizationActivity.act">
+            <path value="Act.entryRelationship.act"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedImmunizationActivity.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedImmunizationActivity.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <max value="0"/>
+        </element>
+        <element id="Act.entryRelationship:plannedImmunizationActivity.procedure">
+            <path value="Act.entryRelationship.procedure"/>
+            <max value="0"/>
+        </element>
         <element id="Act.entryRelationship:plannedImmunizationActivity.substanceAdministration">
             <path value="Act.entryRelationship.substanceAdministration"/>
             <comment value="SHALL contain exactly one [1..1] Planned Immunization Activity (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.120) (CONF:1198-32729)."/>
@@ -590,6 +975,10 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedImmunizationActivity"/>
             </type>
+        </element>
+        <element id="Act.entryRelationship:plannedImmunizationActivity.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <max value="0"/>
         </element>
         <element id="Act.reference">
             <path value="Act.reference"/>
