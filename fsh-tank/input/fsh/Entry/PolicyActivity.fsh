@@ -106,7 +106,8 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
 * participant contains
     coverage-target 1..1 and
-    policy-holder 0..1
+    subscriber 0..1
+* obeys 4537-17139
 * participant[coverage-target] ^short = "participant"
   * ^comment = "SHALL contain exactly one [1..1] participant (CONF:4537-8916) such that it"
   * typeCode 1..1
@@ -149,7 +150,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * sdtcBirthTime 1..1
         * ^short = "sdtc:birthTime"
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] sdtc:birthTime (CONF:4537-31344)."
-* participant[policy-holder] obeys 4537-17139
+* participant[subscriber]
   * ^short = "When the Subscriber is the patient, the participant element describing the subscriber *SHALL NOT* be present. This information will be recorded instead in the data elements used to record member information."
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
   * typeCode 1..1
@@ -197,7 +198,6 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^short = "Plan identifier"
     * text 1..1
       * ^short = "Name of the plan"
-    
 
 
 Invariant: 4537-8967
@@ -205,7 +205,7 @@ Description: "**SHOULD** include assignedEntity/assignedPerson/name AND/OR assig
 Severity: #warning
 Expression: "assignedPerson.name.exists() or representedOrganization.name.exists()"
 
-// Slice check based on coverage-target.participantRole.code = SELF, then policy-holder slice should not exist
 Invariant: 4537-17139
-Description: "When the Subscriber is the patient, the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139)."
+Description: "When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139)."
 Severity: #error
+Expression: "participant.where(typeCode='COV').participantRole.code.code = 'SELF' implies participant.where(typeCode='HLD').empty()"
