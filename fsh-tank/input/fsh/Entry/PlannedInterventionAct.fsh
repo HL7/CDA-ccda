@@ -55,7 +55,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "supply"
-  * ^slicing.discriminator[0].type = #exists
+  * ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "substanceAdministration"
