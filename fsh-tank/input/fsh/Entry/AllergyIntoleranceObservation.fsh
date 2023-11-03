@@ -43,9 +43,9 @@ The agent responsible for an allergy or adverse reaction is not always a manufac
   * high 0..1
     * ^short = "The effectiveTime/high (a.k.a. \"resolution date\") asserts when the allergy/intolerance became biologically resolved."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31539)."
-* value 0..1
+* value 1..1
 * value only $CD
-* value from $2.16.840.1.113883.3.88.12.3221.6.2 (preferred)
+* value from $2.16.840.1.113883.3.88.12.3221.6.2 (required)
   * ^short = "The consumable participant points to the precise allergen or substance of intolerance. Because the consumable and the reaction are more clinically relevant than a categorization of the allergy/adverse event type, many systems will simply assign a fixed value here (e.g., \"allergy to substance\")."
 * author 0..*
 * author only AuthorParticipation
