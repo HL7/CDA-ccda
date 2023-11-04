@@ -1,14 +1,41 @@
-<act moodCode="INT" classCode="ACT" xmlns="urn:hl7-org:v3">
-  <templateId root="2.16.840.1.113883.10.20.22.4.146" extension="2015-08-01" />
-  <id root="46f455bf-a666-423d-9243-4ed7b07b2d77"/>
-  <code code="362956003" codeSystem="2.16.840.1.113883.6.96" displayName="procedure / intervention (navigational concept)"/>
-  <statusCode code="active"/>
-  <entryRelationship typeCode="RSON">
-    <act classCode="ACT" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.122" />
-      <id root="1.2.3.4" />
-      <code nullFlavor="NP" />
-      <statusCode code="completed" />
-    </act>
-  </entryRelationship>
-</act>
+<structuredBody xmlns="urn:hl7-org:v3">
+  <component>
+    <!-- Some section in a document -->
+    <section>
+      <entry>
+        <!-- Planned Intervention Act-->
+        <act moodCode="INT" classCode="ACT">
+          <!-- <templateId root="2.16.840.1.113883.10.20.22.4.146" extension="2015-08-01" /> -->
+          <id root="e29424f4-8177-4d89-b23b-e5548d516959"/>
+          <code code="362956003" codeSystem="2.16.840.1.113883.6.96" displayName="procedure / intervention (navigational concept)"/>
+          <statusCode code="active"/>
+          <!-- Reason entryRelationship required -->
+          <entryRelationship typeCode="RSON">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.122" />
+              <!-- Must match a Goal Observation elsewhere in the document -->
+              <id root="142fe16c-f4bb-41ed-89ec-6015ddb5026c" />
+              <code nullFlavor="NP" />
+              <statusCode code="completed" />
+            </act>
+          </entryRelationship>
+        </act>
+      </entry>
+    </section>
+  </component>
+  <component>
+    <!-- Elsewhere in the document -->
+    <section>
+      <entry>
+        <!-- Goal Observation -->
+        <observation classCode="OBS" moodCode="GOL">
+          <!-- <templateId root="2.16.840.1.113883.10.20.22.4.121" extension="2022-06-01" /> -->
+          <id root="142fe16c-f4bb-41ed-89ec-6015ddb5026c" />
+          <code code="8689-2" codeSystem="2.16.840.1.113883.6.1" />
+          <statusCode code="active" />
+          <!-- ... -->
+        </observation>
+      </entry>
+    </section>
+  </component>
+</structuredBody>

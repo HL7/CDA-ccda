@@ -52,8 +52,11 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "supply"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains
+    reason 1..* and
     advanceDirectiveObservation 0..* and
     immunizationActivity 0..* and
     medicationActivity 0..* and
@@ -61,16 +64,15 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
     procedureActivityProcedure 0..* and
     encounterActivity 0..* and
     instruction 0..* and
-    entryRelationship10 0..* and
+    nonMedSupply 0..* and
     plannedAct 0..* and
     plannedEncounter 0..* and
     plannedObservation 0..* and
     plannedProcedure 0..* and
     plannedMedicationActivity 0..* and
-    entryRelationship16 0..* and
+    plannedSupply 0..* and
     nutritionRecommendation 0..* and
     entryReference 0..* and
-    entryReference2 1..* and
     handoffCommunicationParticipants 0..* and
     plannedImmunizationActivity 0..*
 * entryRelationship[advanceDirectiveObservation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32652) such that it"
@@ -123,7 +125,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * act 1..1
   * act only Instruction
     * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1198-32701)."
-* entryRelationship[entryRelationship10] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32664) such that it"
+* entryRelationship[nonMedSupply] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32664) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32702)."
@@ -165,7 +167,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * substanceAdministration 1..1
   * substanceAdministration only PlannedMedicationActivity
     * ^comment = "SHALL contain exactly one [1..1] Planned Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1198-32713)."
-* entryRelationship[entryRelationship16] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32670) such that it"
+* entryRelationship[plannedSupply] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32670) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32714)."
@@ -173,6 +175,8 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * supply only PlannedSupply
     * ^comment = "SHALL contain exactly one [1..1] Planned Supply (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09) (CONF:1198-32715)."
 * entryRelationship[nutritionRecommendation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32671) such that it"
+  * typeCode 1..1
+  * typeCode = #REFR (exactly)
   * act 1..1
   * act only NutritionRecommendation
     * ^comment = "SHALL contain exactly one [1..1] Nutrition Recommendation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.130) (CONF:1198-32716)."
@@ -184,7 +188,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32718)."
-* entryRelationship[entryReference2] obeys 1198-32722
+* entryRelationship[reason] obeys 1198-32722
   * ^short = "An Intervention Act SHALL reference a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry. The following entryRelationship represents an Entry Reference to Goal Observation."
   * ^comment = "SHALL contain at least one [1..*] entryRelationship (CONF:1198-32673) such that it"
   * typeCode 1..1
@@ -219,3 +223,15 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
 Invariant: 1198-32722
 Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1198-32722)."
 Severity: #error
+Expression: "%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"
+/*
+%resource.descendants().ofType(CDA.Observation).where(
+  templateId.exists(
+    $this.root = '2.16.840.1.113883.10.20.22.4.121' and
+    $this.extension = '2022-06-01'
+  ) and
+  id.exists(
+    $this.root = %context.act.id.first().root and
+    $this.extension ~ %context.act.id.first().extension
+  )
+)*/
