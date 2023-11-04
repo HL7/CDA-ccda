@@ -10,6 +10,7 @@ Intervention Acts can be related to each other, or to Planned Intervention Acts.
 
 All interventions referenced in an Intervention Act must have a moodCode of EVN, indicating that they have occurred."""
 
+// !!! This templateId is referenced in an invariant below. If it changes (including the date), update that invariant's expression!!!
 * insert LogicalModelTemplate(intervention-act, 2.16.840.1.113883.10.20.22.4.131, 2015-08-01)
 * insert NarrativeLink
 
@@ -40,7 +41,9 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31552)."
-* entryRelationship ^slicing.discriminator[0].type = #profile
+* entryRelationship ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "substanceAdministration"
@@ -125,6 +128,8 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
   * supply only NonMedicinalSupplyActivity
     * ^comment = "SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1198-31179)."
 * entryRelationship[nutritionRecommendation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-31413) such that it"
+  * typeCode 1..1
+  * typeCode = #REFR (exactly)
   * act 1..1
   * act only NutritionRecommendation
     * ^comment = "SHALL contain exactly one [1..1] Nutrition Recommendation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.130) (CONF:1198-31414)."
@@ -136,7 +141,7 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-31555)."
-* entryRelationship[entryReferenceRson] obeys 1198-32459
+* entryRelationship[entryReferenceRson] obeys entry-ref-goal
   * ^short = "An Intervention Act should reference a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry. The following entryRelationship represents an Entry Reference to Goal Observation."
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-31621) such that it"
   * typeCode 1..1
@@ -168,6 +173,19 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
   * externalDocument only ExternalDocumentReference
     * ^comment = "The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:1198-32762)."
 
-Invariant: 1198-32459
-Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1198-32459)."
+// Add on any entry/entryRelationship/component containing an EntryReference that must be a reference to an Intervention Act (see OutcomeObservation)
+Invariant: entry-ref-intervention
+Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template."
 Severity: #error
+Expression: "%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.131' and $this.extension = '2015-08-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"
+/*
+%resource.descendants().ofType(CDA.Observation).where(
+  templateId.exists(
+    $this.root = '2.16.840.1.113883.10.20.22.4.131' and
+    $this.extension = '2015-08-01'
+  ) and
+  id.exists(
+    $this.root = %context.act.id.first().root and
+    $this.extension ~ %context.act.id.first().extension
+  )
+)*/

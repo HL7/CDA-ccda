@@ -130,6 +130,10 @@
             <path value="Observation.entryRelationship"/>
             <slicing>
                 <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <discriminator>
                     <type value="profile"/>
                     <path value="act"/>
                 </discriminator>
@@ -142,26 +146,27 @@
             <short value="Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry."/>
             <min value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryReference">
+        <element id="Observation.entryRelationship:goal-reference">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryReference"/>
+            <sliceName value="goal-reference"/>
             <short value="The following entryRelationship represents the relationship between an Outcome Observation and a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry."/>
             <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
-                <key value="1098-32461"/>
+                <key value="entry-ref-goal"/>
                 <severity value="error"/>
-                <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1098-32461)."/>
+                <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template."/>
+                <expression value="%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
             </constraint>
         </element>
-        <element id="Observation.entryRelationship:entryReference.typeCode">
+        <element id="Observation.entryRelationship:goal-reference.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;GEVL&quot; Evaluates goal (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31225)."/>
             <fixedCode value="GEVL"/>
         </element>
-        <element id="Observation.entryRelationship:entryReference.act">
+        <element id="Observation.entryRelationship:goal-reference.act">
             <path value="Observation.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-32465)."/>
             <min value="1"/>
@@ -198,26 +203,27 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressTowardGoalObservation"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryReference2">
+        <element id="Observation.entryRelationship:intervention-reference">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryReference2"/>
+            <sliceName value="intervention-reference"/>
             <short value="Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
-                <key value="1098-32462"/>
+                <key value="entry-ref-intervention"/>
                 <severity value="error"/>
-                <human value="This entryReference template **SHALL** reference an instance of a Intervention Act template (CONF:1098-32462)."/>
+                <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template."/>
+                <expression value="%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.131' and $this.extension = '2015-08-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation"/>
             </constraint>
         </element>
-        <element id="Observation.entryRelationship:entryReference2.typeCode">
+        <element id="Observation.entryRelationship:intervention-reference.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31689)."/>
             <fixedCode value="RSON"/>
         </element>
-        <element id="Observation.entryRelationship:entryReference2.act">
+        <element id="Observation.entryRelationship:intervention-reference.act">
             <path value="Observation.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-31690)."/>
             <min value="1"/>

@@ -26,17 +26,19 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)."
 * entryRelationship 1..*
-* entryRelationship ^slicing.discriminator[0].type = #profile
+* entryRelationship ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
   * ^short = "Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry."
 * entryRelationship contains
-    entryReference 0..* and
+    goal-reference 0..* and
     progressTowardGoalObservation 0..1 and
-    entryReference2 0..*
-* entryRelationship[entryReference] obeys 1098-32461
+    intervention-reference 0..*
+* entryRelationship[goal-reference] obeys entry-ref-goal
   * ^short = "The following entryRelationship represents the relationship between an Outcome Observation and a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry."
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"
   * typeCode 1..1
@@ -56,7 +58,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * observation 1..1
   * observation only ProgressTowardGoalObservation
     * ^comment = "SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110) (CONF:1098-31430)."
-* entryRelationship[entryReference2] obeys 1098-32462
+* entryRelationship[intervention-reference] obeys entry-ref-intervention
   * ^short = "Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31688) such that it"
   * typeCode 1..1
@@ -73,11 +75,3 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * externalDocument 1..1
   * externalDocument only ExternalDocumentReference
     * ^comment = "The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:1098-32765)."
-
-Invariant: 1098-32461
-Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1098-32461)."
-Severity: #error
-
-Invariant: 1098-32462
-Description: "This entryReference template **SHALL** reference an instance of a Intervention Act template (CONF:1098-32462)."
-Severity: #error

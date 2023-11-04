@@ -188,7 +188,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32718)."
-* entryRelationship[reason] obeys 1198-32722
+* entryRelationship[reason] obeys entry-ref-goal
   * ^short = "An Intervention Act SHALL reference a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry. The following entryRelationship represents an Entry Reference to Goal Observation."
   * ^comment = "SHALL contain at least one [1..*] entryRelationship (CONF:1198-32673) such that it"
   * typeCode 1..1
@@ -219,19 +219,3 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * externalDocument 1..1
   * externalDocument only ExternalDocumentReference
     * ^comment = "The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:1198-32768)."
-
-Invariant: 1198-32722
-Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template (CONF:1198-32722)."
-Severity: #error
-Expression: "%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"
-/*
-%resource.descendants().ofType(CDA.Observation).where(
-  templateId.exists(
-    $this.root = '2.16.840.1.113883.10.20.22.4.121' and
-    $this.extension = '2022-06-01'
-  ) and
-  id.exists(
-    $this.root = %context.act.id.first().root and
-    $this.extension ~ %context.act.id.first().extension
-  )
-)*/
