@@ -44,67 +44,67 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-1873](https://jira.hl7.org/browse/CDA-1873) - Changed Encounter Diagnosis statusCode to be 'completed'.
 - [CDA-1922](https://jira.hl7.org/browse/CDA-1922) - NullFlavor is not allowed on confidentialityCode.
 - [CDA-1922](https://jira.hl7.org/browse/CDA-1922) - Added @code and disallowed @nullFlavor from confidentialityCode in US Realm Header
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Change Authorization Activity entryRelationship from SHALL to MAY
+- [CDA-2007](https://jira.hl7.org/browse/CDA-2007) - Change Authorization Activity entryRelationship from SHALL to MAY
 - [CDA-2108](https://jira.hl7.org/browse/CDA-2108) - Prevent both @code and @nullFlavor from being present on Result Observation
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Remove binding to HL7 Discharge Disposition code system
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added LOINC Scale chart to description in Result Observation
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated ProcedureNote.encompassingEncounter.code binding to requested valueset. Added code 0..1 to USRealmHeader.encompassingEncounter with binding to requested valueset
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added new problem observation example that includes a SNOMED post-coordinated code.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added a page that lists all of the used value sets and used code systems.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Remove Diagnostic Imaging Report document template and child section and entry templates.  Remove templates with DEPRECATED in title
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated languageCode to use valueset AllLanguages in US Realm Header and US Realm Header for Patient Generated Document
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated value set binding for languageCode to be AllLanguages.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Changed value on Severity Observation from SHALL to SHOULD and modified description to match
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Allow Result Observation value to be from SNOMED or LOING.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated Observation/value to include LOINC codes in Result Observation
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Moved binding to ObservationInterpretation from interpretationCode/@code to interpretationCode.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Bind Problem Observation code to US Core Condition value set.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added Mental Status Section to Progress Note
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Allow Mental Status section in Progress Note document.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Allow HCPCS to Procedure Note serviceEvent code
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Allow multiple performers in Operative Note
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Allow HCPCS to Planned Procedure code
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added @code under dosumentationOf.serviceEvent in Operative Note and moved constraint there
-- [CDA--](https://jira.hl7.org/browse/CDA--) / [CDA-1806](https://jira.hl7.org/browse/CDA-1806) - Update OperativeNote/ProcedureNote binding on serviceEvent.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Extensionless templates are not allowed to have an extension.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added specific wording to code defining nullFlavor in designconsiderations.md
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated guidance on how to specify when NullFlavors are allowed.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Allow NDC codes when specifying MedicationInformation.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Change guidance on Supply repeatNumber
-- [CDA--](https://jira.hl7.org/browse/CDA--) - PQ values require a @unit
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Remove requirement to send R1.1 template IDs
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Add the word DYNAMIC to Encounter Activity binding.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Remove Entries Optional section templates
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Update Policy Activity to be "SHOULD contain 0..1 address".
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Templates no longer contain a version label in their name (such as V2, V3, etc.)
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Update MedicationActivity doseQuantity guidance.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - typo correction to USCDI guidance
-- [CDA--](https://jira.hl7.org/browse/CDA--) / [CDA--](https://jira.hl7.org/browse/CDA--) - Add sections to Discharge Summary document.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - update Gender Harmony guidance
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Care Team Member Function value set updated.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Relaxed AllergyIntolerance value and updated the Allergy and Intolerance type value set.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Remove Procedure Activity Act and Procedure Activity Observation templates.
-- [CDA--](https://jira.hl7.org/browse/CDA--), [CDA--](https://jira.hl7.org/browse/CDA--), [CDA--](https://jira.hl7.org/browse/CDA--) - Updated USCDI guidance on Coverage Activity and Policy Activity.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated text on Policy Activity Act around coverage information.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Remove CarePlan intendedRecipient/receivedOrganization/name rule
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added new Disability Status Observation example that meets the template.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added SHOULD effectiveTime to Policy Activity Act.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated RelatedPersonRelationshipandNameParticipant associatedEntity.code to new valueset
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated the Advance Directive Section, Organizer, and Observation to the latest versions of the templates.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Set some bound observations to have a type.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Add guidance on the use of subsections.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated the purpose statement of the Advance Directive Section template.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Added Advance Directives Section to all Document templates (as MAY if not already there)
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Restrict Immunization.repeatNumber to just a value
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated description in ResultOrganizer to include specimen clarification
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Add should rules for Performer, Author, and Informant to Advance Directive Organizer and Observation
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Changed the DeceasedInd and DeceasedTime constraints.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated all UDI templates to allow additional templateIds.
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated CareTeamMemberAct to clean up untestable constraints and unnecessary "such that it".
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Updated USRealmAddress Value Sets; used everywhere addr was referenced in IG
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Clean up PlannedSupply product vs device modeling
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Removed slicing from USRealmHeader authenticator
-- [CDA--](https://jira.hl7.org/browse/CDA--) - Changed constraint in Advance Directive Observation to use IntervalValueOnly instead
+- [CDA-20004](https://jira.hl7.org/browse/CDA-20004) - Remove binding to HL7 Discharge Disposition code system
+- [CDA-20005](https://jira.hl7.org/browse/CDA-20005) - Added LOINC Scale chart to description in Result Observation
+- [CDA-20008](https://jira.hl7.org/browse/CDA-20008) - Updated ProcedureNote.encompassingEncounter.code binding to requested valueset. Added code 0..1 to USRealmHeader.encompassingEncounter with binding to requested valueset
+- [CDA-20014](https://jira.hl7.org/browse/CDA-20014) - Added new problem observation example that includes a SNOMED post-coordinated code.
+- [CDA-20022](https://jira.hl7.org/browse/CDA-20022) - Added a page that lists all of the used value sets and used code systems.
+- [CDA-20047](https://jira.hl7.org/browse/CDA-20047) - Remove Diagnostic Imaging Report document template and child section and entry templates.  Remove templates with DEPRECATED in title
+- [CDA-20053](https://jira.hl7.org/browse/CDA-20053) - Updated languageCode to use valueset AllLanguages in US Realm Header and US Realm Header for Patient Generated Document
+- [CDA-20053](https://jira.hl7.org/browse/CDA-20053) - Updated value set binding for languageCode to be AllLanguages.
+- [CDA-20076](https://jira.hl7.org/browse/CDA-20076) - Changed value on Severity Observation from SHALL to SHOULD and modified description to match
+- [CDA-20085](https://jira.hl7.org/browse/CDA-20085) - Allow Result Observation value to be from SNOMED or LOING.
+- [CDA-20085](https://jira.hl7.org/browse/CDA-20085) - Updated Observation/value to include LOINC codes in Result Observation
+- [CDA-20324](https://jira.hl7.org/browse/CDA-20324) - Moved binding to ObservationInterpretation from interpretationCode/@code to interpretationCode.
+- [CDA-20444](https://jira.hl7.org/browse/CDA-20444) - Bind Problem Observation code to US Core Condition value set.
+- [CDA-20449](https://jira.hl7.org/browse/CDA-20449) - Added Mental Status Section to Progress Note
+- [CDA-20449](https://jira.hl7.org/browse/CDA-20449) - Allow Mental Status section in Progress Note document.
+- [CDA-20451](https://jira.hl7.org/browse/CDA-20451) - Allow HCPCS to Procedure Note serviceEvent code
+- [CDA-20462](https://jira.hl7.org/browse/CDA-20462) - Allow multiple performers in Operative Note
+- [CDA-20463](https://jira.hl7.org/browse/CDA-20463) - Allow HCPCS to Planned Procedure code
+- [CDA-20478](https://jira.hl7.org/browse/CDA-20478) - Added @code under dosumentationOf.serviceEvent in Operative Note and moved constraint there
+- [CDA-20478](https://jira.hl7.org/browse/CDA-20478) / [CDA-1806](https://jira.hl7.org/browse/CDA-1806) - Update OperativeNote/ProcedureNote binding on serviceEvent.
+- [CDA-20482](https://jira.hl7.org/browse/CDA-20482) - Extensionless templates are not allowed to have an extension.
+- [CDA-20516](https://jira.hl7.org/browse/CDA-20516) - Added specific wording to code defining nullFlavor in designconsiderations.md
+- [CDA-20516](https://jira.hl7.org/browse/CDA-20516) - Updated guidance on how to specify when NullFlavors are allowed.
+- [CDA-20518](https://jira.hl7.org/browse/CDA-20518) - Allow NDC codes when specifying MedicationInformation.
+- [CDA-20543](https://jira.hl7.org/browse/CDA-20543) - Change guidance on Supply repeatNumber
+- [CDA-20546](https://jira.hl7.org/browse/CDA-20546) - PQ values require a @unit
+- [CDA-20565](https://jira.hl7.org/browse/CDA-20565) - Remove requirement to send R1.1 template IDs
+- [CDA-20568](https://jira.hl7.org/browse/CDA-20568) - Add the word DYNAMIC to Encounter Activity binding.
+- [CDA-20664](https://jira.hl7.org/browse/CDA-20664) - Remove Entries Optional section templates
+- [CDA-20673](https://jira.hl7.org/browse/CDA-20673) - Update Policy Activity to be "SHOULD contain 0..1 address".
+- [CDA-20681](https://jira.hl7.org/browse/CDA-20681) - Templates no longer contain a version label in their name (such as V2, V3, etc.)
+- [CDA-20687](https://jira.hl7.org/browse/CDA-20687) - Update MedicationActivity doseQuantity guidance.
+- [CDA-20693](https://jira.hl7.org/browse/CDA-20693) - typo correction to USCDI guidance
+- [CDA-20698](https://jira.hl7.org/browse/CDA-20698) / [CDA-20697](https://jira.hl7.org/browse/CDA-20697) - Add sections to Discharge Summary document.
+- [CDA-20711](https://jira.hl7.org/browse/CDA-20711) - update Gender Harmony guidance
+- [CDA-20713](https://jira.hl7.org/browse/CDA-20713) - Care Team Member Function value set updated.
+- [CDA-20736](https://jira.hl7.org/browse/CDA-20736) - Relaxed AllergyIntolerance value and updated the Allergy and Intolerance type value set.
+- [CDA-20737](https://jira.hl7.org/browse/CDA-20737) - Remove Procedure Activity Act and Procedure Activity Observation templates.
+- [CDA-20757](https://jira.hl7.org/browse/CDA-20757), [CDA-20771](https://jira.hl7.org/browse/CDA-20771), [CDA-20758](https://jira.hl7.org/browse/CDA-20758) - Updated USCDI guidance on Coverage Activity and Policy Activity.
+- [CDA-20763](https://jira.hl7.org/browse/CDA-20763) - Updated text on Policy Activity Act around coverage information.
+- [CDA-20767](https://jira.hl7.org/browse/CDA-20767) - Remove CarePlan intendedRecipient/receivedOrganization/name rule
+- [CDA-20769](https://jira.hl7.org/browse/CDA-20769) - Added new Disability Status Observation example that meets the template.
+- [CDA-20771](https://jira.hl7.org/browse/CDA-20771) - Added SHOULD effectiveTime to Policy Activity Act.
+- [CDA-20772](https://jira.hl7.org/browse/CDA-20772) - Updated RelatedPersonRelationshipandNameParticipant associatedEntity.code to new valueset
+- [CDA-20784](https://jira.hl7.org/browse/CDA-20784) - Updated the Advance Directive Section, Organizer, and Observation to the latest versions of the templates.
+- [CDA-20786](https://jira.hl7.org/browse/CDA-20786) - Set some bound observations to have a type.
+- [CDA-20787](https://jira.hl7.org/browse/CDA-20787) - Add guidance on the use of subsections.
+- [CDA-20788](https://jira.hl7.org/browse/CDA-20788) - Updated the purpose statement of the Advance Directive Section template.
+- [CDA-20789](https://jira.hl7.org/browse/CDA-20789) - Added Advance Directives Section to all Document templates (as MAY if not already there)
+- [CDA-20794](https://jira.hl7.org/browse/CDA-20794) - Restrict Immunization.repeatNumber to just a value
+- [CDA-20803](https://jira.hl7.org/browse/CDA-20803) - Updated description in ResultOrganizer to include specimen clarification
+- [CDA-20807](https://jira.hl7.org/browse/CDA-20807) - Add should rules for Performer, Author, and Informant to Advance Directive Organizer and Observation
+- [CDA-20813](https://jira.hl7.org/browse/CDA-20813) - Changed the DeceasedInd and DeceasedTime constraints.
+- [CDA-20814](https://jira.hl7.org/browse/CDA-20814) - Updated all UDI templates to allow additional templateIds.
+- [CDA-20822](https://jira.hl7.org/browse/CDA-20822) - Updated CareTeamMemberAct to clean up untestable constraints and unnecessary "such that it".
+- [CDA-20823](https://jira.hl7.org/browse/CDA-20823) - Updated USRealmAddress Value Sets; used everywhere addr was referenced in IG
+- [CDA-20825](https://jira.hl7.org/browse/CDA-20825) - Clean up PlannedSupply product vs device modeling
+- [CDA-20827](https://jira.hl7.org/browse/CDA-20827) - Removed slicing from USRealmHeader authenticator
+- [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to use IntervalValueOnly instead
 
 #### Templates with New Extensions due to Major Change
 
