@@ -82,7 +82,6 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20698](https://jira.hl7.org/browse/CDA-20698) / [CDA-20697](https://jira.hl7.org/browse/CDA-20697) - Add sections to Discharge Summary document.
 - [CDA-20711](https://jira.hl7.org/browse/CDA-20711) - update Gender Harmony guidance
 - [CDA-20713](https://jira.hl7.org/browse/CDA-20713) - Care Team Member Function value set updated.
-- [CDA-20736](https://jira.hl7.org/browse/CDA-20736) - Relaxed AllergyIntolerance value and updated the Allergy and Intolerance type value set.
 - [CDA-20737](https://jira.hl7.org/browse/CDA-20737) - Remove Procedure Activity Act and Procedure Activity Observation templates.
 - [CDA-20757](https://jira.hl7.org/browse/CDA-20757), [CDA-20771](https://jira.hl7.org/browse/CDA-20771), [CDA-20758](https://jira.hl7.org/browse/CDA-20758) - Updated USCDI guidance on Coverage Activity and Policy Activity.
 - [CDA-20763](https://jira.hl7.org/browse/CDA-20763) - Updated text on Policy Activity Act around coverage information.
@@ -95,6 +94,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20787](https://jira.hl7.org/browse/CDA-20787) - Add guidance on the use of subsections.
 - [CDA-20788](https://jira.hl7.org/browse/CDA-20788) - Updated the purpose statement of the Advance Directive Section template.
 - [CDA-20789](https://jira.hl7.org/browse/CDA-20789) - Added Advance Directives Section to all Document templates (as MAY if not already there)
+- [CDA-20790](https://jira.hl7.org/browse/CDA-20790) - Added guidance on machine readable information to Advance Directive Section
 - [CDA-20794](https://jira.hl7.org/browse/CDA-20794) - Restrict Immunization.repeatNumber to just a value
 - [CDA-20803](https://jira.hl7.org/browse/CDA-20803) - Updated description in ResultOrganizer to include specimen clarification
 - [CDA-20807](https://jira.hl7.org/browse/CDA-20807) - Add should rules for Performer, Author, and Informant to Advance Directive Organizer and Observation
@@ -104,7 +104,8 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20823](https://jira.hl7.org/browse/CDA-20823) - Updated USRealmAddress Value Sets; used everywhere addr was referenced in IG
 - [CDA-20825](https://jira.hl7.org/browse/CDA-20825) - Clean up PlannedSupply product vs device modeling
 - [CDA-20827](https://jira.hl7.org/browse/CDA-20827) - Removed slicing from USRealmHeader authenticator
-- [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to use IntervalValueOnly instead
+- [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to only allow a timestamp instead of an interval
+
 
 #### Templates with New Extensions due to Major Change
 
