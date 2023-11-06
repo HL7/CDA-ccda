@@ -8,8 +8,9 @@ The changes in this version of Consolidated CDA have been made from STU comments
 * Removed any templates that are DEPRECATED
 * Removed Entries Optional templates if an equivalent Entries Required template exists
 * Combined Companion Guide and C-CDA narrative into one guide
-* Added Treatment Intervention Preference and Care Experience Preference USCDI Entry templates
-* Added USCDI tag and extensions to USCDI elements
+* Added Medication Adherence, Treatment Intervention Preference, and Care Experience Preference USCDI Entry templates
+* Added USCDI tag and extensions to relevant USCDI elements
+* Moved USCDI guidance to the relevant template element
 
 #### Tracker Issues Applied
 
@@ -105,7 +106,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA--](https://jira.hl7.org/browse/CDA--) - Removed slicing from USRealmHeader authenticator
 - [CDA--](https://jira.hl7.org/browse/CDA--) - Changed constraint in Advance Directive Observation to use IntervalValueOnly instead
 
-#### Major Changes
+#### Templates with New Extensions due to Major Change
 
 ##### Document
 - Care Plan
@@ -120,6 +121,41 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - Transfer Summary
 - Unstructured Document 
 - Us Realm Header
+
+##### Section
+- Advance Directives Section
+- Assessment Section
+- Chief Complaint and Reason for Visit Section
+- Chief Complaint Section
+- Course of Care Section
+- General Status Section
+- Goals Section
+- Health Status Evaluations and Outcomes Section
+- History of Present Illness Section
+- Hospital Consultations Section
+- Hospital Course Section
+- Hospital Discharge Instructions Section
+- Hospital Discharge Physical Section
+- Hospital Discharge Studies Summary Section
+- Medical (General) History Section
+- Notes Section
+- Nutrition Section
+- Objective Section
+- Operative Note Fluids Section
+- Operative Note Surgical Procedure Section
+- Postoperative Diagnosis Section
+- Procedure Description Section
+- Procedure Disposition Section
+- Procedure Estimated Blood Loss Section
+- Procedure Implants Section
+- Procedure Specimens Taken Section
+- Procedures Section
+- Reason for Referral Section
+- Reason for Visit Section
+- Results Section
+- Review of Systems Section
+- Subjective Section
+- Surgical Drains Section
 
 ##### Entry
 - Admission Medication
@@ -252,38 +288,3 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - US Realm Date and Time (Interval)
 - US Realm Date and Time (Point in Time)
 - US Realm Patient Name (PTN.US.FIELDED)
-
-##### Section
-- Advance Directives Section
-- Assessment Section
-- Chief Complaint and Reason for Visit Section
-- Chief Complaint Section
-- Course of Care Section
-- General Status Section
-- Goals Section
-- Health Status Evaluations and Outcomes Section
-- History of Present Illness Section
-- Hospital Consultations Section
-- Hospital Course Section
-- Hospital Discharge Instructions Section
-- Hospital Discharge Physical Section
-- Hospital Discharge Studies Summary Section
-- Medical (General) History Section
-- Notes Section
-- Nutrition Section
-- Objective Section
-- Operative Note Fluids Section
-- Operative Note Surgical Procedure Section
-- Postoperative Diagnosis Section
-- Procedure Description Section
-- Procedure Disposition Section
-- Procedure Estimated Blood Loss Section
-- Procedure Implants Section
-- Procedure Specimens Taken Section
-- Procedures Section
-- Reason for Referral Section
-- Reason for Visit Section
-- Results Section
-- Review of Systems Section
-- Subjective Section
-- Surgical Drains Section
