@@ -224,3 +224,4 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
 Invariant: 1198-31044
 Description: "This structuredBody **SHALL NOT** contain a Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-31044)."
 Severity: #error
+Expression: "component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).empty()"

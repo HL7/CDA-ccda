@@ -20,6 +20,7 @@ Overarching goals described in this section are not tied to a specific condition
 
 The plan may also indicate that patient education will be provided."""
 
+// !!! Caution - this templateId and extension is used in CarePlan invariant 1198-31044. If changed here, replace there.
 * insert Section(#18776-5, Plan of Treatment, 2.16.840.1.113883.10.20.22.2.10, 2014-06-09)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
