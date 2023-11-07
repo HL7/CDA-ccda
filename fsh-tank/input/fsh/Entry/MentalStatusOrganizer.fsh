@@ -40,3 +40,4 @@ Description: "The Mental Status Organizer template may be used to group related 
 Invariant: 1198-14698
 Description: "**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (codeSystem 2.16.840.1.113883.6.96) (CONF:1198-14698)."
 Severity: #warning
+Expression: "codeSystem.exists() implies (codeSystem = '2.16.840.1.113883.6.254' or codeSystem = '2.16.840.1.113883.6.96')"

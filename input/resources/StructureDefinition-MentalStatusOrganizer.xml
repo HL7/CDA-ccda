@@ -107,6 +107,7 @@
                 <key value="1198-14698"/>
                 <severity value="warning"/>
                 <human value="**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (codeSystem 2.16.840.1.113883.6.96) (CONF:1198-14698)."/>
+                <expression value="codeSystem.exists() implies (codeSystem = '2.16.840.1.113883.6.254' or codeSystem = '2.16.840.1.113883.6.96')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusOrganizer"/>
             </constraint>
         </element>
