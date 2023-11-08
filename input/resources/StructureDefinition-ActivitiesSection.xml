@@ -38,6 +38,23 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="should-intervention-act"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Intervention Act"/>
+                <expression value="entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.131' and extension = '2015-08-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ActivitiesSection"/>
+            </constraint>
+            <constraint>
+                <key value="should-planned-intervention-act"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Planned Intervention Act"/>
+                <expression value="entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.146' and extension = '2015-08-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ActivitiesSection"/>
+            </constraint>
+        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>

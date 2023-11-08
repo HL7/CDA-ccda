@@ -13,7 +13,7 @@ This section differentiates between an "advance care plan document" and an “ad
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
 * insert Section(#42348-3, Advance Directives, 2.16.840.1.113883.10.20.22.2.21.1, 2022-02-14)
-* entry 1..*
+* entry 0..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #profile
@@ -23,7 +23,7 @@ This section differentiates between an "advance care plan document" and an “ad
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"
 * entry contains
     observation 0..* and
-    organizer 1..*
+    organizer 0..*
 * entry[organizer] ^comment = "SHALL contain one or more [1.*] entry such that it"
   * organizer 1..1
   * organizer only AdvanceDirectiveOrganizer
@@ -32,3 +32,4 @@ This section differentiates between an "advance care plan document" and an “ad
   * observation 1..1
   * observation only AdvanceDirectiveObservation
     * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2022-02-14) (CONF:1198-15443)."
+* obeys shall-adv-directive-organizer

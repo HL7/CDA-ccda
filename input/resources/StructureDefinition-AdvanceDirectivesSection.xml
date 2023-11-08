@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="shall-adv-directive-organizer"/>
+                <severity value="error"/>
+                <human value="SHALL contain at least one Advance Directive Organizer"/>
+                <expression value="nullFlavor.exists() or entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.108' and extension = '2022-02-14'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectivesSection"/>
+            </constraint>
+        </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
             <short value="If a required section contains no information, the @nullFlavor MAY be set to NI"/>
@@ -111,7 +121,6 @@
             </slicing>
             <short value="If section/@nullFlavor is not present SHALL contain an Advance Directive Observation OR an Advance Directive Organizer (NEW):"/>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"/>
-            <min value="1"/>
         </element>
         <element id="Section.entry:observation">
             <path value="Section.entry"/>
@@ -133,7 +142,7 @@
             <path value="Section.entry"/>
             <sliceName value="organizer"/>
             <comment value="SHALL contain one or more [1.*] entry such that it"/>
-            <min value="1"/>
+            <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:organizer.organizer">
