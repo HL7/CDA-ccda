@@ -77,8 +77,8 @@ const xml2js = require('xml2js');
 
       let data = fs.readFileSync(filePath, 'utf8');
 
-      // Implement custom withTemplateIdOf(SDName) function!
-      data = data.replace(/withTemplateIdOf\((\w+)\)/g, (match, capture) => {
+      // Implement custom hasTemplateIdOf(SDName) function!
+      data = data.replace(/hasTemplateIdOf\((\w+)\)/g, (match, capture) => {
         const rootExt = buildTemplateIdWhere(capture);
         return rootExt ? `templateId.where(${rootExt})` : 'not()';
       });

@@ -222,4 +222,4 @@ A care plan document can include entry references from the information in these 
 Invariant: 1198-31044
 Description: "This structuredBody **SHALL NOT** contain a Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-31044)."
 Severity: #error
-Expression: "component.where(section.withTemplateIdOf(PlanofTreatmentSection)).empty()"
+Expression: "component.where(section.hasTemplateIdOf(PlanofTreatmentSection)).empty()"
