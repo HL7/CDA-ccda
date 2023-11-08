@@ -52,6 +52,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 * value contains physical-quantity 0..1 and coded 0..1
 * value[physical-quantity] only $PQ
   * unit 1..1
+  * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * insert USCDI(Result Units)
   * translation 0..1
     * ^short = "Can be used to represent the original results as output by the lab"
@@ -99,10 +100,6 @@ Invariant: 4537-19212
 Description: "This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."
 Severity: #warning
 Expression: "codeSystem = '2.16.840.1.113883.6.1'"
-
-Invariant: 4537-31484
-Description: "If Observation/value is a physical quantity (xsi:type=\"PQ\"): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."
-Severity: #warning
 
 Invariant: 4537-32610
 Description: "If Observation/value is a CD (**xsi:type=\"CD\"**) the value **SHOULD** be SNOMED-CT or LOINC (CONF:4537-32610)."

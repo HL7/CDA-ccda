@@ -27,15 +27,15 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-31868)."
-* obeys should-value
+* obeys should-value and 4515-8555
 * value 0..1
-  * obeys 4515-8555 and 4515-32957
   * ^short = "NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
   * ^comment = "SHOULD contain zero or one [0..1] value (CONF:4515-8559)." // auto-should
+  * insert AdditionalBinding(preferred, $SDoHConditions, Social Determinant of Health Observations, [[If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957).]])
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31869)."
-* entryRelationship 1..
+* entryRelationship 0..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
@@ -71,7 +71,4 @@ Expression: "codeSystem = '2.16.840.1.113883.6.1' or translation.where(codeSyste
 Invariant: 4515-8555
 Description: "If Observation/value is a physical quantity (xsi:type=\"PQ\"): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."
 Severity: #error
-
-Invariant: 4515-32957
-Description: "If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957)."
-Severity: #error
+Expression: "value is CDA.PQ implies value.unit.exists()"
