@@ -61,7 +61,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-9539)."
   * structuredBody 1..1
-    * obeys 1198-30569
+    * obeys cc-rfv-combo
     * ^short = "In this template (templateId 2.16.840.1.113883.10.20.22.1.8.2), coded entries are optional."
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30518)."
     * component 4..
@@ -196,7 +196,3 @@ Invariant: 1198-32899
 Description: "This assignedEntity **SHALL** contain an assignedPerson or a representedOrganization or both (CONF:1198-32899)."
 Severity: #error
 Expression: "assignedPerson.exists() or representedOrganization.exists()"
-
-Invariant: 1198-30569
-Description: "This structuredBody ***SHALL NOT*** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present (CONF:1198-30569)."
-Severity: #error

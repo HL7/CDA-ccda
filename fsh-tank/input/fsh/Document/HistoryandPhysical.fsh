@@ -53,7 +53,7 @@ A History and Physical Examination is required upon hospital admission as well a
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-8349)."
   * structuredBody 1..1
-    * obeys 1198-30613 and 1198-30614 and 1198-30615 and 1198-30616
+    * obeys ccrfv-or-cc-or-rfv and ap-or-a-and-p and ap-combo and cc-rfv-combo
     * ^short = "In this template (templateId 2.16.840.1.113883.10.20.22.1.3.2), coded entries are optional."
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30570)."
     * component 12..
@@ -165,18 +165,7 @@ Description: "An encounterParticipant element, if present, SHALL contain an assi
 Severity: #error
 Expression: "assignedEntity.assignedPerson.exists() or assignedEntity.representedOrganization.exists()"
 
-Invariant: 1198-30613
-Description: "This structuredBody **SHALL** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) or a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) (CONF:1198-30613)."
+Invariant: ccrfv-or-cc-or-rfv
+Description: "This structuredBody **SHALL** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) or a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12)."
 Severity: #error
-
-Invariant: 1198-30614
-Description: "This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30614)."
-Severity: #error
-
-Invariant: 1198-30615
-Description: "This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-30615)."
-Severity: #error
-
-Invariant: 1198-30616
-Description: "This structuredBody **SHALL NOT** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present (CONF:1198-30616)."
-Severity: #error
+Expression: "component.where(section.withTemplateIdOf(ChiefComplaintandReasonforVisitSection) or section.withTemplateIdOf(ChiefComplaintSection) or section.withTemplateIdOf(ReasonforVisitSection)).exists()"

@@ -75,7 +75,7 @@ Examples of referral situations are when a patient is referred from a family phy
       * ^comment = "This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31655)."
 * component 1..1
   * structuredBody 1..1
-    * obeys 1198-29102 and 1198-29103
+    * obeys ap-or-a-and-p and ap-combo
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."
     * component ^slicing.discriminator[0].type = #profile
       * ^slicing.discriminator[=].path = "section"
@@ -177,11 +177,3 @@ Examples of referral situations are when a patient is referred from a family phy
     * component[payers] ^comment = "This structuredBody MAY contain exactly one [0..1] component (CONF:1198-309240) such that it"
       * section only PayersSection
         * ^comment = "SHALL contain exactly one [1..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2015-08-01) (CONF:1198-309250)."
-
-Invariant: 1198-29102
-Description: "This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-29102)."
-Severity: #error
-
-Invariant: 1198-29103
-Description: "This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-29103)."
-Severity: #error

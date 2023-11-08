@@ -83,7 +83,7 @@ Standardization of information used in this form will promote interoperability; 
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-28251)."
   * structuredBody 1..1
-    * obeys 1198-31582 and 1198-31583
+    * obeys ap-or-a-and-p and ap-combo
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28252)."
     * component 7..
       * ^slicing.discriminator[0].type = #profile
@@ -206,11 +206,3 @@ Standardization of information used in this form will promote interoperability; 
     * component[courseOfCare] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-32648) such that it"
       * section only CourseofCareSection
         * ^comment = "SHALL contain exactly one [1..1] Course of Care Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.64) (CONF:1198-32649)."
-
-Invariant: 1198-31582
-Description: "This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-31582)."
-Severity: #error
-
-Invariant: 1198-31583
-Description: "This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-31583)."
-Severity: #error

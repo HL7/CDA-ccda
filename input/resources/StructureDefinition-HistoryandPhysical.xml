@@ -153,27 +153,31 @@
             <comment value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30570)."/>
             <min value="1"/>
             <constraint>
-                <key value="1198-30613"/>
+                <key value="ccrfv-or-cc-or-rfv"/>
                 <severity value="error"/>
-                <human value="This structuredBody **SHALL** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) or a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) (CONF:1198-30613)."/>
+                <human value="This structuredBody **SHALL** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) or a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12)."/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.13' and extension.empty()) or section.templateId.where(root = '1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.12' and extension.empty())).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
             </constraint>
             <constraint>
-                <key value="1198-30614"/>
+                <key value="ap-or-a-and-p"/>
                 <severity value="error"/>
-                <human value="This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30614)."/>
+                <human value="**SHALL** include an Assessment and Plan Section, or both an Assessment Section and a Plan of Treatment Section."/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.9' and extension = '2014-06-09')).exists() or (component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.8' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).count() = 2)"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
             </constraint>
             <constraint>
-                <key value="1198-30615"/>
+                <key value="ap-combo"/>
                 <severity value="error"/>
-                <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-30615)."/>
+                <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present."/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.9' and extension = '2014-06-09')).exists() implies component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.8' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
             </constraint>
             <constraint>
-                <key value="1198-30616"/>
+                <key value="cc-rfv-combo"/>
                 <severity value="error"/>
-                <human value="This structuredBody **SHALL NOT** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present (CONF:1198-30616)."/>
+                <human value="This structuredBody **SHALL NOT** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present."/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.13' and extension.empty())).exists() implies component.where(section.templateId.where(root = '1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.12' and extension.empty())).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
             </constraint>
         </element>

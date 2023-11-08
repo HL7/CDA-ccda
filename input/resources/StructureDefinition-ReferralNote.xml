@@ -226,15 +226,17 @@
             <comment value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."/>
             <min value="1"/>
             <constraint>
-                <key value="1198-29102"/>
+                <key value="ap-or-a-and-p"/>
                 <severity value="error"/>
-                <human value="This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-29102)."/>
+                <human value="**SHALL** include an Assessment and Plan Section, or both an Assessment Section and a Plan of Treatment Section."/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.9' and extension = '2014-06-09')).exists() or (component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.8' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).count() = 2)"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
             </constraint>
             <constraint>
-                <key value="1198-29103"/>
+                <key value="ap-combo"/>
                 <severity value="error"/>
-                <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-29103)."/>
+                <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present."/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.9' and extension = '2014-06-09')).exists() implies component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.8' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
             </constraint>
         </element>
