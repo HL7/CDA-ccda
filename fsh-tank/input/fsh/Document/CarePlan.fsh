@@ -4,7 +4,7 @@ Id: CarePlan
 Title: "Care Plan"
 Description: """CARE PLAN FRAMEWORK
 
-A Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.
+A Care Plan is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.
 
 A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.
 
@@ -21,9 +21,7 @@ There are 2 optional sections:
 	Provides the ability to identify patient and provider priorities with each act
 	Provides a header participant to indicate occurrences of Care Plan review
 
-A care plan document can include entry references from the information in these sections to the information (entries) in other sections.
-
-Please see Volume 1 of this guide to view a Care Plan Relationship diagram and story board."""
+A care plan document can include entry references from the information in these sections to the information (entries) in other sections."""
 
 * insert LogicalModelTemplate(care-plan, 2.16.840.1.113883.10.20.22.1.15, 2015-08-01)
 
