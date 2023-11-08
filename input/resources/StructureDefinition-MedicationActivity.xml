@@ -48,6 +48,13 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
             <constraint>
+                <key value="1098-7513"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it **SHALL** contain exactly one [1..1] @xsi:type=&quot;PIVL_TS&quot; or &quot;EIVL_TS&quot; (CONF:1098-28499)."/>
+                <expression value="effectiveTime.ofType(CDA.PIVL_TS).exists() or effectiveTime.ofType(CDA.EIVL_TS).exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
+            <constraint>
                 <key value="dose-unit-or-admin-unit"/>
                 <severity value="error"/>
                 <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
@@ -141,22 +148,12 @@
             <path value="SubstanceAdministration.effectiveTime"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="operator"/>
-                </discriminator>
-                <discriminator>
                     <type value="type"/>
                     <path value="$this"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <min value="1"/>
-            <constraint>
-                <key value="1098-7513"/>
-                <severity value="error"/>
-                <human value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it **SHALL** contain exactly one [1..1] @xsi:type=&quot;PIVL_TS&quot; or &quot;EIVL_TS&quot; (CONF:1098-28499)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
-            </constraint>
         </element>
         <element id="SubstanceAdministration.effectiveTime:duration">
             <path value="SubstanceAdministration.effectiveTime"/>

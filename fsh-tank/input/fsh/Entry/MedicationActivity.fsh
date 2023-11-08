@@ -29,10 +29,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * code from $2.16.840.1.113762.1.4.1099.11 (required)
     * ^short = "The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., \"10 days\"), the frequency of administration (e.g., \"every 8 hours\"), and more. Here, we require that there SHALL be an effectiveTime documentation of the duration (or single-administration timestamp), and that there SHOULD be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included."
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Medication Status urn:oid:2.16.840.1.113762.1.4.1099.11 DYNAMIC (CONF:1098-32360)."
-* effectiveTime obeys 1098-7513
-  * ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "operator"
-  * ^slicing.discriminator[+].type = #type
+* obeys 1098-7513
+* effectiveTime ^slicing.discriminator[+].type = #type
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
 * effectiveTime contains
@@ -222,7 +220,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 
 Invariant: 1098-7513
 Description: "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it **SHALL** contain exactly one [1..1] @xsi:type=\"PIVL_TS\" or \"EIVL_TS\" (CONF:1098-28499)."
-Severity: #error
+Severity: #warning
+Expression: "effectiveTime.ofType(CDA.PIVL_TS).exists() or effectiveTime.ofType(CDA.EIVL_TS).exists()"
 
 Invariant: 1098-32890
 Description: "This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."
