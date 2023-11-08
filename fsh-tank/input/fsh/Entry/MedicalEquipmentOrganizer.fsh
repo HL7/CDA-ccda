@@ -53,3 +53,4 @@ Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy
 Invariant: 1098-32380
 Description: "Either Non-Medicinal Supply Activity (templateId:2.16.840.1.113883.10.20.22.4.50:2014-06-09) **OR** Procedure Activity Procedure (templateId:2.16.840.1.113883.10.20.22.4.14:2014-06-09) **SHALL** be present (CONF:1098-32380)."
 Severity: #error
+Expression: "component.where(supply.withTemplateIdOf(NonMedicinalSupplyActivity)).exists() or component.where(procedure.withTemplateIdOf(ProcedureActivityProcedure)).exists()"
