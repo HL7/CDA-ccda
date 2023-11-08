@@ -184,15 +184,19 @@ Expression: "assignedPerson.exists() or representedOrganization.exists()"
 Invariant: 1198-28939
 Description: "This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-28939)."
 Severity: #error
+Expression: "component.where(section.withTemplateIdOf(AssessmentandPlanSection)).exists() implies component.where(section.withTemplateIdOf(AssessmentSection) or section.withTemplateIdOf(PlanofTreatmentSection)).empty()"
 
 Invariant: 1198-28940
 Description: "This structuredBody **SHALL NOT** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present (CONF:1198-28940)."
 Severity: #error
+Expression: "component.where(section.withTemplateIdOf(ChiefComplaintandReasonforVisitSection)).exists() implies component.where(section.withTemplateIdOf(ChiefComplaintSection) or section.withTemplateIdOf(ReasonforVisitSection)).empty()"
 
 Invariant: 1198-9504
 Description: "**SHALL** include a Reason for Referral or Reason for Visit section (CONF:1198-9504)."
 Severity: #error
+Expression: "component.where(section.withTemplateIdOf(ReasonforReferralSection) or section.withTemplateIdOf(ReasonforVisitSection)).exists()"
 
 Invariant: 1198-9501
 Description: "**SHALL** include an Assessment and Plan Section, or both an Assessment Section and a Plan of Treatment Section (CONF:1198-9501)."
 Severity: #error
+Expression: "component.where(section.withTemplateIdOf(AssessmentandPlanSection)).exists() or (component.where(section.withTemplateIdOf(AssessmentSection) or section.withTemplateIdOf(PlanofTreatmentSection)).count() = 2)"
