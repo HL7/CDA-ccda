@@ -261,7 +261,7 @@ Description: "This template defines constraints that represent common administra
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8002)."
     * id 1..*
-      * obeys 4537-9946
+      * ^short = "If assignedEntity/id is a provider then this id, **SHOULD** include zero or one [0..1] id where id/@root =\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-9946)."
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-9945)."
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
@@ -486,6 +486,7 @@ Description: "This template defines constraints that represent common administra
 Invariant: 4537-32948
 Description: "This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:4537-32948)."
 Severity: #error
+Expression: "codeSystem = '2.16.840.1.113883.6.1'"
 
 Invariant: 4537-6380
 Description: "If setId is present versionNumber **SHALL** be present (CONF:4537-6380)."
@@ -509,21 +510,19 @@ Expression: "sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exist
 // Expression: "sdtcRaceCode.exists() implies raceCode.exists()"
 
 Invariant: 4537-5402
-Description: "If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet StateValueSet 2.16.840.1.113883.3.88.12.80.1 *DYNAMIC* (CONF:4537-5402)."
+Description: "If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet US Core USPS State *DYNAMIC* (CONF:4537-5402)."
 Severity: #error
+Expression: "nullFlavor.exists() or (item.country.exists() and item.country.xmlText != 'US' and item.country.xmlText != 'USA') or item.state.exists(nullFlavor.exists() or xmlText.memberOf('http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state'))"
 
 Invariant: 4537-5403
 Description: "If country is US, this addr **MAY** contain zero or one [0..1] postalCode, which **SHALL** be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 *DYNAMIC* (CONF:4537-5403)."
 Severity: #warning
+Expression: "nullFlavor.exists() or (item.country.exists() and item.country.xmlText != 'US' and item.country.xmlText != 'USA') or item.postalCode.empty() or item.postalCode.exists(nullFlavor.exists() or xmlText.matches('[0-9]{5}(-[0-9]{4})?'))"
 
 Invariant: 4537-16790
 Description: "There **SHALL** be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice (CONF:4537-16790)."
 Severity: #error
 Expression: "(assignedPerson | assignedAuthoringDevice).count() = 1"
-
-Invariant: 4537-9946
-Description: "If assignedEntity/id is a provider then this id, **SHOULD** include zero or one [0..1] id where id/@root =\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-9946)."
-Severity: #warning
 
 Invariant: 4537-10006
 Description: "**SHALL** contain associatedEntity/associatedPerson *AND/OR* associatedEntity/scopingOrganization (CONF:4537-10006)."
