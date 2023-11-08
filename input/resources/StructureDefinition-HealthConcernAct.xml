@@ -285,6 +285,13 @@
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31160) such that it"/>
             <min value="0"/>
             <max value="*"/>
+            <constraint>
+                <key value="4515-32745"/>
+                <severity value="error"/>
+                <human value="The Entry Reference template **SHALL** contain an id that references a Health Concern Act (CONF:4515-32745)."/>
+                <expression value="%resource.descendants().ofType(CDA.Act).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.132' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct"/>
+            </constraint>
         </element>
         <element id="Act.entryRelationship:component-health-concern-acts.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
@@ -299,12 +306,6 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
-            <constraint>
-                <key value="4515-32745"/>
-                <severity value="error"/>
-                <human value="The Entry Reference template **SHALL** contain an id that references a Health Concern Act (CONF:4515-32745)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct"/>
-            </constraint>
         </element>
         <element id="Act.reference">
             <path value="Act.reference"/>

@@ -86,9 +86,9 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31161)."
+  * obeys 4515-32745
   * act 1..1
   * act only EntryReference
-    * obeys 4515-32745
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32107)."
 
 * reference 0..*
@@ -104,3 +104,15 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
 Invariant: 4515-32745
 Description: "The Entry Reference template **SHALL** contain an id that references a Health Concern Act (CONF:4515-32745)."
 Severity: #error
+Expression: "%resource.descendants().ofType(CDA.Act).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.132' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"
+/*
+%resource.descendants().ofType(CDA.Act).where(
+  templateId.exists(
+    $this.root = '2.16.840.1.113883.10.20.22.4.132' and
+    $this.extension = '2022-06-01'
+  ) and
+  id.exists(
+    $this.root = %context.act.id.first().root and
+    $this.extension ~ %context.act.id.first().extension
+  )
+)*/
