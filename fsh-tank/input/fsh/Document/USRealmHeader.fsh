@@ -472,7 +472,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:4537-9959)."
     * code 0..1
     * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
-      * ^comment = "This encompassingEncounter MAY contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
+      * ^comment = "This encompassingEncounter MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
     * effectiveTime 1..1
     * effectiveTime only USRealmDateTimeInterval
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:4537-9958)."
