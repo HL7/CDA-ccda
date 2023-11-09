@@ -14,21 +14,11 @@ Description: "This template represents medications that the patient is intended 
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7690)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-7691)."
-  * code 1..1
-  * code = #10183-2
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"10183-2\" Hospital discharge medication (CONF:1198-19161)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32159)."
+  * insert CodedLoinc(10183-2, Hospital discharge medication)
+  * ^comment = "This code SHALL contain exactly one [1..1] @code=\"10183-2\" Hospital discharge medication (CONF:1198-19161)."
   * translation 1..1
-    * ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32952)."
-    * code 1..1
-    * code = #75311-1
-      * ^comment = "This translation SHALL contain exactly one [1..1] @code=\"75311-1\" Discharge Medication (CONF:1198-32953)."
-    * codeSystem 1..1
-    * codeSystem = "2.16.840.1.113883.6.1"
-      * ^comment = "This translation SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32954)."
+    * insert CodedLoinc(75311-1, Discharge Medication)
+    * ^comment = "This translation SHALL contain exactly one [1..1] @code=\"75311-1\" Discharge Medication (CONF:1198-32953)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-32779)."
   * code 1..1

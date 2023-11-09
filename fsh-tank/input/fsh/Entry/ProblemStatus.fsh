@@ -16,10 +16,8 @@ Description: """The Problem Status records the clinical status attributed to the
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7358)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-19162)."
-  * code 1..1
-  * code = #33999-4
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"33999-4\" Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-19163)."
+  * insert CodedLoinc(33999-4, Status)
+  * ^comment = "This code SHALL contain exactly one [1..1] @code=\"33999-4\" Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-19163)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-7364)."
   * code 1..1

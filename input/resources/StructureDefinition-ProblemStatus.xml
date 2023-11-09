@@ -91,13 +91,19 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-19162)."/>
+            <short value="Status"/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;33999-4&quot; Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-19163)."/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;33999-4&quot; Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-19163)."/>
             <min value="1"/>
             <patternCode value="33999-4"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
