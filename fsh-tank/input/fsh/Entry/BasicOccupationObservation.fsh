@@ -16,13 +16,8 @@ Implementers wishing to convey more advanced Occupation detail, such as employer
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-33001)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-32996)."
-  * code 1..1
-  * code = #11341-5
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"11341-5\" History of Occupation (CONF:4537-33002)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-33003)."
+  * insert CodedLoinc(11341-5, History of Occupation)
+  * ^comment = "This code SHALL contain exactly one [1..1] @code=\"11341-5\" History of Occupation (CONF:4537-33002)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-32997)."
   * code 1..1

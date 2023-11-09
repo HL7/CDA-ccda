@@ -15,12 +15,8 @@ Description: "This section contains the medications the patient is intended to t
     * ^slicing.rules = #open
   * translation contains translation1 1..1
   * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32857) such that it"
-    * code 1..1
-    * code = #75311-1
-      * ^comment = "SHALL contain exactly one [1..1] @code=\"75311-1\" Discharge Medications (CONF:1198-32858)."
-    * codeSystem 1..1
-    * codeSystem = "2.16.840.1.113883.6.1"
-      * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32859)."
+    * insert CodedLoinc(75311-1, Discharge Medications)
+    * ^comment = "SHALL contain exactly one [1..1] @code=\"75311-1\" Discharge Medications (CONF:1198-32858)."
 * entry ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open

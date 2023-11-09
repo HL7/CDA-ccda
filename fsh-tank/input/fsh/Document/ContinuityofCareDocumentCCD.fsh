@@ -14,13 +14,8 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
 
 * ^status = #active
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17180)."
-  * code 1..1
-  * code = #34133-9
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"34133-9\" Summarization of Episode Note (CONF:1198-17181)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32138)."
+  * insert CodedLoinc(34133-9, Summarization of Episode Note)
+  * ^comment = "This code SHALL contain exactly one [1..1] @code=\"34133-9\" Summarization of Episode Note (CONF:1198-17181)."
 * author 1..*
   * ^comment = "SHALL contain at least one [1..*] author (CONF:1198-9442)."
   * assignedAuthor 1..1

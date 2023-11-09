@@ -62,12 +62,8 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
     * ^slicing.rules = #open
   * translation contains advanceDirective 1..1
   * translation[advanceDirective] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32842) such that it"
-    * code 1..1
-    * code = #75320-2
-      * ^comment = "SHALL contain exactly one [1..1] @code=\"75320-2\" Advance directive."
-    * codeSystem 1..1
-    * codeSystem = "2.16.840.1.113883.6.1"
-      * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)."
+    * insert CodedLoinc(75320-2, Advance directive)
+    * ^comment = "SHALL contain exactly one [1..1] @code=\"75320-2\" Advance directive."
 * text 1..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."
