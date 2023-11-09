@@ -22,8 +22,9 @@ Subsections MAY be used to partition the entries into different categories. For 
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7112) such that it"
-* entry contains organizer 1..*
+* entry contains organizer 0..*
 * entry[organizer] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7112) such that it"
   * organizer 1..1
   * organizer only ResultOrganizer
     * ^comment = "SHALL contain exactly one [1..1] Result Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01) (CONF:1198-15515)."
+* obeys shall-result-org

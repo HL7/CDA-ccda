@@ -6,7 +6,7 @@ Description: "This section lists and describes all relevant clinical problems at
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
 * insert Section(#11450-4, Problem List, 2.16.840.1.113883.10.20.22.2.5.1, 2015-08-01)
-* entry 1..*
+* entry 0..*
   * ^slicing.discriminator[0].type = #exists
   * ^slicing.discriminator[=].path = "*"
   * ^slicing.rules = #open
@@ -23,3 +23,4 @@ Description: "This section lists and describes all relevant clinical problems at
 * entry[observation].observation 1..1
 * entry[observation].observation only HealthStatusObservation
   * ^comment = "SHALL contain exactly one [1..1] Health Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30482)."
+* obeys shall-problem-concern-act

@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="should-smoking-status"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Smoking Status - Meaningful Use"/>
+                <expression value="entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.78' and extension = '2014-06-09'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistorySection"/>
+            </constraint>
+        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>

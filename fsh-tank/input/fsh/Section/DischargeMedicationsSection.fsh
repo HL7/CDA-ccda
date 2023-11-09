@@ -25,8 +25,9 @@ Description: "This section contains the medications the patient is intended to t
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains dischargeMed 1..*
+* entry contains dischargeMed 0..*
 * entry[dischargeMed] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7826) such that it"
   * act 1..1
   * act only DischargeMedication
     * ^comment = "SHALL contain exactly one [1..1] Discharge Medication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.35:2016-03-01) (CONF:1198-15491)."
+* obeys shall-discharge-med

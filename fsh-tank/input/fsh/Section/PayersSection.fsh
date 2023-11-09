@@ -17,3 +17,4 @@ The sources of payment are represented as a Coverage Activity, which identifies 
   * act 1..1
   * act only CoverageActivity
     * ^comment = "SHALL contain exactly one [1..1] Coverage Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.60:2015-08-01) (CONF:1198-15501)."
+* obeys should-coverage-activity

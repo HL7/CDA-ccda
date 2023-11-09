@@ -14,7 +14,7 @@ Problem Concerns are a subset of Health Concerns that have risen to the level of
   * ^slicing.rules = #open
 * entry contains
     healthStatus 0..* and
-    healthConcern 1..* and
+    healthConcern 0..* and
     riskConcern 0..*
 * entry[healthStatus] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-30483)"
   * observation 1..1
@@ -30,3 +30,4 @@ Problem Concerns are a subset of Health Concerns that have risen to the level of
   * act 1..1
   * act only RiskConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Risk Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.136:2015-08-01) (CONF:1198-32309)."
+* obeys should-health-status-obs and shall-health-concern-act

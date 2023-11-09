@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="shall-procedure-act-procedure"/>
+                <severity value="error"/>
+                <human value="SHALL contain at least one Procedure Activity Procedure"/>
+                <expression value="nullFlavor.exists() or entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.14' and extension = '2022-06-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection"/>
+            </constraint>
+        </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
             <short value="If a required section contains no information, the @nullFlavor MAY be set to NI"/>
@@ -107,7 +117,6 @@
             </slicing>
             <short value="If section/@nullFlavor is not present there SHALL be at least one entry conformant to Procedure Activity Procedure (templateId: 2.16.840.1.113883.10.20.22.4.14:2014-06-09)"/>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1098-7895) such that it"/>
-            <min value="1"/>
         </element>
         <element id="Section.entry:entryProcedure">
             <path value="Section.entry"/>

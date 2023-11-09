@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="shall-note-activity"/>
+                <severity value="error"/>
+                <human value="SHALL contain at least one Note Activity"/>
+                <expression value="nullFlavor.exists() or entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.202' and extension = '2016-11-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NotesSection"/>
+            </constraint>
+        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -107,16 +117,15 @@
                 <rules value="open"/>
             </slicing>
             <comment value="SHALL contain at least one [1..*] entry (CONF:3250-16904) such that it"/>
-            <min value="1"/>
         </element>
-        <element id="Section.entry:entry1">
+        <element id="Section.entry:note">
             <path value="Section.entry"/>
-            <sliceName value="entry1"/>
+            <sliceName value="note"/>
             <short value="If section/@nullFlavor is not present:"/>
-            <min value="1"/>
+            <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:entry1.act">
+        <element id="Section.entry:note.act">
             <path value="Section.entry.act"/>
             <comment value="SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:3250-16905)."/>
             <min value="1"/>

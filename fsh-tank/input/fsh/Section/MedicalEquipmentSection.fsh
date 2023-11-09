@@ -33,3 +33,4 @@ These devices may be grouped together within a Medical Equipment Organizer. The 
   * procedure 1..1
   * procedure only ProcedureActivityProcedure
     * ^comment = "SHALL contain exactly one [1..1] Procedure Activity Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-31886)."
+* obeys should-non-med-supply and should-procedure-act-procedure

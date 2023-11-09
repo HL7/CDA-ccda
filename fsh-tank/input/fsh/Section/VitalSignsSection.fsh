@@ -11,8 +11,9 @@ Vital signs are represented in the same way as other results, but are aggregated
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains organizer 1..*
+* entry contains organizer 0..*
 * entry[organizer] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7276) such that it"
   * organizer 1..1
   * organizer only VitalSignsOrganizer
     * ^comment = "SHALL contain exactly one [1..1] Vital Signs Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01) (CONF:1198-15964)."
+* obeys shall-vital-signs-org

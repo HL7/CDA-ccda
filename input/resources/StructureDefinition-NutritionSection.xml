@@ -37,6 +37,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="should-nutritional-status-obs"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Nutritional Status Observation"/>
+                <expression value="entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.124' and extension.empty()))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionSection"/>
+            </constraint>
+        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>

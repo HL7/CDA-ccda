@@ -13,3 +13,4 @@ Description: "The Nutrition Section represents diet and nutrition information in
   * observation 1..1
   * observation only NutritionalStatusObservation
     * ^comment = "SHALL contain exactly one [1..1] Nutritional Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.124) (CONF:1098-30322)."
+* obeys should-nutritional-status-obs

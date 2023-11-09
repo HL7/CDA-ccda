@@ -37,6 +37,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="shall-goal-obs"/>
+                <severity value="error"/>
+                <human value="SHALL contain at least one Goal Observation"/>
+                <expression value="nullFlavor.exists() or entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.121' and extension = '2022-06-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalsSection"/>
+            </constraint>
+        </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
             <short value="If a required section contains no information, the @nullFlavor MAY be set to NI"/>
@@ -100,13 +110,12 @@
                 <rules value="open"/>
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
-            <min value="1"/>
         </element>
         <element id="Section.entry:goal">
             <path value="Section.entry"/>
             <sliceName value="goal"/>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1098-30719) such that it"/>
-            <min value="1"/>
+            <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:goal.observation">
