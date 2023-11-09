@@ -30,6 +30,8 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * ^comment = "SHALL contain exactly one [1..1] functionCode=\"PCP\" Primary Care Physician (CodeSystem: HL7ParticipationFunction urn:oid:2.16.840.1.113883.5.88 STATIC) (CONF:1198-8506)."
     * code 1..1
     * code = #PCP
+    * codeSystem 1..1
+    * codeSystem = "2.16.840.1.113883.5.88"
   * associatedEntity
     * classCode 1..1
     * classCode = #PROV (exactly)
