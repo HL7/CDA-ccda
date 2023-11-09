@@ -228,16 +228,14 @@
         </element>
         <element id="Act.entryRelationship:entryRelationship1.observation.statusCode">
             <path value="Act.entryRelationship.observation.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="This observation SHALL contain exactly one [1..1] statusCode (CONF:1098-31614)."/>
             <min value="1"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.observation.statusCode.code">
             <path value="Act.entryRelationship.observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31615)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.observation.priorityCode">
             <path value="Act.entryRelationship.observation.priorityCode"/>

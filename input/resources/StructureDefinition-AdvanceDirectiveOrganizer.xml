@@ -25,7 +25,7 @@
     <name value="AdvanceDirectiveOrganizer"/>
     <title value="Advance Directive Organizer"/>
     <status value="draft"/>
-    <description value="This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented.&#xA;The effectiveTime of the organizer (TS) indicates the point in time when the advance directive observations were reviewed/verified. Or, if not reviewed/verified, then the time when the advance directive observations were made. The time element of the author indicates when the advance directive observations were recorded in the patient's record. The effectiveTime of the organizer and the time element of the associated author element may often be the same. Note also for clarity: the effectiveTime of the individual advance directive observations indicates the interval in time when the directive went into effect (effectiveTime/low) and out of effect (effectiveTime/high). The author time element on an advance directive observation indicates the time when the observation was documented."/>
+    <description value="This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented.&#xD;&#xA;The effectiveTime of the organizer (TS) indicates the point in time when the advance directive observations were reviewed/verified. Or, if not reviewed/verified, then the time when the advance directive observations were made. The time element of the author indicates when the advance directive observations were recorded in the patient's record. The effectiveTime of the organizer and the time element of the associated author element may often be the same. Note also for clarity: the effectiveTime of the individual advance directive observations indicates the interval in time when the directive went into effect (effectiveTime/low) and out of effect (effectiveTime/high). The author time element on an advance directive observation indicates the time when the observation was documented."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -140,15 +140,13 @@
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-28418)."/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1198-31346)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>

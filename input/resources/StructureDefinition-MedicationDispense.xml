@@ -140,16 +140,14 @@
         </element>
         <element id="Supply.statusCode">
             <path value="Supply.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-7455)."/>
             <min value="1"/>
         </element>
         <element id="Supply.statusCode.code">
             <path value="Supply.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-32361)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Supply.effectiveTime">
             <path value="Supply.effectiveTime"/>

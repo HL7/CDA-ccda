@@ -87,6 +87,14 @@
             <path value="Observation.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-32153)."/>
         </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-19084)."/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19085)."/>
+        </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <short value="If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'."/>

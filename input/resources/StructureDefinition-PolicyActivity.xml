@@ -25,7 +25,7 @@
     <name value="PolicyActivity"/>
     <title value="Policy Activity"/>
     <status value="draft"/>
-    <description value="A policy activity represents the policy or program providing the coverage. The person for whom payment is being provided (i.e., the patient) is the covered party. The subscriber of the policy or program is represented as a participant that is the holder of the coverage. The payer is represented as the performer of the policy activity.&#xA;Note that the absence of a Policy Activity Act is not confirmation the patient does not have coverage. A Patient's coverage may not have been documented yet or not known to the healthcare provider. &#xA;*    Absence of a Policy Activity Act may mean that the patient has no coverage or the healthcare provider may not know it.&#xA;*    A self pay payer type MAY be used to imply that the patient has no coverage or that an individual or organization other than an insurer is taking responsibility for payment for a portion of the health care costs."/>
+    <description value="A policy activity represents the policy or program providing the coverage. The person for whom payment is being provided (i.e., the patient) is the covered party. The subscriber of the policy or program is represented as a participant that is the holder of the coverage. The payer is represented as the performer of the policy activity.&#xD;&#xA;Note that the absence of a Policy Activity Act is not confirmation the patient does not have coverage. A Patient's coverage may not have been documented yet or not known to the healthcare provider. &#xD;&#xA;*    Absence of a Policy Activity Act may mean that the patient has no coverage or the healthcare provider may not know it.&#xD;&#xA;*    A self pay payer type MAY be used to imply that the patient has no coverage or that an individual or organization other than an insurer is taking responsibility for payment for a portion of the health care costs."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -132,16 +132,14 @@
         </element>
         <element id="Act.statusCode">
             <path value="Act.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."/>
             <min value="1"/>
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19109)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>

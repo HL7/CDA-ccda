@@ -28,8 +28,8 @@ Description: "This template wraps relevant problems or diagnoses at the close of
   * ^slicing.rules = #open
 * statusCode 1..1
   * code 1..1
-  * code from $2.16.840.1.113762.1.4.1240.6 (required)
-  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
+  * code = #completed (exactly)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC)."
 * entryRelationship contains problemObservation 1..*
 * entryRelationship[problemObservation] ^comment = "SHALL contain at least one [1..*] entryRelationship (CONF:1198-14892) such that it"
   * typeCode 1..1

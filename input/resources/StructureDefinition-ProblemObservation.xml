@@ -136,16 +136,14 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-9049)."/>
             <min value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19112)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -184,7 +182,7 @@
         </element>
         <element id="Observation.value.qualifier">
             <path value="Observation.value.qualifier"/>
-            <short value="The observation/value and all the qualifiers together (often referred to as a post-coordinated expression) make up one concept. Qualifiers constrain the meaning of the primary code, and cannot negate it or change its meaning. Qualifiers can only be used according to well-defined rules of post-coordination and only if the underlying code system defines the use of such qualifiers or if there is a third code system that specifies how other code systems may be combined.&#xA;&#xA; In cases where SNOMED CT does not have a precoordinated code that would be appropriate for the problem list, concept post coordination may be used in CDA following the principles outlined in HL7 Version 3 Implementation Guide: TermInfo -&#xA;Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  This is shown in the sample XML."/>
+            <short value="The observation/value and all the qualifiers together (often referred to as a post-coordinated expression) make up one concept. Qualifiers constrain the meaning of the primary code, and cannot negate it or change its meaning. Qualifiers can only be used according to well-defined rules of post-coordination and only if the underlying code system defines the use of such qualifiers or if there is a third code system that specifies how other code systems may be combined.&#xA;&#xA; In cases where SNOMED CT does not have a precoordinated code that would be appropriate for the problem list, concept post coordination may be used in CDA following the principles outlined in HL7 Version 3 Implementation Guide: TermInfo -&#xD;&#xA;Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  This is shown in the sample XML."/>
             <comment value="This value MAY contain zero or more [0..*] qualifier (CONF:1198-31870)."/>
         </element>
         <element id="Observation.value.translation">
