@@ -27,14 +27,20 @@ RuleSet: AdditionalBinding(purpose, valueSet, short, documentation)
 // Assign a fixed LOINC code
 RuleSet: CodedLoinc(code, display)
 * ^short = "{display}"
+* code 1..1
 * code = #{code}
+* codeSystem 1..1
 * codeSystem = "2.16.840.1.113883.6.1"
+  * ^short = "LOINC"
 
 // Assign a fixed SNOMED code
 RuleSet: CodedSnomed(code, display)
 * ^short = "{display}"
+* code 1..1
 * code = #{code}
+* codeSystem 1..1
 * codeSystem = "2.16.840.1.113883.6.96"
+  * ^short = "SNOMED CT"
 
 // Use to require code or nullFlavor on an element - makes the display look nice
 RuleSet: ShallCodeOrNullFlavor
