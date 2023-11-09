@@ -130,6 +130,13 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <short value="The serviceEvent/performer represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare providers would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."/>
             <comment value="This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)."/>
+            <constraint>
+                <key value="1198-32466"/>
+                <severity value="warning"/>
+                <human value="If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32466)."/>
+                <expression value="assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
@@ -144,13 +151,6 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
             <comment value="The assignedEntity, if present, SHALL contain at least one [1..*] id (CONF:1198-30882)."/>
-            <constraint>
-                <key value="1198-32466"/>
-                <severity value="warning"/>
-                <human value="If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32466)."/>
-                <expression value="assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson"/>
