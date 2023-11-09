@@ -120,26 +120,13 @@
         </element>
         <element id="Section.component">
             <path value="Section.component"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="section"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Section.component:component1">
-            <path value="Section.component"/>
-            <sliceName value="component1"/>
             <comment value="MAY contain zero or more [0..*] component (CONF:1198-32434) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
         </element>
-        <element id="Section.component:component1.section">
+        <element id="Section.component.section">
             <path value="Section.component.section"/>
             <comment value="SHALL contain exactly one [1..1] section (CONF:1198-32435)."/>
         </element>
-        <element id="Section.component:component1.section.code">
+        <element id="Section.component.section.code">
             <path value="Section.component.section.code"/>
             <comment value="This section SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Physical Exam Type urn:oid:2.16.840.1.113883.11.20.9.65 DYNAMIC (CONF:1198-32436)."/>
             <min value="1"/>
@@ -148,12 +135,12 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.65"/>
             </binding>
         </element>
-        <element id="Section.component:component1.section.title">
+        <element id="Section.component.section.title">
             <path value="Section.component.section.title"/>
             <comment value="This section SHALL contain exactly one [1..1] title (CONF:1198-32437)."/>
             <min value="1"/>
         </element>
-        <element id="Section.component:component1.section.text">
+        <element id="Section.component.section.text">
             <path value="Section.component.section.text"/>
             <comment value="This section SHALL contain exactly one [1..1] text (CONF:1198-32438)."/>
             <min value="1"/>
