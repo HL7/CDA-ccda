@@ -44,7 +44,7 @@
                 <key value="shall-immunization-activity"/>
                 <severity value="error"/>
                 <human value="SHALL contain at least one Immunization Activity"/>
-                <expression value="nullFlavor.exists() or entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.52' and extension = '2015-08-01'))"/>
+                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.templateId.where(root = '2.16.840.1.113883.10.20.22.4.52' and extension = '2015-08-01'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationsSection"/>
             </constraint>
         </element>

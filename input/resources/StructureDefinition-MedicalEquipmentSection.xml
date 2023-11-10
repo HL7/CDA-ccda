@@ -44,14 +44,14 @@
                 <key value="should-non-med-supply"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain Non-Medicinal Supply Activity"/>
-                <expression value="entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.50' and extension = '2014-06-09'))"/>
+                <expression value="entry.where(supply.templateId.where(root = '2.16.840.1.113883.10.20.22.4.50' and extension = '2014-06-09'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentSection"/>
             </constraint>
             <constraint>
                 <key value="should-procedure-act-procedure"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain Procedure Activity Procedure"/>
-                <expression value="entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.14' and extension = '2022-06-01'))"/>
+                <expression value="entry.where(procedure.templateId.where(root = '2.16.840.1.113883.10.20.22.4.14' and extension = '2022-06-01'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentSection"/>
             </constraint>
         </element>
