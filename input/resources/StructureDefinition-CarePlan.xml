@@ -61,6 +61,13 @@
                 <expression value="informationRecipient.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
+            <constraint>
+                <key value="should-componentOf"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain componentOf"/>
+                <expression value="componentOf.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
@@ -169,6 +176,13 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain id"/>
                 <expression value="id.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
+            <constraint>
+                <key value="should-standardIndustryClassCode"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain standardIndustryClassCode"/>
+                <expression value="standardIndustryClassCode.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
         </element>

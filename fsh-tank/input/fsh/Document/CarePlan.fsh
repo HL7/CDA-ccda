@@ -61,12 +61,12 @@ A care plan document can include entry references from the information in these 
     * obeys should-receivedOrganization
     * receivedOrganization 0..1
       * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)." // auto-should
-      * obeys should-id
+      * obeys should-id and should-standardIndustryClassCode
       * id 0..*
         * ^comment = "The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)." // auto-should
       * standardIndustryClassCode 0..1
       * standardIndustryClassCode from $2.16.840.1.114222.4.11.1066 (required)
-        * ^comment = "The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."
+        * ^comment = "The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."  // man-should
 * authenticator
   * time 1..1
     * ^comment = "SHALL contain exactly one [1..1] time (CONF:1198-31911)."
@@ -181,8 +181,9 @@ A care plan document can include entry references from the information in these 
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] setId (CONF:1198-29895)."
     * versionNumber 1..1
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] versionNumber (CONF:1198-29896)."
+* obeys should-componentOf
 * componentOf 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it"
+  * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it" // man-should
   //"<sliceName value=\"componentOf1\"/>"
   * encompassingEncounter 1..1
     * ^comment = "SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-32005)."

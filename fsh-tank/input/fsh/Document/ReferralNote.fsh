@@ -105,7 +105,7 @@ Examples of referral situations are when a patient is referred from a family phy
         medications 1..1 and
         reasonForReferral 1..1 and
         payers 1..1
-    * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066)."
+    * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066) such that it"
       * section only PlanofTreatmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-29067)."
     * component[advanceDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29068) such that it"

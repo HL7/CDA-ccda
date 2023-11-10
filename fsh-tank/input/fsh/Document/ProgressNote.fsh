@@ -41,7 +41,7 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
     * effectiveTime only USRealmDateTimeInterval
       * low 1..1
       * obeys 1198-10066
-      * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-9481)."
+      * ^comment = "This serviceEvent SHALL contain zero or one [0..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-9481)."
 * componentOf 1..1
   * ^short = "The Progress Note is always associated with an encounter by the componentOf/encompassingEncounter element in the header. The effectiveTime element for an encompassingEncounter represents the time or time interval in which the encounter took place. A single encounter may contain multiple Progress Notes; hence the effectiveTime elements for a Progress Note (recorded in serviceEvent) and for an encounter (recorded in encompassingEncounter) represent different time intervals. For outpatient encounters that are a point in time, set effectiveTime/high, effectiveTime/low, and effectiveTime/@value to the same time. All visits take place at a specific location. When available, the location ID is included in the encompassingEncounter/location/healthCareFacility/id element."
   * ^comment = "SHALL contain exactly one [1..1] componentOf (CONF:1198-7595)."

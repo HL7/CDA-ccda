@@ -119,7 +119,7 @@ Standardization of information used in this form will promote interoperability; 
         admissionMedications 0..1 and
         admissionDiagnosis 0..1 and
         courseOfCare 0..1
-    * component[advanceDirectives] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28253)."
+    * component[advanceDirectives] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28253) such that it"
       * section only AdvanceDirectivesSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01) (CONF:1198-28254)."
     * component[allergiesAndIntolerances] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28255) such that it"

@@ -61,7 +61,7 @@ Description: "This template defines constraints that represent common administra
       * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
-        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-5375)."
+        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-5375)." // man-should
     * patient 1..1
       * ^comment = "This patientRole SHALL contain exactly one [1..1] patient (CONF:4537-5283)."
       * name 1..*
@@ -85,7 +85,7 @@ Description: "This template defines constraints that represent common administra
       * obeys should-maritalStatusCode
       * maritalStatusCode 0..1
       * maritalStatusCode from $2.16.840.1.113883.1.11.12212 (required)
-        * ^comment = "This patient SHOULD contain zero or one [0..1] maritalStatusCode, which SHALL be selected from ValueSet Marital Status urn:oid:2.16.840.1.113883.1.11.12212 DYNAMIC (CONF:4537-5303)."
+        * ^comment = "This patient SHOULD contain zero or one [0..1] maritalStatusCode, which SHALL be selected from ValueSet Marital Status urn:oid:2.16.840.1.113883.1.11.12212 DYNAMIC (CONF:4537-5303)."  // man-should
       * religiousAffiliationCode 0..1
       * religiousAffiliationCode from $2.16.840.1.113883.1.11.19185 (required)
         * ^comment = "This patient MAY contain zero or one [0..1] religiousAffiliationCode, which SHALL be selected from ValueSet Religious Affiliation urn:oid:2.16.840.1.113883.1.11.19185 DYNAMIC (CONF:4537-5317)."
@@ -108,18 +108,18 @@ Description: "This template defines constraints that represent common administra
         * obeys should-code
         * code 0..1
         * code from $2.16.840.1.113883.11.20.12.1 (required)
-          * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-5326)."
+          * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-5326)." // man-should
         * obeys should-addr
         * addr 0..*
         * addr only USRealmAddress
-          * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)."
+          * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)." // man-should
         * obeys should-telecom
         * telecom 0..*
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] telecom (CONF:4537-5382)." // auto-should
           * obeys should-use
           * use 0..1
           * use from $2.16.840.1.113883.11.20.9.20 (required)
-            * ^comment = "The telecom, if present, SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7993)."
+            * ^comment = "The telecom, if present, SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7993)." // man-should
         * guardianPerson 1..1
           * ^comment = "The guardian, if present, SHALL contain exactly one [1..1] guardianPerson (CONF:4537-5385)."
           * name 1..*
@@ -135,7 +135,7 @@ Description: "This template defines constraints that represent common administra
             * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
       * obeys should-languageCommunication
       * languageCommunication 0..*
-        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."
+        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)." // man-should
         * languageCode 1..1
         * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
         * modeCode 0..1
@@ -144,7 +144,7 @@ Description: "This template defines constraints that represent common administra
         * obeys should-proficiencyLevelCode
         * proficiencyLevelCode 0..1
         * proficiencyLevelCode from LanguageAbilityProficiency (required)
-          * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] proficiencyLevelCode, which SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.1.11.12199 DYNAMIC (CONF:4537-9965)."
+          * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] proficiencyLevelCode, which SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.1.11.12199 DYNAMIC (CONF:4537-9965)." // man-should
         * obeys should-preferenceInd
         * preferenceInd 0..1
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] preferenceInd (CONF:4537-5414)." // auto-should
@@ -154,7 +154,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] id (CONF:4537-5417)."
         * root 0..1
           * obeys should-npi
-          * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16820)."
+          * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16820)." // man-should
       * name 1..*
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] name (CONF:4537-5419)."
       * telecom 1..*
@@ -162,7 +162,7 @@ Description: "This template defines constraints that represent common administra
         * obeys should-use
         * use 0..1
         * use from $2.16.840.1.113883.11.20.9.20 (required)
-          * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7994)."
+          * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7994)." // man-should
       * addr 1..*
       * addr only USRealmAddress
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5422)."
@@ -190,7 +190,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-32884)."
       * obeys should-extension
       * extension 0..1
-        * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4537-32885)."
+        * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4537-32885)." // man-should
     * obeys should-code
     * code 0..1
       * ^short = "Only if this assignedAuthor is an assignedPerson should the assignedAuthor contain a code."
@@ -206,7 +206,7 @@ Description: "This template defines constraints that represent common administra
       * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
-        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7995)."
+        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7995)." // man-should
     * assignedPerson 0..1
       * ^comment = "MAY contain assignedPerson"
       * name 1..*
@@ -227,7 +227,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5443)."
       * root 0..1
         * obeys should-npi
-        * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16821)."
+        * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16821)." // man-should
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32173)."
@@ -239,7 +239,7 @@ Description: "This template defines constraints that represent common administra
       * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
-        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7996)."
+        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7996)." // man-should
     * assignedPerson 1..1
       * ^comment = "This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4537-5469)."
       * name 1..*
@@ -290,7 +290,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "This representedCustodianOrganization SHALL contain at least one [1..*] id (CONF:4537-5522)."
         * root 0..1
           * obeys should-npi
-          * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16822)."
+          * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16822)." // man-should
       * name 1..1
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] name (CONF:4537-5524)."
       * telecom 1..1
@@ -298,7 +298,7 @@ Description: "This template defines constraints that represent common administra
         * obeys should-use
         * use 0..1
         * use from $2.16.840.1.113883.11.20.9.20 (required)
-          * ^comment = "This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7998)."
+          * ^comment = "This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7998)." // man-should
       * addr 1..1
       * addr only USRealmAddress
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5559)."
@@ -351,7 +351,7 @@ Description: "This template defines constraints that represent common administra
       * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
-        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7999)."
+        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7999)." // man-should
     * assignedPerson 1..1
       * ^comment = "This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4537-5597)."
       * name 1..*
@@ -375,7 +375,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5613)."
       * root 0..1
         * obeys should-npi
-        * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier  (CONF:4537-16824)."
+        * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier  (CONF:4537-16824)." // man-should
     * code 0..1
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code (CONF:4537-16825)."
       * code 0..1
@@ -389,7 +389,7 @@ Description: "This template defines constraints that represent common administra
       * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
-        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-8000)."
+        * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-8000)." // man-should
     * assignedPerson 1..1
       * ^comment = "This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4537-5624)."
       * name 1..*
@@ -436,18 +436,18 @@ Description: "This template defines constraints that represent common administra
         * obeys should-code
         * code 0..1
         * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
-          * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)."
+          * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)." // man-should
       * assignedEntity 1..1
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-14841)."
         * id 1..*
           * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-14846)."
           * root 0..1
             * obeys should-npi
-            * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-14847)."
+            * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-14847)." // man-should
         * obeys should-code
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (preferred)
-          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-14842)."
+          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-14842)." // man-should
 * authorization 0..*
   * ^short = "The authorization element represents information about the patient's consent. The type of consent is conveyed in consent/code. Consents in the header have been finalized (consent/statusCode must equal Completed) and should be on file. This specification does not address how 'Privacy Consent' is represented, but does not preclude the inclusion of 'Privacy Consent'. The authorization consent is used for referring to consents that are documented elsewhere in the EHR or medical record for a health condition and/or treatment that is described in the CDA document."
   * ^comment = "MAY contain zero or more [0..*] authorization (CONF:4537-16792) such that it"

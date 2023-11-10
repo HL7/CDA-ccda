@@ -16,7 +16,7 @@ Problem Concerns are a subset of Health Concerns that have risen to the level of
     healthStatus 0..* and
     healthConcern 0..* and
     riskConcern 0..*
-* entry[healthStatus] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-30483)"
+* entry[healthStatus] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-30483) such that it" // man-should
   * observation 1..1
   * observation only HealthStatusObservation
     * ^comment = "The entry, if present, SHALL contain exactly one [1..1] Health Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.5:2014-06-09) (CONF:1198-30484)."

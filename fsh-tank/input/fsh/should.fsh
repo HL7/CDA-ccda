@@ -35,6 +35,11 @@ Description: "SHOULD contain code"
 Severity: #warning
 Expression: "code.exists()"
 
+Invariant: should-code-attr
+Description: "SHOULD contain @code"
+Severity: #warning
+Expression: "code.exists()"
+
 Invariant: should-componentOf
 Description: "SHOULD contain componentOf"
 Severity: #warning
@@ -210,6 +215,11 @@ Description: "SHOULD contain responsibleParty"
 Severity: #warning
 Expression: "responsibleParty.exists()"
 
+Invariant: should-root
+Description: "SHOULD contain @root"
+Severity: #warning
+Expression: "root.exists()"
+
 Invariant: should-setId
 Description: "SHOULD contain setId"
 Severity: #warning
@@ -229,6 +239,11 @@ Invariant: should-sdtcPrecondition2
 Description: "SHOULD contain sdtc:Precondition2"
 Severity: #warning
 Expression: "sdtcPrecondition2.exists()"
+
+Invariant: should-standardIndustryClassCode
+Description: "SHOULD contain standardIndustryClassCode"
+Severity: #warning
+Expression: "standardIndustryClassCode.exists()"
 
 Invariant: should-targetSiteCode
 Description: "SHOULD contain targetSiteCode"
