@@ -38,7 +38,6 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-8455)."
     * obeys should-performer
     * performer 0..*
-      * obeys 1198-32466
       * ^short = "The serviceEvent/performer represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare providers would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)." // auto-should
       * typeCode 1..1
@@ -48,6 +47,7 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
         * ^short = "SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] assignedEntity (CONF:1198-8459)."
         //"<min value=\"0\"/>"
+        * obeys 1198-32466
         * id 1..*
           * ^comment = "The assignedEntity, if present, SHALL contain at least one [1..*] id (CONF:1198-30882)."
           //"<slicing><rules value=\"open\"/></slicing></element>"
@@ -144,4 +144,4 @@ Expression: "assignedPerson.exists() or (assignedAuthoringDevice.exists() and re
 Invariant: 1198-32466
 Description: "If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:1198-32466)."
 Severity: #warning
-Expression: "assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"
+Expression: "assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"
