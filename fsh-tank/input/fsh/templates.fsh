@@ -1,10 +1,88 @@
 ////////////////////////////////////////////////////////////
 //                                                        //
+//                  Section SHOULD's                      //
+//                                                        //
+////////////////////////////////////////////////////////////
+// Basically all identical; copy, paste, change
+// Apply at top-level of section
+
+Invariant: should-section-advance-directives
+Description: "SHOULD contain am Advamce Directives Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(AdvanceDirectivesSection))"
+
+Invariant: should-section-discharge-dx
+Description: "SHOULD contain a Discharge Diagnosis Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(DischargeDiagnosisSection))"
+
+Invariant: should-section-discharge-meds
+Description: "SHOULD contain a Discharge Medications Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(DischargeMedicationsSection))"
+
+Invariant: should-section-functional-status
+Description: "SHOULD contain a Functional Status Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(FunctionalStatusSection))"
+
+Invariant: should-section-healthstatus
+Description: "SHOULD contain a Health Status Evaluations and Outcomes Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(HealthStatusEvaluationsandOutcomesSection))"
+
+Invariant: should-section-hpi
+Description: "SHOULD contain a History of Present Illness Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(HistoryofPresentIllnessSection))"
+
+Invariant: should-section-medications
+Description: "SHOULD contain a Medications Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(MedicationsSection))"
+
+Invariant: should-section-mental-status
+Description: "SHOULD contain a Mental Status Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(MentalStatusSection))"
+
+Invariant: should-section-nutrition
+Description: "SHOULD contain a Nutrition Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(NutritionSection))"
+
+Invariant: should-section-physical-exam
+Description: "SHOULD contain a Physical Exam Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(PhysicalExamSection))"
+
+Invariant: should-section-plan-of-treatment
+Description: "SHOULD contain a Plan of Treatment Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(PlanofTreatmentSection))"
+
+Invariant: should-section-procedures
+Description: "SHOULD contain a Procedures Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(ProceduresSection))"
+
+Invariant: should-section-results
+Description: "SHOULD contain a Results Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(ResultsSection))"
+
+Invariant: should-section-social-history
+Description: "SHOULD contain a Social History Section"
+Severity: #warning
+Expression: "component.where(section.hasTemplateIdOf(SocialHistorySection))"
+
+////////////////////////////////////////////////////////////
+//                                                        //
 //           Entry Requirements  - SHOULD                 //
 //                                                        //
 ////////////////////////////////////////////////////////////
 
-// Basically all identical; copy, paste, change
+// Basically all identical; copy, paste, change (be sure to change entry type, too)
 // Apply at top-level of section
 
 Invariant: should-admission-medication

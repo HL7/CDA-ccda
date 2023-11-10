@@ -54,6 +54,7 @@ A History and Physical Examination is required upon hospital admission as well a
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-8349)."
   * structuredBody 1..1
     * obeys ccrfv-or-cc-or-rfv and ap-or-a-and-p and ap-combo and cc-rfv-combo
+    * obeys should-section-hpi
     * ^short = "In this template (templateId 2.16.840.1.113883.10.20.22.1.3.2), coded entries are optional."
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30570)."
     * component 12..
@@ -110,7 +111,7 @@ A History and Physical Examination is required upon hospital admission as well a
     * component[component9] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30587) such that it"
       * section only PastMedicalHistory
         * ^comment = "SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2015-08-01) (CONF:1198-30588)."
-    * component[component10] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30589) such that it"
+    * component[component10] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30589) such that it" // man-should
       * section only HistoryofPresentIllnessSection
         * ^comment = "SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-30590)."
     * component[component11] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30591) such that it"

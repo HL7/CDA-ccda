@@ -193,6 +193,7 @@ A care plan document can include entry references from the information in these 
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-28753)."
   * structuredBody 1..1
     * obeys 1198-31044
+    * obeys should-section-healthstatus
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28754)."
     * component 2..
       * ^slicing.discriminator[0].type = #profile

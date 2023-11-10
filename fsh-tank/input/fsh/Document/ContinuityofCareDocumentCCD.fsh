@@ -60,6 +60,8 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-30659)."
   * structuredBody 1..1
+    * obeys should-section-procedures
+    * obeys should-section-plan-of-treatment
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30660)."
     * component ^slicing.discriminator[0].type = #profile
       * ^slicing.discriminator[=].path = "section"
@@ -91,7 +93,7 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
     * component[problems] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30665) such that it"
       * section only ProblemSection
         * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2015-08-01) (CONF:1198-30666)."
-    * component[procedures] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30667) such that it"
+    * component[procedures] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30667) such that it" // man-should
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30668)."
     * component[results] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30669) such that it"
@@ -118,7 +120,7 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
     * component[payers] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30683) such that it"
       * section only PayersSection
         * ^comment = "SHALL contain exactly one [1..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2015-08-01) (CONF:1198-30684)."
-    * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30685) such that it"
+    * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30685) such that it" // man-should
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30686)."
     * component[socialHist] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30687) such that it"

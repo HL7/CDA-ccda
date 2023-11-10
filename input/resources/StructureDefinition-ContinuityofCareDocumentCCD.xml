@@ -164,6 +164,20 @@
             <path value="ClinicalDocument.component.structuredBody"/>
             <comment value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30660)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-section-procedures"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Procedures Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.7.1' and extension = '2014-06-09'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-plan-of-treatment"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Plan of Treatment Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>

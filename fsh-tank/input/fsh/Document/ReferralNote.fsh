@@ -29,13 +29,15 @@ Examples of referral situations are when a patient is referred from a family phy
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This informationRecipient SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-31594)."
+* obeys should-participant-indirect
+* obeys should-participant-callback
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
     indirect 0..* and
     callback 0..*
-* participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"
+* participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"  // man-should
   * typeCode 1..1
   * typeCode = #IND (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"IND\" Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31924)."
@@ -49,7 +51,7 @@ Examples of referral situations are when a patient is referred from a family phy
       * name 1..*
       * name only USRealmPatientNamePTNUSFIELDED
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] US Realm Patient Name (PTN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1) (CONF:1198-31645)."
-* participant[callback] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"
+* participant[callback] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"  // man-should
   * ^short = "This participant represents the clinician to contact for questions about the referral note.  This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."
   * typeCode 1..1
   * typeCode = #CALLBCK (exactly)
@@ -76,6 +78,11 @@ Examples of referral situations are when a patient is referred from a family phy
 * component 1..1
   * structuredBody 1..1
     * obeys ap-or-a-and-p and ap-combo
+    * obeys should-section-plan-of-treatment
+    * obeys should-section-results
+    * obeys should-section-functional-status
+    * obeys should-section-mental-status
+    * obeys should-section-nutrition
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."
     * component ^slicing.discriminator[0].type = #profile
       * ^slicing.discriminator[=].path = "section"
@@ -105,7 +112,7 @@ Examples of referral situations are when a patient is referred from a family phy
         medications 1..1 and
         reasonForReferral 1..1 and
         payers 1..1
-    * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066) such that it"
+    * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066) such that it" // man-should
       * section only PlanofTreatmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-29067)."
     * component[advanceDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29068) such that it"
@@ -126,7 +133,7 @@ Examples of referral situations are when a patient is referred from a family phy
     * component[procedures] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29088) such that it"
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-29089)."
-    * component[results] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29090) such that it"
+    * component[results] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29090) such that it" // man-should
       * section only ResultsSection
         * ^comment = "SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2015-08-01) (CONF:1198-29091)."
     * component[reviewOfSystems] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29092) such that it"
@@ -138,16 +145,16 @@ Examples of referral situations are when a patient is referred from a family phy
     * component[vitalSigns] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29096) such that it"
       * section only VitalSignsSection
         * ^comment = "SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2015-08-01) (CONF:1198-29097)."
-    * component[functionalStatus] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29098) such that it"
+    * component[functionalStatus] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29098) such that it" // man-should
       * section only FunctionalStatusSection
         * ^comment = "SHALL contain exactly one [1..1] Functional Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09) (CONF:1198-29099)."
     * component[physicalExam] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29100) such that it"
       * section only PhysicalExamSection
         * ^comment = "SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2015-08-01) (CONF:1198-29101)."
-    * component[nutrition] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30780) such that it"
+    * component[nutrition] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30780) such that it" // man-should
       * section only NutritionSection
         * ^comment = "SHALL contain exactly one [1..1] Nutrition Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.57) (CONF:1198-30781)."
-    * component[mentalStatus] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30796) such that it"
+    * component[mentalStatus] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30796) such that it" // man-should
       * section only MentalStatusSection
         * ^comment = "SHALL contain exactly one [1..1] Mental Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.56:2015-08-01) (CONF:1198-30926)."
     * component[medicalEquip] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30798) such that it"

@@ -62,6 +62,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-9539)."
   * structuredBody 1..1
     * obeys cc-rfv-combo
+    * obeys should-section-discharge-meds
     * ^short = "In this template (templateId 2.16.840.1.113883.10.20.22.1.8.2), coded entries are optional."
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30518)."
     * component 4..
@@ -106,7 +107,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
     * component[component3] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
       * section only DischargeDiagnosisSection
         * ^comment = "SHALL contain exactly one [1..1] Discharge Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.24:2015-08-01) (CONF:1198-30524)."
-    * component[component4] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30525) such that it"
+    * component[component4] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30525) such that it" // man-should
       * section only DischargeMedicationsSection
         * ^comment = "SHALL contain exactly one [1..1] Discharge Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.11.1:2015-08-01) (CONF:1198-30526)."
     * component[component5] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30527) such that it"

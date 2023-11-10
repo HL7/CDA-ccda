@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="should-participant-callback"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or more [0..*] participant such that it SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC)"/>
+                <expression value="participant.where(typeCode = 'CALLBCK').exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
@@ -222,6 +232,27 @@
                 <severity value="error"/>
                 <human value="**SHALL** include an Assessment and Plan Section, or both an Assessment Section and a Plan of Treatment Section."/>
                 <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.9' and extension = '2014-06-09')).exists() or (component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.8' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).count() = 2)"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-medications"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Medications Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.1.1' and extension = '2014-06-09'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-physical-exam"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Physical Exam Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.2.10' and extension = '2015-08-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-results"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Results Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.3.1' and extension = '2015-08-01'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
             </constraint>
         </element>

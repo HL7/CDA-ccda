@@ -489,6 +489,13 @@
                 <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
+            <constraint>
+                <key value="should-section-healthstatus"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Health Status Evaluations and Outcomes Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.61' and extension.empty()))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>
