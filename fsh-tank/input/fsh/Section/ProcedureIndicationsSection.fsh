@@ -5,7 +5,7 @@ Title: "Procedure Indications Section"
 Description: "This section contains the reason(s) for the procedure or surgery. This section may include the preprocedure diagnoses as well as symptoms contributing to the reason for the procedure."
 
 * insert Section(#59768-2, Procedure Indications , 2.16.840.1.113883.10.20.22.2.29, 2014-06-09)
-* entry ^slicing.discriminator[0].type = #value
+* entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entry contains indication 0..*

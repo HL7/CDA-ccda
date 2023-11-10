@@ -16,7 +16,7 @@ When a Notes Section is present, Note Activity entries contain structured inform
 * code from $2.16.840.1.113883.11.20.9.68 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16892)."
 
-* entry ^slicing.discriminator[0].type = #value
+* entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:3250-16904) such that it"

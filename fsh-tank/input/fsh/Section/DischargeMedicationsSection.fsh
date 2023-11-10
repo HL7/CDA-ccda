@@ -17,7 +17,7 @@ Description: "This section contains the medications the patient is intended to t
   * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32857) such that it"
     * insert CodedLoinc(75311-1, Discharge Medications)
     * ^comment = "SHALL contain exactly one [1..1] @code=\"75311-1\" Discharge Medications (CONF:1198-32858)."
-* entry ^slicing.discriminator[0].type = #value
+* entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"

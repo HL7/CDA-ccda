@@ -6,7 +6,7 @@ Description: "This section lists and describes any healthcare encounters pertine
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
 * insert Section(#46240-8, Encounters, 2.16.840.1.113883.10.20.22.2.22.1, 2015-08-01)
-* entry ^slicing.discriminator[0].type = #value
+* entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"

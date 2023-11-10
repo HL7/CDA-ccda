@@ -9,7 +9,7 @@ Each unique instance of a payer and all the pertinent data needed to contact, bi
 The sources of payment are represented as a Coverage Activity, which identifies all of the insurance policies or government or other programs that cover some or all of the patient's healthcare expenses. The policies or programs are sequenced by preference. The Coverage Activity has a sequence number that represents the preference order. Each policy or program identifies the covered party with respect to the payer, so that the identifiers can be recorded."""
 
 * insert Section(#48768-6, Payers, 2.16.840.1.113883.10.20.22.2.18, 2015-08-01)
-* entry ^slicing.discriminator[0].type = #value
+* entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entry contains coverage 0..*

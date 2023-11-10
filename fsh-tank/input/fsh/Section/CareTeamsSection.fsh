@@ -13,7 +13,7 @@ The Care Team Organizer entry template used in the C-CDA Care Teams Section is m
 """
 
 * insert Section(#85847-2, Patient Care team information, 2.16.840.1.113883.10.20.22.2.500, 2022-06-01)
-* entry ^slicing.discriminator[0].type = #value
+* entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entry (CONF:4515-1) such that it"
