@@ -98,11 +98,6 @@
             <short value="The code selected indicates the category that groups the contained mental status observations (e.g., communication, learning and applying knowledge)."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-14378)."/>
             <min value="1"/>
-        </element>
-        <element id="Organizer.code.code">
-            <path value="Organizer.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code (CONF:1198-14697)."/>
-            <min value="1"/>
             <constraint>
                 <key value="1198-14698"/>
                 <severity value="warning"/>
@@ -110,6 +105,11 @@
                 <expression value="codeSystem.exists() implies (codeSystem = '2.16.840.1.113883.6.254' or codeSystem = '2.16.840.1.113883.6.96')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusOrganizer"/>
             </constraint>
+        </element>
+        <element id="Organizer.code.code">
+            <path value="Organizer.code.code"/>
+            <comment value="This code SHALL contain exactly one [1..1] @code (CONF:1198-14697)."/>
+            <min value="1"/>
         </element>
         <element id="Organizer.sdtcText">
             <path value="Organizer.sdtcText"/>

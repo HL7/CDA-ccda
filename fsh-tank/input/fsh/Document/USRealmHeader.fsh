@@ -74,8 +74,8 @@ Description: "This template defines constraints that represent common administra
         * obeys ts-shall-year and ts-should-day
         * ^short = "**MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)"
         * ^comment = "This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."
+      * obeys 4537-32993 and 4537-21000
       * sdtcDeceasedInd 0..1
-        * obeys 4537-32993 and 4537-21000
         * ^short = "sdtc:deceasedInd"
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."
       * sdtcDeceasedTime 0..1

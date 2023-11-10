@@ -17,8 +17,8 @@ Description: "The Mental Status Organizer template may be used to group related 
 * code 1..1
   * ^short = "The code selected indicates the category that groups the contained mental status observations (e.g., communication, learning and applying knowledge)."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-14378)."
+  * obeys 1198-14698
   * code 1..1
-    * obeys 1198-14698
     * ^comment = "This code SHALL contain exactly one [1..1] @code (CONF:1198-14697)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-14372)."

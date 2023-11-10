@@ -225,6 +225,20 @@
             <comment value="This patientRole SHALL contain exactly one [1..1] patient (CONF:4537-5283)."/>
             <min value="1"/>
             <constraint>
+                <key value="4537-32993"/>
+                <severity value="error"/>
+                <human value="If sdtc:deceasedInd=&quot;true&quot;, then sdtc:deceasedTime **SHALL** be present with either a @value or @nullFlavor=UNK (CONF:4537-32993)."/>
+                <expression value="sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
+                <key value="4537-21000"/>
+                <severity value="error"/>
+                <human value="If sdtc:deceasedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"/>
+                <expression value="sdtcDeceasedTime.value.exists() implies sdtcDeceasedInd.exists(value='true')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
                 <key value="should-maritalStatusCode"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain maritalStatusCode"/>
@@ -281,20 +295,6 @@
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedInd"/>
             <short value="sdtc:deceasedInd"/>
             <comment value="This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."/>
-            <constraint>
-                <key value="4537-32993"/>
-                <severity value="error"/>
-                <human value="If sdtc:deceasedInd=&quot;true&quot;, then sdtc:deceasedTime **SHALL** be present with either a @value or @nullFlavor=UNK (CONF:4537-32993)."/>
-                <expression value="sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
-            <constraint>
-                <key value="4537-21000"/>
-                <severity value="error"/>
-                <human value="If sdtc:deceasedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"/>
-                <expression value="sdtcDeceasedTime.value.exists() implies sdtcDeceasedInd.exists(value='true')"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime"/>

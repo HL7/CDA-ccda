@@ -21,7 +21,7 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * code from ActStatus (required)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32363)."
 * effectiveTime 0..1
-* effectiveTime only $EIVL-TS
+* effectiveTime only $PIVL-TS
   * obeys should-high
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."
 * obeys should-quantity
