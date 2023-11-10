@@ -31,6 +31,8 @@ There are supplemental templates and guidance for observations of [Occupational 
 * value 0..1
   * ^short = "NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
   * ^comment = "SHOULD contain zero or one [0..1] value (CONF:4515-8559)." // auto-should
+  * ^binding.strength = #example
+  * ^binding.description = "See additional binding"
   * insert AdditionalBinding(preferred, $SDoHConditions, Social Determinant of Health Observations, [[If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957).]])
 * author 0..*
 * author only AuthorParticipation

@@ -11,6 +11,7 @@ Description: "Reusable address template, for use in US Realm documents"
   * ^comment = "Historically this was bound to ValueSet PostalAddressUse urn:oid:2.16.840.1.113883.1.11.10637 STATIC 2005-05-01, but this contained 'CONF' which is not allowed by CDA. So the binding has been removed in the current version of C-CDA."
 * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
 * item.state ^binding.description = "If country is something other than US, the state MAY be present but MAY be bound to different vocabularies"
+  * ^binding.strength = #example
   * insert AdditionalBinding(required, http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state, For US Addresses, [[If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. (CONF:81-10024).]])
 * item.city ^short = "city is required if nullFlavor is absent"
   * ^comment = "SHALL contain exactly one [1..1] city (CONF:81-7292)."
