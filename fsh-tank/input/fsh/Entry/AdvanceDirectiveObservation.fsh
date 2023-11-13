@@ -94,6 +94,11 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
 * participant contains
     participant1 0..* and
     participant2 0..*
+* participant[participant1] ^short = "The participant \"VRF\" represents the clinician(s) who verified the patient advance directive."
+  * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
+  * typeCode 1..1
+  * typeCode = #VRF (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"VRF\" Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."
   * templateId ^slicing.discriminator[0].type = #value
     * ^slicing.discriminator[=].path = "root"
     * ^slicing.rules = #open
@@ -104,11 +109,6 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
       * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.1.58\" (CONF:1198-10486)."
     * extension 0..0
       * ^comment = "SHALL not contain [0..0] extension"
-* participant[participant1] ^short = "The participant \"VRF\" represents the clinician(s) who verified the patient advance directive."
-  * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
-  * typeCode 1..1
-  * typeCode = #VRF (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"VRF\" Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."
   * obeys should-time
   * time 0..1
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:1198-8665)." // auto-should

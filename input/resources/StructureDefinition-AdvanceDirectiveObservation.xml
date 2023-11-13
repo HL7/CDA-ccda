@@ -244,35 +244,6 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="Observation.participant.templateId">
-            <path value="Observation.participant.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.participant.templateId:primary">
-            <path value="Observation.participant.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8664) such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.participant.templateId:primary.root">
-            <path value="Observation.participant.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.58&quot; (CONF:1198-10486)."/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.1.58"/>
-        </element>
-        <element id="Observation.participant.templateId:primary.extension">
-            <path value="Observation.participant.templateId.extension"/>
-            <comment value="SHALL not contain [0..0] extension"/>
-            <max value="0"/>
-        </element>
         <element id="Observation.participant:participant1">
             <path value="Observation.participant"/>
             <sliceName value="participant1"/>
@@ -287,6 +258,35 @@
                 <expression value="time.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
+        </element>
+        <element id="Observation.participant:participant1.templateId">
+            <path value="Observation.participant.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.participant:participant1.templateId:primary">
+            <path value="Observation.participant.templateId"/>
+            <sliceName value="primary"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8664) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.participant:participant1.templateId:primary.root">
+            <path value="Observation.participant.templateId.root"/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.58&quot; (CONF:1198-10486)."/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.1.58"/>
+        </element>
+        <element id="Observation.participant:participant1.templateId:primary.extension">
+            <path value="Observation.participant.templateId.extension"/>
+            <comment value="SHALL not contain [0..0] extension"/>
+            <max value="0"/>
         </element>
         <element id="Observation.participant:participant1.typeCode">
             <path value="Observation.participant.typeCode"/>
