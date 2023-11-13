@@ -48,10 +48,24 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
             </constraint>
             <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
+            </constraint>
+            <constraint>
                 <key value="should-effectiveTime"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain effectiveTime"/>
                 <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
+            </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
             </constraint>
         </element>

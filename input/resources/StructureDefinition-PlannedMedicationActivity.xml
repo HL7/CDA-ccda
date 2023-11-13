@@ -54,6 +54,13 @@
                 <expression value="doseQuantity.unit.exists() implies administrationUnitCode.empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.templateId">
             <path value="SubstanceAdministration.templateId"/>
@@ -146,6 +153,13 @@
         <element id="SubstanceAdministration.routeCode">
             <path value="SubstanceAdministration.routeCode"/>
             <comment value="MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-32067)."/>
+            <constraint>
+                <key value="should-translation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain translation"/>
+                <expression value="translation.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
@@ -170,6 +184,13 @@
         <element id="SubstanceAdministration.doseQuantity">
             <path value="SubstanceAdministration.doseQuantity"/>
             <comment value="MAY contain zero or one [0..1] doseQuantity (CONF:1098-32068)."/>
+            <constraint>
+                <key value="should-unit"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain @unit"/>
+                <expression value="nullFlavor.exists() or unit.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.doseQuantity.unit">
             <path value="SubstanceAdministration.doseQuantity.unit"/>
@@ -183,6 +204,13 @@
         <element id="SubstanceAdministration.rateQuantity">
             <path value="SubstanceAdministration.rateQuantity"/>
             <comment value="MAY contain zero or one [0..1] rateQuantity (CONF:1098-32079)."/>
+            <constraint>
+                <key value="should-unit"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain @unit"/>
+                <expression value="nullFlavor.exists() or unit.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.rateQuantity.unit">
             <path value="SubstanceAdministration.rateQuantity.unit"/>

@@ -52,9 +52,10 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
     * ^comment = "This value MAY contain zero or more [0..*] qualifier (CONF:1198-31870)."
   * translation ^short = "MAY contain a translation from CodeSystem: ICD-10-CM urn:oid:2.16.840.1.113883.6.90"
     * ^comment = "This value MAY contain zero or more [0..*] translation (CONF:1198-16749) such that it MAY contain zero or one [0..1] @code (CodeSystem: ICD-10-CM urn:oid:2.16.840.1.113883.6.90 STATIC) (CONF:1198-16750)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31147)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31147)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open

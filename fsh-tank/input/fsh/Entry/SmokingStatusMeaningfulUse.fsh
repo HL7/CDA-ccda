@@ -50,6 +50,7 @@ If the patient's current smoking status is unknown, the value element must be po
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.38 (example)
     * ^comment = "This value SHALL contain exactly one [1..1] @code, which MAY be selected from ValueSet Smoking Status urn:oid:2.16.840.1.113883.11.20.9.38 DYNAMIC (CONF:1098-14817)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31148)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31148)." // man-should

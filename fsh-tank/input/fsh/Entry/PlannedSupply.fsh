@@ -39,10 +39,11 @@ Depending on the type of supply, the product or participant will be either a Med
 * performer 0..*
   * ^short = "The clinician who is expected to perform the supply could be identified using supply/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-32048)."
+* obeys should-author
 * author 0..1
 * author only AuthorParticipation
   * ^short = "The author in a supply represents the clinician who is requesting or planning the supply."
-  * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)."
+  * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open

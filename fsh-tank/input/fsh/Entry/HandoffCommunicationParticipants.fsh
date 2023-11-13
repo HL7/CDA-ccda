@@ -46,9 +46,10 @@ Description: "This template represents the sender (author) and receivers (partic
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:1098-31675)."
     * id 1..*
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:1098-32422)."
+    * obeys should-code
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31676)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31676)." // man-should
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This participantRole SHALL contain at least one [1..*] addr (CONF:1098-32392)."

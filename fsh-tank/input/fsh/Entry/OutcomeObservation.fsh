@@ -22,9 +22,10 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
 * obeys should-value
 * value 0..1
   * ^comment = "SHOULD contain zero or one [0..1] value (CONF:1098-32747)." // auto-should
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)." // man-should
 * entryRelationship 1..*
 * entryRelationship ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"

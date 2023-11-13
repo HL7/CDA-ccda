@@ -30,9 +30,10 @@ Description: "This template represents the type of referral (e.g., for dental ca
 * obeys should-priorityCode
 * priorityCode 0..1
   * ^comment = "SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)." // auto-should
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31612)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31612)." // man-should
 * participant 0..*
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1098-32635)."
   * typeCode 1..1
@@ -76,9 +77,10 @@ Description: "This template represents the type of referral (e.g., for dental ca
       * code 1..1
       * code = #completed (exactly)
         * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31615)."
+    * obeys should-priorityCode
     * priorityCode 0..1
     * priorityCode from ActPriority (preferred)
-      * ^comment = "This observation SHOULD contain zero or one [0..1] priorityCode, which SHOULD be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-32443)."
+      * ^comment = "This observation SHOULD contain zero or one [0..1] priorityCode, which SHOULD be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-32443)." // man-should
     * value 1..1
     * value only $CD
     * value from $2.16.840.1.113883.11.20.9.61 (preferred)

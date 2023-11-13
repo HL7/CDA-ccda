@@ -96,6 +96,13 @@
         <element id="Act.code">
             <path value="Act.code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:3250-16895)."/>
+            <constraint>
+                <key value="should-translation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain translation"/>
+                <expression value="translation.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+            </constraint>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
@@ -174,6 +181,13 @@
             <short value="The effectiveTime represents the clinically relevant time of the note. The precise timestamp of creation / updating should be conveyed in author/time."/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:3250-16903)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-value-att"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain @value"/>
+                <expression value="value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+            </constraint>
         </element>
         <element id="Act.effectiveTime.value">
             <path value="Act.effectiveTime.value"/>

@@ -27,10 +27,11 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
   * codeSystem 1..1
   * codeSystem = "2.16.840.1.113883.6.1"
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" LOINC (CONF:3250-16941)."
+  * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113883.11.20.9.68 (preferred)
     * ^short = "If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943). If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."
-    * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."
+    * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)." // man-should
 * text 1..1
   * ^comment = "SHALL contain exactly one [1..1] text (CONF:3250-16896)."
   * obeys 3250-16912
@@ -51,8 +52,9 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
 * effectiveTime 1..1
   * ^short = "The effectiveTime represents the clinically relevant time of the note. The precise timestamp of creation / updating should be conveyed in author/time."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:3250-16903)."
+  * obeys should-value-att
   * value 0..1
-    * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] @value (CONF:3250-16917)."
+    * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] @value (CONF:3250-16917)." // man-should
 * author 1..*
 * author only AuthorParticipation
   * ^short = "Represents the person(s) who wrote the note."

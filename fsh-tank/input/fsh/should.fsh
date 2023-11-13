@@ -105,6 +105,11 @@ Description: "SHOULD contain informationRecipient"
 Severity: #warning
 Expression: "informationRecipient.exists()"
 
+Invariant: should-interpretationCode
+Description: "SHOULD contain interpretationCode"
+Severity: #warning
+Expression: "interpretationCode.exists()"
+
 Invariant: should-languageCommunication
 Description: "SHOULD contain languageCommunication"
 Severity: #warning
@@ -220,6 +225,11 @@ Description: "SHOULD contain @root"
 Severity: #warning
 Expression: "root.exists()"
 
+Invariant: should-routeCode
+Description: "SHOULD contain routeCode"
+Severity: #warning
+Expression: "routeCode.exists()"
+
 Invariant: should-setId
 Description: "SHOULD contain setId"
 Severity: #warning
@@ -265,10 +275,20 @@ Description: "SHOULD contain time"
 Severity: #warning
 Expression: "time.exists()"
 
+Invariant: should-translation
+Description: "SHOULD contain translation"
+Severity: #warning
+Expression: "translation.exists()"
+
 Invariant: should-use
 Description: "SHOULD contain @use"
 Severity: #warning
 Expression: "nullFlavor.exists() or use.exists()"
+
+Invariant: should-unit
+Description: "SHOULD contain @unit"
+Severity: #warning
+Expression: "nullFlavor.exists() or unit.exists()"
 
 Invariant: should-value
 Description: "SHOULD contain value"
@@ -288,10 +308,16 @@ Expression: "versionNumber.exists()"
 ////////////////////////////////////////////////////////////
 //                                                        //
 //                US-Realm-Header Alts                    //
-//                                                        //
+//                 (and others)                           //
 ////////////////////////////////////////////////////////////
 // Because the IG Publisher is picky (and because SUSHI hasn't implemented https://github.com/FHIR/sushi/issues/1372 yet)
 // Create some duplicate should-invariants for the US Realm Header
+
+
+Invariant: should-sh-author
+Description: "SHOULD contain author"
+Severity: #warning
+Expression: "author.exists()"
 
 Invariant: should-us-addr
 Description: "SHOULD contain addr"
