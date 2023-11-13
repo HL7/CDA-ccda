@@ -113,7 +113,7 @@ Description: "This template defines constraints that represent common administra
         * addr 0..*
         * addr only USRealmAddress
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)." // man-should
-        * obeys should-telecom
+        * obeys should-us-telecom
         * telecom 0..*
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] telecom (CONF:4537-5382)." // auto-should
           * obeys should-use
