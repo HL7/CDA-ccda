@@ -43,7 +43,6 @@ An alternative is to place the Note Activity as an entryRelationship to an Encou
     * nullFlavor 0..0
       * ^short = "The note activity must reference human-readable content in the narrative, so this reference must not be null."
       * ^comment = "This reference SHALL NOT contain [0..0] @nullFlavor (CONF:3250-16920)."
-    * obeys value-starts-octothorpe
     * value 1..1
       * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:3250-16898)."
 * statusCode 1..1

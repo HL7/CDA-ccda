@@ -30,7 +30,6 @@ An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."
   * reference 1..1
     * ^short = "Reference into the section/text to a tag that only contains free text sig."
     * ^comment = "This text SHALL contain exactly one [1..1] reference (CONF:81-32755)."
-    * obeys value-starts-octothorpe
     * value 0..1
       * ^comment = "This reference SHOULD contain zero or one [0..1] @value (CONF:81-32756)."
 * consumable 1..1

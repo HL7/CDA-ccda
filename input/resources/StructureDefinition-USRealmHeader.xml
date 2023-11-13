@@ -246,7 +246,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="should-languageCommunication"/>
+                <key value="should-us-languageCommunication"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain languageCommunication"/>
                 <expression value="languageCommunication.exists()"/>
@@ -378,14 +378,14 @@
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian"/>
             <comment value="This patient MAY contain zero or more [0..*] guardian (CONF:4537-5325)."/>
             <constraint>
-                <key value="should-code"/>
+                <key value="should-us-code"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="should-addr"/>
+                <key value="should-us-addr"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain addr"/>
                 <expression value="addr.exists()"/>
@@ -618,7 +618,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="should-code"/>
+                <key value="should-us-code"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>
@@ -1232,7 +1232,7 @@
             <short value="A serviceEvent represents the main act being documented, such as a colonoscopy or a cardiac stress study. In a provision of healthcare serviceEvent, the care providers, PCP, or other longitudinal providers, are recorded within the serviceEvent. If the document is about a single encounter, the providers associated can be recorded in the componentOf/encompassingEncounter template."/>
             <comment value="The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:4537-14836)."/>
             <constraint>
-                <key value="should-performer"/>
+                <key value="should-us-performer"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain performer"/>
                 <expression value="performer.exists()"/>
@@ -1270,7 +1270,7 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
             <comment value="The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."/>
             <constraint>
-                <key value="should-code"/>
+                <key value="should-us-code"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>
@@ -1289,7 +1289,7 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
             <comment value="The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-14841)."/>
             <constraint>
-                <key value="should-code"/>
+                <key value="should-us-code"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>

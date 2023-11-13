@@ -105,11 +105,11 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "This patient MAY contain zero or more [0..*] ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:4537-32901)."
       * guardian 0..*
         * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:4537-5325)."
-        * obeys should-code
+        * obeys should-us-code
         * code 0..1
         * code from $2.16.840.1.113883.11.20.12.1 (required)
           * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-5326)." // man-should
-        * obeys should-addr
+        * obeys should-us-addr
         * addr 0..*
         * addr only USRealmAddress
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)." // man-should
@@ -133,7 +133,7 @@ Description: "This template defines constraints that represent common administra
             * obeys 4537-5402 and 4537-5403 and should-country
             * ^comment = "This place SHALL contain exactly one [1..1] addr (CONF:4537-5397)."
             * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
-      * obeys should-languageCommunication
+      * obeys should-us-languageCommunication
       * languageCommunication 0..*
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)." // man-should
         * languageCode 1..1
@@ -191,7 +191,7 @@ Description: "This template defines constraints that represent common administra
       * obeys should-extension
       * extension 0..1
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4537-32885)." // man-should
-    * obeys should-code
+    * obeys should-us-code
     * code 0..1
       * ^short = "Only if this assignedAuthor is an assignedPerson should the assignedAuthor contain a code."
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4537-16787)." // auto-should
@@ -424,7 +424,7 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:4537-14837)."
       * low 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-14838)."
-    * obeys should-performer
+    * obeys should-us-performer
     * performer 0..*
       * ^short = "The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:4537-14839)." // auto-should
@@ -433,7 +433,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
       * functionCode 0..1
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
-        * obeys should-code
+        * obeys should-us-code
         * code 0..1
         * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
           * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)." // man-should
@@ -444,7 +444,7 @@ Description: "This template defines constraints that represent common administra
           * root 0..1
             * obeys should-npi
             * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-14847)." // man-should
-        * obeys should-code
+        * obeys should-us-code
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (preferred)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-14842)." // man-should

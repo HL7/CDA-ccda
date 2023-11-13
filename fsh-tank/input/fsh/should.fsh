@@ -285,6 +285,38 @@ Description: "SHOULD contain versionNumber"
 Severity: #warning
 Expression: "versionNumber.exists()"
 
+////////////////////////////////////////////////////////////
+//                                                        //
+//                US-Realm-Header Alts                    //
+//                                                        //
+////////////////////////////////////////////////////////////
+// Because the IG Publisher is picky (and because SUSHI hasn't implemented https://github.com/FHIR/sushi/issues/1372 yet)
+// Create some duplicate should-invariants for the US Realm Header
+
+Invariant: should-us-addr
+Description: "SHOULD contain addr"
+Severity: #warning
+Expression: "addr.exists()"
+
+Invariant: should-us-code
+Description: "SHOULD contain code"
+Severity: #warning
+Expression: "code.exists()"
+
+Invariant: should-us-languageCommunication
+Description: "SHOULD contain languageCommunication"
+Severity: #warning
+Expression: "languageCommunication.exists()"
+
+Invariant: should-us-performer
+Description: "SHOULD contain performer"
+Severity: #warning
+Expression: "performer.exists()"
+
+Invariant: should-us-telecom
+Description: "SHOULD contain telecom"
+Severity: #warning
+Expression: "telecom.exists()"
 
 ////////////////////////////////////////////////////////////
 //                                                        //
