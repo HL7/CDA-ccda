@@ -44,9 +44,10 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * code from $2.16.840.1.113883.3.88.12.3221.6.2 (required)
     * ^short = "Many systems will simply assign a fixed value here (e.g., \"allergy to substance\")."
     * ^comment = "This value SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Allergy and Intolerance Type urn:oid:2.16.840.1.113883.3.88.12.3221.6.2 DYNAMIC (CONF:1098-16317)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31144)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31144)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open

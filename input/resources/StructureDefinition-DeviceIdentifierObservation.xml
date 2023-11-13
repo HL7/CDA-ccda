@@ -129,6 +129,13 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
             </type>
+            <constraint>
+                <key value="should-extension"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain extension"/>
+                <expression value="extension.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DeviceIdentifierObservation"/>
+            </constraint>
         </element>
         <element id="Observation.value.displayable">
             <path value="Observation.value.displayable"/>

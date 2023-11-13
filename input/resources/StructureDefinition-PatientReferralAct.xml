@@ -53,6 +53,13 @@
                 <expression value="priorityCode.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+            </constraint>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>
@@ -199,6 +206,13 @@
             <path value="Act.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] observation (CONF:1098-31605)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-priorityCode"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain priorityCode"/>
+                <expression value="priorityCode.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+            </constraint>
         </element>
         <element id="Act.entryRelationship:entryRelationship1.observation.classCode">
             <path value="Act.entryRelationship.observation.classCode"/>

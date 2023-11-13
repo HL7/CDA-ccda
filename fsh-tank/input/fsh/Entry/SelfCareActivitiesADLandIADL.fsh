@@ -29,6 +29,7 @@ Description: "This template represents a patient's daily self-care ability. Thes
 * value from Ability (preferred)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet Ability urn:oid:2.16.840.1.113883.11.20.9.46 DYNAMIC (CONF:1098-28042)."
   //"<sliceName value=\"ability\"/>"
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32469)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32469)." // man-should

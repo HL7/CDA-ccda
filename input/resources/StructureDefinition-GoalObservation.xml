@@ -54,6 +54,13 @@
                 <expression value="effectiveTime.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>

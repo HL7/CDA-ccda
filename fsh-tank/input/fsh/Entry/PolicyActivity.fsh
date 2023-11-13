@@ -94,9 +94,10 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * codeSystem 1..1
       * codeSystem = "2.16.840.1.113883.5.110"
         * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.5.110\" (CONF:4537-32165)."
+    * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)." // man-should
     * obeys should-telecom
     * telecom 0..*
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)." // auto-should
@@ -135,12 +136,14 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8922)."
     * code 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] code (CONF:4537-8923)."
+      * obeys should-code-attr
       * code 0..1
       * code from $2.16.840.1.113883.1.11.18877 (preferred)
-        * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Coverage Role Type Value Set urn:oid:2.16.840.1.113883.1.11.18877 DYNAMIC (CONF:4537-16078)."
+        * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Coverage Role Type Value Set urn:oid:2.16.840.1.113883.1.11.18877 DYNAMIC (CONF:4537-16078)." // man-should
+    * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)." // man-should
     * obeys should-playingEntity
     * playingEntity 0..1
       * ^short = "This playingEntity records the covered party name and birthTime as represented by the health plan. This could match the information in recordTarget, or be different due to marriage or other reasons."
@@ -169,9 +172,10 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * id 1..*
       * ^short = "This id is a unique identifier for the subscriber of the coverage (CONF:4537-10120)."
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8937)."
+    * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "act.moodCode"
   * ^slicing.rules = #open

@@ -167,6 +167,13 @@
         <element id="Act.participant:infoRecipient.participantRole">
             <path value="Act.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:1098-31675)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HandoffCommunicationParticipants"/>
+            </constraint>
         </element>
         <element id="Act.participant:infoRecipient.participantRole.id">
             <path value="Act.participant.participantRole.id"/>

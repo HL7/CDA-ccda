@@ -45,6 +45,7 @@ The effectiveTime element is used to describe dates associated with the patient'
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.41 (required)
     * ^comment = "This value SHALL contain exactly one [1..1] @code,  which SHALL be selected from ValueSet Tobacco Use urn:oid:2.16.840.1.113883.11.20.9.41 DYNAMIC (CONF:1098-16563)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31152)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31152)." // man-should

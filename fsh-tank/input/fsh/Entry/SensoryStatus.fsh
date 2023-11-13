@@ -33,9 +33,10 @@ Description: "This template represents a patient's sensory or speech ability. It
 * value only $CD
 * value from $2.16.840.1.113883.11.20.9.44 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet Mental and Functional Status Response urn:oid:2.16.840.1.113883.11.20.9.44 DYNAMIC (CONF:1098-27974)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31439)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31439)." // man-should
 * entryRelationship ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open

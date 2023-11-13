@@ -61,6 +61,13 @@
                 <expression value="(statusCode.code = 'active') implies effectiveTime.low.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct"/>
+            </constraint>
         </element>
         <element id="Act.templateId">
             <path value="Act.templateId"/>

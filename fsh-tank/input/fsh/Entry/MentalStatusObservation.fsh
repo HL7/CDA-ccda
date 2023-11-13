@@ -38,9 +38,10 @@ Description: "The Mental Status Observation template represents an observation a
 * value contains code 0..1
 * value[code] only $CD
 * value[code] from $2.16.840.1.113762.1.4.1240.1 (preferred)
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-14266)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-14266)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open

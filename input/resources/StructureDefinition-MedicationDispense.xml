@@ -184,6 +184,13 @@
         <element id="Supply.performer.assignedEntity">
             <path value="Supply.performer.assignedEntity"/>
             <comment value="The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-7467)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationDispense"/>
+            </constraint>
         </element>
         <element id="Supply.performer.assignedEntity.addr">
             <path value="Supply.performer.assignedEntity.addr"/>

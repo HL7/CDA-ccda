@@ -42,7 +42,7 @@ Description: "The Family History Organizer associates a set of observations with
         * ^comment = "The subject, if present, SHOULD contain zero or one [0..1] birthTime (CONF:1198-15976)." // auto-should
       * obeys should-sdtcId
       * sdtcId 0..1
-        * ^short = "SHOULD contain sdtc:id"
+        * ^short = "SHOULD contain sdtc:id" // man-should
       * sdtcDeceasedInd 0..1
         * ^short = "MAY contain sdtc:deceasedInd"
       * sdtcDeceasedTime 0..1

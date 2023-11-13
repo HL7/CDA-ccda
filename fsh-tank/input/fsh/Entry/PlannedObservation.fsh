@@ -36,17 +36,19 @@ The Planned Observation template may also indicate the potential insurance cover
 * methodCode 0..1
   * ^short = "In a planned observation the provider may suggest that an observation should be performed using a particular method."
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:1098-32043)."
+* obeys should-targetSiteCode
 * targetSiteCode 0..*
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^short = "The targetSiteCode is used to identify the part of the body of concern for the planned observation."
-  * ^comment = "SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32044)."
+  * ^comment = "SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32044)." // man-should
 * performer 0..*
   * ^short = "The clinician who is expected to perform the observation could be identified using procedure/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30456)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
   * ^short = "The author in a planned observation represents the clinician who is requesting or planning the observation."
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32033)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32033)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #profile

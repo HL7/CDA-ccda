@@ -47,9 +47,10 @@ The agent responsible for an allergy or adverse reaction is not always a manufac
 * value only $CD
 * value from $2.16.840.1.113883.3.88.12.3221.6.2 (required)
   * ^short = "The consumable participant points to the precise allergen or substance of intolerance. Because the consumable and the reaction are more clinically relevant than a categorization of the allergy/adverse event type, many systems will simply assign a fixed value here (e.g., \"allergy to substance\")."
+// * obeys should-author this is defined at SubstanceOrDeviceAllergy; no need to re-define
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31143)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31143)." // man-should
 * participant[participant1].participantRole.playingEntity
   * code from $2.16.840.1.113762.1.4.1186.8 (preferred)
     * insert USCDI([[Substance]])

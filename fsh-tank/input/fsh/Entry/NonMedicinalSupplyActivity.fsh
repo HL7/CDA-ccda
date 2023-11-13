@@ -20,10 +20,11 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * code 1..1
   * code from ActStatus (required)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32363)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
 * effectiveTime only $IVL-TS
   * obeys should-high
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)." // man-should
 * obeys should-quantity
 * quantity 0..1
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)." // auto-should

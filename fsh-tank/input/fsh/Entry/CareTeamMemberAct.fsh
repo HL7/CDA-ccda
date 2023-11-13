@@ -58,7 +58,7 @@ This id must be a pointer to another Performer."""
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-176)."
       * root 0..1
         * obeys should-npi
-        * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)."
+        * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)." // man-should
     * obeys should-addr
     * addr 0..*
     * addr only USRealmAddress
