@@ -35,14 +35,56 @@ const xml2js = require('xml2js');
 
   const files = fs.readdirSync(fshDirectory);
 
-  let tempCnt = 0;
+  const identifiers = [];
+
+  function saveIdentifier(sd) {
+    const value = sd.identifier?.[0].value;
+    if (!value) return null;
+    identifiers[sd.name] = value;
+    return value;
+  }
+  function getIdentifierForSD(name) {
+    if (identifiers[name]) return identifiers[name];
+    try {
+      const data = fs.readFileSync(path.join(fshDirectory, `StructureDefinition-${name}.json`));
+      const json = JSON.parse(data);
+      return saveIdentifier(json);
+    } catch (e) {
+      console.error(`Error looking up identifier for ${name}: ${e.message}`);
+    }
+  }
+  function buildTemplateIdWhere(name) {
+    const identifier = getIdentifierForSD(name);
+    if (!identifier) {
+      console.error(`Could not load identifier for ${name}`);
+      return;
+    }
+    const rootExt = identifier.match(/^urn:hl7ii:(\d(?:\.\d+)+):(\d{4}-\d{2}-\d{2})$/);
+    if (rootExt) {
+      return `root = '${rootExt[1]}' and extension = '${rootExt[2]}'`;
+    }
+    const rootOnly = identifier.match(/^urn:oid:(\d(?:\.\d+)+)$/);
+    if (rootOnly) {
+      return `root = '${rootOnly[1]}' and extension.empty()`;
+    }
+    console.error(`Unrecognized identifier format: ${identifier}`);
+  }
+
   // Iterate through each file
   files.forEach(async (file) => {
     if (path.extname(file) === '.json') {
       const filePath = path.join(fshDirectory, file);
 
-      const data = fs.readFileSync(filePath, 'utf8');
+      let data = fs.readFileSync(filePath, 'utf8');
+
+      // Implement custom hasTemplateIdOf(SDName) function!
+      data = data.replace(/hasTemplateIdOf\((\w+)\)/g, (match, capture) => {
+        const rootExt = buildTemplateIdWhere(capture);
+        return rootExt ? `templateId.where(${rootExt})` : 'not()';
+      });
+
       const json = JSON.parse(data);
+      saveIdentifier(json);
 
       // Make sure the description in the IG matches the description from the SD
       const sdId = json.id;

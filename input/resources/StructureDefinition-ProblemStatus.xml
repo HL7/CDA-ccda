@@ -91,13 +91,19 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-19162)."/>
+            <short value="Status"/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;33999-4&quot; Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-19163)."/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;33999-4&quot; Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-19163)."/>
             <min value="1"/>
             <patternCode value="33999-4"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
@@ -115,16 +121,14 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-7364)."/>
             <min value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19113)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>

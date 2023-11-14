@@ -31,5 +31,6 @@ The Device Identifier number can be used as a key to look-up device identificati
     * ^comment = "This value SHALL contain exactly one [1..1] @displayable=\"true\" (CONF:4524-3540)."
   * root 1..1
     * ^comment = "This value SHALL contain exactly one [1..1] @root (CONF:4524-3430)."
+  * obeys should-extension
   * extension 0..1
-    * ^comment = "This value SHOULD contain zero or one [0..1] @extension (CONF:4524-3431)."
+    * ^comment = "This value SHOULD contain zero or one [0..1] @extension (CONF:4524-3431)." // man-should

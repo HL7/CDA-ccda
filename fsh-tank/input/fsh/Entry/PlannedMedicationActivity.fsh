@@ -30,25 +30,28 @@ Description: "This template represents planned medication activities. The priori
 * routeCode 0..1
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-32067)."
+  * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113762.1.4.1099.12 (required)
-    * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32952)."
+    * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32952)." // man-should
 * approachSiteCode 0..*
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or more [0..*] approachSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32078)."
 * obeys dose-unit-or-admin-unit
 * doseQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] doseQuantity (CONF:1098-32068)."
+  * obeys should-unit
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
-    * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32133)."
+    * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32133)." // man-should
 * rateQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-32079)."
+  * obeys should-unit
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
-    * ^comment = "The rateQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32134)."
+    * ^comment = "The rateQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32134)." // man-should
 * maxDoseQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] maxDoseQuantity (CONF:1098-32080)."
 * administrationUnitCode 0..1
@@ -62,10 +65,11 @@ Description: "This template represents planned medication activities. The priori
 * performer 0..*
   * ^short = "The clinician who is expected to perform the medication activity could be identified using substanceAdministration/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30470)."
+* obeys should-author
 * author 0..1
 * author only AuthorParticipation
   * ^short = "The author in a planned medication activity represents the clinician who is requesting or planning the medication activity."
-  * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32046)."
+  * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32046)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile

@@ -10,8 +10,9 @@ Description: "This template represents observations regarding the outcome of car
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains outcome 1..*
+* entry contains outcome 0..*
 * entry[outcome] ^comment = "SHALL contain at least one [1..*] entry (CONF:1098-31227) such that it"
   * observation 1..1
   * observation only OutcomeObservation
     * ^comment = "SHALL contain exactly one [1..1] Outcome Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.144) (CONF:1098-31228)."
+* obeys shall-outcome-obs

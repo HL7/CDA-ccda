@@ -1,5 +1,4 @@
 <section xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
 	<templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
 	<!-- Allergies section template -->
 	<code code="48765-2" codeSystem="2.16.840.1.113883.6.1"/>
@@ -29,7 +28,6 @@
 	<entry typeCode="DRIV">
 		<act classCode="ACT" moodCode="EVN">
 			<!-- ** Allergy problem act ** -->
-			<templateId root="2.16.840.1.113883.10.20.22.4.30"/>
 			<templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08-01"/>
 			<id root="0fffb34f-c1e0-47c2-92af-c414a3ff21ec"/>
 			<code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
@@ -47,6 +45,13 @@
 				<assignedAuthor>
 					<id extension="99999999" root="2.16.840.1.113883.4.6"/>
 					<code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Health Care Provider Taxonomy" displayName="Family Medicine" />
+					<addr use="H">
+						<streetAddressLine>23 Anywhere Street</streetAddressLine>
+						<city>El Paso</city>
+						<state>TX</state>
+						<postalCode>90210</postalCode>
+						<country>US</country>
+					</addr>
 					<telecom use="WP" value="tel:555-555-1002"/>
 					<assignedPerson>
 						<name>
@@ -59,8 +64,8 @@
 			<entryRelationship typeCode="SUBJ">
 				<observation classCode="OBS" moodCode="EVN">
 					<!-- allergy observation template -->
-					<templateId root="2.16.840.1.113883.10.20.22.4.7"/>
-					<templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09"/>
+					<templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09" />
+					<templateId root="2.16.840.1.113883.10.20.24.3.90" extension="2014-06-09" />
 					<id root="0fffb34f-c1e0-47c2-92af-c414a3ff21ec"/>
 					<code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
 					<text>
@@ -80,6 +85,13 @@
 						<assignedAuthor>
 							<id extension="99999999" root="2.16.840.1.113883.4.6"/>
 							<code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Health Care Provider Taxonomy" displayName="Family Medicine" />
+							<addr use="H">
+								<streetAddressLine>23 Anywhere Street</streetAddressLine>
+								<city>El Paso</city>
+								<state>TX</state>
+								<postalCode>90210</postalCode>
+								<country>US</country>
+							</addr>
 							<telecom use="WP" value="tel:555-555-1002"/>
 							<assignedPerson>
 								<name>
@@ -119,7 +131,6 @@
 					<entryRelationship typeCode="MFST" inversionInd="true">
 						<observation classCode="OBS" moodCode="EVN">
 							<!-- Reaction Observation template -->
-							<templateId root="2.16.840.1.113883.10.20.22.4.9"/>
 							<templateId root="2.16.840.1.113883.10.20.22.4.9" extension="2014-06-09"/>
 							<id root="d89ce431-e0f1-4f8d-a81f-489b6ed91f09"/>
 							<code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
@@ -131,13 +142,11 @@
 								<low value="1998"/>
 								<high nullFlavor="UNK"/>
 							</effectiveTime>
-							<value xsi:type="CD" code="247472004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Hives"/>
+							<value xsi:type="CD" code="103001002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Feeling feverish"/>
 							<entryRelationship typeCode="SUBJ" inversionInd="true">
 								<observation classCode="OBS" moodCode="EVN">
 									<!-- Severity Observation template -->
-									<templateId root="2.16.840.1.113883.10.20.22.4.8"/>
-									<templateId root="2.16.840.1.113883.10.20.22.4.8"
- extension="2014-06-09"/>
+									<templateId root="2.16.840.1.113883.10.20.22.4.8" extension="2014-06-09"/>
 									<code code="SEV" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode"/>
 									<text>
 										<reference value="#allergy5reactionseverity"/>

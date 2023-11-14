@@ -54,6 +54,19 @@
                 <expression value="value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
             </constraint>
+            <constraint>
+                <key value="4515-8555"/>
+                <severity value="error"/>
+                <human value="If Observation/value is a physical quantity (xsi:type=&quot;PQ&quot;): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-sh-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -132,16 +145,14 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4515-8553)."/>
             <min value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4515-19117)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -153,18 +164,16 @@
             <short value="NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="SHOULD contain zero or one [0..1] value (CONF:4515-8559)."/>
             <max value="1"/>
-            <constraint>
-                <key value="4515-8555"/>
-                <severity value="error"/>
-                <human value="If Observation/value is a physical quantity (xsi:type=&quot;PQ&quot;): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
-            </constraint>
-            <constraint>
-                <key value="4515-32957"/>
-                <severity value="error"/>
-                <human value="If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
-            </constraint>
+            <binding>
+                <strength value="example"/>
+                <description value="See additional binding"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.788"/>
+                    <documentation value="If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957)."/>
+                    <shortDoco value="Social Determinant of Health Observations"/>
+                </additional>
+            </binding>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
@@ -188,7 +197,6 @@
                 <rules value="open"/>
             </slicing>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32969) such that it"/>
-            <min value="1"/>
         </element>
         <element id="Observation.entryRelationship:social-history-entry-sprt-obs">
             <path value="Observation.entryRelationship"/>

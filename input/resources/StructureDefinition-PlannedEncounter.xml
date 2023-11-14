@@ -48,10 +48,24 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
             </constraint>
             <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
+            </constraint>
+            <constraint>
                 <key value="should-effectiveTime"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain effectiveTime"/>
                 <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
+            </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
             </constraint>
         </element>
@@ -180,7 +194,6 @@
         <element id="Encounter.participant:location.typeCode">
             <path value="Encounter.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1098-31875)."/>
-            <min value="1"/>
             <fixedCode value="LOC"/>
         </element>
         <element id="Encounter.participant:location.participantRole">

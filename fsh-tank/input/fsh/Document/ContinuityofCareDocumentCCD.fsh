@@ -14,13 +14,8 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
 
 * ^status = #active
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17180)."
-  * code 1..1
-  * code = #34133-9
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"34133-9\" Summarization of Episode Note (CONF:1198-17181)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32138)."
+  * insert CodedLoinc(34133-9, Summarization of Episode Note)
+  * ^comment = "This code SHALL contain exactly one [1..1] @code=\"34133-9\" Summarization of Episode Note (CONF:1198-17181)."
 * author 1..*
   * ^comment = "SHALL contain at least one [1..*] author (CONF:1198-9442)."
   * assignedAuthor 1..1
@@ -52,8 +47,8 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
         * ^short = "SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] assignedEntity (CONF:1198-8459)."
         //"<min value=\"0\"/>"
+        * obeys 1198-32466
         * id 1..*
-          * obeys 1198-32466
           * ^comment = "The assignedEntity, if present, SHALL contain at least one [1..*] id (CONF:1198-30882)."
           //"<slicing><rules value=\"open\"/></slicing></element>"
           //"SG 20230601 Note that this has some weird extra long path"
@@ -65,6 +60,8 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-30659)."
   * structuredBody 1..1
+    * obeys should-section-procedures
+    * obeys should-section-plan-of-treatment
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30660)."
     * component ^slicing.discriminator[0].type = #profile
       * ^slicing.discriminator[=].path = "section"
@@ -96,7 +93,7 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
     * component[problems] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30665) such that it"
       * section only ProblemSection
         * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2015-08-01) (CONF:1198-30666)."
-    * component[procedures] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30667) such that it"
+    * component[procedures] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30667) such that it" // man-should
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30668)."
     * component[results] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30669) such that it"
@@ -123,7 +120,7 @@ More specific use cases, such as a Discharge Summary, Transfer Summary, Referral
     * component[payers] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30683) such that it"
       * section only PayersSection
         * ^comment = "SHALL contain exactly one [1..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2015-08-01) (CONF:1198-30684)."
-    * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30685) such that it"
+    * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30685) such that it" // man-should
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30686)."
     * component[socialHist] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30687) such that it"
@@ -147,4 +144,4 @@ Expression: "assignedPerson.exists() or (assignedAuthoringDevice.exists() and re
 Invariant: 1198-32466
 Description: "If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:1198-32466)."
 Severity: #warning
-Expression: "assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"
+Expression: "assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"

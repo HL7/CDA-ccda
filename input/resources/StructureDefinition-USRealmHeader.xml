@@ -130,6 +130,7 @@
                 <key value="4537-32948"/>
                 <severity value="error"/>
                 <human value="This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:4537-32948)."/>
+                <expression value="codeSystem = '2.16.840.1.113883.6.1'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
@@ -224,6 +225,20 @@
             <comment value="This patientRole SHALL contain exactly one [1..1] patient (CONF:4537-5283)."/>
             <min value="1"/>
             <constraint>
+                <key value="4537-32993"/>
+                <severity value="error"/>
+                <human value="If sdtc:deceasedInd=&quot;true&quot;, then sdtc:deceasedTime **SHALL** be present with either a @value or @nullFlavor=UNK (CONF:4537-32993)."/>
+                <expression value="sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
+                <key value="4537-21000"/>
+                <severity value="error"/>
+                <human value="If sdtc:deceasedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"/>
+                <expression value="sdtcDeceasedTime.value.exists() implies sdtcDeceasedInd.exists(value='true')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <constraint>
                 <key value="should-maritalStatusCode"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain maritalStatusCode"/>
@@ -231,7 +246,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="should-languageCommunication"/>
+                <key value="should-us-languageCommunication"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain languageCommunication"/>
                 <expression value="languageCommunication.exists()"/>
@@ -280,20 +295,6 @@
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedInd"/>
             <short value="sdtc:deceasedInd"/>
             <comment value="This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."/>
-            <constraint>
-                <key value="4537-32993"/>
-                <severity value="error"/>
-                <human value="If sdtc:deceasedInd=&quot;true&quot;, then sdtc:deceasedTime **SHALL** be present with either a @value or @nullFlavor=UNK (CONF:4537-32993)."/>
-                <expression value="sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
-            <constraint>
-                <key value="4537-21000"/>
-                <severity value="error"/>
-                <human value="If sdtc:deceasedTime/@value is present, then sdtc:deceasedInd SHALL be present with value=true"/>
-                <expression value="sdtcDeceasedTime.value.exists() implies sdtcDeceasedInd.exists(value='true')"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime"/>
@@ -377,21 +378,21 @@
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian"/>
             <comment value="This patient MAY contain zero or more [0..*] guardian (CONF:4537-5325)."/>
             <constraint>
-                <key value="should-code"/>
+                <key value="should-us-code"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="should-addr"/>
+                <key value="should-us-addr"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain addr"/>
                 <expression value="addr.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="should-telecom"/>
+                <key value="should-us-telecom"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain telecom"/>
                 <expression value="telecom.exists()"/>
@@ -463,13 +464,15 @@
             <constraint>
                 <key value="4537-5402"/>
                 <severity value="error"/>
-                <human value="If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet StateValueSet 2.16.840.1.113883.3.88.12.80.1 *DYNAMIC* (CONF:4537-5402)."/>
+                <human value="If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet US Core USPS State *DYNAMIC* (CONF:4537-5402)."/>
+                <expression value="nullFlavor.exists() or (item.country.exists() and item.country.xmlText != 'US' and item.country.xmlText != 'USA') or item.state.exists(nullFlavor.exists() or xmlText.memberOf('http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
                 <key value="4537-5403"/>
                 <severity value="warning"/>
                 <human value="If country is US, this addr **MAY** contain zero or one [0..1] postalCode, which **SHALL** be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 *DYNAMIC* (CONF:4537-5403)."/>
+                <expression value="nullFlavor.exists() or (item.country.exists() and item.country.xmlText != 'US' and item.country.xmlText != 'USA') or item.postalCode.empty() or item.postalCode.exists(nullFlavor.exists() or xmlText.matches('[0-9]{5}(-[0-9]{4})?'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
@@ -615,7 +618,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
             <constraint>
-                <key value="should-code"/>
+                <key value="should-us-code"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>
@@ -837,13 +840,8 @@
         </element>
         <element id="ClinicalDocument.informant:provider.assignedEntity.id">
             <path value="ClinicalDocument.informant.assignedEntity.id"/>
+            <short value="If assignedEntity/id is a provider then this id, **SHOULD** include zero or one [0..1] id where id/@root =&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4537-9946)."/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-9945)."/>
-            <constraint>
-                <key value="4537-9946"/>
-                <severity value="warning"/>
-                <human value="If assignedEntity/id is a provider then this id, **SHOULD** include zero or one [0..1] id where id/@root =&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:4537-9946)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.informant:provider.assignedEntity.code">
             <path value="ClinicalDocument.informant.assignedEntity.code"/>
@@ -1234,7 +1232,7 @@
             <short value="A serviceEvent represents the main act being documented, such as a colonoscopy or a cardiac stress study. In a provision of healthcare serviceEvent, the care providers, PCP, or other longitudinal providers, are recorded within the serviceEvent. If the document is about a single encounter, the providers associated can be recorded in the componentOf/encompassingEncounter template."/>
             <comment value="The documentationOf, if present, SHALL contain exactly one [1..1] serviceEvent (CONF:4537-14836)."/>
             <constraint>
-                <key value="should-performer"/>
+                <key value="should-us-performer"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain performer"/>
                 <expression value="performer.exists()"/>
@@ -1263,7 +1261,6 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
             <comment value="The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."/>
-            <min value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19601"/>
@@ -1273,7 +1270,7 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
             <comment value="The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."/>
             <constraint>
-                <key value="should-code"/>
+                <key value="should-us-code"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>
@@ -1292,7 +1289,7 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
             <comment value="The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-14841)."/>
             <constraint>
-                <key value="should-code"/>
+                <key value="should-us-code"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain code"/>
                 <expression value="code.exists()"/>
@@ -1342,14 +1339,11 @@
         </element>
         <element id="ClinicalDocument.authorization.consent.statusCode">
             <path value="ClinicalDocument.authorization.consent.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="This consent SHALL contain exactly one [1..1] statusCode (CONF:4537-16797)."/>
         </element>
         <element id="ClinicalDocument.authorization.consent.statusCode.code">
             <path value="ClinicalDocument.authorization.consent.statusCode.code"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-16798)."/>
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
@@ -1374,7 +1368,7 @@
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.code">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.code"/>
-            <comment value="This encompassingEncounter MAY contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."/>
+            <comment value="This encompassingEncounter MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.5"/>

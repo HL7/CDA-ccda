@@ -29,10 +29,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * code from $2.16.840.1.113762.1.4.1099.11 (required)
     * ^short = "The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., \"10 days\"), the frequency of administration (e.g., \"every 8 hours\"), and more. Here, we require that there SHALL be an effectiveTime documentation of the duration (or single-administration timestamp), and that there SHOULD be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included."
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Medication Status urn:oid:2.16.840.1.113762.1.4.1099.11 DYNAMIC (CONF:1098-32360)."
-* effectiveTime obeys 1098-7513
-  * ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "operator"
-  * ^slicing.discriminator[+].type = #type
+* obeys 1098-7513
+* effectiveTime ^slicing.discriminator[+].type = #type
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
 * effectiveTime contains
@@ -43,9 +41,10 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * obeys 1098-32890
   * ^short = "The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., \"10 days\"), the frequency of administration (e.g., \"every 8 hours\"), and more. Here, we require that there **SHALL** be an effectiveTime documentation of the duration (or single-administration timestamp), and that there **SHOULD** be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included. Note: This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"
+  * obeys should-value-att
   * value 0..1
     * ^short = "indicates a single-administration timestamp"
-    * ^comment = "SHOULD contain zero or one [0..1] @value (CONF:1098-32775)."
+    * ^comment = "SHOULD contain zero or one [0..1] @value (CONF:1098-32775)." // man-should
   * obeys should-low
   * low 0..1
     * ^short = "indicates when medication started"
@@ -66,22 +65,25 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * repeatNumber 0..1
   * ^short = "In \"INT\" (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of \"3\" means that the substance can be administered up to 3 times. In \"EVN\" (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of \"3\" in a substance administration event means that the current administration is the 3rd in a series."
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1098-7555)."
+* obeys should-routeCode
 * routeCode 0..1
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
-  * ^comment = "SHOULD contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-7514)."
+  * ^comment = "SHOULD contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-7514)." // man-should
+  * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113762.1.4.1099.12 (required)
-    * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32950)."
+    * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32950)." // man-should
 * approachSiteCode 0..1
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-7515)."
 * doseQuantity 1..1
   * ^definition = "If the consumable code is not pre-coordinated (e.g., is \"simply metoprolol Oral Product\" (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., \"25\" and \"mg\", specifying the amount of product given per administration (CONF:1098-16879).&#10;If the consumable code is a pre-coordinated unit dose (e.g., \"metoprolol 25mg tablet\") then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., \"2\", meaning 2 x \"metoprolol 25mg tablet\" per administration) (CONF:1098-16878)."
   * ^comment = "SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."
+  * obeys should-unit
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
-    * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)."
+    * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)." // man-should
 * rateQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-7517)."
   * unit 1..1
@@ -102,9 +104,10 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     * ^comment = "This consumable SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-16085)."
 * performer 0..1
   * ^comment = "MAY contain zero or one [0..1] performer (CONF:1098-7522)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31150)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31150)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
@@ -222,7 +225,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 
 Invariant: 1098-7513
 Description: "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it **SHALL** contain exactly one [1..1] @xsi:type=\"PIVL_TS\" or \"EIVL_TS\" (CONF:1098-28499)."
-Severity: #error
+Severity: #warning
+Expression: "effectiveTime.ofType(CDA.PIVL_TS).exists() or effectiveTime.ofType(CDA.EIVL_TS).exists()"
 
 Invariant: 1098-32890
 Description: "This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."

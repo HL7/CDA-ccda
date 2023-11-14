@@ -47,6 +47,20 @@
                 <expression value="text.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-informant"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain informant"/>
+                <expression value="informant.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -120,19 +134,19 @@
         <element id="Observation.code.translation:advanceDirective">
             <path value="Observation.code.translation"/>
             <sliceName value="advanceDirective"/>
-            <comment value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32842) such that it"/>
+            <short value="Advance directive"/>
+            <comment value="SHALL contain exactly one [1..1] @code=&quot;75320-2&quot; Advance directive."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.code.translation:advanceDirective.code">
             <path value="Observation.code.translation.code"/>
-            <comment value="SHALL contain exactly one [1..1] @code=&quot;75320-2&quot; Advance directive."/>
             <min value="1"/>
             <patternCode value="75320-2"/>
         </element>
         <element id="Observation.code.translation:advanceDirective.codeSystem">
             <path value="Observation.code.translation.codeSystem"/>
-            <comment value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)."/>
+            <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
@@ -153,16 +167,14 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."/>
             <min value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19082)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
@@ -214,6 +226,10 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
         </element>
+        <element id="Observation.informant">
+            <path value="Observation.informant"/>
+            <short value="SHOULD contain informant"/>
+        </element>
         <element id="Observation.participant">
             <path value="Observation.participant"/>
             <slicing>
@@ -227,35 +243,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-        </element>
-        <element id="Observation.participant.templateId">
-            <path value="Observation.participant.templateId"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="root"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.participant.templateId:primary">
-            <path value="Observation.participant.templateId"/>
-            <sliceName value="primary"/>
-            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8664) such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.participant.templateId:primary.root">
-            <path value="Observation.participant.templateId.root"/>
-            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.58&quot; (CONF:1198-10486)."/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.1.58"/>
-        </element>
-        <element id="Observation.participant.templateId:primary.extension">
-            <path value="Observation.participant.templateId.extension"/>
-            <comment value="SHALL not contain [0..0] extension"/>
-            <max value="0"/>
         </element>
         <element id="Observation.participant:participant1">
             <path value="Observation.participant"/>
@@ -272,10 +259,38 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
         </element>
+        <element id="Observation.participant:participant1.templateId">
+            <path value="Observation.participant.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.participant:participant1.templateId:primary">
+            <path value="Observation.participant.templateId"/>
+            <sliceName value="primary"/>
+            <comment value="SHALL contain exactly one [1..1] templateId (CONF:1198-8664) such that it"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.participant:participant1.templateId:primary.root">
+            <path value="Observation.participant.templateId.root"/>
+            <comment value="SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.1.58&quot; (CONF:1198-10486)."/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.1.58"/>
+        </element>
+        <element id="Observation.participant:participant1.templateId:primary.extension">
+            <path value="Observation.participant.templateId.extension"/>
+            <comment value="SHALL not contain [0..0] extension"/>
+            <max value="0"/>
+        </element>
         <element id="Observation.participant:participant1.typeCode">
             <path value="Observation.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;VRF&quot; Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."/>
-            <min value="1"/>
             <fixedCode value="VRF"/>
         </element>
         <element id="Observation.participant:participant1.time">
@@ -296,6 +311,13 @@
         <element id="Observation.participant:participant1.participantRole">
             <path value="Observation.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:1198-8825)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
         </element>
         <element id="Observation.participant:participant1.participantRole.code">
             <path value="Observation.participant.participantRole.code"/>
@@ -339,12 +361,25 @@
         <element id="Observation.participant:participant2.typeCode">
             <path value="Observation.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CST&quot; Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."/>
-            <min value="1"/>
             <fixedCode value="CST"/>
         </element>
         <element id="Observation.participant:participant2.participantRole">
             <path value="Observation.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:1198-8669)."/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
             <constraint>
                 <key value="should-telecom"/>
                 <severity value="warning"/>
@@ -383,6 +418,13 @@
             <path value="Observation.participant.participantRole.playingEntity"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-code"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain code"/>
+                <expression value="code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
+            </constraint>
         </element>
         <element id="Observation.participant:participant2.participantRole.playingEntity.code">
             <path value="Observation.participant.participantRole.playingEntity.code"/>

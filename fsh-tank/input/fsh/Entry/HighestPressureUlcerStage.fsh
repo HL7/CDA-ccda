@@ -16,9 +16,7 @@ Description: "This observation contains a description of the wound tissue of the
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:81-14730)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:81-14731)."
-  * code 1..1
-  * code = #420905001
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"420905001\" Highest Pressure Ulcer Stage (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:81-14732)."
+  * insert CodedSnomed(420905001, Highest Pressure Ulcer Stage)
+  * ^comment = "This code SHALL contain exactly one [1..1] @code=\"420905001\" Highest Pressure Ulcer Stage (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:81-14732)."
 * value 1..1
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:81-14733)."

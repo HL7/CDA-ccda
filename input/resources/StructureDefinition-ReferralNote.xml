@@ -38,6 +38,23 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="should-participant-indirect"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or more [0..*] participant such that it SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC)"/>
+                <expression value="participant.where(typeCode = 'IND').exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-participant-callback"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or more [0..*] participant such that it SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC)"/>
+                <expression value="participant.where(typeCode = 'CALLBCK').exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
@@ -132,7 +149,6 @@
         <element id="ClinicalDocument.participant:indirect.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31924)."/>
-            <min value="1"/>
             <fixedCode value="IND"/>
         </element>
         <element id="ClinicalDocument.participant:indirect.associatedEntity">
@@ -172,7 +188,6 @@
         <element id="ClinicalDocument.participant:callback.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31648)."/>
-            <min value="1"/>
             <fixedCode value="CALLBCK"/>
         </element>
         <element id="ClinicalDocument.participant:callback.associatedEntity">
@@ -228,15 +243,52 @@
             <comment value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-29063)."/>
             <min value="1"/>
             <constraint>
-                <key value="1198-29102"/>
+                <key value="ap-or-a-and-p"/>
                 <severity value="error"/>
-                <human value="This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-29102)."/>
+                <human value="**SHALL** include an Assessment and Plan Section, or both an Assessment Section and a Plan of Treatment Section."/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.9' and extension = '2014-06-09')).exists() or (component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.8' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).count() = 2)"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
             </constraint>
             <constraint>
-                <key value="1198-29103"/>
+                <key value="ap-combo"/>
                 <severity value="error"/>
-                <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-29103)."/>
+                <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present."/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.9' and extension = '2014-06-09')).exists() implies component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.8' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09')).empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-plan-of-treatment"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Plan of Treatment Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-results"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Results Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.3.1' and extension = '2015-08-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-functional-status"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Functional Status Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.14' and extension = '2014-06-09'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-mental-status"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Mental Status Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.56' and extension = '2015-08-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-nutrition"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Nutrition Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.57' and extension.empty()))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
             </constraint>
         </element>
@@ -254,7 +306,7 @@
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment">
             <path value="ClinicalDocument.component.structuredBody.component"/>
             <sliceName value="planOfTreatment"/>
-            <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066)."/>
+            <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>

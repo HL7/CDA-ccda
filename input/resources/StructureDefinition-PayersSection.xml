@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="should-coverage-activity"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Coverage Activity"/>
+                <expression value="entry.where(act.templateId.where(root = '2.16.840.1.113883.10.20.22.4.60' and extension = '2023-05-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PayersSection"/>
+            </constraint>
+        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -96,7 +106,7 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="act"/>
                 </discriminator>
                 <rules value="open"/>

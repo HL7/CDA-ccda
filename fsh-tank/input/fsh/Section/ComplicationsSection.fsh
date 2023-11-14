@@ -5,7 +5,7 @@ Title: "Complications Section"
 Description: "This section contains problems that occurred during or around the time of a procedure. The complications may be known risks or unanticipated problems."
 
 * insert Section(#55109-3, Complications, 2.16.840.1.113883.10.20.22.2.37, 2015-08-01)
-* entry ^slicing.discriminator[0].type = #value
+* entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entry contains problem 0..*

@@ -16,18 +16,13 @@ Description: """This template represents a simple observation about the type of 
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-33019)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-33010)."
-  * code 1..1
-  * code = #86188-0
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"86188-0\" History of Occupation Industry (CONF:4537-33015)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-33016)."
+  * insert CodedLoinc(86188-0, History of Occupation Industry)
+  * ^comment = "This code SHALL contain exactly one [1..1] @code=\"86188-0\" History of Occupation Industry (CONF:4537-33015)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-33011)."
   * code 1..1
-  * code from $2.16.840.1.113762.1.4.1240.6 (required)
-  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
+  * code = #completed (exactly)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-33017)."
 * value 1..1
 * value only $CD
 * value from $2.16.840.1.114222.4.11.7900 (required)

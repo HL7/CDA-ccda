@@ -30,18 +30,20 @@ The priority of the immunization activity to the patient and provider is communi
 * routeCode 0..1
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-32127)."
+  * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113762.1.4.1099.12 (required)
-    * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32951)."
+    * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32951)." // man-should
 * approachSiteCode 0..*
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or more [0..*] approachSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32128)."
 * doseQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] doseQuantity (CONF:1098-32129)."
+  * obeys should-unit
   * unit 0..1
   * unit from UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
-    * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32130)."
+    * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32130)." // man-should
 * consumable 1..1
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:1098-32131)."
   * manufacturedProduct 1..1

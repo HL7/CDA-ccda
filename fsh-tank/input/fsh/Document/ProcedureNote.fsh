@@ -30,6 +30,8 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * ^comment = "SHALL contain exactly one [1..1] functionCode=\"PCP\" Primary Care Physician (CodeSystem: HL7ParticipationFunction urn:oid:2.16.840.1.113883.5.88 STATIC) (CONF:1198-8506)."
     * code 1..1
     * code = #PCP
+    * codeSystem 1..1
+    * codeSystem = "2.16.840.1.113883.5.88"
   * associatedEntity
     * classCode 1..1
     * classCode = #PROV (exactly)
@@ -53,20 +55,23 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"PPRF\" Primary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8521)."
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-14911)."
+        * obeys should-code
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
-          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-14912)."
+          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-14912)." // man-should
     * performer[performer2] ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32732) such that it"
       * typeCode 1..1
       * typeCode = #SPRF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRF\" Secondary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32734)."
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32733)."
+        * obeys should-code
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
-          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32735)."
+          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32735)." // man-should
     * code 0..1
       * obeys 1198-8511
+      * ^binding.strength = #required
       * ^binding.description = "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."
       * insert AdditionalBinding(preferred, $2.16.840.1.113883.3.88.12.80.28, Allowed SNOMED Codes, [[The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511).]])
     * ^comment = "SHALL contain exactly one [1..1] serviceEvent (CONF:1198-10061)."
@@ -131,7 +136,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-9588)."
   * structuredBody 1..1
-    * obeys 1198-30412 and 1198-30414 and 1198-30415
+    * obeys ap-or-a-and-p and ap-combo and cc-rfv-combo
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30352)."
     * component 5..
       * ^slicing.discriminator[0].type = #profile
@@ -259,15 +264,3 @@ Invariant: 1198-8511
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."
 Severity: #error
 Expression: "codeSystem = '2.16.840.1.113883.6.104' or codeSystem = '2.16.840.1.113883.6.4' or codeSystem = '2.16.840.1.113883.6.12' or codeSystem = '2.16.840.1.113883.6.285' or (codeSystem = '2.16.840.1.113883.6.96' and code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28'))"
-
-Invariant: 1198-30412
-Description: "This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30412)."
-Severity: #error
-
-Invariant: 1198-30414
-Description: "This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-30414)."
-Severity: #error
-
-Invariant: 1198-30415
-Description: "This structuredBody **SHALL NOT** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present (CONF:1198-30415)."
-Severity: #error

@@ -29,8 +29,8 @@ This observation is not appropriate for recording patient gender (administrative
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-32881)."
   * code 1..1
-  * code from $2.16.840.1.113762.1.4.1240.6 (required)
-  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
+  * code = #completed (exactly)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-33073)."
 * effectiveTime 1..1
   * ^short = "The effectiveTime represents the  relevant time of the observation. A patient's \"sexual orientation\" may change and using effectiveTime/low and effectiveTime/high defines the time during which the patient had identified their emotional, romantic, sexual, or affectional attraction to another person."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33072)."

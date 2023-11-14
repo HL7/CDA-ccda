@@ -14,19 +14,18 @@ Description: "This clinical statement describes an interaction between a patient
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-8711)."
 * id 1..*
-  * insert USCDI([[Encounter Identifier]])
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8713)."
 * code 1..1
 * code from EncounterTypeCode (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."
+  * ^comment = "In Encounter Summaries the Encounter Type will also be present in the document header at componentOf/encompassingEncounter/code, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present.  Implementers should note that only conveying Encounter Type in the document header at componentOf/encompassingEncounter/code is insufficient."
   * insert NarrativeOriginalText
   * translation 0..1
     * ^short = "The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."
     * ^comment = "This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."
 * effectiveTime 1..1
-  * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8715)."
+  * ^comment = "In Encounter Summaries the Encounter Time will also be present in the document header at componentOf/encompassingEncounter/effectiveTime, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."
 * sdtcDischargeDispositionCode from $2.16.840.1.113883.3.88.12.80.33 (preferred)
-  * ^comment = "MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."
+  * ^comment = """Implementers should note that a Discharge Disposition is not appropriate for all document types.  Hospital Discharge Summary documents SHOULD have a discharge disposition.  Progress Notes, or H&P, typically won’t have a discharge disposition.  In Encounter Summaries, the Encounter Disposition will also be present in the document header at componentOf/encompassingEncounter/dischargeDispositionCode, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present. While an Encounter Summary provides a snapshot of the patient’s condition at the time of the encounter as authored by the clinician, a Patient summary provides the most current information available from the sending system across multiple encounters."""
 * performer 0..*
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1198-8725)."
   * assignedEntity 1..1
@@ -41,6 +40,7 @@ Description: "This clinical statement describes an interaction between a patient
   * ^slicing.rules = #open
 * participant contains location 0..*
 * participant[location] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8738) such that it"
+  * ^comment = "In Encounter Summaries the Encounter Location will also be present in the document header at componentOf/encompassingEncounter/location, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."
   * typeCode 1..1
   * typeCode = #LOC (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"LOC\" Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8740)."

@@ -47,10 +47,11 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
 * methodCode 0..1
   * ^short = "MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4515-7670)."
+* obeys should-targetSiteCode
 * targetSiteCode 0..*
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^short = "In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."
-  * ^comment = "SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)."
+  * ^comment = "SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)." // man-should
 * specimen 0..*
   * ^short = "This specimen is for representing specimens obtained from a procedure (CONF:4515-16842)."
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4515-7697)."
@@ -72,8 +73,9 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] addr (CONF:4515-7731)."
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4515-7732)."
+    * obeys should-assignedPerson
     * assignedPerson 0..1
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson." // man-should
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED)."
@@ -90,9 +92,10 @@ Procedure Activity Procedure Usage Note: Common practice in the industry has sho
       * addr 1..*
       * addr only USRealmAddress
         * ^comment = "The representedOrganization, if present, SHALL contain at least one [1..*] addr (CONF:4515-7736)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-32479)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-32479)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open

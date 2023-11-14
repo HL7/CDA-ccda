@@ -8,8 +8,9 @@ The changes in this version of Consolidated CDA have been made from STU comments
 * Removed any templates that are DEPRECATED
 * Removed Entries Optional templates if an equivalent Entries Required template exists
 * Combined Companion Guide and C-CDA narrative into one guide
-* Added Treatment Intervention Preference and Care Experience Preference USCDI Entry templates
-* Added USCDI tag and extensions to USCDI elements
+* Added Medication Adherence, Treatment Intervention Preference, and Care Experience Preference USCDI Entry templates
+* Added USCDI tag and extensions to relevant USCDI elements
+* Moved USCDI guidance to the relevant template element
 
 #### Tracker Issues Applied
 
@@ -81,7 +82,6 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20698](https://jira.hl7.org/browse/CDA-20698) / [CDA-20697](https://jira.hl7.org/browse/CDA-20697) - Add sections to Discharge Summary document.
 - [CDA-20711](https://jira.hl7.org/browse/CDA-20711) - update Gender Harmony guidance
 - [CDA-20713](https://jira.hl7.org/browse/CDA-20713) - Care Team Member Function value set updated.
-- [CDA-20736](https://jira.hl7.org/browse/CDA-20736) - Relaxed AllergyIntolerance value and updated the Allergy and Intolerance type value set.
 - [CDA-20737](https://jira.hl7.org/browse/CDA-20737) - Remove Procedure Activity Act and Procedure Activity Observation templates.
 - [CDA-20757](https://jira.hl7.org/browse/CDA-20757), [CDA-20771](https://jira.hl7.org/browse/CDA-20771), [CDA-20758](https://jira.hl7.org/browse/CDA-20758) - Updated USCDI guidance on Coverage Activity and Policy Activity.
 - [CDA-20763](https://jira.hl7.org/browse/CDA-20763) - Updated text on Policy Activity Act around coverage information.
@@ -94,12 +94,60 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20787](https://jira.hl7.org/browse/CDA-20787) - Add guidance on the use of subsections.
 - [CDA-20788](https://jira.hl7.org/browse/CDA-20788) - Updated the purpose statement of the Advance Directive Section template.
 - [CDA-20789](https://jira.hl7.org/browse/CDA-20789) - Added Advance Directives Section to all Document templates (as MAY if not already there)
+- [CDA-20790](https://jira.hl7.org/browse/CDA-20790) - Added guidance on machine readable information to Advance Directive Section
+- [CDA-20792](https://jira.hl7.org/browse/CDA-20792) - Added subsection guidance to Procedures and Results sections
 - [CDA-20794](https://jira.hl7.org/browse/CDA-20794) - Restrict Immunization.repeatNumber to just a value
-- [CDA-20803](https://jira.hl7.org/browse/CDA-20803) - Updated description in ResultOrganizer to include specimin clarification
+- [CDA-20803](https://jira.hl7.org/browse/CDA-20803) - Updated description in ResultOrganizer to include specimen clarification
+- [CDA-20807](https://jira.hl7.org/browse/CDA-20807) - Add should rules for Performer, Author, and Informant to Advance Directive Organizer and Observation
 - [CDA-20813](https://jira.hl7.org/browse/CDA-20813) - Changed the DeceasedInd and DeceasedTime constraints.
 - [CDA-20814](https://jira.hl7.org/browse/CDA-20814) - Updated all UDI templates to allow additional templateIds.
 - [CDA-20822](https://jira.hl7.org/browse/CDA-20822) - Updated CareTeamMemberAct to clean up untestable constraints and unnecessary "such that it".
 - [CDA-20823](https://jira.hl7.org/browse/CDA-20823) - Updated USRealmAddress Value Sets; used everywhere addr was referenced in IG
 - [CDA-20825](https://jira.hl7.org/browse/CDA-20825) - Clean up PlannedSupply product vs device modeling
 - [CDA-20827](https://jira.hl7.org/browse/CDA-20827) - Removed slicing from USRealmHeader authenticator
-- [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to use IntervalValueOnly instead
+- [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to only allow a timestamp instead of an interval
+
+
+#### Templates with New Extensions due to Major Change
+
+
+| Document | Changes |
+| --- | --- |
+| 20.1 Care Plan | structuredBody.component cardinality increased to 3, templateId cardinality increased to 2 |
+| 20.2 Consultation Note | constraints now have sources, structuredBody.component cardinality increased to 5 |
+| 20.3 Continuity of Care Document (CCD) | structuredBody.component cardinality increased to 6, templateId cardinality increased to 2 |
+| 20.4 Discharge Summary | structuredBody.component cardinality increased to 7, removed required element participant.typeCode, Results Section now required component |
+| 20.5 History and Physical | structuredBody.component cardinality increased to 12 |
+| 20.6 Operative Note | structuredBody.component cardinality increased to 8, serviceEvent.code removed one code system and added another, serviceEvent.code now required |
+| 20.7 Procedure Note | structuredBody.component cardinality increased to 5 |
+| 20.8 Progress Note | templateId cardinality increased to 2 |
+| 20.9 Referral Note | structuredBody.component cardinality increased to 5, templateId cardinality increased to 2 |
+| 20.10 Transfer Summary | templateId cardinality increased to 2, structuredBoyd.component cardinality increased to 7 |
+| 20.11 Unstructured Document | templateId cardinality increased to 2 |
+| 20.12 US Realm Header | new constraint on recordTarget.patientRole.patient.sdtcDeceasedInd, serviceEvent.effectiveTime set to new valueset, addr.item included, languageCode bound to new valueset, realmCode.code element added |
+
+
+| Section | Changes |
+| --- | --- |
+| 20.17 Advance Directives Section | now requires Advance Directives Organizer |
+| 20.49 Notes Section | new code.code and code.codeSystem required elements |
+| 20.70 Procedures Section | removed procedure activity act and procedure activity observation from entries |
+
+
+| Entry | Changes |
+| --- | --- |
+| 20.89 Basic Industry Observation | section cardinality increased to 2 |
+| 20.90 Basic Occupation Observation | section cardinality increased to 2 |
+| 20.125 Gender Identity Observation | section cardinality increased to  2 |
+| 20.197 Sexual Orientation Observation | section cardinality increased to 2 |
+| 20.198 Smoking Status - Meaningful Use | statusCode.code bound to new valueset |
+| 20.206 Tribal Affiliation Observation | templateId cardinality increased to 2 |
+
+
+| Other | Changes |
+| --- | --- |
+| 20.212 Author Participation | new constraint on assignedAuthor, new element (assignedAuthor.addr) |
+| 20.217 US Realm Address (AD.US.FIELDED) | updated constraint expressions, item.country bound to new valuset, item.state bound to new valueset |
+| 20.218 US Realm Date and Time (Interval) | value,low, and high have constraint expressions now |
+| 20.219 US Realm Date and Time (Point in Time) | constraint has expression |
+| 20.220 US Realm Patient Name (PTN.US.FIELDED) | name sections are now under item |

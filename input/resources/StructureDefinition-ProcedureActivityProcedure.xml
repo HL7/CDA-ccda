@@ -55,10 +55,24 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
             <constraint>
+                <key value="should-targetSiteCode"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain targetSiteCode"/>
+                <expression value="targetSiteCode.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+            <constraint>
                 <key value="should-performer"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain performer"/>
                 <expression value="performer.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
         </element>
@@ -270,6 +284,13 @@
             <path value="Procedure.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."/>
             <constraint>
+                <key value="should-assignedPerson"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain assignedPerson"/>
+                <expression value="assignedPerson.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+            <constraint>
                 <key value="should-representedOrganization"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain representedOrganization"/>
@@ -371,7 +392,6 @@
         <element id="Procedure.participant:participant1.typeCode">
             <path value="Procedure.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7752)."/>
-            <min value="1"/>
             <fixedCode value="DEV"/>
         </element>
         <element id="Procedure.participant:participant1.participantRole">
@@ -392,7 +412,6 @@
         <element id="Procedure.participant:participant2.typeCode">
             <path value="Procedure.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4515-7766)."/>
-            <min value="1"/>
             <fixedCode value="LOC"/>
         </element>
         <element id="Procedure.participant:participant2.participantRole">

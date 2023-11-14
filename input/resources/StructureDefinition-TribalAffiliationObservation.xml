@@ -82,6 +82,14 @@
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-9)."/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-10)."/>
+        </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <short value="The effectiveTime reflects a point in time observation when the current tribal affiliation status was observed. Note: This template represents a &quot;snapshot in time&quot; observation, simply reflecting the patient's tribal affiliation at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp."/>

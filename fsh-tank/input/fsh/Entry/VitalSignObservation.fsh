@@ -31,16 +31,17 @@ The following is a list of recommended units for common types of vital sign meas
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7298)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-7300)."
+* obeys should-code
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-7301)."
   * code 0..1
   * code from $2.16.840.1.113883.3.88.12.80.62 (preferred)
-    * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Vital Sign Result Type urn:oid:2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:1098-32934)."
+    * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Vital Sign Result Type urn:oid:2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:1098-32934)." // man-should
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-7303)."
   * code 1..1
-  * code from $2.16.840.1.113762.1.4.1240.6 (required)
-  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
+  * code = #completed (exactly)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19119)."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7304)."
 * value 1..1
@@ -58,6 +59,7 @@ The following is a list of recommended units for common types of vital sign meas
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:1098-7308)."
 * targetSiteCode 0..1
   * ^comment = "MAY contain zero or one [0..1] targetSiteCode (CONF:1098-7309)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-7310)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-7310)." // man-should

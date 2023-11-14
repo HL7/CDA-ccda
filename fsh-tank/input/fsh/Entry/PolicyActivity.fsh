@@ -25,8 +25,8 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."
   * code 1..1
-  * code from $2.16.840.1.113762.1.4.1240.6 (required)
-  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
+  * code = #completed (exactly)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19109)."
 * obeys should-effectiveTime
 * effectiveTime ^short = "This records the policy coverage period, or self-pay period."
 * performer ^slicing.discriminator[0].type = #value
@@ -94,9 +94,10 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * codeSystem 1..1
       * codeSystem = "2.16.840.1.113883.5.110"
         * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.5.110\" (CONF:4537-32165)."
+    * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)." // man-should
     * obeys should-telecom
     * telecom 0..*
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)." // auto-should
@@ -106,7 +107,8 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
 * participant contains
     coverage-target 1..1 and
-    policy-holder 0..1
+    subscriber 0..1
+* obeys 4537-17139
 * participant[coverage-target] ^short = "participant"
   * ^comment = "SHALL contain exactly one [1..1] participant (CONF:4537-8916) such that it"
   * typeCode 1..1
@@ -134,12 +136,14 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8922)."
     * code 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] code (CONF:4537-8923)."
+      * obeys should-code-attr
       * code 0..1
       * code from $2.16.840.1.113883.1.11.18877 (preferred)
-        * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Coverage Role Type Value Set urn:oid:2.16.840.1.113883.1.11.18877 DYNAMIC (CONF:4537-16078)."
+        * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Coverage Role Type Value Set urn:oid:2.16.840.1.113883.1.11.18877 DYNAMIC (CONF:4537-16078)." // man-should
+    * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)." // man-should
     * obeys should-playingEntity
     * playingEntity 0..1
       * ^short = "This playingEntity records the covered party name and birthTime as represented by the health plan. This could match the information in recordTarget, or be different due to marriage or other reasons."
@@ -149,7 +153,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * sdtcBirthTime 1..1
         * ^short = "sdtc:birthTime"
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] sdtc:birthTime (CONF:4537-31344)."
-* participant[policy-holder] obeys 4537-17139
+* participant[subscriber]
   * ^short = "When the Subscriber is the patient, the participant element describing the subscriber *SHALL NOT* be present. This information will be recorded instead in the data elements used to record member information."
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
   * typeCode 1..1
@@ -168,9 +172,10 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * id 1..*
       * ^short = "This id is a unique identifier for the subscriber of the coverage (CONF:4537-10120)."
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8937)."
+    * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "act.moodCode"
   * ^slicing.rules = #open
@@ -197,7 +202,6 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^short = "Plan identifier"
     * text 1..1
       * ^short = "Name of the plan"
-    
 
 
 Invariant: 4537-8967
@@ -205,7 +209,7 @@ Description: "**SHOULD** include assignedEntity/assignedPerson/name AND/OR assig
 Severity: #warning
 Expression: "assignedPerson.name.exists() or representedOrganization.name.exists()"
 
-// Slice check based on coverage-target.participantRole.code = SELF, then policy-holder slice should not exist
 Invariant: 4537-17139
-Description: "When the Subscriber is the patient, the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139)."
+Description: "When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139)."
 Severity: #error
+Expression: "participant.where(typeCode='COV').participantRole.code.code = 'SELF' implies participant.where(typeCode='HLD').empty()"

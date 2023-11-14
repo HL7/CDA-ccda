@@ -61,6 +61,13 @@
                 <expression value="(product | participant.where(typeCode='DEV')).count() = 1"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
+            </constraint>
         </element>
         <element id="Supply.templateId">
             <path value="Supply.templateId"/>
@@ -197,7 +204,6 @@
         </element>
         <element id="Supply.participant:productInstance.typeCode">
             <path value="Supply.participant.typeCode"/>
-            <min value="1"/>
             <patternCode value="DEV"/>
         </element>
         <element id="Supply.participant:productInstance.participantRole">

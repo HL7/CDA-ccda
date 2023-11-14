@@ -62,18 +62,14 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
     * ^slicing.rules = #open
   * translation contains advanceDirective 1..1
   * translation[advanceDirective] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32842) such that it"
-    * code 1..1
-    * code = #75320-2
-      * ^comment = "SHALL contain exactly one [1..1] @code=\"75320-2\" Advance directive."
-    * codeSystem 1..1
-    * codeSystem = "2.16.840.1.113883.6.1"
-      * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)."
+    * insert CodedLoinc(75320-2, Advance directive)
+    * ^comment = "SHALL contain exactly one [1..1] @code=\"75320-2\" Advance directive."
 * text 1..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."
-    * code 1..1
-    * code from $2.16.840.1.113762.1.4.1240.6 (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
+  * code 1..1
+  * code = #completed (exactly)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19082)."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime."
   * low 1..1
@@ -86,9 +82,10 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
 * value only CD
   * code from $2.16.840.1.113762.1.4.1115.5
   * codeSystem = "2.16.840.1.113883.6.96"
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.discriminator[+].type = #value
@@ -97,6 +94,11 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
 * participant contains
     participant1 0..* and
     participant2 0..*
+* participant[participant1] ^short = "The participant \"VRF\" represents the clinician(s) who verified the patient advance directive."
+  * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
+  * typeCode 1..1
+  * typeCode = #VRF (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"VRF\" Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."
   * templateId ^slicing.discriminator[0].type = #value
     * ^slicing.discriminator[=].path = "root"
     * ^slicing.rules = #open
@@ -107,20 +109,16 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
       * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.1.58\" (CONF:1198-10486)."
     * extension 0..0
       * ^comment = "SHALL not contain [0..0] extension"
-* participant[participant1] ^short = "The participant \"VRF\" represents the clinician(s) who verified the patient advance directive."
-  * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
-  * typeCode 1..1
-  * typeCode = #VRF (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"VRF\" Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8663)."
   * obeys should-time
   * time 0..1
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:1198-8665)." // auto-should
     * insert IntervalValueOnly
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:1198-8825)."
+    * obeys should-code
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)." // man-should
     * addr 0..*
     * addr only USRealmAddress
       * ^comment = "This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."
@@ -129,6 +127,8 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
       * name 1..1
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The playingEntity SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."
+* obeys should-informant
+* informant ^short = "SHOULD contain informant" // man-should
 * participant[participant2] ^short = "This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."
 * participant[participant2] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"
   * typeCode 1..1
@@ -139,20 +139,23 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
     * classCode 1..1
     * classCode = #AGNT (exactly)
       * ^comment = "This participantRole SHALL contain exactly one [1..1] @classCode=\"AGNT\" Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."
+    * obeys should-code
     * code 0..1
     * code from $2.16.840.1.113762.1.4.1046.35 (preferred)
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent or Proxy Choices urn:oid:2.16.840.1.113762.1.4.1046.35 DYNAMIC (CONF:1198-28440)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent or Proxy Choices urn:oid:2.16.840.1.113762.1.4.1046.35 DYNAMIC (CONF:1198-28440)." // man-should
+    * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
-      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."
+      * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."  // man-should
     * obeys should-telecom
     * telecom 0..*
       * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)." // auto-should
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."
+      * obeys should-code
       * code 0..1
       * code from $2.16.840.1.113883.11.20.9.51 (preferred)
-        * ^comment = "This playingEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent Qualifier urn:oid:2.16.840.1.113883.11.20.9.51 DYNAMIC (CONF:1198-28444)."
+        * ^comment = "This playingEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent Qualifier urn:oid:2.16.840.1.113883.11.20.9.51 DYNAMIC (CONF:1198-28444)." // man-should
       * name 1..1
         * ^short = "The name of the healthcare agent."
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."

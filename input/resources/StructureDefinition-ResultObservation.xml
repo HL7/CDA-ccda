@@ -48,6 +48,20 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
             </constraint>
             <constraint>
+                <key value="should-interpretationCode"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain interpretationCode"/>
+                <expression value="interpretationCode.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
+            </constraint>
+            <constraint>
                 <key value="should-referenceRange"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain referenceRange"/>
@@ -190,6 +204,10 @@
             <path value="Observation.value.unit"/>
             <short value="(USCDI) Result Units"/>
             <min value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive"/>
+            </binding>
         </element>
         <element id="Observation.value:physical-quantity.translation">
             <path value="Observation.value.translation"/>

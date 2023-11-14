@@ -10,6 +10,7 @@ A goal usually has a related health concern and/or risk.
 
 A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships."""
 
+// !!! This templateId is referenced in an invariant below. If it changes (including the date), update that invariant's expression!!!
 * insert LogicalModelTemplate(goal-obs, 2.16.840.1.113883.10.20.22.4.121, 2022-06-01)
 * insert NarrativeLink
 
@@ -34,10 +35,11 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-32335)." // auto-should
 * value 0..1
   * ^short = "When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet [Social Determinant of Health Goals](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.71/expansion) **DYNAMIC** (CONF:4515-32963)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
   * ^short = "If the author is the recordTarget (patient), this is a patient goal.  If the author is a provider, this is a provider goal. If both patient and provider are authors, this is a negotiated goal. If no author is present, it is assumed the document or section author(s) is the author of this goal."
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-30995)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-30995)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
@@ -111,3 +113,21 @@ A goal may have components consisting of other goals (milestones). These milesto
   * externalDocument 1..1
   * externalDocument only ExternalDocumentReference
     * ^comment = "The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:4515-32756)."
+
+
+// Add on any entry/entryRelationship/component containing an EntryReference that must be a reference to a Goal Observation (see Planned Intervention, Outcome, etc)
+Invariant: entry-ref-goal
+Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template."
+Severity: #error
+Expression: "%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"
+/*
+%resource.descendants().ofType(CDA.Observation).where(
+  templateId.exists(
+    $this.root = '2.16.840.1.113883.10.20.22.4.121' and
+    $this.extension = '2022-06-01'
+  ) and
+  id.exists(
+    $this.root = %context.act.id.first().root and
+    $this.extension ~ %context.act.id.first().extension
+  )
+)*/

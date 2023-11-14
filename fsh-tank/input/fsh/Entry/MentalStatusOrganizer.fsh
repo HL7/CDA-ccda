@@ -17,17 +17,18 @@ Description: "The Mental Status Organizer template may be used to group related 
 * code 1..1
   * ^short = "The code selected indicates the category that groups the contained mental status observations (e.g., communication, learning and applying knowledge)."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-14378)."
+  * obeys 1198-14698
   * code 1..1
-    * obeys 1198-14698
     * ^comment = "This code SHALL contain exactly one [1..1] @code (CONF:1198-14697)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-14372)."
   * code 1..1
-  * code from $2.16.840.1.113762.1.4.1240.6 (required)
-  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
+  * code = #completed (exactly)
+    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19093)."
+* obeys should-effectiveTime
 * effectiveTime 0..1
   * ^short = "The effectiveTime is an interval that spans the effectiveTimes of the contained mental status observations. Because all contained mental status observations have a required time stamp, it is not required that this effectiveTime be populated."
-  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)."
+  * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)." // man-should
 * component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
@@ -40,3 +41,4 @@ Description: "The Mental Status Organizer template may be used to group related 
 Invariant: 1198-14698
 Description: "**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (codeSystem 2.16.840.1.113883.6.96) (CONF:1198-14698)."
 Severity: #warning
+Expression: "codeSystem.exists() implies (codeSystem = '2.16.840.1.113883.6.254' or codeSystem = '2.16.840.1.113883.6.96')"

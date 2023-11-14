@@ -89,17 +89,13 @@
             <fixedCode value="EVN"/>
         </element>
         <element id="Encounter.id">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
             <path value="Encounter.id"/>
-            <short value="(USCDI) Encounter Identifier"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1198-8713)."/>
             <min value="1"/>
         </element>
         <element id="Encounter.code">
             <path value="Encounter.code"/>
-            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet EncounterTypeCode urn:oid:2.16.840.1.113883.3.88.12.80.32 DYNAMIC (CONF:1198-8714)."/>
+            <comment value="In Encounter Summaries the Encounter Type will also be present in the document header at componentOf/encompassingEncounter/code, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present.  Implementers should note that only conveying Encounter Type in the document header at componentOf/encompassingEncounter/code is insufficient."/>
             <min value="1"/>
             <constraint>
                 <key value="should-otext-ref-value"/>
@@ -149,12 +145,12 @@
         </element>
         <element id="Encounter.effectiveTime">
             <path value="Encounter.effectiveTime"/>
-            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8715)."/>
+            <comment value="In Encounter Summaries the Encounter Time will also be present in the document header at componentOf/encompassingEncounter/effectiveTime, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."/>
             <min value="1"/>
         </element>
         <element id="Encounter.sdtcDischargeDispositionCode">
             <path value="Encounter.sdtcDischargeDispositionCode"/>
-            <comment value="MAY contain zero or one [0..1] sdtc:dischargeDispositionCode (CONF:1198-32176)."/>
+            <comment value="Implementers should note that a Discharge Disposition is not appropriate for all document types.  Hospital Discharge Summary documents SHOULD have a discharge disposition.  Progress Notes, or H&amp;P, typically won’t have a discharge disposition.  In Encounter Summaries, the Encounter Disposition will also be present in the document header at componentOf/encompassingEncounter/dischargeDispositionCode, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present. While an Encounter Summary provides a snapshot of the patient’s condition at the time of the encounter as authored by the clinician, a Patient summary provides the most current information available from the sending system across multiple encounters."/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.33"/>
@@ -193,14 +189,13 @@
         <element id="Encounter.participant:location">
             <path value="Encounter.participant"/>
             <sliceName value="location"/>
-            <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-8738) such that it"/>
+            <comment value="In Encounter Summaries the Encounter Location will also be present in the document header at componentOf/encompassingEncounter/location, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Encounter.participant:location.typeCode">
             <path value="Encounter.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8740)."/>
-            <min value="1"/>
             <fixedCode value="LOC"/>
         </element>
         <element id="Encounter.participant:location.participantRole">

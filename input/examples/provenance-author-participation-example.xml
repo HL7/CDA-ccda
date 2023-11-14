@@ -1,0 +1,76 @@
+<structuredBody xmlns="urn:hl7-org:v3">
+  <component>
+    <!-- Some section in a document -->
+    <section>
+
+      <!-- Provenance Author Participation template -->
+      <author>
+        <templateId root="2.16.840.1.113883.10.20.22.5.6" extension="2019-10-01"/>
+        <time value="201308011235-0800" />
+        <assignedAuthor>
+          <id root="2.16.840.1.113883.4.6" extension="1234567890"/>
+          <code code="163W00000X" codeSystem="2.16.840.1.113883.5.53" codeSystemName="Health Care Provider Taxonomy" displayName="Registered nurse" />
+          <addr use="WP">
+            <streetAddressLine>22 Sample Street</streetAddressLine>
+            <city>Beaverton</city>
+            <state>OR</state>
+            <postalCode>97867</postalCode>
+            <country>US</country>
+          </addr>
+          <telecom value="tel:+1(555)555-2008" use="MC" />
+          <assignedPerson>
+            <name>
+              <given>Nurse</given>
+              <family>Nightingale</family>
+              <suffix>RN</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="2.16.840.1.113883.4.2" extension="1111-22"/>
+            <id root="2.16.840.1.113883.4.6" extension="1112233344" />
+            <name>Good Health Hospital</name>
+          </representedOrganization>
+        </assignedAuthor>
+      </author>
+
+      <!-- Provenance Author Participation template for a non-clinician -->
+      <author>
+        <templateId root="2.16.840.1.113883.10.20.22.5.6" extension="2019-10-01"/>
+        <time value="201308011235-0800" />
+        <assignedAuthor>
+          <id root="2.16.840.1.113883.4.6" nullFlavor="NA"/>
+          <addr use="H">
+            <streetAddressLine>123 Main St</streetAddressLine>
+            <city>Beaverton</city>
+            <state>OR</state>
+            <postalCode>97867</postalCode>
+            <country>US</country>
+          </addr>
+          <telecom value="tel:+1(555)555-8002" use="MC" />
+          <assignedPerson>
+            <name>
+              <given>Patient</given>
+              <family>Author</family>
+            </name>
+          </assignedPerson>
+          <!-- Represented organization may contain only nullFlavor if non-clinician -->
+          <representedOrganization nullFlavor="NA" />
+        </assignedAuthor>
+      </author>
+    </section>
+  </component>
+
+  <!-- Elsewhere in the document-->
+  <component>
+    <section>
+      <!-- The same Author can be represented solely via assignedAuthor/id-->
+      <author>
+        <templateId root="2.16.840.1.113883.10.20.22.5.6" extension="2019-10-01"/>
+        <time value="201308011235-0800" />
+        <assignedAuthor>
+          <id root="2.16.840.1.113883.4.6" extension="1234567890"/>
+        </assignedAuthor>
+      </author>
+    </section>
+  </component>
+</structuredBody>

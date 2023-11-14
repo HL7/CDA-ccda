@@ -1,0 +1,68 @@
+<structuredBody xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
+  <component>
+    <!-- Some section in a document -->
+    <section>
+      <entry>
+        <!-- Care Team Member Act Template -->
+        <act classCode="PCPR" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.500.1" extension="2022-06-01" />
+          <code code="85847-2" codeSystem="2.16.840.1.113883.6.1" />
+          <text><reference value="#careTeamMember"/></text>
+          <statusCode code="active" />
+          <effectiveTime>
+            <low value="20200314" />
+          </effectiveTime>
+          <performer>
+            <sdtc:functionCode code="159033005" codeSystem="2.16.840.1.113883.6.96" displayName="Dietitian (occupation)" />
+            <assignedEntity>
+              <id root="2.16.840.1.113883.4.6" extension="111234569"/>
+              <!-- ID must exist on another performer in the document with an assignedPerson,
+                   otherwise assignedPerson must be present here -->
+            </assignedEntity>
+          </performer>
+          <entryRelationship>
+            <encounter>
+              <!-- This ID matches an EncounterActivity either here or elsewhere in the document -->
+              <id root="1.2.3.4" extension="ZZ321" />
+            </encounter>
+          </entryRelationship>
+        </act>
+      </entry>
+    </section>
+  </component>
+
+  <!-- Elsewhere in the document-->
+  <component>
+    <section>
+      <entry>
+        <!-- The encounter may be present in an encounters section -->
+        <encounter>
+          <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01" />
+          <id root="1.2.3.4" extension="ZZ321" />
+          <!-- implementation nerf'd for sake of example -->
+          <code nullFlavor="UNK" />
+          <text><reference value="#encounter"/></text>
+          <effectiveTime nullFlavor="UNK" />
+          <performer>
+            <!-- Also, the performer here has the same ID as the performer in the Care Team Member Act,
+                 so it satisfies the requirement that one performer contains assignedPerson -->
+            <assignedEntity>
+              <id root="2.16.840.1.113883.4.6" extension="111234569"/>
+              <addr use="H">
+                <streetAddressLine>23 Anywhere Street</streetAddressLine>
+                <city>El Paso</city>
+                <state>TX</state>
+                <postalCode>90210</postalCode>
+                <country>US</country>
+              </addr>
+              <telecom value="tel:(999)555-1212" use="WP" />
+              <assignedPerson>
+                <name>Clinician Dietician</name>
+              </assignedPerson>
+            </assignedEntity>
+          </performer>
+        </encounter>
+      </entry>
+    </section>
+  </component>
+</structuredBody>
