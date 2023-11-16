@@ -2,7 +2,7 @@ This Supporting Guidance Page provides guidance aimed at increasing consistency 
 
 This pages provides generalized document, section and entry guidance and additional guidance for specific types of C-CDA documents.
 
-### Document Guidance
+### Document Level Guidance
 #### Reusable, Nesting Templates
 
 C-CDA establishes two document header templates. These header templates establish consistent rules for
@@ -14,26 +14,23 @@ clinicians, and the US Realm Patient Generated Header is used for documents that
 
 
 <table
-                            style="border-collapse:collapse;margin-left:24.01pt" cellspacing="0">
-                            <tr style="height:37pt">
-                                <td
-                                    style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                        bgcolor="#C5D9F0"><p class="s19"
-                                        style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                        >Each document template defined in C-CDA indicates the
-                                        header template that the document is expected to conform to,
-                                        and each MAY include additional header constraints that are
-                                        relevant to the type of clinical note being represented in the document.
-                                            <b>[BP-028]</b></p></td>
-                            </tr>
-                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt" cellspacing="0">
+    <tr style="height:37pt">
+        <td
+            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >Each document template defined in C-CDA indicates the
+                header template that the document is expected to conform to,
+                and each MAY include additional header constraints that are
+                relevant to the type of clinical note being represented in the document.
+                    <b>[BP-028]</b></p></td>
+    </tr>
+</table>
                         
-Additionally, document templates define the sections of content that **SHALL**, **SHOULD**, or **MAY** be present for
-exchanging clinical notes. Each section is identified with a code that tells the rcieveing systems the type of information in
-the section.
+Additionally, document templates define the sections of content that **SHALL**, **SHOULD**, or **MAY** be present for exchanging clinical notes. Each section is identified with a code that tells the recieving systems the type of information in the section.
 
-Further, the sections define entry templates which **SHALL**, **SHOULD**, or **MAY** be used to represent the information
-in each section using discrete representations that aid further computer processing of the clinical information in the section.
+Further, the sections define entry templates which **SHALL**, **SHOULD**, or **MAY** be used to represent the information in each section using discrete representations that aid further computer processing of the clinical information in the section.
 
 #### Nested Content and Context Conduction
 
@@ -52,32 +49,32 @@ CDA's approach to context, and the propagation of that context to nested documen
 - The CDA Header sets context for the entire document. A propagating value specified in the document
     header holds true throughout the document, unless explicitly overridden. This principal applies only
     to designated participations and attributes of the CDA Header that support propagating context
-    conduction. Contextual header components (i.e., those that have propagating values) include:<br/>
-       o Author<br/>
-       o Confidentiality<br/>
-       o Data enterer<br/>
-       o Human language<br/>
-       o Informant<br/>
-       o Legal authenticator<br/>
-       o Participant<br/>
-       o Record target<br/>
-- Context components that can be overridden at the level of the document body include:<br/>
-    o Confidentiality<br/>
-    o Human language<br/>
-- Context components that can be overridden at the level of a document section include:<br/>
-    o Author<br/>
-    o Confidentiality<br/>
-    o Human language<br/>
-    o Informant<br/>
-    o Subject<br/>
+    conduction. Contextual header components (i.e., those that have propagating values) include:
+       o Author
+       o Confidentiality
+       o Data enterer
+       o Human language
+       o Informant
+       o Legal authenticator
+       o Participant
+       o Record target
+- Context components that can be overridden at the level of the document body include:
+    o Confidentiality
+    o Human language
+- Context components that can be overridden at the level of a document section include:
+    o Author
+    o Confidentiality
+    o Human language
+    o Informant
+    o Subject
 
-- Context components that can be overridden at the level of a CDA entry include:<br/>
-    o Author<br/>
-    o Confidentiality<br/>
-    o Human language<br/>
-    o Informant<br/>
-    o Participant<br/>
-    o Subject<br/>
+- Context components that can be overridden at the level of a CDA entry include:
+    o Author
+    o Confidentiality
+    o Human language
+    o Informant
+    o Participant
+    o Subject
 - Context propagates from outer context to nested context. Context that is specified on an outer tag
     holds true for all nested tags, unless overridden on a nested tag. Context specified on a tag within the
     CDA body always overrides context propagated from an outer tag. For instance, the specification of
@@ -120,7 +117,7 @@ how to override confidentiality context at the entry level.
 
 **Reference:** [Provenance](representation_of_discrete_data.html#provenance), [Unknown Data in Sections That Require Entries](representation_of_discrete_data.html#unknown-data-in-sections-that-require-entries)
 
-### Structured Header
+#### Structured Header
 
 All CDA documents include a structured header regardless if the document is CDA document with a structured
 structuredBody element (a “structured document”) or a CDA document with a nonXMLBody element (an
@@ -156,59 +153,60 @@ Patient matching continues to be one of the major challenges for interoperabilit
 | **Address**   | /ClinicalDocument/recordTarget/patientRole/addr  |
 | **Phone Number**   | /ClinicalDocument/recordTarget/patientRole/telecom  | 
 {:.grid}
+
 **Table 10: Patient Data Elements**
 
-
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:49pt">
-                                        <td
-                                            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD include identifiers
-                                                that improve the accuracy of automated patient
-                                                matching mechanisms. <b>[BP-029]</b></p><p
-                                                class="s19"
-                                                style="padding-left: 57pt;text-indent: 0pt;text-align: left;"
-                                                >Note: Testability would require business decisions
-                                                to be made about what type of identifiers improve automated matching.</p></td>
-                                    </tr>
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHALL include the patient’s
-                                                administrative gender in the demographic information
-                                                of the recordTarget. <b>[CONF-030]</b></p></td>
-                                    </tr>
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                >When C-CDA Content Creators include birth sex they
-                                                SHALL use the Birth Sex Observation in the Social
-                                                History Section. <b>[CONF-031]</b></p></td>
-                                    </tr>
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s80"
-                                                style="padding-left: 41pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators who choose to include a
-                                                non-null patient address SHOULD follow the
-                                                 guidance in the <a href="https://oncprojectracking.healthit.gov/wiki/pages/viewpage.action?pageId=180486153&amp;preview=/180486153/237306191/Project%20US%40%20FINAL%20Technical%20Specification%20Version%201.0.pdf">
-                                                 Project US@ Technical Specification</a>
-                                                <b>[BP-099]</b>
-                                                  </p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:49pt">
+        <td
+            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD include identifiers
+                that improve the accuracy of automated patient
+                matching mechanisms. <b>[BP-029]</b></p><p
+                class="s19"
+                style="padding-left: 57pt;text-indent: 0pt;text-align: left;"
+                >Note: Testability would require business decisions
+                to be made about what type of identifiers improve automated matching.</p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHALL include the patient’s
+                administrative gender in the demographic information
+                of the recordTarget. <b>[CONF-030]</b></p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >When C-CDA Content Creators include birth sex they
+                SHALL use the Birth Sex Observation in the Social
+                History Section. <b>[CONF-031]</b></p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s80"
+                style="padding-left: 41pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators who choose to include a
+                non-null patient address SHOULD follow the
+                 guidance in the <a href="https://oncprojectracking.healthit.gov/wiki/pages/viewpage.action?pageId=180486153&amp;preview=/180486153/237306191/Project%20US%40%20FINAL%20Technical%20Specification%20Version%201.0.pdf">
+                 Project US@ Technical Specification</a>
+                <b>[BP-099]</b>
+                  </p></td>
+    </tr>
+</table>
 
 
-**Example 5: <a name="example-5:-recordTarget-with-demographic-data">recordTarget with demographic data</a>**
+**Example 5: recordTarget with demographic data**
+
 ```
 <recordTarget>
     <patientRole>
@@ -268,7 +266,7 @@ National Provider ID -->
 </recordTarget>
 ```
 
-**Example 6: <a name="recordTarget-including-the-provider-organization">recordTarget including the provider organization context for the clinical documentation</a>**
+**Example 6: recordTarget including the provider organization context for the clinical documentation**
 ```
 <recordTarget>
     <patientRole>
@@ -555,31 +553,31 @@ These value sets are available in the C-CDA Value Set Release Package available 
 [Value Set Authority Center](https://vsac.nlm.nih.gov/download/ccda).
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:26pt">
-                                                <td
-                                                  style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >Concepts available for use with the @use
-                                                  attribute of the name element SHALL be selected
-                                                  from the EntityNameUse value set
-                                                  (2.16.840.1.113883.1.11.15913 ).
-                                                  <b>[CONF-032]</b></p></td>
-                                            </tr>
-                                            <tr style="height:26pt">
-                                                <td
-                                                  style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >Concepts available for use with the @qualifier
-                                                  attribute of the name element SHALL be selected
-                                                  from the EntityPersonNamePartQualifier value set
-                                                  (2.16.840.1.113883.11.20.9.26 ).
-                                                  <b>[CONF-033]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+          style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >Concepts available for use with the @use
+          attribute of the name element SHALL be selected
+          from the EntityNameUse value set
+          (2.16.840.1.113883.1.11.15913 ).
+          <b>[CONF-032]</b></p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+          style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >Concepts available for use with the @qualifier
+          attribute of the name element SHALL be selected
+          from the EntityPersonNamePartQualifier value set
+          (2.16.840.1.113883.11.20.9.26 ).
+          <b>[CONF-033]</b></p></td>
+    </tr>
+</table>
 
 **Example 10: Logical display order of name pieces**
 
@@ -639,18 +637,18 @@ of the full number and require that all but the final four digits of the identif
 information to data sharing partners.
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:26pt">
-                                                <td
-                                                  style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >Content Consumers SHALL NOT treat id elements that
-                                            include a nullFlavor attribute as globally unique
-                                            identifiers. <b>[BP-034]</b></p></td>
-                                            </tr>
-                                            </table>
+	style="border-collapse:collapse;margin-left:24.01pt"
+	cellspacing="0">
+	<tr style="height:26pt">
+	    <td
+	      style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+	      bgcolor="#C5D9F0"><p class="s19"
+	      style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+	      >Content Consumers SHALL NOT treat id elements that
+	include a nullFlavor attribute as globally unique
+	identifiers. <b>[BP-034]</b></p></td>
+	</tr>
+</table>
 
 **Example 11: How to represent a social security number (SSN) that has been masked to show only the last four digits**
 ```
@@ -691,65 +689,65 @@ these options in a real C-CDA Document. -->
 The recordTarget utilizes two CDA R2 extensions for representing multiple races and multiple ethnicities.
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:41pt">
-                                                <td
-                                                  style="width:469pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >This patient <b>SHALL </b>contain exactly one
-                                                  [1..1] <b>raceCode</b>, which <b>SHALL </b>be
-                                                  selected from ValueSet <b>Race Category Excluding
-                                                  Nulls </b>urn:oid:2.16.840.1.113883.3.2074.1.1.3
-                                                  <b>DYNAMIC </b>[CONF:1198-5322].</p></td>
-                                            </tr>
-                                            <tr style="height:92pt">
-                                                <td
-                                                  style="width:469pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 2pt;text-indent: 0pt;text-align: left;"
-                                                  >This patient <b>MAY </b>contain zero or more
-                                                  [0..*] <b>sdtc:raceCode</b>, which <b>SHALL </b>be
-                                                  selected from ValueSet <b>Race
-                                                  </b>urn:oid:2.16.840.1.113883.1.11.14914
-                                                  <b>DYNAMIC </b>(CONF:1198-7263). Note: The
-                                                  sdtc:raceCode is only used to record additional
-                                                  values when the patient has indicated multiple
-                                                  races or additional race detail beyond the five
-                                                  categories required for Meaningful Use Stage 2.
-                                                  The prefix sdtc: SHALL be bound to the namespace
-                                                  “urn:hl7-org:sdtc”. The use of the namespace
-                                                  provides a necessary extension to CDA R2 for the
-                                                  use of the additional raceCode elements. a. If
-                                                  sdtc:raceCode is present, then the patient
-                                                  <b>SHALL </b>contain [1..1] raceCode
-                                                  [CONF:1198-31347].</p></td>
-                                            </tr>
-                                            <tr style="height:38pt">
-                                                <td
-                                                  style="width:469pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                  >This patient <b>SHALL </b>contain exactly one
-                                                  [1..1] <b>ethnicGroupCode</b>, which <b>SHALL
-                                                  </b>be selected from ValueSet <b>Ethnicity </b> <span class="s19"
-                                                  >urn:oid:2.16.840.1.114222.4.11.837 </span> <b>DYNAMIC </b>
-                                                  <span class="s19"
-                                                  >[CONF:1198-5323].</span></p></td>
-                                            </tr>
-                                            <tr style="height:37pt">
-                                                <td
-                                                  style="width:469pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >This patient MAY contain zero or more [0..*]
-                                                  sdtc:ethnicGroupCode, which <b>SHALL </b>be
-                                                  selected from ValueSet Detailed Ethnicity
-                                                  urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC
-                                                  (CONF:1198-32901).</p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:41pt">
+        <td
+          style="width:469pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >This patient <b>SHALL </b>contain exactly one
+          [1..1] <b>raceCode</b>, which <b>SHALL </b>be
+          selected from ValueSet <b>Race Category Excluding
+          Nulls </b>urn:oid:2.16.840.1.113883.3.2074.1.1.3
+          <b>DYNAMIC </b>[CONF:1198-5322].</p></td>
+    </tr>
+    <tr style="height:92pt">
+        <td
+          style="width:469pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 2pt;text-indent: 0pt;text-align: left;"
+          >This patient <b>MAY </b>contain zero or more
+          [0..*] <b>sdtc:raceCode</b>, which <b>SHALL </b>be
+          selected from ValueSet <b>Race
+          </b>urn:oid:2.16.840.1.113883.1.11.14914
+          <b>DYNAMIC </b>(CONF:1198-7263). Note: The
+          sdtc:raceCode is only used to record additional
+          values when the patient has indicated multiple
+          races or additional race detail beyond the five
+          categories required for Meaningful Use Stage 2.
+          The prefix sdtc: SHALL be bound to the namespace
+          “urn:hl7-org:sdtc”. The use of the namespace
+          provides a necessary extension to CDA R2 for the
+          use of the additional raceCode elements. a. If
+          sdtc:raceCode is present, then the patient
+          <b>SHALL </b>contain [1..1] raceCode
+          [CONF:1198-31347].</p></td>
+    </tr>
+    <tr style="height:38pt">
+        <td
+          style="width:469pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+          >This patient <b>SHALL </b>contain exactly one
+          [1..1] <b>ethnicGroupCode</b>, which <b>SHALL
+          </b>be selected from ValueSet <b>Ethnicity </b> <span class="s19"
+          >urn:oid:2.16.840.1.114222.4.11.837 </span> <b>DYNAMIC </b>
+          <span class="s19"
+          >[CONF:1198-5323].</span></p></td>
+    </tr>
+    <tr style="height:37pt">
+        <td
+          style="width:469pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >This patient MAY contain zero or more [0..*]
+          sdtc:ethnicGroupCode, which <b>SHALL </b>be
+          selected from ValueSet Detailed Ethnicity
+          urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC
+          (CONF:1198-32901).</p></td>
+    </tr>
+</table>
 
 #### Patient Identifiers
 
@@ -790,35 +788,36 @@ While the recordTarget represents the medical record that this document belongs 
 within the recordTarget represents the provider organization to which the medical record belongs.
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:32pt">
-                                                <td
-                                                  style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
-                                                  >C-CDA Content Creators SHOULD populate the
-                                                  providerOrganization within the recordTarget when
-                                                  the document represents information from a
-                                                  provider’s medical record system.
-                                                  <b>[CONF-035]</b></p></td>
-                                            </tr>
-                                            <tr style="height:45pt">
-                                                <td
-                                                  style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
-                                                  >C-CDA Content Creators SHOULD include an
-                                                  identifier for the provider organization in the
-                                                  id/@extension attribute and SHOULD identify the
-                                                  assigning authority for the identifier using a
-                                                  globally unique identifier (GUID or OID) in the
-                                                  id/@root attribute. <b>[CONF-036]</b></p></td>
-                                            </tr>
-                                        </table>
-                                        
-**Reference:** [Example 5: recordTarget with demographic data](#example-5:-recordTarget-with-demographic-data) **,** [Example 6: recordTarget including the provider
-organization context for the clinical documentation](#recordTarget-including-the-provider-organization)
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:32pt">
+        <td
+          style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
+          >C-CDA Content Creators SHOULD populate the
+          providerOrganization within the recordTarget when
+          the document represents information from a
+          provider’s medical record system.
+          <b>[CONF-035]</b></p></td>
+    </tr>
+    <tr style="height:45pt">
+        <td
+          style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
+          >C-CDA Content Creators SHOULD include an
+          identifier for the provider organization in the
+          id/@extension attribute and SHOULD identify the
+          assigning authority for the identifier using a
+          globally unique identifier (GUID or OID) in the
+          id/@root attribute. <b>[CONF-036]</b></p></td>
+    </tr>
+</table>
+
+**Reference:** [Example 5: recordTarget with demographic data](#example-5:-recordTarget-with-demographic-data)
+
+**Reference:** [Example 6: recordTarget including the provider organization context for the clinical documentation](#recordTarget-including-the-provider-organization)
 
 #### Authors Versus Performers
 
@@ -833,8 +832,7 @@ CDA header is not automatically implied to be the performer in procedures or med
 the entries in the document. An author represents the human or machine that authored content. Authors listed in
 the header are responsible for all content in the document, while authors recorded in a section or entry are only
 responsible for content within that structure and override the author in the header. Section authorship applies to
-the full content of a section, including both the narrative block and any entries. Entry authorship applies only to
-the specific entry.
+the full content of a section, including both the narrative block and any entries. Entry authorship applies only to the specific entry.
 
 One example where confusion between these roles might arise for implementers is related to quality
 measurement use cases, which require clinical documentation to indicate who diagnosed a patient’s condition and
@@ -849,76 +847,76 @@ sharing the Author in the Provenance - [Provenance - Author Participation](Prove
 The C-CDA specification requires the following:
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:32pt">
-                                                <td
-                                                  style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
-                                                  >1. <b>SHALL </b><span class="s19">contain exactly one [1..1]
-                                            </span><b>templateId </b><span class="s19">(CONF:1098-32017)
-                                                such that it</span></p><p class="s31"
-                                                  style="padding-top: 5pt;padding-left: 85pt;padding-right: 14pt;text-indent: -9pt;text-align: left;"
-                                                  ><b>a. SHALL </b><span class="s19">contain exactly one
-                                                  ["..1] </span><b>@root</b><span class="s19"
-                                                  >=&quot;2.16.840.1.113883.10”20.22.4.119&quot;
-                                                  (CONF:1098- 32018).</span></p><p class="s31"
-                                            style="padding-top: 6pt;padding-left: 51pt;text-indent: -9pt;text-align: left;"
-                                            bgcolor="#C5D9F0">2. <b>SHALL </b><span class="s19">contain exactly one [1..1]
-                                            </span><b>time </b><span class="s19"
-                                            >(CONF:1098-31471).</span></p><p class="s31"
-                                            style="padding-top: 6pt;padding-left: 51pt;text-indent: -9pt;text-align: left;"
-                                            bgcolor="#C5D9F0">3. <b>SHALL </b><span class="s19">contain exactly one [1..1]
-                                            </span><b>assignedAuthor </b><span class="s19"
-                                                >(CONF:1098-31472).</span></p><p class="s19"
-                                                  style="padding-top: 6pt;padding-left: 82pt;text-indent: -9pt;text-align: left;"
-                                                  >a. This assignedAuthor <b>SHALL </b>contain at least
-                                                  one [1..*] <b>id </b>(CONF:1098-31473).</p><br/><p class="s19"
-                                                style="padding-top: 5pt;padding-left: 40pt;padding-right: 3pt;text-indent: 1pt;text-align: left;"
-                                                >Note: This id may be set equal to (a pointer to) an
-                                                id on a participant elsewhere in the document
-                                                (header or entries) or a new author participant can
-                                                be described here. If the id is pointing to a
-                                                participant already described elsewhere in the
-                                                document, assignedAuthor/id is sufficient to
-                                                identify this participant and none of the remaining
-                                                details of assignedAuthor are required to be set.
-                                                Application Software must be responsible for
-                                                resolving the identifier back to its original object
-                                                and then rendering the information in the correct
-                                                place in the containing section&#39;s narrative
-                                                text. This id must be a pointer to another author
-                                                participant.</p><p class="s19"
-                                                style="padding-top: 6pt;padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >If’ the ID isn&#39;t referencing an author
-                                                described elsewhere in the document, then the author
-                                                components required in US Realm Header are required
-                                                here as well (CONF:1098-32628).</p><p class="s19"
-                                                style="padding-left: 90pt;padding-right: 3pt;text-indent: 0pt;text-align: left;"
-                                                >This assignedAuthor SHOULD contain zero or one [0..1] code, 
-                                                which <b>SHOULD </b> be selected from ValueSet <b>Healthcare 
-                                                Provider Taxonomy (HIPAA) </b> 
-                                                urn:oid:2.16.840.1.114222.4.11.1066 <b>DYNAMIC </b> 
-                                                (CONF:1098-31671). i. If the content is patient authored 
-                                                the code <b>SHOULD </b>be selected
-                                                from Personal And Legal Relationship Role Type
-                                                (2.16.840.1.113883.11.20.12.1)
-                                                (CONF:1098-32315).</p><p class="s19"
-                                                style="padding-left: 108pt;text-indent: 0pt;text-align: left;"
-                                                >i. The representedOrganization, if present, <b>MAY </b> contain 
-                                                zero or more [0..*] <b>id </b>(CONF:1098-31478).</p><p class="s19"
-                                                style="padding-left: 108pt;text-indent: 0pt;text-align: left;"
-                                                >ii. The representedOrganization, if present, <b>MAY </b> contain zero 
-                                                or more [0..*] <b>name </b>(CONF:1098-31479).</p><p class="s19"
-                                                style="padding-left: 108pt;text-indent: 0pt;text-align: left;"
-                                                >The representedOrganization, if present, <b>MAY </b> contain zero 
-                                                or more [0..*] <b>telecom </b>(CONF:1098-31480).</p><p class="s19"
-                                                style="padding-left: 108pt;text-indent: 0pt;text-align: left;"
-                                                >The representedOrganization, if present, <b>MAY </b> contain zero 
-                                                or more [0..*] <b>addr </b>(CONF:1098-31481).</p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:32pt">
+            <td
+              style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+              bgcolor="#C5D9F0"><p class="s19"
+              style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
+              >1. <b>SHALL </b><span class="s19">contain exactly one [1..1]
+        </span><b>templateId </b><span class="s19">(CONF:1098-32017)
+            such that it</span></p><p class="s31"
+              style="padding-top: 5pt;padding-left: 85pt;padding-right: 14pt;text-indent: -9pt;text-align: left;"
+              ><b>a. SHALL </b><span class="s19">contain exactly one
+              ["..1] </span><b>@root</b><span class="s19"
+              >=&quot;2.16.840.1.113883.10”20.22.4.119&quot;
+              (CONF:1098- 32018).</span></p><p class="s31"
+        style="padding-top: 6pt;padding-left: 51pt;text-indent: -9pt;text-align: left;"
+        bgcolor="#C5D9F0">2. <b>SHALL </b><span class="s19">contain exactly one [1..1]
+        </span><b>time </b><span class="s19"
+        >(CONF:1098-31471).</span></p><p class="s31"
+        style="padding-top: 6pt;padding-left: 51pt;text-indent: -9pt;text-align: left;"
+        bgcolor="#C5D9F0">3. <b>SHALL </b><span class="s19">contain exactly one [1..1]
+        </span><b>assignedAuthor </b><span class="s19"
+            >(CONF:1098-31472).</span></p><p class="s19"
+              style="padding-top: 6pt;padding-left: 82pt;text-indent: -9pt;text-align: left;"
+              >a. This assignedAuthor <b>SHALL </b>contain at least
+              one [1..*] <b>id </b>(CONF:1098-31473).</p><br/><p class="s19"
+            style="padding-top: 5pt;padding-left: 40pt;padding-right: 3pt;text-indent: 1pt;text-align: left;"
+            >Note: This id may be set equal to (a pointer to) an
+            id on a participant elsewhere in the document
+            (header or entries) or a new author participant can
+            be described here. If the id is pointing to a
+            participant already described elsewhere in the
+            document, assignedAuthor/id is sufficient to
+            identify this participant and none of the remaining
+            details of assignedAuthor are required to be set.
+            Application Software must be responsible for
+            resolving the identifier back to its original object
+            and then rendering the information in the correct
+            place in the containing section&#39;s narrative
+            text. This id must be a pointer to another author
+            participant.</p><p class="s19"
+            style="padding-top: 6pt;padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+            >If’ the ID isn&#39;t referencing an author
+            described elsewhere in the document, then the author
+            components required in US Realm Header are required
+            here as well (CONF:1098-32628).</p><p class="s19"
+            style="padding-left: 90pt;padding-right: 3pt;text-indent: 0pt;text-align: left;"
+            >This assignedAuthor SHOULD contain zero or one [0..1] code, 
+            which <b>SHOULD </b> be selected from ValueSet <b>Healthcare 
+            Provider Taxonomy (HIPAA) </b> 
+            urn:oid:2.16.840.1.114222.4.11.1066 <b>DYNAMIC </b> 
+            (CONF:1098-31671). i. If the content is patient authored 
+            the code <b>SHOULD </b>be selected
+            from Personal And Legal Relationship Role Type
+            (2.16.840.1.113883.11.20.12.1)
+            (CONF:1098-32315).</p><p class="s19"
+            style="padding-left: 108pt;text-indent: 0pt;text-align: left;"
+            >i. The representedOrganization, if present, <b>MAY </b> contain 
+            zero or more [0..*] <b>id </b>(CONF:1098-31478).</p><p class="s19"
+            style="padding-left: 108pt;text-indent: 0pt;text-align: left;"
+            >ii. The representedOrganization, if present, <b>MAY </b> contain zero 
+            or more [0..*] <b>name </b>(CONF:1098-31479).</p><p class="s19"
+            style="padding-left: 108pt;text-indent: 0pt;text-align: left;"
+            >The representedOrganization, if present, <b>MAY </b> contain zero 
+            or more [0..*] <b>telecom </b>(CONF:1098-31480).</p><p class="s19"
+            style="padding-left: 108pt;text-indent: 0pt;text-align: left;"
+            >The representedOrganization, if present, <b>MAY </b> contain zero 
+            or more [0..*] <b>addr </b>(CONF:1098-31481).</p></td>
+    </tr>
+</table>
                                                                 
                                 
 **Figure 4: Author Participation**
@@ -931,19 +929,19 @@ not explicitly been prohibited. Its use is required on only one entry template, 
 [Author Participation](StructureDefinition-AuthorParticipation.html)
 
 <table
-                                    style="border-collapse:collapse;margin-left:18.61pt"
-                                    cellspacing="0">
-                                    <tr style="height:28pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 33pt;padding-right: 10pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators MAY explicitly indicate the
-                                                performer for observations and acts, not just the
-                                                author who documents those activities.
-                                                  <b>[BP-038]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:18.61pt"
+    cellspacing="0">
+    <tr style="height:28pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 33pt;padding-right: 10pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators MAY explicitly indicate the
+                performer for observations and acts, not just the
+                author who documents those activities.
+                  <b>[BP-038]</b></p></td>
+    </tr>
+</table>
 
 #### Identifying Practitioners
 
@@ -957,7 +955,8 @@ Direct Address. It includes how to indicate the preferred telecom addresses for 
 This representation pattern is applicable for other roles such as performer, authenticator, legal
 authenticator, etc. The example shows how to represent NPI information for the provider and for the
 provider organization. It also shows how to represent Direct address information and how to indicate the
-preferred telecom address to use.</br>
+preferred telecom address to use.
+
 ```
 <!-- an appropriate participation such as author/assignedAuthor -->
 <author>
@@ -1137,50 +1136,49 @@ These are the data elements that tell who was responsible for the patient encoun
 performing care services.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 39pt;text-indent: 0pt;text-align: left;"
-                                                >For Encounter Summary documents, C-CDA Content
-                                                Creators SHALL document the provider who is
-                                                responsible for the encounter in the
-                                                componentOf/encompassingEncounter/responsibleParty.
-                                                  <b>[BP-039]</b></p></td>
-                                    </tr>
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 39pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
-                                                >For Patient Summary documents, C-CDA Content
-                                                Creators SHALL document providers who played the
-                                                role of Primary Care Provider for the patient during
-                                                the range of time covered in the summary using</p><p
-                                                class="s19"
-                                                style="padding-left: 39pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                >the documentationOf/serviceEvent/performer.
-                                                  <b>[BP-040]</b></p></td>
-                                    </tr>
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 39pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHALL populate the
-                                                functionCode element with the provider’s or person’s
-                                                role on the patient’s care team. Coded concepts for
-                                                the functionCode SHALL be selected from the
-                                                Care</p><p class="s19"
-                                                style="padding-left: 39pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                >Team Member Function value set
-                                                (2.16.840.1.113762.1.4.1099.30).
-                                            <b>[BP-041]</b></p></td>
-                                    </tr>
-                                </table>
-
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 39pt;text-indent: 0pt;text-align: left;"
+                >For Encounter Summary documents, C-CDA Content
+                Creators SHALL document the provider who is
+                responsible for the encounter in the
+                componentOf/encompassingEncounter/responsibleParty.
+                  <b>[BP-039]</b></p></td>
+    </tr>
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 39pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
+                >For Patient Summary documents, C-CDA Content
+                Creators SHALL document providers who played the
+                role of Primary Care Provider for the patient during
+                the range of time covered in the summary using</p><p
+                class="s19"
+                style="padding-left: 39pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+                >the documentationOf/serviceEvent/performer.
+                  <b>[BP-040]</b></p></td>
+    </tr>
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 39pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHALL populate the
+                functionCode element with the provider’s or person’s
+                role on the patient’s care team. Coded concepts for
+                the functionCode SHALL be selected from the
+                Care</p><p class="s19"
+                style="padding-left: 39pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+                >Team Member Function value set
+                (2.16.840.1.113762.1.4.1099.30).
+            <b>[BP-041]</b></p></td>
+    </tr>
+</table>
 
 
 #### sdtc:signatureText in Authenticator and legalAuthenticator
@@ -1197,68 +1195,68 @@ dictates a note, and signs it. Later an attending physician may sign it who woul
 Additional Guidance is in the following table:
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:92pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
-                                                >All documents SHALL have a <i>legalAuthenticator.
-                                                </i>In the case of generated summary documents,
-                                                institutions may meet the requirement for a Legal
-                                                Authenticator by extending the practice of
-                                                maintaining a “Signature on File”. The person,
-                                                entity, organization, role, etc. indicated is
-                                                responsible for the contents of the note where it is
-                                                understood that this Legal Authenticator is not an
-                                                author of the document. Policy for determining who
-                                                is responsible for legal authentication of the
-                                                summary document rests with the originating
-                                                organization. In real-world exchange, organizations
-                                                and roles are being used as legalAuthenticators;
-                                                this is consistent with the CDA base standard.
-                                                  <b>[AIGEX-HD4]</b></p></td>
-                                    </tr>
-                                    <tr style="height:32pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 3pt;text-indent: 0pt;text-align: left;"
-                                                >All documents that contain
-                                                  <i>sdtc:signatureText</i>, SHALL conform to the
-                                                HL7 Digital Signatures and Delegation of Rights
-                                                Implementation Guide R1<i>.
-                                                </i><b>[AIGEX-HD7]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:92pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
+                >All documents SHALL have a <i>legalAuthenticator.
+                </i>In the case of generated summary documents,
+                institutions may meet the requirement for a Legal
+                Authenticator by extending the practice of
+                maintaining a “Signature on File”. The person,
+                entity, organization, role, etc. indicated is
+                responsible for the contents of the note where it is
+                understood that this Legal Authenticator is not an
+                author of the document. Policy for determining who
+                is responsible for legal authentication of the
+                summary document rests with the originating
+                organization. In real-world exchange, organizations
+                and roles are being used as legalAuthenticators;
+                this is consistent with the CDA base standard.
+                  <b>[AIGEX-HD4]</b></p></td>
+    </tr>
+    <tr style="height:32pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 3pt;text-indent: 0pt;text-align: left;"
+                >All documents that contain
+                  <i>sdtc:signatureText</i>, SHALL conform to the
+                HL7 Digital Signatures and Delegation of Rights
+                Implementation Guide R1<i>.
+                </i><b>[AIGEX-HD7]</b></p></td>
+    </tr>
+</table>
 
 The HL7 Digital Signatures and Delegation of Rights Implementation Guide R1 defines the standards for [digitally
 signing C-CDA documents](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=375).
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators MAY include the
-                                                sdtc:signatureText extension for Authenticators and
-                                                LegalAuthenticators. <b>[BP-042]</b></p></td>
-                                    </tr>
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Consumers MAY render certificate
-                                                information associated with digital signed C-CDA
-                                                Documents when rendering the document.
-                                                  <b>[BP-043]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators MAY include the
+                sdtc:signatureText extension for Authenticators and
+                LegalAuthenticators. <b>[BP-042]</b></p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Consumers MAY render certificate
+                information associated with digital signed C-CDA
+                Documents when rendering the document.
+                  <b>[BP-043]</b></p></td>
+    </tr>
+</table>
 
 #### Context of Care
 
@@ -1274,52 +1272,52 @@ For more information and Guidance see [Concise Consolidated CDA: Deploying Encou
 #### Encompassing Encounter
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:49pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >In an Encounter Summary, C-CDA Content Creators
-                                                  SHALL populate the
-                                                  encompassingEncounter/effectiveTime and the
-                                                  encompassingEncounter/location/healthCareFacility/serviceProviderOrganization
-                                                  and the</p><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                  >encompassingEncounter/responsibleParty/assignedEntity.
-                                                  <b>[CONF-044]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:49pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >In an Encounter Summary, C-CDA Content Creators
+          SHALL populate the
+          encompassingEncounter/effectiveTime and the
+          encompassingEncounter/location/healthCareFacility/serviceProviderOrganization
+          and the</p><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+          >encompassingEncounter/responsibleParty/assignedEntity.
+          <b>[CONF-044]</b></p></td>
+    </tr>
+</table>
 
 #### Service Events
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:26pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >In an Encounter Summary, C-CDA Content Creators
-                                                  MAY populate the documentationOf/serviceEvent,
-                                                  including the serviceEvent/effectiveTime,
-                                                  serviceEvent/code, and serviceEvent/performer(s).
-                                                  <b>[BP-045]</b></p></td>
-                                            </tr>
-                                            <tr style="height:26pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >In a Patient Summary, C-CDA Content Creators
-                                                  SHALL populate the documentationOf/serviceEvent
-                                                  based on conformance requirements of the C-CDA
-                                                  specification for CCD documents.
-                                                  <b>[CONF-046]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >In an Encounter Summary, C-CDA Content Creators
+          MAY populate the documentationOf/serviceEvent,
+          including the serviceEvent/effectiveTime,
+          serviceEvent/code, and serviceEvent/performer(s).
+          <b>[BP-045]</b></p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >In a Patient Summary, C-CDA Content Creators
+          SHALL populate the documentationOf/serviceEvent
+          based on conformance requirements of the C-CDA
+          specification for CCD documents.
+          <b>[CONF-046]</b></p></td>
+    </tr>
+</table>
 
 #### Orders Fulfilled
 
@@ -1327,32 +1325,32 @@ If an Encounter occurred as a result of a previously placed order (e.g., a visit
 order should be provided as context for the Encounter.
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:37pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >In an Encounter Summary, C-CDA Content Creators
-                                                  SHOULD populate the infulfillmentOf/order and the
-                                                  infulfillmentOf/order/id element where the
-                                                  order/id references the id of a previously placed
-                                                  order.</p><p class="s31"
-                                                  style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                  ><b>[BP-047]</b></p></td>
-                                            </tr>
-                                            <tr style="height:26pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >The Order Fulfilled area of the header MAY carry
-                                                  information about fulfilled orders, rereferrals or
-                                                  other requests that have been fulfilled.
-                                                  <b>[BP-048]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:37pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >In an Encounter Summary, C-CDA Content Creators
+          SHOULD populate the infulfillmentOf/order and the
+          infulfillmentOf/order/id element where the
+          order/id references the id of a previously placed
+          order.</p><p class="s31"
+          style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+          ><b>[BP-047]</b></p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >The Order Fulfilled area of the header MAY carry
+          information about fulfilled orders, rereferrals or
+          other requests that have been fulfilled.
+          <b>[BP-048]</b></p></td>
+    </tr>
+</table>
 
 #### Related Parent Document
 
@@ -1368,19 +1366,19 @@ document rather than sending an addendum to a prior document. Indicate the paren
 replaced by using a replaceRelationship type of RPLC.
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:37pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >C-CDA Content Creators SHOULD populate the ClinicalDocument/relatedDocument using
-                                                  @typeCode="RPLC" when a document replaces a prior document.</p><p class="s31"
-                                                  style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                  ><b>[BP-049]</b></p></td>
-                                            </tr>
-                                            </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:37pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >C-CDA Content Creators SHOULD populate the ClinicalDocument/relatedDocument using
+          @typeCode="RPLC" when a document replaces a prior document.</p><p class="s31"
+          style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+          ><b>[BP-049]</b></p></td>
+    </tr>
+</table>
 
 **Example 15: Replacement Discharge Summary Document with Hospital Course Added**
 ```
@@ -1482,43 +1480,44 @@ Laboratory Report Narrative or Pathology Report Narrative, the Unstructured Docu
 represent the clinical note information.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:49pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators MAY support the Unstructured
-                                                Document template for representing clinical note
-                                                types when the type of clinical note to be exchanged
-                                                does not have an appropriate structured document
-                                                template or when it is not possible for the C-CDA
-                                                Content Creator to represent the clinical</p><p
-                                                class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                >note information using a structured document
-                                                template. <b>[BP-050]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:49pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators MAY support the Unstructured
+                Document template for representing clinical note
+                types when the type of clinical note to be exchanged
+                does not have an appropriate structured document
+                template or when it is not possible for the C-CDA
+                Content Creator to represent the clinical</p><p
+                class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+                >note information using a structured document
+                template. <b>[BP-050]</b></p></td>
+    </tr>
+</table>
 
-### Section Structure by Document Type
+#### Section Structure by Document Type
 
 The following tables describe the required and optional section templates for each document type defined in C-CDA. They include sections that support best practices for representing data for exchange such as Patient Goals and Health Concerns.
 
 <table
-                            style="border-collapse:collapse;margin-left:24.01pt" cellspacing="0">
-                            <tr style="height:32pt">
-                                <td
-                                    style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                        bgcolor="#C5D9F0"><p class="s19"
-                                        style="padding-left: 45pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                        >Transition of Care C-CDA Documents SHALL include a Health
-                                        Concerns section and a Goals Section.</p><p class="s31"
-                                        style="padding-left: 45pt;text-indent: 0pt;text-align: left;"
-                                        ><b>[CONF-051]</b></p></td>
-                            </tr>
-                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt" cellspacing="0">
+    <tr style="height:32pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 45pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+                >Transition of Care C-CDA Documents SHALL include a Health
+                Concerns section and a Goals Section.</p><p class="s31"
+                style="padding-left: 45pt;text-indent: 0pt;text-align: left;"
+                ><b>[CONF-051]</b></p></td>
+    </tr>
+</table>
+
 #### Care Plan: Document Template
 
 A Care Plan is a consensus-driven dynamic plan that represents a
@@ -1542,9 +1541,10 @@ This document template enables Care Plan information to be shared in a way that 
 
 A Care Plan document can include entry references from the information in these sections to the information (entries) in other sections. 
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Care Plan document template: Care Plan [Care Plan](StructureDefinition-CarePlan.html)
+
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
 | **Care Plan**   | Health Concerns Section<br />Goals Section  | Activities Section<br />Health Status Evaluations and Outcomes Section  |
@@ -1560,7 +1560,7 @@ Consultations may occur while the patient is inpatient or ambulatory. The Consul
 to summarize an Emergency Room or Urgent Care encounter. A Consultation Note includes the reason for the
 referral, history of present illness, physical examination, and decision-making components (Assessment and Plan).
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Consultation Note document template:[Consultation Note](StructureDefinition-ConsultationNote.html)
 
@@ -1584,7 +1584,7 @@ care that has already been provided. The CCD provides a historical tally of the 
 a record of new services delivered. More specific use cases, such as a Discharge Summary, Transfer Summary,
 Referral Note, Consultation Note, or Progress Note, are available as alternative documents in this guide.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Continuity of Care Document (CCD) document
 template: [Continuity of Care Document (CCD)](StructureDefinition-ContinuityofCareDocumentCCD.html)
@@ -1610,7 +1610,7 @@ requires the following information to be included in the Discharge Summary:
 
 The best practice for a Discharge Summary is to include the discharge disposition in the display of the header.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Discharge Summary document template: [Discharge Summary](StructureDefinition-DischargeSummary.html)
 
@@ -1636,7 +1636,7 @@ with the clinician's assessment of the patient's situation and the intended plan
 and Physical Examination is required upon hospital admission as well as before operative procedures. An initial
 evaluation in an ambulatory setting is often documented in the form of an H&P Note.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a History and Physical document template: History
 and Physical[History and Physical](StructureDefinition-HistoryandPhysical.html)
@@ -1647,7 +1647,7 @@ and Physical[History and Physical](StructureDefinition-HistoryandPhysical.html)
 {:.grid}
 **Table 21: History and Physical: Document Template.**
 
-#### Operative Note: Document Template
+### Operative Note: Document Template
 
 The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory
 agencies. The Operative Note is created immediately following a surgical or other high-risk procedure. It records
@@ -1655,7 +1655,7 @@ the pre- and post-surgical diagnosis, pertinent events of the procedure, as well
 following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment,
 document the course of the procedure, and provide continuity of care.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in an Operative Note document template: Operative
 Note [Operative Note](StructureDefinition-OperativeNote.html)
@@ -1676,7 +1676,7 @@ procedure and, when applicable, post-procedure diagnosis, pertinent events of th
 tolerance for the procedure. It should be detailed enough to justify the procedure, describe the course of the
 procedure, and provide continuity of care.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Procedure Note document template: Procedure [Procedure Note](StructureDefinition-ProcedureNote.html)
 
@@ -1699,9 +1699,10 @@ represent an encounter summary for a non-inpatient setting in Chapter 2.2 Outpat
 include any required sections and the open nature of the template enables Content Creators to include the right
 sections to express the source data or the needed sections to satisfy the requirements of Content Consumers.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Progress Note document template: Progress [Progress Note](StructureDefinition-ProgressNote.html)
+
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
 | **Progress Note**   |   | Assessment Section<br />Plan of Treatment Section<br />Assessment and Plan Section<br />Allergies and Intolerances Section<br />Chief Complaint Section<br />Activities Section<br />Instructions Section<br /><br />Medications Section<br />Objective Section<br />Physical Exam Section<br />Problem Section<br />Results Section<br />Review of Systems Section<br />Subjective Section<br />Vital Signs Section<br />Nutrition Section  |
@@ -1720,7 +1721,7 @@ that would augment decision making and care delivery. Examples of referral situa
 - Referred by a nurse practitioner to an audiologist for hearing screening.
 - Referred by a hospitalist to social services.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Referral Note document template: [Referral Note](StructureDefinition-ReferralNote.html) 
 
@@ -1739,9 +1740,10 @@ information between providers of care when a patient moves between health care s
 information used in this form will promote interoperability; create information suitable for reuse in quality
 measurement, public health, research, and for reimbursement.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Transfer Summary document template: [Transfer Summary](StructureDefinition-TransferSummary.html) 
+
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
 | **Transfer Summary**   | Allergies and Intolerances Section<br />Medications Section<br />Problem Section<br />Results Section<br />Vital Signs Section<br />Reason for Referral Section  | Physical Exam Section<br />Encounters Section<br />Family History Section<br />Functional Status Section<br />Discharge Diagnosis Section<br />Immunizations Section<br />Medical Equipment Section<br />Payers Section<br />Plan of Treatment Section<br />Procedures Section<br />Social History Section<br />Mental Status Section<br />General Status Section<br />Review of Systems Section<br />Nutrition Section<br />Past Medical History<br />History of Present Illness Section<br />Assessment and Plan Section<br />Assessment Section<br />Admission Medications Section<br />Admission Diagnosis Section<br />Course of Care Section
@@ -1755,19 +1757,20 @@ CDA. Employing additional C-CDA compatible templates within existing document ty
 interoperable information available for exchange and help address emerging use cases for data exchange.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:32pt">
-                                        <td
-                                            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 45pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators MAY include in existing
-                                                C-CDA documents, other C-CDA compatible section-
-                                                level templates defined in other implementation
-                                                guides. <b>[BP-052]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:32pt">
+        <td
+            style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 45pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators MAY include in existing
+                C-CDA documents, other C-CDA compatible section-
+                level templates defined in other implementation
+                guides. <b>[BP-052]</b></p></td>
+    </tr>
+</table>
+
 A C-CDA compatible template is a template that further constrains a template defined in C- CDA or a template
 that does not conflict with templates defined in C-CDA. Determining if a template is C-CDA compliant may require
 human discernment and consensus building within the C-CDA implementer community. A particularly important
@@ -1776,19 +1779,18 @@ template versions and templates for additional use cases. These Supplemental Imp
 published within the main [C-CDA specification Product Brief page](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492)
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators MAY support further
-                                                constraints on the document templates defined in
-                                                C-CDA <b>[BP-053]</b></p></td>
-                                    </tr>
-                                </table>
-                                
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators MAY support further
+                constraints on the document templates defined in
+                C-CDA <b>[BP-053]</b></p></td>
+    </tr>
+</table>
 
 ### Section Level Guidance
 
@@ -1829,7 +1831,7 @@ approximation designed to improve understanding of the full collection of C-CDA 
 <table><tr><td><img src="Figure 5 Visualizing C-CDA section templates by applying the SOAP framework.png" /></td></tr></table>
 **Figure 5: Visualizing C-CDA section templates by applying the SOAP framework**
 
-#### A More Meaningful Patient Story Using C-CDA: Tell it. Use it. Share it.
+##### A More Meaningful Patient Story Using C-CDA: Tell it. Use it. Share it.
 
 This presentation explained how documentation-based exchange via Consolidated Clinical Document Architecture
 (C-CDA), when implemented correctly, has the power to capture and share a more comprehensive electronic
@@ -1855,26 +1857,26 @@ context of the overarching document to be considered when determining if it is a
 type of section template in a particular type of document template.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD use section templates
-                                                that are appropriate within the context of a
-                                                document based on the defined purpose of the section
-                                                template. <b>[BP-054]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD use section templates
+                that are appropriate within the context of a
+                document based on the defined purpose of the section
+                template. <b>[BP-054]</b></p></td>
+    </tr>
+</table>
 
 #### General Section-Level Guidance
 
 The following guidance elements are not specific to any one C-CDA template but rather are overarching guidance
 elements that apply to an entire C-CDA document.
 
-#### Data Provenance for a Section
+##### Data Provenance for a Section
 
 The author role is key to understanding the provenance of the information.
 
@@ -1905,7 +1907,7 @@ declared at the entry level. While it is generally preferred that provenance be 
 provenance information included at the document or section level conducts to the entry when provenance at the
 entry level is not stated explicitly.
 
-#### Declaring Section Template Conformance
+##### Declaring Section Template Conformance
 
 Template conformance may be declared at any
 level of a C-CDA document—header, section, entry, or within an entry at a sub-structural level.
@@ -1925,56 +1927,56 @@ and @extension attributes does not matter when determining duplication.
 To avoid confusion and minimize inclusion of unnecessary information in C-CDA documents, implementers should avoid including duplicate or irrelevant templateId declarations.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD NOT declare
-                                                conformance to irrelevant templates.
-                                                <b>[BP-066]</b></p></td>
-                                    </tr>
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                >C-CDA Content Creators SHALL NOT include
-                                                duplicate templateId declarations.
-                                                <b>[CONF-067]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD NOT declare
+                conformance to irrelevant templates.
+                <b>[BP-066]</b></p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+                >C-CDA Content Creators SHALL NOT include
+                duplicate templateId declarations.
+                <b>[CONF-067]</b></p></td>
+    </tr>
+</table>
 
 As standards evolve an implementer community may decide to deprecate a version of a template or a collection of
 templates published in a version of an implementation guide. It should be anticipated that implementer
 communities may determine that a certain version of a template should not be used going forward.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators and C-CDA Content Consumers
-                                                SHOULD NOT attribute semantic meaning to templateId
-                                                declarations in C-CDA documents.
-                                            <b>[BP-057]</b></p></td>
-                                    </tr>
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD support template
-                                                deprecation requiring discontinued use of all
-                                                versions of a templateId or a specific version of a
-                                                templateId. <b>[BP-058]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators and C-CDA Content Consumers
+                SHOULD NOT attribute semantic meaning to templateId
+                declarations in C-CDA documents.
+            <b>[BP-057]</b></p></td>
+    </tr>
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD support template
+                deprecation requiring discontinued use of all
+                versions of a templateId or a specific version of a
+                templateId. <b>[BP-058]</b></p></td>
+    </tr>
+</table>
 
 **Example 16: Declaring template conformance at the section level.**
 ```
@@ -2131,18 +2133,19 @@ is not authenticated and need not be rendered. However, the requirement that all
 the section.text field, suggests best practice is for all clinical content to be rendered through section.text.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 47pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD include all clinical
-                                                content conveyed by a document in the section.text
-                                                field. <b>[BP-059]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 47pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD include all clinical
+                content conveyed by a document in the section.text
+                field. <b>[BP-059]</b></p></td>
+    </tr>
+</table>
+
 **Reference:** [Representation of Discrete Data](representation_of_discrete_data.html)
 
 ##### Tags for formatting Narrative Text
@@ -2162,28 +2165,11 @@ The table below provides information on some of the formatting tags commonly use
 **Table 27: Tags for formatting Narrative Text**
 
 
-#### Multiple Views and styleCode
+#### Multiple Views and styleCodes
 
-Experience sharing documents has proven that different users expect, even demand, different views. Patients and
-providers have different needs; specialists and general practice providers have different needs. The HL7 Relevant
-and Pertinent Survey identified the need to improve rendering capabilities for the information contained in CDA
-documents.
+Sharing documents requires different views based on user needs. HL7 Relevant and Pertinent Survey highlights the need to enhance CDA document rendering. CDA uses XML stylesheets with @styleCode, as defined by IHE's MCV Profile. Refer to [IHE Multiple Content Views (MCV) Profile](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_MCV.pdf)for details and examples.
 
-CDA documents support a technique for using multiple XML stylesheet processing instructions and a controlled
-vocabulary for the @styleCode attribute has been established by IHE. For more information on the use of
-styleCodes, reference the [IHE Multiple Content Views (MCV) Profile](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_MCV.pdf). The profile includes
-examples to show how these styleCodes can be used to improve rendering options.
-
-To promote a more consistent user experience for the viewing of the human readable content, implementers are
-encouraged to use the set of @styleCode values established by the MCV Profile. These @styleCode values
-establish a common way to tag text as a code, a date, a dateTime, an alert, and many other generally useful
-concepts.
-
-These styleCode values can be used to facilitate multiple clinical content rendering features. Systems that create
-CDA documents can use values from this table to improve the processing and rendering options for the
-information. Systems that render CDA document content with these styleCodes shall not omit or hide or otherwise
-obstructed from view information that uses these styleCodes unless they are using a specific rendering view that
-calls for such behavior.
+Implementers should use MCV Profile's @styleCode values for consistency in rendering human-readable content, covering codes, dates, dateTimes, alerts, and more. These values enhance clinical content rendering features, ensuring information is not omitted or obscured unless a specific rendering view calls for it.
 
 #### Date/Time Guidance
 
@@ -2193,66 +2179,16 @@ levels of precision are not introduced when representing this type of informatio
 
 #### Use of Open Templates
 
-It is important to emphasize the reusability and flexibility of templates so that implementations support the
-ability to tailor the content in CDA sections specific to the patient’s care, provider, or setting needs. Within C-CDA,
-nearly all templates allow additional content and are described as _open_ templates.
+CDA features prioritize template reusability and flexibility for tailored content in sections, aligning with patient, provider, or setting needs. Most C-CDA templates are open, allowing additional relevant content.
+Example: The Social History Section focuses on data influencing a patient's health (e.g., smoking, pregnancy). Information like education, housing, food security, or transportation can be added here if not covered elsewhere. Implementers can also explore external CDA templates from Supplemental Implementation Guides for expanded use cases within the C-CDA standard.[C-CDA Specification Product Brief](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492).
+Caution: Implementers should be aware that recipients may not understand templates included at an unexpected location within a document.
 
-While section templates define the content to be included in that structural component of the document,
-additional content may augment each document as needed for a particular circumstance, so long as the content is
-relevant to the defined purpose of the section.
+##### Table 38: Section Time Range Observation Template
 
-For example, the Social History Section is defined as, “ This section contains social history data that influence a
-patient’s physical, psychological, or emotional health (e.g., smoking status, pregnancy). Demographic data, such as
-marital status, race, ethnicity, and religious affiliation, is captured in the header.”
-
-Therefore, information about the person’s level of education, housing instability, food insecurity or transportation
-access challenges could be included in this section, provided the document did not contain another section defined
-to include this information more appropriately.
-
-Existing templates defined in C-CDA can be used to represent additional data elements defined in the Vocabulary
-section of the Interoperability Standards Advisory (ISA). When using available templates to represent a data
-element defined in the ISA, it is important to represent the concept with coded values from the associated value
-set included for that data element in the ISA. Additionally, as use cases warrant it, implementers can consider
-including CDA templates from outside the C-CDA standard itself, such as those from the Supplemental
-Implementation Guides which define new template versions and templates for additional use cases, These
-Supplemental Implementation Guides are published within the main [C-CDA Specification Product Brief](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492).
-
-Caution: Implementers should be aware that recipients may not understand templates included at an unexpected
-location within a document.
-
-#### Declaring Business Rules that Limit Section Content
-
-In order to communicate that business rules have been applied to constrain the amount of information
-represented in the section of a document C-CDA Content Creators should explicitly clarify the time range of the
-included information in the human readable text for the section.
-
-For example, the Vital Signs Section is defined as, ”The Vital Signs Section contains relevant vital signs for the
-context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight,
-body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should
-include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends. Vital
-signs are represented in the same way as other results but are aggregated into their own section to follow clinical
-conventions.”
-
-A C-CDA Content Creator may have a business rule that limits the amount of vital sign information included in a
-Patient Summary to only the most recent vital signs for the patient in the requested period of time. This may be
-determined based on the effectiveTime/high for the time interval of the request. Business rules that further
-constrain the standard purpose of the defined section template should be explicitly documented in the section
-content.
-
-## Table 38: Section Time Range Observation Template
-
-The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation)template is useful when a query for a C-CDA document may request a large amount of data–potentially years—and the system
-that creates the document supplied in a response, limits the data they return to a specific range of time. This
-template enables the system creating the document to state the business logic used to constrain the amount of
-data provided in a section.
-
-The Section Time Range template is used to communicate the ‘business logic’ used to limit the information
-contained in the section to a specific range of time. For example, if a CCD document is requested for the last 5
-years and the Content Creator system has business rules that creates documents on demand but only returns one-
-year of past laboratory results, the Section Time Range template can be used to indicate the laboratory section
-only contains 12 months of data from the requested effectiveTime/low or at most 12 months of data prior to the
-effectiveTime/high in the request. The business logic used to limit the data is stated in the value element of the
-Section Time Range template using a datatype of IVL_TS. The template does not include an effectiveTime element.
+To indicate the application of business rules limiting information in a C-CDA section, Content Creators should clarify the time range in the section's human-readable text.
+For example, the Vital Signs Section includes recent vital signs based on business rules, like the most recent readings within a requested time interval, documented in the section.
+The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation) template is helpful when responding to queries requesting extensive data. It allows specifying the business logic for data constraint within a section.
+This template communicates the 'business logic' used to restrict information to a specific time range. For instance, if a CCD document request covers 5 years but the system only returns one year of past lab results, the Section Time Range template indicates this limitation. The business logic is stated in the value element using datatype IVL_TS. No effectiveTime element is included.
 
 **Example 20: Example of Section Time Range Observation**
 ```
@@ -2281,7 +2217,7 @@ Section Time Range template using a datatype of IVL_TS. The template does not in
 </section>
 ```
 
-### Sections Defined in C-CDA (ordered using SOAP framework)
+#### Sections Defined in C-CDA (ordered using SOAP framework)
 
 As explained in the [Health Story Roundtable presentation titled The Storytelling Power of C-CDA](www.himss.org/sites/hde/files/HSP%20March%202019%20Roundtable%20Q%26A.pdf), understanding
 the purpose of the C-CDA section templates is not facilitated by considering them in alphabetical order. The C-
@@ -2298,20 +2234,20 @@ information processing.
 
 
 <table style="border-collapse:collapse;margin-left:24.01pt"
-                            cellspacing="0">
-                            <tr style="height:37pt">
-                                <td
-                                    style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                        bgcolor="#C5D9F0"><p class="s19"
-                                        style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                        >C-CDA Content Creators SHOULD use section templates
-                                        containing “homogeneous” information with regards to not
-                                        mixing subjective, objective, assessment, and plan types of
-                                        information together in a single section. <b>[BP-060]</b></p></td>
-                            </tr>
-                        </table>
+    cellspacing="0">
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD use section templates
+                containing “homogeneous” information with regards to not
+                mixing subjective, objective, assessment, and plan types of
+                information together in a single section. <b>[BP-060]</b></p></td>
+    </tr>
+</table>
 
-#### Subjective Information
+##### Subjective Information
 
 
 | **Section Name<br />LOINC<br />OID**   | **Purpose Description**    |
@@ -2331,7 +2267,7 @@ information processing.
 {:.grid}
 **Table 28: Subjective Information**
 
-#### Objective Information
+##### Objective Information
 
 | **Sections defined in C-CDA<br />LOINC<br />OID**   | **Purpose Description**    |
 | ---- | ------ |
@@ -2366,7 +2302,7 @@ information processing.
 {:.grid}
 **Table 29: Objective Information**
 
-#### Assessment Information
+##### Assessment Information
 
 | **Sections defined in C-CDA<br />LOINC<br />OID**   | **Purpose Description**    |
 | ---- | ------ |
@@ -2381,7 +2317,7 @@ information processing.
 **Table 30: Assessment Information**
 
 
-#### Plan/Planning Information
+##### Plan/Planning Information
 
 | **Sections defined in C-CDA <br />LOINC<br />OID**   | **Purpose Description**    |
 | ---- | ------ |
@@ -2397,7 +2333,7 @@ information processing.
 {:.grid}
 **Table 31: Plan/Planning Information**
 
-#### Other Information
+##### Other Information
 
 | **Sections defined in C-CDA<br />LOINC<br />OID**   | **Purpose Description**    |
 | ---- | ------ |
@@ -2406,7 +2342,7 @@ information processing.
 {:.grid}
 **Table 32: Other Information**
 
-### Supplemental C-CDA Section Templates
+#### Supplemental C-CDA Section Templates
 
 Several section templates have been developed specifically to supplement C-CDA. They are defined within the
 context of C-CDA Supplemental Guides that have been balloted and reconciled separately from C-CDA, and are
@@ -2422,13 +2358,14 @@ At the time of this publication, the following Supplemental Implementation Guide
 - [HL7 CDA® R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Infectious Disease, Release 1 – US Realm](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=502)
 - [HL7 CDA® R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Occupational Data for Health Release 1, STU Release 1.1 – US Realm](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522)
 
-### General Entry-Level Guidance
+### Entry Level Guidance
+#### General Entry-Level Guidance
 
 The guidance below pertains when document sections include machine processable discrete data to aid processing
 of information contained in the section. The following general entry-level guidance is applicable to all C-CDA entry
 templates.
 
-#### Narrative Text Linking (Referencing)
+##### Narrative Text Linking (Referencing)
 
 Best practice for CDA creation is to represent all human readable text in the section, then reference the text from
 the discrete entries that represent the human readable information as machine processable data. To include
@@ -2501,7 +2438,7 @@ In accordance with general CDA principles for human readability, every CDA shall
 CDA stylesheet. it is recommended to regularly test using the HL7
 [CDA stylesheet approved by SDWG and managed in the HL7 GitHub](https://hl7.org/permalink/?CDAStyleSheet).
 
-#### OriginalText
+##### OriginalText
 
 When a CDA document section contains coded discrete entries (such as allergy, medication, problem, etc. to
 support machine processing of the available human readable information), coded data within the discrete entry
@@ -2516,19 +2453,19 @@ referencing from coded concepts in the entry can be used together to provide ver
 human readable and machine processable information.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >Coded entries MAY include an originalText element
-                                                to link the coded data back to the associated human
-                                                readable information represented by that code.
-                                                  <b>[CONF-061]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >Coded entries MAY include an originalText element
+                to link the coded data back to the associated human
+                readable information represented by that code.
+                  <b>[CONF-061]</b></p></td>
+    </tr>
+</table>
 
 
 The referencing mechanism when used with the original text component of a coded CDA entry:
@@ -2574,20 +2511,20 @@ selected terms may routinely have more robust content than the structured entrie
 contain additional nuances and should never be ignored by receiving systems.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >The originalText attribute SHOULD reference text in
-                                                the Narrative Block which mirrors what the clinician
-                                                saw or selected in the user interface of the system
-                                                that created the source data.
-                                            <b>[BP-062]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >The originalText attribute SHOULD reference text in
+                the Narrative Block which mirrors what the clinician
+                saw or selected in the user interface of the system
+                that created the source data.
+            <b>[BP-062]</b></p></td>
+    </tr>
+</table>
 
 It is valuable to send the local code that represents the originalText as a translation,
 along with one or more translations to publicly defined code systems. This practice is encouraged in FHIR
@@ -2630,7 +2567,7 @@ in [January of 2017](https://confluence.hl7.org/display/VOC/Vocabulary+WG+Policy
         displayName="Estrogen receptor positive tumor"/>
 </value>
 ```
-#### DisplayName Representation
+##### DisplayName Representation
 
 When sending coded information, the CD datatype (most commonly used in &lt;code&gt; and &lt;value&gt; elements) has a
 ‘displayName’ element. This element is intended to be a valid human readable representation of the concept
@@ -2639,21 +2576,21 @@ LOINC codes, the ‘displayName’ element should convey either the short name o
 used in the associated code element.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                >The displayName attribute SHALL NOT modify the
-                                                meaning of the code. <b>[BP-063]</b></p><p
-                                                class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                >Note: Testability requires fuzzy match
-                                                capabilities.</p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+                >The displayName attribute SHALL NOT modify the
+                meaning of the code. <b>[BP-063]</b></p><p
+                class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+                >Note: Testability requires fuzzy match
+                capabilities.</p></td>
+    </tr>
+</table>
                                 
 The guidance for the use of the displayName element are:
 
@@ -2666,25 +2603,25 @@ assigned or can be derived in the associated code system.
 the associated code or value element.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                >The displayName attribute MAY be included where
-                                                syntactically allowed. <b>[BP-064]</b></p></td>
-                                    </tr>
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                >The displayName attribute SHALL never exist without
-                                                an associated code. <b>[CONF-065]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+                >The displayName attribute MAY be included where
+                syntactically allowed. <b>[BP-064]</b></p></td>
+    </tr>
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >The displayName attribute SHALL never exist without
+                an associated code. <b>[CONF-065]</b></p></td>
+    </tr>
+</table>
 
 When a CDA document includes coded data in discrete entries (such as allergen, medication, problem, etc.) to
 support machine processing, every discrete entry SHOULD include a text element that references the human
@@ -2696,33 +2633,33 @@ neither originalText nor display were included in the xml entry, the human reada
 principal of human readability.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD include a human
-                                                readable representation of the concept associated
-                                                with the code as defined by the code system in the
-                                                @displayName attribute of a code element.
-                                                  <b>[BP-066]</b></p></td>
-                                    </tr>
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Validators MAY require a fuzzy match
-                                                between the @displayName attribute of a code element
-                                                and the preferred concept description for the code
-                                                as defined by the associated code system.</p><p
-                                                class="s31"
-                                                style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                ><b>[CONF-067]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD include a human
+                readable representation of the concept associated
+                with the code as defined by the code system in the
+                @displayName attribute of a code element.
+                  <b>[BP-066]</b></p></td>
+    </tr>
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Validators MAY require a fuzzy match
+                between the @displayName attribute of a code element
+                and the preferred concept description for the code
+                as defined by the associated code system.</p><p
+                class="s31"
+                style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+                ><b>[CONF-067]</b></p></td>
+    </tr>
+</table>
 
 **Example 25: Code Display Name Representation**
 ```
@@ -2733,7 +2670,7 @@ principal of human readability.
 </code>
 ```
 
-#### Use of Consistent Identifiers
+##### Use of Consistent Identifiers
 
 The "id" element serves as a globally unique identifier for data collections, such as documents, sections, entries, or sub-entries (e.g., authors).
 
@@ -2746,20 +2683,20 @@ One way to implement consistent unique ids is by maintaining multiple GUIDs for 
 Vendors have flexibility in generating valid GUIDs.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                 bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >Content Creators SHOULD include ids to identify
-                                                pieces of information and use consistent ids for the
-                                                same piece of information <b>[BP-068]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                 bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >Content Creators SHOULD include ids to identify
+                pieces of information and use consistent ids for the
+                same piece of information <b>[BP-068]</b></p></td>
+    </tr>
+</table>
 
-#### Use of nullFlavor and Handling Missing Information
+##### Use of nullFlavor and Handling Missing Information
 
 HL7 V3 CDA handles unavailable, unknown, or incomplete data with 'null flavors,' representing coded values that explain the missing information.
 Assigning a value for missing data is required for validation and considered good practice in other cases. Precision in indicating null flavors is encouraged to convey the reason for missing data. The CDA R2 standard's null flavor vocabulary provides a complete hierarchy of these values.
@@ -2813,33 +2750,33 @@ system uses to record birth dates to an HL7 timestamp). NullFlavor attributes ne
 required elements, such as religiousAffiliationCode. If an element is optional and unknown, it may simply be
 omitted.
 
-#### Unknown Data in Sections That Require Entries
+##### Unknown Data in Sections That Require Entries
 
 The following guidelines clarify the use of the “No Information” nullflavor=”NI” pattern for a section with no information:
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:101pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                >If a document template requires a section to be
-                                                present and the source system contains no
-                                                information to populate the section:</p><p
-                                                style="text-indent: 0pt;text-align: left;"
-                                                ><br />
-                                                - The section SHALL be included in the xml and SHALL be declared as having no information. - If the source system contains no information to populate a section that is not required (with a SHALL conformance statement) in the document template:</p><br/>
-                                                <p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                >The section MAY be omitted, or the section MAY be
-                                                included and declared as having no
-                                                information.</p><p class="s31"
-                                                style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                ><b>[BP-069]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:101pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >If a document template requires a section to be
+                present and the source system contains no
+                information to populate the section:</p><p
+                style="text-indent: 0pt;text-align: left;"
+                ><br />
+                - The section SHALL be included in the xml and SHALL be declared as having no information. - If the source system contains no information to populate a section that is not required (with a SHALL conformance statement) in the document template:</p><br/>
+                <p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >The section MAY be omitted, or the section MAY be
+                included and declared as having no
+                information.</p><p class="s31"
+                style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+                ><b>[BP-069]</b></p></td>
+    </tr>
+</table>
 
 Machine-readable data in these sections is essential for clinical best practice and should not be omitted unless the entire section contains no information (section/@nullFlavor=NI). In such cases, you may use "unknown" information within specific acts, like Procedure Activity, along with a description and a code for the nature of the unknown data.
 
@@ -2861,7 +2798,7 @@ The goal is to describe unknown information explicitly for accurate communicatio
 </component>
 ```
 
-#### Representing “no known” Information Versus “no information”
+##### Representing “no known” Information Versus “no information”
 
 Distinguishing between "no information" and "no known information" is important. In the case of "no known information," the author isn't asserting the presence or absence of data for the element. "No information" explicitly states that there's no data for that element in the system.
 For example, "I don't know if the patient has any allergies" (no information) versus "The patient claims no allergies" (no known).
@@ -2992,36 +2929,36 @@ Entire section excluded because business rules of the author determine the secti
 
 
 
-#### Detailed Date/Time Guidance
+##### Detailed Date/Time Guidance
 
 A study by the Association for Healthcare Documentation Integrity, presented at the [HIMSS Health Story Project Roundtable on March 5, 2019](https://www.himss.org/sites/hde/files/HSP%20March%202019%20Roundtable%20Q%26A.pdf), showed that consistent style in healthcare records enhances clear communication, boosts patient safety, and improves information exchange. Applying style standards to human-readable text can reduce physician burden, with a focus on improving the representation of temporal date/time information in the narrative text. While temporal details are vital for clinical understanding, excessive date/time prcision can overwhelm or mislead. The Roundtable urged C-CDA creators to ensure that date/time information in the Narrative Block is relevant, pertinent, and appropriately styled to ease physician burden.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD apply a consistent
-                                                style to date/time information reported in the
-                                                Narrative Blocks <b>[BP-070]</b></p></td>
-                                    </tr>
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD render date/time
-                                                information using a level of precision that is
-                                                relevant and pertinent to the intended purpose of
-                                                the section within the context of the document<b>.
-                                                  [BP-071</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD apply a consistent
+                style to date/time information reported in the
+                Narrative Blocks <b>[BP-070]</b></p></td>
+    </tr>
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD render date/time
+                information using a level of precision that is
+                relevant and pertinent to the intended purpose of
+                the section within the context of the document<b>.
+                  [BP-071</b></p></td>
+    </tr>
+</table>
 
-##### Timestamp Data Representation
+###### Timestamp Data Representation
 
 Time values are represented in ISO 8601 compliant form, which is traditional in HL7 and lacks dashes, colons, and a "T" between date and time. The syntax is "YYYYMMDDHHMMSS.UUUU[+|-ZZzz]," with the option to omit digits for less precision. Common forms are "YYYYMMDD" and "YYYYMMDDHHMM," but truncation on the right side can occur with other variants.
 The ".UUUU" part allows for precision down to tenths of a millisecond (e.g., ".001"). Timezone information is indicated using offsets from UTC, like -0500 for Eastern Standard Time (EST) and -0400 for Eastern Daylight Saving Time (EDT). UTC Time is represented as -0000.
@@ -3029,93 +2966,94 @@ Without a timezone offset, assumptions about time should not be made unless ther
 In administrative data, values often lack a timezone. For instance, specifying a timezone for a date of birth in administrative data could alter the date when converted to other timezones. Therefore, administrative data typically has a NULL timezone (not applicable).
 See [TS Point in Time in the StructureDefinition Publication of CDA V3 Data Types]({{site.data.fhir.hl7_cda_uv_core}}/StructureDefinition-TS.html)
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:147pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                  >When populating any effectiveTime or time element
-                                                  in a document, C-CDA Content Creators:</p><p class="s31"
-                                                  style="padding-left: 51pt;text-indent: -9pt;text-align: left;"
-                                                  >1. <b>SHOULD </b><span class="s19">be precise to the
-                                                  day.</span></p><p class="s31"
-                                                  style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
-                                                  >2. <b>SHOULD </b> <span class="s19">be precise to the
-                                                  minute.</span></p><p
-                                                  style="text-indent: 0pt;text-align: left;"
-                                                  ></p><p class="s31"
-                                                  style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
-                                                  >3. <b>MAY </b> <span class="s19">be precise to the
-                                                  second.</span></p><p class="s19"
-                                                  style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
-                                                  >4. If more precise than day, <b>SHALL </b>include
-                                                  time-zone offset.</p><p class="s31"
-                                                  style="padding-left: 43pt;text-indent: 0pt;text-align: left;"
-                                                  ><b>[CONF-072]</b></p><p
-                                                  style="text-indent: 0pt;text-align: left;"
-                                                  ><br /></p><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >Note: This conformance does not apply to the
-                                                  birthTime element because use of a timezone offset
-                                                  could have an unintended negative effect when
-                                                  doing patient matching. It also does not apply to
-                                                  the effectiveTime element of the Birth Sex
-                                                  Observation
-                                                  (2.16.840.1.113883.10.20.22.4.200:2016-06-01) template</p></td>
-                                            </tr>
-                                            </table>
+style="border-collapse:collapse;margin-left:24.01pt"
+cellspacing="0">
+<tr style="height:147pt">
+    <td
+      style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      bgcolor="#C5D9F0"><p class="s19"
+      style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+      >When populating any effectiveTime or time element
+      in a document, C-CDA Content Creators:</p><p class="s31"
+      style="padding-left: 51pt;text-indent: -9pt;text-align: left;"
+      >1. <b>SHOULD </b><span class="s19">be precise to the
+      day.</span></p><p class="s31"
+      style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
+      >2. <b>SHOULD </b> <span class="s19">be precise to the
+      minute.</span></p><p
+      style="text-indent: 0pt;text-align: left;"
+      ></p><p class="s31"
+      style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
+      >3. <b>MAY </b> <span class="s19">be precise to the
+      second.</span></p><p class="s19"
+      style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
+      >4. If more precise than day, <b>SHALL </b>include
+      time-zone offset.</p><p class="s31"
+      style="padding-left: 43pt;text-indent: 0pt;text-align: left;"
+      ><b>[CONF-072]</b></p><p
+      style="text-indent: 0pt;text-align: left;"
+      ><br /></p><p class="s19"
+      style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+      >Note: This conformance does not apply to the
+      birthTime element because use of a timezone offset
+      could have an unintended negative effect when
+      doing patient matching. It also does not apply to
+      the effectiveTime element of the Birth Sex
+      Observation
+      (2.16.840.1.113883.10.20.22.4.200:2016-06-01) template</p></td>
+</tr>
+</table>
+
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:87pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >When populating a birthTime metadata element in
-                                                  the header or section of a document, C-CDA Content
-                                                  Creators:</p><p class="s31"
-                                                  style="padding-left: 51pt;text-indent: -9pt;text-align: left;"
-                                                  >1. <b>SHALL </b><span class="s19">be precise to the
-                                                  day.</span></p><p class="s31"
-                                                  style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
-                                                  >2. <b>SHOULD </b> <span class="s19">be precise to the
-                                                  minute.</span></p><p
-                                                  style="text-indent: 0pt;text-align: left;"
-                                                  ></p><p class="s31"
-                                                  style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
-                                                  >3. <b>MAY </b> <span class="s19">be precise to the
-                                                  second.</span></p><p class="s19"
-                                                  style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
-                                                  >4. <b>SHALL NOT </b>include time or
-                                                  time-zone offset.</p><p class="s31"
-                                                  style="padding-left: 43pt;text-indent: 0pt;text-align: left;"
-                                                  ><b>[CONF-073]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:87pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >When populating a birthTime metadata element in
+          the header or section of a document, C-CDA Content
+          Creators:</p><p class="s31"
+          style="padding-left: 51pt;text-indent: -9pt;text-align: left;"
+          >1. <b>SHALL </b><span class="s19">be precise to the
+          day.</span></p><p class="s31"
+          style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
+          >2. <b>SHOULD </b> <span class="s19">be precise to the
+          minute.</span></p><p
+          style="text-indent: 0pt;text-align: left;"
+          ></p><p class="s31"
+          style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
+          >3. <b>MAY </b> <span class="s19">be precise to the
+          second.</span></p><p class="s19"
+          style="padding-left: 51pt;text-indent: -9pt;line-height: 12pt;text-align: left;"
+          >4. <b>SHALL NOT </b>include time or
+          time-zone offset.</p><p class="s31"
+          style="padding-left: 43pt;text-indent: 0pt;text-align: left;"
+          ><b>[CONF-073]</b></p></td>
+    </tr>
+</table>
 
 
 
-##### Date/Time Precision
+###### Date/Time Precision
 
 When specifying dates and times, care should be taken to only capture data with as much precision as is known.
 The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description]({{site.data.fhir.hl7_cda_uv_core}}/StructureDefinition-TS-definitions.html#TS)from the CDA V3 Data Type Specification
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:29pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >Dates and Times SHOULD NOT be padded with zeroes
-                                                  as this implies a precision that is probably not
-                                                  true. <b>[CONF-074]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >Dates and Times SHOULD NOT be padded with zeroes
+          as this implies a precision that is probably not
+          true. <b>[CONF-074]</b></p></td>
+    </tr>
+</table>
 
 
 
@@ -3137,68 +3075,64 @@ stylesheets enable the linking features of the `<linkHtml>` tag to be operationa
 
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
-                                                >C-CDA Content Creators MAY use id-based linking
-                                                mechanisms within a C-CDA document.
-                                                <b>[BP-076]</b></p></td>
-                                    </tr>
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Consumer SHOULD support stylesheets that
-                                                facilitate the use of internal linking mechanisms,
-                                                because linking within a single file does not pose
-                                                security risks, facilitates readability and.
-                                                Improves user experience when viewing C-CDA documents.
-                                                  <b>[BP-077]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;line-height: 12pt;text-align: left;"
+                >C-CDA Content Creators MAY use id-based linking
+                mechanisms within a C-CDA document.
+                <b>[BP-076]</b></p></td>
+    </tr>
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Consumer SHOULD support stylesheets that
+                facilitate the use of internal linking mechanisms,
+                because linking within a single file does not pose
+                security risks, facilitates readability and.
+                Improves user experience when viewing C-CDA documents.
+                  <b>[BP-077]</b></p></td>
+    </tr>
+</table>
 
-#### Referencing Information in an External Document
+#### Referencing Information in an External Acts
 
 The base HL7 CDA standard supports four act classes that enable information in one document to reference
 information in an external document, external procedure, external observation, or external act. 
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators MAY explore the use of
-                                                linking mechanisms to external C-CDA documents,
-                                                observations, or acts, depending on business
-                                                decisions and the assessment of risk associated with
-                                                this functionality. <b>[BP-078]</b></p></td>
-                                    </tr>
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Consumers MAY support stylesheets
-                                                that support or prohibit the use of external linking
-                                                mechanisms, depending on business decisions and the
-                                                assessment of risk associated with this functionality. 
-                                                <b>[BP-079]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators MAY explore the use of
+                linking mechanisms to external C-CDA documents,
+                observations, or acts, depending on business
+                decisions and the assessment of risk associated with
+                this functionality. <b>[BP-078]</b></p></td>
+    </tr>
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Consumers MAY support stylesheets
+                that support or prohibit the use of external linking
+                mechanisms, depending on business decisions and the
+                assessment of risk associated with this functionality. 
+                <b>[BP-079]</b></p></td>
+    </tr>
+</table>
 
-#### Understanding the ActStatus Model in C-CDA
 
-[Determining the Status of Clinical Statement]()(ADD LINK AFTER FIRST PUB) explains how a C-CDA Content Creator indicates and a C-CDA Content Consumer understands the status of a clinical statement (active, completed, etc.). While most C-CDA clinical statements are completed, a few, like Problem Concern Entry and Medication Activity, use Act.statusCode with a value set binding to convey their state. This value set, derived from the HL7ActStatus code system, follows the RIM state model. Each clinical statement pattern definition has a static Act.statusCode value set.
-
-The Act.statusCode depends on an act's components, including effectiveTime and relevant clinical status observations. For further details on addressing Act.statusCode state model challenges, refer to the ActStatus row in the guidance table for specific entry templates listed below.
 #### How Negation Works in C-CDA Templates
 
 C-CDA entry templates include a negationInd attribute for Act classes (act, procedure, encounter, substanceAdministration, supply, and observation). When Act.negationInd is set to "true," it asserts that the Act as a whole is negated. Certain properties like Act.id, Act.moodCode, and participations remain unaffected and retain their original meaning.
@@ -3208,35 +3142,34 @@ A statement with negationInd still conveys information about the specific fact d
 In the case of observations, entry templates may specify whether the observation.negationInd attribute applies to the entire act or only to the observation.value element. CDA template definitions should explicitly describe this intention.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHALL follow template
-                                                conformance and additional companion guidance
-                                                regarding the use of negationInd when representing
-                                                discrete data in C-CDA documents.
-                                                <b>[BP-080]</b></p></td>
-                                    </tr>
-                                    <tr style="height:37pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Consumers SHALL follow template
-                                                conformance and additional companion guidance
-                                                regarding the use of negationInd when processing
-                                                discrete data represented in C-CDA documents.
-                                                  <b>[BP-081]</b></p></td>
-                                    </tr>
-                                </table>
-                                
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHALL follow template
+                conformance and additional companion guidance
+                regarding the use of negationInd when representing
+                discrete data in C-CDA documents.
+                <b>[BP-080]</b></p></td>
+    </tr>
+    <tr style="height:37pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Consumers SHALL follow template
+                conformance and additional companion guidance
+                regarding the use of negationInd when processing
+                discrete data represented in C-CDA documents.
+                  <b>[BP-081]</b></p></td>
+    </tr>
+</table>
 
 
-### Specific Entry-Level Guidance
+#### Specific Entry-Level Guidance
 
 This guidance is specific to individual entry templates and has been collected from various sources, including C-CDA implementer community feedback, published implementation guides, C-CDA Implementation-A-Thons,HL7's Cross Work Group work on mappings between C-CDA and FHIR, and efforts by the HL7 C-CDA Examples Task Force.
 
@@ -3350,8 +3283,8 @@ Observation.valueNegationInd -->
     </entry>
 </section>
 ```
-STOPPED HERE 11/10
-##### Provenance mapping to FHIR
+
+#### Provenance mapping to FHIR
 
 Systems can use the [Provenance Author Participation](StructureDefinition-ProvenanceAuthorParticipation)to identify the author of content. This corresponds to a FHIR Provenance.agent.type="author" with a relevant Provenance.target.
 
@@ -3366,7 +3299,7 @@ Implementers will need to determine suitable mappings based on the specific situ
 
 The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation)defines a machine-readable business rule for restricting the time interval of information within a section. It's optional and can be applied in any section to avoid overwhelming or irrelevant content. This entry links to human-readable information that explains the applied business rules found in the section's narrative text.
 
-##### Section Time Range Observation
+#### Section Time Range Observation
 
 | **Entry Template**   | **Section Time Range Observation<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.201:2016-06-01 (open)]**    |
 | ---- | ------ |
@@ -3553,20 +3486,20 @@ https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.1.11.15933/expansion-->
 The [Encounters Section](StructureDefinition-EncountersSection) lists past and ongoing patient encounters, including the one that led to the document's creation. Future appointments and requested encounters should be mentioned in the Plan of Treatment Section.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >When the document pertains to a single encounter,
-                                                the Encounter section SHALL contain information
-                                                about that encounter, but MAY also contain
-                                                additional encounters. <b>[CONF-082]</b></p></td>
-                                    </tr>
-                                </table>
-                                
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >When the document pertains to a single encounter,
+                the Encounter section SHALL contain information
+                about that encounter, but MAY also contain
+                additional encounters. <b>[CONF-082]</b></p></td>
+    </tr>
+</table>
+
 The [Encounter Activity](StructureDefinition-EncounterActivity) entry with a matching ID in the encompassingEncounter header represents the primary encounter.
 
 Encounter Diagnosis is always shown as an entryRelationship to an Encounter Activity, even for single encounters. Historical encounters are each documented as an Encounter Activity, with information recorded through entryRelationships within the corresponding Encounter Activity. Additional details, like free-text notes, can be conveyed through extra entryRelationships within the associated Encounter Activity.
@@ -3651,46 +3584,46 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 **Fulfilled Orders**: The inFulfillmentOf/order in the document header records fulfilled orders within the [Encompassing Encounter]({{site.data.fhir.hl7_cda_uv_core}}/EncompassingEncounter.html) or [Service Event]({{site.data.fhir.hl7_cda_uv_core}}/ServiceEvent.html). For instance, when a provider orders an X-Ray, and it's performed, the X-Ray order identifier goes in inFulfillmentOf/order, while the performed X-Ray procedure is documented in documentationOf/ServiceEvent. In the document body, templates are used to represent the service activities fulfilling the order, such as tests, procedures, substance administrations, supplies, encounters, or other acts.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 9pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHALL represent completed
-                                                orders in the inFulfillmentOf area of the header for
-                                                orders completed in the context established for the
-                                                document. <b>[BP-083]</b></p></td>
-                                    </tr>
-                                    <tr style="height:49pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                            bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Consumers SHALL render information
-                                                about completed orders documented in the
-                                                inFulfillmentOf area of the header for orders
-                                                completed in the context established for the
-                                                document. For example, a consumer might opt to
-                                                render any inFulfillmentOf/order/id elements
-                                                where @displayable=&quot;true&quot;, the
-                                                inFulfillmentOf/order/code/originalText or
-                                                @displayName, or both. <b>[BP-084]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 9pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHALL represent completed
+                orders in the inFulfillmentOf area of the header for
+                orders completed in the context established for the
+                document. <b>[BP-083]</b></p></td>
+    </tr>
+    <tr style="height:49pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+            bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Consumers SHALL render information
+                about completed orders documented in the
+                inFulfillmentOf area of the header for orders
+                completed in the context established for the
+                document. For example, a consumer might opt to
+                render any inFulfillmentOf/order/id elements
+                where @displayable=&quot;true&quot;, the
+                inFulfillmentOf/order/code/originalText or
+                @displayName, or both. <b>[BP-084]</b></p></td>
+    </tr>
+</table>
 
-##### Fulfilled Order
+#### Fulfilled Order
 
 Entry templates defined to represent performed service acts are [Intervention Act](StructureDefinition-InterventionAct), [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure), [Immunization Activity](StructureDefinition-ImmunizationActivity), [Encounter Activity](StructureDefinition-EncounterActivity), [Medication Activity](StructureDefinition-MedicationActivity), [Non-Medicinal Supply Activity](StructureDefinition-NonMedicinalSupplyActivity), etc. Templates types are discussed in the context of the data class used to categorize the type of service act.
 
-##### Placed Order
+#### Placed Order
 
 Entry templates defined to represent ordered service acts such as [Planned Encounter](StructureDefinition-PlannedEncounter), [Planned Medication Activity](StructureDefinition-PlannedMedicationActivity), [Planned Observation](StructureDefinition-PlannedObservation), [Planned Procedure](StructureDefinition-PlannedProcedure), [Planned Supply](StructureDefinition-PlannedSupply), [Planned Act](StructureDefinition-PlannedAct), etc.
 
 Templates of these types are discussed in the context of the data class used to categorize the type of service
 activity. The key distinction for representing a placed order is to utilize the moodCode attribute with a value of
-RQO. RQO in comes from the HL7ActMood code system and conceptually means “requested”. It is used to represent an ordered service activity.
+RQO. RQO in comes from the HL7 ActMood code system and conceptually means “requested”. It is used to represent an ordered service activity.
 
 #### Problem
 
@@ -3702,7 +3635,7 @@ Currently, the Problem Section uses the Problem Concern template for concerns on
 
 Implementers face challenges when source information doesn't align with the designed clinical statement patterns, especially regarding the concern pattern because many EHR systems organize source problem data differently in the patient's record.
 
-##### Problem Concern
+#### Problem Concern
 
 | **Entry Template**   | **Problem Concern Act<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01 (open)]**    |
 | ---- | ------ |
@@ -3719,29 +3652,29 @@ Implementers face challenges when source information doesn't align with the desi
 The following is guidance with respect to the relationship between the Problem Concern Act and the Problem Observation.
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:257pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >C-CDA Content Creators who do not natively
-                                                  support organizing a patient’s problem
-                                                  observations into collections associated with a
-                                                  tracked concern SHOULD use the following
-                                                  guidance:</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">1. Populate the Act.statusCode of the Problem Concern Act to reflect the status of the clinical statement about the problem stored within the source system.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">2. Use nullFlavor=”NI” for the effectiveTime of the outer concern act wrapper.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">3. Do not populate the author participation template associated with the outer concern act wrapper.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">4. Include a single Problem Observation within the act wrapper. A future release of C-CDA will only allow the following within the act wrapper: only 1 entryRelationship of type REFR or COMP (1..1 entryRelationship of @typeCode=REFR OR @typeCode=COMP), and any number of supporting entryRelationships (0..* entryRelationship of @typeCode=SPRT)</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">5. Populate the effectiveTime of the Problem Observation with the clinically relevant time period associated with problem.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">6. Include the author participation template associated with the Problem Observation to record the person who documented the problem.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">7. Use the performer associated with the Problem Observation to record the person who made the diagnosis or observed the problem if that person is not also the author.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">8. Use the Problem Status Observation template to record the clinical status assigned to the problem. Note that clinical status is a judgement assigned by the performer of the observation.
-                                                  <b>[BP-085]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:257pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >C-CDA Content Creators who do not natively
+          support organizing a patient’s problem
+          observations into collections associated with a
+          tracked concern SHOULD use the following
+          guidance:</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">1. Populate the Act.statusCode of the Problem Concern Act to reflect the status of the clinical statement about the problem stored within the source system.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">2. Use nullFlavor=”NI” for the effectiveTime of the outer concern act wrapper.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">3. Do not populate the author participation template associated with the outer concern act wrapper.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">4. Include a single Problem Observation within the act wrapper. A future release of C-CDA will only allow the following within the act wrapper: only 1 entryRelationship of type REFR or COMP (1..1 entryRelationship of @typeCode=REFR OR @typeCode=COMP), and any number of supporting entryRelationships (0..* entryRelationship of @typeCode=SPRT)</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">5. Populate the effectiveTime of the Problem Observation with the clinically relevant time period associated with problem.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">6. Include the author participation template associated with the Problem Observation to record the person who documented the problem.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">7. Use the performer associated with the Problem Observation to record the person who made the diagnosis or observed the problem if that person is not also the author.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">8. Use the Problem Status Observation template to record the clinical status assigned to the problem. Note that clinical status is a judgement assigned by the performer of the observation.
+          <b>[BP-085]</b></p></td>
+    </tr>
+</table>
 
 **Example 37: Problem Concern containing a Problem Observation**
 
@@ -3905,7 +3838,7 @@ author(s) for the contained Problem Observation(s). -->
 ```
 
 
-##### Problem Observation
+#### Problem Observation
 
 | **Entry Template**   | **Problem Observation<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2022-06-01 (open)]**    |
 | ---- | ------ |
@@ -4035,7 +3968,7 @@ set (and code would be ASSERTION). -->
 </section>
 ```
 
-##### Health Concern, Risk Concern
+#### Health Concern, Risk Concern
 
 A health concern signifies interest or worry about a health state, possibly requiring attention. It's a health-related matter of importance to the patient, family, or healthcare provider, derived from various EHR sources. Problem Concerns are a subset of Health Concerns, specifically those on the patient's "Problem List."
 
@@ -4112,27 +4045,26 @@ This guidance for allergy concerns is needed because mismatches between clinical
 
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:257pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >C-CDA Content Creators who do not natively
-                                                  support organizing a patient’s allergy/intolerance observations into collections associated with a tracked concern SHOULD use the following guidance:</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">1. Populate the Act.statusCode of the Allergy Concern Act to reflect the status of the clinical statement about the allergy/intolerance stored within the source system.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">2. Use nullFlavor=”NI” for the effectiveTime of the outer concern act wrapper.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">3. Do not populate the author participation template associated with the outer concern act wrapper.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">4. Include a single Allergy-Intolerance Observation within the act wrapper. A future release of C-CDA will only allow the following within the act wrapper: only 1 entryRelationship of type REFR or COMP (1..1 entryRelationship of @typeCode=REFR OR @typeCode=COMP), and any number of supporting entryRelationships (0..* entryRelationship of @typeCode=SPRT)</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">5. Populate the effectiveTime of the Problem Observation with the clinically relevant time period associated with allergy/intolerance.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">6. Include the author participation template associated with the Allergy-Intolerance Observation to record the person who documented the problem.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">7. Use the performer associated with the Allergy-Intolerance Observation to record the person who made the diagnosis or observed the allergy/intolerance.</p>
-                                                  <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">8. Use the Allergy Status Observation template to record the clinical status assigned to the problem. Note that clinical status is a judgement assigned by the performer of the observation.
-                                                  <b>[BP-086]</b></p></td>
-                                            </tr>
-                                        </table>
-                                        
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:257pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >C-CDA Content Creators who do not natively
+          support organizing a patient’s allergy/intolerance observations into collections associated with a tracked concern SHOULD use the following guidance:</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">1. Populate the Act.statusCode of the Allergy Concern Act to reflect the status of the clinical statement about the allergy/intolerance stored within the source system.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">2. Use nullFlavor=”NI” for the effectiveTime of the outer concern act wrapper.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">3. Do not populate the author participation template associated with the outer concern act wrapper.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">4. Include a single Allergy-Intolerance Observation within the act wrapper. A future release of C-CDA will only allow the following within the act wrapper: only 1 entryRelationship of type REFR or COMP (1..1 entryRelationship of @typeCode=REFR OR @typeCode=COMP), and any number of supporting entryRelationships (0..* entryRelationship of @typeCode=SPRT)</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">5. Populate the effectiveTime of the Problem Observation with the clinically relevant time period associated with allergy/intolerance.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">6. Include the author participation template associated with the Allergy-Intolerance Observation to record the person who documented the problem.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">7. Use the performer associated with the Allergy-Intolerance Observation to record the person who made the diagnosis or observed the allergy/intolerance.</p>
+          <p class="s19" style="padding-left: 78pt;text-indent: 0pt;line-height: 11pt;text-align: left;">8. Use the Allergy Status Observation template to record the clinical status assigned to the problem. Note that clinical status is a judgement assigned by the performer of the observation.
+          <b>[BP-086]</b></p></td>
+    </tr>
+</table>
 
 **Example 40: Allergy concern for food allergy to eggs**
 Please see the Example Task Forces [Allergy Examples](https://hl7-c-cda-examples.herokuapp.com/sections/Allergies)
@@ -4561,7 +4493,7 @@ During an encounter, if a patient's record was updated to indicate that a penici
 
 Medical Equipment includes devices implanted within the patient and devices the patient has or uses.
 
-##### Implanted Device
+#### Implanted Device
 
 Each implanted device can be represented in an Individual Procedure Activity Procedure template. 
 
@@ -4577,13 +4509,6 @@ UDI information is essential for interoperability. Content Creators should use a
 | **Negation**   | In this template, the negationInd attribute is used to indicate the procedure was not performed.  |
 | **Other Considerations**   | A Product Instance template is used template represents a specific device used in a patient or procedure.<br />For device removal, use a separate Procedure Activity Procedure template with the device removal code. Use TS data type to record the removal time and link it to the original implant procedure using the [Entry Reference template]([Entry Reference](StructureDefinition-EntryReference.html)).<br />To indicate a procedure was not performed, you may use the Indication template to explain the rationale. Multiple indication templates can be in a Procedure template.
 
-For example, to represent "No Implanted Devices," a clinical statement pattern combines negation and nullFlavor to signify that the patient hasn't had any procedures to implant devices.|
-| **Example**   | Example 44: Implanted Device – known procedure details |
-| **Example**   | Example 45: Implanted Device - Procedure unknown |
-| **Example**   | Example 46: No Implanted Devices |
-| **Example**   | Example 47: Non-Medicinal Supply – Cane and Eyeglasses |
-{:.grid}
-**Table 48: Procedure Activity Template**
 
 **Example 44: Implanted Device – known procedure details**
 ```
@@ -4758,7 +4683,7 @@ not had a procedure to implant anything.
 </component>
 ```
 
-##### Non-Implanted Device
+#### Non-Implanted Device
 
 Non-implanted devices are represented with the Non-Medicinal Supply Activity template. This template is used to
 represent devices the patient has such as eyeglasses or a cane.
@@ -4886,7 +4811,7 @@ non-implantable device -->
 </section>
 ```
 
-##### Product Instance
+#### Product Instance
 
 The Product Instance template is used to represent a particular device that was placed in a patient or used as part
 of a procedure or other act.
@@ -4903,7 +4828,7 @@ of a procedure or other act.
 {:.grid}
 **Table 50: Product Instance Template**
 
-##### Unique Device Identifiers
+#### Unique Device Identifiers
 
 A Unique Device Identifier (UDI) is used to identify a device.
 
@@ -5001,7 +4926,7 @@ represented in the author structure of the entry. The [Progess Toward Goal obser
 </section>
 ```
 
-##### Social History
+#### Social History
 
 The Social History Observation template is a general template designed to represent a full range of social history
 observations. The Social History Observation Template has been updated to leverage Gravity Value Sets covering
@@ -5013,19 +4938,19 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators SHOULD use specific
-                                                templates over general templates when an appropriate
-                                                specific template has been defined.
-                                                <b>[BP-087]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators SHOULD use specific
+                templates over general templates when an appropriate
+                specific template has been defined.
+                <b>[BP-087]</b></p></td>
+    </tr>
+</table>
 
 | **Entry Template**   | **Social History Observation<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.38:2022-06-01 (open)]**    |
 | ---- | ------ |
@@ -5096,22 +5021,22 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 </section>
 ```
 
-##### Smoking Status
+#### Smoking Status
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:29pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >C-CDA Content Creators SHALL NOT use the Smoking
-                                                  Status– Meaningful Use template to represent
-                                                  when the current smoking status started.
-                                                  <b>[BP-088]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >C-CDA Content Creators SHALL NOT use the Smoking
+          Status– Meaningful Use template to represent
+          when the current smoking status started.
+          <b>[BP-088]</b></p></td>
+    </tr>
+</table>
 
 | **Entry Template**   | **Smoking Status – Meaningful Use<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09 (open)]**    |
 | ---- | ------ |
@@ -5173,22 +5098,22 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 ```
 
 
-##### Tobacco Use
+#### Tobacco Use
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:29pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 9pt;text-indent: 0pt;text-align: left;"
-                                                  >C-CDA Content Creators SHALL use the Tobacco Use
-                                                  template to describe dates associated with
-                                                  the patient&#39;s tobacco use over time.
-                                                  <b>[BP-089]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 9pt;text-indent: 0pt;text-align: left;"
+          >C-CDA Content Creators SHALL use the Tobacco Use
+          template to describe dates associated with
+          the patient&#39;s tobacco use over time.
+          <b>[BP-089]</b></p></td>
+    </tr>
+</table>
 
 | **Entry Template**   | **Tobacco Use<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09 (open)]**    |
 | ---- | ------ |
@@ -5220,28 +5145,28 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 </observation>
 ```
 
-##### Birth Sex
+#### Birth Sex
 
 This observation represents the biological sex assigned to the patient at birth. This observation often reflects the sex that is entered on the person's birth certificate at time of birth.
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:49pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 2pt;text-indent: 0pt;text-align: left;"
-                                                  >C-CDA Content Creators SHALL populate the
-                                                  effectiveTime/value of the Birth Sex Observation
-                                                  template with the patient’s birthdate. The
-                                                  effectiveTime/low and effectiveTime/high elements
-                                                  SHALL NOT be used in the Birth Sex Observation
-                                                  template. Conformance SHALL be identical to the
-                                                  conformance of the birthTime metadata element.
-                                                  <b>[CONF-090]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:49pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 2pt;text-indent: 0pt;text-align: left;"
+          >C-CDA Content Creators SHALL populate the
+          effectiveTime/value of the Birth Sex Observation
+          template with the patient’s birthdate. The
+          effectiveTime/low and effectiveTime/high elements
+          SHALL NOT be used in the Birth Sex Observation
+          template. Conformance SHALL be identical to the
+          conformance of the birthTime metadata element.
+          <b>[CONF-090]</b></p></td>
+    </tr>
+</table>
 
 | **Entry Template**   | **Birth Sex Observation<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.200:2016-06-01 (open)]**    |
 | ---- | ------ |
@@ -5281,7 +5206,7 @@ code="F" displayName="Female">
 ```
 
 
-##### Pregnancy Status
+#### Pregnancy Status
 
 The Pregnancy Observation is used to represent a person’s pregnancy status over time. It is a type of social history
 observation and can included in the Social History Section. For communicating more detailed observations related
@@ -5385,31 +5310,29 @@ This template provides a mechanism for grouping result observations. It contains
 the contained result observations. If any Result Observation within the organizer has a statusCode of "active", the Result Organizer must also have a statusCode of "active."
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:37pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
-                                                  >The Result Organizer.code element is used to
-                                                  categorize the contained results. This element
-                                                  SHOULD be populated with a LOINC code that defines
-                                                  a specific test panel (<i>e.g</i>., “CBC W Auto
-                                                  Differential panel - Blood“) or general type of testing (<i>e.g.,
-                                                  </i>“Hematology”, “Chemistry”, “Nuclear
-                                                  Medicine”). <b>[BP-091]</b></p></td>
-                                            </tr>
-                                                                                        <tr style="height:37pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
-                                                  >The Result Organizer should contain at least one Result Observation <b>[BP-092]</b></p></td>
-                                            </tr>
-                                      
-
-                                       
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:37pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
+          >The Result Organizer.code element is used to
+          categorize the contained results. This element
+          SHOULD be populated with a LOINC code that defines
+          a specific test panel (<i>e.g</i>., “CBC W Auto
+          Differential panel - Blood“) or general type of testing (<i>e.g.,
+          </i>“Hematology”, “Chemistry”, “Nuclear
+          Medicine”). <b>[BP-091]</b></p></td>
+    </tr>
+                                                <tr style="height:37pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 5pt;text-indent: 0pt;text-align: left;"
+          >The Result Organizer should contain at least one Result Observation <b>[BP-092]</b></p></td>
+    </tr>
+</table>
 
 | **Entry Template**   | **Result Organizer<br/>[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.1:2015-08-01 (open)]**    |
 | ---- | ------ |
@@ -5580,7 +5503,7 @@ not an Encounter Document. It covers a span of time.-->
 </section>
 ```
 
-##### Result Observation
+#### Result Observation
 
 | **Entry Template**   | **Result Observation<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2023-05-01 (open)]**    |
 | ---- | ------ |
@@ -5593,23 +5516,23 @@ not an Encounter Document. It covers a span of time.-->
 {:.grid}
 **Table 59: Result Observation Template**
 
-#### Vital Sign
+#### Vital Signs
 
 ##### Vital Signs Organizer
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:29pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >A Vital Signs Organizer SHALL contain at least
-                                                  one Vital Sign Observation component observation
-                                                  template. <b>[CONF-093]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >A Vital Signs Organizer SHALL contain at least
+          one Vital Sign Observation component observation
+          template. <b>[CONF-093]</b></p></td>
+    </tr>
+</table>
 
 | **Entry Template**   | **Vital Signs Organizer<br/>[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01 (open)]**    |
 | ---- | ------ |
@@ -5755,22 +5678,22 @@ Authorship conducts down into the component observations. -->
 **Table 61: Vital Signs Observation Template**
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:37pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-                                                  >C-CDA Content Creators SHALL represent vital sign
-                                                  observations using the vocabulary constraints and
-                                                  units of measure shown in the table below and MAY
-                                                  include more specific LOINC terms as a
-                                                  translation.</p><p class="s31"
-                                                  style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
-                                                  ><b>[CONF-094]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:37pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+          >C-CDA Content Creators SHALL represent vital sign
+          observations using the vocabulary constraints and
+          units of measure shown in the table below and MAY
+          include more specific LOINC terms as a
+          translation.</p><p class="s31"
+          style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;"
+          ><b>[CONF-094]</b></p></td>
+    </tr>
+</table>
 
 | **Vital Sign**   | **LOINC Code**    | **Unit of Measure**    |
 | ---------- | ---- | --- |
@@ -6013,7 +5936,7 @@ C-CDA Examples Task Force [Immunization Examples](https://hl7-c-cda-examples.her
 ```
 
 
-##### Immunization Status Code
+#### Immunization Status Code
 
 When recording the immunization status code, the normal value would be “completed”, as this represents an
 immunization that has been completely given. In extremely rare circumstances, a status of “active” could be used.
@@ -6027,22 +5950,22 @@ Historically, C-CDA, up to version 2.1, aligned with the HL7 v3 RIM definition o
 ##### Procedure
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:49pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 28pt;text-indent: 0pt;text-align: left;"
-                                                  >When representing that a procedure was not
-                                                  performed, the Indication (identifier:
-                                                  urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2023-05-01
-                                                  template MAY be used to represent the rationale
-                                                  for not performing the procedure. More than one
-                                                  indication template may be contained within a Procedure template<b>.
-                                                  [BP-095]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:49pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 28pt;text-indent: 0pt;text-align: left;"
+          >When representing that a procedure was not
+          performed, the Indication (identifier:
+          urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2023-05-01
+          template MAY be used to represent the rationale
+          for not performing the procedure. More than one
+          indication template may be contained within a Procedure template<b>.
+          [BP-095]</b></p></td>
+    </tr>
+</table>
 
 | **Entry Template**   | **Procedure Activity Procedure<br />[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2022-06-01 (open)]**    |
 | ---- | ------ |
@@ -6065,18 +5988,18 @@ and Glasgow Coma Scale (assesses coma and impaired consciousness). This template
 designed to represent both the question or type of information assessed as well as the associated answer/result.
 
 <table
-                                    style="border-collapse:collapse;margin-left:24.01pt"
-                                    cellspacing="0">
-                                    <tr style="height:26pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >The Assessment Scale Observation Template SHOULD be
-                                                used to represent the content of the Assessment.
-                                                  <b>[BP-096]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:26pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >The Assessment Scale Observation Template SHOULD be
+                used to represent the content of the Assessment.
+                  <b>[BP-096]</b></p></td>
+    </tr>
+</table>
 
 ##### Assessment Scale Observation
 
@@ -6094,25 +6017,25 @@ designed to represent both the question or type of information assessed as well 
 **Table 64: Assessment Scale Observation Template**
 
 
-##### Clinical Note
+#### Clinical Note
 
 Note Activity entries provide structured information for notes found in a Notes Section or designated sections in clinical note documents, making the human-readable narrative notes more machine-processable.
 
 ##### Note Activity
 
 <table
-                                            style="border-collapse:collapse;margin-left:24.01pt"
-                                            cellspacing="0">
-                                            <tr style="height:29pt">
-                                                <td
-                                                  style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                  bgcolor="#C5D9F0"><p class="s19"
-                                                  style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                  >C-CDA Content Creators SHOULD NOT use the Note
-                                                  Activity template in place of a more specific
-                                                  C-CDA entry template. <b>[BP-097]</b></p></td>
-                                            </tr>
-                                        </table>
+    style="border-collapse:collapse;margin-left:24.01pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+          style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+          bgcolor="#C5D9F0"><p class="s19"
+          style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+          >C-CDA Content Creators SHOULD NOT use the Note
+          Activity template in place of a more specific
+          C-CDA entry template. <b>[BP-097]</b></p></td>
+    </tr>
+</table>
 
 | **Entry Template**   | **Note Activity<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01 (open)]]**    |
 | ---- | ------ |
@@ -6302,24 +6225,22 @@ In addition to the entry templates defined in the [Advance Directive Section](St
 
 
 <table
-                                    style="border-collapse:collapse;margin-left:18.61pt"
-                                    cellspacing="0">
-                                    <tr style="height:29pt">
-                                        <td
-                                            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-                                                bgcolor="#C5D9F0"><p class="s19"
-                                                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                                                >C-CDA Content Creators MAY use templates
-                                                and template versions from HL7 CDA® R2 Implementation Guide: C-CDA R2.1; Advance Directives Templates, Release 1 or newer versions for representing Advance
-                                                Directive information. <b>[BP-098]</b></p></td>
-                                    </tr>
-                                </table>
+    style="border-collapse:collapse;margin-left:18.61pt"
+    cellspacing="0">
+    <tr style="height:29pt">
+        <td
+            style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                bgcolor="#C5D9F0"><p class="s19"
+                style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
+                >C-CDA Content Creators MAY use templates
+                and template versions from HL7 CDA® R2 Implementation Guide: C-CDA R2.1; Advance Directives Templates, Release 1 or newer versions for representing Advance
+                Directive information. <b>[BP-098]</b></p></td>
+    </tr>
+</table>
 
 
-
-
-
-#### Use of Indication Versus Reason Templates
+#### Indictations and Reasons
+##### Use of Indication Versus Reason Templates
 
 In certain situations, clinicians need to record why something was or was not done. C-CDA provides three
 methods to record this information:
