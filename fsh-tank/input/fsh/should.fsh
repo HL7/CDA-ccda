@@ -35,6 +35,11 @@ Description: "SHOULD contain code"
 Severity: #warning
 Expression: "code.exists()"
 
+Invariant: should-code-attr
+Description: "SHOULD contain @code"
+Severity: #warning
+Expression: "code.exists()"
+
 Invariant: should-componentOf
 Description: "SHOULD contain componentOf"
 Severity: #warning
@@ -100,6 +105,11 @@ Description: "SHOULD contain informationRecipient"
 Severity: #warning
 Expression: "informationRecipient.exists()"
 
+Invariant: should-interpretationCode
+Description: "SHOULD contain interpretationCode"
+Severity: #warning
+Expression: "interpretationCode.exists()"
+
 Invariant: should-languageCommunication
 Description: "SHOULD contain languageCommunication"
 Severity: #warning
@@ -139,6 +149,11 @@ Invariant: should-originalText
 Description: "SHOULD contain originalText"
 Severity: #warning
 Expression: "originalText.exists()"
+
+Invariant: should-participant
+Description: "SHOULD contain participant"
+Severity: #warning
+Expression: "participant.exists()"
 
 Invariant: should-performer
 Description: "SHOULD contain performer"
@@ -205,6 +220,16 @@ Description: "SHOULD contain responsibleParty"
 Severity: #warning
 Expression: "responsibleParty.exists()"
 
+Invariant: should-root
+Description: "SHOULD contain @root"
+Severity: #warning
+Expression: "root.exists()"
+
+Invariant: should-routeCode
+Description: "SHOULD contain routeCode"
+Severity: #warning
+Expression: "routeCode.exists()"
+
 Invariant: should-setId
 Description: "SHOULD contain setId"
 Severity: #warning
@@ -224,6 +249,11 @@ Invariant: should-sdtcPrecondition2
 Description: "SHOULD contain sdtc:Precondition2"
 Severity: #warning
 Expression: "sdtcPrecondition2.exists()"
+
+Invariant: should-standardIndustryClassCode
+Description: "SHOULD contain standardIndustryClassCode"
+Severity: #warning
+Expression: "standardIndustryClassCode.exists()"
 
 Invariant: should-targetSiteCode
 Description: "SHOULD contain targetSiteCode"
@@ -245,10 +275,20 @@ Description: "SHOULD contain time"
 Severity: #warning
 Expression: "time.exists()"
 
+Invariant: should-translation
+Description: "SHOULD contain translation"
+Severity: #warning
+Expression: "translation.exists()"
+
 Invariant: should-use
 Description: "SHOULD contain @use"
 Severity: #warning
 Expression: "nullFlavor.exists() or use.exists()"
+
+Invariant: should-unit
+Description: "SHOULD contain @unit"
+Severity: #warning
+Expression: "nullFlavor.exists() or unit.exists()"
 
 Invariant: should-value
 Description: "SHOULD contain value"
@@ -265,6 +305,44 @@ Description: "SHOULD contain versionNumber"
 Severity: #warning
 Expression: "versionNumber.exists()"
 
+////////////////////////////////////////////////////////////
+//                                                        //
+//                US-Realm-Header Alts                    //
+//                 (and others)                           //
+////////////////////////////////////////////////////////////
+// Because the IG Publisher is picky (and because SUSHI hasn't implemented https://github.com/FHIR/sushi/issues/1372 yet)
+// Create some duplicate should-invariants for the US Realm Header
+
+
+Invariant: should-sh-author
+Description: "SHOULD contain author"
+Severity: #warning
+Expression: "author.exists()"
+
+Invariant: should-us-addr
+Description: "SHOULD contain addr"
+Severity: #warning
+Expression: "addr.exists()"
+
+Invariant: should-us-code
+Description: "SHOULD contain code"
+Severity: #warning
+Expression: "code.exists()"
+
+Invariant: should-us-languageCommunication
+Description: "SHOULD contain languageCommunication"
+Severity: #warning
+Expression: "languageCommunication.exists()"
+
+Invariant: should-us-performer
+Description: "SHOULD contain performer"
+Severity: #warning
+Expression: "performer.exists()"
+
+Invariant: should-us-telecom
+Description: "SHOULD contain telecom"
+Severity: #warning
+Expression: "telecom.exists()"
 
 ////////////////////////////////////////////////////////////
 //                                                        //
@@ -281,3 +359,13 @@ Invariant: should-id-npi
 Description: "SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)"
 Severity: #warning
 Expression: "id.where(root = '2.16.840.1.113883.4.6')"
+
+Invariant: should-participant-callback
+Description: "SHOULD contain zero or more [0..*] participant such that it SHALL contain exactly one [1..1] @typeCode=\"CALLBCK\" call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC)"
+Severity: #warning
+Expression: "participant.where(typeCode = 'CALLBCK').exists()"
+
+Invariant: should-participant-indirect
+Description: "SHOULD contain zero or more [0..*] participant such that it SHALL contain exactly one [1..1] @typeCode=\"IND\" Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC)"
+Severity: #warning
+Expression: "participant.where(typeCode = 'IND').exists()"

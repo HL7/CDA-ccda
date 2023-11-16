@@ -22,11 +22,13 @@ The Patient Generated Document Header template is not a separate document type. 
         * obeys should-id
         * id 0..*
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] id (CONF:1198-28470)." // auto-should
+        * obeys should-code
         * code 0..1
         * code from $2.16.840.1.113883.11.20.12.1 (required)
-          * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28473)."
+          * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28473)." // man-should
+      * obeys should-languageCommunication
       * languageCommunication 0..*
-        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."
+        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)." // man-should
         * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
         * preferenceInd 0..1
           * ^short = "Indicates a preference for information about care delivery and treatments be communicated (or translated if needed) into this language.\n\nIf more than one languageCommunication is present, only one languageCommunication element SHALL have a preferenceInd with a value of 1.\n"
@@ -63,9 +65,10 @@ The Patient Generated Document Header template is not a separate document type. 
     * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:1198-28682)."
     * code 0..1
       * ^comment = "This relatedEntity MAY contain zero or one [0..1] code (CONF:1198-28683)."
+      * obeys should-code-attr
       * code 0..1
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
-        * ^comment = "The code, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28684)."
+        * ^comment = "The code, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28684)." // man-should
 * custodian 1..1
   * ^short = "The custodian element represents the organization or person that is in charge of maintaining the document. The custodian is the steward that is entrusted with the care of the document. Every CDA document has exactly one custodian. The custodian participation satisfies the CDA definition of Stewardship. Because CDA is an exchange standard and may not represent the original form of the authenticated document (e.g., CDA could include scanned copy of original), the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party. Also, the custodian may be the patient or an organization acting on behalf of the patient, such as a PHR organization."
   * ^comment = "SHALL contain exactly one [1..1] custodian (CONF:1198-28685)."
@@ -86,9 +89,10 @@ The Patient Generated Document Header template is not a separate document type. 
     * id 0..*
       * ^short = "The combined @root and @extension  attributes to record the information recipient's identity in a secure, trusted, and unique way."
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] id (CONF:1198-28692)." // auto-should
+      * obeys should-root
       * root 0..1
         * ^short = "For a provider, the id/@root =\"2.16.840.1.113883.4.6\" indicates the National Provider Identifier where id/@extension is the NPI number for the provider.\n\nThe ids MAY reference the id of a person or organization entity specified elsewhere in the document."
-        * ^comment = "The id, if present, SHOULD contain zero or one [0..1] @root (CONF:1198-28693)."
+        * ^comment = "The id, if present, SHOULD contain zero or one [0..1] @root (CONF:1198-28693)." // man-should
 * legalAuthenticator 0..1
   * ^short = "In a patient authored document, the legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. (Note that per the following section, there may also be one or more document authenticators.) \n\nBased on local practice, patient authored documents may be provided without legal authentication. This implies that a patient authored document that does not contain this element has not been legally authenticated.\n\nThe act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. All patient documents have the potential for legal authentication, given the appropriate legal authority.\n\nLocal policies MAY choose to delegate the function of legal authentication to a device or system that generates the document. In these cases, the legal authenticator is the person accepting responsibility for the document, not the generating device or system.\n\nNote that the legal authenticator, if present, must be a person."
   * ^comment = "MAY contain zero or one [0..1] legalAuthenticator (CONF:1198-28694)."
@@ -109,9 +113,10 @@ The Patient Generated Document Header template is not a separate document type. 
     * id 1..*
       * ^short = "The combined @root and @extension  attributes to record the authenticator's identity in a secure, trusted, and unique way."
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-28701)."
+    * obeys should-code
     * code 0..1
     * code from $2.16.840.1.113883.11.20.12.1 (preferred)
-      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28702)."
+      * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28702)." // man-should
 * participant 0..*
   * ^short = "The participant element identifies other supporting participants, including parents, relatives, caregivers, insurance policyholders, guarantors, and other participants related in some way to the patient. \n\nA supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-28703)."
@@ -120,9 +125,10 @@ The Patient Generated Document Header template is not a separate document type. 
     * ^comment = "The participant, if present, SHALL contain exactly one [1..1] @typeCode (CONF:1198-28704)."
   * associatedEntity 1..1
     * ^comment = "The participant, if present, SHALL contain exactly one [1..1] associatedEntity (CONF:1198-28705)."
+    * obeys should-code
     * code 0..1
     * code from $2.16.840.1.113883.11.20.12.1 (preferred)
-      * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28706)."
+      * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28706)."  // man-should
 * inFulfillmentOf 0..*
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-28707)."
   * order 1..1
@@ -147,9 +153,10 @@ The Patient Generated Document Header template is not a separate document type. 
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
       * functionCode 0..1
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
+        * obeys should-code-attr
         * code 0..1
         * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
-          * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)."
+          * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)." // man-should
       * assignedEntity 1..1
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-28715)."
         * id 1..*

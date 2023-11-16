@@ -60,17 +60,17 @@
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-17180)."/>
+            <short value="Summarization of Episode Note"/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;34133-9&quot; Summarization of Episode Note (CONF:1198-17181)."/>
         </element>
         <element id="ClinicalDocument.code.code">
             <path value="ClinicalDocument.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;34133-9&quot; Summarization of Episode Note (CONF:1198-17181)."/>
             <min value="1"/>
             <patternCode value="34133-9"/>
         </element>
         <element id="ClinicalDocument.code.codeSystem">
             <path value="ClinicalDocument.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32138)."/>
+            <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
@@ -140,17 +140,17 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
             <short value="SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"/>
             <comment value="The performer, if present, MAY contain zero or one [0..1] assignedEntity (CONF:1198-8459)."/>
-        </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
-            <comment value="The assignedEntity, if present, SHALL contain at least one [1..*] id (CONF:1198-30882)."/>
             <constraint>
                 <key value="1198-32466"/>
                 <severity value="warning"/>
                 <human value="If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32466)."/>
-                <expression value="assignedEntity.assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"/>
+                <expression value="assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
+            <comment value="The assignedEntity, if present, SHALL contain at least one [1..*] id (CONF:1198-30882)."/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson"/>
@@ -164,6 +164,20 @@
             <path value="ClinicalDocument.component.structuredBody"/>
             <comment value="This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30660)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-section-procedures"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Procedures Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.7.1' and extension = '2014-06-09'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+            </constraint>
+            <constraint>
+                <key value="should-section-plan-of-treatment"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain a Plan of Treatment Section"/>
+                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component">
             <path value="ClinicalDocument.component.structuredBody.component"/>

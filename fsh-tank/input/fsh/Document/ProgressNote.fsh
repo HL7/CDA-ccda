@@ -41,7 +41,7 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
     * effectiveTime only USRealmDateTimeInterval
       * low 1..1
       * obeys 1198-10066
-      * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-9481)."
+      * ^comment = "This serviceEvent SHALL contain zero or one [0..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-9481)."
 * componentOf 1..1
   * ^short = "The Progress Note is always associated with an encounter by the componentOf/encompassingEncounter element in the header. The effectiveTime element for an encompassingEncounter represents the time or time interval in which the encounter took place. A single encounter may contain multiple Progress Notes; hence the effectiveTime elements for a Progress Note (recorded in serviceEvent) and for an encounter (recorded in encompassingEncounter) represent different time intervals. For outpatient encounters that are a point in time, set effectiveTime/high, effectiveTime/low, and effectiveTime/@value to the same time. All visits take place at a specific location. When available, the location ID is included in the encompassingEncounter/location/healthCareFacility/id element."
   * ^comment = "SHALL contain exactly one [1..1] componentOf (CONF:1198-7595)."
@@ -63,7 +63,7 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-9591)."
   * structuredBody 1..1
-    * obeys 1198-30657 and 1198-30658
+    * obeys ap-or-a-and-p and ap-combo
     * ^short = "In this template (templateId 2.16.840.1.113883.10.20.22.1.9.2), coded entries are optional"
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-30617)."
     * component 1..
@@ -148,11 +148,3 @@ Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."
 Severity: #error
 Expression: "width.empty() implies high.exists()"
-
-Invariant: 1198-30657
-Description: "This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30657)."
-Severity: #error
-
-Invariant: 1198-30658
-Description: "This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-30658)."
-Severity: #error

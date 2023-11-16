@@ -47,6 +47,13 @@
                 <expression value="sdtcText.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusOrganizer"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusOrganizer"/>
+            </constraint>
         </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
@@ -122,15 +129,13 @@
         </element>
         <element id="Organizer.statusCode">
             <path value="Organizer.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-14358)."/>
         </element>
         <element id="Organizer.statusCode.code">
             <path value="Organizer.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31434)."/>
             <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6"/>
-            </binding>
+            <fixedCode value="completed"/>
         </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>

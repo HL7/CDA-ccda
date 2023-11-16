@@ -76,12 +76,18 @@
         <element id="Participant1.typeCode">
             <path value="Participant1.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4537-32982)."/>
-            <min value="1"/>
             <fixedCode value="IND"/>
         </element>
         <element id="Participant1.associatedEntity">
             <path value="Participant1.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:4537-32978)."/>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/RelatedPersonRelationshipAndNameParticipant"/>
+            </constraint>
             <constraint>
                 <key value="should-telecom"/>
                 <severity value="warning"/>

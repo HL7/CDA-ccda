@@ -18,6 +18,7 @@ The id is required and must be the same id as the entry/id it is referencing. Th
 * id 1..*
   * ^short = "The ID must equal another entry/id in the same document instance. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. The ID cannot have Null value (e.g., nullFlavor is not allowed)."
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-31489)."
+  * nullFlavor 0..0
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-31490)."
   * nullFlavor 1..1

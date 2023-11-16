@@ -1,62 +1,69 @@
 <observation classCode="OBS" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!-- ** Advance Directive Observation** -->
     <templateId root="2.16.840.1.113883.10.20.22.4.48" 
-        extension="2015-08-01" />
+        extension="2022-02-14" />
     <id root="9b54c3c9-1673-49c7-aef9-b037ed72ed27" />
-    <code code="304251008" displayName="Resuscitation" 
-                                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
-      <translation code="75320-2" 
-                                    displayName="Advance Directive"
-                                    codeSystem="2.16.840.1.113883.6.1"
-                                    codeSystemName="LOINC"></translation>
-    </code>
-    <statusCode code="completed" />
-    <effectiveTime>
-      <low value="20110213" />
-      <high nullFlavor="NA" />
-    </effectiveTime>
-    <value xsi:type="CD" 
-          code="304253006" 
-          codeSystem="2.16.840.1.113883.6.96" 
-          codeSystemName="SNOMED-CT" 
-          displayName="Not for resuscitation">
-      <originalText>Do not resuscitate</originalText>
-    </value>
-    <author>
+  <code code="75773-2"
+    displayName="Personal goals, preferences, and priorities for medical
+    treatment"
+    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+    <translation code="75320-2" displayName="Advance directive"
+      codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+  </code>
+  <text><reference value="#HealthcareAgents"></reference></text>
+  <statusCode code="completed"/>
+  <effectiveTime>
+    <!-- The time at which the person named this individual to be his or her healthcare agent -->
+    <low value="20110219"/>
+    <high nullFlavor="NA"/>
+  </effectiveTime>
+  <value xsi:type="CD" code="405083000" displayName="Healthcare decision making"
+    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+  </value>
+  <author>
       <templateId root="2.16.840.1.113883.10.20.22.4.119" />
       <time value="201308011235-0800" />
       <assignedAuthor>
+        <!-- Refers to another author somewhere else in the document -->
         <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
-        <code code="163W00000X" 
-            displayName="Registered nurse" 
-            codeSystem="2.16.840.1.113883.6.101" 
-            codeSystemName="Health Care Provider Taxonomy (HIPAA)" />
+        <addr use="H">
+          <streetAddressLine>23 Anywhere Street</streetAddressLine>
+          <city>El Paso</city>
+          <state>TX</state>
+          <postalCode>90210</postalCode>
+          <country>US</country>
+        </addr>
+        <telecom value="tel:(999)555-1212" use="WP" />
         <assignedPerson>
           <name>
-            <given>Nurse</given>
-            <family>Nightingale</family>
-            <suffix>RN</suffix>
+            <prefix>Mrs.</prefix>
+            <given>Martha</given>
+            <family>Jones</family>
           </name>
         </assignedPerson>
-        <representedOrganization classCode="ORG">
-          <id root="2.16.840.1.113883.19.5" />
-          <name>Good Health Hospital</name>
-        </representedOrganization>
       </assignedAuthor>
-    </author>
-    <participant typeCode="VRF">
+  </author>
+  <informant typeCode="INF" contextControlCode="OP">
+    <assignedEntity>
+      <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
+    </assignedEntity>
+  </informant>
+  <participant typeCode="VRF">
       <templateId root="2.16.840.1.113883.10.20.1.58" />
-      <time value="201302013" />
+      <time value="20130213" />
       <participantRole>
         <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
         <code code="163W00000X" 
              codeSystem="2.16.840.1.113883.6.101" 
              codeSystemName="Health Care Provider Taxonomy (HIPAA)" 
              displayName="Registered nurse" />
-        <addr>
-          ...
+        <addr use="H">
+          <streetAddressLine>23 Anywhere Street</streetAddressLine>
+          <city>El Paso</city>
+          <state>TX</state>
+          <postalCode>90210</postalCode>
+          <country>US</country>
         </addr>
-        <telecom value="tel:(995)555-1006" use="WP" />
         <playingEntity>
           <code code="63161005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Principal" />
           <name>
@@ -68,12 +75,17 @@
       </participantRole>
     </participant>
     <participant typeCode="CST">
+      <templateId root="2.16.840.1.113883.10.20.1.58" />
       <participantRole classCode="AGNT">
         <code code="MTH" codeSystem="2.16.840.1.113883.5.111" displayName="Mother" />
-        <addr>
-          ...
-        </addr>
-        <telecom value="tel:(999)555-1212" use="WP" />
+         <addr use="H">
+            <streetAddressLine>23 Anywhere Street</streetAddressLine>
+            <city>El Paso</city>
+            <state>TX</state>
+            <postalCode>90210</postalCode>
+            <country>US</country>
+          </addr>
+          <telecom value="tel:(999)555-1212" use="WP" />
         <playingEntity>
           <code code="63161005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Principal" />
           <name>

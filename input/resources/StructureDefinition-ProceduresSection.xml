@@ -25,7 +25,7 @@
     <name value="ProceduresSection"/>
     <title value="Procedures Section"/>
     <status value="draft"/>
-    <description value="This section describes all historical or current interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure is for procedures that alter the physical condition of a patient (e.g., splenectomy)."/>
+    <description value="This section describes all historical or current interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized.&#xA;&#xA;Subsections MAY be used to partition the entries into different categories. For example, a subsection with the Loinc code of 18748-4 (Diagnostic Imaging) MAY be used to group DI procedures. Similarly 11502-2 (Clinical Laboratory) MAY be used to group laboratory procedures."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="shall-procedure-act-procedure"/>
+                <severity value="error"/>
+                <human value="SHALL contain at least one Procedure Activity Procedure"/>
+                <expression value="nullFlavor.exists() or entry.where(procedure.templateId.where(root = '2.16.840.1.113883.10.20.22.4.14' and extension = '2022-06-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection"/>
+            </constraint>
+        </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
             <short value="If a required section contains no information, the @nullFlavor MAY be set to NI"/>
@@ -107,7 +117,6 @@
             </slicing>
             <short value="If section/@nullFlavor is not present there SHALL be at least one entry conformant to Procedure Activity Procedure (templateId: 2.16.840.1.113883.10.20.22.4.14:2014-06-09)"/>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1098-7895) such that it"/>
-            <min value="1"/>
         </element>
         <element id="Section.entry:entryProcedure">
             <path value="Section.entry"/>

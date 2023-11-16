@@ -48,10 +48,31 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
             <constraint>
+                <key value="active-high-ts-after-document"/>
+                <severity value="error"/>
+                <human value="If the procedure is active and contains a high effectiveTime, this time SHALL be after the ClinicalDocument/effectiveTime"/>
+                <expression value="(statusCode.code = 'active' and effectiveTime.high.value.exists()) implies effectiveTime.high.value &gt; %resource.effectiveTime.value"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+            <constraint>
+                <key value="should-targetSiteCode"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain targetSiteCode"/>
+                <expression value="targetSiteCode.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+            <constraint>
                 <key value="should-performer"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain performer"/>
                 <expression value="performer.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
         </element>
@@ -171,11 +192,22 @@
             <path value="Procedure.effectiveTime"/>
             <short value="(USCDI) Performance Time"/>
             <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </type>
             <constraint>
                 <key value="should-value"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain value"/>
                 <expression value="value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
+            <constraint>
+                <key value="ts-value-before-document"/>
+                <severity value="error"/>
+                <human value="Time value must be equal to or before ClinicalDocument/effectiveTime"/>
+                <expression value="value.exists() implies value &lt;= %resource.effectiveTime.value"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
         </element>
@@ -187,10 +219,17 @@
             <path value="Procedure.effectiveTime.low"/>
             <short value="Indicates when a procedure started"/>
             <comment value="MAY contain zero or one [0..1] low"/>
+            <constraint>
+                <key value="ts-value-before-document"/>
+                <severity value="error"/>
+                <human value="Time value must be equal to or before ClinicalDocument/effectiveTime"/>
+                <expression value="value.exists() implies value &lt;= %resource.effectiveTime.value"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
         </element>
         <element id="Procedure.effectiveTime.high">
             <path value="Procedure.effectiveTime.high"/>
-            <short value="Indicates when a procedure ended"/>
+            <short value="Indicates when a procedure ended. If the statusCode='active', this must be after the ClinicalDcument/effectiveTime"/>
             <comment value="MAY contain zero or one [0..1] high"/>
         </element>
         <element id="Procedure.priorityCode">
@@ -244,6 +283,13 @@
         <element id="Procedure.performer.assignedEntity">
             <path value="Procedure.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."/>
+            <constraint>
+                <key value="should-assignedPerson"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain assignedPerson"/>
+                <expression value="assignedPerson.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
+            </constraint>
             <constraint>
                 <key value="should-representedOrganization"/>
                 <severity value="warning"/>
@@ -346,7 +392,6 @@
         <element id="Procedure.participant:participant1.typeCode">
             <path value="Procedure.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7752)."/>
-            <min value="1"/>
             <fixedCode value="DEV"/>
         </element>
         <element id="Procedure.participant:participant1.participantRole">
@@ -367,7 +412,6 @@
         <element id="Procedure.participant:participant2.typeCode">
             <path value="Procedure.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4515-7766)."/>
-            <min value="1"/>
             <fixedCode value="LOC"/>
         </element>
         <element id="Procedure.participant:participant2.participantRole">

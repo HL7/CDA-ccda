@@ -52,6 +52,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 * value contains physical-quantity 0..1 and coded 0..1
 * value[physical-quantity] only $PQ
   * unit 1..1
+  * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * insert USCDI(Result Units)
   * translation 0..1
     * ^short = "Can be used to represent the original results as output by the lab"
@@ -62,9 +63,10 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   // * obeys 4537-31484 and 4537-32610
   // * insert USCDI([[@unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units]])
   // * ^comment = "A coded or physical quantity value **MAY** contain zero or more [0..&ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866). / SHALL contain exactly one [1..1] value (CONF:4537-7143)."
+* obeys should-interpretationCode
 * interpretationCode from http://terminology.hl7.org/ValueSet/v3-ObservationInterpretation
   * insert USCDI([[Result Interpretation]])
-  * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."
+  * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)." // man-should
 * methodCode 0..1
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."
 * targetSiteCode 0..1
@@ -81,9 +83,10 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
       * code 1..1
       * code from $2.16.840.1.113762.1.4.1099.54 (preferred)
         * ^comment = "This specimenPlayingEntity SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Specimen type urn:oid:2.16.840.1.113762.1.4.1099.54 DYNAMIC (CONF:4537-32614)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)." // man-should
 * obeys should-referenceRange
 * referenceRange 0..*
   * insert USCDI([[Result Reference Range]])
@@ -99,10 +102,6 @@ Invariant: 4537-19212
 Description: "This code **SHOULD** be a code from the LOINC that identifies the result observation. If an appropriate LOINC code does not exist, then the local code for this result **SHALL** be sent (CONF:4537-19212)."
 Severity: #warning
 Expression: "codeSystem = '2.16.840.1.113883.6.1'"
-
-Invariant: 4537-31484
-Description: "If Observation/value is a physical quantity (xsi:type=\"PQ\"): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."
-Severity: #warning
 
 Invariant: 4537-32610
 Description: "If Observation/value is a CD (**xsi:type=\"CD\"**) the value **SHOULD** be SNOMED-CT or LOINC (CONF:4537-32610)."

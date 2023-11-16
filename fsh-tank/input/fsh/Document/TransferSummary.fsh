@@ -15,13 +15,15 @@ Standardization of information used in this form will promote interoperability; 
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet TransferDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.4 DYNAMIC (CONF:1198-28243)."
 * title 1..1
   * ^comment = "SHALL contain exactly one [1..1] title (CONF:1198-29838)."
+* obeys should-participant-indirect
+* obeys should-participant-callback
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
     participant1 0..* and
     participant2 0..*
-* participant[participant1] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31599) such that it"
+* participant[participant1] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31599) such that it"  // man-should
   * typeCode 1..1
   * typeCode = #IND (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"IND\" indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31872)."
@@ -34,7 +36,7 @@ Standardization of information used in this form will promote interoperability; 
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31601)."
       * name 1..*
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31602)."
-* participant[participant2] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31626) such that it"
+* participant[participant2] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31626) such that it"  // man-should
   * typeCode 1..1
   * typeCode = #CALLBCK (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"CALLBCK\" Call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31627)."
@@ -83,7 +85,15 @@ Standardization of information used in this form will promote interoperability; 
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-28251)."
   * structuredBody 1..1
-    * obeys 1198-31582 and 1198-31583
+    * obeys ap-or-a-and-p and ap-combo
+    * obeys should-section-advance-directives
+    * obeys should-section-functional-status
+    * obeys should-section-discharge-dx
+    * obeys should-section-procedures
+    * obeys should-section-social-history
+    * obeys should-section-mental-status
+    * obeys should-section-nutrition
+    * obeys should-section-hpi
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28252)."
     * component 7..
       * ^slicing.discriminator[0].type = #profile
@@ -119,7 +129,7 @@ Standardization of information used in this form will promote interoperability; 
         admissionMedications 0..1 and
         admissionDiagnosis 0..1 and
         courseOfCare 0..1
-    * component[advanceDirectives] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28253)."
+    * component[advanceDirectives] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28253) such that it" // man-should
       * section only AdvanceDirectivesSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01) (CONF:1198-28254)."
     * component[allergiesAndIntolerances] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28255) such that it"
@@ -134,10 +144,10 @@ Standardization of information used in this form will promote interoperability; 
     * component[familyHistory] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28263) such that it"
       * section only FamilyHistorySection
         * ^comment = "SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2015-08-01) (CONF:1198-28264)."
-    * component[functionalStatus] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28265) such that it"
+    * component[functionalStatus] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28265) such that it" // man-should
       * section only FunctionalStatusSection
         * ^comment = "SHALL contain exactly one [1..1] Functional Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09) (CONF:1198-28266)."
-    * component[dischargeDiagnosis] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28271) such that it"
+    * component[dischargeDiagnosis] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28271) such that it" // man-should
       * section only DischargeDiagnosisSection
         * ^comment = "SHALL contain exactly one [1..1] Discharge Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.24:2015-08-01) (CONF:1198-28272)."
     * component[immunizations] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28273) such that it"
@@ -158,19 +168,19 @@ Standardization of information used in this form will promote interoperability; 
     * component[problem] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28283) such that it"
       * section only ProblemSection
         * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2015-08-01) (CONF:1198-28284)."
-    * component[procedures] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28285) such that it"
+    * component[procedures] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28285) such that it" // man-should
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section  (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-28286)."
     * component[results] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28287) such that it"
       * section only ResultsSection
         * ^comment = "SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2015-08-01) (CONF:1198-28288)."
-    * component[socialHistory] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28289) such that it"
+    * component[socialHistory] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28289) such that it" // man-should
       * section only SocialHistorySection
         * ^comment = "SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01) (CONF:1198-28290)."
     * component[vitalSigns] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28291) such that it"
       * section only VitalSignsSection
         * ^comment = "SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2015-08-01) (CONF:1198-28292)."
-    * component[mentalStatus] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28327) such that it"
+    * component[mentalStatus] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28327) such that it" // man-should
       * section only MentalStatusSection
         * ^comment = "SHALL contain exactly one [1..1] Mental Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.56:2015-08-01) (CONF:1198-28328)."
     * component[generalStatus] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28838) such that it"
@@ -179,7 +189,7 @@ Standardization of information used in this form will promote interoperability; 
     * component[reviewOfSystems] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30239) such that it"
       * section only ReviewofSystemsSection
         * ^comment = "SHALL contain exactly one [1..1] Review of Systems Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:1198-30240)."
-    * component[nutrition] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30776) such that it"
+    * component[nutrition] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30776) such that it" // man-should
       * section only NutritionSection
         * ^comment = "SHALL contain exactly one [1..1] Nutrition Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.57) (CONF:1198-30777)."
     * component[reasonForReferral] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-31342) such that it"
@@ -188,7 +198,7 @@ Standardization of information used in this form will promote interoperability; 
     * component[pastMedicalHistory] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-31561) such that it"
       * section only PastMedicalHistory
         * ^comment = "SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2015-08-01) (CONF:1198-31562)."
-    * component[historyOfPresentIllness] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-31563) such that it"
+    * component[historyOfPresentIllness] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-31563) such that it" // man-should
       * section only HistoryofPresentIllnessSection
         * ^comment = "SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-31564)."
     * component[assessmentAndPlan] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-31565) such that it"
@@ -206,11 +216,3 @@ Standardization of information used in this form will promote interoperability; 
     * component[courseOfCare] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-32648) such that it"
       * section only CourseofCareSection
         * ^comment = "SHALL contain exactly one [1..1] Course of Care Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.64) (CONF:1198-32649)."
-
-Invariant: 1198-31582
-Description: "This structuredBody **SHALL** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09), or an Assessment Section (2.16.840.1.113883.10.20.22.2.8) and a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-31582)."
-Severity: #error
-
-Invariant: 1198-31583
-Description: "This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present (CONF:1198-31583)."
-Severity: #error

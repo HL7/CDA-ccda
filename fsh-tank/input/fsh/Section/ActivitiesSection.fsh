@@ -30,3 +30,4 @@ Instructions are information or directions to the patient. Use the Instructions 
   * act 1..1
   * act only HandoffCommunicationParticipants
     * ^comment = "The entry, if present, SHALL contain exactly one [1..1] Intervention Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.141) (CONF:1198-32403)."
+* obeys should-intervention-act and should-planned-intervention-act

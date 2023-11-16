@@ -42,10 +42,11 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
 * performer 0..*
   * ^short = "The clinician who is expected to perform the procedure could be identified using procedure/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:4515-30449)."
+* obeys should-author
 * author 0..1
 * author only AuthorParticipation
   * ^short = "The author in a planned procedure represents the clinician who is requesting or planning the procedure."
-  * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31979)."
+  * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31979)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile

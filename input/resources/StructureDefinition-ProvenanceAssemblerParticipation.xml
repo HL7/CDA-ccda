@@ -76,7 +76,6 @@
         <element id="Participant1.typeCode">
             <path value="Participant1.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;DEV&quot; Device (CONF:4537-55)."/>
-            <min value="1"/>
             <fixedCode value="DEV"/>
         </element>
         <element id="Participant1.functionCode">
@@ -120,6 +119,13 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain telecom"/>
                 <expression value="telecom.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAssemblerParticipation"/>
+            </constraint>
+            <constraint>
+                <key value="should-addr"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain addr"/>
+                <expression value="addr.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAssemblerParticipation"/>
             </constraint>
         </element>

@@ -5,7 +5,7 @@ Title: "Past Medical History"
 Description: "This section contains a record of the patient's past complaints, problems, and diagnoses. It contains data from the patient's past up to the patient's current complaint or reason for seeking medical care."
 
 * insert Section(#11348-0, History of Past Illness, 2.16.840.1.113883.10.20.22.2.20, 2015-08-01)
-* entry ^slicing.discriminator[0].type = #value
+* entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entry contains problem 0..*

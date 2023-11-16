@@ -14,12 +14,8 @@ Description: "This section contains a narrative description of the problems or d
     * ^slicing.rules = #open
   * translation contains admissionDiag 1..1
   * translation[admissionDiag] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32749) such that it"
-    * code 1..1
-    * code = #42347-5
-      * ^comment = "SHALL contain exactly one [1..1] @code=\"42347-5\" Admission Diagnosis (CONF:1198-32750)."
-    * codeSystem 1..1
-    * codeSystem = "2.16.840.1.113883.6.1"
-      * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:1198-32751)."
+    * insert CodedLoinc(42347-5, Admission Diagnosis)
+    * ^comment = "SHALL contain exactly one [1..1] @code=\"42347-5\" Admission Diagnosis (CONF:1198-32750)."
 * obeys should-entry
 * entry 0..1
   * ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-9934)." // auto-should

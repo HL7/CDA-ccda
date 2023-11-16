@@ -53,12 +53,12 @@ This id must be a pointer to another Performer."""
     * ^comment = "MAY contain zero or one [0..1] sdtc:functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-161)."
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4515-175)."
+    * obeys 4515-180
     * id 1..*
-      * obeys 4515-180
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-176)."
       * root 0..1
         * obeys should-npi
-        * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)."
+        * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)." // man-should
     * obeys should-addr
     * addr 0..*
     * addr only USRealmAddress
@@ -113,6 +113,10 @@ This id must be a pointer to another Performer."""
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "encounter"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"
 * entryRelationship contains
@@ -124,16 +128,21 @@ This id must be a pointer to another Performer."""
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-87)."
+  // TODO - this is the only way slicing works unless the IG Publisher is updated....
+  * observation 0..0
+  * act 0..0
   * encounter 1..1
+    * obeys 4515-90
     * ^comment = "SHALL contain exactly one [1..1] encounter (CONF:4515-88)."
     * id 1..1
-      * obeys 4515-90
       * ^comment = "This encounter SHALL contain exactly one [1..1] id (CONF:4515-89)."
 * entryRelationship[entryRelationship2] ^short = "This is the note activity to naratively describe information about the member on the care team."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-91) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-92)."
+  * observation 0..0
+  * encounter 0..0
   * act 1..1
   * act only NoteActivity
     * ^comment = "SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-93)."
@@ -142,6 +151,8 @@ This id must be a pointer to another Performer."""
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-96)."
+  * act 0..0
+  * encounter 0..0
   * observation 1..1
   * observation only CareTeamMemberScheduleObservation
     * ^comment = "SHALL contain exactly one [1..1] Care Team Member Schedule Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.3:2022-06-01) (CONF:4515-95)."
@@ -149,7 +160,33 @@ This id must be a pointer to another Performer."""
 Invariant: 4515-180
 Description: "If the assignedEntity/id is not referencing a Performer elsewhere in the document with an assignedPerson populated, this assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:4515-180)."
 Severity: #error
+Expression: "assignedPerson.exists() or (%resource.descendants().ofType(CDA.Performer2).where(assignedEntity.assignedPerson.exists() and assignedEntity.id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension)))"
+/*
+assignedPerson.exists() or 
+(
+  %resource.descendants().ofType(CDA.Performer2).where(
+    assignedEntity.assignedPerson.exists() and
+    assignedEntity.id.exists(
+      $this.root = %context.id.first().root and 
+      $this.extension ~ %context.id.first().extension
+    )
+  )
+)
+*/
+
 
 Invariant: 4515-90
-Description: "If the id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor=NA, then this entry SHALL conform to the Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4515-90)."
+Description: "If the first id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor=NA, then this entry SHALL conform to the Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4515-90)."
 Severity: #error
+Expression: "id.first().nullFlavor = 'NA' or (%resource.descendants().ofType(CDA.Encounter).where(hasTemplateIdOf(EncounterActivity) and id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension)))"
+/*
+id.nullFlavor = 'NA' or (
+  %resource.descendants().ofType(CDA.Encounter).where(
+    hasTemplateIdOf(EncounterActivity) and
+    id.exists(
+      $this.root = %context.id.first().root and
+      $this.extension ~ %context.id.first().extension
+    )
+  )
+)
+*/

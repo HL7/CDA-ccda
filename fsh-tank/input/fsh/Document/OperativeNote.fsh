@@ -21,6 +21,7 @@ The Operative Note is created immediately following a surgical or other high-ris
   * serviceEvent 1..1
     * ^comment = "Such documentationOfs SHALL contain exactly one [1..1] serviceEvent (CONF:1198-8493)."
     * code 1..1
+      * ^binding.strength = #required
       * ^binding.description = "The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD-9-CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC (CONF:1198-8487)."
       * insert AdditionalBinding(preferred, $2.16.840.1.113883.3.88.12.80.28, Allowed SNOMED Codes, [[The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD-9-CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC (CONF:1198-8487).]])
       * obeys 1198-8487
@@ -55,9 +56,10 @@ The Operative Note is created immediately following a surgical or other high-ris
         * ^comment = "MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:1198-32963)."
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-10917)."
+        * obeys should-code
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
-          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8490)."
+          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8490)." // man-should
     * performer[performer2] ^short = "This performer represents any assistants"
       * ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32736) such that it"
       * typeCode 1..1
@@ -68,9 +70,10 @@ The Operative Note is created immediately following a surgical or other high-ris
         * ^comment = "MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:1198-32964)."
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32737)."
+        * obeys should-code
         * code 0..1
         * code from $2.16.840.1.114222.4.11.1066 (required)
-          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32739)."
+          * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32739)." // man-should
 * authorization 0..1
   * ^short = "Authorization represents consent. Consent, if present, shall be represented by authorization/consent."
   * ^comment = "MAY contain zero or one [0..1] authorization (CONF:1198-32404)."

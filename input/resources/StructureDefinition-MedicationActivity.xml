@@ -48,10 +48,31 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
             <constraint>
+                <key value="1098-7513"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it **SHALL** contain exactly one [1..1] @xsi:type=&quot;PIVL_TS&quot; or &quot;EIVL_TS&quot; (CONF:1098-28499)."/>
+                <expression value="effectiveTime.ofType(CDA.PIVL_TS).exists() or effectiveTime.ofType(CDA.EIVL_TS).exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-routeCode"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain routeCode"/>
+                <expression value="routeCode.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
+            <constraint>
                 <key value="dose-unit-or-admin-unit"/>
                 <severity value="error"/>
                 <human value="If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."/>
                 <expression value="doseQuantity.unit.exists() implies administrationUnitCode.empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
         </element>
@@ -141,22 +162,12 @@
             <path value="SubstanceAdministration.effectiveTime"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
-                    <path value="operator"/>
-                </discriminator>
-                <discriminator>
                     <type value="type"/>
                     <path value="$this"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <min value="1"/>
-            <constraint>
-                <key value="1098-7513"/>
-                <severity value="error"/>
-                <human value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7513) such that it **SHALL** contain exactly one [1..1] @xsi:type=&quot;PIVL_TS&quot; or &quot;EIVL_TS&quot; (CONF:1098-28499)."/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
-            </constraint>
         </element>
         <element id="SubstanceAdministration.effectiveTime:duration">
             <path value="SubstanceAdministration.effectiveTime"/>
@@ -173,6 +184,13 @@
                 <severity value="error"/>
                 <human value="This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."/>
                 <expression value="(value | low).count = 1"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-value-att"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain @value"/>
+                <expression value="value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
             <constraint>
@@ -238,6 +256,13 @@
         <element id="SubstanceAdministration.routeCode">
             <path value="SubstanceAdministration.routeCode"/>
             <comment value="SHOULD contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-7514)."/>
+            <constraint>
+                <key value="should-translation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain translation"/>
+                <expression value="translation.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.7"/>
@@ -265,6 +290,13 @@
             <definition value="If the consumable code is not pre-coordinated (e.g., is &quot;simply metoprolol Oral Product&quot; (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., &quot;25&quot; and &quot;mg&quot;, specifying the amount of product given per administration (CONF:1098-16879).&amp;#10;If the consumable code is a pre-coordinated unit dose (e.g., &quot;metoprolol 25mg tablet&quot;) then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., &quot;2&quot;, meaning 2 x &quot;metoprolol 25mg tablet&quot; per administration) (CONF:1098-16878)."/>
             <comment value="SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-unit"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain @unit"/>
+                <expression value="nullFlavor.exists() or unit.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            </constraint>
         </element>
         <element id="SubstanceAdministration.doseQuantity.unit">
             <path value="SubstanceAdministration.doseQuantity.unit"/>
@@ -347,7 +379,6 @@
         <element id="SubstanceAdministration.participant:drugVehicle.typeCode">
             <path value="SubstanceAdministration.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CSM&quot; (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-7524)."/>
-            <min value="1"/>
             <fixedCode value="CSM"/>
         </element>
         <element id="SubstanceAdministration.participant:drugVehicle.participantRole">

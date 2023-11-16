@@ -1,5 +1,5 @@
-<act classCode="ACT" moodCode="EVN" xmlns="urn:hl7-org:v3">
-  <templateId root="2.16.840.1.113883.10.20.22.4.61" extension="2015-08-01" />
+<act classCode="ACT" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
+  <templateId root="2.16.840.1.113883.10.20.22.4.61" extension="2023-05-01" />
   <id root="3e676a50-7aac-11db-9fe1-0800200c9a66" />
   <code code="12" displayName="Medicare Secondary Working Aged Beneficiary or Spouse with Employer Group Health Plan" 
              codeSystemName="Insurance Type Code (x12N-1336)"
@@ -49,7 +49,7 @@
     </time>
     <assignedEntity>
       <id root="329fcdf0-7ab3-11db-9fe1-0800200c9a66" />
-      <code code="GUAR" codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 RoleCode" />
+      <code code="GUAR" codeSystem="2.16.840.1.113883.5.110" codeSystemName="HL7 RoleCode" />
       <addr use="HP">
         <streetAddressLine>17 Daws Rd.</streetAddressLine>
         <city>Blue Bell</city>
@@ -70,7 +70,7 @@
   </performer>
   <!-- Covered party -->
   <participant typeCode="COV">
-    <templateId root="2.16.840.1.113883.10.20.22.4.89.2" />
+    <templateId root="2.16.840.1.113883.10.20.22.4.89" />
     <time>
       <low nullFlavor="UNK" />
       <high nullFlavor="UNK" />
@@ -78,7 +78,7 @@
     <participantRole classCode="PAT">
       <!-- Health plan ID for patient. -->
       <id root="1.1.1.1.1.1.1.1.14" extension="1138345" />
-      <code code="SELF" codeSystem="2.16.840.1.113883.5.111" />
+      <code code="FAMDEP" codeSystem="2.16.840.1.113883.5.111" />
       <addr use="HP">
         <streetAddressLine>17 Daws Rd.</streetAddressLine>
         <city>Blue Bell</city>
@@ -94,12 +94,13 @@
           <given>A.</given>
           <family>Everyman</family>
         </name>
+        <sdtc:birthTime value="19620206" />
       </playingEntity>
     </participantRole>
   </participant>
-  <!-- Policy holder -->
+  <!-- Policy holder / Subscriber - not allowed if the COV participant's code is SELF -->
   <participant typeCode="HLD">
-    <templateId root="2.16.840.1.113883.10.20.22.4.90.2" />
+    <templateId root="2.16.840.1.113883.10.20.22.4.90" />
     <participantRole>
       <id extension="1138345" root="2.16.840.1.113883.19" />
       <addr use="HP">
@@ -111,6 +112,7 @@
       </addr>
     </participantRole>
   </participant>
+  <!-- Coverange Plan
   <entryRelationship typeCode="REFR">
     <act classCode="ACT" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.1.19" />
@@ -118,5 +120,5 @@
         
         
     </act>
-  </entryRelationship>
+  </entryRelationship> -->
 </act>

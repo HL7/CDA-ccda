@@ -36,10 +36,11 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:4515-32313)."
 * effectiveTime 0..1
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:4515-30759)."
+* obeys should-author
 * author 0..*
 * author only AuthorParticipation
   * ^short = "A health concern may be a patient or provider concern. If the author is set to the recordTarget (patient), this is a patient concern. If the author is set to a provider, this is a provider concern. If both patient and provider are set as authors, this is a concern of both the patient and the provider."
-  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31546)."
+  * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31546)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
@@ -86,9 +87,9 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31161)."
+  * obeys 4515-32745
   * act 1..1
   * act only EntryReference
-    * obeys 4515-32745
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32107)."
 
 * reference 0..*
@@ -104,3 +105,15 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
 Invariant: 4515-32745
 Description: "The Entry Reference template **SHALL** contain an id that references a Health Concern Act (CONF:4515-32745)."
 Severity: #error
+Expression: "%resource.descendants().ofType(CDA.Act).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.132' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"
+/*
+%resource.descendants().ofType(CDA.Act).where(
+  templateId.exists(
+    $this.root = '2.16.840.1.113883.10.20.22.4.132' and
+    $this.extension = '2022-06-01'
+  ) and
+  id.exists(
+    $this.root = %context.act.id.first().root and
+    $this.extension ~ %context.act.id.first().extension
+  )
+)*/

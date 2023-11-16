@@ -48,6 +48,13 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
             </constraint>
             <constraint>
+                <key value="should-effectiveTime"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain effectiveTime"/>
+                <expression value="effectiveTime.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
+            </constraint>
+            <constraint>
                 <key value="should-quantity"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain quantity"/>
@@ -136,7 +143,7 @@
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/EIVL-TS"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
             </type>
             <constraint>
                 <key value="should-high"/>
@@ -170,7 +177,6 @@
         <element id="Supply.participant:participant1.typeCode">
             <path value="Supply.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;PRD&quot; Product (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8754)."/>
-            <min value="1"/>
             <fixedCode value="PRD"/>
         </element>
         <element id="Supply.participant:participant1.participantRole">

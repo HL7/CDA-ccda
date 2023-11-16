@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="shall-encounter-activity"/>
+                <severity value="error"/>
+                <human value="SHALL contain at least one Encounter Activity"/>
+                <expression value="nullFlavor.exists() or entry.where(encounter.templateId.where(root = '2.16.840.1.113883.10.20.22.4.49' and extension = '2015-08-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncountersSection"/>
+            </constraint>
+        </element>
         <element id="Section.nullFlavor">
             <path value="Section.nullFlavor"/>
             <short value="If a required section contains no information, the @nullFlavor MAY be set to NI"/>
@@ -100,19 +110,18 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="encounter"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
-            <min value="1"/>
         </element>
         <element id="Section.entry:encounter">
             <path value="Section.entry"/>
             <sliceName value="encounter"/>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1198-8709) such that it"/>
-            <min value="1"/>
+            <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:encounter.encounter">

@@ -68,19 +68,27 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:4537-32996)."/>
+            <short value="History of Occupation"/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;11341-5&quot; History of Occupation (CONF:4537-33002)."/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;11341-5&quot; History of Occupation (CONF:4537-33002)."/>
             <min value="1"/>
             <patternCode value="11341-5"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-33003)."/>
+            <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-32997)."/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-33004)."/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>

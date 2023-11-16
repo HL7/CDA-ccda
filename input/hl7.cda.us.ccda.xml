@@ -124,7 +124,7 @@
                 <display value="Advance Directives Section"/>
             </reference>
             <name value="Advance Directives Section"/>
-            <description value="This section contains information describing the patient’s advance directives. The description includes the kind of advance directive source documents and the type of advance directive content included in each kind of advance directive source document. The section includes information about who verified the content available in each advance directive source document, if applicable. It also includes information about who was the acting healthcare agent, if someone was acting on behalf of the patient during the encounter or during certain periods of time during the provision of care covered by the document. It provides references to the supporting documentation, including all kinds of advance directive source documents. Treatment Preferences, Care Experience Preferences and Personal Health Goals associated with personal advance directive documentation and references to the external documents containing advance directive documentation created by an individual (or consented to by an individual or that individual's appoint healthcare agent) are contained in this section of a document.&#xA;&#xA;This section differentiates between an &quot;advance care plan document&quot; and an “advance care plan order.” It also distinguishes an advance directive that is a consent. Information in this section includes information about the person’s current/relevant goals and preferences, advance directive orders, or advance directive consents."/>
+            <description value="This section contains information describing the patient’s advance directives. The description includes the kind of advance directive source documents and the type of advance directive content included in each kind of advance directive source document. The section includes information about who verified the content available in each advance directive source document, if applicable. It also includes information about who was the acting healthcare agent, if someone was acting on behalf of the patient during the encounter or during certain periods of time during the provision of care covered by the document. It provides references to the supporting documentation, including all kinds of advance directive source documents.&#xA;&#xA;Treatment Preferences, Care Experience Preferences and Personal Health Goals considered relevant by the organization rendering care services to the patient's care during the encompassing encounter or considered relevant to the patient's care plan SHALL be included in the Advance Directives Section as documented by the patient or consented by the patient or the patient's healthcare agent. &#xA;&#xA;If a person has appointed healthcare agent(s), the Advance Directive Section SHALL include the current healthcare agent(s) information. and a reference to the external document which contains the healthcare agent appointment decisions. If a person has documented treatment preferences under certain health scenarios, the Advance Directive Section SHALL include information about who has reviewed and verified that documentation, and a reference to the external document which was reviewed. &#xA;&#xA;This section differentiates between an &quot;advance care plan document&quot; and an “advance care plan order.” It also distinguishes an advance directive that is a consent. Information in this section includes information about the person’s current/relevant goals and preferences, advance directive orders, or advance directive consents."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -286,7 +286,7 @@
                 <display value="Care Plan"/>
             </reference>
             <name value="Care Plan"/>
-            <description value="CARE PLAN FRAMEWORK&#xA;&#xA;A Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):&#xA;There are 2 required sections:&#xA;*    Health Concerns&#xA;*    Activities&#xA;&#xA;There are 2 optional sections:&#xA;*    Goals&#xA;*    Outcomes&#xA;&#x9;Provides the ability to identify patient and provider priorities with each act&#xA;&#x9;Provides a header participant to indicate occurrences of Care Plan review&#xA;&#xA;A care plan document can include entry references from the information in these sections to the information (entries) in other sections.&#xA;&#xA;Please see Volume 1 of this guide to view a Care Plan Relationship diagram and story board."/>
+            <description value="CARE PLAN FRAMEWORK&#xA;&#xA;A Care Plan is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):&#xA;There are 2 required sections:&#xA;*    Health Concerns&#xA;*    Activities&#xA;&#xA;There are 2 optional sections:&#xA;*    Goals&#xA;*    Outcomes&#xA;&#x9;Provides the ability to identify patient and provider priorities with each act&#xA;&#x9;Provides a header participant to indicate occurrences of Care Plan review&#xA;&#xA;A care plan document can include entry references from the information in these sections to the information (entries) in other sections."/>
             <groupingId value="document"/>
         </resource>
         <resource>
@@ -1582,7 +1582,7 @@
                 <display value="Procedures Section"/>
             </reference>
             <name value="Procedures Section"/>
-            <description value="This section describes all historical or current interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized. The common notion of &quot;procedure&quot; is broader than that specified by the HL7 Version 3 Reference Information Model (RIM), therefore this section contains procedure templates represented with three RIM classes: Act, Observation, and Procedure. Procedure Activity Procedure is for procedures that alter the physical condition of a patient (e.g., splenectomy)."/>
+            <description value="This section describes all historical or current interventional, surgical, diagnostic, or therapeutic procedures or treatments pertinent to the patient at the time the document is generated. The section should include notable procedures, but can contain all procedures for the period of time being summarized.&#xA;&#xA;Subsections MAY be used to partition the entries into different categories. For example, a subsection with the Loinc code of 18748-4 (Diagnostic Imaging) MAY be used to group DI procedures. Similarly 11502-2 (Clinical Laboratory) MAY be used to group laboratory procedures."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -1717,7 +1717,7 @@
                 <display value="Results Section"/>
             </reference>
             <name value="Results Section"/>
-            <description value="The Results Section contains observations of results generated by laboratories, imaging procedures, and other procedures. These coded result observations are contained within a Results Organizer in the Results Section. The scope includes observations such as hematology, chemistry, serology, virology, toxicology, microbiology, plain x-ray, ultrasound, CT, MRI, angiography, echocardiography, nuclear medicine, pathology, and procedure observations. The section often includes notable results such as abnormal values or relevant trends, and could contain all results for the period of time being documented.&#xA;&#xA;Laboratory results are typically generated by laboratories providing analytic services in areas such as chemistry, hematology, serology, histology, cytology, anatomic pathology, microbiology, and/or virology. These observations are based on analysis of specimens obtained from the patient and submitted to the laboratory.&#xA;&#xA;Imaging results are typically generated by a clinician reviewing the output of an imaging procedure, such as where a cardiologist reports the left ventricular ejection fraction based on the review of a cardiac echocardiogram.&#xA;&#xA;Procedure results are typically generated by a clinician to provide more granular information about component observations made during a procedure, such as where a gastroenterologist reports the size of a polyp observed during a colonoscopy."/>
+            <description value="The Results Section contains observations of results generated by laboratories, imaging procedures, and other procedures. These coded result observations are contained within a Results Organizer in the Results Section. The scope includes observations such as hematology, chemistry, serology, virology, toxicology, microbiology, plain x-ray, ultrasound, CT, MRI, angiography, echocardiography, nuclear medicine, pathology, and procedure observations. The section often includes notable results such as abnormal values or relevant trends, and could contain all results for the period of time being documented.&#xA;&#xA;Laboratory results are typically generated by laboratories providing analytic services in areas such as chemistry, hematology, serology, histology, cytology, anatomic pathology, microbiology, and/or virology. These observations are based on analysis of specimens obtained from the patient and submitted to the laboratory.&#xA;&#xA;Imaging results are typically generated by a clinician reviewing the output of an imaging procedure, such as where a cardiologist reports the left ventricular ejection fraction based on the review of a cardiac echocardiogram.&#xA;&#xA;Procedure results are typically generated by a clinician to provide more granular information about component observations made during a procedure, such as where a gastroenterologist reports the size of a polyp observed during a colonoscopy.&#xA;&#xA;Subsections MAY be used to partition the entries into different categories. For example, a subsection with the Loinc code of 18748-4 (Diagnostic Imaging) MAY be used to group DI procedures and/or results. Similarly 11502-2 (Clinical Laboratory) MAY be used to group laboratory results."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -2252,7 +2252,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/StructuredBody"/>
             </extension>
             <reference>
                 <reference value="Binary/new-author-participant-example"/>
@@ -2354,9 +2354,41 @@
                 <reference value="Binary/care-plan-review-example"/>
             </reference>
             <name value="Care Plan Review Example"/>
-            <description value="BCare Plan Review example"/>
+            <description value="Care Plan Review example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </extension>
+            <reference>
+                <reference value="Binary/care-plan-complete-example"/>
+            </reference>
+            <name value="Care Plan Complete Example"/>
+            <description value="Care Plan Complete example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/StructuredBody"/>
+            </extension>
+            <reference>
+                <reference value="Binary/care-team-member-act-example"/>
+            </reference>
+            <name value="Care Team Member Act Example"/>
+            <description value="Care Team Member Act example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -2508,6 +2540,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            </extension>
+            <reference>
+                <reference value="Binary/consultation-note-complete-example"/>
+            </reference>
+            <name value="Consultation Note Complete Example"/>
+            <description value="Consultation Note Complete Example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
@@ -2636,7 +2684,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DisablityStatusObservation"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DisabilityStatusObservation"/>
             </extension>
             <reference>
                 <reference value="Binary/disability-status-observation-example"/>
@@ -2644,7 +2692,7 @@
             <name value="Disability Status Observation Example"/>
             <description value="Disability Status Observation Example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DisablityStatusObservation"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DisabilityStatusObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -2754,7 +2802,7 @@
                 <reference value="Binary/encounter-diagnosis-example"/>
             </reference>
             <name value="Encounter Diagnosis Example"/>
-            <description value="tEncounter Diagnosis example"/>
+            <description value="Encounter Diagnosis example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterDiagnosis"/>
             <groupingId value="examples"/>
@@ -4060,6 +4108,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/StructuredBody"/>
+            </extension>
+            <reference>
+                <reference value="Binary/planned-intervention-act-example"/>
+            </reference>
+            <name value="Planned Intervention Activity Example"/>
+            <description value="Planned Intervention Activity example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedInterventionAct"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
             </extension>
             <reference>
@@ -4565,6 +4629,22 @@
             <description value="Progress Toward Goal Observation example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressTowardGoalObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/StructuredBody"/>
+            </extension>
+            <reference>
+                <reference value="Binary/provenance-author-participation-example"/>
+            </reference>
+            <name value="Provenacne Author Participation Example"/>
+            <description value="Provenacne Author Participation example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -5084,34 +5164,28 @@
             <name value="index.html"/>
             <title value="IG Home Page"/>
             <generation value="markdown"/>
+						<page>
+              <sourceUrl value="uscdi.html"/>
+              <name value="uscdi.html"/>
+              <title value="USCDI"/>
+              <generation value="markdown"/>
+          </page>
             <page>
-                <sourceUrl value="background.html"/>
-                <name value="background.html"/>
-                <title value="Background"/>
+                <sourceUrl value="generalguidance.html"/>
+                <name value="generalguidance.html"/>
+                <title value="General Guidance"/>
                 <generation value="markdown"/>
             </page>
             <page>
-                <sourceUrl value="designconsiderations.html"/>
-                <name value="designconsiderations.html"/>
-                <title value="Design Considerations"/>
+                <sourceUrl value="screeningandassessments.html"/>
+                <name value="screeningandassessments.html"/>
+                <title value="Screening And Assessments"/>
                 <generation value="markdown"/>
             </page>
             <page>
-                <sourceUrl value="using.html"/>
-                <name value="using.html"/>
-                <title value="Using this Implementation Guide"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="references.html"/>
-                <name value="references.html"/>
-                <title value="References"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="appendix.html"/>
-                <name value="appendix.html"/>
-                <title value="Appendix"/>
+                <sourceUrl value="supportingguidance.html"/>
+                <name value="supportingguidance.html"/>
+                <title value="Supporting Guidance"/>
                 <generation value="markdown"/>
             </page>
             <page>
@@ -5133,54 +5207,6 @@
                 <generation value="markdown"/>
             </page>
             <page>
-                <sourceUrl value="introduction.html"/>
-                <name value="introduction.html"/>
-                <title value="Introduction"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="understanding_c-cda_and_the_c-cda_companion_guide.html"/>
-                <name value="understanding_c-cda_and_the_c-cda_companion_guide.html"/>
-                <title value="Understanding C-CDA and the C-CDA Companion Guide"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="document_level_guidance.html"/>
-                <name value="document_level_guidance.html"/>
-                <title value="Document Level Guidance"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="section_level_guidance.html"/>
-                <name value="section_level_guidance.html"/>
-                <title value="Section Level Guidance"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="representation_of_discrete_data.html"/>
-                <name value="representation_of_discrete_data.html"/>
-                <title value="Representation of Discrete Data"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="uscdi_guidance.html"/>
-                <name value="uscdi_guidance.html"/>
-                <title value="USCDI Guidance"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="uscdi.html"/>
-                <name value="uscdi.html"/>
-                <title value="USCDI Table"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
-                <sourceUrl value="resources.html"/>
-                <name value="resources.html"/>
-                <title value="Resources"/>
-                <generation value="markdown"/>
-            </page>
-            <page>
                 <sourceUrl value="terminology.html"/>
                 <name value="terminology.html"/>
                 <title value="Terminology"/>
@@ -5192,7 +5218,7 @@
                 <title value="Change Log"/>
                 <generation value="markdown"/>
             </page>
-        </page>
+					</page>
         <parameter>
             <code>
                 <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>

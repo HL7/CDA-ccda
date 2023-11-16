@@ -38,6 +38,16 @@
     <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Section">
+            <path value="Section"/>
+            <constraint>
+                <key value="should-care-team-org"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Care Team Organizer"/>
+                <expression value="entry.where(organizer.templateId.where(root = '2.16.840.1.113883.10.20.22.4.500' and extension = '2022-06-01'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamsSection"/>
+            </constraint>
+        </element>
         <element id="Section.templateId">
             <path value="Section.templateId"/>
             <slicing>
@@ -96,7 +106,7 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="organizer"/>
                 </discriminator>
                 <rules value="open"/>

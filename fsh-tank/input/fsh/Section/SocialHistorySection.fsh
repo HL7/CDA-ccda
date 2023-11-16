@@ -45,3 +45,4 @@ Description: "This section contains social history data that influence a patient
   * observation 1..1
   * observation only CharacteristicsofHomeEnvironment
     * ^comment = "SHALL contain exactly one [1..1] Characteristics of Home Environment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.109) (CONF:1198-28826)."
+* obeys should-smoking-status

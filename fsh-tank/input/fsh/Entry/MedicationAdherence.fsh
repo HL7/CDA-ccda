@@ -11,11 +11,7 @@ Description: "This profile represents whether a medication has been consumed acc
 * moodCode = #EVN (exactly)
 * id 1..*
 * code 1..1
-  * code 1..1
-  * code = #71799-1
-    * ^short = "Adherence to prescribed medication instructions [Reported]"
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
+  * insert CodedLoinc(71799-1, Adherence to prescribed medication instructions [Reported])
 * statusCode 1..1
 * effectiveTime 1..1
 * value 1..1

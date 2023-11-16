@@ -4,7 +4,7 @@ Id: CarePlan
 Title: "Care Plan"
 Description: """CARE PLAN FRAMEWORK
 
-A Care Plan (including Home Health Plan of Care (HHPoC)) is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.
+A Care Plan is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.
 
 A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.
 
@@ -21,9 +21,7 @@ There are 2 optional sections:
 	Provides the ability to identify patient and provider priorities with each act
 	Provides a header participant to indicate occurrences of Care Plan review
 
-A care plan document can include entry references from the information in these sections to the information (entries) in other sections.
-
-Please see Volume 1 of this guide to view a Care Plan Relationship diagram and story board."""
+A care plan document can include entry references from the information in these sections to the information (entries) in other sections."""
 
 * insert LogicalModelTemplate(care-plan, 2.16.840.1.113883.10.20.22.1.15, 2015-08-01)
 
@@ -63,14 +61,13 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
     * obeys should-receivedOrganization
     * receivedOrganization 0..1
       * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)." // auto-should
-      * obeys should-id
+      * obeys should-id and should-standardIndustryClassCode
       * id 0..*
         * ^comment = "The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)." // auto-should
       * standardIndustryClassCode 0..1
       * standardIndustryClassCode from $2.16.840.1.114222.4.11.1066 (required)
-        * ^comment = "The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."
-* authenticator contains authenticator2 0..1
-* authenticator[authenticator2] ^comment = "SHOULD contain zero or one [0..1] authenticator (CONF:1198-31910) such that it"
+        * ^comment = "The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."  // man-should
+* authenticator
   * time 1..1
     * ^comment = "SHALL contain exactly one [1..1] time (CONF:1198-31911)."
   * signatureCode 1..1
@@ -184,8 +181,9 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] setId (CONF:1198-29895)."
     * versionNumber 1..1
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] versionNumber (CONF:1198-29896)."
+* obeys should-componentOf
 * componentOf 0..1
-  * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it"
+  * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it" // man-should
   //"<sliceName value=\"componentOf1\"/>"
   * encompassingEncounter 1..1
     * ^comment = "SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-32005)."
@@ -195,6 +193,7 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-28753)."
   * structuredBody 1..1
     * obeys 1198-31044
+    * obeys should-section-healthstatus
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28754)."
     * component 2..
       * ^slicing.discriminator[0].type = #profile
@@ -225,3 +224,4 @@ Please see Volume 1 of this guide to view a Care Plan Relationship diagram and s
 Invariant: 1198-31044
 Description: "This structuredBody **SHALL NOT** contain a Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-31044)."
 Severity: #error
+Expression: "component.where(section.hasTemplateIdOf(PlanofTreatmentSection)).empty()"
