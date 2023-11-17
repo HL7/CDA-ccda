@@ -842,7 +842,7 @@ author) may not be the provider who makes the diagnosis (performer).
 The Author Participation template (2.16.840.1.113883.10.20.22.4.119) is used to explicitly indicate an Author in a
 section or entry. The template provides conformance rules for representing the author and author.time elements
 associated with individual entries. The HL7 Basic Provenance project also developed additional guidance on
-sharing the Author in the Provenance - [Provenance - Author Participation](ProvenanceAuthorParticipation).
+sharing the Author in the Provenance - [Provenance - Author Participation](StructureDefinition-ProvenanceAuthorParticipation.html).
 
 The C-CDA specification requires the following:
 
@@ -922,7 +922,7 @@ The C-CDA specification requires the following:
 **Figure 4: Author Participation**
 
 Inclusion of an entry-level author is allowed in open entry templates in C-CDA where use of entry-level authors has
-not explicitly been prohibited. Its use is required on only one entry template, the [Handoff Communication Participants template](StructureDefinition-HandoffCommunicationParticipants).
+not explicitly been prohibited. Its use is required on only one entry template, the [Handoff Communication Participants template](StructureDefinition-HandoffCommunicationParticipants.html).
 
 [Basic Provenance](https://confluence.hl7.org/display/SEC/Basic+Provenance+Implementation+Guide)
 
@@ -2964,7 +2964,7 @@ Time values are represented in ISO 8601 compliant form, which is traditional in 
 The ".UUUU" part allows for precision down to tenths of a millisecond (e.g., ".001"). Timezone information is indicated using offsets from UTC, like -0500 for Eastern Standard Time (EST) and -0400 for Eastern Daylight Saving Time (EDT). UTC Time is represented as -0000.
 Without a timezone offset, assumptions about time should not be made unless there's a local exchange agreement. When timezone is NULL (unknown), it implies "local time," which is context-dependent and should not be converted to UTC. Specifying timezone for all TS values is important to avoid loss of precision during TS comparisons.
 In administrative data, values often lack a timezone. For instance, specifying a timezone for a date of birth in administrative data could alter the date when converted to other timezones. Therefore, administrative data typically has a NULL timezone (not applicable).
-See [TS Point in Time in the StructureDefinition Publication of CDA V3 Data Types]({{site.data.fhir.hl7_cda_uv_core}}/StructureDefinition-TS.html)
+See [TS Point in Time in the StructureDefinition Publication of CDA V3 Data Types]({{site.data.fhir.cda}}/StructureDefinition-TS.html)
 <table
 style="border-collapse:collapse;margin-left:24.01pt"
 cellspacing="0">
@@ -3039,7 +3039,7 @@ cellspacing="0">
 ###### Date/Time Precision
 
 When specifying dates and times, care should be taken to only capture data with as much precision as is known.
-The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description]({{site.data.fhir.hl7_cda_uv_core}}/StructureDefinition-TS-definitions.html#TS)from the CDA V3 Data Type Specification
+The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description]({{site.data.fhir.cda.html}}/StructureDefinition-TS-definitions.html#TS)from the CDA V3 Data Type Specification
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"
@@ -3581,7 +3581,7 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 
 #### Orders
 
-**Fulfilled Orders**: The inFulfillmentOf/order in the document header records fulfilled orders within the [Encompassing Encounter]({{site.data.fhir.cda}}/EncompassingEncounter.html) or [Service Event]({{site.data.fhir.cda}}/ServiceEvent.html). For instance, when a provider orders an X-Ray, and it's performed, the X-Ray order identifier goes in inFulfillmentOf/order, while the performed X-Ray procedure is documented in documentationOf/ServiceEvent. In the document body, templates are used to represent the service activities fulfilling the order, such as tests, procedures, substance administrations, supplies, encounters, or other acts.
+**Fulfilled Orders**: The inFulfillmentOf/order in the document header records fulfilled orders within the [Encompassing Encounter]({{site.data.fhir.cda}}/StructureDefinition-EncompassingEncounter.html) or [Service Event]({{site.data.fhir.cda}}/StructureDefinition-ServiceEvent.html). For instance, when a provider orders an X-Ray, and it's performed, the X-Ray order identifier goes in inFulfillmentOf/order, while the performed X-Ray procedure is documented in documentationOf/ServiceEvent. In the document body, templates are used to represent the service activities fulfilling the order, such as tests, procedures, substance administrations, supplies, encounters, or other acts.
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"
@@ -4849,13 +4849,13 @@ A Unique Device Identifier (UDI) is used to identify a device.
 
 The C-CDA Goal Observation entry template is designed to represent three different types of goals: patient goals,
 provider goals, and shared goals. The semantics to indicate if a goal is a patient, provider, or shared goal is
-represented in the author structure of the entry. The [Progess Toward Goal observation](StructureDefinition-ProgressTowardGoalObservation.html)is designed to sit inside the Goal and Outcome Observations to track the progress towards reaching a goal.
+represented in the author structure of the entry. The [Progress Toward Goal observation](StructureDefinition-ProgressTowardGoalObservation.html)is designed to sit inside the Goal and Outcome Observations to track the progress towards reaching a goal.
 
 ##### Goal Observation
 
 | **Entry Template**   | **Goal Observation<br/>[observation: identifier urn:oid:2.16.840.1.113883.10.20.22.4.121:2022-06-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Progress Toward Goal Observation](StructureDefinition-ProgessTowardGoalObservation.html)  |
+| **Template**   | [Progress Toward Goal Observation](StructureDefinition-ProgressTowardGoalObservation.html)  |
 | **Purpose**   | This template represents a patient health goal. A Goal Observation template may have related components that are acts, encounters, observations, procedures, substance administrations, or supplies.<br />A goal may be a patient or provider goal. If the author is set to the recordTarget (patient), this is a patient goal. If the author is set to a provider, this is a provider goal. If both patient and provider are set as authors, this is a negotiated goal.<br />A goal usually has a related health concern and/or risk.<br />A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships.  |
 | **ActStatus**   | Currently bound to the single concept of “active”. This has been reported as a limitation that needs to be addressed. |
 | **Negation**   | Not explicitly specified.  |
@@ -5544,7 +5544,7 @@ not an Encounter Document. It covers a span of time.-->
 | **Example**   | Example 57: Vital Signs Organizer |
 {:.grid}
 **Table 60: Vital Signs Organizer Template**
-C-CDA Examples Task Force [Vital Sign Section examples]((https://hl7-c-cda-examples.herokuapp.com/sections/Vital%20Signs))
+C-CDA Examples Task Force [Vital Sign Section examples](https://hl7-c-cda-examples.herokuapp.com/sections/Vital%20Signs)
 **Example 57: Vital Signs Organizer**
 
 ```
