@@ -35,16 +35,16 @@ improving a person's overall health and wellness when confronted with health pro
 #### Alcohol Use
 
 The [Alcohol Use Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1585/expansion) contains the LOINC Panel Codes for Alcohol Use Disorder Identification Test - Consumption AUDIT-C and PROMIS short form - alcohol - alcohol use 7a - version 1.0.
-These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation) to detailed patient uestionnaires about alcohol use.
+These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to detailed patient uestionnaires about alcohol use.
 
 #### Substance Use (Including Alcohol Use)
 
-The [Substance Use](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation) without the Assessment Scale Supporting Observation
+The [Substance Use](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
 to represent simple question and answer assesement questions such as, "How often do you have a drink containing alcohol" or "How often have you used any prescription medications just for the feeling, more than prescribed or that were not prescribed for you in past 12 months (TAPS)"
 
 #### Physical Activity
 
-The [Physical Activity Leve](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1068/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation) without the Assessment Scale Supporting Observation
+The [Physical Activity Leve](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1068/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
 to represent simple question and answer assesement questions such as, "Kinds of physical activity you usually performed while on the job this last year" or "Days per week of moderate to vigorous physical activity".
 
 **Figure 9: Assessment and Planning Process SDOH example**
@@ -72,7 +72,7 @@ template.
 
 #### Other SDOH Value Sets Available for Use
 
-The following value sets are stewarded by the HL7 Patient Care Work Group and were built for the [Multiple Chronic Care Implementation Guide](https://build.fhir.org/ig/HL7/fhir-us-mcc/) for use in the Care Planning process, but they ould be used with [Assessment Scale observations](StructureDefinition-AssessmentScaleObservation) without contained Assessment Scale Supporting Observations or [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation) at Observation.code.
+The following value sets are stewarded by the HL7 Patient Care Work Group and were built for the [Multiple Chronic Care Implementation Guide](https://build.fhir.org/ig/HL7/fhir-us-mcc/) for use in the Care Planning process, but they ould be used with [Assessment Scale observations](StructureDefinition-AssessmentScaleObservation.html) without contained Assessment Scale Supporting Observations or [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) at Observation.code.
 
 
 <table border="1" cellspacing="0" style="width:100.0%">

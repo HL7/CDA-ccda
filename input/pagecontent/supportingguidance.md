@@ -2187,7 +2187,7 @@ Caution: Implementers should be aware that recipients may not understand templat
 
 To indicate the application of business rules limiting information in a C-CDA section, Content Creators should clarify the time range in the section's human-readable text.
 For example, the Vital Signs Section includes recent vital signs based on business rules, like the most recent readings within a requested time interval, documented in the section.
-The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation) template is helpful when responding to queries requesting extensive data. It allows specifying the business logic for data constraint within a section.
+The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation.html) template is helpful when responding to queries requesting extensive data. It allows specifying the business logic for data constraint within a section.
 This template communicates the 'business logic' used to restrict information to a specific time range. For instance, if a CCD document request covers 5 years but the system only returns one year of past lab results, the Section Time Range template indicates this limitation. The business logic is stated in the value element using datatype IVL_TS. No effectiveTime element is included.
 
 **Example 20: Example of Section Time Range Observation**
@@ -3059,7 +3059,7 @@ The timestamp format allows for partial dates and partial times to be specified.
 
 #### Referencing Information Within a Document
 
-The [Entry Reference](StructureDefinition-EntryReference) template represents the act of referencing another entry in the same CDA document instance.
+The [Entry Reference](StructureDefinition-EntryReference.html) template represents the act of referencing another entry in the same CDA document instance.
 Its purpose is to remove the need to repeat the complete XML representation of the referred entry when relating
 one entry to another. This template can be used to reference many types of Act class derivations, such as 
 encounters, observations, procedures etc., as it is often necessary when authoring CDA documents to repeatedly
@@ -3286,7 +3286,7 @@ Observation.valueNegationInd -->
 
 #### Provenance mapping to FHIR
 
-Systems can use the [Provenance Author Participation](StructureDefinition-ProvenanceAuthorParticipation)to identify the author of content. This corresponds to a FHIR Provenance.agent.type="author" with a relevant Provenance.target.
+Systems can use the [Provenance Author Participation](StructureDefinition-ProvenanceAuthorParticipation.html)to identify the author of content. This corresponds to a FHIR Provenance.agent.type="author" with a relevant Provenance.target.
 
 When a system transforms a CDA entry using a Provenance - Author template assertion, the information from the template should go into the FHIR Provenance.agent and may also fill an appropriate Resource element.
 
@@ -3297,13 +3297,13 @@ Implementers will need to determine suitable mappings based on the specific situ
 
 #### Section Time Range
 
-The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation)defines a machine-readable business rule for restricting the time interval of information within a section. It's optional and can be applied in any section to avoid overwhelming or irrelevant content. This entry links to human-readable information that explains the applied business rules found in the section's narrative text.
+The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation.html)defines a machine-readable business rule for restricting the time interval of information within a section. It's optional and can be applied in any section to avoid overwhelming or irrelevant content. This entry links to human-readable information that explains the applied business rules found in the section's narrative text.
 
 #### Section Time Range Observation
 
 | **Entry Template**   | **Section Time Range Observation<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.201:2016-06-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation)  |
+| **Template**   | [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation.html)  |
 | **Purpose**   | This observation describes a date/time range applied by the document creator to limit the range of information contained in a section.  |
 | **ActStatus**   | Section Time Range observation always has a statusCode of “completed”.<br />This template does not include an effectiveTime element. See other considerations below.  |
 | **Negation**   | Not specified.  |
@@ -3341,13 +3341,13 @@ The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObserva
 
 #### Care Team
 
-The C-CDA document header contains roles filled by those involved in patient care. The roles are implicit, but the [Care Teams Section](StructureDefinition-CareTeamsSection)and [Care Team Organizer](StructureDefinition-CareTeamOrganizer) templates allow for explicit documentation of care team information. These templates offer more details about the type of care team and the roles of its members, providing greater expressiveness.
+The C-CDA document header contains roles filled by those involved in patient care. The roles are implicit, but the [Care Teams Section](StructureDefinition-CareTeamsSection.html)and [Care Team Organizer](StructureDefinition-CareTeamOrganizer.html) templates allow for explicit documentation of care team information. These templates offer more details about the type of care team and the roles of its members, providing greater expressiveness.
 
 ##### Care Team Organizer
 
 | **Entry Template**   | **Care Team Organizer<br />[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.500:2019-07-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Care Team Organizer](StructureDefinition-CareTeamOrganizer) |
+| **Template**   | [Care Team Organizer](StructureDefinition-CareTeamOrganizer.html) |
 | **Purpose**   | This organizer template contains information about a single care team.<br /> The author of the organizer is the person who documented the care team information.<br /> The participants of the organizer are the care team lead(s) and the care team organization.<br /> The components of the organizer contain the following information:<br /> - The encounter that caused the care team to be formed<br /> - Narrative information about the care team<br /> - The care team members<br /> - Reasons for the care team<br /> - The care team type(s) - a care team can have multiple care team types  |
 | **ActStatus**   | The actStatus of this entry is statically bound to ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933. Implementers need to be prepared to address the specified state model. Possible states include: active, completed, cancelled, held, suspended, new, normal, nullified, obsolete, and aborted.  |
 | **Negation**   | Not explicitly specified.  |
@@ -3483,7 +3483,7 @@ extension="1"/>
 
 #### Encounter
 
-The [Encounters Section](StructureDefinition-EncountersSection) lists past and ongoing patient encounters, including the one that led to the document's creation. Future appointments and requested encounters should be mentioned in the Plan of Treatment Section.
+The [Encounters Section](StructureDefinition-EncountersSection.html) lists past and ongoing patient encounters, including the one that led to the document's creation. Future appointments and requested encounters should be mentioned in the Plan of Treatment Section.
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"
@@ -3500,7 +3500,7 @@ The [Encounters Section](StructureDefinition-EncountersSection) lists past and o
     </tr>
 </table>
 
-The [Encounter Activity](StructureDefinition-EncounterActivity) entry with a matching ID in the encompassingEncounter header represents the primary encounter.
+The [Encounter Activity](StructureDefinition-EncounterActivity.html) entry with a matching ID in the encompassingEncounter header represents the primary encounter.
 
 Encounter Diagnosis is always shown as an entryRelationship to an Encounter Activity, even for single encounters. Historical encounters are each documented as an Encounter Activity, with information recorded through entryRelationships within the corresponding Encounter Activity. Additional details, like free-text notes, can be conveyed through extra entryRelationships within the associated Encounter Activity.
 
@@ -3510,7 +3510,7 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 
 | **Entry Template**   | **Encounter Activity<br />[encounter: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Encounter Activity](StructureDefinition-EncounterActivity)  |
+| **Template**   | [Encounter Activity](StructureDefinition-EncounterActivity.html)  |
 | **Purpose**   | This clinical statement describes an interaction between a patient and clinician. Interactions may include in-person encounters, telephone conversations, and email exchanges.  |
 | **ActStatus**   | No constraint specified.  |
 | **Negation**   | No constraint specified.  |
@@ -3581,7 +3581,7 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 
 #### Orders
 
-**Fulfilled Orders**: The inFulfillmentOf/order in the document header records fulfilled orders within the [Encompassing Encounter]({{site.data.fhir.hl7_cda_uv_core}}/EncompassingEncounter.html) or [Service Event]({{site.data.fhir.hl7_cda_uv_core}}/ServiceEvent.html). For instance, when a provider orders an X-Ray, and it's performed, the X-Ray order identifier goes in inFulfillmentOf/order, while the performed X-Ray procedure is documented in documentationOf/ServiceEvent. In the document body, templates are used to represent the service activities fulfilling the order, such as tests, procedures, substance administrations, supplies, encounters, or other acts.
+**Fulfilled Orders**: The inFulfillmentOf/order in the document header records fulfilled orders within the [Encompassing Encounter]({{site.data.fhir.cda}}/EncompassingEncounter.html) or [Service Event]({{site.data.fhir.cda}}/ServiceEvent.html). For instance, when a provider orders an X-Ray, and it's performed, the X-Ray order identifier goes in inFulfillmentOf/order, while the performed X-Ray procedure is documented in documentationOf/ServiceEvent. In the document body, templates are used to represent the service activities fulfilling the order, such as tests, procedures, substance administrations, supplies, encounters, or other acts.
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"
@@ -3615,11 +3615,11 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 
 #### Fulfilled Order
 
-Entry templates defined to represent performed service acts are [Intervention Act](StructureDefinition-InterventionAct), [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure), [Immunization Activity](StructureDefinition-ImmunizationActivity), [Encounter Activity](StructureDefinition-EncounterActivity), [Medication Activity](StructureDefinition-MedicationActivity), [Non-Medicinal Supply Activity](StructureDefinition-NonMedicinalSupplyActivity), etc. Templates types are discussed in the context of the data class used to categorize the type of service act.
+Entry templates defined to represent performed service acts are [Intervention Act](StructureDefinition-InterventionAct.html), [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure.html), [Immunization Activity](StructureDefinition-ImmunizationActivity.html), [Encounter Activity](StructureDefinition-EncounterActivity.html), [Medication Activity](StructureDefinition-MedicationActivity.html), [Non-Medicinal Supply Activity](StructureDefinition-NonMedicinalSupplyActivity.html), etc. Templates types are discussed in the context of the data class used to categorize the type of service act.
 
 #### Placed Order
 
-Entry templates defined to represent ordered service acts such as [Planned Encounter](StructureDefinition-PlannedEncounter), [Planned Medication Activity](StructureDefinition-PlannedMedicationActivity), [Planned Observation](StructureDefinition-PlannedObservation), [Planned Procedure](StructureDefinition-PlannedProcedure), [Planned Supply](StructureDefinition-PlannedSupply), [Planned Act](StructureDefinition-PlannedAct), etc.
+Entry templates defined to represent ordered service acts such as [Planned Encounter](StructureDefinition-PlannedEncounter.html), [Planned Medication Activity](StructureDefinition-PlannedMedicationActivity.html), [Planned Observation](StructureDefinition-PlannedObservation.html), [Planned Procedure](StructureDefinition-PlannedProcedure.html), [Planned Supply](StructureDefinition-PlannedSupply.html), [Planned Act](StructureDefinition-PlannedAct.html), etc.
 
 Templates of these types are discussed in the context of the data class used to categorize the type of service
 activity. The key distinction for representing a placed order is to utilize the moodCode attribute with a value of
@@ -4503,11 +4503,11 @@ UDI information is essential for interoperability. Content Creators should use a
 
 | **Entry Template**   | **Procedure Activity Procedure<br/>[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure)  |
+| **Template**   | [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure.html)  |
 | **Purpose**   | This template is used to represent any type of procedure from a surgical procedure to an education session . It may be used with a contained Product Instance template to represent a device implanted in or on a patient. In this case, targetSiteCode is used to record the location of the device in or on the patient's body.  |
 | **ActStatus**   | This template has a state model with states: active, completed, aborted, and cancelled. When documenting an implanted medical device, use statusCode "completed."<br />The effectiveTime, or clinically relevant time, represents when the procedure was performed, indicating when the device was implanted. Best practice is to use the TS data type to record a single point in time for the implantation.|
 | **Negation**   | In this template, the negationInd attribute is used to indicate the procedure was not performed.  |
-| **Other Considerations**   | A Product Instance template is used template represents a specific device used in a patient or procedure.<br />For device removal, use a separate Procedure Activity Procedure template with the device removal code. Use TS data type to record the removal time and link it to the original implant procedure using the [Entry Reference template]([Entry Reference](StructureDefinition-EntryReference.html)).<br />To indicate a procedure was not performed, you may use the Indication template to explain the rationale. Multiple indication templates can be in a Procedure template.
+| **Other Considerations**   | A Product Instance template is used template represents a specific device used in a patient or procedure.<br />For device removal, use a separate Procedure Activity Procedure template with the device removal code. Use TS data type to record the removal time and link it to the original implant procedure using the [Entry Reference template](StructureDefinition-EntryReference.html).<br />To indicate a procedure was not performed, you may use the Indication template to explain the rationale. Multiple indication templates can be in a Procedure template.
 
 
 **Example 44: Implanted Device – known procedure details**
@@ -4855,7 +4855,7 @@ represented in the author structure of the entry. The [Progess Toward Goal obser
 
 | **Entry Template**   | **Goal Observation<br/>[observation: identifier urn:oid:2.16.840.1.113883.10.20.22.4.121:2022-06-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Progress Toward Goal Observation](StructureDefinition-ProgessTowardGoalObservation)  |
+| **Template**   | [Progress Toward Goal Observation](StructureDefinition-ProgessTowardGoalObservation.html)  |
 | **Purpose**   | This template represents a patient health goal. A Goal Observation template may have related components that are acts, encounters, observations, procedures, substance administrations, or supplies.<br />A goal may be a patient or provider goal. If the author is set to the recordTarget (patient), this is a patient goal. If the author is set to a provider, this is a provider goal. If both patient and provider are set as authors, this is a negotiated goal.<br />A goal usually has a related health concern and/or risk.<br />A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships.  |
 | **ActStatus**   | Currently bound to the single concept of “active”. This has been reported as a limitation that needs to be addressed. |
 | **Negation**   | Not explicitly specified.  |
@@ -4930,7 +4930,7 @@ represented in the author structure of the entry. The [Progess Toward Goal obser
 
 The Social History Observation template is a general template designed to represent a full range of social history
 observations. The Social History Observation Template has been updated to leverage Gravity Value Sets covering
-multiple social risk domains. ADD LINK TO SCREENING AND ASSESSMENTS PAGE.
+multiple social risk domains. See the [Screening And Assessments](screeningandassessments.html) page.
 
 The Social History Observation template remains open to represent any SDOH observation related to conditions in
 which people live, learn, work, and play even if not defined in the [Social Determinants of Health Conditions Value
@@ -5117,7 +5117,7 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 
 | **Entry Template**   | **Tobacco Use<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Tobacco Use](StructureDefinition-ATobaccoUse.html)  |
+| **Template**   | [Tobacco Use](StructureDefinition-TobaccoUse.html)  |
 | **Purpose**   | This template contains information that describes a patient's tobacco use over time.  |
 | **ActStatus**   | This template always has a statusCode of “completed.”<br />The effectiveTime element is used to describe dates associated with the patient's tobacco use. It represents the clinically relevant time of the observation about the patient’s tobacco use. |
 | **Negation**   | Not explicitly specified.  |
@@ -6245,6 +6245,6 @@ In addition to the entry templates defined in the [Advance Directive Section](St
 In certain situations, clinicians need to record why something was or was not done. C-CDA provides three
 methods to record this information:
 
-- [Indication](StructureDefinition-Indication) is used to represent the rationale for an action such as an encounter, a medication administration, or a procedure. 
-- [Reason](StructureDefinition-Reason) is use to provide the rationale for why something was not done.
-- [Immunization Refusal Reason](StructureDefinition-ImmunizationRefusalReason) is used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.
+- [Indication](StructureDefinition-Indication.html) is used to represent the rationale for an action such as an encounter, a medication administration, or a procedure. 
+- [Reason](StructureDefinition-Reason.html) is use to provide the rationale for why something was not done.
+- [Immunization Refusal Reason](StructureDefinition-ImmunizationRefusalReason.html) is used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.

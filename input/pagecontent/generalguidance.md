@@ -1,4 +1,4 @@
-These General Guidance Pages are drawn from C-CDA R2.1 and the C-CDA Companion Guide R4.1 guidance pages. The content has been merged and deduplicated with references and links updated for this StructureDefintion publication. The pages from the Companion Guide covering Document, Section and Entry Level (Representing Discrete Data) guidance are largely unchanged, otherwise, some text was made more concise, links and references are updated and in a few cases, text was replaced with links to the same information in the [CDA StructureDefinition Publication](https://build.fhir.org/ig/HL7/CDA-core-sd/overview.html).
+These General Guidance Pages are drawn from C-CDA R2.1 and the C-CDA Companion Guide R4.1 guidance pages. The content has been merged and deduplicated with references and links updated for this StructureDefintion publication. The pages from the Companion Guide covering Document, Section and Entry Level (Representing Discrete Data) guidance are largely unchanged, otherwise, some text was made more concise, links and references are updated and in a few cases, text was replaced with links to the same information in the [CDA StructureDefinition Publication]({{site.data.fhir.cda}}/index.html).
 ### What is CDA
 Clinical Document Architecture (CDA) is the underlying standard that Consolidated Clinical Document Architecture (C-CDA) is derived from. The HL7 CDA is a document markup standard that specifies the structure and semantics of a clinical document (such as a discharge summary, progress note, procedure report) for the purpose of exchange. A CDA document is a defined and complete information object that can include text, images, sounds, and other multimedia content. It can be transferred within a message, and can exist independently, outside the transferring message.
 
@@ -6,7 +6,7 @@ CDA documents are encoded in Extensible Markup Language (XML). They derive their
 
 The CDA specification is richly expressive and flexible and is designed to be broad enough to cover the domain of clinical documents. Templates and implementation guides are used to constrain the CDA specification within a particular implementation and to provide validation rule sets that check conformance to these constraints.
 
-For more detail about CDA, C-CDA’s underlying standard, please see the [Overview](https://build.fhir.org/ig/HL7/CDA-core-sd/overview.html) in the StructureDefinition publication of CDA.
+For more detail about CDA, C-CDA’s underlying standard, please see the [Overview]({{site.data.fhir.cda}}/overview.html) in the StructureDefinition publication of CDA.
 
 ### Templated CDA
 
@@ -46,7 +46,7 @@ The Template elements consist of **SHALL** (Mandatory), **SHOULD** (Best Practic
 USCDI classes or data elements are flagged with (USCDI) on the CDA element and/or on an entire template and identify data elements required for ONC Health IT Certification.
 
 Terminology Conformance
-All terminology constraints are represented as value set or code system bindings in the template. All bound value sets are represented by the name of the value set and this name is a direct hyperlink to the appropriate value set found in [National Library of Medicine’s Value Set Authortiy Center (VSAC)](https://vsac.nlm.nih.gov/valueset/expansions?pr=all) which can also be retrieved as a downloadable package: [Value Set Authority Center(VSAC)C-CDA Value Sets](https://vsac.nlm.nih.gov/download/ccda), in [HL7 Terminology Home (THO)](https://terminology.hl7.org/3.1.0/index.html) or within the US Core Implementation Guide [US Core Terminology](https://build.fhir.org/ig/HL7/US-Core/terminology.html#value-sets). **SHALL** bindings are represented as Required bindings while **SHOULD** and **MAY** bindings are represented as Preferred bindings.
+All terminology constraints are represented as value set or code system bindings in the template. All bound value sets are represented by the name of the value set and this name is a direct hyperlink to the appropriate value set found in [National Library of Medicine’s Value Set Authortiy Center (VSAC)](https://vsac.nlm.nih.gov/valueset/expansions?pr=all) which can also be retrieved as a downloadable package: [Value Set Authority Center(VSAC)C-CDA Value Sets](https://vsac.nlm.nih.gov/download/ccda), in [HL7 Terminology Home (THO)](https://terminology.hl7.org/3.1.0/index.html) or within the US Core Implementation Guide [US Core Terminology]({{site.data.fhir.uscore}}/terminology.html#value-sets). **SHALL** bindings are represented as Required bindings while **SHOULD** and **MAY** bindings are represented as Preferred bindings.
 
 ### Context Conduction
 
@@ -129,7 +129,7 @@ Subsections utilize codes from the LOINC Document Ontology to signify the inform
 
 ### Narrative Referencing
 
-The C-CDA R3.0 recommends that clinical statements include a link between the narrative (section.text) and coded clinical data (entry). Please see the [Narrative Block]({{site.data.fhir.hl7_cda_uv_core}}/narrative.html) section in the StructureDefinition publication of CDA for implementation details about referencing. Each template contains conformance statements recommending (SHOULD) textReferencing unless explicitly prohibited.
+The C-CDA R3.0 recommends that clinical statements include a link between the narrative (section.text) and coded clinical data (entry). Please see the [Narrative Block]({{site.data.fhir.cda}}/narrative.html) section in the StructureDefinition publication of CDA for implementation details about referencing. Each template contains conformance statements recommending (SHOULD) textReferencing unless explicitly prohibited.
 
 ### Unknown and No Known Information
 Information technology solutions store and manage data, but sometimes data are not available. An item may be unknown, not relevant, or not computable or measureable, such as where a patient arrives at an emergency department unconscious and with no identification.
@@ -290,9 +290,9 @@ If a sender wants to state that a piece of information is unknown, the following
 ```
 
 ### Schema and Schema Extensions
-CDA defines a standard schema, based on the HL7 RIM, for all CDA documents.The XML Schema is designed to achieve the intentions of the CDA architecture. Please see section [The "A" in CDA](https://build.fhir.org/ig/HL7/CDA-core-sd/overview.html) in CDA 2.0 StructureDefinition for more information. When there is a need to represent information where there is no suitable representation in the schema, the CDA standard permits extensions to be developed. The HL7 Structured Documents Work Group (SDWG) maintains a complete list of [CDA R2 extensions](https://confluence.hl7.org/display/SD/CDA+Extensions) that are approved for use within the sdtc namespace. These extensions exist in the stdc schema. The most current [CDA Schema](https://github.com/HL7/cda-core-2.0) is housed in the HL7 CDA GitHib 
+CDA defines a standard schema, based on the HL7 RIM, for all CDA documents.The XML Schema is designed to achieve the intentions of the CDA architecture. Please see section [The "A" in CDA]({{site.data.fhir.cda}}/overview.html) in CDA 2.0 StructureDefinition for more information. When there is a need to represent information where there is no suitable representation in the schema, the CDA standard permits extensions to be developed. The HL7 Structured Documents Work Group (SDWG) maintains a complete list of [CDA R2 extensions](https://confluence.hl7.org/display/SD/CDA+Extensions) that are approved for use within the sdtc namespace. These extensions exist in the stdc schema. The most current [CDA Schema](https://github.com/HL7/cda-core-2.0) is housed in the HL7 CDA GitHib 
 
 ### Validation Note
 
 Schema, together with template specific rules, called schematron, have been the historical method that C-CDA documents are validated for conformance to the specifications. With this StructureDefinition publication of CDA and C-CDA, validation rules are inherent in the StructureDefinitions. However, headed into the ballot the accuracy of this method has not been fully tested. In addition, how this inherent new method can be deployed in industry is not yet known. 
-By publication of this Implementation Guide post ballot, we anticipate testing will have occurred and plans to assist the industry will be in place. For more discussion, please see [Validation]({{site.data.fhir.hl7_cda_uv_core}}/validation.html)
+By publication of this Implementation Guide post ballot, we anticipate testing will have occurred and plans to assist the industry will be in place. For more discussion, please see [Validation](validation.html)
