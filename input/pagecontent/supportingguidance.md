@@ -3039,7 +3039,7 @@ cellspacing="0">
 ###### Date/Time Precision
 
 When specifying dates and times, care should be taken to only capture data with as much precision as is known.
-The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description]({{site.data.fhir.cda.html}}/StructureDefinition-TS-definitions.html#TS)from the CDA V3 Data Type Specification
+The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description]({{site.data.fhir.cda.html}}/StructureDefinition-TS-definitions.html)from the CDA V3 Data Type Specification
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"
