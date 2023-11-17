@@ -2,7 +2,7 @@ This Supporting Guidance Page provides guidance aimed at increasing consistency 
 
 This pages provides generalized document, section and entry guidance and additional guidance for specific types of C-CDA documents.
 
-### Document Guidance
+### Document Level Guidance
 #### Reusable, Nesting Templates
 
 C-CDA establishes two document header templates. These header templates establish consistent rules for
@@ -120,7 +120,7 @@ how to override confidentiality context at the entry level.
 
 **Reference:** [Provenance](representation_of_discrete_data.html#provenance), [Unknown Data in Sections That Require Entries](representation_of_discrete_data.html#unknown-data-in-sections-that-require-entries)
 
-### Structured Header
+#### Structured Header
 
 All CDA documents include a structured header regardless if the document is CDA document with a structured
 structuredBody element (a “structured document”) or a CDA document with a nonXMLBody element (an
@@ -1502,7 +1502,7 @@ represent the clinical note information.
                                     </tr>
                                 </table>
 
-### Section Structure by Document Type
+#### Section Structure by Document Type
 
 The following tables describe the required and optional section templates for each document type defined in C-CDA. They include sections that support best practices for representing data for exchange such as Patient Goals and Health Concerns.
 
@@ -1542,9 +1542,10 @@ This document template enables Care Plan information to be shared in a way that 
 
 A Care Plan document can include entry references from the information in these sections to the information (entries) in other sections. 
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Care Plan document template: Care Plan [Care Plan](StructureDefinition-CarePlan.html)
+
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
 | **Care Plan**   | Health Concerns Section<br />Goals Section  | Activities Section<br />Health Status Evaluations and Outcomes Section  |
@@ -1560,7 +1561,7 @@ Consultations may occur while the patient is inpatient or ambulatory. The Consul
 to summarize an Emergency Room or Urgent Care encounter. A Consultation Note includes the reason for the
 referral, history of present illness, physical examination, and decision-making components (Assessment and Plan).
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Consultation Note document template:[Consultation Note](StructureDefinition-ConsultationNote.html)
 
@@ -1584,7 +1585,7 @@ care that has already been provided. The CCD provides a historical tally of the 
 a record of new services delivered. More specific use cases, such as a Discharge Summary, Transfer Summary,
 Referral Note, Consultation Note, or Progress Note, are available as alternative documents in this guide.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Continuity of Care Document (CCD) document
 template: [Continuity of Care Document (CCD)](StructureDefinition-ContinuityofCareDocumentCCD.html)
@@ -1610,7 +1611,7 @@ requires the following information to be included in the Discharge Summary:
 
 The best practice for a Discharge Summary is to include the discharge disposition in the display of the header.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Discharge Summary document template: [Discharge Summary](StructureDefinition-DischargeSummary.html)
 
@@ -1636,7 +1637,7 @@ with the clinician's assessment of the patient's situation and the intended plan
 and Physical Examination is required upon hospital admission as well as before operative procedures. An initial
 evaluation in an ambulatory setting is often documented in the form of an H&P Note.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a History and Physical document template: History
 and Physical[History and Physical](StructureDefinition-HistoryandPhysical.html)
@@ -1655,7 +1656,7 @@ the pre- and post-surgical diagnosis, pertinent events of the procedure, as well
 following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment,
 document the course of the procedure, and provide continuity of care.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in an Operative Note document template: Operative
 Note [Operative Note](StructureDefinition-OperativeNote.html)
@@ -1676,7 +1677,7 @@ procedure and, when applicable, post-procedure diagnosis, pertinent events of th
 tolerance for the procedure. It should be detailed enough to justify the procedure, describe the course of the
 procedure, and provide continuity of care.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Procedure Note document template: Procedure [Procedure Note](StructureDefinition-ProcedureNote.html)
 
@@ -1699,9 +1700,10 @@ represent an encounter summary for a non-inpatient setting in Chapter 2.2 Outpat
 include any required sections and the open nature of the template enables Content Creators to include the right
 sections to express the source data or the needed sections to satisfy the requirements of Content Consumers.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Progress Note document template: Progress [Progress Note](StructureDefinition-ProgressNote.html)
+
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
 | **Progress Note**   |   | Assessment Section<br />Plan of Treatment Section<br />Assessment and Plan Section<br />Allergies and Intolerances Section<br />Chief Complaint Section<br />Activities Section<br />Instructions Section<br /><br />Medications Section<br />Objective Section<br />Physical Exam Section<br />Problem Section<br />Results Section<br />Review of Systems Section<br />Subjective Section<br />Vital Signs Section<br />Nutrition Section  |
@@ -1720,7 +1722,7 @@ that would augment decision making and care delivery. Examples of referral situa
 - Referred by a nurse practitioner to an audiologist for hearing screening.
 - Referred by a hospitalist to social services.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Referral Note document template: [Referral Note](StructureDefinition-ReferralNote.html) 
 
@@ -1739,9 +1741,10 @@ information between providers of care when a patient moves between health care s
 information used in this form will promote interoperability; create information suitable for reuse in quality
 measurement, public health, research, and for reimbursement.
 
-#### Structured Sections
+##### Structured Sections
 
 The table below describes the required and optional sections in a Transfer Summary document template: [Transfer Summary](StructureDefinition-TransferSummary.html) 
+
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
 | **Transfer Summary**   | Allergies and Intolerances Section<br />Medications Section<br />Problem Section<br />Results Section<br />Vital Signs Section<br />Reason for Referral Section  | Physical Exam Section<br />Encounters Section<br />Family History Section<br />Functional Status Section<br />Discharge Diagnosis Section<br />Immunizations Section<br />Medical Equipment Section<br />Payers Section<br />Plan of Treatment Section<br />Procedures Section<br />Social History Section<br />Mental Status Section<br />General Status Section<br />Review of Systems Section<br />Nutrition Section<br />Past Medical History<br />History of Present Illness Section<br />Assessment and Plan Section<br />Assessment Section<br />Admission Medications Section<br />Admission Diagnosis Section<br />Course of Care Section
@@ -1829,7 +1832,7 @@ approximation designed to improve understanding of the full collection of C-CDA 
 <table><tr><td><img src="Figure 5 Visualizing C-CDA section templates by applying the SOAP framework.png" /></td></tr></table>
 **Figure 5: Visualizing C-CDA section templates by applying the SOAP framework**
 
-#### A More Meaningful Patient Story Using C-CDA: Tell it. Use it. Share it.
+##### A More Meaningful Patient Story Using C-CDA: Tell it. Use it. Share it.
 
 This presentation explained how documentation-based exchange via Consolidated Clinical Document Architecture
 (C-CDA), when implemented correctly, has the power to capture and share a more comprehensive electronic
@@ -1874,7 +1877,7 @@ type of section template in a particular type of document template.
 The following guidance elements are not specific to any one C-CDA template but rather are overarching guidance
 elements that apply to an entire C-CDA document.
 
-#### Data Provenance for a Section
+##### Data Provenance for a Section
 
 The author role is key to understanding the provenance of the information.
 
@@ -1905,7 +1908,7 @@ declared at the entry level. While it is generally preferred that provenance be 
 provenance information included at the document or section level conducts to the entry when provenance at the
 entry level is not stated explicitly.
 
-#### Declaring Section Template Conformance
+##### Declaring Section Template Conformance
 
 Template conformance may be declared at any
 level of a C-CDA document—header, section, entry, or within an entry at a sub-structural level.
@@ -2162,28 +2165,11 @@ The table below provides information on some of the formatting tags commonly use
 **Table 27: Tags for formatting Narrative Text**
 
 
-#### Multiple Views and styleCode
+#### Multiple Views and styleCodes
 
-Experience sharing documents has proven that different users expect, even demand, different views. Patients and
-providers have different needs; specialists and general practice providers have different needs. The HL7 Relevant
-and Pertinent Survey identified the need to improve rendering capabilities for the information contained in CDA
-documents.
+Sharing documents requires different views based on user needs. HL7 Relevant and Pertinent Survey highlights the need to enhance CDA document rendering. CDA uses XML stylesheets with @styleCode, as defined by IHE's MCV Profile. Refer to [IHE Multiple Content Views (MCV) Profile](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_MCV.pdf)for details and examples.
 
-CDA documents support a technique for using multiple XML stylesheet processing instructions and a controlled
-vocabulary for the @styleCode attribute has been established by IHE. For more information on the use of
-styleCodes, reference the [IHE Multiple Content Views (MCV) Profile](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_MCV.pdf). The profile includes
-examples to show how these styleCodes can be used to improve rendering options.
-
-To promote a more consistent user experience for the viewing of the human readable content, implementers are
-encouraged to use the set of @styleCode values established by the MCV Profile. These @styleCode values
-establish a common way to tag text as a code, a date, a dateTime, an alert, and many other generally useful
-concepts.
-
-These styleCode values can be used to facilitate multiple clinical content rendering features. Systems that create
-CDA documents can use values from this table to improve the processing and rendering options for the
-information. Systems that render CDA document content with these styleCodes shall not omit or hide or otherwise
-obstructed from view information that uses these styleCodes unless they are using a specific rendering view that
-calls for such behavior.
+Implementers should use MCV Profile's @styleCode values for consistency in rendering human-readable content, covering codes, dates, dateTimes, alerts, and more. These values enhance clinical content rendering features, ensuring information is not omitted or obscured unless a specific rendering view calls for it.
 
 #### Date/Time Guidance
 
@@ -2193,66 +2179,16 @@ levels of precision are not introduced when representing this type of informatio
 
 #### Use of Open Templates
 
-It is important to emphasize the reusability and flexibility of templates so that implementations support the
-ability to tailor the content in CDA sections specific to the patient’s care, provider, or setting needs. Within C-CDA,
-nearly all templates allow additional content and are described as _open_ templates.
+CDA features prioritize template reusability and flexibility for tailored content in sections, aligning with patient, provider, or setting needs. Most C-CDA templates are open, allowing additional relevant content.
+Example: The Social History Section focuses on data influencing a patient's health (e.g., smoking, pregnancy). Information like education, housing, food security, or transportation can be added here if not covered elsewhere. Implementers can also explore external CDA templates from Supplemental Implementation Guides for expanded use cases within the C-CDA standard.[C-CDA Specification Product Brief](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492).
+Caution: Implementers should be aware that recipients may not understand templates included at an unexpected location within a document.
 
-While section templates define the content to be included in that structural component of the document,
-additional content may augment each document as needed for a particular circumstance, so long as the content is
-relevant to the defined purpose of the section.
+##### Table 38: Section Time Range Observation Template
 
-For example, the Social History Section is defined as, “ This section contains social history data that influence a
-patient’s physical, psychological, or emotional health (e.g., smoking status, pregnancy). Demographic data, such as
-marital status, race, ethnicity, and religious affiliation, is captured in the header.”
-
-Therefore, information about the person’s level of education, housing instability, food insecurity or transportation
-access challenges could be included in this section, provided the document did not contain another section defined
-to include this information more appropriately.
-
-Existing templates defined in C-CDA can be used to represent additional data elements defined in the Vocabulary
-section of the Interoperability Standards Advisory (ISA). When using available templates to represent a data
-element defined in the ISA, it is important to represent the concept with coded values from the associated value
-set included for that data element in the ISA. Additionally, as use cases warrant it, implementers can consider
-including CDA templates from outside the C-CDA standard itself, such as those from the Supplemental
-Implementation Guides which define new template versions and templates for additional use cases, These
-Supplemental Implementation Guides are published within the main [C-CDA Specification Product Brief](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492).
-
-Caution: Implementers should be aware that recipients may not understand templates included at an unexpected
-location within a document.
-
-#### Declaring Business Rules that Limit Section Content
-
-In order to communicate that business rules have been applied to constrain the amount of information
-represented in the section of a document C-CDA Content Creators should explicitly clarify the time range of the
-included information in the human readable text for the section.
-
-For example, the Vital Signs Section is defined as, ”The Vital Signs Section contains relevant vital signs for the
-context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight,
-body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should
-include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends. Vital
-signs are represented in the same way as other results but are aggregated into their own section to follow clinical
-conventions.”
-
-A C-CDA Content Creator may have a business rule that limits the amount of vital sign information included in a
-Patient Summary to only the most recent vital signs for the patient in the requested period of time. This may be
-determined based on the effectiveTime/high for the time interval of the request. Business rules that further
-constrain the standard purpose of the defined section template should be explicitly documented in the section
-content.
-
-## Table 38: Section Time Range Observation Template
-
-The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation)template is useful when a query for a C-CDA document may request a large amount of data–potentially years—and the system
-that creates the document supplied in a response, limits the data they return to a specific range of time. This
-template enables the system creating the document to state the business logic used to constrain the amount of
-data provided in a section.
-
-The Section Time Range template is used to communicate the ‘business logic’ used to limit the information
-contained in the section to a specific range of time. For example, if a CCD document is requested for the last 5
-years and the Content Creator system has business rules that creates documents on demand but only returns one-
-year of past laboratory results, the Section Time Range template can be used to indicate the laboratory section
-only contains 12 months of data from the requested effectiveTime/low or at most 12 months of data prior to the
-effectiveTime/high in the request. The business logic used to limit the data is stated in the value element of the
-Section Time Range template using a datatype of IVL_TS. The template does not include an effectiveTime element.
+To indicate the application of business rules limiting information in a C-CDA section, Content Creators should clarify the time range in the section's human-readable text.
+For example, the Vital Signs Section includes recent vital signs based on business rules, like the most recent readings within a requested time interval, documented in the section.
+The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation) template is helpful when responding to queries requesting extensive data. It allows specifying the business logic for data constraint within a section.
+This template communicates the 'business logic' used to restrict information to a specific time range. For instance, if a CCD document request covers 5 years but the system only returns one year of past lab results, the Section Time Range template indicates this limitation. The business logic is stated in the value element using datatype IVL_TS. No effectiveTime element is included.
 
 **Example 20: Example of Section Time Range Observation**
 ```
@@ -2281,7 +2217,7 @@ Section Time Range template using a datatype of IVL_TS. The template does not in
 </section>
 ```
 
-### Sections Defined in C-CDA (ordered using SOAP framework)
+#### Sections Defined in C-CDA (ordered using SOAP framework)
 
 As explained in the [Health Story Roundtable presentation titled The Storytelling Power of C-CDA](www.himss.org/sites/hde/files/HSP%20March%202019%20Roundtable%20Q%26A.pdf), understanding
 the purpose of the C-CDA section templates is not facilitated by considering them in alphabetical order. The C-
@@ -2311,7 +2247,7 @@ information processing.
                             </tr>
                         </table>
 
-#### Subjective Information
+##### Subjective Information
 
 
 | **Section Name<br />LOINC<br />OID**   | **Purpose Description**    |
@@ -2331,7 +2267,7 @@ information processing.
 {:.grid}
 **Table 28: Subjective Information**
 
-#### Objective Information
+##### Objective Information
 
 | **Sections defined in C-CDA<br />LOINC<br />OID**   | **Purpose Description**    |
 | ---- | ------ |
@@ -2366,7 +2302,7 @@ information processing.
 {:.grid}
 **Table 29: Objective Information**
 
-#### Assessment Information
+##### Assessment Information
 
 | **Sections defined in C-CDA<br />LOINC<br />OID**   | **Purpose Description**    |
 | ---- | ------ |
@@ -2381,7 +2317,7 @@ information processing.
 **Table 30: Assessment Information**
 
 
-#### Plan/Planning Information
+##### Plan/Planning Information
 
 | **Sections defined in C-CDA <br />LOINC<br />OID**   | **Purpose Description**    |
 | ---- | ------ |
@@ -2397,7 +2333,7 @@ information processing.
 {:.grid}
 **Table 31: Plan/Planning Information**
 
-#### Other Information
+##### Other Information
 
 | **Sections defined in C-CDA<br />LOINC<br />OID**   | **Purpose Description**    |
 | ---- | ------ |
@@ -2406,7 +2342,7 @@ information processing.
 {:.grid}
 **Table 32: Other Information**
 
-### Supplemental C-CDA Section Templates
+#### Supplemental C-CDA Section Templates
 
 Several section templates have been developed specifically to supplement C-CDA. They are defined within the
 context of C-CDA Supplemental Guides that have been balloted and reconciled separately from C-CDA, and are
@@ -2422,13 +2358,14 @@ At the time of this publication, the following Supplemental Implementation Guide
 - [HL7 CDA® R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Infectious Disease, Release 1 – US Realm](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=502)
 - [HL7 CDA® R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Occupational Data for Health Release 1, STU Release 1.1 – US Realm](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522)
 
-### General Entry-Level Guidance
+### Entry Level Guidance
+#### General Entry-Level Guidance
 
 The guidance below pertains when document sections include machine processable discrete data to aid processing
 of information contained in the section. The following general entry-level guidance is applicable to all C-CDA entry
 templates.
 
-#### Narrative Text Linking (Referencing)
+##### Narrative Text Linking (Referencing)
 
 Best practice for CDA creation is to represent all human readable text in the section, then reference the text from
 the discrete entries that represent the human readable information as machine processable data. To include
@@ -2501,7 +2438,7 @@ In accordance with general CDA principles for human readability, every CDA shall
 CDA stylesheet. it is recommended to regularly test using the HL7
 [CDA stylesheet approved by SDWG and managed in the HL7 GitHub](https://hl7.org/permalink/?CDAStyleSheet).
 
-#### OriginalText
+##### OriginalText
 
 When a CDA document section contains coded discrete entries (such as allergy, medication, problem, etc. to
 support machine processing of the available human readable information), coded data within the discrete entry
@@ -2630,7 +2567,7 @@ in [January of 2017](https://confluence.hl7.org/display/VOC/Vocabulary+WG+Policy
         displayName="Estrogen receptor positive tumor"/>
 </value>
 ```
-#### DisplayName Representation
+##### DisplayName Representation
 
 When sending coded information, the CD datatype (most commonly used in &lt;code&gt; and &lt;value&gt; elements) has a
 ‘displayName’ element. This element is intended to be a valid human readable representation of the concept
@@ -2733,7 +2670,7 @@ principal of human readability.
 </code>
 ```
 
-#### Use of Consistent Identifiers
+##### Use of Consistent Identifiers
 
 The "id" element serves as a globally unique identifier for data collections, such as documents, sections, entries, or sub-entries (e.g., authors).
 
@@ -2759,7 +2696,7 @@ Vendors have flexibility in generating valid GUIDs.
                                     </tr>
                                 </table>
 
-#### Use of nullFlavor and Handling Missing Information
+##### Use of nullFlavor and Handling Missing Information
 
 HL7 V3 CDA handles unavailable, unknown, or incomplete data with 'null flavors,' representing coded values that explain the missing information.
 Assigning a value for missing data is required for validation and considered good practice in other cases. Precision in indicating null flavors is encouraged to convey the reason for missing data. The CDA R2 standard's null flavor vocabulary provides a complete hierarchy of these values.
@@ -2813,7 +2750,7 @@ system uses to record birth dates to an HL7 timestamp). NullFlavor attributes ne
 required elements, such as religiousAffiliationCode. If an element is optional and unknown, it may simply be
 omitted.
 
-#### Unknown Data in Sections That Require Entries
+##### Unknown Data in Sections That Require Entries
 
 The following guidelines clarify the use of the “No Information” nullflavor=”NI” pattern for a section with no information:
 
@@ -2861,7 +2798,7 @@ The goal is to describe unknown information explicitly for accurate communicatio
 </component>
 ```
 
-#### Representing “no known” Information Versus “no information”
+##### Representing “no known” Information Versus “no information”
 
 Distinguishing between "no information" and "no known information" is important. In the case of "no known information," the author isn't asserting the presence or absence of data for the element. "No information" explicitly states that there's no data for that element in the system.
 For example, "I don't know if the patient has any allergies" (no information) versus "The patient claims no allergies" (no known).
@@ -2992,7 +2929,7 @@ Entire section excluded because business rules of the author determine the secti
 
 
 
-#### Detailed Date/Time Guidance
+##### Detailed Date/Time Guidance
 
 A study by the Association for Healthcare Documentation Integrity, presented at the [HIMSS Health Story Project Roundtable on March 5, 2019](https://www.himss.org/sites/hde/files/HSP%20March%202019%20Roundtable%20Q%26A.pdf), showed that consistent style in healthcare records enhances clear communication, boosts patient safety, and improves information exchange. Applying style standards to human-readable text can reduce physician burden, with a focus on improving the representation of temporal date/time information in the narrative text. While temporal details are vital for clinical understanding, excessive date/time prcision can overwhelm or mislead. The Roundtable urged C-CDA creators to ensure that date/time information in the Narrative Block is relevant, pertinent, and appropriately styled to ease physician burden.
 
@@ -3021,7 +2958,7 @@ A study by the Association for Healthcare Documentation Integrity, presented at 
                                     </tr>
                                 </table>
 
-##### Timestamp Data Representation
+###### Timestamp Data Representation
 
 Time values are represented in ISO 8601 compliant form, which is traditional in HL7 and lacks dashes, colons, and a "T" between date and time. The syntax is "YYYYMMDDHHMMSS.UUUU[+|-ZZzz]," with the option to omit digits for less precision. Common forms are "YYYYMMDD" and "YYYYMMDDHHMM," but truncation on the right side can occur with other variants.
 The ".UUUU" part allows for precision down to tenths of a millisecond (e.g., ".001"). Timezone information is indicated using offsets from UTC, like -0500 for Eastern Standard Time (EST) and -0400 for Eastern Daylight Saving Time (EDT). UTC Time is represented as -0000.
@@ -3098,7 +3035,7 @@ See [TS Point in Time in the StructureDefinition Publication of CDA V3 Data Type
 
 
 
-##### Date/Time Precision
+###### Date/Time Precision
 
 When specifying dates and times, care should be taken to only capture data with as much precision as is known.
 The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description]({{site.data.fhir.hl7_cda_uv_core}}/StructureDefinition-TS-definitions.html#TS)from the CDA V3 Data Type Specification
@@ -3162,7 +3099,7 @@ stylesheets enable the linking features of the `<linkHtml>` tag to be operationa
                                     </tr>
                                 </table>
 
-#### Referencing Information in an External Document
+#### Referencing Information in an External Acts
 
 The base HL7 CDA standard supports four act classes that enable information in one document to reference
 information in an external document, external procedure, external observation, or external act. 
@@ -3194,11 +3131,7 @@ information in an external document, external procedure, external observation, o
                                     </tr>
                                 </table>
 
-#### Understanding the ActStatus Model in C-CDA
 
-[Determining the Status of Clinical Statement]()(ADD LINK AFTER FIRST PUB) explains how a C-CDA Content Creator indicates and a C-CDA Content Consumer understands the status of a clinical statement (active, completed, etc.). While most C-CDA clinical statements are completed, a few, like Problem Concern Entry and Medication Activity, use Act.statusCode with a value set binding to convey their state. This value set, derived from the HL7ActStatus code system, follows the RIM state model. Each clinical statement pattern definition has a static Act.statusCode value set.
-
-The Act.statusCode depends on an act's components, including effectiveTime and relevant clinical status observations. For further details on addressing Act.statusCode state model challenges, refer to the ActStatus row in the guidance table for specific entry templates listed below.
 #### How Negation Works in C-CDA Templates
 
 C-CDA entry templates include a negationInd attribute for Act classes (act, procedure, encounter, substanceAdministration, supply, and observation). When Act.negationInd is set to "true," it asserts that the Act as a whole is negated. Certain properties like Act.id, Act.moodCode, and participations remain unaffected and retain their original meaning.
@@ -3236,7 +3169,7 @@ In the case of observations, entry templates may specify whether the observation
                                 
 
 
-### Specific Entry-Level Guidance
+#### Specific Entry-Level Guidance
 
 This guidance is specific to individual entry templates and has been collected from various sources, including C-CDA implementer community feedback, published implementation guides, C-CDA Implementation-A-Thons,HL7's Cross Work Group work on mappings between C-CDA and FHIR, and efforts by the HL7 C-CDA Examples Task Force.
 
@@ -3350,8 +3283,8 @@ Observation.valueNegationInd -->
     </entry>
 </section>
 ```
-STOPPED HERE 11/10
-##### Provenance mapping to FHIR
+
+#### Provenance mapping to FHIR
 
 Systems can use the [Provenance Author Participation](StructureDefinition-ProvenanceAuthorParticipation)to identify the author of content. This corresponds to a FHIR Provenance.agent.type="author" with a relevant Provenance.target.
 
@@ -3366,7 +3299,7 @@ Implementers will need to determine suitable mappings based on the specific situ
 
 The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation)defines a machine-readable business rule for restricting the time interval of information within a section. It's optional and can be applied in any section to avoid overwhelming or irrelevant content. This entry links to human-readable information that explains the applied business rules found in the section's narrative text.
 
-##### Section Time Range Observation
+#### Section Time Range Observation
 
 | **Entry Template**   | **Section Time Range Observation<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.201:2016-06-01 (open)]**    |
 | ---- | ------ |
@@ -3680,17 +3613,17 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
                                     </tr>
                                 </table>
 
-##### Fulfilled Order
+#### Fulfilled Order
 
 Entry templates defined to represent performed service acts are [Intervention Act](StructureDefinition-InterventionAct), [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure), [Immunization Activity](StructureDefinition-ImmunizationActivity), [Encounter Activity](StructureDefinition-EncounterActivity), [Medication Activity](StructureDefinition-MedicationActivity), [Non-Medicinal Supply Activity](StructureDefinition-NonMedicinalSupplyActivity), etc. Templates types are discussed in the context of the data class used to categorize the type of service act.
 
-##### Placed Order
+#### Placed Order
 
 Entry templates defined to represent ordered service acts such as [Planned Encounter](StructureDefinition-PlannedEncounter), [Planned Medication Activity](StructureDefinition-PlannedMedicationActivity), [Planned Observation](StructureDefinition-PlannedObservation), [Planned Procedure](StructureDefinition-PlannedProcedure), [Planned Supply](StructureDefinition-PlannedSupply), [Planned Act](StructureDefinition-PlannedAct), etc.
 
 Templates of these types are discussed in the context of the data class used to categorize the type of service
 activity. The key distinction for representing a placed order is to utilize the moodCode attribute with a value of
-RQO. RQO in comes from the HL7ActMood code system and conceptually means “requested”. It is used to represent an ordered service activity.
+RQO. RQO in comes from the HL7 ActMood code system and conceptually means “requested”. It is used to represent an ordered service activity.
 
 #### Problem
 
@@ -3702,7 +3635,7 @@ Currently, the Problem Section uses the Problem Concern template for concerns on
 
 Implementers face challenges when source information doesn't align with the designed clinical statement patterns, especially regarding the concern pattern because many EHR systems organize source problem data differently in the patient's record.
 
-##### Problem Concern
+#### Problem Concern
 
 | **Entry Template**   | **Problem Concern Act<br />[act: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01 (open)]**    |
 | ---- | ------ |
@@ -3905,7 +3838,7 @@ author(s) for the contained Problem Observation(s). -->
 ```
 
 
-##### Problem Observation
+#### Problem Observation
 
 | **Entry Template**   | **Problem Observation<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2022-06-01 (open)]**    |
 | ---- | ------ |
@@ -4035,7 +3968,7 @@ set (and code would be ASSERTION). -->
 </section>
 ```
 
-##### Health Concern, Risk Concern
+#### Health Concern, Risk Concern
 
 A health concern signifies interest or worry about a health state, possibly requiring attention. It's a health-related matter of importance to the patient, family, or healthcare provider, derived from various EHR sources. Problem Concerns are a subset of Health Concerns, specifically those on the patient's "Problem List."
 
@@ -4561,7 +4494,7 @@ During an encounter, if a patient's record was updated to indicate that a penici
 
 Medical Equipment includes devices implanted within the patient and devices the patient has or uses.
 
-##### Implanted Device
+#### Implanted Device
 
 Each implanted device can be represented in an Individual Procedure Activity Procedure template. 
 
@@ -4577,13 +4510,6 @@ UDI information is essential for interoperability. Content Creators should use a
 | **Negation**   | In this template, the negationInd attribute is used to indicate the procedure was not performed.  |
 | **Other Considerations**   | A Product Instance template is used template represents a specific device used in a patient or procedure.<br />For device removal, use a separate Procedure Activity Procedure template with the device removal code. Use TS data type to record the removal time and link it to the original implant procedure using the [Entry Reference template]([Entry Reference](StructureDefinition-EntryReference.html)).<br />To indicate a procedure was not performed, you may use the Indication template to explain the rationale. Multiple indication templates can be in a Procedure template.
 
-For example, to represent "No Implanted Devices," a clinical statement pattern combines negation and nullFlavor to signify that the patient hasn't had any procedures to implant devices.|
-| **Example**   | Example 44: Implanted Device – known procedure details |
-| **Example**   | Example 45: Implanted Device - Procedure unknown |
-| **Example**   | Example 46: No Implanted Devices |
-| **Example**   | Example 47: Non-Medicinal Supply – Cane and Eyeglasses |
-{:.grid}
-**Table 48: Procedure Activity Template**
 
 **Example 44: Implanted Device – known procedure details**
 ```
@@ -4758,7 +4684,7 @@ not had a procedure to implant anything.
 </component>
 ```
 
-##### Non-Implanted Device
+#### Non-Implanted Device
 
 Non-implanted devices are represented with the Non-Medicinal Supply Activity template. This template is used to
 represent devices the patient has such as eyeglasses or a cane.
@@ -4886,7 +4812,7 @@ non-implantable device -->
 </section>
 ```
 
-##### Product Instance
+#### Product Instance
 
 The Product Instance template is used to represent a particular device that was placed in a patient or used as part
 of a procedure or other act.
@@ -4903,7 +4829,7 @@ of a procedure or other act.
 {:.grid}
 **Table 50: Product Instance Template**
 
-##### Unique Device Identifiers
+#### Unique Device Identifiers
 
 A Unique Device Identifier (UDI) is used to identify a device.
 
@@ -5001,7 +4927,7 @@ represented in the author structure of the entry. The [Progess Toward Goal obser
 </section>
 ```
 
-##### Social History
+#### Social History
 
 The Social History Observation template is a general template designed to represent a full range of social history
 observations. The Social History Observation Template has been updated to leverage Gravity Value Sets covering
@@ -5096,7 +5022,7 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 </section>
 ```
 
-##### Smoking Status
+#### Smoking Status
 
 <table
                                             style="border-collapse:collapse;margin-left:24.01pt"
@@ -5173,7 +5099,7 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 ```
 
 
-##### Tobacco Use
+#### Tobacco Use
 
 <table
                                             style="border-collapse:collapse;margin-left:24.01pt"
@@ -5220,7 +5146,7 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 </observation>
 ```
 
-##### Birth Sex
+#### Birth Sex
 
 This observation represents the biological sex assigned to the patient at birth. This observation often reflects the sex that is entered on the person's birth certificate at time of birth.
 
@@ -5281,7 +5207,7 @@ code="F" displayName="Female">
 ```
 
 
-##### Pregnancy Status
+#### Pregnancy Status
 
 The Pregnancy Observation is used to represent a person’s pregnancy status over time. It is a type of social history
 observation and can included in the Social History Section. For communicating more detailed observations related
@@ -5580,7 +5506,7 @@ not an Encounter Document. It covers a span of time.-->
 </section>
 ```
 
-##### Result Observation
+#### Result Observation
 
 | **Entry Template**   | **Result Observation<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2023-05-01 (open)]**    |
 | ---- | ------ |
@@ -5593,7 +5519,7 @@ not an Encounter Document. It covers a span of time.-->
 {:.grid}
 **Table 59: Result Observation Template**
 
-#### Vital Sign
+#### Vital Signs
 
 ##### Vital Signs Organizer
 
@@ -6013,7 +5939,7 @@ C-CDA Examples Task Force [Immunization Examples](https://hl7-c-cda-examples.her
 ```
 
 
-##### Immunization Status Code
+#### Immunization Status Code
 
 When recording the immunization status code, the normal value would be “completed”, as this represents an
 immunization that has been completely given. In extremely rare circumstances, a status of “active” could be used.
@@ -6094,7 +6020,7 @@ designed to represent both the question or type of information assessed as well 
 **Table 64: Assessment Scale Observation Template**
 
 
-##### Clinical Note
+#### Clinical Note
 
 Note Activity entries provide structured information for notes found in a Notes Section or designated sections in clinical note documents, making the human-readable narrative notes more machine-processable.
 
@@ -6318,8 +6244,8 @@ In addition to the entry templates defined in the [Advance Directive Section](St
 
 
 
-
-#### Use of Indication Versus Reason Templates
+#### Indictations and Reasons
+##### Use of Indication Versus Reason Templates
 
 In certain situations, clinicians need to record why something was or was not done. C-CDA provides three
 methods to record this information:
