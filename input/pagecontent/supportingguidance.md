@@ -110,12 +110,11 @@ conduct to be the author of the unparsed narrative information contained in the 
     </author>
 </section>
 ```
-**Reference:** For additional information on Context Conduction mechanisms in CDA documents, consult the HL7 CDA R2.0 specification. <-- ADD REFERENCE TO NEW LOCATION IN CDA CORE WHEN PRESENT
+**Reference:** For additional information on Context Conduction mechanisms in CDA documents,see [CDA Context](https://build.fhir.org/ig/HL7/CDA-core-sd/overview.html#cda-context) the HL7 CDA R2.0 Structure Definition Publication. 
 
 **Reference:** The [HL7 Data Security for Privacy](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=354) and HL7 Privacy Consent Directives implementation guides define
 how to override confidentiality context at the entry level.
 
-**Reference:** [Provenance](representation_of_discrete_data.html#provenance), [Unknown Data in Sections That Require Entries](representation_of_discrete_data.html#unknown-data-in-sections-that-require-entries)
 
 #### Structured Header
 
@@ -145,7 +144,7 @@ Patient matching continues to be one of the major challenges for interoperabilit
 | **Middle Name**   | /ClinicalDocument/recordTarget/patientRole/patient/name/given[2]  |
 | **Suffix**   | /ClinicalDocument/recordTarget/patientRole/patient/name/suffix  |   
 | **Administrative Gender**   | /ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode  |
-| **Birth Sex**   | **Reference:** [Birth Sex](representation_of_discrete_data.html#birth-sex)  |
+| **Birth Sex**   | **Reference:** [Birth Sex](StructureDefinition-BirthSexObservation)  |
 | **Date of Birth**   | /ClinicalDocument/recordTarget/patientRole/patient/birthTime  |   
 | **Race**   | /ClinicalDocument/recordTarget/patientRole/patient/raceCode  |
 | **Ethnicity**   | /ClinicalDocument/recordTarget/patientRole/patient/ethnicGroupCode  |
@@ -815,9 +814,7 @@ within the recordTarget represents the provider organization to which the medica
     </tr>
 </table>
 
-**Reference:** [Example 5: recordTarget with demographic data](#example-5:-recordTarget-with-demographic-data)
 
-**Reference:** [Example 6: recordTarget including the provider organization context for the clinical documentation](#recordTarget-including-the-provider-organization)
 
 #### Authors Versus Performers
 
@@ -1638,8 +1635,7 @@ evaluation in an ambulatory setting is often documented in the form of an H&P No
 
 ##### Structured Sections
 
-The table below describes the required and optional sections in a History and Physical document template: History
-and Physical[History and Physical](StructureDefinition-HistoryandPhysical.html)
+The table below describes the required and optional sections in a History and Physical document template: [History and Physical](StructureDefinition-HistoryandPhysical.html)
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
@@ -1647,7 +1643,7 @@ and Physical[History and Physical](StructureDefinition-HistoryandPhysical.html)
 {:.grid}
 **Table 21: History and Physical: Document Template.**
 
-### Operative Note: Document Template
+#### Operative Note: Document Template
 
 The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory
 agencies. The Operative Note is created immediately following a surgical or other high-risk procedure. It records
@@ -1657,8 +1653,7 @@ document the course of the procedure, and provide continuity of care.
 
 ##### Structured Sections
 
-The table below describes the required and optional sections in an Operative Note document template: Operative
-Note [Operative Note](StructureDefinition-OperativeNote.html)
+The table below describes the required and optional sections in an Operative Note document template: [Operative Note](StructureDefinition-OperativeNote.html)
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
@@ -1678,7 +1673,7 @@ procedure, and provide continuity of care.
 
 ##### Structured Sections
 
-The table below describes the required and optional sections in a Procedure Note document template: Procedure [Procedure Note](StructureDefinition-ProcedureNote.html)
+The table below describes the required and optional sections in [Procedure Note](StructureDefinition-ProcedureNote.html)
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
@@ -1701,7 +1696,7 @@ sections to express the source data or the needed sections to satisfy the requir
 
 ##### Structured Sections
 
-The table below describes the required and optional sections in a Progress Note document template: Progress [Progress Note](StructureDefinition-ProgressNote.html)
+The table below describes the required and optional sections in a Progress Note document template: [Progress Note](StructureDefinition-ProgressNote.html)
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
@@ -2146,7 +2141,6 @@ the section.text field, suggests best practice is for all clinical content to be
     </tr>
 </table>
 
-**Reference:** [Representation of Discrete Data](representation_of_discrete_data.html)
 
 ##### Tags for formatting Narrative Text
 
@@ -3039,7 +3033,7 @@ cellspacing="0">
 ###### Date/Time Precision
 
 When specifying dates and times, care should be taken to only capture data with as much precision as is known.
-The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description]({{site.data.fhir.cda.html}}/StructureDefinition-TS-definitions.html)from the CDA V3 Data Type Specification
+The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description](https://build.fhir.org/ig/HL7/CDA-core-sd/StructureDefinition-TS.html)from the CDA V3 Data Type Specification StructureDefinition publication.
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"

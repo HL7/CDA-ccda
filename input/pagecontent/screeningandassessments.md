@@ -5,18 +5,14 @@ Clinicians use various terms such as assessments, scales, surveys, and screening
 ### Assessment Screenings
 
 Assessment Screenings can represent a structured evaluation of risk (e.g., PRAPARE, Hunger Vital Sign, AHC-HRSN
-screening tool) for any Social Determinants of Health domain such as food, housing, or transportation security. They can also be used for physicl health evaluations such as an Apgar score, or Glasgow coma scale.
-Assessment Screening responses are represented in C-CDA with the Assessment Scale Observation
-2.16.840.1.113883.10.20.22.4.69:2022- 06 -01 and its contained Assessment Scale Supporting Observation
-2.16.840.1.113883.10.20.22.4.86. The Social History Observation 2.16.840.1.113883.10.20.22.4.38:2022-06-
-01 is for simple observations made by an individual about a patient's social history status during the course of care.
+screening tool) for any Social Determinants of Health domain such as food, housing, or transportation security. They can also be used for physical health evaluations such as an Apgar score, or Glasgow coma scale.
+Assessment Screening responses are represented in C-CDA with the [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) 
+[Social History Observation](StructureDefinition-SocialHistoryObservation)is for simple observations made by an individual about a patient's social history status during the course of care.
 Both can contribute to the identification of SDOH Problems (Conditions) or Observations or can be the reason for
 Service Requests (Planned Procedures) or Procedures.
 
-Assessment Scale Observation 2.16.840.1.113883.10.20.22.4.69:2022- 06 -01 and its contained Assessment
-Scale Supporting Observation 2.16.840.1.113883.10.20.22.4.86 are designed to represent [LOINC Panels](https://loinc.org/panels/) that are
-collections of LOINC terms that represent specific sets of information, intended for forms or assessments related
-to health that are completed by patients and/or providers.
+[Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) and its contained[Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) are designed to represent [LOINC Panels](https://loinc.org/panels/) that are
+collections of LOINC terms that represent specific sets of information, intended for forms or assessments related to health that are completed by patients and/or providers.
 
 When an Assessment Scale Observation is contained in a Problem Observation, a Social History Observation, a
 Procedure, or a Planned Procedure instance that is Social Determinant of Health focused, that Assessment scale
@@ -41,6 +37,9 @@ These **SHOULD** be used with [Assessment Scale observation](StructureDefinition
 
 The [Substance Use](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
 to represent simple question and answer assesement questions such as, "How often do you have a drink containing alcohol" or "How often have you used any prescription medications just for the feeling, more than prescribed or that were not prescribed for you in past 12 months (TAPS)"
+
+The [Drug Misuse](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) **SHOULD** be used with [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion)at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation)at Observation.value
+to represent conclusions or diagnoses pertaining to drug misuse or abuse.
 
 #### Physical Activity
 
@@ -72,7 +71,7 @@ template.
 
 #### Other SDOH Value Sets Available for Use
 
-The following value sets are stewarded by the HL7 Patient Care Work Group and were built for the [Multiple Chronic Care Implementation Guide](https://build.fhir.org/ig/HL7/fhir-us-mcc/) for use in the Care Planning process, but they ould be used with [Assessment Scale observations](StructureDefinition-AssessmentScaleObservation.html) without contained Assessment Scale Supporting Observations or [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) at Observation.code.
+The following value sets are stewarded by the HL7 Patient Care Work Group and were built for the [Multiple Chronic Care Implementation Guide](https://build.fhir.org/ig/HL7/fhir-us-mcc/) for use in the Care Planning process, but they could be used with [Assessment Scale observations](StructureDefinition-AssessmentScaleObservation.html) without contained Assessment Scale Supporting Observations or [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) at Observation.code.
 
 
 <table border="1" cellspacing="0" style="width:100.0%">
