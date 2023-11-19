@@ -144,7 +144,7 @@ Patient matching continues to be one of the major challenges for interoperabilit
 | **Middle Name**   | /ClinicalDocument/recordTarget/patientRole/patient/name/given[2]  |
 | **Suffix**   | /ClinicalDocument/recordTarget/patientRole/patient/name/suffix  |   
 | **Administrative Gender**   | /ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode  |
-| **Birth Sex**   | **Reference:** [Birth Sex](StructureDefinition-BirthSexObservation)  |
+| **Birth Sex**   | **Reference:** [Birth Sex](StructureDefinition-BirthSexObservation.html)  |
 | **Date of Birth**   | /ClinicalDocument/recordTarget/patientRole/patient/birthTime  |   
 | **Race**   | /ClinicalDocument/recordTarget/patientRole/patient/raceCode  |
 | **Ethnicity**   | /ClinicalDocument/recordTarget/patientRole/patient/ethnicGroupCode  |
@@ -1689,7 +1689,7 @@ record of a patient's illness and treatment. Physicians, nurses, consultants, an
 concerning the progress or lack of progress made by the patient between the time of the previous note and the
 most recent note. A Progress Note is not a re-evaluation note. A Progress Note is not intended to be a
 Progress Report for Medicare. Medicare B Section 1833(e) defines the requirements of a Medicare Progress
-Report. The [Joint Document Content Work Group](www.commonwellalliance.org/wp-content/uploads/2019/01/Improve-Joint-Document-Content-Whitepaper.pdf)recommends use of the Progress Note document template to
+Report. The [Joint Document Content Work Group](https://www.commonwellalliance.org/wp-content/uploads/2019/01/Improve-Joint-Document-Content-Whitepaper.pdf)recommends use of the Progress Note document template to
 represent an encounter summary for a non-inpatient setting in Chapter 2.2 Outpatient/Ambulatory Summary (Progress Note Document). The Progress Note document template does not
 include any required sections and the open nature of the template enables Content Creators to include the right
 sections to express the source data or the needed sections to satisfy the requirements of Content Consumers.
@@ -2213,7 +2213,7 @@ This template communicates the 'business logic' used to restrict information to 
 
 #### Sections Defined in C-CDA (ordered using SOAP framework)
 
-As explained in the [Health Story Roundtable presentation titled The Storytelling Power of C-CDA](www.himss.org/sites/hde/files/HSP%20March%202019%20Roundtable%20Q%26A.pdf), understanding
+As explained in the [Health Story Roundtable presentation titled The Storytelling Power of C-CDA](http://www.himss.org/sites/hde/files/HSP%20March%202019%20Roundtable%20Q%26A.pdf), understanding
 the purpose of the C-CDA section templates is not facilitated by considering them in alphabetical order. The C-
 CDA Implementation Guide presents them in alphabetical order to speed access for readers. Considering the C-
 CDA section templates using the SOAP framework makes it easier to see how these sections can be used in a

@@ -7,7 +7,7 @@ Clinicians use various terms such as assessments, scales, surveys, and screening
 Assessment Screenings can represent a structured evaluation of risk (e.g., PRAPARE, Hunger Vital Sign, AHC-HRSN
 screening tool) for any Social Determinants of Health domain such as food, housing, or transportation security. They can also be used for physical health evaluations such as an Apgar score, or Glasgow coma scale.
 Assessment Screening responses are represented in C-CDA with the [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) 
-[Social History Observation](StructureDefinition-SocialHistoryObservation)is for simple observations made by an individual about a patient's social history status during the course of care.
+[Social History Observation](StructureDefinition-SocialHistoryObservation.html)is for simple observations made by an individual about a patient's social history status during the course of care.
 Both can contribute to the identification of SDOH Problems (Conditions) or Observations or can be the reason for
 Service Requests (Planned Procedures) or Procedures.
 
@@ -38,7 +38,7 @@ These **SHOULD** be used with [Assessment Scale observation](StructureDefinition
 The [Substance Use](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
 to represent simple question and answer assesement questions such as, "How often do you have a drink containing alcohol" or "How often have you used any prescription medications just for the feeling, more than prescribed or that were not prescribed for you in past 12 months (TAPS)"
 
-The [Drug Misuse](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) **SHOULD** be used with [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion)at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation)at Observation.value
+The [Drug Misuse](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) **SHOULD** be used with [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) at Observation.value
 to represent conclusions or diagnoses pertaining to drug misuse or abuse.
 
 #### Physical Activity
