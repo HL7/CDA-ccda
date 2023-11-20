@@ -46,8 +46,12 @@ to represent conclusions or diagnoses pertaining to drug misuse or abuse.
 The [Physical Activity Leve](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1068/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
 to represent simple question and answer assesement questions such as, "Kinds of physical activity you usually performed while on the job this last year" or "Days per week of moderate to vigorous physical activity".
 
-**Figure 8: Assessment and Planning Process SDOH example**
-<table><tr><td><img src="Figure 9 SDOH Assessment and Planning Process.png" /></td></tr></table>
+{::options parse_block_html="false" /}
+<figure>
+  <img style="padding-top:0;padding-bottom:30px" width="800px" src="Figure 9 SDOH Assessment and Planning Process.png" alt="Assessment and Planning Process SDOH example"/>
+  <figcaption>Figure 8 - Assessment and Planning Process SDOH example</figcaption>
+</figure>
+{::options parse_block_html="true" /}
 
 ### Social Determinant of Health Vocabulary Design Notes
 #### Value Sets Developed by the Gravity Project
@@ -66,8 +70,12 @@ across specific social risk factor domains for problems/health concerns, goals, 
 The Figure below illustrates how the Gravity value sets are grouped for use in the C- CDA Problem Observation
 template.
 
-**Figure 9: Example of SDOH Grouping Value set in VSAC (Conditions)**
-<table><tr><td><img src="Figure 8 Example of SDOH Grouping Value set in VSAC (Conditions).png" /></td></tr></table>
+{::options parse_block_html="false" /}
+<figure>
+  <img style="padding-top:0;padding-bottom:30px" width="800px" src="Figure 8 Example of SDOH Grouping Value set in VSAC (Conditions).png" alt="Example of SDOH Grouping Value set in VSAC (Conditions)"/>
+  <figcaption>Figure 9 - Example of SDOH Grouping Value set in VSAC (Conditions)</figcaption>
+</figure>
+{::options parse_block_html="true" /}
 
 #### Other SDOH Value Sets Available for Use
 
