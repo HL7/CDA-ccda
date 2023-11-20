@@ -111,13 +111,13 @@
             <constraint>
                 <key value="1198-32950"/>
                 <severity value="warning"/>
-                <human value="If code is selected from ValueSet US Core Condition Codes, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950)."/>
-                <expression value="code.memberOf('http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code') implies translation.where(code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.28')).exists()"/>
+                <human value="If code is selected from ValueSet Problem Type (SNOMEDCT) urn:id:2.16.840.1.113883.3.88.12.3221.7.2 **DYNAMIC**, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950)."/>
+                <expression value="code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.2') implies translation.where(code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.28')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
             </constraint>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.2"/>
             </binding>
         </element>
         <element id="Observation.code.translation">
@@ -171,7 +171,7 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1198-9058)."/>
+            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet US Core Condition Codes."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -179,12 +179,12 @@
             </type>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.4"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"/>
             </binding>
         </element>
         <element id="Observation.value.code">
             <path value="Observation.value.code"/>
-            <short value="A negationInd of &quot;true&quot; coupled with an observation/value/@code of SNOMED code 64572001 &quot;Disease (disorder)&quot; indicates that the patient has no known conditions."/>
+            <short value="A negationInd of &quot;true&quot; coupled with an observation/value/@code of SNOMED code 64572001 &quot;Disease (disorder)&quot; indicates that the patient has no known conditions.  When the Problem is Social Determinant of Health Observation, the observation/value SHOULD be a SNOMED code selected from ValueSet Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788 DYNAMIC (CONF:4515-32951)."/>
             <comment value="This value MAY contain zero or one [0..1] @code (CONF:1198-31871)."/>
         </element>
         <element id="Observation.value.qualifier">

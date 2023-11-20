@@ -21,7 +21,7 @@ The effectiveTime of the Problem Observation is the definitive indication of whe
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-9043)."
 * code 1..1
-* code from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (preferred)
+* code from $2.16.840.1.113883.3.88.12.3221.7.2 (preferred)
   // !!! If either of these bindings changes, be sure to update the values in the Invariant as well
   * obeys 1198-32950
   * translation from $2.16.840.1.113762.1.4.1099.28 (example)
@@ -41,10 +41,10 @@ The effectiveTime of the Problem Observation is the definitive indication of whe
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-15604)."
 * value 1..1
 * value only $CD
-* value from Problem (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1198-9058)."
+* value from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (preferred)
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet US Core Condition Codes."
   * code 0..1
-    * ^short = "A negationInd of \"true\" coupled with an observation/value/@code of SNOMED code 64572001 \"Disease (disorder)\" indicates that the patient has no known conditions."
+    * ^short = "A negationInd of \"true\" coupled with an observation/value/@code of SNOMED code 64572001 \"Disease (disorder)\" indicates that the patient has no known conditions.  When the Problem is Social Determinant of Health Observation, the observation/value SHOULD be a SNOMED code selected from ValueSet Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788 DYNAMIC (CONF:4515-32951)."
     * ^comment = "This value MAY contain zero or one [0..1] @code (CONF:1198-31871)."
   * qualifier 0..*
     * ^short = "The observation/value and all the qualifiers together (often referred to as a post-coordinated expression) make up one concept. Qualifiers constrain the meaning of the primary code, and cannot negate it or change its meaning. Qualifiers can only be used according to well-defined rules of post-coordination and only if the underlying code system defines the use of such qualifiers or if there is a third code system that specifies how other code systems may be combined.\n\n In cases where SNOMED CT does not have a precoordinated code that would be appropriate for the problem list, concept post coordination may be used in CDA following the principles outlined in HL7 Version 3 Implementation Guide: TermInfo -
@@ -97,6 +97,6 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
     * ^comment = "SHALL contain exactly one [1..1] Problem Status (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.6:2019-06-20) (CONF:1198-15591)."
 
 Invariant: 1198-32950
-Description: "If code is selected from ValueSet US Core Condition Codes, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950)."
+Description: "If code is selected from ValueSet Problem Type (SNOMEDCT) urn:id:2.16.840.1.113883.3.88.12.3221.7.2 **DYNAMIC**, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950)."
 Severity: #warning
-Expression: "code.memberOf('http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code') implies translation.where(code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.28')).exists()"
+Expression: "code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.7.2') implies translation.where(code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.28')).exists()"
