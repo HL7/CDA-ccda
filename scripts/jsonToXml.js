@@ -88,9 +88,10 @@ const xml2js = require('xml2js');
 
       // Make sure the description in the IG matches the description from the SD
       const sdId = json.id;
-      const igResource = resources.find(r => r.reference.reference.$.value == `StructureDefinition/${sdId}`);
+      const resourceType = json.resourceType;
+      const igResource = resources.find(r => r.reference.reference.$.value == `${resourceType}/${sdId}`);
       if (!igResource) {
-        console.warn(`SD ${sdId} is not in the IG!`);
+        console.warn(`${resourceType} ${sdId} is not in the IG!`);
       } else {
         const period = json.description.indexOf('.');
         igResource.description.$.value = period > 0 ? json.description.substring(0, period + 1) : json.description.substring(0, 100);
