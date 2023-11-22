@@ -92,7 +92,8 @@ const xml2js = require('xml2js');
       if (!igResource) {
         console.warn(`SD ${sdId} is not in the IG!`);
       } else {
-        igResource.description.$.value = json.description;
+        const period = json.description.indexOf('.');
+        igResource.description.$.value = period > 0 ? json.description.substring(0, period + 1) : json.description.substring(0, 100);
       }
 
       const xml = fhir.jsonToXml(JSON.stringify(json));
