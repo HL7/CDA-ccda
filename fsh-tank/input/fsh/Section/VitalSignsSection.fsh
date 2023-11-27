@@ -2,7 +2,7 @@ Profile: VitalSignsSection
 Parent: $Section
 Id: VitalSignsSection
 Title: "Vital Signs Section"
-Description: """The Vital Signs Section contains relevant vital signs for the context and use case of the document type, such as blood pressure, heart rate, respiratory rate, height, weight, body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends.
+Description: """The Vital Signs Section contains relevant vital signs for the context and use case of the document type, such as blood pressure (including average blood pressure), heart rate, respiratory rate, height, weight, body mass index, head circumference, pulse oximetry, temperature, and body surface area. The section should include notable vital signs such as the most recent, maximum and/or minimum, baseline, or relevant trends.
 Vital signs are represented in the same way as other results, but are aggregated into their own section to follow clinical conventions."""
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 

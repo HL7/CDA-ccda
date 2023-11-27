@@ -2,7 +2,7 @@ Profile: MentalStatusSection
 Parent: $Section
 Id: MentalStatusSection
 Title: "Mental Status Section"
-Description: """The Mental Status Section contains observations and evaluations related to a patient's psychological and mental competency and deficits including, but not limited to any of the following types of information:
+Description: """The Mental Status Section contains observations and evaluations related to a patient's psychological and mental competency and deficits. These may include, but are not limited to any of the following types of information:
 *  Appearance (e.g., unusual grooming, clothing or body modifications)
 *  Attitude (e.g., cooperative, guarded, hostile)
 *  Behavior/psychomotor (e.g., abnormal movements, eye contact, tics)
