@@ -84,7 +84,6 @@ Alias: $2.16.840.1.113883.3.88.12.3221.7.2 = http://cts.nlm.nih.gov/fhir/ValueSe
 Alias: $2.16.840.1.113883.3.88.12.3221.8.7 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.7
 Alias: $2.16.840.1.113883.3.88.12.3221.8.9 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9
 Alias: $2.16.840.1.113883.3.88.12.80.28    = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28
-Alias: $2.16.840.1.113883.3.88.12.80.33    = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.33
 Alias: $2.16.840.1.113883.3.88.12.80.60    = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.60
 Alias: $2.16.840.1.113883.3.88.12.80.62    = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62
 Alias: $2.16.840.1.113883.3.88.12.80.68    = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.68
@@ -131,4 +130,4 @@ Alias: $2.16.840.1.113883.11.20.9.69.4 = http://cts.nlm.nih.gov/fhir/ValueSet/2.
 Alias: $1.3.6.1.4.1.12009.10.1.3932 =  http://loinc.org/vs/LL5052-7
 
 // NUBC UB-04 FL17 Patient Status
-Alias: $2.16.840.1.113883.3.88.12.80.33 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.33
+Alias: $2.16.840.1.113883.3.88.12.80.33 = http://hl7.org/cda/us/ccda/ValueSet/2.16.840.1.113883.3.88.12.80.33

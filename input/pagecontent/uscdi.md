@@ -25,7 +25,7 @@ Note that:
 
 Updates to C-CDA depend upon community input and we encourage our audience to submit questions and feedback to C-CDA specifications by clicking on the *Propose a change* link in the footer of every page.  In addition, we encourage our audience to request any necessary clarifications to USCDI through the [USCDI ONDEC process](https://www.healthit.gov/isa/ONDEC) that helps inform future updates to C-CDA.
 
-The table below lists the C-CDA tempaltes used for the corresponding USCDI Data elements.:
+The table below lists the C-CDA templates used for the corresponding USCDI Data elements.:
 
 <!-- Do we add this later: This information is also available as a [csv](uscdi-table.csv) or [excel](uscdi-table.xlsx) file -->
 

@@ -10,7 +10,7 @@ Problem Concerns are a subset of Health Concerns that have risen to the level of
 * insert Section(#75310-3, Health concerns document, 2.16.840.1.113883.10.20.22.2.58, 2015-08-01)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
-  * ^slicing.discriminator[=].path = "observation.resolve()"
+  * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entry contains
     healthStatus 0..* and

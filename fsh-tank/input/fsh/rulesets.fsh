@@ -105,6 +105,10 @@ Severity: #error
 Description: "Interval fields SHALL not be present"
 Expression: "(low | high | width | center).empty()"
 
+RuleSet: IdentifierURI(value)
+* ^identifier[+].value = "{value}"
+// TODO: * ^identifier[=].system = "urn:ietf:rfc:3986"
+
 ////////////////////////////////////////////////////////////
 //                                                        //
 //              Common Rules for all Models               //
@@ -114,7 +118,7 @@ Expression: "(low | high | width | center).empty()"
 // Common rules for basically every LogicalModel
 RuleSet: LogicalModelTemplate(sliceName, root, extension)
 * insert LogicalModelNA
-* ^identifier.value = "urn:hl7ii:{root}:{extension}"
+* insert IdentifierURI(urn:hl7ii:{root}:{extension})
 * ^version = "{extension}"
 * templateId ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "root"
@@ -131,7 +135,7 @@ RuleSet: LogicalModelTemplate(sliceName, root, extension)
 // Variant for old models with no extension (Gradually phase out and replace with above)
 RuleSet: LogicalModelTemplateRootOnly(sliceName, root)
 * insert LogicalModelNA
-* ^identifier.value = "urn:oid:{root}"
+* insert IdentifierURI(urn:oid:{root})
 * templateId ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "root"
   * ^slicing.rules = #open

@@ -110,12 +110,11 @@ conduct to be the author of the unparsed narrative information contained in the 
     </author>
 </section>
 ```
-**Reference:** For additional information on Context Conduction mechanisms in CDA documents, consult the HL7 CDA R2.0 specification. <-- ADD REFERENCE TO NEW LOCATION IN CDA CORE WHEN PRESENT
+**Reference:** For additional information on Context Conduction mechanisms in CDA documents,see [CDA Context](https://build.fhir.org/ig/HL7/CDA-core-sd/overview.html#cda-context) the HL7 CDA R2.0 Structure Definition Publication. 
 
 **Reference:** The [HL7 Data Security for Privacy](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=354) and HL7 Privacy Consent Directives implementation guides define
 how to override confidentiality context at the entry level.
 
-**Reference:** [Provenance](representation_of_discrete_data.html#provenance), [Unknown Data in Sections That Require Entries](representation_of_discrete_data.html#unknown-data-in-sections-that-require-entries)
 
 #### Structured Header
 
@@ -145,7 +144,7 @@ Patient matching continues to be one of the major challenges for interoperabilit
 | **Middle Name**   | /ClinicalDocument/recordTarget/patientRole/patient/name/given[2]  |
 | **Suffix**   | /ClinicalDocument/recordTarget/patientRole/patient/name/suffix  |   
 | **Administrative Gender**   | /ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode  |
-| **Birth Sex**   | **Reference:** [Birth Sex](representation_of_discrete_data.html#birth-sex)  |
+| **Birth Sex**   | **Reference:** [Birth Sex](StructureDefinition-BirthSexObservation.html)  |
 | **Date of Birth**   | /ClinicalDocument/recordTarget/patientRole/patient/birthTime  |   
 | **Race**   | /ClinicalDocument/recordTarget/patientRole/patient/raceCode  |
 | **Ethnicity**   | /ClinicalDocument/recordTarget/patientRole/patient/ethnicGroupCode  |
@@ -815,9 +814,7 @@ within the recordTarget represents the provider organization to which the medica
     </tr>
 </table>
 
-**Reference:** [Example 5: recordTarget with demographic data](#example-5:-recordTarget-with-demographic-data)
 
-**Reference:** [Example 6: recordTarget including the provider organization context for the clinical documentation](#recordTarget-including-the-provider-organization)
 
 #### Authors Versus Performers
 
@@ -842,7 +839,7 @@ author) may not be the provider who makes the diagnosis (performer).
 The Author Participation template (2.16.840.1.113883.10.20.22.4.119) is used to explicitly indicate an Author in a
 section or entry. The template provides conformance rules for representing the author and author.time elements
 associated with individual entries. The HL7 Basic Provenance project also developed additional guidance on
-sharing the Author in the Provenance - [Provenance - Author Participation](ProvenanceAuthorParticipation).
+sharing the Author in the Provenance - [Provenance - Author Participation](StructureDefinition-ProvenanceAuthorParticipation.html).
 
 The C-CDA specification requires the following:
 
@@ -917,12 +914,12 @@ The C-CDA specification requires the following:
             or more [0..*] <b>addr </b>(CONF:1098-31481).</p></td>
     </tr>
 </table>
-                                                                
-                                
+
+
 **Figure 4: Author Participation**
 
 Inclusion of an entry-level author is allowed in open entry templates in C-CDA where use of entry-level authors has
-not explicitly been prohibited. Its use is required on only one entry template, the [Handoff Communication Participants template](StructureDefinition-HandoffCommunicationParticipants).
+not explicitly been prohibited. Its use is required on only one entry template, the [Handoff Communication Participants template](StructureDefinition-HandoffCommunicationParticipants.html).
 
 [Basic Provenance](https://confluence.hl7.org/display/SEC/Basic+Provenance+Implementation+Guide)
 
@@ -1394,21 +1391,21 @@ replaced by using a replaceRelationship type of RPLC.
                     <confidentialityCode codeSystem="2.16.840.1.113883.5.25" code="N">
                         <languageCode code="en-US">
                             <setId extension="20160414014447" root="2.16.840.1.113883.19.5.99999.19" I>
-                                <versionNumber value="2">
-                                    <relatedDocument typeCode="RPLC"›
-                                        <parentDocument> <id root="2.16.840.1.113883.19.5.99999.1" extension="20160414014447">
-                                            <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="18842-5"
-                                                displayName="Discharge Summary" I>
-                                                <setId extension="20160414014447" root="2.16.840.1.113883.19.5.99999.19">
-                                                    <versionNumber value="1"> </parentDocument>
-                                    </relatedDocument>
-                                    <section>
-                                        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
-                                        <code code="8648-8" displayName="HOSPITAL COURSE" codeSystem="2.16.840.1.113883.6.1"
-                                            codeSystemName="LOINC"/>
-                                        <title>Hospital Course</title>
-                                        <text>The patient was admitted
-                                        </text>
+<versionNumber value="2">
+    <relatedDocument typeCode="RPLC"›
+        <parentDocument> <id root="2.16.840.1.113883.19.5.99999.1" extension="20160414014447">
+            <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="18842-5"
+                displayName="Discharge Summary" I>
+                <setId extension="20160414014447" root="2.16.840.1.113883.19.5.99999.19">
+                    <versionNumber value="1"> </parentDocument>
+    </relatedDocument>
+    <section>
+        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
+        <code code="8648-8" displayName="HOSPITAL COURSE" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+        <title>Hospital Course</title>
+        <text>The patient was admitted
+        </text>
 ```
 
 
@@ -1638,8 +1635,7 @@ evaluation in an ambulatory setting is often documented in the form of an H&P No
 
 ##### Structured Sections
 
-The table below describes the required and optional sections in a History and Physical document template: History
-and Physical[History and Physical](StructureDefinition-HistoryandPhysical.html)
+The table below describes the required and optional sections in a History and Physical document template: [History and Physical](StructureDefinition-HistoryandPhysical.html)
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
@@ -1647,7 +1643,7 @@ and Physical[History and Physical](StructureDefinition-HistoryandPhysical.html)
 {:.grid}
 **Table 21: History and Physical: Document Template.**
 
-### Operative Note: Document Template
+#### Operative Note: Document Template
 
 The Operative Note is a frequently used type of procedure note with specific requirements set forth by regulatory
 agencies. The Operative Note is created immediately following a surgical or other high-risk procedure. It records
@@ -1657,8 +1653,7 @@ document the course of the procedure, and provide continuity of care.
 
 ##### Structured Sections
 
-The table below describes the required and optional sections in an Operative Note document template: Operative
-Note [Operative Note](StructureDefinition-OperativeNote.html)
+The table below describes the required and optional sections in an Operative Note document template: [Operative Note](StructureDefinition-OperativeNote.html)
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
@@ -1678,7 +1673,7 @@ procedure, and provide continuity of care.
 
 ##### Structured Sections
 
-The table below describes the required and optional sections in a Procedure Note document template: Procedure [Procedure Note](StructureDefinition-ProcedureNote.html)
+The table below describes the required and optional sections in [Procedure Note](StructureDefinition-ProcedureNote.html)
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
@@ -1694,14 +1689,14 @@ record of a patient's illness and treatment. Physicians, nurses, consultants, an
 concerning the progress or lack of progress made by the patient between the time of the previous note and the
 most recent note. A Progress Note is not a re-evaluation note. A Progress Note is not intended to be a
 Progress Report for Medicare. Medicare B Section 1833(e) defines the requirements of a Medicare Progress
-Report. The [Joint Document Content Work Group](www.commonwellalliance.org/wp-content/uploads/2019/01/Improve-Joint-Document-Content-Whitepaper.pdf)recommends use of the Progress Note document template to
+Report. The [Joint Document Content Work Group](https://www.commonwellalliance.org/wp-content/uploads/2019/01/Improve-Joint-Document-Content-Whitepaper.pdf)recommends use of the Progress Note document template to
 represent an encounter summary for a non-inpatient setting in Chapter 2.2 Outpatient/Ambulatory Summary (Progress Note Document). The Progress Note document template does not
 include any required sections and the open nature of the template enables Content Creators to include the right
 sections to express the source data or the needed sections to satisfy the requirements of Content Consumers.
 
 ##### Structured Sections
 
-The table below describes the required and optional sections in a Progress Note document template: Progress [Progress Note](StructureDefinition-ProgressNote.html)
+The table below describes the required and optional sections in a Progress Note document template: [Progress Note](StructureDefinition-ProgressNote.html)
 
 | **Document Type**   | **Required Sections**    | **Optional Sections** |
 | -- | -------- | ------ |
@@ -2146,7 +2141,6 @@ the section.text field, suggests best practice is for all clinical content to be
     </tr>
 </table>
 
-**Reference:** [Representation of Discrete Data](representation_of_discrete_data.html)
 
 ##### Tags for formatting Narrative Text
 
@@ -2187,7 +2181,7 @@ Caution: Implementers should be aware that recipients may not understand templat
 
 To indicate the application of business rules limiting information in a C-CDA section, Content Creators should clarify the time range in the section's human-readable text.
 For example, the Vital Signs Section includes recent vital signs based on business rules, like the most recent readings within a requested time interval, documented in the section.
-The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation) template is helpful when responding to queries requesting extensive data. It allows specifying the business logic for data constraint within a section.
+The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation.html) template is helpful when responding to queries requesting extensive data. It allows specifying the business logic for data constraint within a section.
 This template communicates the 'business logic' used to restrict information to a specific time range. For instance, if a CCD document request covers 5 years but the system only returns one year of past lab results, the Section Time Range template indicates this limitation. The business logic is stated in the value element using datatype IVL_TS. No effectiveTime element is included.
 
 **Example 20: Example of Section Time Range Observation**
@@ -2219,7 +2213,7 @@ This template communicates the 'business logic' used to restrict information to 
 
 #### Sections Defined in C-CDA (ordered using SOAP framework)
 
-As explained in the [Health Story Roundtable presentation titled The Storytelling Power of C-CDA](www.himss.org/sites/hde/files/HSP%20March%202019%20Roundtable%20Q%26A.pdf), understanding
+As explained in the [Health Story Roundtable presentation titled The Storytelling Power of C-CDA](http://www.himss.org/sites/hde/files/HSP%20March%202019%20Roundtable%20Q%26A.pdf), understanding
 the purpose of the C-CDA section templates is not facilitated by considering them in alphabetical order. The C-
 CDA Implementation Guide presents them in alphabetical order to speed access for readers. Considering the C-
 CDA section templates using the SOAP framework makes it easier to see how these sections can be used in a
@@ -2591,7 +2585,7 @@ used in the associated code element.
                 capabilities.</p></td>
     </tr>
 </table>
-                                
+
 The guidance for the use of the displayName element are:
 
 - display name is included as a courtesy to an unaided human interpreter of a coded value.
@@ -2717,7 +2711,7 @@ The @nullFlavor attribute is especially informative when used with intervals. Fo
     </effectiveTime>
     <value code="77176002" codeSystem="2.16.840.1.113883.6.96" displayName="Smoker"
         xsi:type="CD"
-                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
 </observation>
 ```
 
@@ -2736,7 +2730,7 @@ The @nullFlavor attribute is especially informative when used with intervals. Fo
     </effectiveTime>
     <value code="77176002" codeSystem="2.16.840.1.113883.6.96" displayName="Smoker"
         xsi:type="CD"
-                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
 </observation>
 ```
 If the resolution to a problem is not known, its effectiveTime/high should contain a value or nullFlavor=UNK. If the nullFlavor=NA, then the problem is definitely
@@ -2851,24 +2845,24 @@ Acknowledging some ambiguity due to earlier RIM versions in CDA R2, specific exa
                         <author>
                             <time value="20100103"/>
                             <assignedAuthor>
-                                <id extension="99999999" root="2.16.840.1.113883.4.6"/>
-                                <code code="200000000X" codeSystem="2.16.840.1.113883.6.101"
-                                    displayName="Allopathic &amp; Osteopathic Physicians"/>
-                                <telecom use="WP" value="tel:555-555-1002"/>
-                                <assignedPerson>
-                                    <name>
-                                        <given>Henry</given>
-                                        <family>Seven</family>
-                                    </name>
-                                </assignedPerson>
+<id extension="99999999" root="2.16.840.1.113883.4.6"/>
+<code code="200000000X" codeSystem="2.16.840.1.113883.6.101"
+    displayName="Allopathic &amp; Osteopathic Physicians"/>
+<telecom use="WP" value="tel:555-555-1002"/>
+<assignedPerson>
+    <name>
+        <given>Henry</given>
+        <family>Seven</family>
+    </name>
+</assignedPerson>
                             </assignedAuthor>
                         </author>
                         <!-- In C-CDA R2.1 the participant is required. -->
                         <participant typeCode="CSM">
                             <participantRole classCode="MANU">
-                                <playingEntity classCode="MMAT">
-                                    <code nullFlavor="NA"/>
-                                </playingEntity>
+<playingEntity classCode="MMAT">
+    <code nullFlavor="NA"/>
+</playingEntity>
                             </participantRole>
                         </participant>
                     </observation>
@@ -2964,7 +2958,7 @@ Time values are represented in ISO 8601 compliant form, which is traditional in 
 The ".UUUU" part allows for precision down to tenths of a millisecond (e.g., ".001"). Timezone information is indicated using offsets from UTC, like -0500 for Eastern Standard Time (EST) and -0400 for Eastern Daylight Saving Time (EDT). UTC Time is represented as -0000.
 Without a timezone offset, assumptions about time should not be made unless there's a local exchange agreement. When timezone is NULL (unknown), it implies "local time," which is context-dependent and should not be converted to UTC. Specifying timezone for all TS values is important to avoid loss of precision during TS comparisons.
 In administrative data, values often lack a timezone. For instance, specifying a timezone for a date of birth in administrative data could alter the date when converted to other timezones. Therefore, administrative data typically has a NULL timezone (not applicable).
-See [TS Point in Time in the StructureDefinition Publication of CDA V3 Data Types]({{site.data.fhir.hl7_cda_uv_core}}/StructureDefinition-TS.html)
+See [TS Point in Time in the StructureDefinition Publication of CDA V3 Data Types]({{site.data.fhir.cda}}/StructureDefinition-TS.html)
 <table
 style="border-collapse:collapse;margin-left:24.01pt"
 cellspacing="0">
@@ -3039,7 +3033,7 @@ cellspacing="0">
 ###### Date/Time Precision
 
 When specifying dates and times, care should be taken to only capture data with as much precision as is known.
-The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description]({{site.data.fhir.hl7_cda_uv_core}}/StructureDefinition-TS-definitions.html#TS)from the CDA V3 Data Type Specification
+The timestamp format allows for partial dates and partial times to be specified. For information see [TS - Detailed Description](https://build.fhir.org/ig/HL7/CDA-core-sd/StructureDefinition-TS.html)from the CDA V3 Data Type Specification StructureDefinition publication.
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"
@@ -3059,7 +3053,7 @@ The timestamp format allows for partial dates and partial times to be specified.
 
 #### Referencing Information Within a Document
 
-The [Entry Reference](StructureDefinition-EntryReference) template represents the act of referencing another entry in the same CDA document instance.
+The [Entry Reference](StructureDefinition-EntryReference.html) template represents the act of referencing another entry in the same CDA document instance.
 Its purpose is to remove the need to repeat the complete XML representation of the referred entry when relating
 one entry to another. This template can be used to reference many types of Act class derivations, such as 
 encounters, observations, procedures etc., as it is often necessary when authoring CDA documents to repeatedly
@@ -3254,9 +3248,9 @@ Observation.valueNegationInd -->
                         <id root="2.16.840.1.113883.4.6" extension="1234567"/>
                         <assignedPerson>
                             <name>
-                                <given>Nurse</given>
-                                <family>Nightingale</family>
-                                <suffix>RN</suffix>
+<given>Nurse</given>
+<family>Nightingale</family>
+<suffix>RN</suffix>
                             </name>
                         </assignedPerson>
                         <representedOrganization>
@@ -3286,7 +3280,7 @@ Observation.valueNegationInd -->
 
 #### Provenance mapping to FHIR
 
-Systems can use the [Provenance Author Participation](StructureDefinition-ProvenanceAuthorParticipation)to identify the author of content. This corresponds to a FHIR Provenance.agent.type="author" with a relevant Provenance.target.
+Systems can use the [Provenance Author Participation](StructureDefinition-ProvenanceAuthorParticipation.html)to identify the author of content. This corresponds to a FHIR Provenance.agent.type="author" with a relevant Provenance.target.
 
 When a system transforms a CDA entry using a Provenance - Author template assertion, the information from the template should go into the FHIR Provenance.agent and may also fill an appropriate Resource element.
 
@@ -3297,13 +3291,13 @@ Implementers will need to determine suitable mappings based on the specific situ
 
 #### Section Time Range
 
-The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation)defines a machine-readable business rule for restricting the time interval of information within a section. It's optional and can be applied in any section to avoid overwhelming or irrelevant content. This entry links to human-readable information that explains the applied business rules found in the section's narrative text.
+The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation.html)defines a machine-readable business rule for restricting the time interval of information within a section. It's optional and can be applied in any section to avoid overwhelming or irrelevant content. This entry links to human-readable information that explains the applied business rules found in the section's narrative text.
 
 #### Section Time Range Observation
 
 | **Entry Template**   | **Section Time Range Observation<br />[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.201:2016-06-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation)  |
+| **Template**   | [Section Time Range Observation](StructureDefinition-SectionTimeRangeObservation.html)  |
 | **Purpose**   | This observation describes a date/time range applied by the document creator to limit the range of information contained in a section.  |
 | **ActStatus**   | Section Time Range observation always has a statusCode of “completed”.<br />This template does not include an effectiveTime element. See other considerations below.  |
 | **Negation**   | Not specified.  |
@@ -3341,13 +3335,13 @@ The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObserva
 
 #### Care Team
 
-The C-CDA document header contains roles filled by those involved in patient care. The roles are implicit, but the [Care Teams Section](StructureDefinition-CareTeamsSection)and [Care Team Organizer](StructureDefinition-CareTeamOrganizer) templates allow for explicit documentation of care team information. These templates offer more details about the type of care team and the roles of its members, providing greater expressiveness.
+The C-CDA document header contains roles filled by those involved in patient care. The roles are implicit, but the [Care Teams Section](StructureDefinition-CareTeamsSection.html)and [Care Team Organizer](StructureDefinition-CareTeamOrganizer.html) templates allow for explicit documentation of care team information. These templates offer more details about the type of care team and the roles of its members, providing greater expressiveness.
 
 ##### Care Team Organizer
 
 | **Entry Template**   | **Care Team Organizer<br />[organizer: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.500:2019-07-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Care Team Organizer](StructureDefinition-CareTeamOrganizer) |
+| **Template**   | [Care Team Organizer](StructureDefinition-CareTeamOrganizer.html) |
 | **Purpose**   | This organizer template contains information about a single care team.<br /> The author of the organizer is the person who documented the care team information.<br /> The participants of the organizer are the care team lead(s) and the care team organization.<br /> The components of the organizer contain the following information:<br /> - The encounter that caused the care team to be formed<br /> - Narrative information about the care team<br /> - The care team members<br /> - Reasons for the care team<br /> - The care team type(s) - a care team can have multiple care team types  |
 | **ActStatus**   | The actStatus of this entry is statically bound to ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933. Implementers need to be prepared to address the specified state model. Possible states include: active, completed, cancelled, held, suspended, new, normal, nullified, obsolete, and aborted.  |
 | **Negation**   | Not explicitly specified.  |
@@ -3449,28 +3443,28 @@ https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.1.11.15933/expansion-->
                     <performer typeCode="PRF">
                         <functionCode 
 
-                                    xmlns="urn:hl7-org:sdtc" code="PCP"
+    xmlns="urn:hl7-org:sdtc" code="PCP"
                             displayName="primary care physician"
                             codeSystem="2.16.840.1.113883.5.88"
                             codeSystemName="ParticipationFunction">
                             <originalText
 
-                                    xmlns="urn:hl7-org:v3">
-                                <reference value="#CT1_M01"/>
+    xmlns="urn:hl7-org:v3">
+<reference value="#CT1_M01"/>
                             </originalText>
                         </functionCode>
                         <!-- A care team member role -->
                         <assignedEntity>
                             <id root="B00B14E8-CDE4-48EA-8A09-01BC4945122A"
-                                extension="1"/>
+extension="1"/>
                             <id root="1.5.5.5.5.5.5"/>
                             <assignedPerson>
-                                <name>
-                                    <given>John</given>
-                                    <given>D</given>
-                                    <family>Smith</family>,
-                                    <suffix>MD</suffix>
-                                </name>
+<name>
+    <given>John</given>
+    <given>D</given>
+    <family>Smith</family>,
+    <suffix>MD</suffix>
+</name>
                             </assignedPerson>
                         </assignedEntity>
                     </performer>
@@ -3483,7 +3477,7 @@ https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.1.11.15933/expansion-->
 
 #### Encounter
 
-The [Encounters Section](StructureDefinition-EncountersSection) lists past and ongoing patient encounters, including the one that led to the document's creation. Future appointments and requested encounters should be mentioned in the Plan of Treatment Section.
+The [Encounters Section](StructureDefinition-EncountersSection.html) lists past and ongoing patient encounters, including the one that led to the document's creation. Future appointments and requested encounters should be mentioned in the Plan of Treatment Section.
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"
@@ -3500,7 +3494,7 @@ The [Encounters Section](StructureDefinition-EncountersSection) lists past and o
     </tr>
 </table>
 
-The [Encounter Activity](StructureDefinition-EncounterActivity) entry with a matching ID in the encompassingEncounter header represents the primary encounter.
+The [Encounter Activity](StructureDefinition-EncounterActivity.html) entry with a matching ID in the encompassingEncounter header represents the primary encounter.
 
 Encounter Diagnosis is always shown as an entryRelationship to an Encounter Activity, even for single encounters. Historical encounters are each documented as an Encounter Activity, with information recorded through entryRelationships within the corresponding Encounter Activity. Additional details, like free-text notes, can be conveyed through extra entryRelationships within the associated Encounter Activity.
 
@@ -3510,7 +3504,7 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 
 | **Entry Template**   | **Encounter Activity<br />[encounter: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Encounter Activity](StructureDefinition-EncounterActivity)  |
+| **Template**   | [Encounter Activity](StructureDefinition-EncounterActivity.html)  |
 | **Purpose**   | This clinical statement describes an interaction between a patient and clinician. Interactions may include in-person encounters, telephone conversations, and email exchanges.  |
 | **ActStatus**   | No constraint specified.  |
 | **Negation**   | No constraint specified.  |
@@ -3581,7 +3575,7 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 
 #### Orders
 
-**Fulfilled Orders**: The inFulfillmentOf/order in the document header records fulfilled orders within the [Encompassing Encounter]({{site.data.fhir.hl7_cda_uv_core}}/EncompassingEncounter.html) or [Service Event]({{site.data.fhir.hl7_cda_uv_core}}/ServiceEvent.html). For instance, when a provider orders an X-Ray, and it's performed, the X-Ray order identifier goes in inFulfillmentOf/order, while the performed X-Ray procedure is documented in documentationOf/ServiceEvent. In the document body, templates are used to represent the service activities fulfilling the order, such as tests, procedures, substance administrations, supplies, encounters, or other acts.
+**Fulfilled Orders**: The inFulfillmentOf/order in the document header records fulfilled orders within the [Encompassing Encounter]({{site.data.fhir.cda}}/StructureDefinition-EncompassingEncounter.html) or [Service Event]({{site.data.fhir.cda}}/StructureDefinition-ServiceEvent.html). For instance, when a provider orders an X-Ray, and it's performed, the X-Ray order identifier goes in inFulfillmentOf/order, while the performed X-Ray procedure is documented in documentationOf/ServiceEvent. In the document body, templates are used to represent the service activities fulfilling the order, such as tests, procedures, substance administrations, supplies, encounters, or other acts.
 
 <table
     style="border-collapse:collapse;margin-left:24.01pt"
@@ -3615,11 +3609,11 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 
 #### Fulfilled Order
 
-Entry templates defined to represent performed service acts are [Intervention Act](StructureDefinition-InterventionAct), [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure), [Immunization Activity](StructureDefinition-ImmunizationActivity), [Encounter Activity](StructureDefinition-EncounterActivity), [Medication Activity](StructureDefinition-MedicationActivity), [Non-Medicinal Supply Activity](StructureDefinition-NonMedicinalSupplyActivity), etc. Templates types are discussed in the context of the data class used to categorize the type of service act.
+Entry templates defined to represent performed service acts are [Intervention Act](StructureDefinition-InterventionAct.html), [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure.html), [Immunization Activity](StructureDefinition-ImmunizationActivity.html), [Encounter Activity](StructureDefinition-EncounterActivity.html), [Medication Activity](StructureDefinition-MedicationActivity.html), [Non-Medicinal Supply Activity](StructureDefinition-NonMedicinalSupplyActivity.html), etc. Templates types are discussed in the context of the data class used to categorize the type of service act.
 
 #### Placed Order
 
-Entry templates defined to represent ordered service acts such as [Planned Encounter](StructureDefinition-PlannedEncounter), [Planned Medication Activity](StructureDefinition-PlannedMedicationActivity), [Planned Observation](StructureDefinition-PlannedObservation), [Planned Procedure](StructureDefinition-PlannedProcedure), [Planned Supply](StructureDefinition-PlannedSupply), [Planned Act](StructureDefinition-PlannedAct), etc.
+Entry templates defined to represent ordered service acts such as [Planned Encounter](StructureDefinition-PlannedEncounter.html), [Planned Medication Activity](StructureDefinition-PlannedMedicationActivity.html), [Planned Observation](StructureDefinition-PlannedObservation.html), [Planned Procedure](StructureDefinition-PlannedProcedure.html), [Planned Supply](StructureDefinition-PlannedSupply.html), [Planned Act](StructureDefinition-PlannedAct.html), etc.
 
 Templates of these types are discussed in the context of the data class used to categorize the type of service
 activity. The key distinction for representing a placed order is to utilize the moodCode attribute with a value of
@@ -3703,27 +3697,27 @@ C-CDA Examples Task Force [Problem Section entry](https://hl7-c-cda-examples.her
                     <td>
                         <list>
                             <item>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Problem Type | Problem<br/></th>
-                                            <th>Time Frame</th>
-                                            <th>Clinical Status</th>
-                                            <th>Documented By</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ID="ProblemObs1">
-                                            <td>
-                                                <content ID="ProblemObs_1_PT1">Problem</content> | <content
-                                                    styleCode="Bold" ID="ProblemObs_1_P1">Osteoarthritis</content>
-                                            </td>
-                                            <td><content>(09/09/2014 - )</content></td>
-                                            <td><content ID="ProblemObs_1_PS1">Active</content></td>
-                                            <td><content>W.Colon</content> <content>(06/18/2015)</content></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+<table>
+    <thead>
+        <tr>
+            <th>Problem Type | Problem<br/></th>
+            <th>Time Frame</th>
+            <th>Clinical Status</th>
+            <th>Documented By</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ID="ProblemObs1">
+            <td>
+                <content ID="ProblemObs_1_PT1">Problem</content> | <content
+                    styleCode="Bold" ID="ProblemObs_1_P1">Osteoarthritis</content>
+            </td>
+            <td><content>(09/09/2014 - )</content></td>
+            <td><content ID="ProblemObs_1_PS1">Active</content></td>
+            <td><content>W.Colon</content> <content>(06/18/2015)</content></td>
+        </tr>
+    </tbody>
+</table>
                             </item>
                         </list>
                     </td>
@@ -3775,7 +3769,7 @@ author(s) for the contained Problem Observation(s). -->
                     <value code="396275006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                         displayName="Osteoarthritis"
                         xsi:type="CD"
-                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                         <originalText>
                             <reference value="#ProblemObs_1_P1"/>
                         </originalText>
@@ -3789,27 +3783,27 @@ author(s) for the contained Problem Observation(s). -->
                         <assignedAuthor>
                             <id nullFlavor="UNK"/>
                             <addr>
-                                <streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
-                                <city>Bel Air</city>
-                                <state>MD</state>
-                                <postalCode>21014</postalCode>
+<streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
+<city>Bel Air</city>
+<state>MD</state>
+<postalCode>21014</postalCode>
                             </addr>
                             <telecom use="WP" value="tel:+1-410-555-5544"/>
                             <assignedPerson>
-                                <name>
-                                    <given>Wilma</given>
-                                    <family>Colon</family>
-                                </name>
+<name>
+    <given>Wilma</given>
+    <family>Colon</family>
+</name>
                             </assignedPerson>
                             <representedOrganization>
-                                <name>Good Health Hospital</name>
-                                <telecom use="WP" value="tel:+1-410-555-5544"/>
-                                <addr>
-                                    <streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
-                                    <city>Bel Air</city>
-                                    <state>MD</state>
-                                    <postalCode>21014</postalCode>
-                                </addr>
+<name>Good Health Hospital</name>
+<telecom use="WP" value="tel:+1-410-555-5544"/>
+<addr>
+    <streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
+    <city>Bel Air</city>
+    <state>MD</state>
+    <postalCode>21014</postalCode>
+</addr>
                             </representedOrganization>
                         </assignedAuthor>
                     </author>
@@ -3818,16 +3812,16 @@ author(s) for the contained Problem Observation(s). -->
                             <templateId root="2.16.840.1.113883.10.20.22.4.6"/>
                             <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status"/>
                             <text>
-                                <reference value="#ProblemObs_1_PS1"></reference>
+<reference value="#ProblemObs_1_PS1"></reference>
                             </text>
                             <statusCode code="completed"/>
                             <effectiveTime>
-                                <low value="20140909"/>
+<low value="20140909"/>
                             </effectiveTime>
                             <value code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"
-                                xsi:type="CD"
+xsi:type="CD"
 
-                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                         </observation>
                     </entryRelationship>
                 </observation>
@@ -4093,46 +4087,46 @@ Please see the Example Task Forces [Allergy Examples](https://hl7-c-cda-examples
                     <td>
                         <list>
                             <item>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Allergy Type | Allergen<br/></th>
-                                            <th>Criticality</th>
-                                            <th>Reaction | Severity<br/></th>
-                                            <th>Time Frame</th>
-                                            <th>Clinical Status</th>
-                                            <th>Documented By</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ID="AllergyConcern_1_Allergn_1">
-                                            <td><content>Food allergy</content> | <content
-                                                  styleCode="Bold" ID="AllergyConcern_1_Allergen_1"
-                                                  >Egg</content>
-                                            </td>
-                                            <td>
-                                                <content ID="AllergyConcern_1_Criticality_1">High
-                                                  Criticality</content>
-                                            </td>
-                                            <td>
-                                                <content ID="AllergyConcern_1_Reaction_1"
-                                                  >Hives</content> | <content
-                                                  ID="AllergyConcern_1_ReacSeverity_1"
-                                                  >Moderate</content>
-                                            </td>
-                                            <td>
-                                                <content>(1998)</content>
-                                            </td>
-                                            <td>
-                                                <content>Active</content>
-                                            </td>
-                                            <td>
-                                                <content>H.Provider</content>
-                                                <content>(01/04/2014)</content>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+<table>
+    <thead>
+        <tr>
+            <th>Allergy Type | Allergen<br/></th>
+            <th>Criticality</th>
+            <th>Reaction | Severity<br/></th>
+            <th>Time Frame</th>
+            <th>Clinical Status</th>
+            <th>Documented By</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ID="AllergyConcern_1_Allergn_1">
+            <td><content>Food allergy</content> | <content
+                  styleCode="Bold" ID="AllergyConcern_1_Allergen_1"
+                  >Egg</content>
+            </td>
+            <td>
+                <content ID="AllergyConcern_1_Criticality_1">High
+                  Criticality</content>
+            </td>
+            <td>
+                <content ID="AllergyConcern_1_Reaction_1"
+                  >Hives</content> | <content
+                  ID="AllergyConcern_1_ReacSeverity_1"
+                  >Moderate</content>
+            </td>
+            <td>
+                <content>(1998)</content>
+            </td>
+            <td>
+                <content>Active</content>
+            </td>
+            <td>
+                <content>H.Provider</content>
+                <content>(01/04/2014)</content>
+            </td>
+        </tr>
+    </tbody>
+</table>
                             </item>
                         </list>
                     </td>
@@ -4198,14 +4192,14 @@ Please see the Example Task Forces [Allergy Examples](https://hl7-c-cda-examples
                         <assignedAuthor>
                             <id extension="99999999" root="2.16.840.1.113883.4.6"/>
                             <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101"
-                                codeSystemName="Health Care Provider Taxonomy"
-                                displayName="Family Medicine"/>
+codeSystemName="Health Care Provider Taxonomy"
+displayName="Family Medicine"/>
                             <telecom use="WP" value="tel:555-555-1002"/>
                             <assignedPerson>
-                                <name>
-                                    <given>Henry</given>
-                                    <family>Seven</family>
-                                </name>
+<name>
+    <given>Henry</given>
+    <family>Seven</family>
+</name>
                             </assignedPerson>
                         </assignedAuthor>
                     </author>
@@ -4213,25 +4207,25 @@ Please see the Example Task Forces [Allergy Examples](https://hl7-c-cda-examples
                     <participant typeCode="C SM">
                         <participantRole classCode="MANU">
                             <playingEntity classCode="MMAT">
-                                <!-- The agent responsible for an allergy or adverse reaction is not always a
+<!-- The agent responsible for an allergy or adverse reaction is not always a
 manufactured material (for example, food allergies),
 nor is it necessarily consumed. The following constraints reflect limitations in the base CDA R2
 specification,
 and should be used to represent any type of responsible agent, i.e., use playingEntity
 classCode“= "MMAT" for all agents,
 manufactured or not. -->
-                                <!--
+<!--
 ... the expectation for use is that the chosen concept identifier for a substance should be
 appropriately specific and drawn from the available code systems in the following priority order:
 NDFRT, then RXNORM, then SNOMEDCT. UNII was in an earlier version of this grouping value set but
 has been removed due to lack of industry use
 -->
-                                <code code="102263004" displayName="Eggs (edible)"
-                                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
-                                    <originalText>
-                                        <reference value="#AllergyConcern_1_Allergen_1"/>
-                                    </originalText>
-                                </code>
+<code code="102263004" displayName="Eggs (edible)"
+    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+    <originalText>
+        <reference value="#AllergyConcern_1_Allergen_1"/>
+    </originalText>
+</code>
                             </playingEntity>
                         </participantRole>
                     </participant>
@@ -4239,50 +4233,50 @@ has been removed due to lack of industry use
                         <observation classCode="O BS" moodCode="E VN">
                             <templateId root="2.16.840.1.113883.10.20.22.4.145"/>
                             <code code="82606-5" codeSystem="2.16.840.1.113883.6.1"
-                                displayName="Criticality"/>
+displayName="Criticality"/>
                             <text>
-                                <reference value="#AllergyConcern_1_Criticality_1"/>
+<reference value="#AllergyConcern_1_Criticality_1"/>
                             </text>
                             <statusCode code="completed"/>
                             <value xsi:type="CD" code="CRITH" displayName="High Criticality"
-                                codeSystem="2.16.840.1.113883.5.1.63"
-                                codeSystemName="HL7ObservationValue"/>
+codeSystem="2.16.840.1.113883.5.1.63"
+codeSystemName="HL7ObservationValue"/>
                         </observation>
                     </entryRelationship>
                     <entryRelationship typeCode="MFST" inversionInd="true">
                         <observation classCode="O BS" moodCode="E VN"> —-- Reaction Observation
                             template --> <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
                             <templateId root="2.16.840.1.113883.10.20.22.4.9"
-                                extension="2014-06- 09"/>
+extension="2014-06- 09"/>
                             <id root="d89ce431-e0f1-4f8d-a81f-489b6ed91f09"/>
                             <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
                             <text>
-                                <reference value="#AllergyConcern_1_Reaction_1"/>
+<reference value="#AllergyConcern_1_Reaction_1"/>
                             </text>
                             <statusCode code="completed"/>
                             <effectiveTime>
-                                <low value="1998"/>
-                                <high nullFlavor="U NK"/>
+<low value="1998"/>
+<high nullFlavor="U NK"/>
                             </effectiveTime>
                             <value xsi:type="CD" code="247472004"
-                                codeSystem="2.16.840.1.113883.6.96" codeSystemNaee="SNOMED CT"
-                                displayName="Hives"/>
+codeSystem="2.16.840.1.113883.6.96" codeSystemNaee="SNOMED CT"
+displayName="Hives"/>
                             <entryRelationship typeCode="SUBJ" inversionInd="true">
-                                <observation classCode="O BS" moodCode="E VN"> —-- Severity
-                                    Observation template --> <templateId
-                                        root="2.16.840.1.113883.10.20.22.4.8"/>
-                                    <templateId root="2.16.840.1.113883.10.20.22.4.8"
-                                        extension="2014-06- 09"/>
-                                    <code code="S EV" codeSystem="2.16.840.1.113883.5.4"
-                                        codeSystemName="ActCode"/>
-                                    <text>
-                                        <reference value="#AllergyConcern_1_ReacSeverity_1"/>
-                                    </text>
-                                    <statusCode code="completed"/>
-                                    <value xsi:type="CD" code="6736007"
-                                        codeSystem="2.16.840.1.113883.6.96"
-                                        codeSystemName="SNOMED CT" displayName="moderate"/>
-                                </observation>
+<observation classCode="O BS" moodCode="E VN"> —-- Severity
+    Observation template --> <templateId
+        root="2.16.840.1.113883.10.20.22.4.8"/>
+    <templateId root="2.16.840.1.113883.10.20.22.4.8"
+        extension="2014-06- 09"/>
+    <code code="S EV" codeSystem="2.16.840.1.113883.5.4"
+        codeSystemName="ActCode"/>
+    <text>
+        <reference value="#AllergyConcern_1_ReacSeverity_1"/>
+    </text>
+    <statusCode code="completed"/>
+    <value xsi:type="CD" code="6736007"
+        codeSystem="2.16.840.1.113883.6.96"
+        codeSystemName="SNOMED CT" displayName="moderate"/>
+</observation>
                             </entryRelationship>
                         </observation>
                     </entryRelationship>
@@ -4367,8 +4361,8 @@ has been removed due to lack of industry use
                         <telecom use="WP" value="tel:555-555-1002"/>
                         <assignedPerson>
                             <name>
-                                <given>Henry</given>
-                                <family>Seven</family>
+<given>Henry</given>
+<family>Seven</family>
                             </name>
                         </assignedPerson>
                     </assignedAuthor>
@@ -4503,11 +4497,11 @@ UDI information is essential for interoperability. Content Creators should use a
 
 | **Entry Template**   | **Procedure Activity Procedure<br/>[procedure: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure)  |
+| **Template**   | [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure.html)  |
 | **Purpose**   | This template is used to represent any type of procedure from a surgical procedure to an education session . It may be used with a contained Product Instance template to represent a device implanted in or on a patient. In this case, targetSiteCode is used to record the location of the device in or on the patient's body.  |
 | **ActStatus**   | This template has a state model with states: active, completed, aborted, and cancelled. When documenting an implanted medical device, use statusCode "completed."<br />The effectiveTime, or clinically relevant time, represents when the procedure was performed, indicating when the device was implanted. Best practice is to use the TS data type to record a single point in time for the implantation.|
 | **Negation**   | In this template, the negationInd attribute is used to indicate the procedure was not performed.  |
-| **Other Considerations**   | A Product Instance template is used template represents a specific device used in a patient or procedure.<br />For device removal, use a separate Procedure Activity Procedure template with the device removal code. Use TS data type to record the removal time and link it to the original implant procedure using the [Entry Reference template]([Entry Reference](StructureDefinition-EntryReference.html)).<br />To indicate a procedure was not performed, you may use the Indication template to explain the rationale. Multiple indication templates can be in a Procedure template.
+| **Other Considerations**   | A Product Instance template is used template represents a specific device used in a patient or procedure.<br />For device removal, use a separate Procedure Activity Procedure template with the device removal code. Use TS data type to record the removal time and link it to the original implant procedure using the [Entry Reference template](StructureDefinition-EntryReference.html).<br />To indicate a procedure was not performed, you may use the Indication template to explain the rationale. Multiple indication templates can be in a Procedure template.
 
 
 **Example 44: Implanted Device – known procedure details**
@@ -4538,28 +4532,28 @@ UDI information is essential for interoperability. Content Creators should use a
                         codeSystemName="SNOMED CT" displayName="Knee region structure">
                         <qualifier>
                             <name code="272741003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED
-                                CT" displayName="laterality" />
+CT" displayName="laterality" />
                             <value code="7771000" codeSystem="2.16.840.1.113883.9.96" codeSystemName="SNOMED
-                                CT" displayName="left" />
+CT" displayName="left" />
                         </qualifier>
                     </targetSiteCode>
                     <participant typeCode="DEV">
                         <participantRole classCode="MANU">
                             <templateId root="2.16.840.1.113883.10.20.22.4.37"/>
                             <id assigningAuthorityName="FDA"
-                                extension="(01)00848486000400(11)160330(10)ABC634(21)123777" root="2.16.840.1.113883.3.3719"/>
+extension="(01)00848486000400(11)160330(10)ABC634(21)123777" root="2.16.840.1.113883.3.3719"/>
                             <playingDevice>
-                                <code nullFlavor="UNK">
-                                    <originalText>
-                                        <reference value="#implant1"/>
-                                    </originalText>
-                                </code>
+<code nullFlavor="UNK">
+    <originalText>
+        <reference value="#implant1"/>
+    </originalText>
+</code>
                             </playingDevice>
                             <!-- From Product Instance template:
 The scopingEntity/id should correspond to FDA or the appropriate issuing
 agency. -->
                             <scopingEntity>
-                                <id root="2.16.840.1.113883.3.3719"/>
+<id root="2.16.840.1.113883.3.3719"/>
                             </scopingEntity>
                         </participantRole>
                     </participant>
@@ -4605,9 +4599,9 @@ agency. -->
                             extension="(01)00848486000400(11)160330(10)ABC634(21)123777" root="2.16.840.1.113883.3.3719"/>
                         <playingDevice>
                             <code nullFlavor="UNK">
-                                <originalText>
-                                    <reference value="#implant1"/>
-                                </originalText>
+<originalText>
+    <reference value="#implant1"/>
+</originalText>
                             </code>
                         </playingDevice>
                         <!-- From Product Instance template:
@@ -4670,7 +4664,7 @@ not had a procedure to implant anything.
                         <id nullFlavor="NA" root="2.16.840.1.113883.3.3719"/>
                         <playingDevice>
                             <code code="40388003" codeSystem="2.16.840.1.113883.6.96"
-                                displayName="Implant"/>
+displayName="Implant"/>
                         </playingDevice>
                         <scopingEntity>
                             <id root="2.16.840.1.113883.3.3719"/>
@@ -4756,7 +4750,7 @@ implantable device -->
                     <playingDevice>
                         <code code="50121007" codeSystem="2.16.840.1.113883.6.96" displayName="Eyeglasses">
                             <originalText>
-                                <reference value="#equipment1item"/>
+<reference value="#equipment1item"/>
                             </originalText>
                         </code>
                     </playingDevice>
@@ -4796,7 +4790,7 @@ non-implantable device -->
                     <playingDevice>
                         <code code="87405001" codeSystem="2.16.840.1.113883.6.96" displayName="Cane">
                             <originalText>
-                                <reference value="#equipment2item"/>
+<reference value="#equipment2item"/>
                             </originalText>
                         </code>
                     </playingDevice>
@@ -4849,13 +4843,13 @@ A Unique Device Identifier (UDI) is used to identify a device.
 
 The C-CDA Goal Observation entry template is designed to represent three different types of goals: patient goals,
 provider goals, and shared goals. The semantics to indicate if a goal is a patient, provider, or shared goal is
-represented in the author structure of the entry. The [Progess Toward Goal observation](StructureDefinition-ProgressTowardGoalObservation.html)is designed to sit inside the Goal and Outcome Observations to track the progress towards reaching a goal.
+represented in the author structure of the entry. The [Progress Toward Goal observation](StructureDefinition-ProgressTowardGoalObservation.html)is designed to sit inside the Goal and Outcome Observations to track the progress towards reaching a goal.
 
 ##### Goal Observation
 
 | **Entry Template**   | **Goal Observation<br/>[observation: identifier urn:oid:2.16.840.1.113883.10.20.22.4.121:2022-06-01 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Progress Toward Goal Observation](StructureDefinition-ProgessTowardGoalObservation)  |
+| **Template**   | [Progress Toward Goal Observation](StructureDefinition-ProgressTowardGoalObservation.html)  |
 | **Purpose**   | This template represents a patient health goal. A Goal Observation template may have related components that are acts, encounters, observations, procedures, substance administrations, or supplies.<br />A goal may be a patient or provider goal. If the author is set to the recordTarget (patient), this is a patient goal. If the author is set to a provider, this is a provider goal. If both patient and provider are set as authors, this is a negotiated goal.<br />A goal usually has a related health concern and/or risk.<br />A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships.  |
 | **ActStatus**   | Currently bound to the single concept of “active”. This has been reported as a limitation that needs to be addressed. |
 | **Negation**   | Not explicitly specified.  |
@@ -4930,7 +4924,7 @@ represented in the author structure of the entry. The [Progess Toward Goal obser
 
 The Social History Observation template is a general template designed to represent a full range of social history
 observations. The Social History Observation Template has been updated to leverage Gravity Value Sets covering
-multiple social risk domains. ADD LINK TO SCREENING AND ASSESSMENTS PAGE.
+multiple social risk domains. See the [Screening And Assessments](screeningandassessments.html) page.
 
 The Social History Observation template remains open to represent any SDOH observation related to conditions in
 which people live, learn, work, and play even if not defined in the [Social Determinants of Health Conditions Value
@@ -5086,8 +5080,8 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
                         <telecom use="WP" value="tel:+1(555)555-1002"/>
                         <assignedPerson>
                             <name>
-                                <given>Henry</given>
-                                <family>Seven</family>
+<given>Henry</given>
+<family>Seven</family>
                             </name>
                         </assignedPerson>
                     </assignedAuthor>
@@ -5117,7 +5111,7 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 
 | **Entry Template**   | **Tobacco Use<br/>[observation: identifier urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Tobacco Use](StructureDefinition-ATobaccoUse.html)  |
+| **Template**   | [Tobacco Use](StructureDefinition-TobaccoUse.html)  |
 | **Purpose**   | This template contains information that describes a patient's tobacco use over time.  |
 | **ActStatus**   | This template always has a statusCode of “completed.”<br />The effectiveTime element is used to describe dates associated with the patient's tobacco use. It represents the clinically relevant time of the observation about the patient’s tobacco use. |
 | **Negation**   | Not explicitly specified.  |
@@ -5325,7 +5319,7 @@ the contained result observations. If any Result Observation within the organize
           </i>“Hematology”, “Chemistry”, “Nuclear
           Medicine”). <b>[BP-091]</b></p></td>
     </tr>
-                                                <tr style="height:37pt">
+                <tr style="height:37pt">
         <td
           style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
           bgcolor="#C5D9F0"><p class="s19"
@@ -5463,8 +5457,8 @@ not an Encounter Document. It covers a span of time.-->
                     <referenceRange>
                         <observationRange>
                             <value xsi:type="IVL_PQ">
-                                <low value="12.0" unit="g/dL"/>
-                                <high value="15.5" unit="g/dL"/>
+<low value="12.0" unit="g/dL"/>
+<high value="15.5" unit="g/dL"/>
                             </value>
                         </observationRange>
                     </referenceRange>
@@ -5490,8 +5484,8 @@ not an Encounter Document. It covers a span of time.-->
                     <referenceRange>
                         <observationRange>
                             <value xsi:type="IVL_PQ">
-                                <low value="4.3" unit="10*9/L"/>
-                                <high value="10.8" unit="10*9/L"/>
+<low value="4.3" unit="10*9/L"/>
+<high value="10.8" unit="10*9/L"/>
                             </value>
                         </observationRange>
                     </referenceRange>
@@ -5544,7 +5538,7 @@ not an Encounter Document. It covers a span of time.-->
 | **Example**   | Example 57: Vital Signs Organizer |
 {:.grid}
 **Table 60: Vital Signs Organizer Template**
-C-CDA Examples Task Force [Vital Sign Section examples]((https://hl7-c-cda-examples.herokuapp.com/sections/Vital%20Signs))
+C-CDA Examples Task Force [Vital Sign Section examples](https://hl7-c-cda-examples.herokuapp.com/sections/Vital%20Signs)
 **Example 57: Vital Signs Organizer**
 
 ```
@@ -5622,7 +5616,7 @@ Authorship conducts down into the component observations. -->
                     <effectiveTime value="20160625123300-0500"/>
                     <value xsi:type="PQ" unit="mm[Hg]" value="140"
 
-                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                 </observation>
             </component>
             <component>
@@ -5639,7 +5633,7 @@ Authorship conducts down into the component observations. -->
                     <effectiveTime value="20160625123300-0500"/>
                     <value xsi:type="PQ" unit="mm[Hg]" value="90"
 
-                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                 </observation>
             </component>
             <component>
@@ -5655,7 +5649,7 @@ Authorship conducts down into the component observations. -->
                     <effectiveTime value="20160625123300-0500"/>
                     <value xsi:type="PQ" unit="kg" value="83.915"
 
-                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                 </observation>
             </component>
         </organizer>
@@ -6245,7 +6239,6 @@ In addition to the entry templates defined in the [Advance Directive Section](St
 In certain situations, clinicians need to record why something was or was not done. C-CDA provides three
 methods to record this information:
 
-- [Indication](StructureDefinition-Indication) is used to represent the rationale for an action such as an encounter, a medication administration, or a procedure. 
-
-- [Reason](StructureDefinition-Reason) is use to provide the rationale for why something was not done.
-- [Immunization Refusal Reason](StructureDefinition-ImmunizationRefusalReason) is used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.
+- [Indication](StructureDefinition-Indication.html) is used to represent the rationale for an action such as an encounter, a medication administration, or a procedure. 
+- [Reason](StructureDefinition-Reason.html) is use to provide the rationale for why something was not done.
+- [Immunization Refusal Reason](StructureDefinition-ImmunizationRefusalReason.html) is used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.
