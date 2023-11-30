@@ -6,7 +6,7 @@ Description: """This template reflects a discrete observation about a patient's 
 
 The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is resolved. If the problem is known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK"."""
 
-* insert LogicalModelTemplate(problem-obs, 2.16.840.1.113883.10.20.22.4.4, 2015-08-01)
+* insert LogicalModelTemplate(problem-obs, 2.16.840.1.113883.10.20.22.4.4, 2022-06-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -63,7 +63,10 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
     age 0..1 and
     prognosis 0..1 and
     priority 0..* and
-    status 0..1
+    status 0..1 and
+	reference 0..1 and
+	assessment 0..1 and
+	dateOfDiagnosis 0..1
 * entryRelationship[age] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1198-9059) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
@@ -95,6 +98,28 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
   * observation 1..1
   * observation only ProblemStatus
     * ^comment = "SHALL contain exactly one [1..1] Problem Status (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.6:2019-06-20) (CONF:1198-15591)."
+* entryRelationship[reference] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32968) such that it"
+  * typeCode 1..1
+  * typeCode = #SPRT (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRT\" Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32968)."
+  * act 1..1
+  * act only EntryReference
+    * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: 2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32966)."
+* entryRelationship[assessment] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32953) such that it"
+  * typeCode 1..1
+  * typeCode = #SPRT (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRT\" Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32955)."
+  * observation 1..1
+  * observation only AssessmentScaleObservation
+    * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: 2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32954)."
+* entryRelationship[dateOfDiagnosis] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-33012) such that it"
+  * insert USCDI([[Date of Diagnosis]])
+  * typeCode 1..1
+  * typeCode = #COMP (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-33014)."
+  * act 1..1
+  * act only DateOfDiagnosisAct
+    * ^comment = "SHALL contain exactly one [1..1] Date of Diagnosis Act (identifier: 2.16.840.1.113883.10.20.22.4.502) (CONF:4515-33013)."
 
 Invariant: 1198-32950
 Description: "If code is selected from ValueSet Problem Type (SNOMEDCT) urn:id:2.16.840.1.113883.3.88.12.3221.7.2 **DYNAMIC**, then it **SHALL** have at least one [1..*] translation, which **SHOULD** be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 **DYNAMIC** (CONF:1198-32950)."
