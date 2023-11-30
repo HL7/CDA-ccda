@@ -10,18 +10,18 @@ This data type uses the same rules as US Realm Date and Time (Point in Time), bu
 * obeys ivl-value-shall and ivl-value-should
 * insert RequireTimezone
 * value ^short = "Either @value or low/high should be present, but not both"
-* low obeys ts-shall-day and ts-should-minute and ts-shall-timezone
+* low obeys ts-shall-day and ts-should-minute
   * ^short = "**MAY** be precise to at least the second"
   * insert RequireTimezone
-* high obeys ts-shall-day and ts-should-minute and ts-shall-timezone
+* high obeys ts-shall-day and ts-should-minute
   * ^short = "**MAY** be precise to at least the second"
   * insert RequireTimezone
 
 Invariant: ivl-value-shall
 Severity: #error
-Description: "If a time interval contains @value, then it shall be precise to at least the day. If it is more precise than to the day, it SHALL have a timezone offset."
-Expression: "value.exists() implies (value.toString().length() = 10 or value.toString().length() >= 25)"
-// See ts-shall-timezone for explanation of lengths
+Description: "If a time interval contains @value, then it shall be precise to at least the day."
+Expression: "value.exists() implies value.toString().length() >= 10"
+
 Invariant: ivl-value-should
 Severity: #warning
 Description: "If a time interval contains @value, then it SHOULD contain a time component."
@@ -37,15 +37,14 @@ This data type uses the same rules as US Realm Date and Time (Interval), but is 
 * insert LogicalModelNA
 * insert RequireTimezone
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.4"
-* obeys ts-shall-day and ts-should-minute and ts-shall-timezone
+* obeys ts-shall-day and ts-should-minute
 
 
 // Flag a time element as reqiring timezone (if it contains time)
 // The year-valid check is default in CDA - requires year to be between 1800 and now+80 years
 RuleSet: RequireTimezone
 * value 0..1
-  // * ^extension.url = "http://hl7.org/fhir/tools/StructureDefinition/elementdefinition-date-rules"
-  * ^extension[1].valueString = "year-valid:tz-for-time"
+  * ^extension[http://hl7.org/fhir/tools/StructureDefinition/elementdefinition-date-rules].valueString = "year-valid:tz-for-time"
 
 
 ////////////////////////////////////////////////////////////
@@ -75,13 +74,6 @@ Description: "**SHOULD** be precise to at least the minute"
 Severity: #warning
 Expression: "nullFlavor.exists() or value.toString().length() > 10"
 // TODO - Can't distinguish between times; as long as an hour is there, this is met
-
-// Temp until date-rules extension works
-Invariant: ts-shall-timezone
-Description: "When time is present, there **SHALL** be a time-zone offset"
-Severity: #error
-// Combines above rules - if there's a time, it's automatically 19 characters long. If it has an offset, it's 25
-Expression: "nullFlavor.exists() or value.toString().length() <= 10 or value.toString().length() >= 25"
 
 Invariant: ts-value-before-document
 Severity: #error
