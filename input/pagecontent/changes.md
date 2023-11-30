@@ -89,6 +89,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20769](https://jira.hl7.org/browse/CDA-20769) - Added new Disability Status Observation example that meets the template.
 - [CDA-20771](https://jira.hl7.org/browse/CDA-20771) - Added SHOULD effectiveTime to Policy Activity Act.
 - [CDA-20772](https://jira.hl7.org/browse/CDA-20772) - Updated RelatedPersonRelationshipandNameParticipant associatedEntity.code to new valueset
+- [CDA-20775](https://jira.hl7.org/browse/CDA-20775) - Make USRealmDateTime require timezone offsets; use this template in any other modified templates where it was missed
 - [CDA-20784](https://jira.hl7.org/browse/CDA-20784) - Updated the Advance Directive Section, Organizer, and Observation to the latest versions of the templates.
 - [CDA-20786](https://jira.hl7.org/browse/CDA-20786) - Set some bound observations to have a type.
 - [CDA-20787](https://jira.hl7.org/browse/CDA-20787) - Add guidance on the use of subsections.
