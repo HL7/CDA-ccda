@@ -16,7 +16,7 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-7282)."
 * code 1..1
-  * ^short = "Compatibility support for C-CDA R1.1 and C-CDA 2.1: A vitals organizer conformant to both C-CDA 1.1 and C-CDA 2.1 would contain the SNOMED code (46680005) from R1.1 in the root code and a LOINC code in the translation. A vitals organizer conformant to only C-CDA 2.1 would only contain the LOINC code in the root code."
+  * ^short = "Vital Signs"
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-32740)."
   * code 1..1
   * code = #46680005
@@ -31,6 +31,7 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
     * ^slicing.rules = #open
   * translation contains translation1 1..1
   * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"
+    * ^short = "Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel"
     * code 1..1
     * code = #74728-7
       * ^comment = "SHALL contain exactly one [1..1] @code=\"74728-7\" Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.CCDAr1.1 (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32744)."

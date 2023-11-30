@@ -106,6 +106,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20825](https://jira.hl7.org/browse/CDA-20825) - Clean up PlannedSupply product vs device modeling
 - [CDA-20827](https://jira.hl7.org/browse/CDA-20827) - Removed slicing from USRealmHeader authenticator
 - [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to only allow a timestamp instead of an interval
+- [CDA-20877](https://jira.hl7.org/browse/CDA-20877) - Removed compatibility comment on vital signs organizer
 
 
 #### Templates with New Extensions due to Major Change
