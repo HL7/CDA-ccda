@@ -19,9 +19,9 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2022-06-01"/>
     </identifier>
-    <version value="2015-08-01"/>
+    <version value="2022-06-01"/>
     <name value="ProblemObservation"/>
     <title value="Problem Observation"/>
     <status value="draft"/>
@@ -84,7 +84,7 @@
         <element id="Observation.templateId:problem-obs.extension">
             <path value="Observation.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2015-08-01"/>
+            <patternString value="2022-06-01"/>
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
@@ -303,6 +303,73 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemStatus"/>
+            </type>
+        </element>
+        <element id="Observation.entryRelationship:reference">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="reference"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32968) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:reference.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32968)."/>
+            <fixedCode value="SPRT"/>
+        </element>
+        <element id="Observation.entryRelationship:reference.act">
+            <path value="Observation.entryRelationship.act"/>
+            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: 2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32966)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
+            </type>
+        </element>
+        <element id="Observation.entryRelationship:assessment">
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="assessment"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32953) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:assessment.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has Support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32955)."/>
+            <fixedCode value="SPRT"/>
+        </element>
+        <element id="Observation.entryRelationship:assessment.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <comment value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: 2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32954)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </type>
+        </element>
+        <element id="Observation.entryRelationship:dateOfDiagnosis">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="Observation.entryRelationship"/>
+            <sliceName value="dateOfDiagnosis"/>
+            <short value="(USCDI) Date of Diagnosis"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-33012) such that it"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:dateOfDiagnosis.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-33014)."/>
+            <fixedCode value="COMP"/>
+        </element>
+        <element id="Observation.entryRelationship:dateOfDiagnosis.act">
+            <path value="Observation.entryRelationship.act"/>
+            <comment value="SHALL contain exactly one [1..1] Date of Diagnosis Act (identifier: 2.16.840.1.113883.10.20.22.4.502) (CONF:4515-33013)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DateOfDiagnosisAct"/>
             </type>
         </element>
     </differential>
