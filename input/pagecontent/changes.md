@@ -89,6 +89,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20769](https://jira.hl7.org/browse/CDA-20769) - Added new Disability Status Observation example that meets the template.
 - [CDA-20771](https://jira.hl7.org/browse/CDA-20771) - Added SHOULD effectiveTime to Policy Activity Act.
 - [CDA-20772](https://jira.hl7.org/browse/CDA-20772) - Updated RelatedPersonRelationshipandNameParticipant associatedEntity.code to new valueset
+- [CDA-20775](https://jira.hl7.org/browse/CDA-20775) - Make USRealmDateTime require timezone offsets; use this template in any other modified templates where it was missed
 - [CDA-20784](https://jira.hl7.org/browse/CDA-20784) - Updated the Advance Directive Section, Organizer, and Observation to the latest versions of the templates.
 - [CDA-20786](https://jira.hl7.org/browse/CDA-20786) - Set some bound observations to have a type.
 - [CDA-20787](https://jira.hl7.org/browse/CDA-20787) - Add guidance on the use of subsections.
@@ -106,6 +107,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20825](https://jira.hl7.org/browse/CDA-20825) - Clean up PlannedSupply product vs device modeling
 - [CDA-20827](https://jira.hl7.org/browse/CDA-20827) - Removed slicing from USRealmHeader authenticator
 - [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to only allow a timestamp instead of an interval
+- [CDA-20877](https://jira.hl7.org/browse/CDA-20877) - Removed compatibility comment on vital signs organizer
 
 
 #### Templates with New Extensions due to Major Change
@@ -113,41 +115,32 @@ The changes in this version of Consolidated CDA have been made from STU comments
 
 | Document | Changes |
 | --- | --- |
-| 20.1 Care Plan | structuredBody.component cardinality increased to 3, templateId cardinality increased to 2 |
-| 20.2 Consultation Note | constraints now have sources, structuredBody.component cardinality increased to 5 |
-| 20.3 Continuity of Care Document (CCD) | structuredBody.component cardinality increased to 6, templateId cardinality increased to 2 |
-| 20.4 Discharge Summary | structuredBody.component cardinality increased to 7, removed required element participant.typeCode, Results Section now required component |
-| 20.5 History and Physical | structuredBody.component cardinality increased to 12 |
-| 20.6 Operative Note | structuredBody.component cardinality increased to 8, serviceEvent.code removed one code system and added another, serviceEvent.code now required |
-| 20.7 Procedure Note | structuredBody.component cardinality increased to 5 |
-| 20.8 Progress Note | templateId cardinality increased to 2 |
-| 20.9 Referral Note | structuredBody.component cardinality increased to 5, templateId cardinality increased to 2 |
-| 20.10 Transfer Summary | templateId cardinality increased to 2, structuredBoyd.component cardinality increased to 7 |
-| 20.11 Unstructured Document | templateId cardinality increased to 2 |
-| 20.12 US Realm Header | new constraint on recordTarget.patientRole.patient.sdtcDeceasedInd, serviceEvent.effectiveTime set to new valueset, addr.item included, languageCode bound to new valueset, realmCode.code element added |
+| [Care Plan](StructureDefinition-CarePlan.html) | structuredBody.component cardinality increased to 3, templateId cardinality increased to 2 |
+| [Consultation Note](StructureDefinition-ConsultationNote.html) | constraints now have sources, structuredBody.component cardinality increased to 5 |
+| [Continuity of Care Document (CCD)](StructureDefinition-ContinuityofCareDocumentCCD.html) | structuredBody.component cardinality increased to 6, templateId cardinality increased to 2 |
+| [Discharge Summary](StructureDefinition-DischargeSummary.html) | structuredBody.component cardinality increased to 7, removed required element participant.typeCode, Results Section now required component |
+| [History and Physical](StructureDefinition-HistoryandPhysical.html) | structuredBody.component cardinality increased to 12 |
+| [Operative Note](StructureDefinition-OperativeNote.html) | structuredBody.component cardinality increased to 8, serviceEvent.code removed one code system and added another, serviceEvent.code now required |
+| [Procedure Note](StructureDefinition-ProcedureNote.html) | structuredBody.component cardinality increased to 5 |
+| [Progress Note](StructureDefinition-ProgressNote.html) | templateId cardinality increased to 2 |
+| [Referral Note](StructureDefinition-ReferralNote.html) | structuredBody.component cardinality increased to 5, templateId cardinality increased to 2 |
+| [Transfer Summary](StructureDefinition-TransferSummary.html) | templateId cardinality increased to 2, structuredBoyd.component cardinality increased to 7 |
+| [Unstructured Document](StructureDefinition-UnstructuredDocument.html) | templateId cardinality increased to 2 |
+| [US Realm Header](StructureDefinition-USRealmHeader.html) | new constraint on recordTarget.patientRole.patient.sdtcDeceasedInd, serviceEvent.effectiveTime set to new valueset, addr.item included, languageCode bound to new valueset, realmCode.code element added |
 
 
 | Section | Changes |
 | --- | --- |
-| 20.17 Advance Directives Section | now requires Advance Directives Organizer |
-| 20.49 Notes Section | new code.code and code.codeSystem required elements |
-| 20.70 Procedures Section | removed procedure activity act and procedure activity observation from entries |
+| [Advance Directives Section](StructureDefinition-AdvanceDirectivesSection.html) | now requires Advance Directives Organizer |
+| [Notes Section](StructureDefinition-NotesSection.html) | new code.code and code.codeSystem required elements |
+| [Procedures Section](StructureDefinition-ProceduresSection.html) | removed procedure activity act and procedure activity observation from entries |
 
 
 | Entry | Changes |
 | --- | --- |
-| 20.89 Basic Industry Observation | section cardinality increased to 2 |
-| 20.90 Basic Occupation Observation | section cardinality increased to 2 |
-| 20.125 Gender Identity Observation | section cardinality increased to  2 |
-| 20.197 Sexual Orientation Observation | section cardinality increased to 2 |
-| 20.198 Smoking Status - Meaningful Use | statusCode.code bound to new valueset |
-| 20.206 Tribal Affiliation Observation | templateId cardinality increased to 2 |
-
-
-| Other | Changes |
-| --- | --- |
-| 20.212 Author Participation | new constraint on assignedAuthor, new element (assignedAuthor.addr) |
-| 20.217 US Realm Address (AD.US.FIELDED) | updated constraint expressions, item.country bound to new valuset, item.state bound to new valueset |
-| 20.218 US Realm Date and Time (Interval) | value,low, and high have constraint expressions now |
-| 20.219 US Realm Date and Time (Point in Time) | constraint has expression |
-| 20.220 US Realm Patient Name (PTN.US.FIELDED) | name sections are now under item |
+| [Basic Industry Observation](StructureDefinition-BasicIndustryObservation.html) | section cardinality increased to 2 |
+| [Basic Occupation Observation](StructureDefinition-BasicOccupationObservation.html) | section cardinality increased to 2 |
+| [Gender Identity Observation](StructureDefinition-GenderIdentityObservation.html) | section cardinality increased to  2 |
+| [Sexual Orientation Observation](StructureDefinition-SexualOrientationObservation.html) | section cardinality increased to 2 |
+| [Smoking Status - Meaningful Use](StructureDefinition-SmokingStatusMeaningfulUse.html) | statusCode.code bound to new valueset |
+| [Tribal Affiliation Observation](StructureDefinition-TribalAffiliationObservation.html) | templateId cardinality increased to 2 |

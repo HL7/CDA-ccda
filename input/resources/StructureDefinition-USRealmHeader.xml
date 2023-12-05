@@ -739,6 +739,13 @@
             <short value="The dataEnterer element represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content found within the header or body of a document, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."/>
             <comment value="MAY contain zero or one [0..1] dataEnterer (CONF:4537-5441)."/>
         </element>
+        <element id="ClinicalDocument.dataEnterer.time">
+            <path value="ClinicalDocument.dataEnterer.time"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/TS"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTime"/>
+            </type>
+        </element>
         <element id="ClinicalDocument.dataEnterer.assignedEntity">
             <path value="ClinicalDocument.dataEnterer.assignedEntity"/>
             <comment value="The dataEnterer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5442)."/>
@@ -1209,6 +1216,10 @@
         <element id="ClinicalDocument.participant.time">
             <path value="ClinicalDocument.participant.time"/>
             <comment value="MAY contain zero or one [0..1] time (CONF:4537-10004)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </type>
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>
@@ -1284,6 +1295,13 @@
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.30"/>
             </binding>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.time">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.time"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </type>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>

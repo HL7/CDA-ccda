@@ -221,6 +221,7 @@ Description: "This template defines constraints that represent common administra
 * dataEnterer 0..1
   * ^short = "The dataEnterer element represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content found within the header or body of a document, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
   * ^comment = "MAY contain zero or one [0..1] dataEnterer (CONF:4537-5441)."
+  * time only USRealmDateTime
   * assignedEntity 1..1
     * ^comment = "The dataEnterer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5442)."
     * id 1..*
@@ -400,7 +401,7 @@ Description: "This template defines constraints that represent common administra
   //"<slicing><rules value=\"open\" /></slicing>"
   //"<comment value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" /></element><element id=\"ClinicalDocument.participant:participant1\"><path value=\"ClinicalDocument.participant\" /><sliceName value=\"participant1\" /><short value=\"participant\" /><definition value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" />"
   * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
-  * time 0..1
+  * time only USRealmDateTimeInterval
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
 
 // Missing 2nd participant - test slices
@@ -437,6 +438,7 @@ Description: "This template defines constraints that represent common administra
         * code 0..1
         * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
           * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)." // man-should
+      * time only USRealmDateTimeInterval
       * assignedEntity 1..1
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-14841)."
         * id 1..*
