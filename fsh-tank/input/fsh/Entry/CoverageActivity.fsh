@@ -6,7 +6,7 @@ Description: """A Coverage Activity groups the policy and authorization acts wit
 The sequenceNumber/@value shows the policy order of preference. 
 The Member Identifier is described in the contained Policy Activity Template 2.16.840.1.113883.10.20.22.4.61."""
 
-* insert LogicalModelTemplate(coverage-activity, 2.16.840.1.113883.10.20.22.4.60, 2023-05-01)
+* insert LogicalModelTemplate(coverage-activity, 2.16.840.1.113883.10.20.22.4.60, 2024-01-01)
 * insert NarrativeLink
 
 * ^status = #draft
@@ -19,13 +19,7 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8874)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-8876)."
-  * code 1..1
-  * code = #48768-6
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"48768-6\" Payment sources (CONF:4537-19160)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4537-32156)."
+  * insert CodedLoinc(52556-8, Payment sources)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8875)."
   * code 1..1

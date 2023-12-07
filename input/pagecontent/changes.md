@@ -108,6 +108,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20827](https://jira.hl7.org/browse/CDA-20827) - Removed slicing from USRealmHeader authenticator
 - [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to only allow a timestamp instead of an interval
 - [CDA-20877](https://jira.hl7.org/browse/CDA-20877) - Removed compatibility comment on vital signs organizer
+- [CDA-20878](https://jira.hl7.org/browse/CDA-20878) - Updated LOINC code on Coverage Activity to 52556-8 Payment sources
 
 
 #### Templates with New Extensions due to Major Change
@@ -140,6 +141,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 | --- | --- |
 | [Basic Industry Observation](StructureDefinition-BasicIndustryObservation.html) | section cardinality increased to 2 |
 | [Basic Occupation Observation](StructureDefinition-BasicOccupationObservation.html) | section cardinality increased to 2 |
+| [Coverage Activity](StructureDefinition-CoverageActivity.html) | updated LOINC code |
 | [Gender Identity Observation](StructureDefinition-GenderIdentityObservation.html) | section cardinality increased to  2 |
 | [Sexual Orientation Observation](StructureDefinition-SexualOrientationObservation.html) | section cardinality increased to 2 |
 | [Smoking Status - Meaningful Use](StructureDefinition-SmokingStatusMeaningfulUse.html) | statusCode.code bound to new valueset |
