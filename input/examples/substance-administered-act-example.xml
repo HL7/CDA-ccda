@@ -1,13 +1,11 @@
-<substanceAdministration classCode="SBADM" moodCode="EVN" xmlns="urn:hl7-org:v3">
-    ...
-
-    
-  <consumable>
-               ...
-
-        
-    <code code="43" codeSystem="2.16.840.1.113883.12.292" displayName="Hepatitis B Vaccine" codeSystemName="CVX" />
-  </consumable>
+<act classCode="ACT" moodCode="EVN" xmlns="urn:hl7-org:v3"> 
+  <templateId root="2.16.840.1.113883.10.20.22.4.118" />
+  <id root="d13f5010-cba4-4080-99d2-897dd3275c96" />
+  <code code="416118004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="CVX" displayName="Hepatitis B Vaccine" />
+  <text>
+    <reference value="#subadmin"/>
+  </text>
+  <statusCode code="completed" />
   <entryRelationship typeCode="COMP">
     <!-- This entryRelationship sequenceNumber indicates this is #2 in the series -->
     <sequenceNumber value="2" />
@@ -16,11 +14,11 @@
       <templateId root="2.16.840.1.113883.10.20.22.4.118" />
       <id root="df8908d0-40f2-11e3-aa6e-0800200c9a66" />
       <code code="416118004" displayName="administration" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" />
+        <text>
+        <reference value="#subadmin"/>
+      </text>
       <statusCode code="completed" />
       <effectiveTime value="19991101" />
     </act>
   </entryRelationship>
-        ...
-
-
-</substanceAdministration>
+</act>
