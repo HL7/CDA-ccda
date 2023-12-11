@@ -3,29 +3,41 @@
   <!-- Family History Observation template -->
   <id root="d42ebf70-5c89-11db-b0de-0800200c9a66" />
   <code code="75323-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Condition">
-    <translation code="64572001" displayName="Condition" 
-                                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"></translation>
+    <translation code="64572001" 
+                displayName="Condition" 
+                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"></translation>
   </code>
+  <text>
+    <reference value="#familyhistoryobservation" />
+  </text>
   <statusCode code="completed" />
   <effectiveTime value="1967" />
   <value xsi:type="CD" code="22298006" codeSystem="2.16.840.1.113883.6.96" displayName="Myocardial infarction" />
   <entryRelationship typeCode="CAUS">
     <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.47" />
-			
-              ...
-				
-        
-        
+      <templateId root="2.16.840.1.113883.10.20.22.4.47"/>
+      <id root="6898fae0-5c8a-11db-b0de-0800200c9a66"/>
+      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+      <text>
+        <reference value="#death" />
+      </text>
+      <statusCode code="completed"/>
+      <value xsi:type="CD" 
+            code="419099009" 
+            codeSystem="2.16.840.1.113883.6.96"
+            displayName="Dead"/>
     </observation>
   </entryRelationship>
   <entryRelationship typeCode="SUBJ" inversionInd="true">
     <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.31" />					
-             ....
-   	   
-        
-        
+      <templateId root="2.16.840.1.113883.10.20.22.4.31" />
+      <!-- Age observation -->
+      <code code="445518008" 
+            codeSystem="2.16.840.1.113883.6.96"
+            displayName="Age At Onset" />
+      <text><reference value="#age"/></text>
+      <statusCode code="completed" />
+      <value xsi:type="PQ" value="57" unit="a" />
     </observation>
   </entryRelationship>
 </observation>

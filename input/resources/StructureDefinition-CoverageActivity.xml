@@ -19,9 +19,9 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CoverageActivity"/>
     <identifier>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.60:2023-05-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.60:2024-01-01"/>
     </identifier>
-    <version value="2023-05-01"/>
+    <version value="2024-01-01"/>
     <name value="CoverageActivity"/>
     <title value="Coverage Activity"/>
     <status value="draft"/>
@@ -84,7 +84,7 @@
         <element id="Act.templateId:coverage-activity.extension">
             <path value="Act.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2023-05-01"/>
+            <patternString value="2024-01-01"/>
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
@@ -103,17 +103,16 @@
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:4537-8876)."/>
+            <short value="Payment sources"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;48768-6&quot; Payment sources (CONF:4537-19160)."/>
             <min value="1"/>
-            <patternCode value="48768-6"/>
+            <patternCode value="52556-8"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4537-32156)."/>
+            <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>

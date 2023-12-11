@@ -3,17 +3,65 @@
     <templateId root="2.16.840.1.113883.10.20.22.4.127" />
     <id root="c6b5a04b-2bf4-49d1-8336-636a3813df0a" />
     <code code="47078008" displayName="Hearing" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" />
+    <text>
+      <reference value="#socialhistory" />
+    </text>
     <statusCode code="completed" />
-    <effectiveTime value="200130311" />
-    <value xsi:type="CD" code="260379002" displayName="Impaired" codeSystemName="SNOMED CT" />
+    <effectiveTime>
+      <low value="20130311" />
+    </effectiveTime>
+    <value xsi:type="CD" code="260379002" displayName="Impaired" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+    <author typeCode="AUT">
+      <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+      <time value="201209101145-0800" />
+      <assignedAuthor>
+        <id extension="555555555" root="1.1.1.1.1.1.1.2" />
+        <addr use="HP">
+          <!-- HP is "primary home" from codeSystem 2.16.840.1.113883.5.1119 -->
+          <streetAddressLine>2222 Home Street</streetAddressLine>
+          <city>Beaverton</city>
+          <state>OR</state>
+          <postalCode>97867</postalCode>
+          <country>US</country>
+          <!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
+        </addr>
+        <telecom value="tel:+1(555)555-2003" use="HP"/>
+        <assignedPerson>
+          <name>
+            <given>Nurse</given>
+            <family>Nightingale</family>
+            <suffix>RN</suffix>
+          </name>
+        </assignedPerson>
+      </assignedAuthor>
+    </author>   
     <entryRelationship typeCode="COMP">
       <observation classCode="OBS" moodCode="EVN">
         <!--Assessment Scale Observation -->
-        <templateId root="2.16.840.1.113883.10.20.22.4.69" />
-        <id root="c6b5a04b-2bf4-49d1-8336-636a3813df0b" />
-               ...
-            
-            
+        <templateId root="2.16.840.1.113883.10.20.22.4.69" extension="2022-06-01"/>
+        <id root="c6b5a04b-2bf4-49d1-8336-636a3813df0b"/>
+        <code code="54614-3" 
+                  displayName="Brief Interview for Mental Status"
+                  codeSystem="2.16.840.1.113883.6.1" 
+                  codeSystemName="LOINC"/>
+        <derivationExpr>Text description of the calculation</derivationExpr>
+        <text><reference value="#assessmentScale"/></text>
+        <statusCode code="completed"/>
+        <effectiveTime value="20120214"/>
+        <!-- Summed score of the component values -->
+        <value xsi:type="INT" value="7"/>
+        <!-- Supporting observations -->
+        <entryRelationship typeCode="COMP">
+          <observation classCode="OBS" moodCode="EVN">
+            <templateId root="2.16.840.1.113883.10.20.22.4.86" extension="2022-06-01"/>
+              <id root="f4dce790-8328-11db-9fe1-0800200c9a44"/>
+              <code code="248240001" displayName="motor response"
+                      codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED"/>
+              <text><reference value="#assessmentObservation"/></text>
+              <statusCode code="completed"/>
+              <value xsi:type="INT" value="3"/>
+          </observation>
+        </entryRelationship>
       </observation>
     </entryRelationship>
 </observation>
