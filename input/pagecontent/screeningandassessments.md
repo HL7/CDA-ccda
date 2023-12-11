@@ -31,7 +31,7 @@ improving a person's overall health and wellness when confronted with health pro
 #### Alcohol Use
 
 The [Alcohol Use Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1585/expansion) contains the LOINC Panel Codes for Alcohol Use Disorder Identification Test - Consumption AUDIT-C and PROMIS short form - alcohol - alcohol use 7a - version 1.0.
-These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to detailed patient uestionnaires about alcohol use.
+These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about alcohol use.
 
 #### Substance Use (Including Alcohol Use)
 
@@ -40,6 +40,24 @@ to represent simple question and answer assesement questions such as, "How often
 
 The [Drug Misuse](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) **SHOULD** be used with [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) at Observation.value
 to represent conclusions or diagnoses pertaining to drug misuse or abuse.
+
+#### Mental and Cognitive Health
+
+The [Cognitive Health Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.979/expansion) contains LOINC panel Codes that represent Mental or Cognitive health screening assessments, such as FACIT, PROMIS and MoCA.
+These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about asssessing mental or cognitive health.
+
+The [Cognitive Function Clinician Interpretation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
+to represent simple question and answer assesement questions such as, "Cognitive Function Interpretation", that may have a text answer of clinician's assessement and "Memory/recall ability during assessment period" that may have answers such as the ability to recal the current season or the where the person is.
+
+The [Mental Status Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.1/expansion)value set **SHOULD** be used with [Mental Status Observation](StructureDefinition-MentalStatusObservation.html) to represent an observation about mental status that can come from a broad range of subjective and objective information 
+such as Assessment and Screening tools.
+
+#### Functional Status
+
+The [Functional Status Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1586/expansion) contains LOINC panel Codes that represent functional status questionnaire LOINC panel codes
+These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about functional status.
+
+The [Functional Status Observation](StructureDefinition-FunctionalStatusObservation.html)may be used to represent an observation about mental status that can come from a broad range of subjective and objective information such as what may be derived from Assessment and Screening tools.
 
 #### Physical Activity
 
