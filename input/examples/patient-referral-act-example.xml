@@ -1,8 +1,11 @@
-<act classCode="ACT" moodCode="INT" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<act classCode="PCPR" moodCode="INT" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!--Patient Referral Act-->
     <templateId root="2.16.840.1.113883.10.20.22.4.140" />
     <id root="70bdd7db-e02d-4eff-9829-35e3b7d9e154" />
     <code code="44383000" displayName="Patient referral for consultation" codeSystemName="SNOMED" codeSystem="2.16.840.1.113883.6.96" />
+    <text>
+      <reference value="#referral" />
+    </text>
     <statusCode code="active" />
     <effectiveTime value="20130311" />
     <priorityCode code="A" 
@@ -10,10 +13,11 @@
                codeSystemName="ActPriority" 
                displayName="ASAP"/>
     <author>
-      <time value="200130311" />
+      <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+      <time value="20130311" />
       <assignedAuthor>
         <id extension="KP00017" root="2.16.840.1.113883.19.5" />
-        <addr>
+        <addr use="WP">
           <streetAddressLine>1003 Health Care
                         Drive</streetAddressLine>
           <city>Ann Arbor</city>
@@ -31,9 +35,13 @@
       </assignedAuthor>
     </author>
     <entryRelationship typeCode="SUBJ">
-      <observation classCode="OBS" moodCode="EVN">
+      <observation classCode="OBS" moodCode="RQO">
         <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" />
         <statusCode code="completed" />
+        <priorityCode code="A" 
+            codeSystem="2.16.840.1.113883.5.7" 
+            codeSystemName="ActPriority" 
+            displayName="ASAP"/>
         <value xsi:type="CD" code="268528005" displayName="full care by specialist" codeSystem="2.16.840.1.113883.6.96" />
       </observation>
     </entryRelationship>

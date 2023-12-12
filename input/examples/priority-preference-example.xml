@@ -5,6 +5,12 @@
         codeSystem="2.16.840.1.113883.6.96" 
         codeSystemName="SNOMED CT" 
         displayName="preference" />
+  <text>
+    <reference value="#prioritypref" />
+  </text>
+  <effectiveTime>
+    <low value="20130613" />
+  </effectiveTime>
   <value xsi:type="CD" 
          code="394849002" 
          codeSystem="2.16.840.1.113883.6.96" 
@@ -22,6 +28,23 @@
     <assignedAuthor>
       <!-- This id points back to a participant in the header -->
       <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
+      <addr use="HP">
+        <!-- HP is "primary home" from codeSystem 2.16.840.1.113883.5.1119 -->
+        <streetAddressLine>2222 Home Street</streetAddressLine>
+        <city>Beaverton</city>
+        <state>OR</state>
+        <postalCode>97867</postalCode>
+        <country>US</country>
+        <!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
+      </addr>
+      <telecom value="tel:+1(555)555-2003" use="HP"/>
+      <assignedPerson>
+        <name>
+          <given>Nurse</given>
+          <family>Nightingale</family>
+          <suffix>RN</suffix>
+        </name>
+      </assignedPerson>
     </assignedAuthor>
   </author>
 </observation>
