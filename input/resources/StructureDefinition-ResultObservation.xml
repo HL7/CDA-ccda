@@ -116,7 +116,11 @@
             <min value="1"/>
         </element>
         <element id="Observation.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.code"/>
+            <short value="(USCDI) Tests"/>
             <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."/>
             <constraint>
                 <key value="shall-code-or-nullflavor"/>
@@ -176,6 +180,9 @@
             <min value="1"/>
         </element>
         <element id="Observation.value">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.value"/>
             <slicing>
                 <discriminator>
@@ -184,7 +191,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="Value can be any type, but certain types have additional rules listed below."/>
+            <short value="(USCDI) Values/Results - Value can be any type, but certain types have additional rules."/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -202,7 +209,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Observation.value.unit"/>
-            <short value="(USCDI) Result Units"/>
+            <short value="(USCDI) Result Unit of Measure"/>
             <min value="1"/>
             <binding>
                 <strength value="preferred"/>
@@ -252,37 +259,6 @@
             <path value="Observation.targetSiteCode"/>
             <comment value="MAY contain zero or one [0..1] targetSiteCode (CONF:4537-7153)."/>
             <max value="1"/>
-        </element>
-        <element id="Observation.specimen">
-            <path value="Observation.specimen"/>
-            <short value="Laboratory observations are expected to include the specimen participant. The specimen included at specimenPlayingEntity/code must be consistent with the observation/code."/>
-            <comment value="MAY contain zero or more [0..*] specimen (CONF:4537-32611)."/>
-        </element>
-        <element id="Observation.specimen.specimenRole">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.specimen.specimenRole"/>
-            <short value="(USCDI) Specimen Identifier"/>
-            <comment value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32612)."/>
-        </element>
-        <element id="Observation.specimen.specimenRole.id">
-            <path value="Observation.specimen.specimenRole.id"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.specimen.specimenRole.specimenPlayingEntity">
-            <path value="Observation.specimen.specimenRole.specimenPlayingEntity"/>
-            <comment value="This specimenRole SHALL contain exactly one [1..1] specimenPlayingEntity (CONF:4537-32613)."/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.specimen.specimenRole.specimenPlayingEntity.code">
-            <path value="Observation.specimen.specimenRole.specimenPlayingEntity.code"/>
-            <comment value="This specimenPlayingEntity SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Specimen type urn:oid:2.16.840.1.113762.1.4.1099.54 DYNAMIC (CONF:4537-32614)."/>
-            <min value="1"/>
-            <binding>
-                <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.54"/>
-            </binding>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>

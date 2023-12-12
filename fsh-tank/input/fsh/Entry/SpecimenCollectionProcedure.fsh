@@ -36,7 +36,7 @@ Description: """This template represents clinical information about the specimen
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."
-  * observation 1..1
+  * observation 0..1
   * observation only SpecimenRejectReasonObservation
-    * ^comment = "SHALL contain exactly one [1..1] Specimen Reject Reason Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.420:2018-09-01)."
+    * ^comment = "SHOULD contain exactly one [0..1] Specimen Reject Reason Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.420:2018-09-01)."
     * insert USCDI([[Specimen Condition Acceptability]])

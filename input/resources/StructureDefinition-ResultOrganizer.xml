@@ -25,7 +25,7 @@
     <name value="ResultOrganizer"/>
     <title value="Result Organizer"/>
     <status value="draft"/>
-    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;. &#xA;&#xA;Specimen(s) attached to a Result Organizer apply to all Result Observations contained in the Organizer. It is not recommended to record specimen information at the Result Observation."/>
+    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;. &#xA;&#xA;A specimen linked to a Result Organizer applies to all Result Observations. Centralizing specimen details within the Organizer is advised for clarity and consistency, as Result Observations typically relate to a single specimen collection, like using a purple top tube for CBCs. In cases of poor-quality specimens, a specimen reject reason is logically associated with the procedure, not the result, as there may be no result. The Result Organizer includes the specimen collection procedure, which may contain a reject reason."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -160,11 +160,23 @@
             <comment value="MAY contain zero or more [0..*] specimen (CONF:4537-32615)."/>
         </element>
         <element id="Organizer.specimen.specimenRole">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Organizer.specimen.specimenRole"/>
+            <short value="(USCDI) Specimen Identifier"/>
             <comment value="The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32616)."/>
         </element>
+        <element id="Organizer.specimen.specimenRole.id">
+            <path value="Organizer.specimen.specimenRole.id"/>
+            <min value="1"/>
+        </element>
         <element id="Organizer.specimen.specimenRole.specimenPlayingEntity">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Organizer.specimen.specimenRole.specimenPlayingEntity"/>
+            <short value="(USCDI) Specimen Type"/>
             <comment value="This specimenRole SHALL contain exactly one [1..1] specimenPlayingEntity (CONF:4537-32617)."/>
             <min value="1"/>
         </element>
