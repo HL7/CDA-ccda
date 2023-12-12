@@ -6,7 +6,8 @@ Description: """This template provides a mechanism for grouping result observati
 
 If any Result Observation within the organizer has a statusCode of "active", the Result Organizer must also have a statusCode of "active". 
 
-Specimen(s) attached to a Result Organizer apply to all Result Observations contained in the Organizer. It is not recommended to record specimen information at the Result Observation."""
+A specimen linked to a Result Organizer applies to all Result Observations. Centralizing specimen details within the Organizer is advised for clarity and consistency, as Result Observations typically relate to a single specimen collection, like using a purple top tube for CBCs. In cases of poor-quality specimens, a specimen reject reason is logically associated with the procedure, not the result, as there may be no result. The Result Organizer includes the specimen collection procedure, which may contain a reject reason.
+"""
 
 * insert LogicalModelTemplate(result-org, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
 * insert NarrativeLinkOrganizer
@@ -40,9 +41,12 @@ Specimen(s) attached to a Result Organizer apply to all Result Observations cont
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4537-32615)."
   * specimenRole 1..1
     * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32616)."
+    * id 1..*
+    * insert USCDI([[Specimen Identifier]])
     * specimenPlayingEntity 1..1
       * ^comment = "This specimenRole SHALL contain exactly one [1..1] specimenPlayingEntity (CONF:4537-32617)."
       * code 1..1
+      * insert USCDI([[Specimen Type]])
       * code from $2.16.840.1.113762.1.4.1099.54 (preferred)
         * ^comment = "This specimenPlayingEntity SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Specimen type urn:oid:2.16.840.1.113762.1.4.1099.54 DYNAMIC (CONF:4537-32618)."
 * obeys should-author

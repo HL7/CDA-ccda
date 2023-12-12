@@ -1,14 +1,18 @@
-<organizer classCode="CLUSTER" moodCode="EVN" xmlns="urn:hl7-org:v3">
+<organizer classCode="CLUSTER" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdtc="urn:hl7-org:sdtc">
   <!-- Functional Status Organizer -->
   <templateId root="2.16.840.1.113883.10.20.22.4.66" extension="2014-06-09" />
   <id root="a7bc1062-8649-42a0-833d-eed65bd017c9" />
   <code code="d5" displayName="Self-Care" codeSystem="2.16.840.1.113883.6.254" codeSystemName="ICF" />
+  <sdtc:text>
+    <reference value="#funcstatusorganizer" />
+  </sdtc:text>
   <statusCode code="completed" />
   <author>
-    <time value="200130311" />
+    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+    <time value="20130311" />
     <assignedAuthor>
       <id extension="KP00017" root="2.16.840.1.113883.19.5" />
-      <addr>
+      <addr use="HP">
         <streetAddressLine>1003 Health Care
                     Drive</streetAddressLine>
         <city>Ann Arbor</city>
@@ -29,24 +33,74 @@
     <observation classCode="OBS" moodCode="EVN">
       <!-- Functional Status Observation V -->
       <templateId root="2.16.840.1.113883.10.20.22.4.67" extension="2014-06-09" />
-            ...
-        
-    </observation>
-  </component>
-  <component>
-    <observation classCode="OBS" moodCode="EVN">
-      <!-- Functional Status Observation -->
-      <templateId root="2.16.840.1.113883.10.20.22.4.67" extension="2014-06-09" />
-            ...
-        
+      <id root="ce7cfb78-bd16-467e-8bcf-859a3034108e" />
+      <code code="54522-8" displayName="Functional status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="SNOMED CT" />
+      <text>
+        <reference value="#FUNC1" />
+      </text>
+      <statusCode code="completed" />
+      <effectiveTime value="20130311" />
+      <value xsi:type="CD" code="129035000" displayName="independent with dressing" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+      <author typeCode="AUT">
+        <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+        <time value="199803161030-0800" />
+        <assignedAuthor>
+          <id extension="555555555" root="1.1.1.1.1.1.1.2" />
+          <addr use="HP">
+            <streetAddressLine>2222 Home Street</streetAddressLine>
+            <city>Beaverton</city>
+            <state>OR</state>
+            <postalCode>97867</postalCode>
+            <country>US</country>
+          </addr>
+          <telecom value="tel:+1(555)555-2003" use="HP"/>
+          <assignedPerson>
+            <name>
+              <given>Nurse</given>
+              <family>Nightingale</family>
+              <suffix>RN</suffix>
+            </name>
+          </assignedPerson>
+        </assignedAuthor>
+      </author>
     </observation>
   </component>
   <component>
     <observation classCode="OBS" moodCode="EVN">
       <!-- Self-Care Activities (ADL and IADL)-->
       <templateId root="2.16.840.1.113883.10.20.22.4.128" />
-            ...
-        
+      <id root="c6b5a04b-2bf4-49d1-8336-636a3813df0a" />
+      <code code="46482-6" displayName="Transferring" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <text>
+        <reference value="#socialhistory" />
+      </text>
+      <statusCode code="completed" />
+      <effectiveTime>
+        <low value="20130311" />
+      </effectiveTime>
+      <value xsi:type="CD" code="371153006" displayName="Independent" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+      <author typeCode="AUT">
+        <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+        <time value="199803161030-0800" />
+        <assignedAuthor>
+          <id extension="555555555" root="1.1.1.1.1.1.1.2" />
+          <addr use="HP">
+            <streetAddressLine>2222 Home Street</streetAddressLine>
+            <city>Beaverton</city>
+            <state>OR</state>
+            <postalCode>97867</postalCode>
+            <country>US</country>
+          </addr>
+          <telecom value="tel:+1(555)555-2003" use="HP"/>
+          <assignedPerson>
+            <name>
+              <given>Nurse</given>
+              <family>Nightingale</family>
+              <suffix>RN</suffix>
+            </name>
+          </assignedPerson>
+        </assignedAuthor>
+      </author>
     </observation>
   </component>
 </organizer>

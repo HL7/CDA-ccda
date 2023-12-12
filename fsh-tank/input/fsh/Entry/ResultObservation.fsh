@@ -34,6 +34,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7137)."
 * code 1..1
   * insert ShallCodeOrNullFlavor
+  * insert USCDI([[Tests]])
   * obeys 4537-19212
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."
 * statusCode 1..1
@@ -48,21 +49,18 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * ^slicing.discriminator[0].type = #type
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
-  * ^short = "Value can be any type, but certain types have additional rules listed below."
+  * insert USCDI([[Values/Results - Value can be any type, but certain types have additional rules.]])
 * value contains physical-quantity 0..1 and coded 0..1
 * value[physical-quantity] only $PQ
   * unit 1..1
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
-    * insert USCDI(Result Units)
+    * insert USCDI(Result Unit of Measure)
   * translation 0..1
     * ^short = "Can be used to represent the original results as output by the lab"
 * value[coded] only $CD
   * obeys 4537-32610
   * translation 0..1
     * ^short = "Can be used to represent the original results as output by the lab"
-  // * obeys 4537-31484 and 4537-32610
-  // * insert USCDI([[@unit if xsi:type=PQ is USCDI Result Units.  NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units]])
-  // * ^comment = "A coded or physical quantity value **MAY** contain zero or more [0..&ast;] translations, which can be used to represent the original results as output by the lab (CONF:4537-31866). / SHALL contain exactly one [1..1] value (CONF:4537-7143)."
 * obeys should-interpretationCode
 * interpretationCode from http://terminology.hl7.org/ValueSet/v3-ObservationInterpretation
   * insert USCDI([[Result Interpretation]])
@@ -71,18 +69,6 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."
 * targetSiteCode 0..1
   * ^comment = "MAY contain zero or one [0..1] targetSiteCode (CONF:4537-7153)."
-* specimen 0..*
-  * ^short = "Laboratory observations are expected to include the specimen participant. The specimen included at specimenPlayingEntity/code must be consistent with the observation/code."
-  * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4537-32611)."
-  * specimenRole 1..1
-    * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4537-32612)."
-    * id 1..*
-    * insert USCDI([[Specimen Identifier]])
-    * specimenPlayingEntity 1..1
-      * ^comment = "This specimenRole SHALL contain exactly one [1..1] specimenPlayingEntity (CONF:4537-32613)."
-      * code 1..1
-      * code from $2.16.840.1.113762.1.4.1099.54 (preferred)
-        * ^comment = "This specimenPlayingEntity SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Specimen type urn:oid:2.16.840.1.113762.1.4.1099.54 DYNAMIC (CONF:4537-32614)."
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation
