@@ -1,0 +1,153 @@
+<section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08- 01"/>
+    <id root="093A5380-00CE-11E6-B4C5-0050568B000B"/>
+    <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+        displayName="PROBLEM LIST"/>
+    <title>Problem List</title>
+    <text>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Problem Concern Information | Tracked By</th>
+                    <th>Condition(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr styleCode="normRow">
+                    <td ID="ProblemConcern_1"><content>Active Problem</content> | <content/></td>
+                    <td>
+                        <list>
+                            <item>
+<table>
+    <thead>
+        <tr>
+            <th>Problem Type | Problem<br/></th>
+            <th>Time Frame</th>
+            <th>Clinical Status</th>
+            <th>Documented By</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ID="ProblemObs1">
+            <td>
+                <content ID="ProblemObs_1_PT1">Problem</content> | <content
+                    styleCode="Bold" ID="ProblemObs_1_P1">Osteoarthritis</content>
+            </td>
+            <td><content>(09/09/2014 - )</content></td>
+            <td><content ID="ProblemObs_1_PS1">Active</content></td>
+            <td><content>W.Colon</content> <content>(06/18/2015)</content></td>
+        </tr>
+    </tbody>
+</table>
+                            </item>
+                        </list>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </text>
+    <entry>
+        <act classCode="ACT" moodCode="EVN">
+            <!-- Problem Concern -->
+            <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+            <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08- 01"/>
+            <id extension="68993" root="1.2.840.114350.1.13.6289.1.7.2.768076"/>
+            <id root="093A5380-00CE-11E6-B4C5-0050568B000B" extension="1"/>
+            <code code="CONC" codeSystem="2.16.840.1.113883.5.6"
+                codeSystemName="HL7ActClass" displayName="Concern"></code>
+            <!-- This shows what to do when the source system does not track problem concerns. -->
+            <text>
+                <reference value="#ProblemConcern_1"></reference>
+            </text>
+            <statusCode code="active"/>
+            <effectiveTime nullFlavor="NI"/>
+            <!-- A System that supports Concern tracking MAY include the author(s) of the Concern
+in addition to
+author(s) for the contained Problem Observation(s). -->
+            <entryRelationship inversionInd="false" typeCode="SUBJ">
+                <!-- Problem Observation -->
+                <observation classCode="OBS" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                    <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08- 01"/>
+                    <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2022-06-01"/>
+                    <id extension="68993" root="1.2.840.114350.1.13.6289.1.7.2.768076"/>
+                    <id root="093A5380-00CE-11E6-B4C5-0050568B000B" extension="1.1"/>
+                    <code code="55607006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                        displayName="Problem">
+                        <originalText>
+                            <reference value="#ProblemObs_1_PT1"/>
+                        </originalText>
+                        <translation code="75326-9" codeSystem="2.16.840.1.113883.6.1"
+                            codeSystemName="LOINC" displayName="Problem"/>
+                    </code>
+                    <text>
+                        <reference value="#ProblemObs1"/>
+                    </text>
+                    <statusCode code="completed"/>
+                    <effectiveTime>
+                        <low value="20140909"/>
+                    </effectiveTime>
+                    <value code="396275006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                        displayName="Osteoarthritis"
+                        xsi:type="CD"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <originalText>
+                            <reference value="#ProblemObs_1_P1"/>
+                        </originalText>
+                        <translation code="715.90" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD-
+                            9CM" displayName="Osteoarthritis"/>
+                        <translation code="M19.90" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-
+                            CM" displayName="Osteoarthritis"/>
+                    </value>
+                    <author>
+                        <time value="20150618"/>
+                        <assignedAuthor>
+                            <id nullFlavor="UNK"/>
+                            <addr>
+<streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
+<city>Bel Air</city>
+<state>MD</state>
+<postalCode>21014</postalCode>
+                            </addr>
+                            <telecom use="WP" value="tel:+1-410-555-5544"/>
+                            <assignedPerson>
+<name>
+    <given>Wilma</given>
+    <family>Colon</family>
+</name>
+                            </assignedPerson>
+                            <representedOrganization>
+<name>Good Health Hospital</name>
+<telecom use="WP" value="tel:+1-410-555-5544"/>
+<addr>
+    <streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
+    <city>Bel Air</city>
+    <state>MD</state>
+    <postalCode>21014</postalCode>
+</addr>
+                            </representedOrganization>
+                        </assignedAuthor>
+                    </author>
+                    <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.22.4.6"/>
+                            <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status"/>
+                            <text>
+<reference value="#ProblemObs_1_PS1"></reference>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime>
+<low value="20140909"/>
+                            </effectiveTime>
+                            <value code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"
+xsi:type="CD"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        </observation>
+                    </entryRelationship>
+                </observation>
+            </entryRelationship>
+        </act>
+    </entry>
+</section>

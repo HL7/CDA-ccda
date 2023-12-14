@@ -1,0 +1,83 @@
+<section>
+    <!-- *** Allergies and Intolerances Section *** -->
+<templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
+<templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
+<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+<title>ALLERGIES AND ADVERSE REACTIONS</title>
+<text ID="allergiesNoKnown">No Known Allergies</text>
+<entry typeCode="DRIV">
+<!-- Allergy Concern Act -->
+    <act classCode="A CT" moodCode="E VN">
+        <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+        <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08- 01"/>
+        <id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+        <!-- SDWG supports 48765-2 or CONC in the code element -->
+        <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+        <text>
+            <reference value="#allergiesNoKnown"/>
+        </text>
+        <statusCode code="active"/>
+        <!--currently tracked concerns are active concerns-->
+        <effectiveTime>
+            <low value="20100903"/>
+            <!--show time when the concern first began being tracked-->
+        </effectiveTime>
+        <entryRelationship typeCode="SUBJ">
+            <!-- No Known Allergies -->
+            <!-- The negationInd = true negates the observation/value -->
+            <!-- The use of negationInd corresponds with the newer
+Observation.valueNegationInd -->
+            <observation classCode="O BS" moodCode="E VN" negationInd="true">
+                <!-- allergy - intolerance observation template -->
+                <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06- 09"/>
+                <id root="4adc1020-7b14-11db-9fe1-0800200c9a66"/>
+                <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                <text>
+                    <reference value="#allergiesNoKnown"/>
+                </text>
+                <statusCode code="completed"/>
+                <!-- N/A - author/time records when this assertion was made -->
+                <effectiveTime>
+                    <low nullFlavor="NA"/>
+                </effectiveTime>
+                <value xsi:type="CD" code="419199007"
+                    displayName="Allergy to substance (disorder)"
+                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+                <author>
+                    <!-- Provenance - Author Participation -->
+                    <templateId root="2.16.840.1.113883.10.20.22.5.6" extension="2019-10- 01" />
+                    <time value="201308011235-0800"/>
+                    <assignedAuthor>
+                        <!-- NPI of Author (example) -->
+                        <id root="2.16.840.1.113883.4.6" extension="1234567"/>
+                        <assignedPerson>
+                            <name>
+<given>Nurse</given>
+<family>Nightingale</family>
+<suffix>RN</suffix>
+                            </name>
+                        </assignedPerson>
+                        <representedOrganization>
+                            <!-- Tax Identifier of Organization is Unknown -->
+                            <id root="2.16.840.1.113883.5.1008" nullFlavor="U NK"/>
+                            <!-- NPI of Organization -->
+                            <id root="2.16.840.1.113883.4.6" extension="1104145838"/>
+                            <name>Good Health Hospital</name>
+                            <telecom value="tel:+1(555)867-5309"/>
+                        </representedOrganization>
+                    </assignedAuthor>
+                </author>
+                <!-- In C-CDA R2.1 the participant is required. -->
+                <participant typeCode="C SM">
+                    <participantRole classCode="MANU">
+                        <playingEntity classCode="MMAT">
+                            <code nullFlavor="NA"/>
+                        </playingEntity>
+                    </participantRole>
+                </participant>
+            </observation>
+        </entryRelationship>
+    </act>
+    </entry>
+</section>

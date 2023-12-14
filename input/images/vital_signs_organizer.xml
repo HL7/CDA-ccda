@@ -1,0 +1,113 @@
+<section>
+    <!-- This section shows an example of rendering information in the correct local time, which
+recording it in the discrete data using a UTC offset. -->
+    <!-- Note that in June, UTC offset -0500 is Central time. and Eastern Timezone is the local
+time for this example. -->
+    <templateId root="2.16.840.1.113883.10.20.22.2.4.1"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015- 08 - 01"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.4.1"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08- 01"/>
+    <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+        displayName="Vital Signs"/>
+    <title>LAST RECORDED VITAL SIGNS</title>
+    <text>
+        <table>
+            <thead>
+                <tr>
+                    <th>Vital Sign</th>
+                    <th>Reading</th>
+                    <th>Time Taken</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td styleCode="cellHeader">Blood Pressure</td>
+                    <td>
+                        <content ID="sysBP_5523355980">140</content>/<content
+                            ID="diaBP_5523355980">90</content>
+                    </td>
+                    <td>(06/25/2015 1:33pm EST)</td>
+                </tr>
+                <tr>
+                    <td styleCode="cellHeader">Weight</td>
+                    <td ID="weight_5523355980">83.9 kg (185 lb)</td>
+                    <td>(06/25/2015 1:33pm EST)</td>
+                </tr>
+            </tbody>
+        </table>
+    </text>
+    <entry typeCode="DRIV">
+        <organizer classCode="CLUSTER" moodCode="EVN">
+            <templateId root="2.16.840.1.113883.10.20.22.4.26"/>
+            <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08- 01"/>
+            <id extension="5523355980-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.2109"/>
+            <code code="46680005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                displayName="Vital signs">
+                <translation code="74728-7" codeSystem="2.16.840.1.113883.6.1"
+                    codeSystemName="LOINC"
+                    displayName="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA
+                    panel"/>
+            </code>
+            <statusCode code="completed"/>
+            <effectiveTime value="20160625123300-0500"/>
+            <!-- Context Conduction permits the author to be included once at the organizer level.
+Authorship conducts down into the component observations. -->
+            <author>
+                <time value="20160625123300-0500"/>
+                <assignedAuthor>
+                    <id extension="811111111" root="2.16.840.1.113883.4.6"/>
+                </assignedAuthor>
+            </author>
+            <component>
+                <observation classCode="OBS" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                    <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06- 09"/>
+                    <id extension="5523355980-sysBP-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.2109.1"/>
+                    <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="SYSTOLIC BLOOD PRESSURE"/>
+                    <text>
+                        <reference value="#sysBP_5523355980"/>
+                    </text>
+                    <statusCode code="completed"/>
+                    <effectiveTime value="20160625123300-0500"/>
+                    <value xsi:type="PQ" unit="mm[Hg]" value="140"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                </observation>
+            </component>
+            <component>
+                <observation classCode="OBS" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                    <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06- 09"/>
+                    <id extension="5523355980-diaBP-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.2109.1"/>
+                    <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="DIASTOLIC BLOOD PRESSURE"/>
+                    <text>
+                        <reference value="#diaBP_5523355980"/>
+                    </text>
+                    <statusCode code="completed"/>
+                    <effectiveTime value="20160625123300-0500"/>
+                    <value xsi:type="PQ" unit="mm[Hg]" value="90"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                </observation>
+            </component>
+            <component>
+                <observation classCode="OBS" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                    <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06- 09"/>
+                    <id extension="5523355980-weightC83-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.2109.1"/>
+                    <code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/>
+                    <text>
+                        <reference value="#weight_5523355980"/>
+                    </text>
+                    <statusCode code="completed"/>
+                    <effectiveTime value="20160625123300-0500"/>
+                    <value xsi:type="PQ" unit="kg" value="83.915"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                </observation>
+            </component>
+        </organizer>
+    </entry>
+</section>

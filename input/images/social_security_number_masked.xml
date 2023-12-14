@@ -1,0 +1,30 @@
+<recordTarget>
+    <patientRole>
+        <!-- Example Social Security Number using the root for the Social Security Administration
+assigningAuthority. -->
+        <id assigningAuthorityName="US Social Security Administration" root="2.16.840.1.113883.4.1"
+            extension="414122222"/>
+        <!-- SSN provided, but masked to include only the last 4 characters. -->
+        <!-- Note: both examples are shows for comparison. It would not make sense to use both of
+these options in a real C-CDA Document. -->
+        <!-- When recording SSN in the extension dashes (-) are permitted but not required" -->
+        <!-- Receiving systems may decide whether to store the last 4 or discard -->
+        <!-- an id with a nullFlavor SHALL NOT be used for matching or indexing -->
+        <id assigningAuthorityName="US Social Security Administration" root="2.16.840.1.113883.4.1"
+            extension="***-**- 2222" nullFlavor="MSK"/>
+        <addr use="HP">
+            <!-- HP is "primary home" from codeSystem 2.16.840.1.113883.5.1119 -->
+            <streetAddressLine>1357 Amber Dr</streetAddressLine>
+            <city>Beaverton</city>
+            <state>OR</state>
+            <postalCode>97006</postalCode>
+            <country>US</country>
+            <!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
+        </addr>
+        <telecom value="tel:+1(555)- 777 - 1234" use="MC"/>
+        <telecom value="tel:+1(555)- 723 - 1544" use="HP"/>
+        <!-- HP is "primary home" from HL7 AddressUse 2.16.840.1.113883.5.1119 -->
+        <patient> </patient>
+        <providerOrganization> </providerOrganization>
+    </patientRole>
+</recordTarget>
