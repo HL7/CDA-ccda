@@ -8,11 +8,11 @@
             </extension>
         </valueBoolean>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="ClinicalDocument"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
@@ -168,14 +168,14 @@
                 <key value="should-section-procedures"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain a Procedures Section"/>
-                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.7.1' and extension = '2014-06-09'))"/>
+                <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>
             <constraint>
                 <key value="should-section-plan-of-treatment"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain a Plan of Treatment Section"/>
-                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.10' and extension = '2014-06-09'))"/>
+                <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>
         </element>

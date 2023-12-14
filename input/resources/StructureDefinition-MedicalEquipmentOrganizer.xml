@@ -8,11 +8,11 @@
             </extension>
         </valueBoolean>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="organizer"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="organizer"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
@@ -50,7 +50,7 @@
                 <key value="1098-32380"/>
                 <severity value="error"/>
                 <human value="Either Non-Medicinal Supply Activity (templateId:2.16.840.1.113883.10.20.22.4.50:2014-06-09) **OR** Procedure Activity Procedure (templateId:2.16.840.1.113883.10.20.22.4.14:2014-06-09) **SHALL** be present (CONF:1098-32380)."/>
-                <expression value="component.where(supply.templateId.where(root = '2.16.840.1.113883.10.20.22.4.50' and extension = '2014-06-09')).exists() or component.where(procedure.templateId.where(root = '2.16.840.1.113883.10.20.22.4.14' and extension = '2022-06-01')).exists()"/>
+                <expression value="component.where(supply.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity')).exists() or component.where(procedure.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentOrganizer"/>
             </constraint>
         </element>

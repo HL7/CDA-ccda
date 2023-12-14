@@ -8,11 +8,11 @@
             </extension>
         </valueBoolean>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="section"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="section"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
@@ -43,7 +43,7 @@
                 <key value="should-nutritional-status-obs"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain Nutritional Status Observation"/>
-                <expression value="entry.where(observation.templateId.where(root = '2.16.840.1.113883.10.20.22.4.124' and extension.empty()))"/>
+                <expression value="entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/NutritionalStatusObservation'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionSection"/>
             </constraint>
         </element>

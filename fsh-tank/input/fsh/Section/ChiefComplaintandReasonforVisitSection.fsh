@@ -9,4 +9,4 @@ Description: "This section records the patient's chief complaint (the patient's 
 Invariant: no-cc-rfv
 Description: "When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used."
 Severity: #error
-Expression: "%resource.component.structuredBody.component.where(section.hasTemplateIdOf(ChiefComplaintSection) | section.hasTemplateIdOf(ReasonforVisitSection)).empty()"
+Expression: "%resource.component.structuredBody.component.where(section.hasTemplateIdOf(ChiefComplaintSection) or section.hasTemplateIdOf(ReasonforVisitSection)).empty()"

@@ -8,11 +8,11 @@
             </extension>
         </valueBoolean>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="section"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="section"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
@@ -44,14 +44,14 @@
                 <key value="should-non-med-supply"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain Non-Medicinal Supply Activity"/>
-                <expression value="entry.where(supply.templateId.where(root = '2.16.840.1.113883.10.20.22.4.50' and extension = '2014-06-09'))"/>
+                <expression value="entry.where(supply.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentSection"/>
             </constraint>
             <constraint>
                 <key value="should-procedure-act-procedure"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain Procedure Activity Procedure"/>
-                <expression value="entry.where(procedure.templateId.where(root = '2.16.840.1.113883.10.20.22.4.14' and extension = '2022-06-01'))"/>
+                <expression value="entry.where(procedure.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalEquipmentSection"/>
             </constraint>
         </element>

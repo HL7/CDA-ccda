@@ -8,11 +8,11 @@
             </extension>
         </valueBoolean>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="ClinicalDocument"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
@@ -180,14 +180,14 @@
                 <key value="cc-rfv-combo"/>
                 <severity value="error"/>
                 <human value="This structuredBody **SHALL NOT** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) when either a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12) is present."/>
-                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.13' and extension.empty())).exists() implies component.where(section.templateId.where(root = '1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and extension.empty()) or section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.12' and extension.empty())).empty()"/>
+                <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintandReasonforVisitSection')).exists() implies component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintSection') or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforVisitSection')).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary"/>
             </constraint>
             <constraint>
                 <key value="should-section-discharge-meds"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain a Discharge Medications Section"/>
-                <expression value="component.where(section.templateId.where(root = '2.16.840.1.113883.10.20.22.2.11.1' and extension = '2015-08-01'))"/>
+                <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/DischargeMedicationsSection'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary"/>
             </constraint>
         </element>
