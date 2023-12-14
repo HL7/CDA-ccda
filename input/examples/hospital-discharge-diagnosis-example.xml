@@ -2,6 +2,9 @@
   <templateId root="2.16.840.1.113883.10.20.22.4.33" extension="2015-08-01"/>
   <id root="5a784260-6856-4f38-9638-80c751aff2fb" />
   <code code="11535-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HOSPITAL DISCHARGE DIAGNOSIS" />
+  <text>
+    <reference value="#dischargediag" />
+  </text>
   <statusCode code="active" />
   <effectiveTime>
     <low value="201209091904-0400" />
@@ -9,10 +12,15 @@
   <entryRelationship typeCode="SUBJ" inversionInd="false">
     <observation classCode="OBS" moodCode="EVN">
       <!-- Problem observation template -->
-      <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01" />
+      <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2022-06-01" />
       <id root="AB1791B0-5C71-11DB-B0DE-0800200C9A66" />
       <code code="64572001" displayName="Condition" 
-        codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+        codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+        <translation code="29308-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diagnosis" />  
+      </code>
+      <text>
+        <reference value="#problem" />
+      </text>
       <statusCode code="completed" />
       <effectiveTime>
         <!-- The low value reflects the date of onset -->
@@ -25,7 +33,29 @@
       <value xsi:type="CD"
         code="233604007" 
         codeSystem="2.16.840.1.113883.6.96"  
-        displayName="Pneumonia" />      
+        displayName="Pneumonia" />   
+      <author>
+        <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+        <time value="20130311" />
+        <assignedAuthor>
+          <id extension="KP00017" root="2.16.840.1.113883.19.5" />
+          <addr use="HP">
+            <streetAddressLine>1003 Health Care
+                        Drive</streetAddressLine>
+            <city>Ann Arbor</city>
+            <state>MI</state>
+            <postalCode>02368</postalCode>
+            <country>US</country>
+          </addr>
+          <telecom use="WP" value="tel:(555)555-1003" />
+          <assignedPerson>
+            <name>
+              <given>Assigned</given>
+              <family>Amanda</family>
+            </name>
+          </assignedPerson>
+        </assignedAuthor>
+      </author>   
     </observation>
   </entryRelationship>
 </act>
