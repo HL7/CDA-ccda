@@ -93,23 +93,9 @@ for how to override confidentiality context at the entry level.
 
 This example explains explains that the author of the section is not known. Thus the author in the header does not
 conduct to be the author of the unparsed narrative information contained in the section.
-```
-<section>
-    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1"/>
-    <code code="10154-3" displayName="Chief complaint Reported"
-        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-    <title>Chief Complaint Section</title>
-    <text><content>No complaints, annual wellness exam</content>
-        <content>Author of this section not known.</content>
-    </text>
-    <author nullFlavor="UNK">
-        <time/>
-        <assignedAuthor>
-            <id/>
-        </assignedAuthor>
-    </author>
-</section>
-```
+
+{% include examplebutton_default.html example="section_narrative_nullFlavor.xml" b_title = "Click Here to See 'Section with narrative and nullFlavor' Example" %}
+
 **Reference:** For additional information on Context Conduction mechanisms in CDA documents,see [CDA Context](https://build.fhir.org/ig/HL7/CDA-core-sd/overview.html#cda-context) the HL7 CDA R2.0 Structure Definition Publication. 
 
 **Reference:** The [HL7 Data Security for Privacy](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=354) and HL7 Privacy Consent Directives implementation guides define
@@ -206,135 +192,13 @@ Patient matching continues to be one of the major challenges for interoperabilit
 
 **Example 5: recordTarget with demographic data**
 
-```
-<recordTarget>
-    <patientRole>
-        <!-- Here is a public id that has an external meaning based on a root OID that is
-publically identifiable. -->
-        <!-- root="1.3.6.1.4.1.41179.2.4" is the assigningAuthorityName for
-DirectTrust's Patient/Consumer addresses "DT.org PATIENT" -->
-        <id root="1.3.6.1.4.1.41179.2.4" extension="lisarnelson@direct.myphd.us"
-            assigningAuthorityName="DT.org PATIENT"/>
-        <!-- More ids may be used. -->
-        <!-- Here is the patient's MRN at RVHS -->
-        <id root="2.16.840.1.113883.1.111.12345" extension="12345-0828"
-            assigningAuthorityName="River Valley Health Services local patient Medical
-            Record Number" />
-        <addr>
-            <streetAddressLine>1 Happy Valley Road</streetAddressLine>
-            <city>Westerly</city>
-            <state>RI</state>
-            <postalCode>02891</postalCode>
-            <country nullFlavor="UNK"/>
-        </addr>
-        <telecom use="WP" value="tel:+1-4013482345"/>
-        <telecom use="HP" value="tel:+1-4016412345"/>
-        <telecom value="mailto:lisanelson@gmail.com"/>
-        <telecom value="mailto:lisarnelson@direct.myphd.us"/>
-        <patient>
-            <name use="L">
-                <family>Nelson</family>
-                <given qualifier="CL">Lisa</given>
-            </name>
-            <administrativeGenderCode code="F" displayName="Female"
-                codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7
-                AdministrativeGender"/>
-            <birthTime value="19620828"/>
-            <maritalStatusCode code="M" displayName="Married"
-                codeSystem="2.16.840.1.113883.5.2"
-                codeSystemName="HL7 MaritalStatus"/>
-            <raceCode code="2106-3" displayName="White"
-                codeSystem="2.16.840.1.113883.6.238"
-                codeSystemName="CDC Race and Ethnicity"/>
-            <ethnicGroupCode code="2186-5" displayName="Not Hispanic or Latino"
-                codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDC Race and
-                Ethnicity"/>
-            <languageCommunication>
-                <templateId root="2.16.840.1.113883.3.88.11.32.2"/>
-                <languageCode code="eng"/>
-                <preferenceInd value="true"/>
-            </languageCommunication>
-        </patient>
-        <providerOrganization>
-            <!-- This is a public id where the root is registered to indicate the
-National Provider ID -->
-            <id root="2.16.840.1.113883.4.6" extension="1417947383"
-                assigningAuthorityName="National Provider ID"/>
-        </providerOrganization>
-    </patientRole>
-</recordTarget>
-```
+{% include examplebutton_default.html example="recordTarget_demographic_data.xml" b_title = "Click Here to See 'recordTarget with demographic data' Example" %}
+
 
 **Example 6: recordTarget including the provider organization context for the clinical documentation**
-```
-<recordTarget>
-    <patientRole>
-        <!-- Here is a public id that has an external meaning based on a root OID that is publicly identifiable. -->
-        <!-- root="1.3.6.1.4.1.41179.2.4" is the assigningAuthorityName for
-DirectTrust's Patient/Consumer addresses "DT.org PATIENT" -->
-        <id root="1.3.6.1.4.1.41179.2.4" extension="lisarnelson@direct.myphd.us"
-            assigningAuthorityName="DT.org PATIENT"/>
-        <!-- More ids may be used. -->
-        <!-- Here is the patient's MRN at RVHS -->
-        <id root="2.16.840.1.113883.1.111.12345" extension="12345-0828"
-            assigningAuthorityName="River Valley Health Services local patient Medical Record Number" />
-        <addr>
-            <streetAddressLine>1 Happy Valley Road</streetAddressLine>
-            <city>Westerly</city>
-            <state>RI</state>
-            <postalCode>02891</postalCode>
-            <country nullFlavor="UNK"/>
-        </addr>
-        <telecom use="WP" value="tel:+1-4013482345"/>
-        <telecom use="HP" value="tel:+1-4016412345"/>
-        <telecom value="mailto:lisanelson@gmail.com"/>
-        <telecom value="mailto:lisarnelson@direct.myphd.us"/>
-        <patient>
-            <name use="L">
-                <family>Nelson</family>
-                <given qualifier="CL">Lisa</given>
-            </name>
-            <administrativeGenderCode code="F" displayName="Female"
-                codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7 AdministrativeGender"/>
-            <birthTime value="19620828"/>
-            <maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2"
-                codeSystemName="HL7 MaritalStatus"/>
-            <raceCode code="2106-3" displayName="White" codeSystem="2.16.840.1.113883.6.238"
-                codeSystemName="CDC Race and Ethnicity"/>
-            <ethnicGroupCode code="2186-5" displayName="Not Hispanic or Latino"
-                codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDC Race and Ethnicity"/>
-            <languageCommunication>
-                <templateId root="2.16.840.1.113883.3.88.11.32.2"/>
-                <languageCode code="eng"/>
-                <preferenceInd value="true"/>
-            </languageCommunication>
-        </patient>
-        <providerOrganization>
-            <!-- This is a public id where the root is registered to indicate the National Provider ID -->
-            <id root="2.16.840.1.113883.4.6" extension="1417947383"
-                assigningAuthorityName="National Provider ID"/>
-            <!-- This is a public id where the root indicates this is a Provider Direct Address. -->
-            <!-- root="1.3.6.1.4.1.41179.2.1" is the assigningAuthorityName for
-DirectTrust's Covered Entity addresses "DT.org CE" -->
-            <id root="1.3.6.1.4.1.41179.2.1" extension="rvhs@rvhs.direct.md" assigningAuthorityName="DT.org CE (Covered Entity)"/>
-            <!-- By including a root OID attribute for a healthcare organization, you can use this information to
-indicate a patient's MRN id at that organization.-->
-            <id root="2.16.840.1.113883.1.111.12345"
-                assigningAuthorityName="River Valley Health Services local patient Medical Record Number" />
-            <name>River Valley Health Services</name>
-            <telecom use="WP" value="tel:+1-4015394321"/>
-            <telecom use="WP" value="mailto:rvhs@rvhs.direct.md"/>
-            <addr>
-                <streetAddressLine>823 Main Street</streetAddressLine>
-                <city>River Valley</city>
-                <state>RI</state>
-                <postalCode>028321</postalCode>
-                <country>US</country>
-            </addr>
-        </providerOrganization>
-    </patientRole>
-</recordTarget>
-```
+
+{% include examplebutton_default.html example="recordTarget_provider_context.xml" b_title = "Click Here to See 'recordTarget with including provider organization context' Example" %}
+
 
 The CDA Examples Search tool provides useful examples showing the Patient Demographic data elements
 represented in a C-CDA document. The examples below show how to include information about a patient’s prior
@@ -344,202 +208,21 @@ an exchange document remains a business decision to be made by organizations eng
 [CDA Header: Patient Demographic Information](https://cdasearch.hl7.org/examples/view/Header/Patient%20Demographic%20Information)
 
 **Example 7: How to represent Patient demographic Information**
-```
-<recordTarget>
-    <patientRole>
-        <!-- The @root OID below (which is fictional) would be specific to an institution's
-record identifier system. -->
-        <id root="2.16.840.1.113883.3.6132" extension="345678912-0154"/>
-        <!-- HP is "primary home" from valueSet 2.16.840.1.113883.1.11.10637 -->
-        <addr use="HP">
-            <!-- You can have multiple [1..4] streetAddressLine elements. Single shown below -->
-            <streetAddressLine>1436 Jennyhill Ln.</streetAddressLine>
-            <city>Hollywood</city>
-            <!-- 5 or 9 digit zip codes from valueSet 2.16.840.1.113883.3.88.12.80.2-->
-            <!-- PostalCode is required if the country is US. If country is not specified, it's
-assumed to be US. If country -->
-            <!-- is something other than US, the postalCode MAY be present but MAY be bound to
-different vocabularies -->
-            <postalCode>90068</postalCode>
-            <!-- State is required if the country is US. If country is not specified, it's
-assumed to be US. -->
-            <!-- If country is something other than US, the state MAY be present but MAY be bound
-to different vocabularies -->
-            <!-- OR is "Oregon" from valueSet 2.16.840.1.113883.3.88.12.80.1 -->
-            <state>CA</state>
-            <!-- US is the two digit code for "United States" -->
-            <country>US</country>
-        </addr>
-        <!-- MC is "mobile contact" from HL7 AddressUse 2.16.840.1.113883.5.1119 -->
-        <telecom value="tel:+1(565)867-5309" use="MC"/>
-        <!-- Multiple telecoms are possible -->
-        <telecom value="mailto://adam@diameterhealth.com" use="WP"/>
-        <patient>
-            <name use="L">
-                <given>Adam</given>
-                <family>Everyman</family>
-            </name>
-            <!-- From CDA R2 on administrativeGender Code: This attribute does not include terms
-related to clinical gender.
-Gender is a complex physiological, genetic and sociological concept
-that requires multiple observations in order to be
-comprehensively described. The purpose of this attribute is to
-provide a high level classification that can additionally
-be used for the appropriate allocation of inpatient bed assignment.-->
-            <!-- Sex at birth and gender identity may be specified in social history -->
-            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"
-                displayName="Male" codeSystemName="AdministrativeGender"/>
-            <birthTime value="19621022"/>
-            <maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2"
-                codeSystemName="MaritalStatus"/>
-            <religiousAffiliationCode code="1013" displayName="Christian (non-Catholic, non-
-                specific)" codeSystem="2.16.840.1.113883.5.1076" codeSystemName="HL7 Religious Affiliation"/>
-            <!-- CDC Race and Ethnicity code set contains the five minimum race and the two
-minimum ethnicity categories defined by OMB Standards -->
-            <raceCode code="2106-3" displayName="White" codeSystem="2.16.840.1.113883.6.238"
-                codeSystemName="OMB Standards for Race and Ethnicity"/>
-            <ethnicGroupCode code="2186-5" displayName="Not Hispanic or Latino"
-                codeSystem="2.16.840.1.113883.6.238" codeSystemName="OMB Standards for Race and Ethnicity"/>
-            <languageCommunication>
-                <languageCode code="eng"/>
-                <!-- "eng" is ISO 639-2 alpha-3 code for "English" -->
-                <modeCode code="ESP" displayName="Expressed spoken"
-                    codeSystem="2.16.840.1.113883.5.60" codeSystemName="LanguageAbilityMode"/>
-                <proficiencyLevelCode code="E" displayName="Excellent"
-                    codeSystem="2.16.840.1.113883.5.61" codeSystemName="LanguageAbilityProficiency"/>
-                <preferenceInd value="true"/>
-            </languageCommunication>
-            <!-- Multiple languages are permitted. Only one should have a preferenceInd = true -->
-            <languageCommunication>
-                <languageCode code="ita"/>
-                <!-- "ita" is ISO 639-2 alpha-3 code for "Italian" -->
-                <modeCode code="ESP" displayName="Expressed spoken"
-                    codeSystem="2.16.840.1.113883.5.60" codeSystemName="LanguageAbilityMode"/>
-                <proficiencyLevelCode code="G" displayName="Good"
-                    codeSystem="2.16.840.1.113883.5.61" codeSystemName="LanguageAbilityProficiency"/>
-                <!-- Patient's preferred language -->
-                <preferenceInd value="false"/>
-            </languageCommunication>
-        </patient>
-    </patientRole>
-</recordTarget>
-```
+
+{% include examplebutton_default.html example="patient_demographic_data.xml" b_title = "Click Here to See 'Patient Demographic Information' Example" %}
+
 
 **Example 8: How to represent Patient with Previous Name**
-```
-<recordTarget>
-    <!-- Note: several other data elements (telecom, address, etc.) are required to meet C-CDA requirements -->
-    <patientRole>
-        <id extension="444222222" root="2.16.840.1.113883.4.1"/>
-        <patient>
-            <!-- SDWG reviewed and approved approach for recording a birth name and legal name -->
-            <name use="L">
-                <given>Alice</given>
-                <given>Jones</given>
-                <family>Newman</family>
-            </name>
-            <name>
-                <given qualifier="BR">Alicia</given> <!-- BR = Birth name-->
-                <given>Jones</given>
-                <family qualifier="BR">Newman</family> <!-- BR = Birth name-->
-                <!-- Optional valid time - best practice -->
-                <validTime>
-                    <low value="20010505"/>
-                    <high value="20010510"/>
-                </validTime>
-            </name>
-        </patient>
-    </patientRole>
-</recordTarget>
-```
+
+{% include examplebutton_default.html example="patient_previous_names.xml" b_title = "Click Here to See 'Patient with Previous Names' Example" %}
+
 
 [Previous Name](https://cdasearch.hl7.org/examples/view/Header/Patient%20Previous%20Name)
 
 **Example 9: How to represent Patient with Prior Address**
-```
-<!-- recordTarget example from C-CDA-Examples/Header/Patient Demographic Information
-added multiple home addresses
--->
-<recordTarget>
-    <patientRole>
-        <id root="2.16.840.1.113883.3.6132" extension="345678912-0154"/>
-        <!-- HP is "primary home" from valueSet 2.16.840.1.113883.1.11.10637
-and in this instance represents patient's current address -->
-        <addr use="HP">
-            <streetAddressLine>152 Creek Lane</streetAddressLine>
-            <city>Shelburne</city>
-            <state>VT</state>
-            <postalCode>05455</postalCode>
-            <country>US</country>
-            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:type="IVL_TS">
-                <low value="20110822"/>
-            </useablePeriod>
-            <!-- It is permissible to omit a low element to indicate current residence -->
-            <!-- It is permissible to omit a high element or use nullFlavor='NA' -->
-        </addr>
-        <addr use="H">
-            <streetAddressLine>191 S OAK AVE</streetAddressLine>
-            <city>BURLINGTON</city>
-            <state>VT</state>
-            <postalCode>05422</postalCode>
-            <country>US</country>
-            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:type="IVL_TS">
-                <low value="20110131"/>
-                <high value="20110821"/>
-            </useablePeriod>
-        </addr>
-        <addr use="H">
-            <streetAddressLine>1141 W MAIN AVE</streetAddressLine>
-            <city>CHICAGO</city>
-            <state>IL</state>
-            <postalCode>60613</postalCode>
-            <country>US</country>
-            <useablePeriod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:type="IVL_TS">
-                <low value="20070513"/>
-                <high value="20110130"/>
-            </useablePeriod>
-        </addr>
-        <telecom value="tel:+1(565)867-5309" use="MC"/>
-        <telecom value="mailto://adam@diameterhealth.com" use="WP"/>
-        <patient>
-            <name use="L">
-                <given>Adam</given>
-                <family>Everyman</family>
-            </name>
-            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"
-                displayName="Male" codeSystemName="AdministrativeGender"/>
-            <birthTime value="19621022"/>
-            <maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2"
-                codeSystemName="MaritalStatus"/>
-            <religiousAffiliationCode code="1013" displayName="Christian (non-Catholic, non-
-                specific)" codeSystem="2.16.840.1.113883.5.1076" codeSystemName="HL7 Religious Affiliation"/>
-            <raceCode code="2106-3" displayName="White" codeSystem="2.16.840.1.113883.6.238"
-                codeSystemName="OMB Standards for Race and Ethnicity"/>
-            <ethnicGroupCode code="2186-5" displayName="Not Hispanic or Latino"
-                codeSystem="2.16.840.1.113883.6.238" codeSystemName="OMB Standards for Race and Ethnicity"/>
-            <languageCommunication>
-                <languageCode code="eng"/>
-                <modeCode code="ESP" displayName="Expressed spoken"
-                    codeSystem="2.16.840.1.113883.5.60" codeSystemName="LanguageAbilityMode"/>
-                <proficiencyLevelCode code="E" displayName="Excellent"
-                    codeSystem="2.16.840.1.113883.5.61" codeSystemName="LanguageAbilityProficiency"/>
-                <preferenceInd value="true"/>
-            </languageCommunication>
-            <languageCommunication>
-                <languageCode code="ita"/>
-                <modeCode code="ESP" displayName="Expressed spoken"
-                    codeSystem="2.16.840.1.113883.5.60" codeSystemName="LanguageAbilityMode"/>
-                <proficiencyLevelCode code="G" displayName="Good"
-                    codeSystem="2.16.840.1.113883.5.61" codeSystemName="LanguageAbilityProficiency"/>
-                <preferenceInd value="false"/>
-            </languageCommunication>
-        </patient>
-    </patientRole>
-</recordTarget>
-```
+
+{% include examplebutton_default.html example="patient_prior_address.xml" b_title = "Click Here to See 'Patient with Prior Address' Example" %}
+
 
 [Prior Address](http://hl7-c-cda-examples.herokuapp.com/examples/view/Header/Patient%20With%20Prior%20Addresses)
 
@@ -580,108 +263,10 @@ These value sets are available in the C-CDA Value Set Release Package available 
 
 **Example 10: Logical display order of name pieces**
 
-(i.e., such that a receiver which only extracts the text and ignores the markup around <given>, <family>, etc. would still display
-the name in a way a human would interpret correctly).
-```
-    <recordTarget>
-        <!-- Examples of how systems send names and logical display order -->
-        <!-- Note: This snippet omits other data elements required to meet C-CDA requirements
-(telecom, address, etc.) -->
-        <patientRole>
-            <id nullFlavor="NI" />
-            <patient>
-                <!-- This is okay; "Robin Taylor" is a logical display order -->
-                <name>
-                    <given>Robin</given>
-                    <family>Taylor</family>
-                </name>
-                <!-- This is okay; "Taylor, Robin" implies Lastname, Firstname ordering in the US -->
-                <name>
-                    <family>Taylor</family>
-                    <delimiter>, </delimiter>
-                    <given>Robin</given>
-                </name>
-                <!-- This is okay; "Dr. Robin Taylor" is a logical display order -->
-                <name>
-                    <prefix qualifier="AC TITLE">Dr. </prefix><!-- Space in element is intentional
-(see CDA R2.0 Section 2.23.4) -->
-                    <given>Robin</given>
-                    <family>Taylor</family>
-                </name>
-                <!-- This is okay; "Robin Taylor MD" is a logical display order -->
-                <name>
-                    <given>Robin</given>
-                    <family>Taylor</family>
-                    <suffix qualifier="AC TITLE"> MD</suffix><!-- Space in element is intentional
-(see CDA R2.0 Section 2.23.4) -->
-                </name>
-                <!-- Don't do this; "Robin Taylor Dr." isn't a logical display order -->
-                <name>
-                    <given>Robin</given>
-                    <family>Taylor</family>
-                    <prefix qualifier="AC TITLE">Dr. </prefix><!-- Space in element is intentional -->
-</name>
-<!-- Don't do this; "Taylor Robin" is confusing (is Taylor the given name?) -->
-                    <name>
-                        <family>Taylor</family>
-                        <given>Robin</given>
-                    </name>
-            </patient>
-        </patientRole>
-    </recordTarget>
-```
+(i.e., such that a receiver which only extracts the text and ignores the markup around <given>, <family>, etc. would still display the name in a way a human would interpret correctly).
 
-Some systems may collect a patient’s Social Security number but organizational business rules prohibit distribution
-of the full number and require that all but the final four digits of the identifier to be masked when distributing this
-information to data sharing partners.
+{% include examplebutton_default.html example="name_display_order.xml" b_title = "Click Here to See 'Name Display Order' Example" %}
 
-<table
-	style="border-collapse:collapse;margin-left:24.01pt"
-	cellspacing="0">
-	<tr style="height:26pt">
-	    <td
-	      style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
-	      bgcolor="#C5D9F0"><p class="s19"
-	      style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
-	      >Content Consumers SHALL NOT treat id elements that
-	include a nullFlavor attribute as globally unique
-	identifiers. <b>[BP-034]</b></p></td>
-	</tr>
-</table>
-
-**Example 11: How to represent a social security number (SSN) that has been masked to show only the last four digits**
-```
-<recordTarget>
-    <patientRole>
-        <!-- Example Social Security Number using the root for the Social Security Administration
-assigningAuthority. -->
-        <id assigningAuthorityName="US Social Security Administration" root="2.16.840.1.113883.4.1"
-            extension="414122222"/>
-        <!-- SSN provided, but masked to include only the last 4 characters. -->
-        <!-- Note: both examples are shows for comparison. It would not make sense to use both of
-these options in a real C-CDA Document. -->
-        <!-- When recording SSN in the extension dashes (-) are permitted but not required" -->
-        <!-- Receiving systems may decide whether to store the last 4 or discard -->
-        <!-- an id with a nullFlavor SHALL NOT be used for matching or indexing -->
-        <id assigningAuthorityName="US Social Security Administration" root="2.16.840.1.113883.4.1"
-            extension="***-**- 2222" nullFlavor="MSK"/>
-        <addr use="HP">
-            <!-- HP is "primary home" from codeSystem 2.16.840.1.113883.5.1119 -->
-            <streetAddressLine>1357 Amber Dr</streetAddressLine>
-            <city>Beaverton</city>
-            <state>OR</state>
-            <postalCode>97006</postalCode>
-            <country>US</country>
-            <!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
-        </addr>
-        <telecom value="tel:+1(555)- 777 - 1234" use="MC"/>
-        <telecom value="tel:+1(555)- 723 - 1544" use="HP"/>
-        <!-- HP is "primary home" from HL7 AddressUse 2.16.840.1.113883.5.1119 -->
-        <patient> </patient>
-        <providerOrganization> </providerOrganization>
-    </patientRole>
-</recordTarget>
-```
 
 #### Representing Multiple Races or Multiple Ethnicities
 
@@ -764,22 +349,32 @@ identifiers they assign. The table below includes some examples.
 {:.grid}
 **Table 11: Patient Identifiers**
 
-**Example 12: How to represent a patient's social security number**
-```
-<recordTarget>
-    <patientRole>
-        <id assigningAuthorityName="EPI"
-            extension="700000305" root="1.2.840.114350.1.13.6289.1.7.5.737384.14"/>
-        <id assigningAuthorityName="US Social Security Administration"
-            root="2.16.840.1.113883.4.1" extension="999-99- 9999"/>
-        <id assigningAuthorityName="Driver’s license issuing authority"
-            extension="43721-643" root="2.16.840.1.113883.4.3.24"/>
-        <patient>
-            <name use="L"><given>Barbara</given><family>Epic</family></name>
-        </patient>
-    </patientRole>
-</recordTarget>
-```
+**Example 11: How to represent a social security number (SSN)**
+
+{% include examplebutton_default.html example="social_security_number.xml" b_title = "Click Here to See 'Social Security Number' Example" %}
+
+Some systems may collect a patient’s Social Security number but organizational business rules prohibit distribution
+of the full number and require that all but the final four digits of the identifier to be masked when distributing this
+information to data sharing partners.
+
+<table
+	style="border-collapse:collapse;margin-left:24.01pt"
+	cellspacing="0">
+	<tr style="height:26pt">
+	    <td
+	      style="width:462pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+	      bgcolor="#C5D9F0"><p class="s19"
+	      style="padding-left: 41pt;text-indent: 0pt;text-align: left;"
+	      >Content Consumers SHALL NOT treat id elements that
+	include a nullFlavor attribute as globally unique
+	identifiers. <b>[BP-034]</b></p></td>
+	</tr>
+</table>
+
+**Example 12: How to represent a social security number (SSN) that has been masked to show only the last four digits**
+
+{% include examplebutton_default.html example="social_security_number_masked.xml" b_title = "Click Here to See 'Masked Social Security Number' Example" %}
+
 
 #### recordTarget Provider Organization
 
@@ -954,104 +549,16 @@ authenticator, etc. The example shows how to represent NPI information for the p
 provider organization. It also shows how to represent Direct address information and how to indicate the
 preferred telecom address to use.
 
-```
-<!-- an appropriate participation such as author/assignedAuthor -->
-<author>
-    <time value="20180801095245-0400"/>
-    <assignedAuthor>
-        <!-- This is a public id where the root is registered to indicate the National Provider ID -->
-<id root="2.16.840.1.113883.4.6" extension="1417947383"
-assigningAuthorityName="National Provider ID"/>
-<!-- This is a public id where the root indicates this is a Provider Direct Address. -->
-        <!-- root="1.3.6.1.4.1.41179.2.1" is the assigningAuthorityName for
-Direct Trust's Covered Entity addresses "DT.org CE" -->
-        <id root="1.3.6.1.4.1.41179.2.1" extension="rvhs@rvhs.direct.md"
-            assigningAuthorityName="DT.org CE (Covered Entity)"/>
-        <addr>
-            <streetAddressLine>823 Main Street</streetAddressLine>
-            <city>River Valley</city>
-            <state>RI</state>
-            <postalCode>028321</postalCode>
-            <country>US</country>
-        </addr>
-        <telecom use="WP" value="tel:+1-(401)539-4321"/>
-        <!-- The provider's preferred Direct Address is the address identified with his practice. See
-below.-->
-        <telecom use="WP" value="mailto:rvhs@rvhs.direct.md"/>
-        <assignedPerson>
-            <name>
-                <given>Terry</given>
-                <given>A</given>
-                <family>Manning</family>
-                <delimeter>, </delimeter>
-                    <suffix>MD</suffix>
-            </name>
-        </assignedPerson>
-        <representedOrganization>
-            <id extension="334" root="1.3.6.1.4.1.22812.4.222.334"/>
-            <!-- This is a public id where the root is registered to indicate the National Provider
-ID -->
-            <!-- Based on context, this is the NPI of the organization -->
-            <id root="2.16.840.1.113883.4.6" extension="9999999999"
-                assigningAuthorityName="National Provider ID"/>
-            <!-- This is a public id where the root indicates this is a Provider Direct Address. -->
-            <!-- root="1.3.6.1.4.1.41179.2.1" is the assigningAuthorityName for
-Direct Trust's Covered Entity addresses "DT.org CE" -->
-            <id root="1.3.6.1.4.1.41179.2.1" extension="rvhs@rvhs.direct.md"
-                assigningAuthorityName="DT.org CE (Covered Entity)"/>
-            <name>River View Health Services</name>
-            <telecom use="WP" value="tel:+1-(401)539-4321"/>
-            <telecom use="WP" value="mailto:rvhs@rvhs.direct.md"/>
-            <addr>
-                <streetAddressLine>823 Main Street</streetAddressLine>
-                <city>River Valley</city>
-                <state>RI</state>
-                <postalCode>028321</postalCode>
-                <country>US</country>
-            </addr>
-        </representedOrganization>
-    </assignedAuthor>
-</author>
-<!-- end of the appropriate role block -->
-```
+{% include examplebutton_default.html example="provider_organization.xml" b_title = "Click Here to See 'Provider and Provider Organization' Example" %}
+
 
 If a provider’s NPI number is not known, it can be represented using a nullFlavor of UNK. However, is it important
 to note the id’s populated with a nullFlavor cannot be used as a globally unique identifier.
 
 **Example 14: Provider with an unknown NPI number.**
-```
-<assignedAuthor>
-    <!-- This is a public id where the root is registered to indicate the National Provider ID -->
-<!-- Use nullFlavor UNK if the provider’s NPI number is not known. -->
-    <id root="2.16.840.1.113883.4.6" nullFlavor="UNK"
-        assigningAuthorityName="National Provider ID"/>
-    <!-- This is a public id where the root indicates this is a Provider Direct Address. -->
-    <!-- root="1.3.6.1.4.1.41179.2.1" is the assigningAuthorityName for
-Direct Trust's Covered Entity addresses "DT.org CE" -->
-    <id root="1.3.6.1.4.1.41179.2.1" extension="rvhs@rvhs.direct.md"
-        assigningAuthorityName="DT.org CE (Covered Entity)"/>
-    <addr>
-        <streetAddressLine>823 Main Street</streetAddressLine>
-        <city>River Valley</city>
-        <state>RI</state>
-        <postalCode>028321</postalCode>
-        <country>US</country>
-    </addr>
-    <telecom use="WP" value="tel:+1-(401)539-4321"/>
-    <!-- The provider's preferred Direct Address is the address identified with his practice. See
-below.-->
-    <telecom use="WP" value="mailto:rvhs@rvhs.direct.md"/>
-    <assignedPerson>
-        <name>
-            <given>Terry</given>
-            <given>A</given>
-            <family>Manning</family>
-            <delimeter>, </delimeter>
-                <suffix>MD</suffix>
-        </name>
-    </assignedPerson>
-</assignedAuthor>
-```
+
+{% include examplebutton_default.html example="provider_unknown_npi.xml" b_title = "Click Here to See 'Provider with unknown NPI' Example" %}
+
 
 #### Custodian
 
@@ -1378,35 +885,8 @@ replaced by using a replaceRelationship type of RPLC.
 </table>
 
 **Example 15: Replacement Discharge Summary Document with Hospital Course Added**
-```
-<ClinicalDocument> <realmCode code="US">
-    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
-    <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08- 01" >
-        <templateId root="2.16.840.1.113883.10.20.22.1.8" extension="2015-08- 01" >
-            <id root="2.16.840.1.113883.19.5.99999.1" extension="20160414145050">
-                <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="18842-5"
-                    displayName="Discharge Summary" />
-                <title>Health Summary</title>
-                <effectiveTime value="20160414145050-0500">
-                    <confidentialityCode codeSystem="2.16.840.1.113883.5.25" code="N">
-                        <languageCode code="en-US">
-                            <setId extension="20160414014447" root="2.16.840.1.113883.19.5.99999.19" I>
-<versionNumber value="2">
-    <relatedDocument typeCode="RPLC"›
-        <parentDocument> <id root="2.16.840.1.113883.19.5.99999.1" extension="20160414014447">
-            <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="18842-5"
-                displayName="Discharge Summary" I>
-                <setId extension="20160414014447" root="2.16.840.1.113883.19.5.99999.19">
-                    <versionNumber value="1"> </parentDocument>
-    </relatedDocument>
-    <section>
-        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
-        <code code="8648-8" displayName="HOSPITAL COURSE" codeSystem="2.16.840.1.113883.6.1"
-            codeSystemName="LOINC"/>
-        <title>Hospital Course</title>
-        <text>The patient was admitted
-        </text>
-```
+
+{% include examplebutton_default.html example="replacement_document.xml" b_title = "Click Here to See 'Replacment Document' Example" %}
 
 
 #### C-CDA Document Templates
@@ -1974,66 +1454,24 @@ communities may determine that a certain version of a template should not be use
 </table>
 
 **Example 16: Declaring template conformance at the section level.**
-```
-<!-- Allergies and Intolerances Section-->
-<component>
-    <section>
-        <!-- Conformant to C-CDA Allergies and Intolerances Section-->
-        <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
-        <!-- Conformant to C-CDA R1.1 Allergies and Intolerances Section -->
-        <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
-        <id root="0937FF9A-00CE-11E6-B4C5-0050568B000B"/>
-        <code code="48765-2" displayName="Allergies &amp;or adverse reactions Doc"
-            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-        <title>Allergies</title>
-        <text>
-        </text>
-    </section>
-</component>
-```
+
+{% include examplebutton_default.html example="template_conformance.xml" b_title = "Click Here to See 'Section Template Conformance' Example" %}
+
 
 **Example 17: Declaring conformance to multiple templates.**
-```
-<!—Substance or Device Allergy -->
-<templateId root="2.16.840.1.113883.10.20.24.3.90" extension="2014-06- 09" />
-<templateId root="2.16.840.1.113883.10.20.24.3.90"/>
-<!— Allergy – Intolerance Observation -->
-<templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06- 09" />
-<templateId root="2.16.840.1.113883.10.20.22.4.7"/>
-```
+
+{% include examplebutton_default.html example="multiple_template_conformance.xml" b_title = "Click Here to See 'Section Multiple Template Conformance' Example" %}
+
 
 **Example 18: (Wrong) Duplicate template declarations at the section level.**
-```
-<!-- Allergies and Intolerances Section-->
-<component>
-    <section>
-        <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
-        <templateId extension="2015-08- 01" root="2.16.840.1.113883.10.20.22.2.6.1" />
-        <id root="0937FF9A-00CE-11E6-B4C5-0050568B000B"/>
-        <code code="48765-2" displayName="Allergies &amp;or adverse reactions Doc"
-            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-        <title>Allergies</title>
-        <text>
-        </text>
-    </section>
-</component>
-```
+
+{% include examplebutton_default.html example="wrong_template_conformance.xml" b_title = "Click Here to See 'Section Wrong Template Conformance' Example" %}
 
 
 **Figure 6: Example of how to include templateIds for Companion Guide templates**
-```
-<observation classCode="OBS" moodCode="EVN">
-    <!-- ** Problem Observation ** -->
-    <!-- Problem Observation (C-CDA 1.1) -->
-    <templateId root="2.16.840.1.113883.10.20.22.4.4" />
-    <!-- Problem Observation (C-CDA 2.1) -->
-    <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08- 01" />
-    <!-- Problem Observation (C-CDA Companion Guide R3) -->
-    <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2022- 06 - 01" />
-    <id root="ab1791b0-5c71-11db-b0de-0800200c9a66" />
-    ...
-</observation>
-```
+
+{% include examplebutton_default.html example="companion_guide_template_conformance.xml" b_title = "Click Here to See 'Companion Guide Template Conformance' Example" %}
+
 
 #### Narrative Block Formatting
 
@@ -2068,60 +1506,9 @@ meet certain conformance requirements or meet the conformance requirements descr
 
 
 **Example 19: Sample Narrative Block in a Section**
-```
-<section>
-    ...
-    <text>
-        <table>
-            <colgroup>
-                <col width="25%"/>
-                <col width="25%"/>
-                <col width="25%"/>
-                <col width="25%"/>
-            </colgroup>
-            <thead>
-                <tr>
-                    <th>Information Type</th>
-                    <th>Date</th>
-                    <th>Relevant Information</th>
-                    <th>Documented By</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ID="SocialHistory_1">
-                    <td>Tobacco smoking status:</td>
-                    <td><content>(04/12/2016)</content></td>
-                    <td><content>Never smoked</content></td>
-                    <td><content>M.Smith</content> <content>(04/12/2016)</content></td>
-                </tr>
-            </tbody>
-        </table>
-    </text>
-    ...
-    <entry typeCode="DRIV">
-        <observation classCode="OBS" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.78"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.78"
-                extension="2014-06- 09"/>
-            <id extension="64020-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.1040.1"/>
-            <code code="72166-2" codeSystem="2.16.840.1.113883.6.1"
-                codeSystemName="LOINC" displayName="Tobacco smoking status"/>
-            <text><reference value="#SocialHistory_1"></reference></text>
-            <statusCode code="completed"/>
-            <effectiveTime value="20160412"/>
-            <value xsi:type="CD" code="266919005" codeSystem="2.16.840.1.113883.6.96"
-                displayName="Never smoked tobacco" />
-            <author>
-                <time value="20160412"/>
-                <assignedAuthor>
-                    <id extension="10.1" root="1.2.840.114350.1.1"/>
-                </assignedAuthor>
-            </author>
-        </observation>
-    </entry>
-    ...
-</section>
-```
+
+{% include examplebutton_default.html example="narrative_block.xml" b_title = "Click Here to See 'Narrative Block' Example" %}
+
 
 CDA permits additional information conveyed in the document that is there primarily for machine processing that
 is not authenticated and need not be rendered. However, the requirement that all attested content be present in
@@ -2185,31 +1572,9 @@ The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObserva
 This template communicates the 'business logic' used to restrict information to a specific time range. For instance, if a CCD document request covers 5 years but the system only returns one year of past lab results, the Section Time Range template indicates this limitation. The business logic is stated in the value element using datatype IVL_TS. No effectiveTime element is included.
 
 **Example 20: Example of Section Time Range Observation**
-```
-<section>
-    ...
-    <title>Procedures</title>
-    <text>
-        <content ID="Proc_STR">Procedures performed between 08/15/2012 and 08/15/2015.</content>
-        ...
-    </text>
-    <entry>
-        <observation classCode="OBS" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.201" extension="2016-06- 01"/>
-            <code code="82607-3" codeSystem="2.16.840.1.113883.6.1"
-                displayName="Section Date and Time Range"/>
-            <text>
-                <reference value="#Proc_STR"/>
-            </text>
-            <statusCode code="completed"/>
-            <value xsi:type="IVL_TS">
-                <low value="20120815"/>
-                <high value="20150815"/>
-            </value>
-        </observation>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="section_time_range.xml" b_title = "Click Here to See 'Section Time Range Observation' Example" %}
+
 
 #### Sections Defined in C-CDA (ordered using SOAP framework)
 
@@ -2368,65 +1733,9 @@ the portion of the narrative text corresponding to the meaning of the entire cli
 discrete entry.
 
 **Example 21: Narrative Text with Links to Machine Processable Data**
-```
-<section>
-    <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06- 09" />
-    <code code="47519-4" displayName="Procedures" codeSystem="2.16.840.1.113883.6.1"
-        codeSystemName="LOINC" />
-    <title>Procedures</title>
-    <text>
-        <table border="1" width="100%">
-            <thead>
-                <tr>
-                    <th>Procedure Name</th>
-                    <th>Code</th>
-                    <th>CodeSystem</th>
-                    <th>Target Site</th>
-                    <th>Date of Procedure</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id=PROCEDURESUMMARY_1>
-                    <td id=PROCEDURE_1>Skin care: graft site</td>
-                    <td >406177009</td>
-                    <td >SNOMED CT</td>
-                    <td >11207009 (Structure of right thigh)<thigh) </td>
-                        <td >2015-06- 23</td>
-                </tr>
-            </tbody>
-        </table>
-    </text>
-    <entry typeCode="DRIV">
-        <procedure classCode="PROC" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06- 09" />
-            <id root="93ad269d-40a6-4d71-bcc6-6978598820d9" />
-            <code code="406177009" displayName="Skin care: graft site"
-                codeSystem="2.16.840.1.113883.6.96">
-                <originalText>
-                    <reference value="#PROCEDURE_1" />
-                </originalText>
-            </code>
-            <text><reference value="#PROCEDURESUMMARY_1" /></text>
-            <statusCode code="completed" />
-            <effectiveTime value="20150623" />
-            <methodCode nullFlavor="UNK" />
-            <targetSiteCode code="11207009" displayName="Structure of right thigh"
-                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
-            <author>
-                <templateId root="2.16.840.1.113883.10.20.22.4.119" />
-                <time value="20150623" />
-                <assignedAuthor>
-                    <id extension="db659e09-b0b0-4e51-a6e9-7eb5abdae4e4" />
-                    <code nullFlavor="UNK" />
-                    <assignedPerson>
-                        <name nullFlavor="NI" />
-                    </assignedPerson>
-                </assignedAuthor>
-            </author>
-        </procedure>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="narrative_with_data_links.xml" b_title = "Click Here to See 'Narrative Text with Data Links' Example" %}
+
 
 In accordance with general CDA principles for human readability, every CDA shall be viewable through the use of a
 CDA stylesheet. it is recommended to regularly test using the HL7
@@ -2473,14 +1782,9 @@ The HL7 CDA standard recommends use of narrative text linking to minimize mismat
 where the human readable narrative information is not identical to the original text.
 
 **Example 22: originalText used to record the term actually selected from the EHR**
-```
-<code code="9999123"
-    displayName="Obsessional thoughts of augmented reality video
-    games" codeSystem="2.16.840.1.113883.6.96">
-    <originalText><reference value="#Obsessive thoughts related to video
-        games"/></originalText>
-</code>
-```
+
+{% include examplebutton_default.html example="original_text.xml" b_title = "Click Here to See 'Original Text' Example" %}
+
 
 **Example 23: originalText linking the coded concept used in the machine entry to the narrative**
 <br />
@@ -2489,13 +1793,9 @@ stated by the clinician or what was actually in the EHR when this problem was en
 Narrative text linking is the preferred method of representation because it eliminates the possibility for
 mismatch between the attested content in the section.text and what was actually seen or said by the
 clinician.
-```
-<code code=" 9999123 "
-    displayName="Obsessional thoughts of augmented reality video
-    games" codeSystem="2.16.840.1.113883.6.96">
-    <originalText><reference value="#Problem_1"/></originalText>
-</code>
-```
+
+{% include examplebutton_default.html example="original_text_link.xml" b_title = "Click Here to See 'Original Text with Linking' Example" %}
+
 
 The originalText contains what the human stated or the terms selected from the EHR user interface.
 
@@ -2540,27 +1840,9 @@ in [January of 2017](https://confluence.hl7.org/display/VOC/Vocabulary+WG+Policy
     Code property
 
 **Example 24: TranslationCode, with originalText and local coded term**
-```
-<value xsi:type="CD" code="254838004" displayName="Carcinoma of Breast"
-    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" >
-    <originalText>
-        <reference value="#problem1"></reference>Carcinoma of right breast, stage 2, estrogen
-        receptor
-        positive</originalText>
-    <!-- User Selected Term Coding -->
-    <translation code="40780512" displayName="Carcinoma of right breast, stage 2, estrogen
-        receptor
-        positive" codeSystem="2.16.840.1.113883.3.247.1.1"
-        codeSystemName="EHRorInterfaceTerminologyCodeSystem"/>
-    <!-- “Secondary" Codes -->
-    <translation code="174.9" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD-9CM"
-        displayName="Malignant neoplasm of breast (female), unspecified site"/>
-    <translation code="C50.911" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10- CM"
-        displayName="Malignant neoplasm of unspecified site of right female breast"/>
-    <translation code="416053008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
-        displayName="Estrogen receptor positive tumor"/>
-</value>
-```
+
+{% include examplebutton_default.html example="translation_codes.xml" b_title = "Click Here to See 'Translation Codes' Example" %}
+
 ##### DisplayName Representation
 
 When sending coded information, the CD datatype (most commonly used in &lt;code&gt; and &lt;value&gt; elements) has a
@@ -2656,13 +1938,9 @@ principal of human readability.
 </table>
 
 **Example 25: Code Display Name Representation**
-```
-<code code=" 9999123 "
-    displayName="Obsessional thoughts of augmented reality video
-    games" codeSystem="2.16.840.1.113883.6.96">
-    <originalText><reference value="#PROBLEM1"/></originalText>
-</code>
-```
+
+{% include examplebutton_default.html example="code_display_name.xml" b_title = "Click Here to See 'Code Display Names' Example" %}
+
 
 ##### Use of Consistent Identifiers
 
@@ -2697,42 +1975,15 @@ Assigning a value for missing data is required for validation and considered goo
 The @nullFlavor attribute is especially informative when used with intervals. For instance, in a Tobacco Use observation, "effectiveTime/high/@nullFlavor='UNK'" indicates the patient has stopped using a tobacco product, but the exact cessation time is unknown. Other nullFlavors like NI (no information), NAV (not available), and NASK (not asked) convey uncertainty about the patient's current substance use.
 
 **Example 26: Tobacco Use – Current Smoker with an unknown stop date**
-```
-<observation classCode="OBS" moodCode="EVN">
-    <templateId root="2.16.840.1.113883.10.20.22.4.78"/>
-    <templateId root="2.16.840.1.113883.10.20.22.4.78" extension="2014-06- 09"/>
-    <id extension="64020-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.1040.1"/>
-    <code code="72166-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Tobacco smoking status"/>
-    <statusCode code="completed"/>
-    <effectiveTime>
-        <low value="20100412"/>
-        <high nullFlavor="UNK"/>
-    </effectiveTime>
-    <value code="77176002" codeSystem="2.16.840.1.113883.6.96" displayName="Smoker"
-        xsi:type="CD"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-</observation>
-```
+
+{% include examplebutton_default.html example="current_smoker.xml" b_title = "Click Here to See 'Current Smoker' Example" %}
+
 
 **Example 27: Tobacco Use – Smoker where cessation date was not asked**
-```
-<observation classCode="OBS" moodCode="EVN">
-    <templateId root="2.16.840.1.113883.10.20.22.4.78"/>
-    <templateId root="2.16.840.1.113883.10.20.22.4.78" extension="2014-06- 09"/>
-    <id extension="64020-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.1040.1"/>
-    <code code="72166-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Tobacco smoking status"/>
-    <statusCode code="completed"/>
-    <effectiveTime>
-        <low value="20100412"/>
-        <high nullFlavor="NASK"/>
-    </effectiveTime>
-    <value code="77176002" codeSystem="2.16.840.1.113883.6.96" displayName="Smoker"
-        xsi:type="CD"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-</observation>
-```
+
+{% include examplebutton_default.html example="current_smoker_stop_date_not_asked.xml" b_title = "Click Here to See 'Current Smoker with Not Asked Cessation Date' Example" %}
+
+
 If the resolution to a problem is not known, its effectiveTime/high should contain a value or nullFlavor=UNK. If the nullFlavor=NA, then the problem is definitely
 _not_ resolved. And if the nullFlavor is anything else, then it is unclear as to whether the problem is still active or if it
 has been resolved.
@@ -2777,20 +2028,9 @@ Machine-readable data in these sections is essential for clinical best practice 
 The goal is to describe unknown information explicitly for accurate communication. Fields related to problems, medications, and medication allergies cannot be left blank; instead, the section must be included with a null value, and the narrative text should explicitly state that the information is unknown.
 
 **Example 28: No Information Problems Section**
-```
-<!-- ************************* PROBLEM LIST ****************************** -->
-<component>
-    <!-- nullFlavor of NI indicates No Information.-->
-    <section nullFlavor="NI">
-        <!-- conforms to Problems section -->
-        <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08- 01"/>
-        <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-            displayName="PROBLEM LIST"/>
-        <title>PROBLEMS</title>
-        <text>No Information</text>
-    </section>
-</component>
-```
+
+{% include examplebutton_default.html example="no_information_section.xml" b_title = "Click Here to See 'No Information Section' Example" %}
+
 
 ##### Representing “no known” Information Versus “no information”
 
@@ -2800,127 +2040,28 @@ When asserting "no known" information, use negation indicators (negationInd). Av
 Acknowledging some ambiguity due to earlier RIM versions in CDA R2, specific examples like "no known problems" and "no known allergies" have been adopted. 
 
 **Example 29: Allergy List**
-```
-<!-- ************************* ALLERGY LIST ****************************** -->
-<component>
-    <section>
-        <!-- Allergies section-->
-        <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
-        <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
-        <code code="48765-2" codeSystem="2.16.840.1.113883.6.1"/>
-        <title>ALLERGIES, ADVERSE REACTIONS, ALERTS</title>
-        <text>No Known Allergies</text>
-        <entry typeCode="DRIV">
-            <!-- Allergy Concern Act -->
-            <act classCode="ACT" moodCode="EVN">
-                <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08- 01"/>
-                <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
-                <id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
-                <!-- SDWG supports 48765-2 or CONC in the code element -->
-                <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
-                <statusCode code="active"/> <!--currently tracked concerns are active concerns-->
-                <effectiveTime>
-                    <low value="20091201"/> <!--show time when the concern first began being tracked-->
-                </effectiveTime>
-                <entryRelationship typeCode="SUBJ">
-                    <!-- No Known Allergies -->
-                    <!-- The negationInd = true negates the observation/value -->
-                    <!-- The use of negationInd corresponds with the newer Observation.valueNegationInd
--->
-                    <observation classCode="OBS" moodCode="EVN" negationInd="true">
-                        <!-- allergy - intolerance observation template -->
-                        <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06- 09"/>
-                        <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
-                        <id root="4adc1020-7b14-11db-9fe1-0800200c9a66"/>
-                        <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-                        <statusCode code="completed"/>
-                        <!-- N/A - author/time records when this assertion was made -->
-                        <effectiveTime>
-                            <low nullFlavor= "NA" />
-                        </effectiveTime>
-                        <value xsi:type="CD" code="419199007"
-                            displayName="Allergy to substance (disorder)"
-                            codeSystem="2.16.840.1.113883.6.96"
-                            codeSystemName="SNOMED CT"/>
-                        <author>
-                            <time value="20100103"/>
-                            <assignedAuthor>
-<id extension="99999999" root="2.16.840.1.113883.4.6"/>
-<code code="200000000X" codeSystem="2.16.840.1.113883.6.101"
-    displayName="Allopathic &amp; Osteopathic Physicians"/>
-<telecom use="WP" value="tel:555-555-1002"/>
-<assignedPerson>
-    <name>
-        <given>Henry</given>
-        <family>Seven</family>
-    </name>
-</assignedPerson>
-                            </assignedAuthor>
-                        </author>
-                        <!-- In C-CDA R2.1 the participant is required. -->
-                        <participant typeCode="CSM">
-                            <participantRole classCode="MANU">
-<playingEntity classCode="MMAT">
-    <code nullFlavor="NA"/>
-</playingEntity>
-                            </participantRole>
-                        </participant>
-                    </observation>
-                </entryRelationship>
-            </act>
-        </entry>
-```
+
+{% include examplebutton_default.html example="allergy_list.xml" b_title = "Click Here to See 'Allergy List' Example" %}
+
 
 To indicate a section has "no information," include the section with a null value of NI. To show that a section contains information in the source system but is excluded from the exchange document, include the section with a null value of MSK, indicating that the sender has not provided this information due to security, privacy, or other reasons. The specific wording for "no information" and "masked information" in the narrative text can be determined locally.
 
 **Example 30: Allergies Section with No Information**
-```
-<!-- ************************* ALLERGY LIST ****************************** -->
-<component>
-    <!-- nullFlavor of NI indicates No Information.-->
-    <section nullFlavor="NI">
-        <!-- Allergies section-->
-        <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
-        <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
-        <code code="48765-2" codeSystem="2.16.840.1.113883.6.1"/>
-        <title>ALLERGIES, ADVERSE REACTIONS, ALERTS</title>
-        <text>No Information</text>
-    </section>
-```
+
+{% include examplebutton_default.html example="allergy_list_no_information.xml" b_title = "Click Here to See 'Allergy List with No Information' Example" %}
 
 **Example 31: Excluding section due to business rules.**
 
 Entire section excluded because business rules of the author determine the section of information is not present due to security, privacy, or other reasons
-<br/>
+
+{% include examplebutton_default.html example="excluded_section.xml" b_title = "Click Here to See 'Excluded Section' Example" %}
+
 ```
-<section nullFlavor="MSK">
-    <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06- 09"/>
-    <id root="4536582C-018F-11E6-9EF4-0050568B1D1B"/>
-    <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="History of procedures"/>
-    <title>Procedures - from Last 3 Months</title>
-    <text>
-        Information has not been provided by the sender due to security, privacy, or other reasons.
-        There may be an alternate mechanism for gaining access to this information.
-    </text>
-</section>
 ```
 
 **Example 32: Procedures Section with Excluded Information, example of locally selected wording**
-```
-<section nullFlavor="MSK">
-    <templateId root="2.16.840.1.113883.10.20.22.2.7.1"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06- 09"/>
-    <id root="4536582C-018F-11E6-9EF4-0050568B1D1B"/>
-    <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="History of procedures"/>
-    <title>Procedures - from Last 3 Months</title>
-    <text>
-        Information not provided due to security, privacy, or other reasons.
-    </text>
-</section>
-```
 
+{% include examplebutton_default.html example="excluded_information.xml" b_title = "Click Here to See 'Section with Excluded Information' Example" %}
 
 
 ##### Detailed Date/Time Guidance
@@ -3192,91 +2333,8 @@ information and supports clinical information reconciliation and incorporation.
 
 **Example 33: Use of the Provenance Author Participation**
 
-```
-<section>
-    <!-- *** Allergies and Intolerances Section *** -->
-<templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
-<templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
-<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-<title>ALLERGIES AND ADVERSE REACTIONS</title>
-<text ID="allergiesNoKnown">No Known Allergies</text>
-<entry typeCode="DRIV">
-<!-- Allergy Concern Act -->
-    <act classCode="A CT" moodCode="E VN">
-        <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
-        <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08- 01"/>
-        <id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
-        <!-- SDWG supports 48765-2 or CONC in the code element -->
-        <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
-        <text>
-            <reference value="#allergiesNoKnown"/>
-        </text>
-        <statusCode code="active"/>
-        <!--currently tracked concerns are active concerns-->
-        <effectiveTime>
-            <low value="20100903"/>
-            <!--show time when the concern first began being tracked-->
-        </effectiveTime>
-        <entryRelationship typeCode="SUBJ">
-            <!-- No Known Allergies -->
-            <!-- The negationInd = true negates the observation/value -->
-            <!-- The use of negationInd corresponds with the newer
-Observation.valueNegationInd -->
-            <observation classCode="O BS" moodCode="E VN" negationInd="true">
-                <!-- allergy - intolerance observation template -->
-                <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
-                <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06- 09"/>
-                <id root="4adc1020-7b14-11db-9fe1-0800200c9a66"/>
-                <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-                <text>
-                    <reference value="#allergiesNoKnown"/>
-                </text>
-                <statusCode code="completed"/>
-                <!-- N/A - author/time records when this assertion was made -->
-                <effectiveTime>
-                    <low nullFlavor="NA"/>
-                </effectiveTime>
-                <value xsi:type="CD" code="419199007"
-                    displayName="Allergy to substance (disorder)"
-                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
-                <author>
-                    <!-- Provenance - Author Participation -->
-                    <templateId root="2.16.840.1.113883.10.20.22.5.6" extension="2019-10- 01" />
-                    <time value="201308011235-0800"/>
-                    <assignedAuthor>
-                        <!-- NPI of Author (example) -->
-                        <id root="2.16.840.1.113883.4.6" extension="1234567"/>
-                        <assignedPerson>
-                            <name>
-<given>Nurse</given>
-<family>Nightingale</family>
-<suffix>RN</suffix>
-                            </name>
-                        </assignedPerson>
-                        <representedOrganization>
-                            <!-- Tax Identifier of Organization is Unknown -->
-                            <id root="2.16.840.1.113883.5.1008" nullFlavor="U NK"/>
-                            <!-- NPI of Organization -->
-                            <id root="2.16.840.1.113883.4.6" extension="1104145838"/>
-                            <name>Good Health Hospital</name>
-                            <telecom value="tel:+1(555)867-5309"/>
-                        </representedOrganization>
-                    </assignedAuthor>
-                </author>
-                <!-- In C-CDA R2.1 the participant is required. -->
-                <participant typeCode="C SM">
-                    <participantRole classCode="MANU">
-                        <playingEntity classCode="MMAT">
-                            <code nullFlavor="NA"/>
-                        </playingEntity>
-                    </participantRole>
-                </participant>
-            </observation>
-        </entryRelationship>
-    </act>
-    </entry>
-</section>
-```
+{% include examplebutton_default.html example="provenance_author.xml" b_title = "Click Here to See 'Provenance Author Participation' Example" %}
+
 
 #### Provenance mapping to FHIR
 
@@ -3307,31 +2365,8 @@ The [Section Time Range Observation](StructureDefinition-SectionTimeRangeObserva
 **Table 37: Section Time Range Observation Template**
 
 **Example 34: Section Time Range Template Example**
-```
-<section>
-    ...
-    <title>Procedures</title>
-    <text>
-        <content ID="Proc_STR">Procedures performed between 08/15/2012 and 08/15/2015.</content>
-        ...
-    </text>
-    <entry>
-        <observation classCode="O BS" moodCode="E VN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.201" extension="2016-06- 01"/>
-            <code code=" 82607-3" codeSystem="2.16.840.1.113883.6.1"
-                displayName="Section Date and Time Range"/>
-            <text>
-                <reference value="#Proc_STR"/>
-            </text>
-            <statusCode code="completed"/>
-            <value xsi:type="IVL_TS">
-                <low value="20120815"/>
-                <high value="20150815"/>
-            </value>
-        </observation>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="section_time_range_template.xml" b_title = "Click Here to See 'Section Time Range Template' Example" %}
 
 #### Care Team
 
@@ -3358,122 +2393,9 @@ The C-CDA document header contains roles filled by those involved in patient car
 **Figure 7: Logical design for Care Team Organizer Template**
 
 **Example 35: Care Teams Section with Care Team Member Organizer for discrete data representation.**
-```
-<section>
-    <!-- Care Teams Section Template ID and extension-->
-    <templateId root="2.16.840.1.113883.10.20.22.2.500" extension="2019-07- 01"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.500" extension="2022-06- 01"/>
-    <code code="85847-2" codeSystem="2.16.840.1.113883.6.1"/>
-    <title>Care Teams</title>
-    <text>
-        <list>
-            <item>
-                <content ID= "CareTeamName1">Inpatient Diabetes Care Team</content>
-                (<content>Active</content>)
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Member</th>
-                            <th>Role on Team</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Dr. Henry Seven </td>
-                            <td ID="CT1_M01">PCP</td>
-                            <td>(Active)</td>
-                            <td>10/18/2019</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </item>
-        </list>
-    </text>
-    <!--Care Team Organizer-->
-    <entry>
-        <organizer classCode="CLUSTER" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.500"
-                extension="2019-07- 01"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.500"
-                extension="2022-06- 01"/>
-            <!--NEW Care Team Organizer Entry Template ID and extension-->
-            <id root="1.1.1.1.1.1"/>
-            <code code="86744-0" codeSystem="2.16.840.1.113883.6.1"
-                codeSystemName="LOINC" displayName="Care Team">
-                <originalText>
-                    <reference value="#CareTeamName1"/>
-                </originalText>
-            </code>
-            <!--Care Team Status -
-https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.1.11.15933/expansion-->
-            <statusCode code="active"/>
-            <effectiveTime>
-                <low value="201810081426-0500"/>
-            </effectiveTime>
-            <!-- This participant is the Care Team Lead (1..1)-->
-            <!-- Care Team Lead is one of the contained care team members in the list of care
-team members-->
-            <participant typeCode="PPRF">
-                <participantRole>
-                    <!--<This id matches at least one of the member's id in the Care Team
-Member act template-->
-                    <id root="1.5.5.5.5.5.5"/>
-                </participantRole>
-            </participant>
-            <!-- #1 Care Team Member Act - This component is a care team member who is a
-provider -->
-            <component>
-                <act classCode="PCPR" moodCode="EVN">
-                    <templateId root="2.16.840.1.113883.10.20.22.4.500.1"
-                        extension="2019-07- 01"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.500.1"
-                        extension="2022-06- 01"/>
-                    <id root="1.5.5.5.5.5.5"/>
-                    <code code="85847-2" codeSystem="2.16.840.1.113883.6.1"
-                        codeSystemName="LOINC" displayName="Care Team Information"/>
-                    <!--Care Team Member Status -
-https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.1.11.15933/expansion-->
-                    <statusCode code="active"/>
-                    <effectiveTime xsi:type="IVL_TS">
-                        <low value="201810081426-0500"/>
-                    </effectiveTime>
-                    <!--Attributes about the provider member - name-->
-                    <performer typeCode="PRF">
-                        <functionCode 
 
-    xmlns="urn:hl7-org:sdtc" code="PCP"
-                            displayName="primary care physician"
-                            codeSystem="2.16.840.1.113883.5.88"
-                            codeSystemName="ParticipationFunction">
-                            <originalText
+{% include examplebutton_default.html example="care_team_member_organizer.xml" b_title = "Click Here to See 'Care Team Member Organizer' Example" %}
 
-    xmlns="urn:hl7-org:v3">
-<reference value="#CT1_M01"/>
-                            </originalText>
-                        </functionCode>
-                        <!-- A care team member role -->
-                        <assignedEntity>
-                            <id root="B00B14E8-CDE4-48EA-8A09-01BC4945122A"
-extension="1"/>
-                            <id root="1.5.5.5.5.5.5"/>
-                            <assignedPerson>
-<name>
-    <given>John</given>
-    <given>D</given>
-    <family>Smith</family>,
-    <suffix>MD</suffix>
-</name>
-                            </assignedPerson>
-                        </assignedEntity>
-                    </performer>
-                </act>
-            </component>
-        </organizer>
-    </entry>
-</section>
-```
 
 #### Encounter
 
@@ -3544,19 +2466,8 @@ To add a note to the Encounter, use the Note Activity entry, and link it with an
 **Table 41: Hospital Admission Diagnosis Template**
 
 **Example 36: Hospital Admission Diagnosis**
-```
-<act classCode="ACT" moodCode="EVN">
-    <templateId root="2.16.840.1.113883.10.20.22.4.34" extension="2015-08-01" />
-    <id root="5a784260-6856-4f38-9638-80c751aff2fb" />
-    <code code="46241-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Hospital Admission Diagnosis" />
-    <statusCode code="active" />
-    <effectiveTime>
-        <low value="20090303" />
-    </effectiveTime>
-    <entryRelationship typeCode="SUBJ" inversionInd="false">
-        <observation classCode="OBS" moodCode="EVN">
-```
+
+{% include examplebutton_default.html example="hospital_admission_diagnosis.xml" b_title = "Click Here to See 'Hospital Admission Diagnosis' Example" %}
 
 
 ##### Hospital Discharge Diagnosis
@@ -3674,162 +2585,8 @@ The following is guidance with respect to the relationship between the Problem C
 
 C-CDA Examples Task Force [Problem Section entry](https://hl7-c-cda-examples.herokuapp.com/sections/Problems) examples
 
-```
+{% include examplebutton_default.html example="problem_concern.xml" b_title = "Click Here to See 'Problem Concern' Example" %}
 
-<section>
-    <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08- 01"/>
-    <id root="093A5380-00CE-11E6-B4C5-0050568B000B"/>
-    <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="PROBLEM LIST"/>
-    <title>Problem List</title>
-    <text>
-        <table width="100%">
-            <thead>
-                <tr>
-                    <th>Problem Concern Information | Tracked By</th>
-                    <th>Condition(s)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr styleCode="normRow">
-                    <td ID="ProblemConcern_1"><content>Active Problem</content> | <content/></td>
-                    <td>
-                        <list>
-                            <item>
-<table>
-    <thead>
-        <tr>
-            <th>Problem Type | Problem<br/></th>
-            <th>Time Frame</th>
-            <th>Clinical Status</th>
-            <th>Documented By</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ID="ProblemObs1">
-            <td>
-                <content ID="ProblemObs_1_PT1">Problem</content> | <content
-                    styleCode="Bold" ID="ProblemObs_1_P1">Osteoarthritis</content>
-            </td>
-            <td><content>(09/09/2014 - )</content></td>
-            <td><content ID="ProblemObs_1_PS1">Active</content></td>
-            <td><content>W.Colon</content> <content>(06/18/2015)</content></td>
-        </tr>
-    </tbody>
-</table>
-                            </item>
-                        </list>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </text>
-    <entry>
-        <act classCode="ACT" moodCode="EVN">
-            <!-- Problem Concern -->
-            <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08- 01"/>
-            <id extension="68993" root="1.2.840.114350.1.13.6289.1.7.2.768076"/>
-            <id root="093A5380-00CE-11E6-B4C5-0050568B000B" extension="1"/>
-            <code code="CONC" codeSystem="2.16.840.1.113883.5.6"
-                codeSystemName="HL7ActClass" displayName="Concern"></code>
-            <!-- This shows what to do when the source system does not track problem concerns. -->
-            <text>
-                <reference value="#ProblemConcern_1"></reference>
-            </text>
-            <statusCode code="active"/>
-            <effectiveTime nullFlavor="NI"/>
-            <!-- A System that supports Concern tracking MAY include the author(s) of the Concern
-in addition to
-author(s) for the contained Problem Observation(s). -->
-            <entryRelationship inversionInd="false" typeCode="SUBJ">
-                <!-- Problem Observation -->
-                <observation classCode="OBS" moodCode="EVN">
-                    <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08- 01"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2022-06-01"/>
-                    <id extension="68993" root="1.2.840.114350.1.13.6289.1.7.2.768076"/>
-                    <id root="093A5380-00CE-11E6-B4C5-0050568B000B" extension="1.1"/>
-                    <code code="55607006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
-                        displayName="Problem">
-                        <originalText>
-                            <reference value="#ProblemObs_1_PT1"/>
-                        </originalText>
-                        <translation code="75326-9" codeSystem="2.16.840.1.113883.6.1"
-                            codeSystemName="LOINC" displayName="Problem"/>
-                    </code>
-                    <text>
-                        <reference value="#ProblemObs1"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <effectiveTime>
-                        <low value="20140909"/>
-                    </effectiveTime>
-                    <value code="396275006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
-                        displayName="Osteoarthritis"
-                        xsi:type="CD"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                        <originalText>
-                            <reference value="#ProblemObs_1_P1"/>
-                        </originalText>
-                        <translation code="715.90" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD-
-                            9CM" displayName="Osteoarthritis"/>
-                        <translation code="M19.90" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-
-                            CM" displayName="Osteoarthritis"/>
-                    </value>
-                    <author>
-                        <time value="20150618"/>
-                        <assignedAuthor>
-                            <id nullFlavor="UNK"/>
-                            <addr>
-<streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
-<city>Bel Air</city>
-<state>MD</state>
-<postalCode>21014</postalCode>
-                            </addr>
-                            <telecom use="WP" value="tel:+1-410-555-5544"/>
-                            <assignedPerson>
-<name>
-    <given>Wilma</given>
-    <family>Colon</family>
-</name>
-                            </assignedPerson>
-                            <representedOrganization>
-<name>Good Health Hospital</name>
-<telecom use="WP" value="tel:+1-410-555-5544"/>
-<addr>
-    <streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
-    <city>Bel Air</city>
-    <state>MD</state>
-    <postalCode>21014</postalCode>
-</addr>
-                            </representedOrganization>
-                        </assignedAuthor>
-                    </author>
-                    <entryRelationship typeCode="REFR">
-                        <observation classCode="OBS" moodCode="EVN">
-                            <templateId root="2.16.840.1.113883.10.20.22.4.6"/>
-                            <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status"/>
-                            <text>
-<reference value="#ProblemObs_1_PS1"></reference>
-                            </text>
-                            <statusCode code="completed"/>
-                            <effectiveTime>
-<low value="20140909"/>
-                            </effectiveTime>
-                            <value code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"
-xsi:type="CD"
-
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-                        </observation>
-                    </entryRelationship>
-                </observation>
-            </entryRelationship>
-        </act>
-    </entry>
-</section>
-```
 
 
 #### Problem Observation
@@ -3848,119 +2605,9 @@ xsi:type="CD"
 
 
 **Example 38: No Known Problems**
-```
-<section>
-    <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
-    <!-- Problem Section -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08- 01"/>
-    <!-- Problem Section -->
-    <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Problem List"/>
-    <title>PROBLEMS</title>
-    <text ID="Concern_1"> Problem Concern:<br/> Concern Tracker Start Date: 06/07/2013
-        16:05:06<br/>
-        Concern Tracker End Date: <br/> Concern Status: Active<br/>
-        <content ID="problems1">No known <content ID="problemType1">problems.</content></content>
-    </text>
-    <entry typeCode="DRIV">
-        <!-- Problem Concern Act -->
-        <act classCode="ACT" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08- 01"/>
-            <id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
-            <!-- SDWG supports 48765-2 or CONC in the code element -->
-            <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
-            <text>
-                <reference value="#Concern_1"/>
-            </text>
-            <statusCode code="active"/>
-            <!-- So long as the underlying condition is of concern to the provider (i.e., as long
-as the condition,
-whether active or resolved, is of ongoing concern and interest to the
-provider), the statusCode is “active”.
-Only when the underlying condition is no longer of concern is the statusCode
-set to “completed”. -->
-            <effectiveTime>
-                <low value="20130607160506"/>
-                <!-- The effectiveTime reflects the time that the underlying condition was felt
-to be a concern;
-it may or may not correspond to the effectiveTime of the condition (e.g.,
-even five years later, the clinician may remain concerned about a prior heart attack).-->
-            </effectiveTime>
-            <!-- status is active so high is not applicable. If high is present it should have
-nullFlavor of NA-->
-            <author>
-                <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-                <time value="20130607160506"/>
-                <assignedAuthor>
-                    <id extension="66666" root="2.16.840.1.113883.4.6"/>
-                    <code code="207RC0000X" codeSystem="2.16.840.1.113883.6.101"
-                        codeSystemName="NUCC" displayName="Cardiovascular Disease"/>
-                    <addr>
-                        <streetAddressLine>6666 StreetName St.</streetAddressLine>
-                        <city>Silver Spring</city>
-                        <state>MD</state>
-                        <postalCode>20901</postalCode>
-                        <country>US</country>
-                    </addr>
-                    <telecom value="tel:+1(301)666-6666" use="WP"/>
-                    <assignedPerson>
-                        <name>
-                            <given>Heartly</given>
-                            <family>Sixer</family>
-                            <suffix>MD</suffix>
-                        </name>
-                    </assignedPerson>
-                </assignedAuthor>
-            </author>
-            <entryRelationship typeCode="SUBJ">
-                <observation classCode="OBS" moodCode="EVN" negationInd="true">
-                    <!-- The negationInd is used to indicate the absence of the condition in
-observation/value (Observation.ValueNegationInd).
-A negationInd of "true" coupled with an observation/value of SNOMED
-code 55607006 "Problem"
-indicates that the patient has no known conditions. -->
-                    <!-- problem observation template -->
-                    <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08- 01"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2022-06- 01"/>
-                    <id root="4adc1021-7b14-11db-9fe1-0800200c9a67"/>
-                    <code code="64572001" displayName="Disease"
-                        codeSystem="2.16.840.1.113883.6.96"
-                        codeSystemName="SNOMED CT">
-                        <translation code="75323-6" codeSystem="2.16.840.1.113883.6.1"
-                            codeSystemName="LOINC" displayName="Condition"/>
-                    </code>
-                    <text>
-                        <reference value="#problems1"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <effectiveTime>
-                        <low value="20130607160506"/>
-                    </effectiveTime>
-                    <!-- The time when this was clinically relevant ie True for the patient. -->
-                    <!-- As a minimum time interval over which this is true, populate the
-effectiveTime/low with the current time. -->
-                    <!-- It would be equally valid to have a longer range of time over which this
-statement was represented as being true. -->
-                    <!-- As a maximum, you would never indicate an effectiveTime/high that was
-greater than the current point in time. -->
-                    <!-- This idea assumes that the value element could come from the Problem
-value set, or-->
-                    <!-- when negationInd was true, is could also come from the ProblemType value
-set (and code would be ASSERTION). -->
-                    <value xsi:type="CD" code="55607006" displayName="Problem"
-                        codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
-                        <originalText>
-                            <reference value="#problemType1"/>
-                        </originalText>
-                    </value>
-                </observation>
-            </entryRelationship>
-        </act>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="no_known_problems.xml" b_title = "Click Here to See 'No Known Problems' Example" %}
+
 
 #### Health Concern, Risk Concern
 
@@ -3984,32 +2631,8 @@ In summary, Health Concerns express health-related worries, Problem Concerns are
 **Table 45: Health Concern Template**
 
 **Example 39: Health Concern narrative entry**
-```
-<component>
-    <section>
-        <!-- Health Concerns Section -->
-        <templateId root="2.16.840.1.113883.10.20.22.2.58" extension="2015-08- 01"/>
-        <code code="75310-3" displayName="Health Concerns Document"
-            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-        <title>Health Concerns</title>
-        <text><paragraph ID="Concern">On March 1, 2014, the patient expressed concern about
-            spreading their Community Acquired Pneumonia.</paragraph></text>
-        <entry>
-            <!-- Health Concern Act -->
-            <act classCode="ACT" moodCode="EVN">
-                <templateId root="2.16.840.1.113883.10.20.22.4.132" extension="2015-08- 01"/>
-                <templateId root="2.16.840.1.113883.10.20.22.4.132" extension="2022-06-01"/>
-                <id nullFlavor="UNK"/>
-                <!-- Fixed act/code in C-CDA -->
-                <code code="75310-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                    displayName="Health Concern"/>
-                <text><reference value="#Concern"></reference></text>
-                <statusCode code="active"/>
-            </act>
-        </entry>
-    </section>
-</component>
-```
+
+{% include examplebutton_default.html example="health_concern_narrative.xml" b_title = "Click Here to See 'Health Concern Narrative' Example" %}
 
 
 #### Allergy
@@ -4062,325 +2685,13 @@ This guidance for allergy concerns is needed because mismatches between clinical
 
 **Example 40: Allergy concern for food allergy to eggs**
 Please see the Example Task Forces [Allergy Examples](https://hl7-c-cda-examples.herokuapp.com/sections/Allergies)
-```
-<section>
-    <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
-    <id root="0937FF9A-00CE-11E6-B4C5-0050568B000B"/>
-    <code code="48765-2" displayName="Allergies &amp;or adverse reactions doc"
-        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-    <title>ALLERGIES</title>
-    <text>
-        <table width="100%">
-            <thead>
-                <tr>
-                    <th>Concern Information | Tracked By</th>
-                    <th>Allergy - Intolerance Information</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ID="AllergyConcern_1" styleCode="normRow">
-                    <td>
-                        <content>Active (01/04/2014 - )</content> | <content>(01/04/2019)
-                            H.Seven</content>
-                    </td>
-                    <td>
-                        <list>
-                            <item>
-<table>
-    <thead>
-        <tr>
-            <th>Allergy Type | Allergen<br/></th>
-            <th>Criticality</th>
-            <th>Reaction | Severity<br/></th>
-            <th>Time Frame</th>
-            <th>Clinical Status</th>
-            <th>Documented By</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ID="AllergyConcern_1_Allergn_1">
-            <td><content>Food allergy</content> | <content
-                  styleCode="Bold" ID="AllergyConcern_1_Allergen_1"
-                  >Egg</content>
-            </td>
-            <td>
-                <content ID="AllergyConcern_1_Criticality_1">High
-                  Criticality</content>
-            </td>
-            <td>
-                <content ID="AllergyConcern_1_Reaction_1"
-                  >Hives</content> | <content
-                  ID="AllergyConcern_1_ReacSeverity_1"
-                  >Moderate</content>
-            </td>
-            <td>
-                <content>(1998)</content>
-            </td>
-            <td>
-                <content>Active</content>
-            </td>
-            <td>
-                <content>H.Provider</content>
-                <content>(01/04/2014)</content>
-            </td>
-        </tr>
-    </tbody>
-</table>
-                            </item>
-                        </list>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </text>
-    <entry typeCode="DRIV">
-        <act classCode="A CT" moodCode="E VN">
-            <!-- ** Allergy Concern act ** -->
-            <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08- 01"/>
-            <id root="0fffb34f-c1e0-47c2-92af-c414a3ff21ec"/>
-            <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
-            <text>
-                <reference value="#AllergyConcern_1"/>
-            </text>
-            <statusCode code="active"/>
-            <!-- This is the time stamp for when the allergy was first documented as a concern-->
-            <effectiveTime>
-                <low value="20140104123506- 08 00"/>
-            </effectiveTime>
-            <author>
-                <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-                <time val8e="20140104"/>
-                <assignedAuthor>
-                    <id extension="99999999" root="2.16.840.1.113883.4.6"/>
-                    <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101"
-                        codeSystemName="Health
-                Care Provider Taxonomy" displayName="Family medicnne"/>
-                    <telecom use="WP" value="tel:555-555-1002"/>
-                    <assignedPerson>
-                        <name>
-                            <given>Henry</given>
-                            <family>Seven</family>
-                        </name>
-                    </assignedPerson>
-                </assignedAuthor>
-            </author>
-            <entryRelationship typeCode="SUBJ">
-                <observation classCode="O BS" moodCode="E VN">
-                    <!-- allergy observation template -->
-                    <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06- 09"/>
-                    <id root="0fffb34f-c1e0-47c2-92af-c414a3ff21ec"/>
-                    <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-                    <text>
-                        <reference value="#AllergyConcern_1_Allergy_1"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <!-- This is the time stamp for the clinical onset of the allergy. -->
-                    <!-- Just the year is shown since a specific month and date was not reported -->
-                    <effectiveTime>
-                        <low value="1998"/>
-                    </effectiveTime>
-                    <!-- This specifies that the allergy is to a food in contrast to other allergies
-(drug) -->
-                    <value xsi:type="CD" code="414285001" displayName="Food allergy (disordor)"
-                        codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
-                    <author>
-                        <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-                        <time value="20140104"/>
-                        <assignedAuthor>
-                            <id extension="99999999" root="2.16.840.1.113883.4.6"/>
-                            <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101"
-codeSystemName="Health Care Provider Taxonomy"
-displayName="Family Medicine"/>
-                            <telecom use="WP" value="tel:555-555-1002"/>
-                            <assignedPerson>
-<name>
-    <given>Henry</given>
-    <family>Seven</family>
-</name>
-                            </assignedPerson>
-                        </assignedAuthor>
-                    </author>
-                    <!-- In C-CDA R2.1 the participant is required. -->
-                    <participant typeCode="C SM">
-                        <participantRole classCode="MANU">
-                            <playingEntity classCode="MMAT">
-<!-- The agent responsible for an allergy or adverse reaction is not always a
-manufactured material (for example, food allergies),
-nor is it necessarily consumed. The following constraints reflect limitations in the base CDA R2
-specification,
-and should be used to represent any type of responsible agent, i.e., use playingEntity
-classCode“= "MMAT" for all agents,
-manufactured or not. -->
-<!--
-... the expectation for use is that the chosen concept identifier for a substance should be
-appropriately specific and drawn from the available code systems in the following priority order:
-NDFRT, then RXNORM, then SNOMEDCT. UNII was in an earlier version of this grouping value set but
-has been removed due to lack of industry use
--->
-<code code="102263004" displayName="Eggs (edible)"
-    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
-    <originalText>
-        <reference value="#AllergyConcern_1_Allergen_1"/>
-    </originalText>
-</code>
-                            </playingEntity>
-                        </participantRole>
-                    </participant>
-                    <entryRelationship typeCode="SUBJ" inversionInd="true">
-                        <observation classCode="O BS" moodCode="E VN">
-                            <templateId root="2.16.840.1.113883.10.20.22.4.145"/>
-                            <code code="82606-5" codeSystem="2.16.840.1.113883.6.1"
-displayName="Criticality"/>
-                            <text>
-<reference value="#AllergyConcern_1_Criticality_1"/>
-                            </text>
-                            <statusCode code="completed"/>
-                            <value xsi:type="CD" code="CRITH" displayName="High Criticality"
-codeSystem="2.16.840.1.113883.5.1.63"
-codeSystemName="HL7ObservationValue"/>
-                        </observation>
-                    </entryRelationship>
-                    <entryRelationship typeCode="MFST" inversionInd="true">
-                        <observation classCode="O BS" moodCode="E VN"> —-- Reaction Observation
-                            template --> <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
-                            <templateId root="2.16.840.1.113883.10.20.22.4.9"
-extension="2014-06- 09"/>
-                            <id root="d89ce431-e0f1-4f8d-a81f-489b6ed91f09"/>
-                            <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-                            <text>
-<reference value="#AllergyConcern_1_Reaction_1"/>
-                            </text>
-                            <statusCode code="completed"/>
-                            <effectiveTime>
-<low value="1998"/>
-<high nullFlavor="U NK"/>
-                            </effectiveTime>
-                            <value xsi:type="CD" code="247472004"
-codeSystem="2.16.840.1.113883.6.96" codeSystemNaee="SNOMED CT"
-displayName="Hives"/>
-                            <entryRelationship typeCode="SUBJ" inversionInd="true">
-<observation classCode="O BS" moodCode="E VN"> —-- Severity
-    Observation template --> <templateId
-        root="2.16.840.1.113883.10.20.22.4.8"/>
-    <templateId root="2.16.840.1.113883.10.20.22.4.8"
-        extension="2014-06- 09"/>
-    <code code="S EV" codeSystem="2.16.840.1.113883.5.4"
-        codeSystemName="ActCode"/>
-    <text>
-        <reference value="#AllergyConcern_1_ReacSeverity_1"/>
-    </text>
-    <statusCode code="completed"/>
-    <value xsi:type="CD" code="6736007"
-        codeSystem="2.16.840.1.113883.6.96"
-        codeSystemName="SNOMED CT" displayName="moderate"/>
-</observation>
-                            </entryRelationship>
-                        </observation>
-                    </entryRelationship>
-                </observation>
-            </entryRelationship>
-        </act>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="allergy_concern.xml" b_title = "Click Here to See 'Allergy Concern' Example" %}
 
 **Example 41: No known allergies**
-```
-<section>
-    <!-- *** Allergies and Intolerances Section *** -->
-<templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
-<templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
-<code code="4876 5 - 2" codeSystem="2.16.840.1.113883. 6 .1" codeSystemName="LOINC"/>
-<title>ALLERGIES AND ADVERSE REACTIONS</title>
-<text ID="allergiesNoKnown">No Known Allergies</text>
-<entry typeCode="DRIV">
-<!-- Allergy Concern Act -->
-    <act classCode="A CT" moodCode="E VN">
-        <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
-        <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08- 01"/>
-        <id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
-        <!-- SDWG supports 48765-2 or CONC in the code element -->
-        <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
-        <text>
-            <reference value="#allergiesNoKnown"/>
-        </text>
-        <statusCode code="active"/>
-        <!--currently tracked concerns are active concerns-->
-        <effectiveTime>
-            <low value="20100103"/>
-            <!--show time when the concern first began being tracked-->
-        </effectiveTime>
-        <author>
-            <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-            <time value="20100103"/>
-            <assignedAuthor>
-                <id extension="99999999" root="2.16.840.1.113883.4.6"/>
-                <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101"
-                    codeSystemName="Health Care Provider Taxonomy" displayName="Family Medicine"/>
-                <telecom use="WP" value="tel:555-555-1002"/>
-                <assignedPerson>
-                    <name>
-                        <given>Henry</given>
-                        <family>Seven</family>
-                    </name>
-                </assignedPerson>
-            </assignedAuthor>
-        </author>
-        <entryRelationship typeCode="SUBJ">
-            <!-- No Known Allergies -->
-            <!-- The negationInd = true negates the observation/value -->
-            <!-- The use of negationInd corresponds with the newer Observation.valueNegationInd -->
-            <observation classCode="O BS" moodCode="E VN" negationInd="true">
-                <!-- allergy - intolerance observation template -->
-                <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
-                <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06- 09"/>
-                <id root="4adc1020-7b14-11db-9fe1-0800200c9a66"/>
-                <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-                <text>
-                    <reference value="#allergiesNoKnown"/>
-                </text>
-                <statusCode code="completed"/>
-                <!-- N–A - author/time records when this assertion was made -->
-                <effectiveTime>
-                    <low nullFlavor="NA"/>
-                </effectiveTime>
-                <value xsi:type="CD" code="419199007"
-                    displayName="Allergy to substance (disorder)"
-                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
-                <author>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-                    <time value="20100103"/>
-                    <assignedAuthor>
-                        <id extension="99999999" root="2.16.840.1.113883.4.6"/>
-                        <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101"
-                            codeSystemName="Health Care Provider Taxonomy"
-                            displayName="Family Medicine"/>
-                        <telecom use="WP" value="tel:555-555-1002"/>
-                        <assignedPerson>
-                            <name>
-<given>Henry</given>
-<family>Seven</family>
-                            </name>
-                        </assignedPerson>
-                    </assignedAuthor>
-                </author>
-                <!-- In C-CDA R2.1 the participant is required. -->
-                <participant typeCoCSM">
-                    <participantRole classCode="MANU">
-                        <playingEntity classCode="MMAT">
-                            <code nullFlavor="NA"/>
-                        </playingEntity>
-                    </participantRole>
-                </participant>
-            </observation>
-        </entryRelationship>
-    </act>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="no_known_allergies.xml" b_title = "Click Here to See 'No Known Allergies' Example" %}
+
 
 ##### Allergy – Intolerance
 
@@ -4402,40 +2713,9 @@ This guidance for allergy observations is needed because mismatches between clin
 **Table 47: Allergy - Intolerance Observation Template**
 
 **Example 42: Recording an allergy that started in January of 2009, but became a tracked concern as of January 4, 2014**
-```
-<entry typeCode="DRIV">
-    <act classCode="ACT" moodCode="EVN">
-        <!-- ** Allergy problem act ** -->
-        <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08- 01"/>
-        <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
-        <id root="4a2ac5fc-0c85-4223-baee-c2e254803974" />
-        <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
-        <statusCode code="active"/>
-        <!-- This is the time stamp for when the allergy was first documented as a concern-->
-        <effectiveTime>
-            <low value="20140104123506-0500"/>
-        </effectiveTime>
-        <author>
-            <time value="20140104123506-0500"/>
-            ...information identifying the author of the concern...
-        </author>
-        <entryRelationship typeCode="SUBJ">
-            <observation classCode="OBS" moodCode="EVN">
-                <!-- allergy observation template -->
-                <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
-                <id root="4a2ac5fc-0c85-4223-baee-c2e254803974"/>
-                <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-                <statusCode code="completed"/>
-                <!-- This is the time stamp for the clinical onset of the allergy. -->
-                <effectiveTime>
-                    <low value="200901"/>
-                </effectiveTime>
-                ...
-            </observation>
-        </entryRelationship>
-    </act>
-</entry>
-```
+
+{% include examplebutton_default.html example="allergy_recording.xml" b_title = "Click Here to See 'Allergy Recording' Example" %}
+
 
 During an encounter, if a patient's record was updated to indicate that a penicillin allergy/intolerance concern noted one month ago, relating to an event five years ago, is no longer a concern, the CDA document would show:
 
@@ -4447,41 +2727,9 @@ During an encounter, if a patient's record was updated to indicate that a penici
 - act/entryRelationship/observation/effectiveTime/high - not present (allergy still ongoing)
 
 **Example 43: Updating an allergy that is no longer a concern**
-```
-<entry typeCode="DRIV">
-    <act classCode="ACT" moodCode="EVN">
-        <!-- ** Allergy problem act ** -->
-        <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08- 01"/>
-        <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
-        <id root="4a2ac5fc-0c85-4223-baee-c2e254803974" />
-        <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
-        <statusCode code="completed"/>
-        <!-- This is the time stamp for when the allergy was first documented as a concern-->
-        <effectiveTime>
-            <low value="20160104123506-0500"/>
-            <high value="20160204123506-0500"/>
-        </effectiveTime>
-        <author>
-            <time value="20160204123506-0500"/>
-            ...information identifying the author of the concern...
-        </author>
-        <entryRelationship typeCode="SUBJ">
-            <observation classCode="OBS" moodCode="EVN">
-                <!-- allergy observation template -->
-                <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
-                <id root="4a2ac5fc-0c85-4223-baee-c2e254803974"/>
-                <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-                <statusCode code="completed"/>
-                <!-- This is the time stamp for the clinical onset of the allergy. -->
-                <effectiveTime>
-                    <low value="200901"/>
-                </effectiveTime>
-                ... Add representation of the Allergy Status Observation ...
-            </observation>
-        </entryRelationship>
-    </act>
-</entry>
-```
+
+{% include examplebutton_default.html example="allergy_update.xml" b_title = "Click Here to See 'Allergy Updating' Example" %}
+
 
 #### Medical Equipment
 
@@ -4505,124 +2753,13 @@ UDI information is essential for interoperability. Content Creators should use a
 
 
 **Example 44: Implanted Device – known procedure details**
-```
-<component>
-    <section>
-        <templateId root="2.16.840.1.113883.10.20.22.2.23"/>
-        <templateId root="2.16.840.1.113883.10.20.22.2.23" extension="2014- 06 - 09"/>
-        <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-            displayName="Medical Equipment"/>
-        <title>Implants</title>
-        <text>
-            <!-- table omitted for space -->
-        </text>
-        <entry>
-            <procedure classCode="PROC" moodCode="EVN">
-                <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06- 09"/>
-                <id extension="2744" root="1.2.840.114350.1.13.5552.1.7.2.737780"/>
-                <code code="609588000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
-                    displayName="Total knee replacement (procedure)">
-                    <!-- Procedure is completed, even though the implant is still active -->
-                    <statusCode code="completed"/>
-                    <effectiveTime>
-                        <!-- Placed Date -->
-                        <low value="20160413"/>
-                    </effectiveTime>
-                    <targetSiteCode code="72696002" codeSystem="2.16.840.1.113883.6.96"
-                        codeSystemName="SNOMED CT" displayName="Knee region structure">
-                        <qualifier>
-                            <name code="272741003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED
-CT" displayName="laterality" />
-                            <value code="7771000" codeSystem="2.16.840.1.113883.9.96" codeSystemName="SNOMED
-CT" displayName="left" />
-                        </qualifier>
-                    </targetSiteCode>
-                    <participant typeCode="DEV">
-                        <participantRole classCode="MANU">
-                            <templateId root="2.16.840.1.113883.10.20.22.4.37"/>
-                            <id assigningAuthorityName="FDA"
-extension="(01)00848486000400(11)160330(10)ABC634(21)123777" root="2.16.840.1.113883.3.3719"/>
-                            <playingDevice>
-<code nullFlavor="UNK">
-    <originalText>
-        <reference value="#implant1"/>
-    </originalText>
-</code>
-                            </playingDevice>
-                            <!-- From Product Instance template:
-The scopingEntity/id should correspond to FDA or the appropriate issuing
-agency. -->
-                            <scopingEntity>
-<id root="2.16.840.1.113883.3.3719"/>
-                            </scopingEntity>
-                        </participantRole>
-                    </participant>
-            </procedure>
-        </entry>
-        <entry>
-            <!-- example without qualifier omitted for space -->
-        </entry>
-        <entry>
-            <!-- example where targetSiteCode not mapped omitted for space -->
-        </entry>
-    </section>
-</component>
-```
 
-**Example 45: **
-```
-<component>
-    <section>
-        <templateId root="2.16.840.1.113883.10.20.22.2.23"/>
-        <templateId root="2.16.840.1.113883.10.20.22.2.23" extension="2014-06- 09"/>
-        <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-            displayName="Medical Equipment"/>
-        <title>Implants</title>
-        <text>
-            <!-- table omitted for space -->
-        </text>
-        <entry>
-            <procedure classCode="PROC" moodCode="EVN">
-                <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06- 09"/>
-                <id extension="2744" root="1.2.840.114350.1.13.5552.1.7.2.737780"/>
-                <code nullFlavor="UNK"/>
-                <!-- Procedure is completed, even though the implant is still active -->
-                <statusCode code="completed"/>
-                <effectiveTime>
-                    <!-- Placed Date -->
-                    <low value="20160413"/>
-                </effectiveTime>
-                <participant typeCode="DEV">
-                    <participantRole classCode="MANU">
-                        <templateId root="2.16.840.1.113883.10.20.22.4.37"/>
-                        <id assigningAuthorityName="FDA"
-                            extension="(01)00848486000400(11)160330(10)ABC634(21)123777" root="2.16.840.1.113883.3.3719"/>
-                        <playingDevice>
-                            <code nullFlavor="UNK">
-<originalText>
-    <reference value="#implant1"/>
-</originalText>
-                            </code>
-                        </playingDevice>
-                        <!-- From Product Instance template:
-The scopingEntity/id should correspond to FDA or the appropriate issuing
-agency. -->
-                        <scopingEntity>
-                            <id root="2.16.840.1.113883.3.3719"/>
-                        </scopingEntity>
-                    </participantRole>
-                </participant>
-            </procedure>
-        </entry>
-        <entry>
-            <!-- example without qualifier omitted for space -->
-        </entry>
-        <entry>
-            <!-- example where targetSiteCode not mapped omitted for space -->
-        </entry>
-    </section>
-</component>
-```
+{% include examplebutton_default.html example="implanted_device.xml" b_title = "Click Here to See 'Implanted Device' Example" %}
+
+
+**Example 45: Additional Implanted Device**
+
+{% include examplebutton_default.html example="implanted_device_2.xml" b_title = "Click Here to See 'Additional Implanted Device' Example" %}
 
 
 
@@ -4632,50 +2769,9 @@ has an ID with a nullFlavor of ‘NA’ and a code of 40388003 – Implant. This
 not had a procedure to implant anything.
 
 **Example 46: [No Implanted Devices](http://hl7-c-cda-examples.herokuapp.com/examples/view/Medical%20Equipment/No%20Implanted%20Devices)**
-```
-<component>
-    <section>
-        <!-- Medical equipment section -->
-        <templateId root="2.16.840.1.113883.10.20.22.2.23"/>
-        <templateId root="2.16.840.1.113883.10.20.22.2.23" extension="2014-06- 09"/>
-        <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" />
-        <title>MEDICAL EQUIPMENT</title>
-        <!-- Alternative text: Patient has no history of procedures with implantable devices'-->
-<!-- Alternative text: Patient has no implanted devices'-->
-        <text><paragraph ID="Proc">Patient has no history of implantable
-            devices</paragraph></text>
-        <entry>
-            <procedure classCode="PROC" moodCode="EVN" negationInd="true">
-                <!-- Procedure Activity Procedure -->
-                <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
-                <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06- 09"/>
-                <id root="d5b614bd-01ce-410d-8726-e1fd01dcc72a" />
-                <code code="71388002" codeSystem="2.16.840.1.113883.6.96"
-                    displayName="Procedure"/>
-                <text>
-                    <reference value="#Proc"/>
-                </text>
-                <statusCode code="completed" />
-                <effectiveTime nullFlavor="NA" />
-                <participant typeCode="DEV">
-                    <participantRole classCode="MANU">
-                        <templateId root="2.16.840.1.113883.10.20.22.4.37"/>
-                        <!-- UDI is 'not applicable' since no procedure -->
-                        <id nullFlavor="NA" root="2.16.840.1.113883.3.3719"/>
-                        <playingDevice>
-                            <code code="40388003" codeSystem="2.16.840.1.113883.6.96"
-displayName="Implant"/>
-                        </playingDevice>
-                        <scopingEntity>
-                            <id root="2.16.840.1.113883.3.3719"/>
-                        </scopingEntity>
-                    </participantRole>
-                </participant>
-            </procedure>
-        </entry>
-    </section>
-</component>
-```
+
+{% include examplebutton_default.html example="no_implanted_device.xml" b_title = "Click Here to See 'No Implanted Device' Example" %}
+
 
 #### Non-Implanted Device
 
@@ -4695,115 +2791,9 @@ represent devices the patient has such as eyeglasses or a cane.
 
 
 **Example 47: Non-Medicinal Supply – Cane and Eyeglasses**
-```
-<section>
-    <templateId root="2.16.840.1.113883.10.20.22.4.50" extension="2014-06- 09"/>
-    <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Medical Equipment"/>
-    <title>Medical Equipment</title>
-    <text>
-        <table>
-            <thead>
-                <tr>
-                    <th>Medical Equipment</th>
-                    <th>Device Identifier (if applicable)</th>
-                    <th>Model / Serial / Lot (if applicable)</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ID="equipment1">
-                    <td><content ID="equipment1item" styleCode="header">Eye Glasses</content></td>
-                    <td>n/a</td>
-                    <td>n/a</td>
-                    <td>(01/13/2000 - )</td>
-                </tr>
-                <tr ID="equipment2">
-                    <td><content ID="equipment2item" styleCode="header">Cane</content></td>
-                    <td>n/a</td>
-                    <td>n/a</td>
-                    <td>(04/13/2016 - )</td>
-                </tr>
-            </tbody>
-        </table>
-    </text>
-    <entry>
-        <supply classCode="SPLY" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.50"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.50" extension="2014-06- 09"/>
-            <id extension="2744999" root="1.2.840.999.1.13.5552.1.7.2.99999"/>
-            <text><reference value="#equipment1"></reference></text>
-            <statusCode code="active"/>
-            <!-- low represents when person first received supply -->
-            <effectiveTime xsi:type="IVL_TS">
-                <low value="20000113"/>
-                <high nullFlavor="NI"/> <!-- patient use of supply is ongoing, could be omitted for the
-same semantics. -->
-            </effectiveTime>
-            <!--<quantity value="1" /> -->
-            <participant typeCode="PRD">
-                <participantRole classCode="MANU">
-                    <templateId root="2.16.840.1.113883.10.20.22.4.37"/>
-                    <!-- id of supply is unknown; An FDA identifier is not required since this is a non-
-implantable device -->
-                    <id root="1.2.840.999.1.13.5552.1.7.2.999991" nullFlavor="UNK"/>
-                    <playingDevice>
-                        <code code="50121007" codeSystem="2.16.840.1.113883.6.96" displayName="Eyeglasses">
-                            <originalText>
-<reference value="#equipment1item"/>
-                            </originalText>
-                        </code>
-                    </playingDevice>
-                    <!-- Required by Product Instance Template -->
-                    <scopingEntity>
-                        <id nullFlavor="NA"/>
-                    </scopingEntity>
-                </participantRole>
-            </participant>
-        </supply>
-    </entry>
-    <entry>
-        <supply classCode="SPLY" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.50"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.50" extension="2014-06- 09"/>
-            <id extension="2744999" root="1.2.840.999.1.13.5552.1.7.2.99999"/>
-            <!- - Template does not require a code, but best practice is to include a meaningful
-            code for the type of entry. -->
-            <code code="425399007" codeSystem="2.16.840.1.113883.6.96"
-                codeSystemName="SNOMEDCT" displayName="Durable medical equipment (physical object)">
-            </code>
-            <text>
-                <reference value="#equipment2"></reference>
-            </text>
-            <statusCode code="active"/>
-            <!-- low represents when person first received supply -->
-            <effectiveTime xsi:type="IVL_TS">
-                <low value="20160413"/>
-                <high nullFlavor="NI"/> <!-- patient use of supply is ongoing -->
-            </effectiveTime>
-            <participant typeCode="PRD">
-                <participantRole classCode="MANU">
-                    <templateId root="2.16.840.1.113883.10.20.22.4.37"/>
-                    <!-- id of supply is unknown; An FDA identifier is not required since this is a
-non-implantable device -->
-                    <id root="1.2.840.999.1.13.5552.1.7.2.999991" nullFlavor="UNK"/>
-                    <playingDevice>
-                        <code code="87405001" codeSystem="2.16.840.1.113883.6.96" displayName="Cane">
-                            <originalText>
-<reference value="#equipment2item"/>
-                            </originalText>
-                        </code>
-                    </playingDevice>
-                    <!-- Required by Product Instance Template -->
-                    <scopingEntity>
-                        <id nullFlavor="NA"/>
-                    </scopingEntity>
-                </participantRole>
-            </participant>
-        </supply>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="non_medicinal_supply.xml" b_title = "Click Here to See 'Non Medicinal Supply' Example" %}
+
 
 #### Product Instance
 
@@ -4859,66 +2849,9 @@ represented in the author structure of the entry. The [Progress Toward Goal obse
 **Table 52: Goal Observation Template**
 [Example task Force Goal examples](https://hl7-c-cda-examples.herokuapp.com/sections/Goals)
 **Example 48: Goal Observation narrative**
-```
-<section>
-    <templateId root="2.16.840.1.113883.10.20.22.2.60"/>
-    <code code="61146-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Goals"/>
-    <title>ACTIVE GOALS</title>
-    <text>
-        <table>
-            <thead>
-                <tr>
-                    <th>Patient Goal Type</th>
-                    <th>Goal</th>
-                    <th>Patient-Stated?</th>
-                    <th>Author</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Blood Pressure</td>
-                    <td>
-                        <paragraph ID="goal1" styleCode="Bold">Get BP to normal (i.e. 120/80)</paragraph>
-                    </td>
-                    <td>No</td>
-                    <td>Moreland, Andrew</td>
-                </tr>
-                ...
-            </tbody>
-        </table>
-    </text>
-    <entry>
-        <observation classCode="OBS" moodCode="GOL">
-            <templateId root="2.16.840.1.113883.10.20.22.4.121"/>
-            <id extension="3241" root="1.2.840.114350.1.13.6289.1.7.2.737179"/>
-            <code nullFlavor="UNK">
-                <originalText>
-                    <reference value="#goal2"/>
-                </originalText>
-            </code>
-            <statusCode code="active"/>
-            <effectiveTime>
-                <low value="20160412113717-0500"/>
-            </effectiveTime>
-            <author>
-                <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-                <time value="20160412113717-0500"/>
-                <assignedAuthor>
-                    <id extension="1" root="1.2.840.114350.1.13.6289.1.7.2.697780"/>
-                    <assignedPerson>
-                        <name>
-                            <given>Andrew</given>
-                            <family>Moreland</family>
-                        </name>
-                    </assignedPerson>
-                </assignedAuthor>
-            </author>
-        </observation>
-    </entry>
-    ...
-</section>
-```
+
+{% include examplebutton_default.html example="goal_observation.xml" b_title = "Click Here to See 'Goal Observation' Example" %}
+
 
 #### Social History
 
@@ -4958,62 +2891,9 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 **Table 53: Entry Template**
 
 **Example 49: Social History Observation - Lead-Based Paint in the Home**
-```
-<section>
-    <templateId root="2.16.840.1.113883.10.20.22.2.17"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08- 01"/>
-    <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Social history"/>
-    <title>Social History</title>
-    <text>
-        <table>
-            <thead>
-                <tr>
-                    <th>Information Type</th>
-                    <th>Date</th>
-                    <th>Relevant Information</th>
-                    <th>Documented By</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ID="SocialHistory_3">
-                    <td>Characteristic of Residence</td>
-                    <td><content>(04/12/2016)</content></td>
-                    <td><content ID="SH3_SO"> Presence of lead-based paint (finding)
-                    </content></td>
-                    <td><content>M.Smith</content> <content>(04/12/2016)</content></td>
-                </tr>
-            </tbody>
-        </table>
-    </text>
-    <entry>
-        <observation classCode="OBS" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.38"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.38" extension="2015-08- 01"/>
-            <id extension="64020-Z9311" root="1.2.840.114350.1.13.6289.1.7.1.1040.1"/>
-            <code code="75274-1" codeSystem="2.16.840.1.113883.6.1"
-                codeSystemName="LOINC" displayName="Characteristics of residence"/>
-            <text><reference value="#SocialHistory_3"></reference></text>
-            <statusCode code="completed"/>
-            <effectiveTime value="20160412"/>
-            <value xsi:type="CD" code="425203001 " displayName="Presence of lead-based paint
-                (finding)
-                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMEDCT">
-                <originalText>
-                    <reference value="#SH3_SO"></reference>
-                </originalText>
-            </value>
-            <author>
-                <time value="20160412"/>
-                <assignedAuthor>
-                    <id extension="10.1" root="1.2.840.114350.1.1"/>
-                </assignedAuthor>
-            </author>
-        </observation>
-    </entry>
-    ...
-</section>
-```
+
+{% include examplebutton_default.html example="social_history_observation.xml" b_title = "Click Here to See 'Social History Observation' Example" %}
+
 
 #### Smoking Status
 
@@ -5044,52 +2924,9 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 {:.grid}
 **Table 54: Smoking Status**
 
-**Example 50:**
-```
-<section>
-    <templateId root="2.16.840.1.113883.10.20.22.2.17"/>
-    <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Social History"/>
-    <title>Social History</title>
-    <text>
-        <list>
-            <caption>Smoking Status</caption>
-            <item>
-                <content>Unknown if ever smoked</content>
-                <content>As of: unknown</content>
-                <content>Recorded June 6, 2014 10:32am</content>
-            </item>
-        </list>
-    </text>
-    <entry>
-        <observation classCode="OBS" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.78"/>
-            <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-            <statusCode code="completed"/>
-            <effectiveTime>
-                <low nullFlavor="UNK"/>
-                <value xsi:type="CD" codeSystem="2.16.840.1.113883.6.96"
-                    codeSystemName="SNOMED CT" code="266927001" displayName="Tobacco smoking consumption unknown"/>
-                <author>
-                    <time value="201406061032+0500"/>
-                    <assignedAuthor>
-                        <id root="2.16.840.1.113883.4.6" extension="99999999"/>
-                        <code code="200000000X"
-                            codeSystem="2.16.840.1.113883.6.101"
-                            displayName="Allopathic and Osteopathic Physicians"/>
-                        <telecom use="WP" value="tel:+1(555)555-1002"/>
-                        <assignedPerson>
-                            <name>
-<given>Henry</given>
-<family>Seven</family>
-                            </name>
-                        </assignedPerson>
-                    </assignedAuthor>
-                </author>
-        </observation>
-    </entry>
-</section>
-```
+**Example 50: Smoking Status**
+
+{% include examplebutton_default.html example="smoking_status.xml" b_title = "Click Here to See 'Smoking Status' Example" %}
 
 
 #### Tobacco Use
@@ -5122,22 +2959,8 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 
 
 **Example 51: Tobacco Use –Light Tobacco Smoker between 4/12/2010 and 4/12/2016.**
-```
-<observation classCode="OBS" moodCode="EVN">
-    <templateId root="2.16.840.1.113883.10.20.22.4.78"/>
-    <templateId root="2.16.840.1.113883.10.20.22.4.78" extension="2014-06- 09"/>
-    <id extension="64020-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.1040.1"/>
-    <code code="11367-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="History of Tobacco Use"/>
-    <statusCode code="completed"/>
-    <effectiveTime>
-        <low value="20100412"/>
-        <high value="20160412"/>
-    </effectiveTime>
-    <value xsi:type="CD" code="77176002" codeSystem="2.16.840.1.113883.6.96"
-        codeSystemName="SNOMEDCT" displayName=" Light tobacco smoker (finding)"/>
-</observation>
-```
+
+{% include examplebutton_default.html example="tobacco_use.xml" b_title = "Click Here to See 'Tobacco Use' Example" %}
 
 #### Birth Sex
 
@@ -5174,30 +2997,8 @@ This observation represents the biological sex assigned to the patient at birth.
 **Table 56: Birth Sex Template**
 
 **Example 52: Birth Sex**
-```
-<!-- Birth Sex Entry -->
-<observation classCode="OBS" moodCode="EVN">
-    <!-- New templateId for Birth Sex -->
-    <!-- Not planning to assert conformance to Social History Observation due to different
-vocab -->
-    <templateId root="2.16.840.1.113883.10.20.22.4.200" extension="2016-06- 01"/>
-    <code code="76689-9" codeSystem="2.16.840.1.113883.6.1"
-        displayName="Sex Assigned At Birth"/>
-    <text>
-        <reference value="#BSex_Narrative1"/>
-    </text>
-    <statusCode code="completed"/>
-    <!-- effectiveTime if present should match birthTime -->
-    <!-- Request name change to QRDA value set (2.16.840.1.113762.1.4.1) - ONC Birth Sex -->
-<value xsi:type="CD" codeSystem="2.16.840.1.113883.5.1"
-codeSystemName="AdministrativeGender"
-code="F" displayName="Female">
-<originalText>
-<reference value="#BSex_value"/>
-</originalText>
-</value>
-</observation>
-```
+
+{% include examplebutton_default.html example="birth_sex.xml" b_title = "Click Here to See 'Birth Sex' Example" %}
 
 
 #### Pregnancy Status
@@ -5221,72 +3022,26 @@ Implementation Guide: C-CDA R2.1 Supplemental Templates for Pregnancy Status, Re
 **Table 57: Pregnancy Observation**
 
 **Example 53: Patient was pregnant from 4/10/2011 to 1/12/2012**
-```
-<observation classCode="OBS" moodCode="EVN">
-    <templateId root="2.16.840.1.113883.10.20.15.3.8"/>
-    <id extension="123456789" root="2.16.840.1.113883.19"/>
-    <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-    <statusCode code="completed"/>
-    <effectiveTime>
-        <low value="20110410"/>
-        <high value="20120112"/>
-    </effectiveTime>
-    <value xsi:type="CD" code="77386006"
-        displayName="pregnant"
-        codeSystem="2.16.840.1.113883.6.96"/>
-    <entryRelationship typeCode="REFR">
-        <templateId root="2.16.840.1.113883.10.20.15.3.1"/>
-        ... </entryRelationship>
-</observation>
-```
+
+{% include examplebutton_default.html example="pregnancy.xml" b_title = "Click Here to See 'Pregnancy' Example" %}
 
 To indicate that the patient was not pregnant during a specified date range, the Pregnancy Observation entry
 should also be used, but with a negationInd set to “true” to indicate that the patient was not pregnant during the
 date range specified by the effectiveTime element.
 
 **Example 54: Patient was not pregnant**
-```
-<observation classCode="OBS" moodCode="EVN" negationInd="true">
-    <templateId root="2.16.840.1.113883.10.20.15.3.8"/>
-    <id extension="123456789" root="2.16.840.1.113883.19"/>
-    <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-    <statusCode code="completed"/>
-    <effectiveTime>
-        <low value="20110410"/>
-        <high value="20110710"/>
-    </effectiveTime>
-    <value xsi:type="CD" code="77386006"
-        displayName="pregnant"
-        codeSystem="2.16.840.1.113883.6.96"/>
-    <entryRelationship typeCode="REFR">
-        <templateId root="2.16.840.1.113883.10.20.15.3.1"/>
-        ... </entryRelationship>
-</observation>
-```
+
+{% include examplebutton_default.html example="not_pregnant.xml" b_title = "Click Here to See 'Not Pregnant' Example" %}
 
 Finally, to indicate that it was unknown if the patient was pregnant or not, then a nullFlavor should be used on the
 observation to indicate that the patient’s pregnancy status was unknown. An effectiveTime element can be
 included to assert the period over which it was unknown.
 
 **Example 55: Unknown if the patient was pregnant or not**
-```
-<observation classCode="OBS" moodCode="EVN" nullFlavor="UNK">
-    <templateId root="2.16.840.1.113883.10.20.15.3.8"/>
-    <id extension="123456789" root="2.16.840.1.113883.19"/>
-    <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
-    <statusCode code="completed"/>
-    <effectiveTime>
-        <low value="20110410"/>
-        <high value="20110710"/>
-    </effectiveTime>
-    <value xsi:type="CD" code="77386006"
-        displayName="pregnant"
-        codeSystem="2.16.840.1.113883.6.96"/>
-    <entryRelationship typeCode="REFR">
-        <templateId root="2.16.840.1.113883.10.20.15.3.1"/>
-        ... </entryRelationship>
-</observation>
-```
+
+{% include examplebutton_default.html example="unknown_pregnant.xml" b_title = "Click Here to See 'Unknown Pregnant' Example" %}
+
+
 #### Result
 
 Results generated by laboratories, imaging procedures, and other procedures are coded as result observations and
@@ -5342,160 +3097,9 @@ the contained result observations. If any Result Observation within the organize
 **Example 56: Result Organizer for CBC W Auto Differential panel - Blood**
 
 C-CDA Example Task Force [Result Section](https://hl7-c-cda-examples.herokuapp.com/sections/Results) examples
-```
-<section>
-    <!-- Results Section -->
-    <!-- This example shows that laboratory results more recent than the inpatient encounter are
-available at Good Health Hospital at the time the CCD is generated. This is a Patient Summary,
-not an Encounter Document. It covers a span of time.-->
-    <templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08- 01"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.3.1"/>
-    <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Relevant diagnostic tests/laboratory data Narrative"/>
-    <title>RESULTS</title>
-    <text>
-        <content ID="Results_STR">This document includes patent laboratory results for testing
-            performed within the past three months.</content> <br></br>
-        <br></br>
-        <content styleCode="Bold">CBC W Auto Differential panel - Blood (04/01/2016)</content> |
-        <content>Diagnostic Labs (04/02/2016)</content>
-        <table>
-            <thead>
-                <tr>
-                    <th>Result Type</th>
-                    <th>Result Value</th>
-                    <th>Relevant Reference Range</th>
-                    <th>Interpretation</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td ID="result1">Hemoglobin</td>
-                    <td ID="resultvalue1">13.2 g/dL</td>
-                    <td ID="referencerange1">Normal range for women is 12.0 to 15.5 grams per
-                        deciliter</td>
-                    <td>Normal</td>
-                    <td>04/01/2016</td>
-                </tr>
-                <tr>
-                    <td ID="result2">Leukocytes</td>
-                    <td ID="resultvalue2">6.7 10*3/uL</td>
-                    <td ID="referencerange2">Normal white blood cell count range 3.5-10.5 billion
-                        cells/L</td>
-                    <td>Normal</td>
-                    <td>04/01/2016</td>
-                </tr>
-                ...
-            </tbody>
-        </table>
-    </text>
-    <entry>
-        <observation classCode="OBS" moodCode="EVN">
-            <!-- Section Time Range Observation -->
-            <templateId root="2.16.840.1.113883.10.20.22.4.201" extension="2016-06- 01"/>
-            <code code="82607-3" displayName="Clinical data [Date and Time Range]"
-                codeSystem="2.16.840.1.113883.6.1"
-                codeSystemName="LOINC"></code>
-            <text><reference value="#Results_STR"></reference></text>
-            <statusCode code="completed"/>
-            <value xsi:type="IVL_TS">
-                <low value="20160401"/>
-                <high value="20160412"/>
-            </value>
-            <author>
-                <!-- The system that generated the CCD -->
-                <time value="20160412114559-0500"/>
-                <assignedAuthor>
-                    <id extension="8.3" root="1.2.840.114350.1.1"/>
-                </assignedAuthor>
-            </author>
-        </observation>
-    </entry>
-    <entry typeCode="DRIV">
-        <organizer classCode="BATTERY" moodCode="EVN">
-            <!-- ** Result organizer ** -->
-            <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08- 01"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.1"/>
-            <id root="7d5a02b0-67a4-11db-bd13-0800200c9a66"/>
-            <code code="57021-8"
-                displayName="CBC W Auto Differential panel - Blood"
-                codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-            <statusCode code="completed"/>
-            <effectiveTime>
-                <low value="20160401102500-0500"/>
-                <high value="20160402121500-0500"/>
-            </effectiveTime>
-            <!-- author at the organizer-level conducts down into the component observations.-->
-            <author>
-                <time value="20160402121500-0500"/>
-                <assignedAuthor>
-                    <id extension="333444444" root="2.16.840.1.113883.4.6"/>
-                    <code code="246Q00000X" displayName="Technician, Pathology"
-                        codeSystem="2.16.840.1.113883.6.101" codeSystemName="Healthcare Provider Taxonomy
-                        (HIPAA)"/>
-                    <representedOrganization>
-                        <name>Diagnostic Labs</name>
-                    </representedOrganization>
-                </assignedAuthor>
-            </author>
-            <component>
-                <observation classCode="OBS" moodCode="EVN">
-                    <!-- ** Result observation ** -->
-                    <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08- 01"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.2"/>
-                    <id root="107c2dc0-67a5-11db-bd13-0800200c9a66"/>
-                    <code code="718-7" displayName="Hemoglobin" codeSystem="2.16.840.1.113883.6.1"
-                        codeSystemName="LOINC"/>
-                    <text>
-                        <reference value="#result1"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <effectiveTime value="20160401102500-0500"/>
-                    <value xsi:type="PQ" value="13.2" unit="g/dL"/>
-                    <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83"/>
-                    <referenceRange>
-                        <observationRange>
-                            <value xsi:type="IVL_PQ">
-<low value="12.0" unit="g/dL"/>
-<high value="15.5" unit="g/dL"/>
-                            </value>
-                        </observationRange>
-                    </referenceRange>
-                </observation>
-            </component>
-            <component>
-                <observation classCode="OBS" moodCode="EVN">
-                    <!-- ** Result observation ** -->
-                    <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08- 01"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.2"/>
-                    <id root="a69b3d60-2ffd-4440-958b-72b3335ff35f"/>
-                    <!-- This is the correct long common name display name per LOINC web and per to 2000
--->
-                    <code code="6690-2" displayName="Leukocytes[#/volume] in Blood by Automated count"
-                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-                    <text>
-                        <reference value="#result2"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <effectiveTime value="20160401102500-0500"/>
-                    <value xsi:type="PQ" value="6.7" unit="10*3/uL"/>
-                    <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83"/>
-                    <referenceRange>
-                        <observationRange>
-                            <value xsi:type="IVL_PQ">
-<low value="4.3" unit="10*9/L"/>
-<high value="10.8" unit="10*9/L"/>
-                            </value>
-                        </observationRange>
-                    </referenceRange>
-                </observation>
-            </component>
-            ...
-        </organizer>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="result_organizer.xml" b_title = "Click Here to See 'Result Organizer' Example" %}
+
 
 #### Result Observation
 
@@ -5541,121 +3145,7 @@ not an Encounter Document. It covers a span of time.-->
 C-CDA Examples Task Force [Vital Sign Section examples](https://hl7-c-cda-examples.herokuapp.com/sections/Vital%20Signs)
 **Example 57: Vital Signs Organizer**
 
-```
-<section>
-    <!-- This section shows an example of rendering information in the correct local time, which
-recording it in the discrete data using a UTC offset. -->
-    <!-- Note that in June, UTC offset -0500 is Central time. and Eastern Timezone is the local
-time for this example. -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.4.1"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015- 08 - 01"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.4.1"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08- 01"/>
-    <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="Vital Signs"/>
-    <title>LAST RECORDED VITAL SIGNS</title>
-    <text>
-        <table>
-            <thead>
-                <tr>
-                    <th>Vital Sign</th>
-                    <th>Reading</th>
-                    <th>Time Taken</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td styleCode="cellHeader">Blood Pressure</td>
-                    <td>
-                        <content ID="sysBP_5523355980">140</content>/<content
-                            ID="diaBP_5523355980">90</content>
-                    </td>
-                    <td>(06/25/2015 1:33pm EST)</td>
-                </tr>
-                <tr>
-                    <td styleCode="cellHeader">Weight</td>
-                    <td ID="weight_5523355980">83.9 kg (185 lb)</td>
-                    <td>(06/25/2015 1:33pm EST)</td>
-                </tr>
-            </tbody>
-        </table>
-    </text>
-    <entry typeCode="DRIV">
-        <organizer classCode="CLUSTER" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.26"/>
-            <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08- 01"/>
-            <id extension="5523355980-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.2109"/>
-            <code code="46680005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
-                displayName="Vital signs">
-                <translation code="74728-7" codeSystem="2.16.840.1.113883.6.1"
-                    codeSystemName="LOINC"
-                    displayName="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA
-                    panel"/>
-            </code>
-            <statusCode code="completed"/>
-            <effectiveTime value="20160625123300-0500"/>
-            <!-- Context Conduction permits the author to be included once at the organizer level.
-Authorship conducts down into the component observations. -->
-            <author>
-                <time value="20160625123300-0500"/>
-                <assignedAuthor>
-                    <id extension="811111111" root="2.16.840.1.113883.4.6"/>
-                </assignedAuthor>
-            </author>
-            <component>
-                <observation classCode="OBS" moodCode="EVN">
-                    <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06- 09"/>
-                    <id extension="5523355980-sysBP-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.2109.1"/>
-                    <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                        displayName="SYSTOLIC BLOOD PRESSURE"/>
-                    <text>
-                        <reference value="#sysBP_5523355980"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <effectiveTime value="20160625123300-0500"/>
-                    <value xsi:type="PQ" unit="mm[Hg]" value="140"
-
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-                </observation>
-            </component>
-            <component>
-                <observation classCode="OBS" moodCode="EVN">
-                    <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06- 09"/>
-                    <id extension="5523355980-diaBP-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.2109.1"/>
-                    <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                        displayName="DIASTOLIC BLOOD PRESSURE"/>
-                    <text>
-                        <reference value="#diaBP_5523355980"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <effectiveTime value="20160625123300-0500"/>
-                    <value xsi:type="PQ" unit="mm[Hg]" value="90"
-
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-                </observation>
-            </component>
-            <component>
-                <observation classCode="OBS" moodCode="EVN">
-                    <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
-                    <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06- 09"/>
-                    <id extension="5523355980-weightC83-Z9301" root="1.2.840.114350.1.13.6289.1.7.1.2109.1"/>
-                    <code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/>
-                    <text>
-                        <reference value="#weight_5523355980"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <effectiveTime value="20160625123300-0500"/>
-                    <value xsi:type="PQ" unit="kg" value="83.915"
-
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-                </observation>
-            </component>
-        </organizer>
-    </entry>
-</section>
-```
+{% include examplebutton_default.html example="vital_signs_organizer.xml" b_title = "Click Here to See 'Vital Signs Organizer' Example" %}
 
 ##### Vital Sign Observation
 
@@ -5710,13 +3200,9 @@ Authorship conducts down into the component observations. -->
 ** Table 62: Vital Sign Observation LOINC Codes and Units for Essential Vital Sign Data Elements**
 
 **Example 58: Vital Sign Coding with Translation**
-```
-<code code="29463-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-    displayName="Body weight">
-    <translation code="8350-1" codeSystem="2.16.840.1.113883.6.1"
-        displayName="Body weight Measured - with clothes" />
-</code>
-```
+
+{% include examplebutton_default.html example="vital_sign_coding.xml" b_title = "Click Here to See 'Vital Sign Coding' Example" %}
+
 
 #### Medication
 
@@ -5731,34 +3217,8 @@ Medication Activity Entry template. The additional structure includes semantic c
 medication information as admission or discharge medication information.
 
 **Example 59: Medication Administration**
-```
-<substanceAdministration classCode="SBADM" moodCode="EVN">
-    <!-- This medication use case is a medication administered a single time in the past.-->
-    <templateId root="2.16.840.1.113883.10.20.22.4.16" />
-    <id root="1061a257-3b5c-4b09-9dc7-23e59b788b18"/>
-    <text>
-        <reference value="#Medication_7" />
-    </text>
-    <statusCode code="completed"/>
-    <effectiveTime xsi:type="TS" value="201309111603-0700"/>
-    <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ORAL"
-        codeSystemName="National Cancer Institute Thesaurus" />
-    <doseQuantity value="2" />
-    <consumable>
-        <manufacturedProduct classCode="MANU">
-            <templateId root="2.16.840.1.113883.10.20.22.4.23" />
-            <manufacturedMaterial>
-                <code code="243670" codeSystem="2.16.840.1.113883.6.88"
-                    displayName="Aspirin 81 MG Oral Tablet">
-                    <originalText>
-                        <reference value="#MedicationName_7"/>
-                    </originalText>
-                </code>
-            </manufacturedMaterial>
-        </manufacturedProduct>
-    </consumable>
-</substanceAdministration>
-```
+
+{% include examplebutton_default.html example="medication_administration.xml" b_title = "Click Here to See 'Medication Administration' Example" %}
 
 Medication activities with substanceAdministration/@moodCode= "INT" document what a clinician intends a
 patient to be taking. For example, a clinician may intend that a patient begin taking Lisinopril 20 mg PO for blood
@@ -5766,80 +3226,16 @@ pressure control. The Planned Medication Activity entry can also be used to reco
 intends the patient to take at some time in the future.
 
 **Example 60: Planned Medication**
-```
-<substanceAdministration classCode="SBADM" moodCode="INT">
-    <!-- This medication use case is a medication that is to be administered.-->
-    <templateId root="2.16.840.1.113883.10.20.22.4.16" />
-    <id root="1061a257-3b5c-4b09-9dc7-23e59b788b18"/>
-    <text>
-        <reference value="#Medication_7" />
-    </text>
-    <statusCode code="active"/>
-    <!-- This first effectiveTime shows that medication was prescribed on January 18, 2014
-(not known to have stopped)-->
-    <effectiveTime>
-        <low value="20140118"/>
-        <high nullFlavor="NI"/>
-    </effectiveTime>
-    <!-- This second effectiveTime represents every 4-6 hours from medication sig. -->
-    <!-- Operator "A" means that this timing information is in addition to previous
-effectiveTime information provided-->
-    <effectiveTime xsi:type="PIVL_TS" operator="A">
-        <period xsi:type="IVL_PQ">
-            <low value="4" unit="h"/>
-            <high value="6" unit="h"/>
-        </period>
-    </effectiveTime>
-    <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI
-        Thesaurus" displayName="Oral"/>
-    <!-- This relates directly to the code used for medication. Since it's a tablet, then
-only specified needed in dose is 2x per administration-->
-    <doseQuantity value="2"/>
-    <consumable>
-        <manufacturedProduct classCode="MANU">
-            <!-- ** Medication information ** -->
-            <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
-            <id root="0be61984-eaa5-46b3-b75b-1d1ba28b5fff"/>
-            <manufacturedMaterial>
-                <!-- Medications should be specified at a level corresponding to prescription when
-possible, such as 30mg oral tablet (branded)-->
-                <code code="1049529" displayName="Sudafed 30 MG Oral Tablet"
-                    codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm">
-                    <originalText>
-                        <reference value="#MedicationName_1"/>
-                    </originalText>
-                </code>
-            </manufacturedMaterial>
-        </manufacturedProduct>
-    </consumable>
-</substanceAdministration>
-```
+
+{% include examplebutton_default.html example="planned_medication.xml" b_title = "Click Here to See 'Planned Medication' Example" %}
 
 
 The Medication Supply Order entry records activities associated with ordering medications. The Medication
 Dispense entry records when medications are dispensed to the patient.
 
 **Example 61: Medication Dispense**
-```
-<supply classCode="SPLY" moodCode="EVN">
-    <templateId root="2.16.840.1.113883.10.20.22.4.18" extension="2014-06- 09" />
-    <id root="1.2.3.4.56789.1" extension="cb734647-fc99-424c-a864-7e3cda82e704" />
-    <statusCode code="completed" />
-    <effectiveTime value="201208151450-0800" />
-    <repeatNumber value="1" />
-    <quantity value="75" />
-    <product>
-        <manufacturedProduct classCode="MANU">
-            <templateId root="2.16.840.1.113883.10.20.22.4.23" extension="2014-06- 09" /> ...
-        </manufacturedProduct>
-    </product>
-    <performer>
-        <assignedEntity>
-            ...
-        </assignedEntity>
-    </performer>
-</supply>
-```
+
+{% include examplebutton_default.html example="medication_dispense.xml" b_title = "Click Here to See 'Medication Dispense' Example" %}
 
 The structure of a medication entry can be complex. It is complicated by the fact that any one of these templates
 may include other types of medication templates within additional entryRelationships. To support interoperability,
@@ -5863,71 +3259,8 @@ case for using an interval when requesting an immunization, i.e. have this immun
 date 2.
 
 C-CDA Examples Task Force [Immunization Examples](https://hl7-c-cda-examples.herokuapp.com/sections/Immunizations)
-```
-<section>
-    <!-- Immunizations section -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.2.1"/>
-    <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="History of immunizations"/>
-    <title>IMMUNIZATIONS</title>
-    <text>
-        <content ID="immunSect"/>
-        <!-- table omitted for space -->
-    </text>
-    <entry typeCode="DRIV">
-        <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
-            <!-- ** Immunization activity ** -->
-            <templateId root="2.16.840.1.113883.10.20.22.4.52"/>
-            <id root="e6f1ba43-c0ed-4b9b-9f12-f435d8ad8f92"/>
-            <text>
-                <reference value="#immun1"/>
-            </text>
-            <!-- Indicates the status of the substanceAdministartion -->
-            <statusCode code="completed"/>
-            <effectiveTime value="20100815"/>
-            <consumable>
-                <manufacturedProduct classCode="MANU">
-                    <!-- ** Immunization medication information ** -->
-                    <templateId root="2.16.840.1.113883.10.20.22.4.54"/>
-                    <manufacturedMaterial>
-                        <code code="88" codeSystem="2.16.840.1.113883.12.292"
-                            displayName="Influenza virus vaccine" codeSystemName="CVX"/>
-                        <lotNumberText>1</lotNumberText>
-                    </manufacturedMaterial>
-                    <!-- Optional manufacturerOrganization -->
-                    <manufacturerOrganization>
-                        <name>Health LS - Immuno Inc.</name>
-                    </manufacturerOrganization>--> </manufacturedProduct>
-            </consumable>
-            <!-- Optional Performer -->
-            <performer>
-                <assignedEntity>
-                    <id root="2.16.840.1.113883.19.5.9999.456" extension="2981824"/>
-                    <addr>
-                        <streetAddressLine>1021 Health Drive</streetAddressLine>
-                        <city>Ann Arbor</city>
-                        <state>MI</state>
-                        <postalCode>99099</postalCode>
-                        <country>US</country>
-                    </addr>
-                    <telecom nullFlavor="UNK"/>
-                    <assignedPerson>
-                        <name>
-                            <given>Amanda</given>
-                            <family>Assigned</family>
-                        </name>
-                    </assignedPerson>
-                    <representedOrganization>
-                        <id root="2.16.840.1.113883.19.5.9999.1394"/>
-                        <name>Good Health Clinic</name>
-                        <telecom nullFlavor="UNK"/>
-                        <addr nullFlavor="UNK"/>
-                    </representedOrganization>
-                </assignedEntity>
-            </performer> --> </substanceAdministration>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="immunization_date.xml" b_title = "Click Here to See 'Immunization Date' Example" %}
 
 
 #### Immunization Status Code
@@ -6042,176 +3375,17 @@ Note Activity entries provide structured information for notes found in a Notes 
 **Table 65: Note Activity Template**
 
 **Example 63: Note Activity as entryRelationship to C-CDA Entry.**
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<section>
-    <!-- C-CDA Procedures Section -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.7.1"/>
-    <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2015-08-01"/>
-    <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="HISTORY OF PROCEDURES"/>
-    <title>Procedures</title>
-    <text>
-        <table>
-            <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Date and Time (Range)</th>
-                    <th>Status</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ID="Procedure1">
-                    <td ID="ProcedureDesc1">Laparoscopic appendectomy</td>
-                    <td>(03 Feb 2014 09:22am- 03 Feb 2014 11:15am)</td>
-                    <td>Completed</td>
-                    <td ID="ProcedureNote1">
-                        <paragraph>Dr. Physician - 03 Feb 2014</paragraph>
-                        <paragraph>Free-text note about the procedure.</paragraph>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </text>
-    <entry typeCode="DRIV">
-        <!-- Procedures should be used for care that directly changes the patient's physical state.-->
-        <procedure moodCode="EVN" classCode="PROC">
-            <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
-            <id root="64af26d5-88ef-4169-ba16-c6ef16a1824f"/>
-            <code code="6025007" displayName="Laparoscopic appendectomy"
-                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
-                <originalText>
-                    <reference value="#ProcedureDesc1"/>
-                </originalText>
-            </code>
-            <text>
-                <reference value="#Procedure1"/>
-            </text>
-            <statusCode code="completed"/>
-            <effectiveTime>
-                <low value="20140203092205-0700"/>
-                <high value="20140203111514-0700"/>
-            </effectiveTime>
-            <!-- Note Activity entry -->
-            <entryRelationship typeCode="COMP">
-                <act classCode="ACT" moodCode="EVN">
-                    <templateId root="2.16.840.1.113883.10.20.22.4.202" extension="2016-11- 01"/>
-                    <code code="34109-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                        displayName="Note">
-                        <translation code="28570-0" codeSystem="2.16.840.1.113883.6.1"
-                            codeSystemName="LOINC" displayName="Procedure note"/>
-                    </code>
-                    <text>
-                        <reference value="#ProcedureNote1"/>
-                    </text>
-                    <statusCode code="completed"/>
-                    <!-- Clinically-relevant time of the note -->
-                    <effectiveTime value="20140203"/>
-                    <!-- Author Participation -->
-                    <author>
-                        <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-                        <!-- Time note was actually written -->
-                        <time value="20140204083215-0500"/>
-                        <assignedAuthor>
-                            <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c"/>
-                            <name>Dr. Physician</name>
-                        </assignedAuthor>
-                    </author>
-                    <!-- Reference to encounter -->
-                    <entryRelationship typeCode="COMP" inversionInd="true">
-                        <encounter>
-                            <!-- Encounter ID matches an encounter in the Encounters Section -->
-                            <id root="1.2.3.4"/>
-                        </encounter>
-                    </entryRelationship>
-                </act>
-            </entryRelationship>
-        </procedure>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="note_activity_entryRelationship.xml" b_title = "Click Here to See 'Note Activity Entry Relationship' Example" %}
+
 
 **Example 64: Note Activity as Standalone Entry**
-```
-<section>
-    <!-- C-CDA Procedures Section -->
-    <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09"/>
-    <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-        displayName="HISTORY OF PROCEDURES"/>
-    <title>Procedures</title>
-    <text>
-        <list>
-            <item ID="ProcedureNote1">
-                <paragraph>Dr. Physician - 03 Feb 2014</paragraph>
-                <paragraph>Free-text note about procedures which have occurred during this
-                    visit.</paragraph>
-            </item>
-        </list>
-    </text>
-    <!-- If section were entries required, an additional <entry nullFlavor="NI"> would be
-required for a Procedure Activity -->
-    <!-- Note Activity entry -->
-    <entry>
-        <act classCode="ACT" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.202" extension="2016-11- 01"/>
-            <code code="34109-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                displayName="Note">
-                <translation code="28570-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                    displayName="Procedure note" />
-            </code>
-            <text>
-                <reference value="#ProcedureNote1" />
-            </text>
-            <statusCode code="completed"/>
-            <!-- Clinically-relevant time of the note -->
-            <effectiveTime value="20140203" />
-            <!-- Author Participation -->
-            <author>
-                <templateId root="2.16.840.1.113883.10.20.22.4.119" />
-                <!-- Time note was actually written -->
-                <time value="20140204083215-0500" />
-                <assignedAuthor>
-                    <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
-                    <name>Dr. Physician</name>
-                </assignedAuthor>
-            </author>
-            <!-- Reference to encounter -->
-            <entryRelationship typeCode="COMP" inversionInd="true">
-                <encounter>
-                    <!-- Encounter ID matches an encounter in the Encounters Section -->
-                    <id root="1.2.3.4" />
-                </encounter>
-            </entryRelationship>
-        </act>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="note_activity_standalone.xml" b_title = "Click Here to See 'Note Activity Standalone' Example" %}
 
 **Example 65: Rich Text Format (RTF) Example**
-```
-<section>
-    <!--... -->
-    <text>
-        <list>
-            <item ID="note1">
-                <caption>Nursing Note written by Nick Nurse</caption>
-                <paragraph>Completed rounds; no incident</paragraph>
-            </item>
-        </list>
-    </text>
-    <!-- Note Activity (extra markup removed to focus on <text>) -->
-    <entry>
-        <act>
-            <code>...</code>
-            <text mediaType="text/rtf" representation="B64">
-                <reference value="#note1"/>
-            </text>
-            <!--...-->
-        </act>
-    </entry>
-</section>
-```
+
+{% include examplebutton_default.html example="rich_text_format.xml" b_title = "Click Here to See 'Rich Text Format' Example" %}
 
 #### Advance Directive
 

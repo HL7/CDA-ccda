@@ -1,0 +1,54 @@
+<section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.17"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08- 01"/>
+    <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+        displayName="Social history"/>
+    <title>Social History</title>
+    <text>
+        <table>
+            <thead>
+                <tr>
+                    <th>Information Type</th>
+                    <th>Date</th>
+                    <th>Relevant Information</th>
+                    <th>Documented By</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ID="SocialHistory_3">
+                    <td>Characteristic of Residence</td>
+                    <td><content>(04/12/2016)</content></td>
+                    <td><content ID="SH3_SO"> Presence of lead-based paint (finding)
+                    </content></td>
+                    <td><content>M.Smith</content> <content>(04/12/2016)</content></td>
+                </tr>
+            </tbody>
+        </table>
+    </text>
+    <entry>
+        <observation classCode="OBS" moodCode="EVN">
+            <templateId root="2.16.840.1.113883.10.20.22.4.38"/>
+            <templateId root="2.16.840.1.113883.10.20.22.4.38" extension="2015-08- 01"/>
+            <id extension="64020-Z9311" root="1.2.840.114350.1.13.6289.1.7.1.1040.1"/>
+            <code code="75274-1" codeSystem="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC" displayName="Characteristics of residence"/>
+            <text><reference value="#SocialHistory_3"></reference></text>
+            <statusCode code="completed"/>
+            <effectiveTime value="20160412"/>
+            <value xsi:type="CD" code="425203001 " displayName="Presence of lead-based paint
+                (finding)
+                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMEDCT">
+                <originalText>
+                    <reference value="#SH3_SO"></reference>
+                </originalText>
+            </value>
+            <author>
+                <time value="20160412"/>
+                <assignedAuthor>
+                    <id extension="10.1" root="1.2.840.114350.1.1"/>
+                </assignedAuthor>
+            </author>
+        </observation>
+    </entry>
+    ...
+</section>

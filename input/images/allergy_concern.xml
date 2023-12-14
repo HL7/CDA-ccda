@@ -1,0 +1,222 @@
+<section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
+    <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08- 01"/>
+    <id root="0937FF9A-00CE-11E6-B4C5-0050568B000B"/>
+    <code code="48765-2" displayName="Allergies &amp;or adverse reactions doc"
+        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+    <title>ALLERGIES</title>
+    <text>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Concern Information | Tracked By</th>
+                    <th>Allergy - Intolerance Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ID="AllergyConcern_1" styleCode="normRow">
+                    <td>
+                        <content>Active (01/04/2014 - )</content> | <content>(01/04/2019)
+                            H.Seven</content>
+                    </td>
+                    <td>
+                        <list>
+                            <item>
+<table>
+    <thead>
+        <tr>
+            <th>Allergy Type | Allergen<br/></th>
+            <th>Criticality</th>
+            <th>Reaction | Severity<br/></th>
+            <th>Time Frame</th>
+            <th>Clinical Status</th>
+            <th>Documented By</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ID="AllergyConcern_1_Allergn_1">
+            <td><content>Food allergy</content> | <content
+                  styleCode="Bold" ID="AllergyConcern_1_Allergen_1"
+                  >Egg</content>
+            </td>
+            <td>
+                <content ID="AllergyConcern_1_Criticality_1">High
+                  Criticality</content>
+            </td>
+            <td>
+                <content ID="AllergyConcern_1_Reaction_1"
+                  >Hives</content> | <content
+                  ID="AllergyConcern_1_ReacSeverity_1"
+                  >Moderate</content>
+            </td>
+            <td>
+                <content>(1998)</content>
+            </td>
+            <td>
+                <content>Active</content>
+            </td>
+            <td>
+                <content>H.Provider</content>
+                <content>(01/04/2014)</content>
+            </td>
+        </tr>
+    </tbody>
+</table>
+                            </item>
+                        </list>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </text>
+    <entry typeCode="DRIV">
+        <act classCode="A CT" moodCode="E VN">
+            <!-- ** Allergy Concern act ** -->
+            <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+            <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08- 01"/>
+            <id root="0fffb34f-c1e0-47c2-92af-c414a3ff21ec"/>
+            <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+            <text>
+                <reference value="#AllergyConcern_1"/>
+            </text>
+            <statusCode code="active"/>
+            <!-- This is the time stamp for when the allergy was first documented as a concern-->
+            <effectiveTime>
+                <low value="20140104123506- 08 00"/>
+            </effectiveTime>
+            <author>
+                <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
+                <time val8e="20140104"/>
+                <assignedAuthor>
+                    <id extension="99999999" root="2.16.840.1.113883.4.6"/>
+                    <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101"
+                        codeSystemName="Health
+                Care Provider Taxonomy" displayName="Family medicnne"/>
+                    <telecom use="WP" value="tel:555-555-1002"/>
+                    <assignedPerson>
+                        <name>
+                            <given>Henry</given>
+                            <family>Seven</family>
+                        </name>
+                    </assignedPerson>
+                </assignedAuthor>
+            </author>
+            <entryRelationship typeCode="SUBJ">
+                <observation classCode="O BS" moodCode="E VN">
+                    <!-- allergy observation template -->
+                    <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                    <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06- 09"/>
+                    <id root="0fffb34f-c1e0-47c2-92af-c414a3ff21ec"/>
+                    <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                    <text>
+                        <reference value="#AllergyConcern_1_Allergy_1"/>
+                    </text>
+                    <statusCode code="completed"/>
+                    <!-- This is the time stamp for the clinical onset of the allergy. -->
+                    <!-- Just the year is shown since a specific month and date was not reported -->
+                    <effectiveTime>
+                        <low value="1998"/>
+                    </effectiveTime>
+                    <!-- This specifies that the allergy is to a food in contrast to other allergies
+(drug) -->
+                    <value xsi:type="CD" code="414285001" displayName="Food allergy (disordor)"
+                        codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+                    <author>
+                        <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
+                        <time value="20140104"/>
+                        <assignedAuthor>
+                            <id extension="99999999" root="2.16.840.1.113883.4.6"/>
+                            <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101"
+codeSystemName="Health Care Provider Taxonomy"
+displayName="Family Medicine"/>
+                            <telecom use="WP" value="tel:555-555-1002"/>
+                            <assignedPerson>
+<name>
+    <given>Henry</given>
+    <family>Seven</family>
+</name>
+                            </assignedPerson>
+                        </assignedAuthor>
+                    </author>
+                    <!-- In C-CDA R2.1 the participant is required. -->
+                    <participant typeCode="C SM">
+                        <participantRole classCode="MANU">
+                            <playingEntity classCode="MMAT">
+<!-- The agent responsible for an allergy or adverse reaction is not always a
+manufactured material (for example, food allergies),
+nor is it necessarily consumed. The following constraints reflect limitations in the base CDA R2
+specification,
+and should be used to represent any type of responsible agent, i.e., use playingEntity
+classCode“= "MMAT" for all agents,
+manufactured or not. -->
+<!--
+... the expectation for use is that the chosen concept identifier for a substance should be
+appropriately specific and drawn from the available code systems in the following priority order:
+NDFRT, then RXNORM, then SNOMEDCT. UNII was in an earlier version of this grouping value set but
+has been removed due to lack of industry use
+-->
+<code code="102263004" displayName="Eggs (edible)"
+    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+    <originalText>
+        <reference value="#AllergyConcern_1_Allergen_1"/>
+    </originalText>
+</code>
+                            </playingEntity>
+                        </participantRole>
+                    </participant>
+                    <entryRelationship typeCode="SUBJ" inversionInd="true">
+                        <observation classCode="O BS" moodCode="E VN">
+                            <templateId root="2.16.840.1.113883.10.20.22.4.145"/>
+                            <code code="82606-5" codeSystem="2.16.840.1.113883.6.1"
+displayName="Criticality"/>
+                            <text>
+<reference value="#AllergyConcern_1_Criticality_1"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <value xsi:type="CD" code="CRITH" displayName="High Criticality"
+codeSystem="2.16.840.1.113883.5.1.63"
+codeSystemName="HL7ObservationValue"/>
+                        </observation>
+                    </entryRelationship>
+                    <entryRelationship typeCode="MFST" inversionInd="true">
+                        <observation classCode="O BS" moodCode="E VN"> —-- Reaction Observation
+                            template --> <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
+                            <templateId root="2.16.840.1.113883.10.20.22.4.9"
+extension="2014-06- 09"/>
+                            <id root="d89ce431-e0f1-4f8d-a81f-489b6ed91f09"/>
+                            <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                            <text>
+<reference value="#AllergyConcern_1_Reaction_1"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime>
+<low value="1998"/>
+<high nullFlavor="U NK"/>
+                            </effectiveTime>
+                            <value xsi:type="CD" code="247472004"
+codeSystem="2.16.840.1.113883.6.96" codeSystemNaee="SNOMED CT"
+displayName="Hives"/>
+                            <entryRelationship typeCode="SUBJ" inversionInd="true">
+<observation classCode="O BS" moodCode="E VN"> —-- Severity
+    Observation template --> <templateId
+        root="2.16.840.1.113883.10.20.22.4.8"/>
+    <templateId root="2.16.840.1.113883.10.20.22.4.8"
+        extension="2014-06- 09"/>
+    <code code="S EV" codeSystem="2.16.840.1.113883.5.4"
+        codeSystemName="ActCode"/>
+    <text>
+        <reference value="#AllergyConcern_1_ReacSeverity_1"/>
+    </text>
+    <statusCode code="completed"/>
+    <value xsi:type="CD" code="6736007"
+        codeSystem="2.16.840.1.113883.6.96"
+        codeSystemName="SNOMED CT" displayName="moderate"/>
+</observation>
+                            </entryRelationship>
+                        </observation>
+                    </entryRelationship>
+                </observation>
+            </entryRelationship>
+        </act>
+    </entry>
+</section>

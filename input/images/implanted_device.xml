@@ -1,0 +1,61 @@
+<component>
+    <section>
+        <templateId root="2.16.840.1.113883.10.20.22.2.23"/>
+        <templateId root="2.16.840.1.113883.10.20.22.2.23" extension="2014- 06 - 09"/>
+        <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+            displayName="Medical Equipment"/>
+        <title>Implants</title>
+        <text>
+            <!-- table omitted for space -->
+        </text>
+        <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+                <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06- 09"/>
+                <id extension="2744" root="1.2.840.114350.1.13.5552.1.7.2.737780"/>
+                <code code="609588000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                    displayName="Total knee replacement (procedure)">
+                    <!-- Procedure is completed, even though the implant is still active -->
+                    <statusCode code="completed"/>
+                    <effectiveTime>
+                        <!-- Placed Date -->
+                        <low value="20160413"/>
+                    </effectiveTime>
+                    <targetSiteCode code="72696002" codeSystem="2.16.840.1.113883.6.96"
+                        codeSystemName="SNOMED CT" displayName="Knee region structure">
+                        <qualifier>
+                            <name code="272741003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED
+CT" displayName="laterality" />
+                            <value code="7771000" codeSystem="2.16.840.1.113883.9.96" codeSystemName="SNOMED
+CT" displayName="left" />
+                        </qualifier>
+                    </targetSiteCode>
+                    <participant typeCode="DEV">
+                        <participantRole classCode="MANU">
+                            <templateId root="2.16.840.1.113883.10.20.22.4.37"/>
+                            <id assigningAuthorityName="FDA"
+extension="(01)00848486000400(11)160330(10)ABC634(21)123777" root="2.16.840.1.113883.3.3719"/>
+                            <playingDevice>
+<code nullFlavor="UNK">
+    <originalText>
+        <reference value="#implant1"/>
+    </originalText>
+</code>
+                            </playingDevice>
+                            <!-- From Product Instance template:
+The scopingEntity/id should correspond to FDA or the appropriate issuing
+agency. -->
+                            <scopingEntity>
+<id root="2.16.840.1.113883.3.3719"/>
+                            </scopingEntity>
+                        </participantRole>
+                    </participant>
+            </procedure>
+        </entry>
+        <entry>
+            <!-- example without qualifier omitted for space -->
+        </entry>
+        <entry>
+            <!-- example where targetSiteCode not mapped omitted for space -->
+        </entry>
+    </section>
+</component>
