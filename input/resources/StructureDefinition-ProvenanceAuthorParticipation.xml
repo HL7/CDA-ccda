@@ -212,7 +212,7 @@
                 <key value="provenance-org-details"/>
                 <severity value="error"/>
                 <human value="If the author is not a clinician, set nullFlavor='NA'. Otherwise, the taxId, npi, and name are required."/>
-                <expression value="nullFlavor = 'NA' or (id.where(root='2.16.840.1.113883.4.2').exists() and id.where('2.16.840.1.113883.4.6').exists() and name.exists())"/>
+                <expression value="nullFlavor = 'NA' or (id.where(root='2.16.840.1.113883.4.2').exists() and id.where(root='2.16.840.1.113883.4.6').exists() and name.exists())"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
             </constraint>
             <constraint>

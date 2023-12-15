@@ -124,4 +124,4 @@ representedOrganization.exists() or
 Invariant: provenance-org-details
 Description: "If the author is not a clinician, set nullFlavor='NA'. Otherwise, the taxId, npi, and name are required."
 Severity: #error
-Expression: "nullFlavor = 'NA' or (id.where(root='2.16.840.1.113883.4.2').exists() and id.where('2.16.840.1.113883.4.6').exists() and name.exists())"
+Expression: "nullFlavor = 'NA' or (id.where(root='2.16.840.1.113883.4.2').exists() and id.where(root='2.16.840.1.113883.4.6').exists() and name.exists())"
