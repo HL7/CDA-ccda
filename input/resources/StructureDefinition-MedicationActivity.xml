@@ -183,7 +183,7 @@
                 <key value="1098-32890"/>
                 <severity value="error"/>
                 <human value="This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."/>
-                <expression value="(value | low).count = 1"/>
+                <expression value="(value.exists() or low.exists()) and ((value.exists() and low.exists()).not())"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
             </constraint>
             <constraint>

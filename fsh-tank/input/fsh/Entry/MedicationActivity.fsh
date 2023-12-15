@@ -231,7 +231,7 @@ Expression: "effectiveTime.ofType(CDA.PIVL_TS).exists() or effectiveTime.ofType(
 Invariant: 1098-32890
 Description: "This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."
 Severity: #error
-Expression: "(value | low).count = 1"
+Expression: "(value.exists() or low.exists()) and ((value.exists() and low.exists()).not())"
 
 Invariant: dose-unit-or-admin-unit
 Description: "If doseQuantity/@unit is present, then administrationUnitCode SHALL NOT be present."
