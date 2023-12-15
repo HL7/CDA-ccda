@@ -27,6 +27,13 @@ const xml2js = require('xml2js');
   const fshDirectory = 'fsh-tank/fsh-generated/resources';
   const xmlDirectory = 'input/resources';
 
+  const sushiConfig = fs.readFileSync('fsh-tank/sushi-config.yaml', 'utf-8');
+  const match = sushiConfig.match(/canonical:\s*(\S+)(\n|$)/);
+  const canonical = match ? match[1] : null;
+  if (!canonical) {
+    throw new Error('Unable to load canonical from sushi-config.yaml');
+  }
+
   const ig = fs.readFileSync('input/hl7.cda.us.ccda.xml');
   const xmlParser = new xml2js.Parser({ explicitArray: false });
 
@@ -78,10 +85,11 @@ const xml2js = require('xml2js');
       let data = fs.readFileSync(filePath, 'utf8');
 
       // Implement custom hasTemplateIdOf(SDName) function!
-      data = data.replace(/hasTemplateIdOf\((\w+)\)/g, (match, capture) => {
-        const rootExt = buildTemplateIdWhere(capture);
-        return rootExt ? `templateId.where(${rootExt})` : 'not()';
-      });
+      // data = data.replace(/hasTemplateIdOf\((\w+)\)/g, (match, capture) => {
+      //   const rootExt = buildTemplateIdWhere(capture);
+      //   return rootExt ? `templateId.where(${rootExt})` : 'not()';
+      // });
+      data = data.replace(/hasTemplateIdOf\((\w+)\)/g, `hasTemplateIdOf('${canonical}/StructureDefinition/$1')`);
 
       const json = JSON.parse(data);
       saveIdentifier(json);

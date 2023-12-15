@@ -8,11 +8,11 @@
             </extension>
         </valueBoolean>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
-        <valueUri value="section"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="section"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
@@ -44,7 +44,7 @@
                 <key value="shall-med-activity"/>
                 <severity value="error"/>
                 <human value="SHALL contain at least one Medication Activity"/>
-                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.templateId.where(root = '2.16.840.1.113883.10.20.22.4.16' and extension = '2014-06-09'))"/>
+                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
             </constraint>
         </element>
