@@ -8,6 +8,9 @@
             </extension>
         </valueBoolean>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-container">
+        <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
+    </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
         <valueUri value="urn:hl7-org:v3"/>
     </extension>
@@ -58,7 +61,7 @@
                 <key value="4537-17139"/>
                 <severity value="error"/>
                 <human value="When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139)."/>
-                <expression value="participant.where(typeCode='COV').participantRole.code.code = 'SELF' implies participant.where(typeCode='HLD').empty()"/>
+                <expression value="participant.where(typeCode='COV').participantRole.code.where(code = 'SELF') implies participant.where(typeCode='HLD').empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
             </constraint>
         </element>

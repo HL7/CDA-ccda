@@ -31,7 +31,7 @@ The Patient Generated Document Header template is not a separate document type. 
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)." // man-should
         * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
         * preferenceInd 0..1
-          * ^short = "Indicates a preference for information about care delivery and treatments be communicated (or translated if needed) into this language.\n\nIf more than one languageCommunication is present, only one languageCommunication element SHALL have a preferenceInd with a value of 1.\n"
+          * ^short = "Indicates a preference for information about care delivery and treatments be communicated (or translated if needed) into this language.\n\nIf more than one languageCommunication is present, only one languageCommunication element SHALL have a preferenceInd with a value of 1."
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] preferenceInd (CONF:1198-28475)."
     * providerOrganization 0..1
       * ^label = "If present, this organization represents the provider organization where the person is claiming to be a patient."

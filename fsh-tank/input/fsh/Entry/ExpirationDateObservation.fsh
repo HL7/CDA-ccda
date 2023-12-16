@@ -23,7 +23,7 @@ Description: "This template is intended to be used in addition to the **Product 
     * ^comment = "This code MAY contain zero or one [0..1] @displayName=\"Expiration Date\" (CONF:4437-3401)."
 * value 1..1
 * value only $TS
-  * ^short = " Expiration Date as a time stamp"
+  * ^short = "Expiration Date as a time stamp"
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"TS\" (CONF:4437-3395)."
   * value 1..1
     * ^comment = "This value SHALL contain exactly one [1..1] @value (CONF:4437-3402)."
