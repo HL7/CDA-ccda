@@ -6,7 +6,7 @@ Description: """A Procedure Note encompasses many types of non-operative procedu
 
 The Procedure Note is created immediately following a non-operative procedure. It records the indications for the procedure and, when applicable, postprocedure diagnosis, pertinent events of the procedure, and the patient's tolerance for the procedure. It should be detailed enough to justify the procedure, describe the course of the procedure, and provide continuity of care."""
 
-* insert LogicalModelTemplate(procedure-note, 2.16.840.1.113883.10.20.22.1.6, 2015-08-01)
+* insert LogicalModelTemplate(procedure-note, 2.16.840.1.113883.10.20.22.1.6, 2024-05-01)
 
 * ^status = #active
 * code 1..1
@@ -174,7 +174,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
         component29 0..1
     * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30353)."
       * section only ComplicationsSection
-        * ^comment = "This component SHALL contain exactly one [1..1] Complications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2015-08-01) (CONF:1198-30387)."
+        * ^comment = "This component SHALL contain exactly one [1..1] Complications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2024-05-01) (CONF:1198-30387)."
     * component[component2] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30355) such that it"
       * section only ProcedureDescriptionSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Description Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.27) (CONF:1198-30356)."
@@ -183,7 +183,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * ^comment = "SHALL contain exactly one [1..1] Procedure Indications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.29:2014-06-09) (CONF:1198-30358)."
     * component[component4] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30359) such that it"
       * section only PostprocedureDiagnosisSection
-        * ^comment = "SHALL contain exactly one [1..1] Postprocedure Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.36:2015-08-01) (CONF:1198-30360)."
+        * ^comment = "SHALL contain exactly one [1..1] Postprocedure Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.36:2024-05-01) (CONF:1198-30360)."
     * component[component5] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30361) such that it"
       * section only AssessmentSection
         * ^comment = "SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30362)."
@@ -195,7 +195,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30366)."
     * component[component8] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30367) such that it"
       * section only AllergiesAndIntolerancesSection
-        * ^comment = "SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01) (CONF:1198-30368)."
+        * ^comment = "SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2024-05-01) (CONF:1198-30368)."
     * component[component9] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30369) such that it"
       * section only AnesthesiaSection
         * ^comment = "SHALL contain exactly one [1..1] Anesthesia Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09) (CONF:1198-30370)."
@@ -207,10 +207,10 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint and Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.13) (CONF:1198-30374)."
     * component[component12] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30375) such that it"
       * section only FamilyHistorySection
-        * ^comment = "SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2015-08-01) (CONF:1198-30376)."
+        * ^comment = "SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2024-05-01) (CONF:1198-30376)."
     * component[component13] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30377) such that it"
       * section only PastMedicalHistory
-        * ^comment = "SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2015-08-01) (CONF:1198-30378)."
+        * ^comment = "SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2024-05-01) (CONF:1198-30378)."
     * component[component14] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30379) such that it"
       * section only HistoryofPresentIllnessSection
         * ^comment = "SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-30380)."
@@ -225,7 +225,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * ^comment = "SHALL contain exactly one [1..1] Medications Administered Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.38:2014-06-09) (CONF:1198-30389)."
     * component[component18] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30390) such that it"
       * section only PhysicalExamSection
-        * ^comment = "SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2015-08-01) (CONF:1198-30391)."
+        * ^comment = "SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2024-05-01) (CONF:1198-30391)."
     * component[component19] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30392) such that it"
       * section only PlannedProcedureSection
         * ^comment = "SHALL contain exactly one [1..1] Planned Procedure Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.30:2014-06-09) (CONF:1198-30393)."
@@ -237,7 +237,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * ^comment = "SHALL contain exactly one [1..1] Procedure Estimated Blood Loss Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.9) (CONF:1198-30397)."
     * component[component22] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30398) such that it"
       * section only ProcedureFindingsSection
-        * ^comment = "SHALL contain exactly one [1..1] Procedure Findings Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.28:2015-08-01) (CONF:1198-30399)."
+        * ^comment = "SHALL contain exactly one [1..1] Procedure Findings Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.28:2024-05-01) (CONF:1198-30399)."
     * component[component23] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30400) such that it"
       * section only ProcedureImplantsSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Implants Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.40) (CONF:1198-30401)."
@@ -255,10 +255,10 @@ The Procedure Note is created immediately following a non-operative procedure. I
         * ^comment = "SHALL contain exactly one [1..1] Review of Systems Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:1198-30409)."
     * component[component28] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30410) such that it"
       * section only SocialHistorySection
-        * ^comment = "SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01) (CONF:1198-30411)."
+        * ^comment = "SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2024-05-01) (CONF:1198-30411)."
     * component[component29] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
-        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
 
 Invariant: 1198-8511
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."

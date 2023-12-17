@@ -34,7 +34,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-1627](https://jira.hl7.org/browse/CDA-1627) - Bind Procedure Act Procedure code to US Core Procedure value set.
 - [CDA-1637](https://jira.hl7.org/browse/CDA-1637)/[CDA-1638](https://jira.hl7.org/browse/CDA-1638) - Update Discharge Disposition code binding.
 - [CDA-1757](https://jira.hl7.org/browse/CDA-1757) - Updated BirthSex template to align with Gender Harmony.
-- [CDA-1760](https://jira.hl7.org/browse/CDA-1760) - Changed any statusCode that were set to 'completed' to be bound to a value set.
+- [CDA-1760](https://jira.hl7.org/browse/CDA-1760) - Changed Smoking Status statusCode to be bound to a value set.
 - [CDA-1762](https://jira.hl7.org/browse/CDA-1762) - Update the encompassingEncounter responsibleParty to be SHOULD.
 - [CDA-1789](https://jira.hl7.org/browse/CDA-1789) - Provided guidance on using PlannedEncounter template for future encounters.
 - [CDA-1793](https://jira.hl7.org/browse/CDA-1793) - Remove Vaccine Clinical Drug value set from Immunization Medication Information template
@@ -55,7 +55,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20053](https://jira.hl7.org/browse/CDA-20053) - Updated languageCode to use valueset AllLanguages in US Realm Header and US Realm Header for Patient Generated Document
 - [CDA-20053](https://jira.hl7.org/browse/CDA-20053) - Updated value set binding for languageCode to be AllLanguages.
 - [CDA-20076](https://jira.hl7.org/browse/CDA-20076) - Changed value on Severity Observation from SHALL to SHOULD and modified description to match
-- [CDA-20085](https://jira.hl7.org/browse/CDA-20085) - Allow Result Observation value to be from SNOMED or LOING.
+- [CDA-20085](https://jira.hl7.org/browse/CDA-20085) - Allow Result Observation value to be from SNOMED or LOINC.
 - [CDA-20085](https://jira.hl7.org/browse/CDA-20085) - Updated Observation/value to include LOINC codes in Result Observation
 - [CDA-20324](https://jira.hl7.org/browse/CDA-20324) - Moved binding to ObservationInterpretation from interpretationCode/@code to interpretationCode.
 - [CDA-20444](https://jira.hl7.org/browse/CDA-20444) - Bind Problem Observation code to US Core Condition value set.
@@ -113,36 +113,34 @@ The changes in this version of Consolidated CDA have been made from STU comments
 
 #### Templates with New Extensions due to Major Change
 
-
-| Document | Changes |
-| --- | --- |
-| [Care Plan](StructureDefinition-CarePlan.html) | structuredBody.component cardinality increased to 3, templateId cardinality increased to 2 |
-| [Consultation Note](StructureDefinition-ConsultationNote.html) | constraints now have sources, structuredBody.component cardinality increased to 5 |
-| [Continuity of Care Document (CCD)](StructureDefinition-ContinuityofCareDocumentCCD.html) | structuredBody.component cardinality increased to 6, templateId cardinality increased to 2 |
-| [Discharge Summary](StructureDefinition-DischargeSummary.html) | structuredBody.component cardinality increased to 7, removed required element participant.typeCode, Results Section now required component |
-| [History and Physical](StructureDefinition-HistoryandPhysical.html) | structuredBody.component cardinality increased to 12 |
-| [Operative Note](StructureDefinition-OperativeNote.html) | structuredBody.component cardinality increased to 8, serviceEvent.code removed one code system and added another, serviceEvent.code now required |
-| [Procedure Note](StructureDefinition-ProcedureNote.html) | structuredBody.component cardinality increased to 5 |
-| [Progress Note](StructureDefinition-ProgressNote.html) | templateId cardinality increased to 2 |
-| [Referral Note](StructureDefinition-ReferralNote.html) | structuredBody.component cardinality increased to 5, templateId cardinality increased to 2 |
-| [Transfer Summary](StructureDefinition-TransferSummary.html) | templateId cardinality increased to 2, structuredBoyd.component cardinality increased to 7 |
-| [Unstructured Document](StructureDefinition-UnstructuredDocument.html) | templateId cardinality increased to 2 |
-| [US Realm Header](StructureDefinition-USRealmHeader.html) | new constraint on recordTarget.patientRole.patient.sdtcDeceasedInd, serviceEvent.effectiveTime set to new valueset, addr.item included, languageCode bound to new valueset, realmCode.code element added |
+{% raw %}
+<blockquote class="note-to-balloters">
+<p>
+	The intent of providing a new extension to a template was to indicate when major change had occurred and thus instances of the template that were previously valid might no longer be valid due to changes in the template.  We have tried to identify all templates where major change occurred.  Comments about specific templates that SHOULD have received a new extension or templates that SHOULD NOT have received a new extension are appreciated.
+</p>
+</blockquote>
+{% endraw %}
 
 
-| Section | Changes |
-| --- | --- |
-| [Advance Directives Section](StructureDefinition-AdvanceDirectivesSection.html) | now requires Advance Directives Organizer |
-| [Notes Section](StructureDefinition-NotesSection.html) | new code.code and code.codeSystem required elements |
-| [Procedures Section](StructureDefinition-ProceduresSection.html) | removed procedure activity act and procedure activity observation from entries |
+Templates that received a new extension in this version of the guide have '2024-05-01' as their extension.
 
+##### Document Templates
+*US Realm Header* had a number of changes that propagate through the other Document Templates.  Due to this, all document template ids received a new extension.
+
+##### Section Templates
+No section templates had major changes and thus they all retain their previous template id.
+
+##### Entry Templates
+The following entry templates had major changes and thus their template ids received a new extension:
 
 | Entry | Changes |
 | --- | --- |
-| [Basic Industry Observation](StructureDefinition-BasicIndustryObservation.html) | section cardinality increased to 2 |
-| [Basic Occupation Observation](StructureDefinition-BasicOccupationObservation.html) | section cardinality increased to 2 |
+| [Birth Sex Observation](StructureDefinition-BirthSexObservation.html) | value binding changed |
 | [Coverage Activity](StructureDefinition-CoverageActivity.html) | updated LOINC code |
-| [Gender Identity Observation](StructureDefinition-GenderIdentityObservation.html) | section cardinality increased to  2 |
-| [Sexual Orientation Observation](StructureDefinition-SexualOrientationObservation.html) | section cardinality increased to 2 |
+| [Mental Status Observation](StructureDefinition-MentalStatusObservation.html) | updated code and new value binding |
+| [Planned Supply](StructureDefinition-PlannedSupply.html) | one form of product SHALL be present |
+| [Policy Activity](StructureDefinition-PolicyActivity.html) | effectiveTime is now SHOULD |
+| [Problem Concern Act](StructureDefinition-ProblemConcernAct.html) | only one ProblemObservation is allowed |
+| [Problem Observation](StructureDefinition-ProblemObservation.html) | value has US-Core value set binding |
+| [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure.html) | code has new US-Core binding |
 | [Smoking Status - Meaningful Use](StructureDefinition-SmokingStatusMeaningfulUse.html) | statusCode.code bound to new valueset |
-| [Tribal Affiliation Observation](StructureDefinition-TribalAffiliationObservation.html) | templateId cardinality increased to 2 |

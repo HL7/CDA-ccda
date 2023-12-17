@@ -4,7 +4,7 @@ Id: USRealmHeader
 Title: "US Realm Header"
 Description: "This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template."
 
-* insert LogicalModelTemplate(us-realm, 2.16.840.1.113883.10.20.22.1.1, 2023-05-01)
+* insert LogicalModelTemplate(us-realm, 2.16.840.1.113883.10.20.22.1.1, 2024-05-01)
 
 * ^status = #draft
 * realmCode 1..1

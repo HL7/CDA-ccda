@@ -8,7 +8,7 @@ This template represents a "snapshot in time" observation, simply reflecting wha
 
 If the patient's current smoking status is unknown, the value element must be populated with SNOMED CT code 266927001 to communicate "Unknown if ever smoked" from the Current Smoking Status Value Set."""
 
-* insert LogicalModelTemplate(smoking-status, 2.16.840.1.113883.10.20.22.4.78, 2014-06-09)
+* insert LogicalModelTemplate(smoking-status, 2.16.840.1.113883.10.20.22.4.78, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1

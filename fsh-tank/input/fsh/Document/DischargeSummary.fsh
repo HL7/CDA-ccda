@@ -12,7 +12,7 @@ Description: """The Discharge Summary is a document which synopsizes a patient's
 
 The best practice for a Discharge Summary is to include the discharge disposition in the display of the header."""
 
-* insert LogicalModelTemplate(discharge-summary, 2.16.840.1.113883.10.20.22.1.8, 2015-08-01)
+* insert LogicalModelTemplate(discharge-summary, 2.16.840.1.113883.10.20.22.1.8, 2024-05-01)
 
 * ^status = #active
 * code 1..1
@@ -100,16 +100,16 @@ The best practice for a Discharge Summary is to include the discharge dispositio
         component28 0..1
     * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30519)."
       * section only AllergiesAndIntolerancesSection
-        * ^comment = "This component SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01) (CONF:1198-30520)."
+        * ^comment = "This component SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2024-05-01) (CONF:1198-30520)."
     * component[component2] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30521) such that it"
       * section only HospitalCourseSection
         * ^comment = "SHALL contain exactly one [1..1] Hospital Course Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.5) (CONF:1198-30522)."
     * component[component3] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
       * section only DischargeDiagnosisSection
-        * ^comment = "SHALL contain exactly one [1..1] Discharge Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.24:2015-08-01) (CONF:1198-30524)."
+        * ^comment = "SHALL contain exactly one [1..1] Discharge Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.24:2024-05-01) (CONF:1198-30524)."
     * component[component4] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30525) such that it" // man-should
       * section only DischargeMedicationsSection
-        * ^comment = "SHALL contain exactly one [1..1] Discharge Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.11.1:2015-08-01) (CONF:1198-30526)."
+        * ^comment = "SHALL contain exactly one [1..1] Discharge Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.11.1:2024-05-01) (CONF:1198-30526)."
     * component[component5] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30527) such that it"
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30528)."
@@ -124,22 +124,22 @@ The best practice for a Discharge Summary is to include the discharge dispositio
         * ^comment = "SHALL contain exactly one [1..1] Nutrition Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.57) (CONF:1198-30534)."
     * component[component9] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30535) such that it"
       * section only FamilyHistorySection
-        * ^comment = "SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2015-08-01) (CONF:1198-30536)."
+        * ^comment = "SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2024-05-01) (CONF:1198-30536)."
     * component[component10] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30537) such that it"
       * section only FunctionalStatusSection
         * ^comment = "SHALL contain exactly one [1..1] Functional Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09) (CONF:1198-30538)."
     * component[component11] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30539) such that it"
       * section only PastMedicalHistory
-        * ^comment = "SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2015-08-01) (CONF:1198-30540)."
+        * ^comment = "SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2024-05-01) (CONF:1198-30540)."
     * component[component12] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30541) such that it"
       * section only HistoryofPresentIllnessSection
         * ^comment = "SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-30542)."
     * component[component13] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30543) such that it"
       * section only AdmissionDiagnosisSection
-        * ^comment = "SHALL contain exactly one [1..1] Admission Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.43:2015-08-01) (CONF:1198-30544)."
+        * ^comment = "SHALL contain exactly one [1..1] Admission Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.43:2024-05-01) (CONF:1198-30544)."
     * component[component14] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30545) such that it"
       * section only AdmissionMedicationsSectionEntriesOptional
-        * ^comment = "SHALL contain exactly one [1..1] Admission Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.44.1:2015-08-01) (CONF:1198-30546)."
+        * ^comment = "SHALL contain exactly one [1..1] Admission Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.44.1:2024-05-01) (CONF:1198-30546)."
     * component[component15] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
       * section only HospitalConsultationsSection
         * ^comment = "SHALL contain exactly one [1..1] Hospital Consultations Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.42) (CONF:1198-30548)."
@@ -154,10 +154,10 @@ The best practice for a Discharge Summary is to include the discharge dispositio
         * ^comment = "SHALL contain exactly one [1..1] Hospital Discharge Studies Summary Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.16) (CONF:1198-30554)."
     * component[component19] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30555) such that it"
       * section only ImmunizationsSection
-        * ^comment = "SHALL contain exactly one [1..1] Immunizations Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.2.1:2015-08-01) (CONF:1198-30556)."
+        * ^comment = "SHALL contain exactly one [1..1] Immunizations Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.2.1:2024-05-01) (CONF:1198-30556)."
     * component[component20] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30557) such that it"
       * section only ProblemSection
-        * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2015-08-01) (CONF:1198-30558)."
+        * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2024-05-01) (CONF:1198-30558)."
     * component[component21] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30560)."
@@ -169,19 +169,19 @@ The best practice for a Discharge Summary is to include the discharge dispositio
         * ^comment = "SHALL contain exactly one [1..1] Review of Systems Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:1198-30564)."
     * component[component24] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30565) such that it"
       * section only SocialHistorySection
-        * ^comment = "SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01) (CONF:1198-30566)."
+        * ^comment = "SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2024-05-01) (CONF:1198-30566)."
     * component[component25] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30567) such that it"
       * section only VitalSignsSection
-        * ^comment = "SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2015-08-01) (CONF:1198-30568)."
+        * ^comment = "SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2024-05-01) (CONF:1198-30568)."
     * component[component26] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-31586) such that it"
       * section only DischargeMedicationsSection
-        * ^comment = "SHALL contain exactly one [1..1] Discharge Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.11.1:2015-08-01) (CONF:1198-31587)."
+        * ^comment = "SHALL contain exactly one [1..1] Discharge Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.11.1:2024-05-01) (CONF:1198-31587)."
     * component[component27] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30559) such that it"
       * section only ResultsSection
         * ^comment = "SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2014-06-09) (CONF:1198-30560)."
     * component[component28] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
-        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
 
 Invariant: 1198-8469
 Description: "When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30 (CONF:1198-8469)."

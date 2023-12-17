@@ -10,7 +10,7 @@ Mosby's medical dictionary defines a Progress Note as "Notes made by a nurse, ph
 
 A Progress Note is not a re-evaluation note. A Progress Note is not intended to be a Progress Report for Medicare. Medicare B Section 1833(e) defines the requirements of a Medicare Progress Report."""
 
-* insert LogicalModelTemplate(progress-note, 2.16.840.1.113883.10.20.22.1.9, 2015-08-01)
+* insert LogicalModelTemplate(progress-note, 2.16.840.1.113883.10.20.22.1.9, 2024-05-01)
 
 * ^status = #active
 * code 1..1
@@ -100,13 +100,13 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
         * ^comment = "SHALL contain exactly one [1..1] Assessment and Plan Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09) (CONF:1198-30623)."
     * component[component4] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30624) such that it"
       * section only AllergiesAndIntolerancesSection
-        * ^comment = "SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01) (CONF:1198-30625)."
+        * ^comment = "SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2024-05-01) (CONF:1198-30625)."
     * component[component5] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30626) such that it"
       * section only ChiefComplaintSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) (CONF:1198-30627)."
     * component[component6] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30628) such that it"
       * section only ActivitiesSection
-        * ^comment = "SHALL contain exactly one [1..1] Activities Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2015-08-01) (CONF:1198-30629)."
+        * ^comment = "SHALL contain exactly one [1..1] Activities Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2024-05-01) (CONF:1198-30629)."
     * component[component7] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30639) such that it"
       * section only InstructionsSection
         * ^comment = "SHALL contain exactly one [1..1] Instructions Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.45:2014-06-09) (CONF:1198-31386)."
@@ -118,13 +118,13 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
         * ^comment = "SHALL contain exactly one [1..1] Objective Section (identifier: urn:oid:2.16.840.1.113883.10.20.21.2.1) (CONF:1198-30644)."
     * component[component10] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30645) such that it"
       * section only PhysicalExamSection
-        * ^comment = "SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2015-08-01) (CONF:1198-30646)."
+        * ^comment = "SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2024-05-01) (CONF:1198-30646)."
     * component[component11] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30647) such that it"
       * section only ProblemSection
-        * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2015-08-01) (CONF:1198-30648)."
+        * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2024-05-01) (CONF:1198-30648)."
     * component[component12] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30649) such that it"
       * section only ResultsSection
-        * ^comment = "SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2015-08-01) (CONF:1198-30650)."
+        * ^comment = "SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2024-05-01) (CONF:1198-30650)."
     * component[component13] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30651) such that it"
       * section only ReviewofSystemsSection
         * ^comment = "SHALL contain exactly one [1..1] Review of Systems Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:1198-30652)."
@@ -133,7 +133,7 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
         * ^comment = "SHALL contain exactly one [1..1] Subjective Section (identifier: urn:oid:2.16.840.1.113883.10.20.21.2.2) (CONF:1198-30654)."
     * component[component15] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30655) such that it"
       * section only VitalSignsSection
-        * ^comment = "SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2015-08-01) (CONF:1198-30656)."
+        * ^comment = "SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2024-05-01) (CONF:1198-30656)."
     * component[component16] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-32626) such that it"
       * section only NutritionSection
         * ^comment = "SHALL contain exactly one [1..1] Nutrition Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.57) (CONF:1198-32627)."
@@ -142,7 +142,7 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
         * ^comment = "SHALL contain exactly one [1..1] Mental Status Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.56)."
     * component[component18] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
-        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
 
 Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."

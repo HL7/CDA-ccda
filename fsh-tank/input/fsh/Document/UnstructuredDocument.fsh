@@ -10,7 +10,7 @@ IHEs XDS-SD (Cross-Transaction Specifications and Content Specifications, Scanne
 
 For conformance with both specifications, implementers need to ensure that their documents at a minimum conform with the SHALL constraints from either specification."""
 
-* insert LogicalModelTemplate(unstructured-doc, 2.16.840.1.113883.10.20.22.1.10, 2015-08-01)
+* insert LogicalModelTemplate(unstructured-doc, 2.16.840.1.113883.10.20.22.1.10, 2024-05-01)
 
 * ^status = #active
 * recordTarget 1..*

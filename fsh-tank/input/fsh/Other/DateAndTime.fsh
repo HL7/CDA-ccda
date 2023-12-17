@@ -1,7 +1,7 @@
 Profile: USRealmDateTimeInterval
 Parent: IVL_TS
 Id: USRealmDateTimeInterval
-Title: "US Realm Date and Time (Interval)"
+Title: "US Realm Date and Time - Interval"
 Description: "The US Realm Clinical Document Date and Time datatype flavor records date and time information. If time is provided, it must include a time zone offset.
 
 This data type uses the same rules as US Realm Date and Time (Point in Time), but is used with elements having a datatype of IVL_TS."
@@ -30,7 +30,7 @@ Expression: "value.exists() implies value.toString().length() > 10"
 Profile: USRealmDateTime
 Parent: TS
 Id: USRealmDateTime
-Title: "US Realm Date and Time (Point in Time)"
+Title: "US Realm Date and Time - Point in Time"
 Description: "The US Realm Clinical Document Date and Time datatype flavor records date and time information. If time is provided, it must include a time zone offset.
 
 This data type uses the same rules as US Realm Date and Time (Interval), but is used with elements having a datatype of TS."

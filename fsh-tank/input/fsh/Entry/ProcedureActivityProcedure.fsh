@@ -4,7 +4,7 @@ Id: ProcedureActivityProcedure
 Title: "Procedure Activity Procedure"
 Description: "This template is used to represent the details of current and historical procedures performed on or for a patient. A procedure is an activity that is performed on, with, or for a patient as part of the provision of care. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves."
 
-* insert LogicalModelTemplate(procedure, 2.16.840.1.113883.10.20.22.4.14, 2022-06-01)
+* insert LogicalModelTemplate(procedure, 2.16.840.1.113883.10.20.22.4.14, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1

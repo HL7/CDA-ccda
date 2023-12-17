@@ -4,7 +4,7 @@ Id: MentalStatusObservation
 Title: "Mental Status Observation"
 Description: "The Mental Status Observation template represents an observation about mental status that can come from a broad range of subjective and objective information (including measured data) to address those categories described in the Mental Status Section. See also Assessment Scale Observation for specific collections of observations that together yield a summary evaluation of a particular condition."
 
-* insert LogicalModelTemplate(mental-status-obs, 2.16.840.1.113883.10.20.22.4.74, 2015-08-01)
+* insert LogicalModelTemplate(mental-status-obs, 2.16.840.1.113883.10.20.22.4.74, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1

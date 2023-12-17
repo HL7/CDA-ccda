@@ -6,7 +6,7 @@ Description: """The Operative Note is a frequently used type of procedure note w
 
 The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care."""
 
-* insert LogicalModelTemplate(operative-note, 2.16.840.1.113883.10.20.22.1.7, 2015-08-01)
+* insert LogicalModelTemplate(operative-note, 2.16.840.1.113883.10.20.22.1.7, 2024-05-01)
 
 * ^status = #active
 * code 1..1
@@ -120,16 +120,16 @@ The Operative Note is created immediately following a surgical or other high-ris
         * ^comment = "This component SHALL contain exactly one [1..1] Anesthesia Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09) (CONF:1198-30487)."
     * component[component2] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30488) such that it"
       * section only ComplicationsSection
-        * ^comment = "SHALL contain exactly one [1..1] Complications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2015-08-01) (CONF:1198-30489)."
+        * ^comment = "SHALL contain exactly one [1..1] Complications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2024-05-01) (CONF:1198-30489)."
     * component[component3] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30490) such that it"
       * section only PreoperativeDiagnosisSection
-        * ^comment = "SHALL contain exactly one [1..1] Preoperative Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.34:2015-08-01) (CONF:1198-30491)."
+        * ^comment = "SHALL contain exactly one [1..1] Preoperative Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.34:2024-05-01) (CONF:1198-30491)."
     * component[component4] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30492) such that it"
       * section only ProcedureEstimatedBloodLossSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Estimated Blood Loss Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.9) (CONF:1198-30493)."
     * component[component5] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30494) such that it"
       * section only ProcedureFindingsSection
-        * ^comment = "SHALL contain exactly one [1..1] Procedure Findings Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.28:2015-08-01) (CONF:1198-30495)."
+        * ^comment = "SHALL contain exactly one [1..1] Procedure Findings Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.28:2024-05-01) (CONF:1198-30495)."
     * component[component6] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30496) such that it"
       * section only ProcedureSpecimensTakenSection
         * ^comment = "SHALL contain exactly one [1..1] Procedure Specimens Taken Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.31) (CONF:1198-30497)."
@@ -165,7 +165,7 @@ The Operative Note is created immediately following a surgical or other high-ris
         * ^comment = "SHALL contain exactly one [1..1] Surgical Drains Section (identifier: urn:oid:2.16.840.1.113883.10.20.7.13) (CONF:1198-30517)."
     * component[component17] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
-        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2015-08-01)."
+        * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
 
 Invariant: 1198-8487
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD-9-CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC (CONF:1198-8487)."
