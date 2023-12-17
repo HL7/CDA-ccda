@@ -32,7 +32,7 @@
     <name value="SexObservation"/>
     <title value="Sex Observation"/>
     <status value="draft"/>
-    <description value="This Sex Observation template is used to reflect the documentation of a person's sex. Systems choosing to record the source of information should include the Provenance participation.&#xA;&#xA;USCDI v3 includes a data element for sex, intended to support the exchange of a sex value that is not characterized as sex assigned at birth or birth sex. This version of the C-CDA companion guide supports USCDI v3 Sex data element. Sex assigned at birth or birth sex must be recorded using the Birth Sex Observation which falls under the broader category of a 'Sex observation'. A Data Absent Reason (DAR) code value of 'asked-declined' may be used when a person has chosen not to disclose their sex.&#xA;&#xA;Future versions of the template may be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation, which may include additional guidance on this Sex observation and the relationship to administrative gender (administrativeGenderCode).&#xA;&#xA;It is recommended systems include the Sex Observation in the Social History section."/>
+    <description value="This Sex Observation template is used to reflect the documentation of a person's sex. Systems choosing to record the source of information should include the Provenance participation.&#xA;&#xA;USCDI v3 includes a data element for sex, intended to support the exchange of a sex value that is not characterized as sex assigned at birth or birth sex. This version of the C-CDA companion guide supports USCDI Sex data element. Sex assigned at birth or birth sex must be recorded using the Birth Sex Observation which falls under the broader category of a 'Sex observation'. A Data Absent Reason (DAR) code value of 'asked-declined' may be used when a person has chosen not to disclose their sex.&#xA;&#xA;Future versions of the template may be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation, which may include additional guidance on this Sex observation and the relationship to administrative gender (administrativeGenderCode).&#xA;&#xA;It is recommended systems include the Sex Observation in the Social History section."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -98,17 +98,17 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
+            <short value="Sex"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4537-33079)."/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;46098-0&quot; Sex (CONF:4537-33085)."/>
             <min value="1"/>
             <patternCode value="46098-0"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-33086)."/>
+            <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>

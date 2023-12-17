@@ -24,11 +24,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-32310)."
   * code 1..1
-  * code = #75310-3
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"75310-3\" Health Concern (CONF:4515-32311)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-32312)."
+  * insert CodedLoinc(75310-3, Functional Status)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-30758)."
   * code 1..1

@@ -24,7 +24,7 @@ The effectiveTime of the Problem Observation is the definitive indication of whe
 * code from $2.16.840.1.113883.3.88.12.3221.7.2 (preferred)
   // !!! If either of these bindings changes, be sure to update the values in the Invariant as well
   * obeys 1198-32950
-  * translation from $2.16.840.1.113762.1.4.1099.28 (example)
+  * translation from $2.16.840.1.113762.1.4.1099.28 (preferred)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-9049)."
   * code 1..1

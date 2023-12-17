@@ -195,7 +195,11 @@
             <comment value="This patientRole SHALL contain at least one [1..*] id (CONF:4537-5268)."/>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.addr">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.addr"/>
+            <short value="(USCDI) Address"/>
             <comment value="This patientRole SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5271)."/>
             <min value="1"/>
             <type>
@@ -204,7 +208,11 @@
             </type>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.telecom">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.telecom"/>
+            <short value="(USCDI) Phone Number / Email"/>
             <min value="1"/>
             <constraint>
                 <key value="should-use"/>
@@ -224,8 +232,21 @@
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient"/>
-            <comment value="This patientRole SHALL contain exactly one [1..1] patient (CONF:4537-5283)."/>
+            <short value="(USCDI) Ethnicity"/>
+            <comment value="This patient MAY contain zero or more [0..*] ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:4537-32901)."/>
             <min value="1"/>
             <constraint>
                 <key value="4537-32993"/>
@@ -275,8 +296,11 @@
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.birthTime">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.birthTime"/>
-            <short value="**MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)"/>
+            <short value="(USCDI) Date of Birth - **MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)"/>
             <comment value="This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."/>
             <min value="1"/>
             <constraint>
@@ -300,8 +324,15 @@
             <comment value="This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."/>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+                <valueUri value="urn:hl7-org:sdtc"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+                <valueString value="deceasedTime"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime"/>
-            <short value="sdtc:deceasedTime"/>
+            <short value="(USCDI) Date of Death"/>
             <comment value="This patient MAY contain zero or one [0..1] sdtc:deceasedTime (CONF:4537-32988)."/>
             <constraint>
                 <key value="should-value-att"/>
@@ -352,8 +383,6 @@
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode"/>
-            <short value="The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."/>
-            <comment value="This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:4537-7263)."/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914"/>
@@ -370,8 +399,6 @@
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcEthnicGroupCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcEthnicGroupCode"/>
-            <short value="ethnicGroupCode"/>
-            <comment value="This patient MAY contain zero or more [0..*] ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:4537-32901)."/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.877"/>
@@ -1200,6 +1227,13 @@
         </element>
         <element id="ClinicalDocument.participant">
             <path value="ClinicalDocument.participant"/>
+            <slicing>
+                <discriminator>
+                    <type value="exists"/>
+                    <path value="participant1"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <short value="The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."/>
             <constraint>
                 <key value="4537-10006"/>
@@ -1222,6 +1256,16 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.participant:relatedPerson">
+            <path value="ClinicalDocument.participant"/>
+            <sliceName value="relatedPerson"/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/RelatedPersonRelationshipAndNameParticipant"/>
             </type>
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">

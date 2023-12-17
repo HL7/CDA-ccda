@@ -22,7 +22,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * obeys 4515-31977
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-31976)."
   * ^short = "If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet Social Determinant of Health Service Request (CONF:4515-32993)"
-* code from $SDoHServiceRequest (example)
+* code from $SDoHServiceRequest (preferred)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-30446)."
   * code 1..1

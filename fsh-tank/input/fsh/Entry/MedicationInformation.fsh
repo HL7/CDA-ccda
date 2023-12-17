@@ -18,7 +18,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * code 1..1
   * code from $2.16.840.1.113762.1.4.1010.4 (required)
     * ^comment = "This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Medication Clinical Drug urn:oid:2.16.840.1.113762.1.4.1010.4 DYNAMIC (CONF:1098-7412)."
-    * translation from $2.16.840.1.113762.1.4.1010.2 (example)
+    * translation from $2.16.840.1.113762.1.4.1010.2 (preferred)
       * ^short = "Translations may also be sent with NDC codes (Codesystem urn:oid:2.16.840.1.113883.6.69)."
       * ^comment = "This code MAY contain zero or more [0..*] translation, which SHALL be selected from ValueSet Clinical Substance urn:oid:2.16.840.1.113762.1.4.1010.2 DYNAMIC (CONF:1098-31884).  This code MAY contain zero or more [0..*] translation, which SHALL be selected from CodeSystem NDC urn:oid:2.16.840.1.113883.6.69."
 * manufacturerOrganization 0..1

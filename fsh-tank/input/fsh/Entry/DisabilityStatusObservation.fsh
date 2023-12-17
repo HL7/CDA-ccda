@@ -21,11 +21,7 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-32624)."
   * code 1..1
-  * code = #89571-4
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"89571-4\" Disability Status [CUBS] (CONF:4537-33023)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CONF:4537-33024)."
+  * insert CodedLoinc(89571-4, Disability Status [CUBS])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-32625)."
   * code 1..1
@@ -35,7 +31,7 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-32627)."
 * value 1..1
 * value only $CD
-* value from $1.3.6.1.4.1.12009.10.1.3932 (example)
+* value from $1.3.6.1.4.1.12009.10.1.3932 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which MAY be selected from ValueSet CUBS_Disability urn:oid:1.3.6.1.4.1.12009.10.1.3932 DYNAMIC (CONF:4537-32628)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"

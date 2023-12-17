@@ -19,7 +19,7 @@ Description: "This template represents a generic participant person that has a r
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type  2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-32985)."
   * code 1..1
   * code from $2.16.840.1.113883.11.20.12.1 (required)
-    * ^short = "This associatedEntity/code represents the person's relationship to the patient."
+    * insert USCDI([[Related Person's Relationship - This associatedEntity/code represents the person's relationship to the patient.]])
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-32985)."
   * obeys should-addr
   * addr 0..*
@@ -33,4 +33,5 @@ Description: "This template represents a generic participant person that has a r
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:4537-32980)."
     * name 1..*
     * name only USRealmPersonNamePNUSFIELDED
+      * insert USCDI([[Related Person's Name]])
       * ^comment = "This associatedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-32987)."

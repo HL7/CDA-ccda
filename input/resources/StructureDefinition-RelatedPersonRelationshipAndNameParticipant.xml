@@ -105,8 +105,11 @@
             <fixedCode value="PRS"/>
         </element>
         <element id="Participant1.associatedEntity.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Participant1.associatedEntity.code"/>
-            <short value="This associatedEntity/code represents the person's relationship to the patient."/>
+            <short value="(USCDI) Related Person's Relationship - This associatedEntity/code represents the person's relationship to the patient."/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-32985)."/>
             <min value="1"/>
             <binding>
@@ -133,7 +136,11 @@
             <min value="1"/>
         </element>
         <element id="Participant1.associatedEntity.associatedPerson.name">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Participant1.associatedEntity.associatedPerson.name"/>
+            <short value="(USCDI) Related Person's Name"/>
             <comment value="This associatedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-32987)."/>
             <min value="1"/>
             <type>

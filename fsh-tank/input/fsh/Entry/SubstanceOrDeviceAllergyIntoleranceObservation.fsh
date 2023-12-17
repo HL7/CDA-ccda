@@ -69,7 +69,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
       * classCode = #MMAT (exactly)
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] @classCode=\"MMAT\" Manufactured Material (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:1098-16323)."
       * code 1..1
-      * code from $2.16.840.1.113762.1.4.1010.1 (example)
+      * code from $2.16.840.1.113762.1.4.1010.1 (preferred)
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Substance Reactant for Intolerance urn:oid:2.16.840.1.113762.1.4.1010.1 DYNAMIC (CONF:1098-16324)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"

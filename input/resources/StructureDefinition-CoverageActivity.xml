@@ -105,6 +105,9 @@
             <min value="1"/>
         </element>
         <element id="Act.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Act.code"/>
             <short value="Payment sources"/>
         </element>
@@ -145,8 +148,11 @@
             <fixedCode value="completed"/>
         </element>
         <element id="Act.effectiveTime">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Act.effectiveTime"/>
-            <short value="Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional effectiveTime inside the Policy Activity. Systems may prioritize Coverages using the sequenceNumber."/>
+            <short value="(USCDI) **Coverage Status** : Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional effectiveTime inside the Policy Activity. Systems may prioritize Coverages using the sequenceNumber."/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-33064)."/>
         </element>
         <element id="Act.effectiveTime.value">

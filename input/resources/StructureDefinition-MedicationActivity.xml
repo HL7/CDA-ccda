@@ -289,7 +289,11 @@
             </binding>
         </element>
         <element id="SubstanceAdministration.doseQuantity">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="SubstanceAdministration.doseQuantity"/>
+            <short value="(USCDI) Dose Unit of Measure"/>
             <definition value="If the consumable code is not pre-coordinated (e.g., is &quot;simply metoprolol Oral Product&quot; (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., &quot;25&quot; and &quot;mg&quot;, specifying the amount of product given per administration (CONF:1098-16879).&amp;#10;If the consumable code is a pre-coordinated unit dose (e.g., &quot;metoprolol 25mg tablet&quot;) then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., &quot;2&quot;, meaning 2 x &quot;metoprolol 25mg tablet&quot; per administration) (CONF:1098-16878)."/>
             <comment value="SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."/>
             <min value="1"/>
@@ -338,12 +342,15 @@
             </binding>
         </element>
         <element id="SubstanceAdministration.consumable">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="SubstanceAdministration.consumable"/>
-            <comment value="SHALL contain exactly one [1..1] consumable (CONF:1098-7520)."/>
+            <short value="(USCDI) Medications"/>
+            <comment value="This consumable SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-16085)."/>
         </element>
         <element id="SubstanceAdministration.consumable.manufacturedProduct">
             <path value="SubstanceAdministration.consumable.manufacturedProduct"/>
-            <comment value="This consumable SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-16085)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationInformation"/>
@@ -415,9 +422,13 @@
             </slicing>
         </element>
         <element id="SubstanceAdministration.entryRelationship:indication">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="indication"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-7536) such that it"/>
+            <short value="(USCDI) Indication"/>
+            <comment value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-16087)."/>
             <min value="0"/>
             <max value="*"/>
         </element>
@@ -428,7 +439,6 @@
         </element>
         <element id="SubstanceAdministration.entryRelationship:indication.observation">
             <path value="SubstanceAdministration.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-16087)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>

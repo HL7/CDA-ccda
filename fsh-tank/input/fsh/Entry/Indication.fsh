@@ -23,7 +23,7 @@ Immunization Refusal Reason 2.16.840.1.113883.10.20.22.4.53 should be used to re
   * ^short = "If the id element is used to reference a problem recorded elsewhere in the document then this id must equal another entry/id in the same document instance. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. Its purpose is to obviate the need to repeat the complete XML representation of the referred to entry when relating one entry to another."
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7483)."
 * code 1..1
-* code from $2.16.840.1.113883.3.88.12.3221.7.2 (example)
+* code from $2.16.840.1.113883.3.88.12.3221.7.2 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Problem Type (SNOMEDCT) urn:oid:2.16.840.1.113883.3.88.12.3221.7.2 DYNAMIC (CONF:4537-31229)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7487)."
@@ -35,6 +35,6 @@ Immunization Refusal Reason 2.16.840.1.113883.10.20.22.4.53 should be used to re
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7488)." // auto-should
 * value 0..1
 * value only $CD
-* value from Problem (example)
+* value from Problem (preferred)
   * ^short = "If the ID element does not reference a problem recorded elsewhere in the document, then observation/value must be populated with a coded entry."
   * ^comment = "MAY contain zero or one [0..1] value with @xsi:type=\"CD\", where the code MAY be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:4537-7489)."

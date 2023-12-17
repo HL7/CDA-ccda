@@ -18,7 +18,7 @@ Description: "This template records the act of supplying medications (i.e., disp
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7454)."
 * code 1..1
 * code from http://hl7.org/fhir/ValueSet/medicationdispense-status (required)
-  * ^short = "The MedicationDispense Status Codes value set is the same value set used in the FHIR Dispense Resource, is broader than and has more meaningful codes for the act of dispensing than are permitted at actStatus in CDA, thus actStatus code is fixed to \"completed\".&#10;&#10;Comments are welcome as to if this will confuse the industry and instead there should not be constraints on Supply/actCode, and instead we should bind actStatus to the closest codes available in the [HL7 v3 Code System ActStatus ](https://fhir-ru.github.io/v3/ActStatus/cs.html) and provide a mapping to the FHIR set."
+  * ^short = "The CDA base standard limits codes that can be used at CDA supply.statusCode. In C-CDA, the Supply.code value set re-uses the value set used in FHIR and FHIR US Core MedicationDispense @ MedicationDispense.status and fixes statsuCode to 'completed'."
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet MedicationDispense Status Codes urn:oid:2.16.840.1.113883.4.642.3.1312 DYNAMIC (CONF:4537-32974)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7455)."

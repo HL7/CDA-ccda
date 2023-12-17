@@ -56,8 +56,10 @@ Description: "This template defines constraints that represent common administra
       * ^comment = "This patientRole SHALL contain at least one [1..*] id (CONF:4537-5268)."
     * addr 1..*
     * addr only USRealmAddress
+      * insert USCDI([[Address]])
       * ^comment = "This patientRole SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5271)."
     * telecom 1..*
+      * insert USCDI([[Phone Number / Email]])
       * obeys should-use
       * use 0..1
       * use from $2.16.840.1.113883.11.20.9.20 (required)
@@ -72,14 +74,14 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "This patient SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:4537-6394)."
       * birthTime 1..1
         * obeys ts-shall-year and ts-should-day
-        * ^short = "**MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)"
+        * insert USCDI([[Date of Birth - **MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)]])
         * ^comment = "This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."
       * obeys 4537-32993 and 4537-21000
       * sdtcDeceasedInd 0..1
         * ^short = "sdtc:deceasedInd"
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."
       * sdtcDeceasedTime 0..1
-        * ^short = "sdtc:deceasedTime"
+        * insert USCDI([[Date of Death]])
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedTime (CONF:4537-32988)."
         * obeys should-value-att and ts-shall-year and ts-should-day
       * obeys should-maritalStatusCode
@@ -90,18 +92,20 @@ Description: "This template defines constraints that represent common administra
       * religiousAffiliationCode from $2.16.840.1.113883.1.11.19185 (required)
         * ^comment = "This patient MAY contain zero or one [0..1] religiousAffiliationCode, which SHALL be selected from ValueSet Religious Affiliation urn:oid:2.16.840.1.113883.1.11.19185 DYNAMIC (CONF:4537-5317)."
       * raceCode 1..1
+      * insert USCDI([[Race]])
       * raceCode from $2.16.840.1.113883.3.2074.1.1.3 (required)
         * ^comment = "This patient SHALL contain exactly one [1..1] raceCode, which SHALL be selected from ValueSet Race Category Excluding Nulls urn:oid:2.16.840.1.113883.3.2074.1.1.3 DYNAMIC (CONF:4537-5322)."
       * sdtcRaceCode 0..*
       * sdtcRaceCode from $2.16.840.1.113883.1.11.14914 (required)
-        * ^short = "The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."
+      * insert USCDI([[Race - The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements.]])
         * ^comment = "This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:4537-7263)."
       * ethnicGroupCode 1..1
+      * insert USCDI([[Ethnicity]])
       * ethnicGroupCode from Ethnicity (required)
         * ^comment = "This patient SHALL contain exactly one [1..1] ethnicGroupCode, which SHALL be selected from ValueSet Ethnicity urn:oid:2.16.840.1.114222.4.11.837 DYNAMIC (CONF:4537-5323)."
       * sdtcEthnicGroupCode 0..*
       * sdtcEthnicGroupCode from $2.16.840.1.114222.4.11.877 (required)
-        * ^short = "ethnicGroupCode"
+      * insert USCDI([[Ethnicity]])
         * ^comment = "This patient MAY contain zero or more [0..*] ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:4537-32901)."
       * guardian 0..*
         * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:4537-5325)."
@@ -403,10 +407,11 @@ Description: "This template defines constraints that represent common administra
   * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
   * time only USRealmDateTimeInterval
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
-
-// Missing 2nd participant - test slices
-// This templated participant represents a person that has a relationship to the patient. (e.g., parent, next-of-kin, neighbor). The related person's name is required and it is recommended that the person's contact information is present. The more specific CDA participant of Guardian (recordTarget/patientRole/patient/guardian) can be used to represent a legally responsible guardian of the patient within the header. This template may be used to represent a person with any relationship to the patient within the header, or at the entry level when pertinent to a particular clinical statement.
-// 22. SHOULD contain zero or more [0..*] participant which includes Related Person Relationship and Name Participant (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.5.8:2023-05-01) (CONF:4537-32994).
+* participant ^slicing.discriminator[0].type = #exists
+  * ^slicing.discriminator[=].path = "participant1"
+  * ^slicing.rules = #open
+* participant contains relatedPerson 0..*
+* participant[relatedPerson] only RelatedPersonRelationshipAndNameParticipant
 
 * inFulfillmentOf 0..*
   * ^short = "The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists' report of an x-ray."

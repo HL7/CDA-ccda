@@ -74,6 +74,13 @@
             <comment value="MAY contain zero or one [0..1] @use, which SHALL be selected from ValueSet EntityNameUse urn:oid:2.16.840.1.113883.1.11.15913 STATIC 2005-05-01 (CONF:81-7154)."/>
             <max value="1"/>
         </element>
+        <element id="PN.item.family">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="PN.item.family"/>
+            <short value="(USCDI) Last Name"/>
+        </element>
         <element id="PN.item.family.qualifier">
             <path value="PN.item.family.qualifier"/>
             <comment value="This family MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7160)."/>
@@ -84,8 +91,11 @@
             </binding>
         </element>
         <element id="PN.item.given">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="PN.item.given"/>
-            <short value="The first given is the first name. The second occurrence of given, if provided, SHALL include middle nam eor middle initial."/>
+            <short value="(USCDI) First Name / Middle Name"/>
             <comment value="SHALL contain at least one [1..*] given (CONF:81-7157)."/>
         </element>
         <element id="PN.item.given.qualifier">
@@ -111,7 +121,11 @@
             </binding>
         </element>
         <element id="PN.item.suffix">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="PN.item.suffix"/>
+            <short value="(USCDI) Suffix"/>
             <comment value="MAY contain zero or one [0..1] suffix (CONF:81-7161)."/>
         </element>
         <element id="PN.item.suffix.qualifier">
@@ -122,6 +136,13 @@
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26"/>
             </binding>
+        </element>
+        <element id="PN.validTime">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="PN.validTime"/>
+            <short value="(USCDI) Previous Name - Available for use to identify the time period when name was/is in use."/>
         </element>
     </differential>
 </StructureDefinition>

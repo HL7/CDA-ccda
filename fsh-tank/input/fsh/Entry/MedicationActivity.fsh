@@ -81,6 +81,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * ^comment = "SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."
   * obeys should-unit
   * unit 0..1
+  * insert USCDI([[Dose Unit of Measure]])
   * unit from UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)." // man-should
@@ -101,6 +102,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:1098-7520)."
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation
+  * insert USCDI([[Medications]])
     * ^comment = "This consumable SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-16085)."
 * performer 0..1
   * ^comment = "MAY contain zero or one [0..1] performer (CONF:1098-7522)."
@@ -144,6 +146,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-7537)."
   * observation 1..1
   * observation only Indication
+  * insert USCDI([[Indication]])
     * ^comment = "SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-16087)."
 * entryRelationship[instruction] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-7539) such that it"
   * typeCode 1..1

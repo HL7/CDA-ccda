@@ -16,13 +16,8 @@ Please see [Indian Entities Recognized by and Eligible To Receive Services From 
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-3)."
 * code 1..1
+  * insert CodedLoinc(95370-3, [[Tribal Affiliation]])
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-6)."
-  * code 1..1
-  * code = #95370-3
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"95370-3\" Tribal Affiliation (CONF:4537-7)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-8)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-9)."
   * code 1..1

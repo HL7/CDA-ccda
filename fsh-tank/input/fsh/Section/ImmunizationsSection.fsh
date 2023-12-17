@@ -13,6 +13,7 @@ Description: "The Immunizations Section defines a patient's current immunization
 * entry contains activity 0..*
 * entry[activity] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-9019) such that it"
   * substanceAdministration 1..1
+  * insert USCDI([[Immunizations]])
   * substanceAdministration only ImmunizationActivity
     * ^comment = "SHALL contain exactly one [1..1] Immunization Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.52:2015-08-01) (CONF:1198-15494)."
 * obeys shall-immunization-activity

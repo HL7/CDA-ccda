@@ -19,12 +19,7 @@ An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC 2011-04-03 (CONF:81-32771)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:81-32775)."
-  * code 1..1
-  * code = #76662-6
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"76662-6\" Instructions Medication (CONF:81-32780)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:81-32781)."
+  * insert CodedLoinc(76662-6, [[Instructions Medication Narrative]])
 * text 1..1
   * ^comment = "SHALL contain exactly one [1..1] text (CONF:81-32754)."
   * reference 1..1
