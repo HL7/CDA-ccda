@@ -73,7 +73,11 @@
             <patternString value="2019-10-01"/>
         </element>
         <element id="Author.time">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Author.time"/>
+            <short value="(USCDI) Author Time Stamp"/>
             <comment value="SHALL contain exactly one [1..1] time (CONF:4515-32983)."/>
         </element>
         <element id="Author.assignedAuthor">
@@ -205,8 +209,11 @@
             <comment value="This assignedAuthor MAY contain zero or one [0..1] assignedAuthoringDevice (CONF:4515-32)."/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Author.assignedAuthor.representedOrganization"/>
-            <short value="If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64)."/>
+            <short value="(USCDI) Author Organization - If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64)."/>
             <comment value="This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."/>
             <constraint>
                 <key value="provenance-org-details"/>

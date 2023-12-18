@@ -17,6 +17,8 @@ The following is a list of recommended units for common types of vital sign meas
 | BMI | kg/m2 |
 | BSA | m2 |
 | inhaled oxygen concentration | % |
+| Average Blood Pressure (Systolic and Diastolic) | mm[Hg] |
+| Occipital Front Head Circumference Percentile (Birth -36 months) | % |
 
 """
 

@@ -405,14 +405,14 @@ Description: "This template defines constraints that represent common administra
   //"<slicing><rules value=\"open\" /></slicing>"
   //"<comment value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" /></element><element id=\"ClinicalDocument.participant:participant1\"><path value=\"ClinicalDocument.participant\" /><sliceName value=\"participant1\" /><short value=\"participant\" /><definition value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" />"
   * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
+  * functionCode
+    * insert USCDI([[Related Person's Relationship]])
   * time only USRealmDateTimeInterval
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
-* participant ^slicing.discriminator[0].type = #exists
-  * ^slicing.discriminator[=].path = "participant1"
-  * ^slicing.rules = #open
-* participant contains relatedPerson 0..*
-* participant[relatedPerson] only RelatedPersonRelationshipAndNameParticipant
-
+  * associatedEntity
+    * associatedPerson
+      * name
+        * insert USCDI([[Related Person's Name]])
 * inFulfillmentOf 0..*
   * ^short = "The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists' report of an x-ray."
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:4537-9952)."

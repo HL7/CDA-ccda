@@ -168,8 +168,11 @@
             <min value="1"/>
         </element>
         <element id="Observation.effectiveTime.high">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.effectiveTime.high"/>
-            <short value="The effectiveTime/high (a.k.a. &quot;resolution date&quot;) asserts when the condition became biologically resolved."/>
+            <short value="(USCDI) Date of Resolution - The effectiveTime/high (a.k.a. resolution date) asserts when the condition became biologically resolved."/>
             <comment value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-15604)."/>
         </element>
         <element id="Observation.value">
@@ -189,16 +192,21 @@
             <path value="Observation.value.code"/>
             <short value="A negationInd of &quot;true&quot; coupled with an observation/value/@code of SNOMED code 64572001 &quot;Disease (disorder)&quot; indicates that the patient has no known conditions.  When the Problem is Social Determinant of Health Observation, the observation/value SHOULD be a SNOMED code selected from ValueSet Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788 DYNAMIC (CONF:4515-32951)."/>
             <comment value="This value MAY contain zero or one [0..1] @code (CONF:1198-31871)."/>
+            <binding>
+                <strength value="example"/>
+                <description value="See additional binding"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.788"/>
+                    <documentation value="If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957)."/>
+                    <shortDoco value="Social Determinant of Health Observations"/>
+                </additional>
+            </binding>
         </element>
         <element id="Observation.value.qualifier">
             <path value="Observation.value.qualifier"/>
             <short value="The observation/value and all the qualifiers together (often referred to as a post-coordinated expression) make up one concept. Qualifiers constrain the meaning of the primary code, and cannot negate it or change its meaning. Qualifiers can only be used according to well-defined rules of post-coordination and only if the underlying code system defines the use of such qualifiers or if there is a third code system that specifies how other code systems may be combined.&#xA;&#xA; In cases where SNOMED CT does not have a precoordinated code that would be appropriate for the problem list, concept post coordination may be used in CDA following the principles outlined in HL7 Version 3 Implementation Guide: TermInfo -&#xA;Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  This is shown in the sample XML."/>
             <comment value="This value MAY contain zero or more [0..*] qualifier (CONF:1198-31870)."/>
-        </element>
-        <element id="Observation.value.translation">
-            <path value="Observation.value.translation"/>
-            <short value="MAY contain a translation from CodeSystem: ICD-10-CM urn:oid:2.16.840.1.113883.6.90"/>
-            <comment value="This value MAY contain zero or more [0..*] translation (CONF:1198-16749) such that it MAY contain zero or one [0..1] @code (CodeSystem: ICD-10-CM urn:oid:2.16.840.1.113883.6.90 STATIC) (CONF:1198-16750)."/>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>

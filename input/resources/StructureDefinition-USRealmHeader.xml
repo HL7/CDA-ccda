@@ -1227,13 +1227,6 @@
         </element>
         <element id="ClinicalDocument.participant">
             <path value="ClinicalDocument.participant"/>
-            <slicing>
-                <discriminator>
-                    <type value="exists"/>
-                    <path value="participant1"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."/>
             <constraint>
                 <key value="4537-10006"/>
@@ -1250,6 +1243,13 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
+        <element id="ClinicalDocument.participant.functionCode">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="ClinicalDocument.participant.functionCode"/>
+            <short value="(USCDI) Related Person's Relationship"/>
+        </element>
         <element id="ClinicalDocument.participant.time">
             <path value="ClinicalDocument.participant.time"/>
             <comment value="MAY contain zero or one [0..1] time (CONF:4537-10004)."/>
@@ -1258,15 +1258,12 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
         </element>
-        <element id="ClinicalDocument.participant:relatedPerson">
-            <path value="ClinicalDocument.participant"/>
-            <sliceName value="relatedPerson"/>
-            <min value="0"/>
-            <max value="*"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/RelatedPersonRelationshipAndNameParticipant"/>
-            </type>
+        <element id="ClinicalDocument.participant.associatedEntity.associatedPerson.name">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
+            <short value="(USCDI) Related Person's Name"/>
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>
