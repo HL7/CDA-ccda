@@ -64,6 +64,13 @@
                 <expression value="legalAuthenticator.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
+            <constraint>
+                <key value="should-relatedParticipant"/>
+                <severity value="warning"/>
+                <human value="Documents SHOULD contain a RelatedPerson participant"/>
+                <expression value="participant.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/RelatedPersonRelationshipAndNameParticipant').exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
         </element>
         <element id="ClinicalDocument.realmCode">
             <path value="ClinicalDocument.realmCode"/>
@@ -1243,13 +1250,6 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.participant.functionCode">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="ClinicalDocument.participant.functionCode"/>
-            <short value="(USCDI) Related Person's Relationship"/>
-        </element>
         <element id="ClinicalDocument.participant.time">
             <path value="ClinicalDocument.participant.time"/>
             <comment value="MAY contain zero or one [0..1] time (CONF:4537-10004)."/>
@@ -1257,13 +1257,6 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
-        </element>
-        <element id="ClinicalDocument.participant.associatedEntity.associatedPerson.name">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
-            <short value="(USCDI) Related Person's Name"/>
         </element>
         <element id="ClinicalDocument.inFulfillmentOf">
             <path value="ClinicalDocument.inFulfillmentOf"/>

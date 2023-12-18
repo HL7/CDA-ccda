@@ -400,19 +400,14 @@ Description: "This template defines constraints that represent common administra
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5625)."
+* obeys should-relatedParticipant
 * participant 0..*
   * obeys 4537-10006 and 4537-10007
   //"<slicing><rules value=\"open\" /></slicing>"
   //"<comment value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" /></element><element id=\"ClinicalDocument.participant:participant1\"><path value=\"ClinicalDocument.participant\" /><sliceName value=\"participant1\" /><short value=\"participant\" /><definition value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" />"
   * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
-  * functionCode
-    * insert USCDI([[Related Person's Relationship]])
   * time only USRealmDateTimeInterval
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
-  * associatedEntity
-    * associatedPerson
-      * name
-        * insert USCDI([[Related Person's Name]])
 * inFulfillmentOf 0..*
   * ^short = "The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists' report of an x-ray."
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:4537-9952)."
@@ -540,6 +535,11 @@ Invariant: 4537-10007
 Description: "When participant/@typeCode is *IND*, associatedEntity/@classCode **SHOULD** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes *DYNAMIC* (CONF:4537-10007)."
 Severity: #warning
 Expression: "typeCode = 'IND' implies associatedEntity.classCode.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33')"
+
+Invariant: should-relatedParticipant
+Description: "Documents SHOULD contain a RelatedPerson participant"
+Severity: #warning
+Expression: "participant.hasTemplateIdOf(RelatedPersonRelationshipAndNameParticipant).exists()"
 
 Invariant: 1198-32905
 Description: "This assignedEntity SHALL contain an assignedPerson or a representedOrganization or both (CONF:1198-32905)."
