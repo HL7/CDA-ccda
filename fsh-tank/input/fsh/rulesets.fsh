@@ -7,8 +7,7 @@
 // Flag an element as meeting a USCDI requirement. If label contains, or ), surround the text witn [[ ]]
 RuleSet: USCDI(label)
 * ^short = "(USCDI) {label}"
-* ^extension[+].url = "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement"
-* ^extension[=].valueBoolean = true
+* ^extension[http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement].valueBoolean = true
 
 
 ////////////////////////////////////////////////////////////

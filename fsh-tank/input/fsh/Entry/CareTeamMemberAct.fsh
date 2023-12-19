@@ -49,9 +49,7 @@ This id must be a pointer to another Performer."""
   * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4515-160)"
   * sdtcFunctionCode 0..1
   * sdtcFunctionCode from $2.16.840.1.113762.1.4.1099.30 (preferred)
-    * ^short = "(USCDI) Care Team Member Role - This sdtc:functionCode represents the function or role of the member on the care team. For example, the care team member roles on the care team can be a caregiver and a professional nurse or a primary care provider and the care coordinator."
-    * ^extension[2].url = "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement"
-    * ^extension[=].valueBoolean = true
+    * insert USCDI([[Care Team Member Role - This sdtc:functionCode represents the function or role of the member on the care team. For example, the care team member roles on the care team can be a caregiver and a professional nurse or a primary care provider and the care coordinator.]])
     * ^comment = "MAY contain zero or one [0..1] sdtc:functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-161)."
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4515-175)."
