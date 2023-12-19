@@ -239,21 +239,8 @@
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient"/>
-            <short value="(USCDI) Ethnicity"/>
-            <comment value="This patient MAY contain zero or more [0..*] ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:4537-32901)."/>
+            <comment value="This patientRole SHALL contain exactly one [1..1] patient (CONF:4537-5283)."/>
             <min value="1"/>
             <constraint>
                 <key value="4537-32993"/>
@@ -331,12 +318,14 @@
             <comment value="This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."/>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
                 <valueUri value="urn:hl7-org:sdtc"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
                 <valueString value="deceasedTime"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
             </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcDeceasedTime"/>
             <short value="(USCDI) Date of Death"/>
@@ -380,7 +369,11 @@
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.raceCode">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.raceCode"/>
+            <short value="(USCDI) Race"/>
             <comment value="This patient SHALL contain exactly one [1..1] raceCode, which SHALL be selected from ValueSet Race Category Excluding Nulls urn:oid:2.16.840.1.113883.3.2074.1.1.3 DYNAMIC (CONF:4537-5322)."/>
             <min value="1"/>
             <binding>
@@ -389,14 +382,29 @@
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode">
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
+                <valueUri value="urn:hl7-org:sdtc"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+                <valueString value="raceCode"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode"/>
+            <short value="(USCDI) Race - The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."/>
+            <comment value="This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:4537-7263)."/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914"/>
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.ethnicGroupCode">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.ethnicGroupCode"/>
+            <short value="(USCDI) Ethnicity"/>
             <comment value="This patient SHALL contain exactly one [1..1] ethnicGroupCode, which SHALL be selected from ValueSet Ethnicity urn:oid:2.16.840.1.114222.4.11.837 DYNAMIC (CONF:4537-5323)."/>
             <min value="1"/>
             <binding>
@@ -405,7 +413,18 @@
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcEthnicGroupCode">
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
+                <valueUri value="urn:hl7-org:sdtc"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+                <valueString value="ethnicGroupCode"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcEthnicGroupCode"/>
+            <short value="(USCDI) Ethnicity"/>
+            <comment value="This patient MAY contain zero or more [0..*] ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:4537-32901)."/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.877"/>

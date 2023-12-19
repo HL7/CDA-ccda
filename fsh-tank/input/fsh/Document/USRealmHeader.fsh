@@ -81,7 +81,9 @@ Description: "This template defines constraints that represent common administra
         * ^short = "sdtc:deceasedInd"
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."
       * sdtcDeceasedTime 0..1
-        * insert USCDI([[Date of Death]])
+        * ^short = "(USCDI) Date of Death"
+        * ^extension[2].url = "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement"
+        * ^extension[=].valueBoolean = true
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedTime (CONF:4537-32988)."
         * obeys should-value-att and ts-shall-year and ts-should-day
       * obeys should-maritalStatusCode
@@ -92,20 +94,24 @@ Description: "This template defines constraints that represent common administra
       * religiousAffiliationCode from $2.16.840.1.113883.1.11.19185 (required)
         * ^comment = "This patient MAY contain zero or one [0..1] religiousAffiliationCode, which SHALL be selected from ValueSet Religious Affiliation urn:oid:2.16.840.1.113883.1.11.19185 DYNAMIC (CONF:4537-5317)."
       * raceCode 1..1
-      * insert USCDI([[Race]])
+        * insert USCDI([[Race]])
       * raceCode from $2.16.840.1.113883.3.2074.1.1.3 (required)
         * ^comment = "This patient SHALL contain exactly one [1..1] raceCode, which SHALL be selected from ValueSet Race Category Excluding Nulls urn:oid:2.16.840.1.113883.3.2074.1.1.3 DYNAMIC (CONF:4537-5322)."
       * sdtcRaceCode 0..*
       * sdtcRaceCode from $2.16.840.1.113883.1.11.14914 (required)
-      * insert USCDI([[Race - The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements.]])
+        * ^short = "(USCDI) Race - The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."
+        * ^extension[2].url = "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement"
+        * ^extension[=].valueBoolean = true
         * ^comment = "This patient MAY contain zero or more [0..*] sdtc:raceCode, which SHALL be selected from ValueSet Race Value Set urn:oid:2.16.840.1.113883.1.11.14914 DYNAMIC (CONF:4537-7263)."
       * ethnicGroupCode 1..1
-      * insert USCDI([[Ethnicity]])
+        * insert USCDI([[Ethnicity]])
       * ethnicGroupCode from Ethnicity (required)
         * ^comment = "This patient SHALL contain exactly one [1..1] ethnicGroupCode, which SHALL be selected from ValueSet Ethnicity urn:oid:2.16.840.1.114222.4.11.837 DYNAMIC (CONF:4537-5323)."
       * sdtcEthnicGroupCode 0..*
       * sdtcEthnicGroupCode from $2.16.840.1.114222.4.11.877 (required)
-      * insert USCDI([[Ethnicity]])
+        * ^short = "(USCDI) Ethnicity"
+        * ^extension[2].url = "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement"
+        * ^extension[=].valueBoolean = true
         * ^comment = "This patient MAY contain zero or more [0..*] ethnicGroupCode, which SHALL be selected from ValueSet Detailed Ethnicity urn:oid:2.16.840.1.114222.4.11.877 DYNAMIC (CONF:4537-32901)."
       * guardian 0..*
         * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:4537-5325)."
