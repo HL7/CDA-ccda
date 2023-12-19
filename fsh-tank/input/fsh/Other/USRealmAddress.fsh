@@ -10,7 +10,9 @@ Description: "Reusable address template, for use in US Realm documents"
 * use ^short = "Identifies which address to use for a given purpose."
   * ^comment = "Historically this was bound to ValueSet PostalAddressUse urn:oid:2.16.840.1.113883.1.11.10637 STATIC 2005-05-01, but this contained 'CONF' which is not allowed by CDA. So the binding has been removed in the current version of C-CDA."
 * useablePeriod
-  * insert USCDI([[Previous Address - Current or prior place where a person may have been located or could have been contacted.]])
+  * ^short = "(USCDI) Care Team Member Role - Previous Address - Current or prior place where a person may have been located or could have been contacted."
+  * ^extension[1].url = "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement"
+  * ^extension[=].valueBoolean = true
 * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
 * item.state ^binding.description = "If country is something other than US, the state MAY be present but MAY be bound to different vocabularies"
   * ^binding.strength = #example
