@@ -89,7 +89,7 @@ This id must be a pointer to another Performer."""
 * participant contains
     location 0..* and
     addl-functions 0..*
-* participant[location] ^short = "particThis participant represents the location where the care team member provides the serviceipant"
+* participant[location] ^short = "This participant represents the location where the care team member provides the service."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
   * typeCode 1..1
   * typeCode = #LOC (exactly)
@@ -140,7 +140,7 @@ This id must be a pointer to another Performer."""
     * ^comment = "SHALL contain exactly one [1..1] encounter (CONF:4515-88)."
     * id 1..1
       * ^comment = "This encounter SHALL contain exactly one [1..1] id (CONF:4515-89)."
-* entryRelationship[entryRelationship2] ^short = "This is the note activity to naratively describe information about the member on the care team."
+* entryRelationship[entryRelationship2] ^short = "This is the note activity to narratively describe information about the member on the care team."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-91) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -180,7 +180,7 @@ assignedPerson.exists() or
 
 
 Invariant: 4515-90
-Description: "If the first id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor=NA, then this entry SHALL conform to the Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4515-90)."
+Description: "If the first id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor="NA", then this entry SHALL conform to the Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4515-90)."
 Severity: #error
 Expression: "id.first().nullFlavor = 'NA' or (%resource.descendants().ofType(CDA.Encounter).where(hasTemplateIdOf(EncounterActivity) and id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension)))"
 /*
