@@ -23,7 +23,7 @@ A goal may have components consisting of other goals (milestones). These milesto
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-32332)."
 * code 1..1
-  * ^short = "When the Goal is a Social Determinant of Health Goal, use @code=&quot;8689-2&quot; (History of Social function), @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (LOINC)"
+  * ^short = "When the Goal is a Social Determinant of Health Goal, use @code=\"8689-2\" (History of Social function), @codeSystem=\"2.16.840.1.113883.6.1\" (LOINC)"
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4515-30784)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-32333)."
@@ -55,7 +55,7 @@ A goal may have components consisting of other goals (milestones). These milesto
     entryRelationship4 0..* and
     entryRelationship5 0..* and
     entryRelationship6 0..*
-* entryRelationship[entryRelationship1] ^short = "The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in entryRelationship to refer the template."
+* entryRelationship[entryRelationship1] ^short = "The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in this entryRelationship to refer the template."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-30701) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
