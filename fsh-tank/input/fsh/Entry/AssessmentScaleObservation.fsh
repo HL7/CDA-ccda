@@ -55,7 +55,7 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Supporting Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.86) (CONF:4515-16742)."
 * referenceRange 0..*
   * ^comment = "MAY contain zero or more [0..*] referenceRange (CONF:4515-16799)."
-  * ^short = "The referenceRange/observationRange/text, if present, MAY contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"
+  * ^short = "The referenceRange/observationRange/text, if present, MAY contain a description of the scale (e.g., for a Pain Scale 1 to 10: 1 to 3 = little pain, 4 to 7 = moderate pain, 8 to 10 = severe pain)"
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4515-16800)."
     * obeys should-text
