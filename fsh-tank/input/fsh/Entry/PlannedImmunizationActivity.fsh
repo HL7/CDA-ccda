@@ -41,9 +41,9 @@ The priority of the immunization activity to the patient and provider is communi
   * ^comment = "MAY contain zero or one [0..1] doseQuantity (CONF:1098-32129)."
   * obeys should-unit
   * unit 0..1
-  * unit from UnitsOfMeasureCaseSensitive (required)
+  * unit from UnitsOfMeasureCaseSensitive (preferred)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
-    * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32130)." // man-should
+    * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32130)." // man-should
 * consumable 1..1
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:1098-32131)."
   * manufacturedProduct 1..1
