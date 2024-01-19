@@ -32,7 +32,9 @@ Description: "This clinical statement represents current and/or prior pregnancy 
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\"."
-  //" 201707 Errata Comment 1599: Added value set &quot;Pregnancy Status&quot; urn:oid:2.16.840.1.113883.11.20.9.85 to Trifolia. Contains values (all from SNOMED): Pregnant (finding), Possible Pregnancy (finding), Not Pregnant (finding).&#xA;&#xA;Updated Pregnancy Observation template - removed binding to single code (Pregnant) and added SHALL DYNAMIC binding to above value set.\" "
+  /*" 201707 Errata Comment 1599: Added value set \"Pregnancy Status\" urn:oid:2.16.840.1.113883.11.20.9.85 to Trifolia. Contains values (all from SNOMED): Pregnant (finding), Possible Pregnancy (finding), Not Pregnant (finding).
+  
+  Updated Pregnancy Observation template - removed binding to single code (Pregnant) and added SHALL DYNAMIC binding to above value set.\" " */
   * code 1..1
   * code from $2.16.840.1.113762.1.4.1099.24 (required)
     * ^comment = "This code SHALL be selected from ValueSet Extended Pregnancy Status urn:oid:2.16.840.1.113762.1.4.1099.24 DYNAMIC (CONF:81-457)."
