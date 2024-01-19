@@ -100,6 +100,8 @@ const xml2js = require('xml2js');
       const igResource = resources.find(r => r.reference.reference.$.value == `${resourceType}/${sdId}`);
       if (!igResource) {
         console.warn(`${resourceType} ${sdId} is not in the IG!`);
+      } else if (!json.description) {
+        console.error(`${resourceType} ${sdId} does not have a description`);
       } else {
         const period = json.description.indexOf('.');
         igResource.description.$.value = period > 0 ? json.description.substring(0, period + 1) : json.description.substring(0, 100);
