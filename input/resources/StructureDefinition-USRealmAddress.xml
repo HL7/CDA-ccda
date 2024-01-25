@@ -113,7 +113,13 @@
             <path value="AD.item.state"/>
             <binding>
                 <strength value="example"/>
-                <description value="http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state (required) - For US Addresses - If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. (CONF:81-10024)."/>
+                <description value="If country is something other than US, the state MAY be present but MAY be bound to different vocabularies"/>
+                <additional>
+                    <purpose value="required"/>
+                    <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state"/>
+                    <documentation value="If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. (CONF:81-10024)."/>
+                    <shortDoco value="For US Addresses"/>
+                </additional>
             </binding>
         </element>
         <element id="AD.item.city">

@@ -18,12 +18,10 @@ RuleSet: USCDI(label)
 
 // Add an additional binding to a bindable element. short must be text; documentation can be markdown. If either contain , or ) surround with [[ ]]
 RuleSet: AdditionalBinding(purpose, valueSet, short, documentation)
-* ^binding.description = "{valueSet} ({purpose}) - {short} - {documentation}"
-// IG Publisher isn't handling these well....
-// * ^binding.additional[+].purpose = #{purpose}
-// * ^binding.additional[=].valueSet = {valueSet}
-// * ^binding.additional[=].shortDoco = "{short}"
-// * ^binding.additional[=].documentation = "{documentation}"
+* ^binding.additional[+].purpose = #{purpose}
+* ^binding.additional[=].valueSet = {valueSet}
+* ^binding.additional[=].shortDoco = "{short}"
+* ^binding.additional[=].documentation = "{documentation}"
 
 // Assign a fixed LOINC code
 RuleSet: CodedLoinc(code, display)
