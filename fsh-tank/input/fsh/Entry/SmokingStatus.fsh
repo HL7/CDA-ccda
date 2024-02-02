@@ -29,6 +29,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
   * low 0..1
     * ^short = "Represents the earliest time the observation was true. Should not be used for temporal codes (e.g. 266919005 - Never smoked tobacco)"
   * high 0..1
+* value only $CD or $REAL
 * value 1..1
   * ^slicing.discriminator[0].type = #type
   * ^slicing.discriminator[=].path = "$this"
@@ -40,6 +41,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
 * value[coded] only $CD
   * code 1..1
   * code from $2.16.840.1.113883.11.20.9.41 (required)
+* obeys numeric-status
 
 Invariant: numeric-status
 Description: "When code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value SHALL be coded"

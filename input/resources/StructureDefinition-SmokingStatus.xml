@@ -50,6 +50,13 @@
                 <expression value="text.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
             </constraint>
+            <constraint>
+                <key value="numeric-status"/>
+                <severity value="error"/>
+                <human value="When code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value SHALL be coded"/>
+                <expression value="(code.code = '72166-2' or code.code = '11367-0') implies value.code.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -153,6 +160,12 @@
             <short value="REAL shall only be used for Smoking Status where code = 8663-7 or 8664-5"/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/REAL"/>
+            </type>
         </element>
         <element id="Observation.value:count">
             <path value="Observation.value"/>
