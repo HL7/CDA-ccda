@@ -29,6 +29,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
   * low 0..1
     * ^short = "Represents the earliest time the observation was true. Should not be used for temporal codes (e.g. 266919005 - Never smoked tobacco)"
   * high 0..1
+    * ^short = "Represents the last known time the observation was true. If the observation is still true, set `@nullFlavor` to `UNK`."
 * value only $CD or $REAL
 * value 1..1
   * ^slicing.discriminator[0].type = #type
