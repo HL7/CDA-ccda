@@ -20,6 +20,7 @@ Alias: $ParticipantRole = http://hl7.org/cda/stds/core/StructureDefinition/Parti
 Alias: $PIVL-TS = http://hl7.org/cda/stds/core/StructureDefinition/PIVL-TS
 Alias: $PQ = http://hl7.org/cda/stds/core/StructureDefinition/PQ
 Alias: $Procedure = http://hl7.org/cda/stds/core/StructureDefinition/Procedure
+Alias: $REAL = http://hl7.org/cda/stds/core/StructureDefinition/REAL
 Alias: $Section = http://hl7.org/cda/stds/core/StructureDefinition/Section
 Alias: $SubstanceAdministration = http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration
 Alias: $Supply = http://hl7.org/cda/stds/core/StructureDefinition/Supply
