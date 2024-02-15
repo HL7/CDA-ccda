@@ -2,7 +2,7 @@ Profile: MRISafetyObservation
 Parent: $Observation
 Id: MRISafetyObservation
 Title: "MRI Safety Observation"
-Description: "This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the MRI Safety Status of the patient's medical device. The UDI-DI of the medical device may be used to retrieve the **MRI Safety Status** in accessGUDID, which should be considered the source of truth."
+Description: "This template is intended to be used in addition to the Product Instance template to exchange the MRI Safety Status of the patient's medical device. The UDI-DI of the medical device may be used to retrieve the **MRI Safety Status** in accessGUDID, which should be considered the source of truth."
 
 * insert LogicalModelTemplate(mri-safety-obs, 2.16.840.1.113883.10.20.22.4.318, 2019-06-21)
 * insert NarrativeLink

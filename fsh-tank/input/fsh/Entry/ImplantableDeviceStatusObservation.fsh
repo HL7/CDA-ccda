@@ -2,7 +2,7 @@ Profile: ImplantableDeviceStatusObservation
 Parent: $Observation
 Id: ImplantableDeviceStatusObservation
 Title: "Implantable Device Status Observation"
-Description: "This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37  to augment the parsed data from the a Unique Device Identifier (UDI). This template is used to exchange the status of the patient's implantable medical device.  This status is only relevant to medical devices implanted in the patient's body."
+Description: "This template is intended to be used in addition to the Product Instance template to augment the parsed data from the a Unique Device Identifier (UDI). This template is used to exchange the status of the patient's implantable medical device.  This status is only relevant to medical devices implanted in the patient's body."
 
 * insert LogicalModelTemplate(implant-device-status-obs, 2.16.840.1.113883.10.20.22.4.305, 2019-06-21)
 * insert NarrativeLink
