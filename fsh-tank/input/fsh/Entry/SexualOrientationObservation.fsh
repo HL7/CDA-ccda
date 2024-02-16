@@ -2,7 +2,7 @@ Profile: SexualOrientationObservation
 Parent: SocialHistoryObservation
 Id: SexualOrientationObservation
 Title: "Sexual Orientation Observation"
-Description: """This observation represents the sexual orientation of the patient, defined as:
+Description: """This observation represents the sexual orientation of the patient. Defined as:
 
 > A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.
 
