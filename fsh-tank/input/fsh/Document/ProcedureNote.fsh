@@ -114,7 +114,6 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * id ..*
       * ^short = "SG 20230709: EncompassingEncounter.id is required in US Realm Header - this is an illegal constraint - deleted min=0"
       * ^comment = "This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)." // auto-should
-      //"<min value=\"0\"/>"
     * code 1..1
     * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
@@ -127,8 +126,6 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * typeCode = #REF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REF\" Referrer (CONF:1198-30875)."
     * location 1..
-      * ^short = "SG 20230709: EncompassingEncounter.location can have a maximum of 1 (CDA Base) - this is an illegal constraint - deleted max=*"
-      * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] location (CONF:1198-30876)."
       * healthCareFacility 1..1
         * ^comment = "Such locations SHALL contain exactly one [1..1] healthCareFacility (CONF:1198-30877)."
         * id 1..*
