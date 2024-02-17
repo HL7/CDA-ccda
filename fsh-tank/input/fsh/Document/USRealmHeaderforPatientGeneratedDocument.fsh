@@ -155,8 +155,7 @@ The Patient Generated Document Header template is not a separate document type. 
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
         * obeys should-code-attr
         * code 0..1
-        * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
-          * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)." // man-should
+        * code from $2.16.840.1.113883.1.11.10267 (required)
       * assignedEntity 1..1
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-28715)."
         * id 1..*
