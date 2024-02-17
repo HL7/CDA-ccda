@@ -149,9 +149,9 @@ The Patient Generated Document Header template is not a separate document type. 
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)." // auto-should
       * typeCode 1..1
       * typeCode from $2.16.840.1.113883.1.11.19601 (required)
-        * ^short = "When indicating the performer was the primary care physician, implementers should indicate \"PCP\" as the functionCode"
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
       * functionCode 0..1
+        * ^short = "When indicating the performer was the primary care physician, implementers should indicate \"PCP\" as the functionCode"
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
         * obeys should-code-attr
         * code 0..1
