@@ -28,7 +28,7 @@ const xml2js = require('xml2js');
   const xmlDirectory = 'input/resources';
 
   const sushiConfig = fs.readFileSync('fsh-tank/sushi-config.yaml', 'utf-8');
-  const match = sushiConfig.match(/canonical:\s*(\S+)(\n|$)/);
+  const match = sushiConfig.match(/canonical:\s*(\S+)(\r?\n|$)/);
   const canonical = match ? match[1] : null;
   if (!canonical) {
     throw new Error('Unable to load canonical from sushi-config.yaml');
