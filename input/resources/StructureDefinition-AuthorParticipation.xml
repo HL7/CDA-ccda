@@ -91,8 +91,13 @@
             <comment value="This assignedAuthor SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31671)."/>
             <binding>
                 <strength value="preferred"/>
-                <description value="$2.16.840.1.113883.11.20.12.1 (preferred) - Patient-authored content - If the content is patient authored the code **SHOULD** be selected from Personal And Legal Relationship Role Type (2.16.840.1.113883.11.20.12.1) (CONF:1098-32315)."/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
+                    <documentation value="If the content is patient authored the code **SHOULD** be selected from Personal And Legal Relationship Role Type (2.16.840.1.113883.11.20.12.1) (CONF:1098-32315)."/>
+                    <shortDoco value="Patient-authored content"/>
+                </additional>
             </binding>
         </element>
         <element id="Author.assignedAuthor.addr">
