@@ -15,7 +15,6 @@ Description: "This template represents a generic participant person that has a r
 * associatedEntity 1..1
   * ^comment = "SHALL contain exactly one [1..1] associatedEntity (CONF:4537-32978)."
   * classCode 1..1
-  * classCode = #PRS (exactly)
     * ^comment = "This associatedEntity SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type  2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-32985)."
   * code 1..1
   * code from $2.16.840.1.113883.11.20.12.1 (required)
