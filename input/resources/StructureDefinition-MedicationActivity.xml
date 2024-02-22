@@ -289,11 +289,8 @@
             </binding>
         </element>
         <element id="SubstanceAdministration.doseQuantity">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
             <path value="SubstanceAdministration.doseQuantity"/>
-            <short value="(USCDI) Dose Unit of Measure"/>
+            <short value="If the consumable code is not pre-coordinated (e.g., is &quot;simply metoprolol Oral Product&quot; (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., &quot;25&quot; and &quot;mg&quot;, specifying the amount of product given per administration (CONF:1098-16879).&amp;#10;If the consumable code is a pre-coordinated unit dose (e.g., &quot;metoprolol 25mg tablet&quot;) then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., &quot;2&quot;, meaning 2 x &quot;metoprolol 25mg tablet&quot; per administration) (CONF:1098-16878)."/>
             <comment value="SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."/>
             <min value="1"/>
             <constraint>
@@ -305,8 +302,12 @@
             </constraint>
         </element>
         <element id="SubstanceAdministration.doseQuantity.unit">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="SubstanceAdministration.doseQuantity.unit"/>
-            <short value="NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
+            <short value="(USCDI) Dose Unit of Measure. NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
+            <definition value="NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)."/>
             <binding>
                 <strength value="preferred"/>
