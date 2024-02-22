@@ -2,7 +2,7 @@ Profile: BasicIndustryObservation
 Parent: SocialHistoryObservation
 Id: BasicIndustryObservation
 Title: "Basic Industry Observation"
-Description: """This template represents a simple observation about the type of business that compensates for work or assigns work to an unpaid worker or volunteer (e.g., U.S. Army, cement manufacturing, children and youth services). Multiple occupation industry observation instances in a single document or derived from multiple documents, represent a basic historical industry record.
+Description: """This template represents a simple observation about the type of business that compensates for work or assigns work to an unpaid worker or volunteer (e.g., US Army, cement manufacturing, children and youth services). Multiple occupation industry observation instances in a single document or derived from multiple documents, represent a basic historical industry record.
 
  Implementers should use the Basic Industry Observation template for conveying Industry in support of USCDI. It is recommended systems include the Basic Industry Observation in the Social History section.  Implementers wishing to convey more advanced Industry detail may consider using  [HL7 CDA R2 Implementation Guide: C-CDA R2.1 Supplemental Templates for Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522) in addition to this Observation."""
 

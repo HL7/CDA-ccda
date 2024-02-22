@@ -2,7 +2,7 @@ Profile: ExpirationDateObservation
 Parent: $Observation
 Id: ExpirationDateObservation
 Title: "Expiration Date Observation"
-Description: "This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Expiration Date** of the device.  The expiration date is parsed from the UDI value, if present."
+Description: "This template is intended to be used in addition to the Product Instance template to exchange the Expiration Date of the device.  The expiration date is parsed from the UDI value, if present."
 
 * insert LogicalModelTemplate(exp-date-obs, 2.16.840.1.113883.10.20.22.4.309, 2019-06-21)
 * insert NarrativeLink

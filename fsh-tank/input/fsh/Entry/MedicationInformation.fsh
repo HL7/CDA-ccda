@@ -4,7 +4,7 @@ Id: MedicationInformation
 Title: "Medication Information"
 Description: """A medication should be recorded as a pre-coordinated ingredient + strength + dose form (e.g., "metoprolol 25mg tablet", "amoxicillin 400mg/5mL suspension") where possible. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack).
 
-The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable. Thus, a patient consuming a single "metoprolol 25mg tablet" per administration will have a doseQuantity of "1", whereas a patient consuming "metoprolol" will have a dose of "25 mg"."""
+The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single "metoprolol 25mg tablet" per administration will have a doseQuantity of "1", whereas a patient consuming "metoprolol Oral Product" (RxCUI 1163523) will have a dose of "25 mg"."""
 
 * insert LogicalModelTemplate(med-information, 2.16.840.1.113883.10.20.22.4.23, 2014-06-09)
 

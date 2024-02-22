@@ -28,7 +28,7 @@
     <name value="GenderIdentityObservation"/>
     <title value="Gender Identity Observation"/>
     <status value="draft"/>
-    <description value="This observation represents the gender identity of the patient, defined as:&#xA;&#xA;&gt; &quot;Ones basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with ones sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)&#xA;&#xA;This template follows the guidelines from the HL7 Gender Harmony project. This template is based on C-CDA Social History Observation template.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender) or birth sex."/>
+    <description value="This observation represents the gender identity of the patient. Defined as:&#xA;&#xA;&gt; &quot;Ones basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with ones sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)&#xA;&#xA;This template follows the guidelines from the HL7 Gender Harmony project. This template is based on C-CDA Social History Observation template.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender) or birth sex."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -124,13 +124,8 @@
             <short value="To represent additional Gender Identities, set nullFlavor=&quot;OTH&quot;. To represent &quot;choose not to disclose&quot;, set nullFlavor=&quot;ASKU&quot;."/>
             <binding>
                 <strength value="required"/>
+                <description value="$2.16.840.1.113762.1.4.1114.17 (preferred) - Recommended nullFlavors - This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Asked but Unknown and Other urn:oid:2.16.840.1.113762.1.4.1114.17 DYNAMIC (CONF:4537-1232)."/>
                 <valueSet value="http://hl7.org/cda/stds/core/ValueSet/CDANullFlavor"/>
-                <additional>
-                    <purpose value="preferred"/>
-                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1114.17"/>
-                    <documentation value="This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Asked but Unknown and Other urn:oid:2.16.840.1.113762.1.4.1114.17 DYNAMIC (CONF:4537-1232)."/>
-                    <shortDoco value="Recommended nullFlavors"/>
-                </additional>
             </binding>
         </element>
     </differential>

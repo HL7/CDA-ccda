@@ -379,12 +379,9 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <comment value="This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode">
-            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
-            <short value="When indicating the performer was the primary care physician, implementers should indicate &quot;PCP&quot; as the functionCode"/>
-        </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
+            <short value="When indicating the performer was the primary care physician, implementers should indicate &quot;PCP&quot; as the functionCode"/>
             <constraint>
                 <key value="should-code-attr"/>
                 <severity value="warning"/>
@@ -392,6 +389,13 @@
                 <expression value="code.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
             </constraint>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode.code">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode.code"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.10267"/>
+            </binding>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>

@@ -2,7 +2,7 @@ Profile: GenderIdentityObservation
 Parent: SocialHistoryObservation
 Id: GenderIdentityObservation
 Title: "Gender Identity Observation"
-Description: """This observation represents the gender identity of the patient, defined as:
+Description: """This observation represents the gender identity of the patient. Defined as:
 
 > "Ones basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with ones sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)
 

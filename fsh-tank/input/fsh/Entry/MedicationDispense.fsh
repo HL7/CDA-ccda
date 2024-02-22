@@ -18,7 +18,7 @@ Description: "This template records the act of supplying medications (i.e., disp
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7454)."
 * code 1..1
 * code from http://hl7.org/fhir/ValueSet/medicationdispense-status (required)
-  * ^short = "The CDA base standard limits codes that can be used at CDA supply.statusCode. In C-CDA, the Supply.code value set re-uses the value set used in FHIR and FHIR US Core MedicationDispense @ MedicationDispense.status and fixes statsuCode to 'completed'."
+  * ^short = "The CDA base standard limits codes that can be used at CDA supply.statusCode which do not represent typical medication dispense statuses. In order to provide correct domain vocabulary and align with FHIR, CDA supply.statusCode is fixed to complete and the FHIR MedicationDispense status value set is used at supply.code."
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet MedicationDispense Status Codes urn:oid:2.16.840.1.113883.4.642.3.1312 DYNAMIC (CONF:4537-32974)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7455)."

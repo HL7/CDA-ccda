@@ -8,7 +8,7 @@ A moodCode of INT is allowed, but it is recommended that the Planned Medication 
 
 At a minimum, a Medication Activity shall include an effectiveTime indicating the duration of the administration (or single-administration timestamp). Ambulatory medication lists generally provide a summary of use for a given medication over time - a medication activity in event mood with the duration reflecting when the medication started and stopped. Ongoing medications will not have a stop date (or will have a stop date with a suitable NULL value). Ambulatory medication lists will generally also have a frequency (e.g., a medication is being taken twice a day). Inpatient medications generally record each administration as a separate act.
 
-The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single  "metoprolol 25mg tablet " per administration will have a doseQuantity of  "1 ", whereas a patient consuming  "metoprolol Oral Product " (RxCUI 1163523) will have a dose of  "25 mg "."""
+The dose (doseQuantity) represents how many of the consumables are to be administered at each administration event. As a result, the dose is always relative to the consumable and the interval of administration. Thus, a patient consuming a single "metoprolol 25mg tablet" per administration will have a doseQuantity of "1", whereas a patient consuming "metoprolol Oral Product" (RxCUI 1163523) will have a dose of "25 mg"."""
 
 * insert LogicalModelTemplate(medication-activity, 2.16.840.1.113883.10.20.22.4.16, 2014-06-09)
 * insert NarrativeLink
@@ -39,7 +39,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     eventFrequency 0..1
 * effectiveTime[duration] only $IVL-TS
   * obeys 1098-32890
-  * ^short = "The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., \"10 days\"), the frequency of administration (e.g., \"every 8 hours\"), and more. Here, we require that there **SHALL** be an effectiveTime documentation of the duration (or single-administration timestamp), and that there **SHOULD** be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included. Note: This effectiveTime represents either the medication duration (i.e., the time the medication was started and stopped) or the single-administration timestamp."
+  * ^short = "The substance administration effectiveTime field can repeat, in order to represent varying levels of complex dosing. effectiveTime can be used to represent the duration of administration (e.g., \"10 days\"), the frequency of administration (e.g., \"every 8 hours\"), and more. Here, we require that there **SHALL** be an effectiveTime documentation of the duration (or single-administration timestamp), and that there **SHOULD** be an effectiveTime documentation of the frequency. Other timing nuances, supported by the base CDA R2 standard, may also be included. Note: This effectiveTime represents either the time the medication was started and stopped or the single-administration timestamp."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-7508) such that it"
   * obeys should-value-att
   * value 0..1
@@ -77,15 +77,14 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-7515)."
 * doseQuantity 1..1
-  * ^definition = """If the consumable code is not pre-coordinated (e.g., is \"simply metoprolol Oral Product\" (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., \"25\" and \"mg\", specifying the amount of product given per administration (CONF:1098-16879).\
-  If the consumable code is a pre-coordinated unit dose (e.g., \"metoprolol 25mg tablet\") then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., \"2\", meaning 2 x \"metoprolol 25mg tablet\" per administration) (CONF:1098-16878)."""
+  * ^short = "If the consumable code is not pre-coordinated (e.g., is \"simply metoprolol Oral Product\" (RxCUI 1163523), then doseQuantity must represent a physical quantity with @unit, e.g., \"25\" and \"mg\", specifying the amount of product given per administration (CONF:1098-16879).&#10;If the consumable code is a pre-coordinated unit dose (e.g., \"metoprolol 25mg tablet\") then doseQuantity is a unitless number that indicates the number of products given per administration (e.g., \"2\", meaning 2 x \"metoprolol 25mg tablet\" per administration) (CONF:1098-16878)."
   * ^comment = "SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."
   * obeys should-unit
   * unit 0..1
   * insert USCDI([[Dose Unit of Measure]])
-  * unit from UnitsOfMeasureCaseSensitive (required)
+  * unit from UnitsOfMeasureCaseSensitive (preferred)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
-    * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)." // man-should
+    * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)." // man-should
 * rateQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-7517)."
   * unit 1..1

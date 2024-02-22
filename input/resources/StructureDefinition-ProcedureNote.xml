@@ -157,13 +157,7 @@
             </constraint>
             <binding>
                 <strength value="required"/>
-                <description value="The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."/>
-                <additional>
-                    <purpose value="preferred"/>
-                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28"/>
-                    <documentation value="The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."/>
-                    <shortDoco value="Allowed SNOMED Codes"/>
-                </additional>
+                <description value="$2.16.840.1.113883.3.88.12.80.28 (preferred) - Allowed SNOMED Codes - The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."/>
             </binding>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
@@ -344,8 +338,6 @@
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.location">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.location"/>
-            <short value="SG 20230709: EncompassingEncounter.location can have a maximum of 1 (CDA Base) - this is an illegal constraint - deleted max=*"/>
-            <comment value="This encompassingEncounter SHALL contain at least one [1..*] location (CONF:1198-30876)."/>
             <min value="1"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility">

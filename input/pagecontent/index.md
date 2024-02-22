@@ -40,6 +40,24 @@ Within HL7, since 2020, an initiative to develop the same underlying publication
 
 The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is built upon the underlying [CDA standard’s structures defined as Logical Models in CDA 2.0 StructureDefinition](https://build.fhir.org/ig/HL7/CDA-core-2.0/). These FHIR Logical models are abstract data structures which have been instantiated into physical CDA templates to be implemented in CDA data exchange. As such, it adheres to the [CDA Release 2.0 standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=7) and remains a CDA-based Implementation Guide (IG). 
 
+<style>
+	.important::before {
+	  white-space: pre;
+	  content: "NOTE\A ";
+	  #background-color: yellow;
+	  color: red;
+	  font-weight: bold;
+	}
+	.important{
+	    margin: 5px;
+	    padding: 10px;
+	    border-left-style: solid;
+	}
+</style>
+<p class="important">
+	This is a C-CDA specification that uses FHIR R5 StructureDefinitions and ElementDefinitions to define its templates.  It does not use any of the FHIR R5 resources nor any of the FHIR R5 General-Purpose Datatypes.  Thus it is based on FHIR R5 but not in a way that FHIR Implementation Guides would be based by profiling FHIR resources.  It is important and relevant to declare the version of FHIR structures that are being used for toolsmiths and others using those structures.
+</p>
+
 ### Acknowledgements
 
 This C-CDA guide was developed and produced through the efforts of Health Level Seven (HL7).

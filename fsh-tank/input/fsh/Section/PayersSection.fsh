@@ -2,7 +2,7 @@ Profile: PayersSection
 Parent: $Section
 Id: PayersSection
 Title: "Payers Section"
-Description: """The Payers Section contains data on the patient's payers, whether "third party" insurance, self-pay, other payer or guarantor, or some combination of payers, and is used to define which entity is the responsible fiduciary for the financial aspects of a patient's care..
+Description: """The Payers Section contains data on the patient's payers, whether "third party" insurance, self-pay, other payer or guarantor, or some combination of payers, and is used to define which entity is the responsible fiduciary for the financial aspects of a patient's care.
 
 Each unique instance of a payer and all the pertinent data needed to contact, bill to, and collect from that payer should be included. Authorization information that can be used to define pertinent referral, authorization tracking number, procedure, therapy, intervention, device, or similar authorizations for the patient or provider, or both should be included. At a minimum, the patient's pertinent current payment sources should be listed..
 

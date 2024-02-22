@@ -2,7 +2,7 @@ Profile: DeviceIdentifierObservation
 Parent: $Observation
 Id: DeviceIdentifierObservation
 Title: "Device Identifier Observation"
-Description: """This template is intended to be used in addition to the **Product Instance** template urn:oid:2.16.840.1.113883.10.20.22.4.37 to exchange the **Device Identifier** (also known as the "Primary DI Number") for a medical device marketed in the US. The device identifier is parsed from the UDI value.
+Description: """This template is intended to be used in addition to the Product Instance template to exchange the Device Identifier (also known as the "Primary DI Number") for a medical device marketed in the US. The device identifier is parsed from the UDI value.
 
 The Device Identifier number can be used as a key to look-up device identification information in the publicly available version of the US FDA Global UDI Database (GUDID) - the AccessGUDID: https://accessgudid.nlm.nih.gov/resources/home"""
 

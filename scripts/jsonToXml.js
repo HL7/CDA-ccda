@@ -28,7 +28,7 @@ const xml2js = require('xml2js');
   const xmlDirectory = 'input/resources';
 
   const sushiConfig = fs.readFileSync('fsh-tank/sushi-config.yaml', 'utf-8');
-  const match = sushiConfig.match(/canonical:\s*(\S+)(\n|$)/);
+  const match = sushiConfig.match(/canonical:\s*(\S+)(\r?\n|$)/);
   const canonical = match ? match[1] : null;
   if (!canonical) {
     throw new Error('Unable to load canonical from sushi-config.yaml');
@@ -100,9 +100,11 @@ const xml2js = require('xml2js');
       const igResource = resources.find(r => r.reference.reference.$.value == `${resourceType}/${sdId}`);
       if (!igResource) {
         console.warn(`${resourceType} ${sdId} is not in the IG!`);
+      } else if (!json.description) {
+        console.error(`${resourceType} ${sdId} does not have a description`);
       } else {
-        const period = json.description.indexOf('.');
-        igResource.description.$.value = period > 0 ? json.description.substring(0, period + 1) : json.description.substring(0, 100);
+        const period = json.description.match(/^(.*?[.])(?:\s|\n|&#xA;|$)/);
+        igResource.description.$.value = period ? period[1] : json.description.substring(0, 100);
       }
 
       const xml = fhir.jsonToXml(JSON.stringify(json));
