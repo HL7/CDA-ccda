@@ -18,7 +18,7 @@ For information on mixed content see the Extensible Markup Language reference (h
   * qualifier 0..1
   * qualifier from EntityPersonNamePartQualifier (required)
     * ^comment = "This family MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7160)."
-* item.given ^short = "The first given is the first name. The second occurrence of given, if provided, SHALL include middle nam eor middle initial."
+* item.given ^short = "The first given is the first name. The second occurrence of given, if provided, SHALL include middle name or middle initial."
   * insert USCDI([[First Name / Middle Name]])
   * ^comment = "SHALL contain at least one [1..*] given (CONF:81-7157)."
   * qualifier 0..1

@@ -3,7 +3,7 @@ Parent: $Supply
 Id: PlannedSupply
 Title: "Planned Supply"
 Description: """This template represents both medicinal and non-medicinal supplies ordered, requested, or intended for the patient (e.g., medication prescription, order for wheelchair). The importance of the supply order or request to the patient and provider may be indicated in the Priority Preference. 
-The effective time indicates the time when the supply is intended to take place and author time indicates when the documentation of the plan occurred. The Planned Supply template may also indicate the potential insurance coverage for the procedure. 
+The effectiveTime indicates the time when the supply is intended to take place and author time indicates when the documentation of the plan occurred. The Planned Supply template may also indicate the potential insurance coverage for the procedure. 
 Depending on the type of supply, the product or participant will be either a Medication Information product (medication), an Immunization Medication Information product (immunization), or a Product Instance participant (device/equipment)."""
 
 * insert LogicalModelTemplate(planned-supply, 2.16.840.1.113883.10.20.22.4.43, 2024-05-01)

@@ -285,7 +285,9 @@ Description: "This template defines constraints that represent common administra
   * relatedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:4537-31356)."
 * custodian 1..1
-  * ^short = "The custodian element represents the organization that is in charge of maintaining and is entrusted with the care of the document.&#10;&#10;There is only one custodian per CDA document. Allowing that a CDA document may not represent the original form of the authenticated document, the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party."
+  * ^short = """The custodian element represents the organization that is in charge of maintaining and is entrusted with the care of the document.
+  
+  There is only one custodian per CDA document. Allowing that a CDA document may not represent the original form of the authenticated document, the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party."""
   * ^comment = "SHALL contain exactly one [1..1] custodian (CONF:4537-5519)."
   * assignedCustodian 1..1
     * ^comment = "This custodian SHALL contain exactly one [1..1] assignedCustodian (CONF:4537-5520)."
