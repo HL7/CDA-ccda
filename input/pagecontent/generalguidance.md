@@ -117,7 +117,7 @@ In Operative and Procedure Notes, the following information is typically display
 - The surgery or procedure performed (serviceEvent)
 - The date of the surgery or procedure
 
-HL7 has created a style sheet available for the community to use, as is, or to customize for their vendor’s implementations. The [HL7 CDA style sheet](https://github.com/HL7/cda-core-xsl) is housed in the CDA GitHub location
+HL7 has created a style sheet available for the community to use, as is, or to customize for their vendor’s implementations. The [HL7 CDA style sheet](https://github.com/HL7/cda-core-xsl) is housed in the CDA-core-xsl GitHub repository.
 
 ### The Use of Sections for Document Organization in C-CDA
 
