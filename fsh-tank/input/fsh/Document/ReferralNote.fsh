@@ -49,8 +49,8 @@ Examples of referral situations are when a patient is referred from a family phy
     * associatedPerson 1..1
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31644)."
       * name 1..*
-      * name only USRealmPatientNamePTNUSFIELDED
-        * ^comment = "This associatedPerson SHALL contain at least one [1..*] US Realm Patient Name (PTN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1) (CONF:1198-31645)."
+      * name only USRealmPersonNamePNUSFIELDED
+        * ^comment = "This associatedPerson SHALL contain at least one [1..*] US Realm Person Name ."
 * participant[callback] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31647) such that it"  // man-should
   * ^short = "This participant represents the clinician to contact for questions about the referral note.  This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."
   * typeCode 1..1
