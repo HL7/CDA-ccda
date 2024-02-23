@@ -6,12 +6,12 @@ Clinicians use various terms such as assessments, scales, surveys, and screening
 
 Assessment Screenings can represent a structured evaluation of risk (e.g., PRAPARE, Hunger Vital Sign, AHC-HRSN
 screening tool) for any Social Determinants of Health domain such as food, housing, or transportation security. They can also be used for physical health evaluations such as an Apgar score, or Glasgow coma scale.
-Assessment Screening responses are represented in C-CDA with the [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) 
-[Social History Observation](StructureDefinition-SocialHistoryObservation.html)is for simple observations made by an individual about a patient's social history status during the course of care.
+Assessment Screening responses are represented in C-CDA with the [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessement Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html). The
+[Social History Observation](StructureDefinition-SocialHistoryObservation.html) is for simple observations made by an individual about a patient's social history status during the course of care.
 Both can contribute to the identification of SDOH Problems (Conditions) or Observations or can be the reason for
 Service Requests (Planned Procedures) or Procedures.
 
-[Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) and its contained[Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) are designed to represent [LOINC Panels](https://loinc.org/panels/) that are
+[Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) and its contained [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) are designed to represent [LOINC Panels](https://loinc.org/panels/) that are
 collections of LOINC terms that represent specific sets of information, intended for forms or assessments related to health that are completed by patients and/or providers.
 
 When an Assessment Scale Observation is contained in a Problem Observation, a Social History Observation, a
