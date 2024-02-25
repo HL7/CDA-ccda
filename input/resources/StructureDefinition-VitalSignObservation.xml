@@ -64,6 +64,62 @@
                 <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
             </constraint>
+            <constraint>
+                <key value="should-percent"/>
+                <severity value="warning"/>
+                <human value="Percentage codes (PulseOx, O2 Concentration, Percentiles) should be represented with %"/>
+                <expression value="(code.code in ('2708-6' | '3150-0' | '59408-5' | '8289-1' | '59575-1' | '59576-9')) implies value.unit = '%'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-cm"/>
+                <severity value="warning"/>
+                <human value="Height &amp; Head Circumference should be represented in cm"/>
+                <expression value="(code.code in ('8287-5' | '8302-2' | '8306-3')) implies value.unit = 'cm'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-kg"/>
+                <severity value="warning"/>
+                <human value="Weight should be represented in kg"/>
+                <expression value="(code.code = '29463-7') implies value.unit = 'kg'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-cel"/>
+                <severity value="warning"/>
+                <human value="Temperature should be represented in Celcius (Cel)"/>
+                <expression value="(code.code = '8310-5') implies value.unit = 'Cel'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-bp"/>
+                <severity value="warning"/>
+                <human value="Blood pressure should be represented in mm[Hg]"/>
+                <expression value="(code.code in ('8480-6' | '8462-4' | '8478-0' | '96608-5' | '96609-3')) implies value.unit = 'mm[Hg]'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-rates"/>
+                <severity value="warning"/>
+                <human value="Rates should be represented in /min"/>
+                <expression value="(code.code in ('8867-4' | '9279-1')) implies value.unit = '/min'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-bmi"/>
+                <severity value="warning"/>
+                <human value="BMI should be represented in kg/m2"/>
+                <expression value="(code.code = '39156-5') implies value.unit = 'kg/m2'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-bsa"/>
+                <severity value="warning"/>
+                <human value="BSA should be represented in m2"/>
+                <expression value="(code.code = '3140-1') implies value.unit = 'm2'"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
