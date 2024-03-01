@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/cda/us/ccda/2024Jan" ciUrl="http://build.fhir.org/ig/HL7/CDA-ccda" defaultVersion="3.0.0-ballot" defaultWorkgroup="sd" url="http://hl7.org/cda/us/ccda">
+<version code="current" url="http://build.fhir.org/ig/HL7/CDA-ccda"/>
+<version code="3.0.0-ballot" url="http://hl7.org/cda/us/ccda/2024Jan"/>
+<version code="2.1.0-draft1" deprecated="true" url="http://hl7.org/cda/stds/ccda/draft1"/>
+<version code="2.1.0.8" deprecated="true"/>
+<version code="2.1.0.7" deprecated="true"/>
+<version code="2.1.0.6" deprecated="true"/>
+<version code="2.1.0.5" deprecated="true"/>
+<version code="2.1.0.4" deprecated="true"/>
+<version code="2.1.0.3" deprecated="true"/>
+<version code="2.1.0.2" deprecated="true"/>
+<version code="2.1.0.1" deprecated="true"/>
+<version code="2.1.0" deprecated="true"/>
+<version code="2.0.0.1" deprecated="true"/>
+<version code="2.0.0" deprecated="true"/>
+<version code="1.1.0.2" deprecated="true"/>
+<version code="1.1.0.1" deprecated="true"/>
+<version code="1.1.0" deprecated="true"/>
+<version code="1.0.0" deprecated="true"/>
+<artifactPageExtension value="-definitions"/>
+<artifactPageExtension value="-examples"/>
+<artifactPageExtension value="-mappings"/>
+<artifact id="StructureDefinition/ActivitiesSection" key="StructureDefinition-ActivitiesSection" name="Activities Section"/>
+<artifact id="StructureDefinition/AdmissionDiagnosisSection" key="StructureDefinition-AdmissionDiagnosisSection" name="Admission Diagnosis Section"/>
+<artifact id="Binary/admission-diagnosis-section-example" key="Binary-admission-diagnosis-section-example" name="Admission Diagnosis Section Example"/>
+<artifact id="StructureDefinition/AdmissionMedication" key="StructureDefinition-AdmissionMedication" name="Admission Medication"/>
+<artifact id="Binary/admission-medication-example" key="Binary-admission-medication-example" name="Admission Medication example"/>
+<artifact id="StructureDefinition/AdmissionMedicationsSectionEntriesOptional" key="StructureDefinition-AdmissionMedicationsSectionEntriesOptional" name="Admission Medications Section (entries optional)"/>
+<artifact id="StructureDefinition/AdvanceDirectiveObservation" key="StructureDefinition-AdvanceDirectiveObservation" name="Advance Directive Observation"/>
+<artifact id="Binary/advance-directive-observation-example" key="Binary-advance-directive-observation-example" name="Advance Directive Observation Example"/>
+<artifact id="StructureDefinition/AdvanceDirectiveOrganizer" key="StructureDefinition-AdvanceDirectiveOrganizer" name="Advance Directive Organizer"/>
+<artifact id="Binary/advance-directive-organizer-example" key="Binary-advance-directive-organizer-example" name="Advance Directive Organizer Example"/>
+<artifact id="StructureDefinition/AdvanceDirectivesSection" key="StructureDefinition-AdvanceDirectivesSection" name="Advance Directives Section"/>
+<artifact id="Binary/advance-directives-section-example" key="Binary-advance-directives-section-example" name="Advance Directives Section Example"/>
+<artifact id="StructureDefinition/AgeObservation" key="StructureDefinition-AgeObservation" name="Age Observation"/>
+<artifact id="Binary/age-observation-example" key="Binary-age-observation-example" name="Age Observation Example"/>
+<artifact id="StructureDefinition/AllergiesAndIntolerancesSection" key="StructureDefinition-AllergiesAndIntolerancesSection" name="Allergies and Intolerances Section"/>
+<artifact id="Binary/allergies-and-intolerances-section-example" key="Binary-allergies-and-intolerances-section-example" name="Allergies and Intolerances Section Example"/>
+<artifact id="StructureDefinition/AllergyIntoleranceObservation" key="StructureDefinition-AllergyIntoleranceObservation" name="Allergy - Intolerance Observation"/>
+<artifact id="StructureDefinition/AllergyConcernAct" key="StructureDefinition-AllergyConcernAct" name="Allergy Concern Act"/>
+<artifact id="Binary/allergy-concern-act-example" key="Binary-allergy-concern-act-example" name="Allergy Concern Act Example"/>
+<artifact id="Binary/allergy-intolerance-observation-example" key="Binary-allergy-intolerance-observation-example" name="Allergy Intolerance Observation Example"/>
+<artifact id="StructureDefinition/AllergyStatusObservation" key="StructureDefinition-AllergyStatusObservation" name="Allergy Status Observation"/>
+<artifact id="StructureDefinition/AnesthesiaSection" key="StructureDefinition-AnesthesiaSection" name="Anesthesia Section"/>
+<artifact id="Binary/anesthesia-section-example" key="Binary-anesthesia-section-example" name="Anesthesia Section Example"/>
+<artifact id="StructureDefinition/AssessmentScaleObservation" key="StructureDefinition-AssessmentScaleObservation" name="Assessment Scale Observation"/>
+<artifact id="Binary/assessment-scale-observation-example" key="Binary-assessment-scale-observation-example" name="Assessment Scale Observation Example"/>
+<artifact id="StructureDefinition/AssessmentScaleSupportingObservation" key="StructureDefinition-AssessmentScaleSupportingObservation" name="Assessment Scale Supporting Observation"/>
+<artifact id="Binary/assessment-scale-supporting-observation-example" key="Binary-assessment-scale-supporting-observation-example" name="Assessment Scale Supporting Observation Example"/>
+<artifact id="StructureDefinition/AssessmentSection" key="StructureDefinition-AssessmentSection" name="Assessment Section"/>
+<artifact id="Binary/assessment-section-example" key="Binary-assessment-section-example" name="Assessment Section Example"/>
+<artifact id="StructureDefinition/AssessmentandPlanSection" key="StructureDefinition-AssessmentandPlanSection" name="Assessment and Plan Section"/>
+<artifact id="Binary/assessment-and-plan-section-example" key="Binary-assessment-and-plan-section-example" name="Assessment and PlanSection Example"/>
+<artifact id="StructureDefinition/AuthorParticipation" key="StructureDefinition-AuthorParticipation" name="Author Participation"/>
+<artifact id="Binary/new-author-participant-example" key="Binary-new-author-participant-example" name="Author Participation Example"/>
+<artifact id="StructureDefinition/AuthorizationActivity" key="StructureDefinition-AuthorizationActivity" name="Authorization Activity"/>
+<artifact id="Binary/authorization-activity-example" key="Binary-authorization-activity-example" name="Authorization Activity Example"/>
+<artifact id="StructureDefinition/BasicIndustryObservation" key="StructureDefinition-BasicIndustryObservation" name="Basic Industry Observation"/>
+<artifact id="Binary/basic-industry-observation-example" key="Binary-basic-industry-observation-example" name="Basic Industry Observation Example"/>
+<artifact id="StructureDefinition/BasicOccupationObservation" key="StructureDefinition-BasicOccupationObservation" name="Basic Occupation Observation"/>
+<artifact id="Binary/basic-occupation-observation-example" key="Binary-basic-occupation-observation-example" name="Basic Occupation Observation Example"/>
+<artifact id="StructureDefinition/BirthSexObservation" key="StructureDefinition-BirthSexObservation" name="Birth Sex Observation"/>
+<artifact id="Binary/birth-sex-example" key="Binary-birth-sex-example" name="Birth Sex Observation Example"/>
+<artifact id="StructureDefinition/BrandNameObservation" key="StructureDefinition-BrandNameObservation" name="Brand Name Observation"/>
+<artifact id="Binary/brand-name-observation-example" key="Binary-brand-name-observation-example" name="Brand Name Observation Example"/>
+<artifact id="StructureDefinition/CareExperiencePreference" key="StructureDefinition-CareExperiencePreference" name="Care Experience Preference"/>
+<artifact id="StructureDefinition/CarePlan" key="StructureDefinition-CarePlan" name="Care Plan"/>
+<artifact id="Binary/care-plan-caregiver-participant-example" key="Binary-care-plan-caregiver-participant-example" name="Care Plan Caregiver participant Example"/>
+<artifact id="Binary/care-plan-complete-example" key="Binary-care-plan-complete-example" name="Care Plan Complete Example"/>
+<artifact id="Binary/care-plan-patient-authenticator-example" key="Binary-care-plan-patient-authenticator-example" name="Care Plan Patient authenticator Example"/>
+<artifact id="Binary/care-plan-review-example" key="Binary-care-plan-review-example" name="Care Plan Review Example"/>
+<artifact id="Binary/care-plan-performer-example" key="Binary-care-plan-performer-example" name="Care Plan performer Example"/>
+<artifact id="Binary/care-plan-relateddocument-example" key="Binary-care-plan-relateddocument-example" name="Care Plan relatedDocument Example"/>
+<artifact id="StructureDefinition/CareTeamMemberAct" key="StructureDefinition-CareTeamMemberAct" name="Care Team Member Act"/>
+<artifact id="Binary/care-team-member-act-example" key="Binary-care-team-member-act-example" name="Care Team Member Act Example"/>
+<artifact id="StructureDefinition/CareTeamMemberScheduleObservation" key="StructureDefinition-CareTeamMemberScheduleObservation" name="Care Team Member Schedule Observation"/>
+<artifact id="Binary/care-team-member-schedule-observation-example" key="Binary-care-team-member-schedule-observation-example" name="Care Team Member Schedule Observation Example"/>
+<artifact id="StructureDefinition/CareTeamOrganizer" key="StructureDefinition-CareTeamOrganizer" name="Care Team Organizer"/>
+<artifact id="Binary/care-team-organizer-example" key="Binary-care-team-organizer-example" name="Care Team Organizer Example"/>
+<artifact id="StructureDefinition/CareTeamTypeObservation" key="StructureDefinition-CareTeamTypeObservation" name="Care Team Type Observation"/>
+<artifact id="Binary/care-team-type-example" key="Binary-care-team-type-example" name="Care Team Type Observation Example"/>
+<artifact id="StructureDefinition/CareTeamsSection" key="StructureDefinition-CareTeamsSection" name="Care Teams Section"/>
+<artifact id="Binary/care-teams-section-example" key="Binary-care-teams-section-example" name="Care Teams Section Example"/>
+<artifact id="StructureDefinition/CaregiverCharacteristics" key="StructureDefinition-CaregiverCharacteristics" name="Caregiver Characteristics"/>
+<artifact id="Binary/caregiver-characteristics-example" key="Binary-caregiver-characteristics-example" name="Caregiver Characteristics Example"/>
+<artifact id="StructureDefinition/CatalogNumberObservation" key="StructureDefinition-CatalogNumberObservation" name="Catalog Number Observation"/>
+<artifact id="Binary/catalog-number-observation-example" key="Binary-catalog-number-observation-example" name="Catalog Number Observation Example"/>
+<artifact id="StructureDefinition/CharacteristicsofHomeEnvironment" key="StructureDefinition-CharacteristicsofHomeEnvironment" name="Characteristics of Home Environment"/>
+<artifact id="Binary/characteristics-of-home-environment-example" key="Binary-characteristics-of-home-environment-example" name="Characteristics of Home Environment Example"/>
+<artifact id="StructureDefinition/ChiefComplaintSection" key="StructureDefinition-ChiefComplaintSection" name="Chief Complaint Section"/>
+<artifact id="Binary/chief-complaint-section-example" key="Binary-chief-complaint-section-example" name="Chief Complaint Section Example"/>
+<artifact id="StructureDefinition/ChiefComplaintandReasonforVisitSection" key="StructureDefinition-ChiefComplaintandReasonforVisitSection" name="Chief Complaint and Reason for Visit Section"/>
+<artifact id="Binary/chief-complaint-and-reason-for-visit-section-example" key="Binary-chief-complaint-and-reason-for-visit-section-example" name="Chief Complaint and Reason for Visit Section Example"/>
+<artifact id="StructureDefinition/CommentActivity" key="StructureDefinition-CommentActivity" name="Comment Activity"/>
+<artifact id="Binary/comment-activity-example" key="Binary-comment-activity-example" name="Comment Activity Example"/>
+<artifact id="StructureDefinition/CompanyNameObservation" key="StructureDefinition-CompanyNameObservation" name="Company Name Observation"/>
+<artifact id="Binary/company-name-example" key="Binary-company-name-example" name="Company Name Observation Example"/>
+<artifact id="StructureDefinition/ComplicationsSection" key="StructureDefinition-ComplicationsSection" name="Complications Section"/>
+<artifact id="Binary/complications-section-example" key="Binary-complications-section-example" name="Complications Section Example"/>
+<artifact id="StructureDefinition/ConsultationNote" key="StructureDefinition-ConsultationNote" name="Consultation Note"/>
+<artifact id="Binary/consultation-note-callback-participant-example" key="Binary-consultation-note-callback-participant-example" name="Consultation Note Callback participant Example"/>
+<artifact id="Binary/consultation-note-complete-example" key="Binary-consultation-note-complete-example" name="Consultation Note Complete Example"/>
+<artifact id="Binary/consultation-note-infulfillmentof-example" key="Binary-consultation-note-infulfillmentof-example" name="Consultation Note inFulfillmentOf Example"/>
+<artifact id="Binary/ccd-author-example" key="Binary-ccd-author-example" name="Continuity Of Care Document Author Example"/>
+<artifact id="Binary/ccd-performer-example" key="Binary-ccd-performer-example" name="Continuity Of Care Document Performer"/>
+<artifact id="Binary/ccd-serviceevent-example" key="Binary-ccd-serviceevent-example" name="Continuity Of Care Document serviceEvent Example"/>
+<artifact id="StructureDefinition/ContinuityofCareDocumentCCD" key="StructureDefinition-ContinuityofCareDocumentCCD" name="Continuity of Care Document (CCD)"/>
+<artifact id="StructureDefinition/CourseofCareSection" key="StructureDefinition-CourseofCareSection" name="Course of Care Section"/>
+<artifact id="Binary/course-of-care-section-example" key="Binary-course-of-care-section-example" name="Course of Care Section Example"/>
+<artifact id="StructureDefinition/CoverageActivity" key="StructureDefinition-CoverageActivity" name="Coverage Activity"/>
+<artifact id="Binary/coverage-activity-example" key="Binary-coverage-activity-example" name="Coverage Activity Example"/>
+<artifact id="StructureDefinition/CriticalityObservation" key="StructureDefinition-CriticalityObservation" name="Criticality Observation"/>
+<artifact id="Binary/criticality-observation-example" key="Binary-criticality-observation-example" name="Criticality Observation Example"/>
+<artifact id="StructureDefinition/CulturalandReligiousObservation" key="StructureDefinition-CulturalandReligiousObservation" name="Cultural and Religious Observation"/>
+<artifact id="Binary/cultural-and-religious-observation-example" key="Binary-cultural-and-religious-observation-example" name="Cultural and Religious Observation Example"/>
+<artifact id="StructureDefinition/DateOfDiagnosisAct" key="StructureDefinition-DateOfDiagnosisAct" name="Date of Diagnosis Act"/>
+<artifact id="Binary/date-of-diagnosis-act-example" key="Binary-date-of-diagnosis-act-example" name="Date of Diagnosis Act Example"/>
+<artifact id="StructureDefinition/DeceasedObservation" key="StructureDefinition-DeceasedObservation" name="Deceased Observation"/>
+<artifact id="Binary/deceased-observation-example" key="Binary-deceased-observation-example" name="Deceased Observation Example"/>
+<artifact id="StructureDefinition/DeviceIdentifierObservation" key="StructureDefinition-DeviceIdentifierObservation" name="Device Identifier Observation"/>
+<artifact id="Binary/device-identifier-observation-example" key="Binary-device-identifier-observation-example" name="Device Identifier Observation Example"/>
+<artifact id="Binary/diagnosis-reference-example" key="Binary-diagnosis-reference-example" name="Diagnosis Reference Example"/>
+<artifact id="StructureDefinition/DisabilityStatusObservation" key="StructureDefinition-DisabilityStatusObservation" name="Disability Status Observation"/>
+<artifact id="Binary/disability-status-observation-example" key="Binary-disability-status-observation-example" name="Disability Status Observation Example"/>
+<artifact id="Binary/discharge-diagnosis-section-example" key="Binary-discharge-diagnosis-section-example" name="Discharge Diagnosis Example"/>
+<artifact id="StructureDefinition/DischargeDiagnosisSection" key="StructureDefinition-DischargeDiagnosisSection" name="Discharge Diagnosis Section"/>
+<artifact id="StructureDefinition/DischargeMedication" key="StructureDefinition-DischargeMedication" name="Discharge Medication"/>
+<artifact id="Binary/discharge-medication-example" key="Binary-discharge-medication-example" name="Discharge Medication Example"/>
+<artifact id="StructureDefinition/DischargeMedicationsSection" key="StructureDefinition-DischargeMedicationsSection" name="Discharge Medications Section"/>
+<artifact id="Binary/discharge-medications-section-example" key="Binary-discharge-medications-section-example" name="Discharge Medications Section Example"/>
+<artifact id="StructureDefinition/DischargeSummary" key="StructureDefinition-DischargeSummary" name="Discharge Summary"/>
+<artifact id="Binary/discharge-summary-encompassingencounter-example" key="Binary-discharge-summary-encompassingencounter-example" name="Discharge Summary encompassingEncounter Example"/>
+<artifact id="StructureDefinition/DistinctIdentificationCodeObservation" key="StructureDefinition-DistinctIdentificationCodeObservation" name="Distinct Identification Code Observation"/>
+<artifact id="Binary/distinct-identification-code-observation-example" key="Binary-distinct-identification-code-observation-example" name="Distinct Identification Code Observation Example"/>
+<artifact id="StructureDefinition/DrugMonitoringAct" key="StructureDefinition-DrugMonitoringAct" name="Drug Monitoring Act"/>
+<artifact id="Binary/drug-monitoring-act-example" key="Binary-drug-monitoring-act-example" name="Drug Monitoring Act Example"/>
+<artifact id="StructureDefinition/DrugVehicle" key="StructureDefinition-DrugVehicle" name="Drug Vehicle"/>
+<artifact id="Binary/drug-vehicle-example" key="Binary-drug-vehicle-example" name="Drug Vehicle Example"/>
+<artifact id="StructureDefinition/EncounterActivity" key="StructureDefinition-EncounterActivity" name="Encounter Activity"/>
+<artifact id="Binary/encounter-activity-example" key="Binary-encounter-activity-example" name="Encounter Activity Example"/>
+<artifact id="StructureDefinition/EncounterDiagnosis" key="StructureDefinition-EncounterDiagnosis" name="Encounter Diagnosis"/>
+<artifact id="Binary/encounter-diagnosis-example" key="Binary-encounter-diagnosis-example" name="Encounter Diagnosis Example"/>
+<artifact id="StructureDefinition/EncountersSection" key="StructureDefinition-EncountersSection" name="Encounters Section"/>
+<artifact id="Binary/encounters-section-example" key="Binary-encounters-section-example" name="Encounters Section Example"/>
+<artifact id="StructureDefinition/EntryReference" key="StructureDefinition-EntryReference" name="Entry Reference"/>
+<artifact id="Binary/entry-reference-example" key="Binary-entry-reference-example" name="Entry Reference Example"/>
+<artifact id="StructureDefinition/EstimatedDateofDelivery" key="StructureDefinition-EstimatedDateofDelivery" name="Estimated Date of Delivery"/>
+<artifact id="Binary/estimated-date-of-delivery-example" key="Binary-estimated-date-of-delivery-example" name="Estimated Date of Delivery Example"/>
+<artifact id="Binary/allergy-to-food-egg" key="Binary-allergy-to-food-egg" name="Example of Allergy Intolerance to Food Egg"/>
+<artifact id="StructureDefinition/ExpirationDateObservation" key="StructureDefinition-ExpirationDateObservation" name="Expiration Date Observation"/>
+<artifact id="Binary/expiration-date-observation-example" key="Binary-expiration-date-observation-example" name="Expiration Date Observation Example"/>
+<artifact id="StructureDefinition/ExternalDocumentReference" key="StructureDefinition-ExternalDocumentReference" name="External Document Reference"/>
+<artifact id="Binary/external-document-reference-example" key="Binary-external-document-reference-example" name="External Document Reference Example"/>
+<artifact id="StructureDefinition/FamilyHistoryDeathObservation" key="StructureDefinition-FamilyHistoryDeathObservation" name="Family History Death Observation"/>
+<artifact id="Binary/family-history-death-observation-example" key="Binary-family-history-death-observation-example" name="Family History Death Observation Example"/>
+<artifact id="StructureDefinition/FamilyHistoryObservation" key="StructureDefinition-FamilyHistoryObservation" name="Family History Observation"/>
+<artifact id="Binary/family-history-observation-example" key="Binary-family-history-observation-example" name="Family History Observation Example"/>
+<artifact id="StructureDefinition/FamilyHistoryOrganizer" key="StructureDefinition-FamilyHistoryOrganizer" name="Family History Organizer"/>
+<artifact id="Binary/family-history-organizer-example" key="Binary-family-history-organizer-example" name="Family History Organizer Example"/>
+<artifact id="StructureDefinition/FamilyHistorySection" key="StructureDefinition-FamilyHistorySection" name="Family History Section"/>
+<artifact id="Binary/family-history-section-example" key="Binary-family-history-section-example" name="Family History Section Example"/>
+<artifact id="StructureDefinition/FunctionalStatusObservation" key="StructureDefinition-FunctionalStatusObservation" name="Functional Status Observation"/>
+<artifact id="Binary/functional-status-observation-example" key="Binary-functional-status-observation-example" name="Functional Status Observation Example"/>
+<artifact id="StructureDefinition/FunctionalStatusOrganizer" key="StructureDefinition-FunctionalStatusOrganizer" name="Functional Status Organizer"/>
+<artifact id="Binary/functional-status-organizer-example" key="Binary-functional-status-organizer-example" name="Functional Status Organizer Example"/>
+<artifact id="StructureDefinition/FunctionalStatusSection" key="StructureDefinition-FunctionalStatusSection" name="Functional Status Section"/>
+<artifact id="Binary/functional-status-section-example" key="Binary-functional-status-section-example" name="Functional Status Section Example"/>
+<artifact id="StructureDefinition/GenderIdentityObservation" key="StructureDefinition-GenderIdentityObservation" name="Gender Identity Observation"/>
+<artifact id="Binary/gender-identity-observation-example" key="Binary-gender-identity-observation-example" name="Gender Identity Observation Example"/>
+<artifact id="StructureDefinition/GeneralStatusSection" key="StructureDefinition-GeneralStatusSection" name="General Status Section"/>
+<artifact id="Binary/general-status-section-example" key="Binary-general-status-section-example" name="General Status Section Example"/>
+<artifact id="StructureDefinition/GoalObservation" key="StructureDefinition-GoalObservation" name="Goal Observation"/>
+<artifact id="Binary/goal-observation-example" key="Binary-goal-observation-example" name="Goal Observation Example"/>
+<artifact id="StructureDefinition/GoalsSection" key="StructureDefinition-GoalsSection" name="Goals Section"/>
+<artifact id="Binary/goals-section-example" key="Binary-goals-section-example" name="Goals Section Example"/>
+<artifact id="StructureDefinition/HandoffCommunicationParticipants" key="StructureDefinition-HandoffCommunicationParticipants" name="Handoff Communication Participants"/>
+<artifact id="Binary/handoff-communication-example" key="Binary-handoff-communication-example" name="Handoff Communication Participants Example"/>
+<artifact id="StructureDefinition/HealthConcernAct" key="StructureDefinition-HealthConcernAct" name="Health Concern Act"/>
+<artifact id="Binary/health-concern-act-example" key="Binary-health-concern-act-example" name="Health Concern Act Example"/>
+<artifact id="StructureDefinition/HealthConcernsSection" key="StructureDefinition-HealthConcernsSection" name="Health Concerns Section"/>
+<artifact id="Binary/health-concerns-section-example" key="Binary-health-concerns-section-example" name="Health Concerns Section Example"/>
+<artifact id="StructureDefinition/HealthStatusEvaluationsandOutcomesSection" key="StructureDefinition-HealthStatusEvaluationsandOutcomesSection" name="Health Status Evaluations and Outcomes Section"/>
+<artifact id="Binary/health-status-evaluations-and-outcomes-section-example" key="Binary-health-status-evaluations-and-outcomes-section-example" name="Health Status Evalutations and Outcomes Section Example"/>
+<artifact id="StructureDefinition/HealthStatusObservation" key="StructureDefinition-HealthStatusObservation" name="Health Status Observation"/>
+<artifact id="Binary/health-status-observation-example" key="Binary-health-status-observation-example" name="Health Status Observation Example"/>
+<artifact id="StructureDefinition/HighestPressureUlcerStage" key="StructureDefinition-HighestPressureUlcerStage" name="Highest Pressure Ulcer Stage"/>
+<artifact id="Binary/highest-pressure-ulcer-stage-example" key="Binary-highest-pressure-ulcer-stage-example" name="Highest Pressure Ulcer Stage Example"/>
+<artifact id="Binary/history-of-present-illness-section-example" key="Binary-history-of-present-illness-section-example" name="History Of Present Illness Example"/>
+<artifact id="StructureDefinition/HistoryandPhysical" key="StructureDefinition-HistoryandPhysical" name="History and Physical"/>
+<artifact id="Binary/handp-encompassingencounter-example" key="Binary-handp-encompassingencounter-example" name="History and Physical Encompassing Encounter Example"/>
+<artifact id="StructureDefinition/HistoryofPresentIllnessSection" key="StructureDefinition-HistoryofPresentIllnessSection" name="History of Present Illness Section"/>
+<artifact id="StructureDefinition/HospitalAdmissionDiagnosis" key="StructureDefinition-HospitalAdmissionDiagnosis" name="Hospital Admission Diagnosis"/>
+<artifact id="Binary/hospital-admission-diagnosis-example" key="Binary-hospital-admission-diagnosis-example" name="Hospital Admission Diagnosis Example"/>
+<artifact id="StructureDefinition/HospitalConsultationsSection" key="StructureDefinition-HospitalConsultationsSection" name="Hospital Consultations Section"/>
+<artifact id="Binary/hospital-consultations-section-example" key="Binary-hospital-consultations-section-example" name="Hospital Consultations Section Example"/>
+<artifact id="StructureDefinition/HospitalCourseSection" key="StructureDefinition-HospitalCourseSection" name="Hospital Course Section"/>
+<artifact id="Binary/hospital-course-section-example" key="Binary-hospital-course-section-example" name="Hospital Course Section Example"/>
+<artifact id="StructureDefinition/HospitalDischargeDiagnosis" key="StructureDefinition-HospitalDischargeDiagnosis" name="Hospital Discharge Diagnosis"/>
+<artifact id="Binary/hospital-discharge-diagnosis-example" key="Binary-hospital-discharge-diagnosis-example" name="Hospital Discharge Diagnosis Example"/>
+<artifact id="StructureDefinition/HospitalDischargeInstructionsSection" key="StructureDefinition-HospitalDischargeInstructionsSection" name="Hospital Discharge Instructions Section"/>
+<artifact id="Binary/hospital-discharge-instructions-section-example" key="Binary-hospital-discharge-instructions-section-example" name="Hospital Discharge Instructions Section Example"/>
+<artifact id="StructureDefinition/HospitalDischargePhysicalSection" key="StructureDefinition-HospitalDischargePhysicalSection" name="Hospital Discharge Physical Section"/>
+<artifact id="Binary/hospital-discharge-physical-section-example" key="Binary-hospital-discharge-physical-section-example" name="Hospital Discharge Physical Section Example"/>
+<artifact id="StructureDefinition/HospitalDischargeStudiesSummarySection" key="StructureDefinition-HospitalDischargeStudiesSummarySection" name="Hospital Discharge Studies Summary Section"/>
+<artifact id="Binary/hospital-discharge-studies-summary-section-example" key="Binary-hospital-discharge-studies-summary-section-example" name="Hospital Discharge Studies Summary Section Example"/>
+<artifact id="StructureDefinition/ImmunizationActivity" key="StructureDefinition-ImmunizationActivity" name="Immunization Activity"/>
+<artifact id="Binary/immunization-activity-example" key="Binary-immunization-activity-example" name="Immunization Activity Example"/>
+<artifact id="StructureDefinition/ImmunizationMedicationInformation" key="StructureDefinition-ImmunizationMedicationInformation" name="Immunization Medication Information"/>
+<artifact id="Binary/immunization-medication-information-example" key="Binary-immunization-medication-information-example" name="Immunization Medication Information Example"/>
+<artifact id="StructureDefinition/ImmunizationRefusalReason" key="StructureDefinition-ImmunizationRefusalReason" name="Immunization Refusal Reason"/>
+<artifact id="Binary/immunization-refusal-reason-example" key="Binary-immunization-refusal-reason-example" name="Immunization Refusal Reason Example"/>
+<artifact id="StructureDefinition/ImmunizationsSection" key="StructureDefinition-ImmunizationsSection" name="Immunizations Section"/>
+<artifact id="Binary/immunizations-section-example" key="Binary-immunizations-section-example" name="Immunizations Section Example"/>
+<artifact id="StructureDefinition/ImplantableDeviceStatusObservation" key="StructureDefinition-ImplantableDeviceStatusObservation" name="Implantable Device Status Observation"/>
+<artifact id="Binary/implantable-device-status-observation-example" key="Binary-implantable-device-status-observation-example" name="Implantable Device Status Observation Example"/>
+<artifact id="StructureDefinition/Indication" key="StructureDefinition-Indication" name="Indication"/>
+<artifact id="Binary/indication-example" key="Binary-indication-example" name="Indication Example"/>
+<artifact id="StructureDefinition/Instruction" key="StructureDefinition-Instruction" name="Instruction"/>
+<artifact id="Binary/instruction-example" key="Binary-instruction-example" name="Instruction Example"/>
+<artifact id="StructureDefinition/InstructionsSection" key="StructureDefinition-InstructionsSection" name="Instructions Section"/>
+<artifact id="Binary/instructions-section-example" key="Binary-instructions-section-example" name="Instructions Section Example"/>
+<artifact id="StructureDefinition/InterventionAct" key="StructureDefinition-InterventionAct" name="Intervention Act"/>
+<artifact id="Binary/intervention-act-moodcodeint-example" key="Binary-intervention-act-moodcodeint-example" name="Intervention Act Example"/>
+<artifact id="StructureDefinition/LatexSafetyObservation" key="StructureDefinition-LatexSafetyObservation" name="Latex Safety Observation"/>
+<artifact id="Binary/latex-safety-observation-example" key="Binary-latex-safety-observation-example" name="Latex Safety Observation Example"/>
+<artifact id="StructureDefinition/LongitudinalCareWoundObservation" key="StructureDefinition-LongitudinalCareWoundObservation" name="Longitudinal Care Wound Observation"/>
+<artifact id="Binary/longitudinal-care-wound-observation-example" key="Binary-longitudinal-care-wound-observation-example" name="Longitudinal Care Wound Observation Example"/>
+<artifact id="StructureDefinition/LotOrBatchNumberObservation" key="StructureDefinition-LotOrBatchNumberObservation" name="Lot or Batch Number Observation"/>
+<artifact id="Binary/lot-or-batch-number-observation-example" key="Binary-lot-or-batch-number-observation-example" name="Lot or Batch Number Observation Example"/>
+<artifact id="StructureDefinition/MRISafetyObservation" key="StructureDefinition-MRISafetyObservation" name="MRI Safety Observation"/>
+<artifact id="Binary/mri-safety-observation-example" key="Binary-mri-safety-observation-example" name="MRI Safety Observation Example"/>
+<artifact id="StructureDefinition/ManufacturingDateObservation" key="StructureDefinition-ManufacturingDateObservation" name="Manufacturing Date Observation"/>
+<artifact id="Binary/manufacturing-date-observation-example" key="Binary-manufacturing-date-observation-example" name="Manufacturing Date Observation Example"/>
+<artifact id="StructureDefinition/MedicalGeneralHistorySection" key="StructureDefinition-MedicalGeneralHistorySection" name="Medical (General) History Section"/>
+<artifact id="StructureDefinition/MedicalEquipmentOrganizer" key="StructureDefinition-MedicalEquipmentOrganizer" name="Medical Equipment Organizer"/>
+<artifact id="Binary/medical-equipment-organizer-example" key="Binary-medical-equipment-organizer-example" name="Medical Equipment Organizer Example"/>
+<artifact id="StructureDefinition/MedicalEquipmentSection" key="StructureDefinition-MedicalEquipmentSection" name="Medical Equipment Section"/>
+<artifact id="Binary/medical-equipment-section-example" key="Binary-medical-equipment-section-example" name="Medical Equipment Section Example"/>
+<artifact id="StructureDefinition/MedicationActivity" key="StructureDefinition-MedicationActivity" name="Medication Activity"/>
+<artifact id="Binary/medication-activity-example" key="Binary-medication-activity-example" name="Medication Activity Example"/>
+<artifact id="StructureDefinition/MedicationAdherence" key="StructureDefinition-MedicationAdherence" name="Medication Adherence"/>
+<artifact id="StructureDefinition/MedicationDispense" key="StructureDefinition-MedicationDispense" name="Medication Dispense"/>
+<artifact id="Binary/medication-dispense-example" key="Binary-medication-dispense-example" name="Medication Dispense Example"/>
+<artifact id="StructureDefinition/MedicationFreeTextSig" key="StructureDefinition-MedicationFreeTextSig" name="Medication Free Text Sig"/>
+<artifact id="Binary/medication-free-text-sig-example" key="Binary-medication-free-text-sig-example" name="Medication Free Text Sig Example"/>
+<artifact id="StructureDefinition/MedicationInformation" key="StructureDefinition-MedicationInformation" name="Medication Information"/>
+<artifact id="Binary/medication-information-example" key="Binary-medication-information-example" name="Medication Information Example"/>
+<artifact id="StructureDefinition/MedicationSupplyOrder" key="StructureDefinition-MedicationSupplyOrder" name="Medication Supply Order"/>
+<artifact id="Binary/medication-supply-order-example" key="Binary-medication-supply-order-example" name="Medication Supply Order Example"/>
+<artifact id="StructureDefinition/MedicationsAdministeredSection" key="StructureDefinition-MedicationsAdministeredSection" name="Medications Administered Section"/>
+<artifact id="Binary/medications-administered-section-example" key="Binary-medications-administered-section-example" name="Medications Administered Section Example"/>
+<artifact id="StructureDefinition/MedicationsSection" key="StructureDefinition-MedicationsSection" name="Medications Section"/>
+<artifact id="Binary/medications-section-example" key="Binary-medications-section-example" name="Medications Section Example"/>
+<artifact id="StructureDefinition/MentalStatusObservation" key="StructureDefinition-MentalStatusObservation" name="Mental Status Observation"/>
+<artifact id="Binary/mental-status-observation-example" key="Binary-mental-status-observation-example" name="Mental Status Observation Example"/>
+<artifact id="StructureDefinition/MentalStatusOrganizer" key="StructureDefinition-MentalStatusOrganizer" name="Mental Status Organizer"/>
+<artifact id="Binary/mental-status-organizer-example" key="Binary-mental-status-organizer-example" name="Mental Status Organizer Example"/>
+<artifact id="StructureDefinition/MentalStatusSection" key="StructureDefinition-MentalStatusSection" name="Mental Status Section"/>
+<artifact id="Binary/mental-status-section-example" key="Binary-mental-status-section-example" name="Mental Status Section Example"/>
+<artifact id="StructureDefinition/ModelNumberObservation" key="StructureDefinition-ModelNumberObservation" name="Model Number Observation"/>
+<artifact id="Binary/model-number-observation-example" key="Binary-model-number-observation-example" name="Model Number Observation Example"/>
+<artifact id="ValueSet/2.16.840.1.113883.3.88.12.80.33" key="ValueSet-2.16.840.1.113883.3.88.12.80.33" name="NUBC UB-04 FL17 Patient Status"/>
+<artifact id="Binary/no-known-medications-example" key="Binary-no-known-medications-example" name="No Known Medications Example"/>
+<artifact id="Binary/no-known-problems-section-example" key="Binary-no-known-problems-section-example" name="No Known Problem Section Example"/>
+<artifact id="StructureDefinition/NonMedicinalSupplyActivity" key="StructureDefinition-NonMedicinalSupplyActivity" name="Non-Medicinal Supply Activity"/>
+<artifact id="Binary/non-medicinal-supply-activity-example" key="Binary-non-medicinal-supply-activity-example" name="Non-Medicinal Supply Activity Example"/>
+<artifact id="StructureDefinition/NoteActivity" key="StructureDefinition-NoteActivity" name="Note Activity"/>
+<artifact id="Binary/note-activity-as-entryrelationship-to-ccda-entry-example" key="Binary-note-activity-as-entryrelationship-to-ccda-entry-example" name="Note Activity Entry Relationship Example"/>
+<artifact id="Binary/note-activity-as-standalone-entry-example" key="Binary-note-activity-as-standalone-entry-example" name="Note Activity Standalone Example"/>
+<artifact id="StructureDefinition/NotesSection" key="StructureDefinition-NotesSection" name="Notes Section"/>
+<artifact id="StructureDefinition/NumberofPressureUlcersObservation" key="StructureDefinition-NumberofPressureUlcersObservation" name="Number of Pressure Ulcers Observation"/>
+<artifact id="Binary/number-of-pressure-ulcers-observation-example" key="Binary-number-of-pressure-ulcers-observation-example" name="Number of Pressure Ulcers Observation Example"/>
+<artifact id="StructureDefinition/NutritionAssessment" key="StructureDefinition-NutritionAssessment" name="Nutrition Assessment"/>
+<artifact id="Binary/nutrition-assessment-example" key="Binary-nutrition-assessment-example" name="Nutrition Assessment Example"/>
+<artifact id="StructureDefinition/NutritionRecommendation" key="StructureDefinition-NutritionRecommendation" name="Nutrition Recommendation"/>
+<artifact id="Binary/nutrition-recommendation-example" key="Binary-nutrition-recommendation-example" name="Nutrition Recommendation Example"/>
+<artifact id="StructureDefinition/NutritionSection" key="StructureDefinition-NutritionSection" name="Nutrition Section"/>
+<artifact id="Binary/nutrition-section-example" key="Binary-nutrition-section-example" name="Nutrition Section Example"/>
+<artifact id="StructureDefinition/NutritionalStatusObservation" key="StructureDefinition-NutritionalStatusObservation" name="Nutritional Status Observation"/>
+<artifact id="Binary/nutritional-status-observation-example" key="Binary-nutritional-status-observation-example" name="Nutritional Status Observation Example"/>
+<artifact id="StructureDefinition/ObjectiveSection" key="StructureDefinition-ObjectiveSection" name="Objective Section"/>
+<artifact id="Binary/objective-section-example" key="Binary-objective-section-example" name="Objective Section Example"/>
+<artifact id="StructureDefinition/OperativeNote" key="StructureDefinition-OperativeNote" name="Operative Note"/>
+<artifact id="StructureDefinition/OperativeNoteFluidsSection" key="StructureDefinition-OperativeNoteFluidsSection" name="Operative Note Fluids Section"/>
+<artifact id="Binary/operative-note-fluids-section-example" key="Binary-operative-note-fluids-section-example" name="Operative Note Fluids Section Example"/>
+<artifact id="StructureDefinition/OperativeNoteSurgicalProcedureSection" key="StructureDefinition-OperativeNoteSurgicalProcedureSection" name="Operative Note Surgical Procedure Section"/>
+<artifact id="Binary/operative-note-surgical-procedure-section-example" key="Binary-operative-note-surgical-procedure-section-example" name="Operative Note Surgical Procedure Section Example"/>
+<artifact id="Binary/operative-note-performer-example" key="Binary-operative-note-performer-example" name="Operative Note performer Example"/>
+<artifact id="Binary/operative-note-serviceevent-example" key="Binary-operative-note-serviceevent-example" name="Operative Note serviceEvent Example"/>
+<artifact id="StructureDefinition/OutcomeObservation" key="StructureDefinition-OutcomeObservation" name="Outcome Observation"/>
+<artifact id="Binary/outcome-observation-example" key="Binary-outcome-observation-example" name="Outcome Observation Example"/>
+<artifact id="StructureDefinition/PastMedicalHistory" key="StructureDefinition-PastMedicalHistory" name="Past Medical History"/>
+<artifact id="Binary/past-medical-history-example" key="Binary-past-medical-history-example" name="Past Medical History Example"/>
+<artifact id="Binary/patient-generated-document-authenticator-example" key="Binary-patient-generated-document-authenticator-example" name="Patient Generated Document authenticator"/>
+<artifact id="Binary/patient-generated-document-author-example" key="Binary-patient-generated-document-author-example" name="Patient Generated Document author"/>
+<artifact id="Binary/patient-generated-document-author-device-example" key="Binary-patient-generated-document-author-device-example" name="Patient Generated Document author device Example"/>
+<artifact id="Binary/patient-generated-document-custodian-example" key="Binary-patient-generated-document-custodian-example" name="Patient Generated Document custodian Example"/>
+<artifact id="Binary/patient-generated-document-dataenterer-example" key="Binary-patient-generated-document-dataenterer-example" name="Patient Generated Document dataEnterer"/>
+<artifact id="Binary/patient-generated-document-infulfillmentof-example" key="Binary-patient-generated-document-infulfillmentof-example" name="Patient Generated Document inFulfillmentOf Example"/>
+<artifact id="Binary/patient-generated-document-informant-example-informant" key="Binary-patient-generated-document-informant-example-informant" name="Patient Generated Document informant Example informant"/>
+<artifact id="Binary/patient-generated-document-informant-relent-example" key="Binary-patient-generated-document-informant-relent-example" name="Patient Generated Document informant RelEnt Example"/>
+<artifact id="Binary/patient-generated-document-informationrecipient" key="Binary-patient-generated-document-informationrecipient" name="Patient Generated Document informationRecipient Example"/>
+<artifact id="Binary/patient-generated-document-legalauthenticator-example" key="Binary-patient-generated-document-legalauthenticator-example" name="Patient Generated Document legalAuthenticator Example"/>
+<artifact id="Binary/patient-generated-document-participant-example" key="Binary-patient-generated-document-participant-example" name="Patient Generated Document participant Example"/>
+<artifact id="Binary/patient-generated-document-recordtarget-example" key="Binary-patient-generated-document-recordtarget-example" name="Patient Generated Document recordTarget"/>
+<artifact id="StructureDefinition/PatientReferralAct" key="StructureDefinition-PatientReferralAct" name="Patient Referral Act"/>
+<artifact id="Binary/patient-referral-act-example" key="Binary-patient-referral-act-example" name="Patient Referral Act Example"/>
+<artifact id="StructureDefinition/PayersSection" key="StructureDefinition-PayersSection" name="Payers Section"/>
+<artifact id="Binary/payers-section-example" key="Binary-payers-section-example" name="Payers Section Example"/>
+<artifact id="StructureDefinition/PhysicalExamSection" key="StructureDefinition-PhysicalExamSection" name="Physical Exam Section"/>
+<artifact id="Binary/physical-exam-section-example" key="Binary-physical-exam-section-example" name="Physical Exam Section Example"/>
+<artifact id="StructureDefinition/PlanofTreatmentSection" key="StructureDefinition-PlanofTreatmentSection" name="Plan of Treatment Section"/>
+<artifact id="Binary/plan-of-treatment-section-example" key="Binary-plan-of-treatment-section-example" name="Plan of Treatment Section Example"/>
+<artifact id="StructureDefinition/PlannedAct" key="StructureDefinition-PlannedAct" name="Planned Act"/>
+<artifact id="Binary/planned-act-example" key="Binary-planned-act-example" name="Planned Act Example"/>
+<artifact id="StructureDefinition/PlannedCoverage" key="StructureDefinition-PlannedCoverage" name="Planned Coverage"/>
+<artifact id="Binary/planned-coverage-example" key="Binary-planned-coverage-example" name="Planned Coverage Example"/>
+<artifact id="StructureDefinition/PlannedEncounter" key="StructureDefinition-PlannedEncounter" name="Planned Encounter"/>
+<artifact id="Binary/planned-encounter-example" key="Binary-planned-encounter-example" name="Planned Encounter Example"/>
+<artifact id="StructureDefinition/PlannedImmunizationActivity" key="StructureDefinition-PlannedImmunizationActivity" name="Planned Immunization Activity"/>
+<artifact id="Binary/planned-immunization-activity" key="Binary-planned-immunization-activity" name="Planned Immunization Activity Example"/>
+<artifact id="StructureDefinition/PlannedInterventionAct" key="StructureDefinition-PlannedInterventionAct" name="Planned Intervention Act"/>
+<artifact id="Binary/planned-intervention-act-example" key="Binary-planned-intervention-act-example" name="Planned Intervention Activity Example"/>
+<artifact id="StructureDefinition/PlannedMedicationActivity" key="StructureDefinition-PlannedMedicationActivity" name="Planned Medication Activity"/>
+<artifact id="Binary/planned-medication-activity-example" key="Binary-planned-medication-activity-example" name="Planned Medication Activity Example"/>
+<artifact id="StructureDefinition/PlannedObservation" key="StructureDefinition-PlannedObservation" name="Planned Observation"/>
+<artifact id="Binary/planned-observation-example" key="Binary-planned-observation-example" name="Planned Observation Example"/>
+<artifact id="StructureDefinition/PlannedProcedure" key="StructureDefinition-PlannedProcedure" name="Planned Procedure"/>
+<artifact id="Binary/planned-procedure-example" key="Binary-planned-procedure-example" name="Planned Procedure Example"/>
+<artifact id="StructureDefinition/PlannedProcedureSection" key="StructureDefinition-PlannedProcedureSection" name="Planned Procedure Section"/>
+<artifact id="Binary/planned-procedure-section-example" key="Binary-planned-procedure-section-example" name="Planned Procedure Section Example"/>
+<artifact id="StructureDefinition/PlannedSupply" key="StructureDefinition-PlannedSupply" name="Planned Supply"/>
+<artifact id="Binary/planned-supply-example" key="Binary-planned-supply-example" name="Planned Supply Example"/>
+<artifact id="StructureDefinition/PolicyActivity" key="StructureDefinition-PolicyActivity" name="Policy Activity"/>
+<artifact id="Binary/policy-activity-example" key="Binary-policy-activity-example" name="Policy Activity Example"/>
+<artifact id="StructureDefinition/PostoperativeDiagnosisSection" key="StructureDefinition-PostoperativeDiagnosisSection" name="Postoperative Diagnosis Section"/>
+<artifact id="Binary/postoperative-diagnosis-section-example" key="Binary-postoperative-diagnosis-section-example" name="Postoperative Diagnosis Section Example"/>
+<artifact id="StructureDefinition/PostprocedureDiagnosis" key="StructureDefinition-PostprocedureDiagnosis" name="Postprocedure Diagnosis"/>
+<artifact id="StructureDefinition/PostprocedureDiagnosisSection" key="StructureDefinition-PostprocedureDiagnosisSection" name="Postprocedure Diagnosis Section"/>
+<artifact id="Binary/postprocedure-diagnosis-section-example" key="Binary-postprocedure-diagnosis-section-example" name="Postprocedure Diagnosis Section Example"/>
+<artifact id="StructureDefinition/PreconditionforSubstanceAdministration" key="StructureDefinition-PreconditionforSubstanceAdministration" name="Precondition for Substance Administration"/>
+<artifact id="Binary/precondition-for-substance-administration-example" key="Binary-precondition-for-substance-administration-example" name="Precondition for Substance Administration Example"/>
+<artifact id="StructureDefinition/PregnancyIntentionInNextYear" key="StructureDefinition-PregnancyIntentionInNextYear" name="Pregnancy Intention in Next Year"/>
+<artifact id="Binary/pregnancy-intention-in-next-year-example" key="Binary-pregnancy-intention-in-next-year-example" name="Pregnancy Intention in Next Year Example"/>
+<artifact id="StructureDefinition/PregnancyObservation" key="StructureDefinition-PregnancyObservation" name="Pregnancy Observation"/>
+<artifact id="Binary/pregnancy-observation-example" key="Binary-pregnancy-observation-example" name="Pregnancy Observation Example"/>
+<artifact id="StructureDefinition/PreoperativeDiagnosis" key="StructureDefinition-PreoperativeDiagnosis" name="Preoperative Diagnosis"/>
+<artifact id="Binary/preoperative-diagnosis-example" key="Binary-preoperative-diagnosis-example" name="Preoperative Diagnosis Example"/>
+<artifact id="StructureDefinition/PreoperativeDiagnosisSection" key="StructureDefinition-PreoperativeDiagnosisSection" name="Preoperative Diagnosis Section"/>
+<artifact id="Binary/preoperative-diagnosis-section-example" key="Binary-preoperative-diagnosis-section-example" name="Preoperative Diagnosis Section Example"/>
+<artifact id="StructureDefinition/PriorityPreference" key="StructureDefinition-PriorityPreference" name="Priority Preference"/>
+<artifact id="Binary/priority-preference-example" key="Binary-priority-preference-example" name="Priority Preference Example"/>
+<artifact id="StructureDefinition/ProblemConcernAct" key="StructureDefinition-ProblemConcernAct" name="Problem Concern Act"/>
+<artifact id="Binary/problem-concern-act-example" key="Binary-problem-concern-act-example" name="Problem Concern Act Example"/>
+<artifact id="StructureDefinition/ProblemObservation" key="StructureDefinition-ProblemObservation" name="Problem Observation"/>
+<artifact id="Binary/problem-observation-example" key="Binary-problem-observation-example" name="Problem Observation Example"/>
+<artifact id="Binary/problem-observation-postcoordsnomed-example" key="Binary-problem-observation-postcoordsnomed-example" name="Problem Observation with Post-Coordinated SNOMED Example"/>
+<artifact id="StructureDefinition/ProblemSection" key="StructureDefinition-ProblemSection" name="Problem Section"/>
+<artifact id="Binary/problem-section-example" key="Binary-problem-section-example" name="Problem Section Example"/>
+<artifact id="StructureDefinition/ProblemStatus" key="StructureDefinition-ProblemStatus" name="Problem Status"/>
+<artifact id="StructureDefinition/ProcedureActivityProcedure" key="StructureDefinition-ProcedureActivityProcedure" name="Procedure Activity Procedure"/>
+<artifact id="Binary/procedure-activity-procedure-example" key="Binary-procedure-activity-procedure-example" name="Procedure Activity Procedure Example"/>
+<artifact id="StructureDefinition/ProcedureDescriptionSection" key="StructureDefinition-ProcedureDescriptionSection" name="Procedure Description Section"/>
+<artifact id="Binary/procedure-description-section-example" key="Binary-procedure-description-section-example" name="Procedure Description Section Example"/>
+<artifact id="StructureDefinition/ProcedureDispositionSection" key="StructureDefinition-ProcedureDispositionSection" name="Procedure Disposition Section"/>
+<artifact id="Binary/procedure-disposition-section-example" key="Binary-procedure-disposition-section-example" name="Procedure Disposition Section Example"/>
+<artifact id="StructureDefinition/ProcedureEstimatedBloodLossSection" key="StructureDefinition-ProcedureEstimatedBloodLossSection" name="Procedure Estimated Blood Loss Section"/>
+<artifact id="Binary/procedure-estimated-blood-loss-section-example" key="Binary-procedure-estimated-blood-loss-section-example" name="Procedure Estimated Blood Loss Section Example"/>
+<artifact id="StructureDefinition/ProcedureFindingsSection" key="StructureDefinition-ProcedureFindingsSection" name="Procedure Findings Section"/>
+<artifact id="Binary/procedure-findings-section-example" key="Binary-procedure-findings-section-example" name="Procedure Findings Section Example"/>
+<artifact id="StructureDefinition/ProcedureImplantsSection" key="StructureDefinition-ProcedureImplantsSection" name="Procedure Implants Section"/>
+<artifact id="Binary/procedure-implants-section-example" key="Binary-procedure-implants-section-example" name="Procedure Implants Section Example"/>
+<artifact id="StructureDefinition/ProcedureIndicationsSection" key="StructureDefinition-ProcedureIndicationsSection" name="Procedure Indications Section"/>
+<artifact id="Binary/procedure-indications-section-example" key="Binary-procedure-indications-section-example" name="Procedure Indications Section Example"/>
+<artifact id="StructureDefinition/ProcedureNote" key="StructureDefinition-ProcedureNote" name="Procedure Note"/>
+<artifact id="Binary/procedure-note-performer-example" key="Binary-procedure-note-performer-example" name="Procedure Note performer Example"/>
+<artifact id="Binary/procedure-note-serviceevent-example" key="Binary-procedure-note-serviceevent-example" name="Procedure Note serviceEvent Example"/>
+<artifact id="StructureDefinition/ProcedureSpecimensTakenSection" key="StructureDefinition-ProcedureSpecimensTakenSection" name="Procedure Specimens Taken Section"/>
+<artifact id="Binary/procedure-specimens-taken-section-example" key="Binary-procedure-specimens-taken-section-example" name="Procedure Specimens Taken Section Example"/>
+<artifact id="StructureDefinition/ProceduresSection" key="StructureDefinition-ProceduresSection" name="Procedures Section"/>
+<artifact id="Binary/procedures-section-example" key="Binary-procedures-section-example" name="Procedures Section Example"/>
+<artifact id="StructureDefinition/ProductInstance" key="StructureDefinition-ProductInstance" name="Product Instance"/>
+<artifact id="Binary/product-instance-example" key="Binary-product-instance-example" name="Product Instance Example"/>
+<artifact id="Binary/prognosis-coded-example" key="Binary-prognosis-coded-example" name="Prognosis Coded Example"/>
+<artifact id="Binary/prognosis-free-text-example" key="Binary-prognosis-free-text-example" name="Prognosis Free Text Example"/>
+<artifact id="StructureDefinition/PrognosisObservation" key="StructureDefinition-PrognosisObservation" name="Prognosis Observation"/>
+<artifact id="StructureDefinition/ProgressNote" key="StructureDefinition-ProgressNote" name="Progress Note"/>
+<artifact id="Binary/progress-note-encompassingencounter-example" key="Binary-progress-note-encompassingencounter-example" name="Progress Note encompassingEncounter Example"/>
+<artifact id="Binary/progress-note-serviceevent-example" key="Binary-progress-note-serviceevent-example" name="Progress Note serviceEvent Example"/>
+<artifact id="StructureDefinition/ProgressTowardGoalObservation" key="StructureDefinition-ProgressTowardGoalObservation" name="Progress Toward Goal Observation"/>
+<artifact id="Binary/progress-toward-goal-observation-example" key="Binary-progress-toward-goal-observation-example" name="Progress Toward Goal Observation Example"/>
+<artifact id="StructureDefinition/ProvenanceAssemblerParticipation" key="StructureDefinition-ProvenanceAssemblerParticipation" name="Provenance - Assembler Participation"/>
+<artifact id="Binary/provenance-assembler-participation-example" key="Binary-provenance-assembler-participation-example" name="Provenance - Assembler Participation Example"/>
+<artifact id="StructureDefinition/ProvenanceAuthorParticipation" key="StructureDefinition-ProvenanceAuthorParticipation" name="Provenance - Author Participation"/>
+<artifact id="Binary/provenance-author-participation-example" key="Binary-provenance-author-participation-example" name="Provenance - Author Participation Example"/>
+<artifact id="StructureDefinition/ReactionObservation" key="StructureDefinition-ReactionObservation" name="Reaction Observation"/>
+<artifact id="Binary/reaction-observation-example" key="Binary-reaction-observation-example" name="Reaction Observation Example"/>
+<artifact id="StructureDefinition/Reason" key="StructureDefinition-Reason" name="Reason"/>
+<artifact id="Binary/reason-example" key="Binary-reason-example" name="Reason Example"/>
+<artifact id="Binary/reason-for-referral-section-example" key="Binary-reason-for-referral-section-example" name="Reason For Referral"/>
+<artifact id="StructureDefinition/ReasonforReferralSection" key="StructureDefinition-ReasonforReferralSection" name="Reason for Referral Section"/>
+<artifact id="StructureDefinition/ReasonforVisitSection" key="StructureDefinition-ReasonforVisitSection" name="Reason for Visit Section"/>
+<artifact id="Binary/reason-for-visit-section-example" key="Binary-reason-for-visit-section-example" name="Reason for Visit Section Example"/>
+<artifact id="StructureDefinition/ReferralNote" key="StructureDefinition-ReferralNote" name="Referral Note"/>
+<artifact id="Binary/referral-note-callback-contact-example" key="Binary-referral-note-callback-contact-example" name="Referral Note Callback Contact Example"/>
+<artifact id="Binary/referral-note-caregiver-example" key="Binary-referral-note-caregiver-example" name="Referral Note Caregiver"/>
+<artifact id="Binary/referral-note-informationrecipient-example" key="Binary-referral-note-informationrecipient-example" name="Referral Note informationRecipient Example"/>
+<artifact id="StructureDefinition/RelatedPersonRelationshipAndNameParticipant" key="StructureDefinition-RelatedPersonRelationshipAndNameParticipant" name="Related Person Relationship and Name Participant"/>
+<artifact id="Binary/related-person-relationship-and-name-example" key="Binary-related-person-relationship-and-name-example" name="Related Person Relationship and Name Participant Example"/>
+<artifact id="StructureDefinition/ResultObservation" key="StructureDefinition-ResultObservation" name="Result Observation"/>
+<artifact id="Binary/result-observation-example" key="Binary-result-observation-example" name="Result Observation Example"/>
+<artifact id="StructureDefinition/ResultOrganizer" key="StructureDefinition-ResultOrganizer" name="Result Organizer"/>
+<artifact id="Binary/result-organizer-example" key="Binary-result-organizer-example" name="Result Organizer Example"/>
+<artifact id="StructureDefinition/ResultsSection" key="StructureDefinition-ResultsSection" name="Results Section"/>
+<artifact id="Binary/results-section-example" key="Binary-results-section-example" name="Results Section Example"/>
+<artifact id="Binary/review-of-systems-section-example" key="Binary-review-of-systems-section-example" name="Review Of Systems Section Example"/>
+<artifact id="StructureDefinition/ReviewofSystemsSection" key="StructureDefinition-ReviewofSystemsSection" name="Review of Systems Section"/>
+<artifact id="StructureDefinition/RiskConcernAct" key="StructureDefinition-RiskConcernAct" name="Risk Concern Act"/>
+<artifact id="Binary/risk-concern-act-example" key="Binary-risk-concern-act-example" name="Risk Concern Act Example"/>
+<artifact id="StructureDefinition/SectionTimeRangeObservation" key="StructureDefinition-SectionTimeRangeObservation" name="Section Time Range Observation"/>
+<artifact id="StructureDefinition/SelfCareActivitiesADLandIADL" key="StructureDefinition-SelfCareActivitiesADLandIADL" name="Self-Care Activities (ADL and IADL)"/>
+<artifact id="Binary/self-care-activities-adl-and-iadl-example" key="Binary-self-care-activities-adl-and-iadl-example" name="Self-Care Activities ADL and IADL Example"/>
+<artifact id="StructureDefinition/SensoryStatus" key="StructureDefinition-SensoryStatus" name="Sensory Status"/>
+<artifact id="Binary/sensory-and-speech-status-example" key="Binary-sensory-and-speech-status-example" name="Sensory Status Example"/>
+<artifact id="StructureDefinition/SerialNumberObservation" key="StructureDefinition-SerialNumberObservation" name="Serial Number Observation"/>
+<artifact id="Binary/serial-number-observation-example" key="Binary-serial-number-observation-example" name="Serial Number Observation Example"/>
+<artifact id="StructureDefinition/ServiceDeliveryLocation" key="StructureDefinition-ServiceDeliveryLocation" name="Service Delivery Location"/>
+<artifact id="Binary/service-delivery-location-example" key="Binary-service-delivery-location-example" name="Service Delivery Location Example"/>
+<artifact id="StructureDefinition/SeverityObservation" key="StructureDefinition-SeverityObservation" name="Severity Observation"/>
+<artifact id="Binary/severity-observation-example" key="Binary-severity-observation-example" name="Severity Observation Example"/>
+<artifact id="StructureDefinition/SexObservation" key="StructureDefinition-SexObservation" name="Sex Observation"/>
+<artifact id="StructureDefinition/SexualOrientationObservation" key="StructureDefinition-SexualOrientationObservation" name="Sexual Orientation Observation"/>
+<artifact id="Binary/sexual-orientation-observation-example" key="Binary-sexual-orientation-observation-example" name="Sexual Orientation Observation Example"/>
+<artifact id="StructureDefinition/SmokingStatusMeaningfulUse" key="StructureDefinition-SmokingStatusMeaningfulUse" name="Smoking Status - Meaningful Use"/>
+<artifact id="Binary/smoking-status-meaningful-use-example" key="Binary-smoking-status-meaningful-use-example" name="Smoking Status Meaningful Use Example"/>
+<artifact id="StructureDefinition/SocialHistoryObservation" key="StructureDefinition-SocialHistoryObservation" name="Social History Observation"/>
+<artifact id="Binary/social-history-observation-example" key="Binary-social-history-observation-example" name="Social History Observation Example"/>
+<artifact id="StructureDefinition/SocialHistorySection" key="StructureDefinition-SocialHistorySection" name="Social History Section"/>
+<artifact id="Binary/social-history-section-example" key="Binary-social-history-section-example" name="Social History Section Example"/>
+<artifact id="StructureDefinition/SpecimenCollectionProcedure" key="StructureDefinition-SpecimenCollectionProcedure" name="Specimen Collection Procedure"/>
+<artifact id="StructureDefinition/SpecimenConditionObservation" key="StructureDefinition-SpecimenConditionObservation" name="Specimen Condition Observation"/>
+<artifact id="StructureDefinition/SpecimenRejectReasonObservation" key="StructureDefinition-SpecimenRejectReasonObservation" name="Specimen Reject Reason Observation"/>
+<artifact id="StructureDefinition/SubjectiveSection" key="StructureDefinition-SubjectiveSection" name="Subjective Section"/>
+<artifact id="Binary/subjective-section-example" key="Binary-subjective-section-example" name="Subjective Section Example"/>
+<artifact id="StructureDefinition/SubstanceAdministeredAct" key="StructureDefinition-SubstanceAdministeredAct" name="Substance Administered Act"/>
+<artifact id="Binary/substance-administered-act-example" key="Binary-substance-administered-act-example" name="Substance Administered Act Example"/>
+<artifact id="StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation" key="StructureDefinition-SubstanceOrDeviceAllergyIntoleranceObservation" name="Substance or Device Allergy - Intolerance Observation"/>
+<artifact id="StructureDefinition/SurgicalDrainsSection" key="StructureDefinition-SurgicalDrainsSection" name="Surgical Drains Section"/>
+<artifact id="Binary/surgical-drains-section-example" key="Binary-surgical-drains-section-example" name="Surgical Drains Section Example"/>
+<artifact id="StructureDefinition/TobaccoUse" key="StructureDefinition-TobaccoUse" name="Tobacco Use"/>
+<artifact id="Binary/tobacco-use-example" key="Binary-tobacco-use-example" name="Tobacco Use Example"/>
+<artifact id="StructureDefinition/TransferSummary" key="StructureDefinition-TransferSummary" name="Transfer Summary"/>
+<artifact id="Binary/transfer-summary-callback-contact-example" key="Binary-transfer-summary-callback-contact-example" name="Transfer Summary Callback Contact Example"/>
+<artifact id="Binary/transfer-summary-participant-support-example" key="Binary-transfer-summary-participant-support-example" name="Transfer Summary participant (Support) Example"/>
+<artifact id="StructureDefinition/TreatmentInterventionPreference" key="StructureDefinition-TreatmentInterventionPreference" name="Treatment Intervention Preference"/>
+<artifact id="StructureDefinition/TribalAffiliationObservation" key="StructureDefinition-TribalAffiliationObservation" name="Tribal Affiliation Observation"/>
+<artifact id="Binary/tribal-affiliation-example" key="Binary-tribal-affiliation-example" name="Tribal Affiliation Observation Example"/>
+<artifact id="StructureDefinition/UDIOrganizer" key="StructureDefinition-UDIOrganizer" name="UDI Organizer"/>
+<artifact id="Binary/udi-organizer-example" key="Binary-udi-organizer-example" name="UDI Organizer Example"/>
+<artifact id="StructureDefinition/USRealmAddress" key="StructureDefinition-USRealmAddress" name="US Realm Address"/>
+<artifact id="Binary/us-realm-address-example" key="Binary-us-realm-address-example" name="US Realm Address Example"/>
+<artifact id="StructureDefinition/USRealmDateTimeInterval" key="StructureDefinition-USRealmDateTimeInterval" name="US Realm Date and Time - Interval"/>
+<artifact id="StructureDefinition/USRealmDateTime" key="StructureDefinition-USRealmDateTime" name="US Realm Date and Time - Point in Time"/>
+<artifact id="Binary/us-realm-date-and-time-example" key="Binary-us-realm-date-and-time-example" name="US Realm Date and Time Example"/>
+<artifact id="Binary/us-realm-date-and-time-ivl-example" key="Binary-us-realm-date-and-time-ivl-example" name="US Realm Date and Time Interval Example"/>
+<artifact id="StructureDefinition/USRealmHeader" key="StructureDefinition-USRealmHeader" name="US Realm Header"/>
+<artifact id="Binary/us-realm-header-example" key="Binary-us-realm-header-example" name="US Realm Header Example"/>
+<artifact id="StructureDefinition/USRealmHeaderforPatientGeneratedDocument" key="StructureDefinition-USRealmHeaderforPatientGeneratedDocument" name="US Realm Header for Patient Generated Document"/>
+<artifact id="StructureDefinition/USRealmPatientNamePTNUSFIELDED" key="StructureDefinition-USRealmPatientNamePTNUSFIELDED" name="US Realm Patient Name (PTN.US.FIELDED)"/>
+<artifact id="StructureDefinition/USRealmPersonNamePNUSFIELDED" key="StructureDefinition-USRealmPersonNamePNUSFIELDED" name="US Realm Person Name (PN.US.FIELDED)"/>
+<artifact id="Binary/us-realm-person-name-example" key="Binary-us-realm-person-name-example" name="US Realm Person Name Example"/>
+<artifact id="StructureDefinition/UnstructuredDocument" key="StructureDefinition-UnstructuredDocument" name="Unstructured Document"/>
+<artifact id="Binary/vital-sign-observation-average-bp-example" key="Binary-vital-sign-observation-average-bp-example" name="Vital Sign Average Blood Pressure Example"/>
+<artifact id="StructureDefinition/VitalSignObservation" key="StructureDefinition-VitalSignObservation" name="Vital Sign Observation"/>
+<artifact id="Binary/vital-sign-observation-example" key="Binary-vital-sign-observation-example" name="Vital Sign Observation Example"/>
+<artifact id="StructureDefinition/VitalSignsOrganizer" key="StructureDefinition-VitalSignsOrganizer" name="Vital Signs Organizer"/>
+<artifact id="Binary/vital-signs-organizer-example" key="Binary-vital-signs-organizer-example" name="Vital Signs Organizer Example"/>
+<artifact id="StructureDefinition/VitalSignsSection" key="StructureDefinition-VitalSignsSection" name="Vital Signs Section"/>
+<artifact id="Binary/vital-signs-section-example" key="Binary-vital-signs-section-example" name="Vital Signs Section Example"/>
+<artifact id="StructureDefinition/WoundCharacteristic" key="StructureDefinition-WoundCharacteristic" name="Wound Characteristic"/>
+<artifact id="Binary/wound-characteristic-example" key="Binary-wound-characteristic-example" name="Wound Characteristic Example"/>
+<artifact id="StructureDefinition/WoundMeasurementObservation" key="StructureDefinition-WoundMeasurementObservation" name="Wound Measurement Observation"/>
+<artifact id="Binary/wound-measurement-observation-example" key="Binary-wound-measurement-observation-example" name="Wound Measurement Observation Example"/>
+<artifact id="Binary/nonxmlbody-example-with-compressed-content" key="Binary-nonxmlbody-example-with-compressed-content" name="nonXML Body Example with Compressed Content"/>
+<artifact id="Binary/nonxmlbody-example-with-embedded-content" key="Binary-nonxmlbody-example-with-embedded-content" name="nonXML Body Example with Embedded Content"/>
+<artifact id="Binary/nonxmlbody-example-with-referenced-content" key="Binary-nonxmlbody-example-with-referenced-content" name="nonXML Body Example with Referenced Content"/>
+<page key="NA" name="(NA)"/>
+<page key="many" name="(many)"/>
+<page key="artifacts" name="Artifacts Summary"/>
+<page key="changes" name="Change Log"/>
+<page key="downloads" name="Downloads"/>
+<page deprecated="true" key="figures-examples" name="Figures and Examples"/>
+<page key="generalguidance" name="General Guidance"/>
+<page key="howtoread" name="How To Read"/>
+<page key="index" name="IG Home Page"/>
+<page deprecated="true" key="narratives" name="Narrative Guidance"/>
+<page deprecated="true" key="samplefiles" name="Sample Files"/>
+<page deprecated="true" key="schematron" name="Schematron Validation Files"/>
+<page key="screeningandassessments" name="Screening And Assessments"/>
+<page key="supportingguidance" name="Supporting Guidance"/>
+<page deprecated="true" key="TBD" name="TBD"/>
+<page key="toc" name="Table of Contents"/>
+<page deprecated="true" key="templates" name="Templates"/>
+<page key="terminology" name="Terminology"/>
+<page key="uscdi" name="USCDI"/>
+<page deprecated="true" key="usecases" name="Use Cases"/>
+<page key="validation" name="Validation"/>
+<page deprecated="true" key="valuesets" name="Value sets"/>
+</specification>

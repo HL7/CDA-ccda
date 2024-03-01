@@ -4,7 +4,7 @@ Id: ProblemObservation
 Title: "Problem Observation"
 Description: """This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of "completed". The effectiveTime, also referred to as the "biologically relevant time" is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago. 
 
-The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is resolved. If the problem is known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK"."""
+The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is inactive. If the problem is known to be resolved, in remission, or otherwise inactive, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK"."""
 
 * insert LogicalModelTemplate(problem-obs, 2.16.840.1.113883.10.20.22.4.4, 2024-05-01)
 * insert NarrativeLink
