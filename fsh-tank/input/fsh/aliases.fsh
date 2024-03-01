@@ -32,6 +32,7 @@ Alias: $2.16.840.1.113762.1.4.1010.2  = http://cts.nlm.nih.gov/fhir/ValueSet/2.1
 Alias: $2.16.840.1.113762.1.4.1010.4  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4
 Alias: $2.16.840.1.113762.1.4.1010.6  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6
 Alias: $2.16.840.1.113762.1.4.1021.101 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.101
+Alias: $2.16.840.1.113762.1.4.1021.32 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.32
 Alias: $2.16.840.1.113762.1.4.1021.103 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.103
 Alias: $2.16.840.1.113762.1.4.1021.24 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.24
 Alias: $2.16.840.1.113762.1.4.1021.33 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.33
