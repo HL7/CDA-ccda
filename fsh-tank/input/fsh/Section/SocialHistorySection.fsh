@@ -2,7 +2,7 @@ Profile: SocialHistorySection
 Parent: $Section
 Id: SocialHistorySection
 Title: "Social History Section"
-Description: "This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header."
+Description: "This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header. Mental/behavioral health assessments such as PHQ-9 (Patient Health Questionnaire-9) for depression screening are captured in the Mental Status section."
 
 * insert Section(#29762-2, Social History, 2.16.840.1.113883.10.20.22.2.17, 2015-08-01)
 * entry ..*
