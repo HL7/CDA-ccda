@@ -31,8 +31,8 @@ Description: "Family History Observations related to a particular family member 
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-8593)." // auto-should
 * value 1..1
 * value only $CD
-* value from Problem (required)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1198-8591)."
+* value from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (required)
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet US Core Condition Codes."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #value

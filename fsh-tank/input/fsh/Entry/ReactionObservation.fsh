@@ -39,8 +39,8 @@ Description: "This clinical statement represents the response to an undesired sy
     * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] high (CONF:1098-7334)." // auto-should
 * value 1..1
 * value only $CD
-* value from Problem (required)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Problem urn:oid:2.16.840.1.113883.3.88.12.3221.7.4 DYNAMIC (CONF:1098-7335)."
+* value from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (required)
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet US Core Condition Codes."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.discriminator[+].type = #profile
