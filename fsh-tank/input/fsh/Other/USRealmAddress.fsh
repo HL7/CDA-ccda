@@ -2,7 +2,11 @@ Profile: USRealmAddress
 Parent: AD
 Id: USRealmAddress
 Title: "US Realm Address"
-Description: "Reusable address template, for use in US Realm documents"
+Description: """Reusable address template, for use in US Realm documents. 
+
+Certifying systems SHALL and non-certifying systems SHOULD follow the Project US@ Technical Specification for Patient Addresses Final Version 1.0 as the standard style guide for Street Address Line and  City for new and updated records.
+
+For certifying systems, this requirement does not apply to historical records/documents that are exposed through C-CDA documents."""
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.2"
 * obeys shall-city and shall-streetAddressLine and should-use and should-country and 81-7296 and 81-10024 and 81-10025 and shall-max-ad-parts
