@@ -111,7 +111,7 @@ Examples of referral situations are when a patient is referred from a family phy
         generalStatus 0..1 and
         medications 1..1 and
         reasonForReferral 1..1 and
-        payers 1..1
+        payers 0..1
     * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066) such that it" // man-should
       * section only PlanofTreatmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-29067)."
@@ -181,6 +181,6 @@ Examples of referral situations are when a patient is referred from a family phy
     * component[reasonForReferral] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30924) such that it"
       * section only ReasonforReferralSection
         * ^comment = "SHALL contain exactly one [1..1] Reason for Referral Section (identifier: urn:hl7ii:1.3.6.1.4.1.19376.1.5.3.1.3.1:2014-06-09) (CONF:1198-30925)."
-    * component[payers] ^comment = "This structuredBody MAY contain exactly one [0..1] component (CONF:1198-309240) such that it"
+    * component[payers] ^comment = "This structuredBody SHOULD contain exactly one [0..1] component (CONF:1198-309240) such that it"
       * section only PayersSection
-        * ^comment = "SHALL contain exactly one [1..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2024-05-01) (CONF:1198-309250)."
+        * ^comment = "SHOULD contain exactly one [0..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2024-05-01) (CONF:1198-309250)."
