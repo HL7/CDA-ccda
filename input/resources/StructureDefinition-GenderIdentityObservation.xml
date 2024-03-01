@@ -109,28 +109,14 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Gender Identity USCDI core urn:oid:2.16.840.1.113762.1.4.1021.101 DYNAMIC (CONF:4537-1223)."/>
+            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Gender Identity urn:oid:2.16.840.1.113762.1.4.1021.32 DYNAMIC."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.101"/>
-            </binding>
-        </element>
-        <element id="Observation.value.nullFlavor">
-            <path value="Observation.value.nullFlavor"/>
-            <short value="To represent additional Gender Identities, set nullFlavor=&quot;OTH&quot;. To represent &quot;choose not to disclose&quot;, set nullFlavor=&quot;ASKU&quot;."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://hl7.org/cda/stds/core/ValueSet/CDANullFlavor"/>
-                <additional>
-                    <purpose value="preferred"/>
-                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1114.17"/>
-                    <documentation value="This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Asked but Unknown and Other urn:oid:2.16.840.1.113762.1.4.1114.17 DYNAMIC (CONF:4537-1232)."/>
-                    <shortDoco value="Recommended nullFlavors"/>
-                </additional>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.32"/>
             </binding>
         </element>
     </differential>

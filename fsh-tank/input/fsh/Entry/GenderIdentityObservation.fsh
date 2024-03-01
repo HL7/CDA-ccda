@@ -40,8 +40,6 @@ This observation is not appropriate for recording patient gender (administrative
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33071)."
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113762.1.4.1021.101 (required)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Gender Identity USCDI core urn:oid:2.16.840.1.113762.1.4.1021.101 DYNAMIC (CONF:4537-1223)."
-  * nullFlavor 0..1
-    * insert AdditionalBinding(preferred, $2.16.840.1.113762.1.4.1114.17, Recommended nullFlavors, [[This value MAY contain zero or one [0..1] @nullFlavor, which SHOULD be selected from ValueSet Asked but Unknown and Other urn:oid:2.16.840.1.113762.1.4.1114.17 DYNAMIC (CONF:4537-1232).]])
-    * ^short = "To represent additional Gender Identities, set nullFlavor=\"OTH\". To represent \"choose not to disclose\", set nullFlavor=\"ASKU\"."
+* value from $2.16.840.1.113762.1.4.1021.32 (required)
+  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Gender Identity urn:oid:2.16.840.1.113762.1.4.1021.32 DYNAMIC."
+
