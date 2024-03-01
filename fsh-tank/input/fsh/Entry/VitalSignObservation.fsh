@@ -66,6 +66,7 @@ The following is a list of recommended units for common types of vital sign meas
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-7310)." // man-should
 
+/* Publisher currently doesn't like these
 * obeys should-percent and should-cm and should-kg and should-cel and should-bp and should-rates and should-bmi and should-bsa
 
 Invariant: should-percent
@@ -76,7 +77,7 @@ Expression: "(code.code in ('2708-6' | '3150-0' | '59408-5' | '8289-1' | '59575-
 Invariant: should-cm
 Description: "Height & Head Circumference should be represented in cm"
 Severity: #warning
-Expression: "(code.code in ('8287-5' | '8302-2' | '8306-3')) implies value.unit = 'cm'"
+Expression: "(code.code in ('8287-5' | '8302-2' | '8306-3' | '9843-4')) implies value.unit = 'cm'"
 
 Invariant: should-kg
 Description: "Weight should be represented in kg"
@@ -107,3 +108,4 @@ Invariant: should-bsa
 Description: "BSA should be represented in m2"
 Severity: #warning
 Expression: "(code.code = '3140-1') implies value.unit = 'm2'"
+*/
