@@ -2,9 +2,9 @@ Profile: GoalObservation
 Parent: $Observation
 Id: GoalObservation
 Title: "Goal Observation"
-Description: """This template represents a patient health goal. A Goal Observation template may have related components that are acts, encounters, observations, procedures, substance administrations, or supplies. A goal identifies a future desired condition or state. Goals are often related to physical or mental health conditions or diseases, but also may be related to a Social Determinant of Health (SDOH) risks or states. For example, to have adequate quality meals and snacks, gain transportation security - able to access health and social needs). SDOH data relate to conditions in which people live, learn, work, and play and their effects on health risks and outcomes.  A Goal is established by the patient or provider. 
+Description: """This template represents a patient health goal. A Goal Observation template may have related components that are acts, encounters, observations, procedures, substance administrations, or supplies. A goal identifies a future desired condition or state. Goals are often related to physical or mental health conditions or diseases, but also may be related to a Social Determinant of Health (SDOH) risks or states. For example, to have adequate quality meals and snacks, gain transportation security - able to access health and social needs). SDOH data relate to conditions in which people live, learn, work, and play and their effects on health risks and outcomes.  A Goal is established by the patient or provider or both. 
 
-A goal may be a patient or provider goal. If the author is set to the recordTarget (patient), this is a patient goal. If the author is set to a provider, this is a provider goal. If both patient and provider are set as authors, this is a negotiated goal.
+A goal may be a patient or provider goal. If the author is set to the recordTarget (patient), this is a patient goal. If the author is set to a provider, this is a provider goal. If both patient and provider are set as authors, this is called a negotiated or shared goal.
 
 A goal usually has a related health concern and/or risk.
 
