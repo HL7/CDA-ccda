@@ -16,12 +16,9 @@ Description: "This clinical statement describes an interaction between a patient
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8713)."
 * code 1..1
-* code from EncounterTypeCode (preferred)
+* code from $2.16.840.1.113762.1.4.1267.1 (preferred)
   * ^comment = "In Encounter Summaries the Encounter Type will also be present in the document header at componentOf/encompassingEncounter/code, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present.  Implementers should note that only conveying Encounter Type in the document header at componentOf/encompassingEncounter/code is insufficient."
-  * insert NarrativeOriginalText
-  * translation 0..1
-    * ^short = "The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."
-    * ^comment = "This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."
+  * insert NarrativeOriginalText 
 * effectiveTime 1..1
   * ^comment = "In Encounter Summaries the Encounter Time will also be present in the document header at componentOf/encompassingEncounter/effectiveTime, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."
 * sdtcDischargeDispositionCode from $2.16.840.1.113883.3.88.12.80.33 (preferred)
