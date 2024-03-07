@@ -11,10 +11,10 @@ The CDA Care Plan represents an instance of this dynamic Care Plan at a point in
 Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):
 There are 2 required sections:
 *    Health Concerns
-*    Activities
+*    Goals
 
 There are 2 optional sections:
-*    Goals
+*    Activities
 *    Outcomes
 	Provides the ability to identify patient and provider priorities with each act
 	Provides a header participant to indicate occurrences of Care Plan review
@@ -200,7 +200,7 @@ A care plan document can include entry references from the information in these 
     * component contains
         component1 1..1 and
         component2 1..1 and
-        component3 1..1 and
+        component3 0..1 and
         component4 0..1 and
         component5 0..1
     * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755)."
@@ -209,7 +209,7 @@ A care plan document can include entry references from the information in these 
     * component[component2] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28761) such that it"
       * section only GoalsSection
         * ^comment = "SHALL contain exactly one [1..1] Goals Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.60) (CONF:1198-28762)."
-    * component[component3] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28763) such that it"
+    * component[component3] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28763) such that it"
       * section only ActivitiesSection
         * ^comment = "SHALL contain exactly one [1..1] Activities Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2024-05-01) (CONF:1198-28764)."
     * component[component4] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
