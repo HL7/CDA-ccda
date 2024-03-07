@@ -46,8 +46,8 @@
             <constraint>
                 <key value="shall-vital-signs-org"/>
                 <severity value="error"/>
-                <human value="SHALL contain at least one Vital Signs Organizer"/>
-                <expression value="nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsOrganizer'))"/>
+                <human value="SHALL contain at least one Vital Signs Organizer or Average Blood Pressure Organizer"/>
+                <expression value="nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsOrganizer')) or entry.where(organizer.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsSection"/>
             </constraint>
         </element>
@@ -120,20 +120,35 @@
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
         </element>
-        <element id="Section.entry:organizer">
+        <element id="Section.entry:vitalsOrg">
             <path value="Section.entry"/>
-            <sliceName value="organizer"/>
+            <sliceName value="vitalsOrg"/>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1198-7276) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:organizer.organizer">
+        <element id="Section.entry:vitalsOrg.organizer">
             <path value="Section.entry.organizer"/>
             <comment value="SHALL contain exactly one [1..1] Vital Signs Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01) (CONF:1198-15964)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsOrganizer"/>
+            </type>
+        </element>
+        <element id="Section.entry:averageBPOrg">
+            <path value="Section.entry"/>
+            <sliceName value="averageBPOrg"/>
+            <short value="Used to represent average blood pressure"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:averageBPOrg.organizer">
+            <path value="Section.entry.organizer"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
             </type>
         </element>
     </differential>
