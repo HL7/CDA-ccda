@@ -40,7 +40,6 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4537-8906) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"PRF\" Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4537-8907)."
   * templateId 1..1
     * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-16808), SHALL not contain [0..0] extension.."
     * root 1..1
@@ -72,8 +71,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
 * performer[performer2] ^short = "This performer represents the Guarantor."
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
   * typeCode 1..1
-  * typeCode = #PRF (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"PRF\" Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4537-32971)."
+  * typeCode = #PRF (exactly)    
   * templateId 1..1
     * ^comment = "SHALL contain exactly one [1..1] templateId (CONF:4537-16810), SHALL not contain [0..0] extension."
     * root 1..1
