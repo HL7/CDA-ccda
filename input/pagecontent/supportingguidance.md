@@ -481,7 +481,7 @@ The C-CDA specification requires the following:
             text. This id must be a pointer to another author
             participant.</p><p class="s19"
             style="padding-top: 6pt;padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-            >If’ the ID isn&#39;t referencing an author
+            >If the id isn&#39;t referencing an author
             described elsewhere in the document, then the author
             components required in US Realm Header are required
             here as well (CONF:1098-32628).</p><p class="s19"
@@ -1536,7 +1536,7 @@ The table below provides information on some of the formatting tags commonly use
 
 | **Tag Description**   | **Description**    |
 | ---- | ------ |
-| **&lt;content&gt;**   | The CDA <content> element is used to wrap a string of text so that it can be explicitly referenced, or so that it can suggest rendering characteristics. The <content> element contains an optional identifier, that can serve as the target of a reference. All values of attributes of type XML ID must be unique within the document (per the [W3C XML specification](https://www.w3.org/TR/xml/). The originalText component of a RIM attribute present in any CDA entry can make explicit reference to the identifier, thereby indicating the original text associated with the attribute in the CDA entry.  |
+| **&lt;content&gt;**   | The CDA <content> element is used to wrap a string of text so that it can be explicitly referenced, or so that it can suggest rendering characteristics. The <content> element contains an optional identifier, that can serve as the target of a reference. All values of attributes of type XML id must be unique within the document (per the [W3C XML specification](https://www.w3.org/TR/xml/). The originalText component of a RIM attribute present in any CDA entry can make explicit reference to the identifier, thereby indicating the original text associated with the attribute in the CDA entry.  |
 | **&lt;br&gt;**   | The CDA <br/> element is used to indicate a hard line break. It differs from the CDA <paragraph> element in that the <br/> element has no content. Receivers are required to interpret this element when rendering so as to represent a line break.  |
 | **&lt;list&gt;**   | A CDA <list> is similar to the HTML list. A CDA <list> has an optional caption and contains one or more <item> elements. A CDA <item> element contains an optional caption, which if present must come first before any other character data. The required listType attribute specifies whether the <list> is ordered or unordered (with unordered being the default). Unordered lists are typically rendered with bullets, whereas ordered lists are typically rendered with numbers, although this is not a requirement.  |
 | **&lt;table&gt;**   | The CDA <table> is similar to the HTML table. The table markup is for presentation purposes only and, unlike a database table, does not possess meaningful field names.  |
@@ -2201,7 +2201,7 @@ encounters, observations, procedures etc., as it is often necessary when authori
 reference other Acts of these types. For example, in a Care Plan it is necessary to repeatedly relate Health
 Concerns, Goals, Activities and Outcomes.
 
-The ID is required and must be the same ID as the entry/id it is referencing. The ID cannot be a null value. Act/Code
+The id is required and must be the same id as the entry/id it is referencing. The id cannot be a null value. Act/Code
 is set to nullFlavor=“NP” (Not Present). This means the value is not present in the message (in act/Code).
 
 The `<linkHtml>` tag, is a generic referencing mechanism that can be used to reference identifiers that are internal
@@ -2416,7 +2416,7 @@ The [Encounters Section](StructureDefinition-EncountersSection.html) lists past 
     </tr>
 </table>
 
-The [Encounter Activity](StructureDefinition-EncounterActivity.html) entry with a matching ID in the encompassingEncounter header represents the primary encounter.
+The [Encounter Activity](StructureDefinition-EncounterActivity.html) entry with a matching id in the encompassingEncounter header represents the primary encounter.
 
 Encounter Diagnosis is always shown as an entryRelationship to an Encounter Activity, even for single encounters. Historical encounters are each documented as an Encounter Activity, with information recorded through entryRelationships within the corresponding Encounter Activity. Additional details, like free-text notes, can be conveyed through extra entryRelationships within the associated Encounter Activity.
 
@@ -2765,7 +2765,7 @@ UDI information is essential for interoperability. Content Creators should use a
 
 To declare that a patient has no implanted devices, the Medical Equipment section should be used that has a
 Procedure Activity Procedure entry with an effectiveTime that has a nullFlavor of ‘NA’ and a participantRole that
-has an ID with a nullFlavor of ‘NA’ and a code of 40388003 – Implant. This combination states that the patient has
+has an id with a nullFlavor of ‘NA’ and a code of 40388003 – Implant. This combination states that the patient has
 not had a procedure to implant anything.
 
 **Example 46: [No Implanted Devices](http://hl7-c-cda-examples.herokuapp.com/examples/view/Medical%20Equipment/No%20Implanted%20Devices)**

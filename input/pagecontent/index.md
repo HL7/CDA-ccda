@@ -72,4 +72,4 @@ This guide would not have been possible without the support of the [Office of th
 |Benjamin Flessner|Availity|benjamin.flessner@availity.com|
 |Brett Marquard|Wave One Associates|brett@waveoneassociates.com|
 |Gay Dolin|Namaste Informatics|gdolin@NamasteInformatics.com|
-|Rosemary Hofstede|Dogwood Health Consulting|rosemary@dutaeudesign.com|
+|Rosemary Hofstede|Dogwood Health Consulting|rosemary@duteaudesign.com|

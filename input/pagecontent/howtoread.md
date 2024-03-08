@@ -26,7 +26,7 @@ The Template Identifier is listed as another identifier of the template.
 {::options parse_block_html="true" /}
  
 #### Template Contexts
-The Context tables in the pdf publication that lists the templates that contain a given template and the templates that are contained by the same template are represented in two different manners.  
+The Context tables in the pdf publication that list the templates that contain a given template and the templates that are contained by the same template are represented in two different manners.  
 
 The Contained By templates:
  

@@ -8,7 +8,7 @@ In addition there are format specific definitions files.
 * [JSON](definitions.json.zip)
 * [TTL](definitions.ttl.zip)
 
-**Examples:** all the examples that are used in this Implementation Guide available for download:
+**Examples:** All the examples that are used in this Implementation Guide available for download:
 
 * [XML](examples.xml.zip)
 * [JSON](examples.json.zip)

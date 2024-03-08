@@ -13,7 +13,7 @@ For more detail about CDA, C-CDA’s underlying standard, please see the [Overvi
 CDA can be constrained through creating rules which provide the semantic and syntactic rules for representing data elements. The “templated CDA” approach uses a library of modular CDA template definitions. Templates can be reused across any number of CDA document types, as shown in the following figure. Each template meets a defined purpose. Templates are managed over time through versioning. A template version is a specific set of conformance constraints (rules) designed to meet the template’s purpose.
 <img src="templated-cda.png" style="float: none; display: block; margin-left: auto; margin-right: auto;" />
 
-The types of templates defined in this guide are Document, Section, Entry and Participation and other templates:
+The types of templates defined in this guide are Document, Section, Entry, and Participation and Other templates:
 
 * Document-level templates: These templates constrain fields in the CDA header, and define containment relationships to CDA sections. For example, a History and Physical document-level template might require that the patient’s name be present, and that the document contain a Physical Exam section.
 * Section-level templates: These templates constrain fields in the CDA section, and define containment relationships to CDA entries. For example, a Physical Exam section-level template might require that the section/code be fixed to a particular LOINC code, and that the section contains a Systolic Blood Pressure observation.
@@ -24,17 +24,17 @@ A CDA implementation guide (such as this one) defines templates of these various
 
 Regarding implementation, the creator of a CDA instance populates the template identifier (templateId) field to assert conformance to a given template version. On the receiving side, the recipient can then not only test the instance for conformance against the CDA Extensible Markup Language (XML) schema, but also test the instance for conformance against asserted templates, historically, using custom schematron.
 
-StructureDefinition publishing provides inherent validation and versioning without needing to develop custom schematron. However, the validity and reliability of this has not been fully tested and there is wide use of schematron in the industry. This current publication retains the templateIDs, as a secondary StructureDefininition.ID, but the publication does not rely on it for QA and validation within the specification itself. Tooling is being investigated to support instance validation using inherent processes that can be made available for the industry to leverage in sending and receiving instances
+StructureDefinition publishing provides inherent validation and versioning without needing to develop custom schematron. However, the validity and reliability of this has not been fully tested and there is wide use of schematron in the industry. This current publication retains the templateIds, as a secondary StructureDefininition.id, but the publication does not rely on it for QA and validation within the specification itself. Tooling is being investigated to support instance validation using inherent processes that can be made available for the industry to leverage in sending and receiving instances
 
 #### Template Versioning
 C-CDA templates are identified with a templateId. The templateId is a two-part identifier that consists of a root that is an Object Identifier (OID) and an optional date extension. The root identifies the named template and the extension identifies the version of that template. Initially C-CDA templates did not include versions so the templateId/@extension attribute was not used.  Some of these templates are still present on C-CDA 3.0.
 
-StructureDefinition publishing provides inherent validation and versioning without needing to develop custom schematron. However, the validity and reliability of this has not been fully tested and there is wide use of schematron validation. This current publication retains the templateIDs as an identifier on the template StructureDefinition and as a required slice on the templateId within the CDA structure. When validating CDA instances, the templateID is still used to identify the template to validate against. Tooling is being investigated to support instance validation.
+StructureDefinition publishing provides inherent validation and versioning without needing to develop custom schematron. However, the validity and reliability of this has not been fully tested and there is wide use of schematron validation. This current publication retains the templateIds as an identifier on the template StructureDefinition and as a required slice on the templateId within the CDA structure. When validating CDA instances, the templateId is still used to identify the template to validate against. Tooling is being investigated to support instance validation.
 
 #### Open and Closed Templates
 
 In CDA. templates are declared to be either Open or Closed templates. In Open templates, all of the features of the CDA R2 base specification are allowed except as constrained by the templates. Open templates allow HL7 CDA implementers to develop additional structured content not constrained within this guide. HL7 encourages implementers to bring their use cases forward as candidate requirements to be formalized in a subsequent version of the standard to maximize the use of shared semantics.
-By contrast, a Closed template specifies everything that is allowed and nothing further may be included. There are only 2 templates in C-CDA 3.0 that are closed templates. [Estimated Date of Delivery](StructureDefinition-EstimatedDateofDelivery.html) and [Medication Free Text Sig](StructureDefinition-MedicationFreeTextSig.html). Closed templates are indicated by a "sig-closed": constraint.
+By contrast, a Closed template specifies everything that is allowed and nothing further may be included. There are only two templates in C-CDA 3.0 that are closed templates. [Estimated Date of Delivery](StructureDefinition-EstimatedDateofDelivery.html) and [Medication Free Text Sig](StructureDefinition-MedicationFreeTextSig.html). Closed templates are indicated by a "sig-closed": constraint.
 
 ### Template Conformance
 
@@ -106,7 +106,7 @@ Metadata carried in the header may already be available for rendering from EHRs 
 
 Good practice recommends that the following be present whenever the document is viewed:
 - Document title and document dates
-- Service and encounter types, and date ranges as appropriate
+- Service and encounter types and date ranges as appropriate
 - Names of all persons along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information
 - Names of selected organizations along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information
 - Date of birth for recordTarget(s)

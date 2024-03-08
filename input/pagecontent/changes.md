@@ -72,7 +72,7 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20518](https://jira.hl7.org/browse/CDA-20518) - Allow NDC codes when specifying MedicationInformation.
 - [CDA-20543](https://jira.hl7.org/browse/CDA-20543) - Change guidance on Supply repeatNumber
 - [CDA-20546](https://jira.hl7.org/browse/CDA-20546) - PQ values require a @unit
-- [CDA-20565](https://jira.hl7.org/browse/CDA-20565) - Remove requirement to send R1.1 template IDs
+- [CDA-20565](https://jira.hl7.org/browse/CDA-20565) - Remove requirement to send R1.1 template Ids
 - [CDA-20568](https://jira.hl7.org/browse/CDA-20568) - Add the word DYNAMIC to Encounter Activity binding.
 - [CDA-20664](https://jira.hl7.org/browse/CDA-20664) - Remove Entries Optional section templates
 - [CDA-20673](https://jira.hl7.org/browse/CDA-20673) - Update Policy Activity to be "SHOULD contain 0..1 address".
