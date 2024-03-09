@@ -53,17 +53,14 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
-* code from $2.16.840.1.113883.11.20.9.69.4 (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Advance Directive Categories urn:oid:2.16.840.1.113883.11.20.9.69.4 DYNAMIC."
-  * translation ^slicing.discriminator[0].type = #value
-    * ^slicing.discriminator[=].path = "code"
-    * ^slicing.discriminator[+].type = #value
-    * ^slicing.discriminator[=].path = "codeSystem"
-    * ^slicing.rules = #open
-  * translation contains advanceDirective 1..1
-  * translation[advanceDirective] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32842) such that it"
-    * insert CodedLoinc(75320-2, Advance directive)
-    * ^comment = "SHALL contain exactly one [1..1] @code=\"75320-2\" Advance directive."
+  * ^comment = "SHALL contain exactly one [1..1] code (CONF:3250-16895)."
+  * code 1..1
+  * code = #75320-2
+    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"75320-2\" Advance directive (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."
+  * obeys should-translation
+  * translation 0..*
+  * translation from $2.16.840.1.113883.11.20.9.69.4 (preferred)   
+    * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Advance Directives Categories urn:oid:2.16.840.1.113883.11.20.9.69.4." // man-should
 * text 1..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-8652)."
