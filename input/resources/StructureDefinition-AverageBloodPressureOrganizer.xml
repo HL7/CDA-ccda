@@ -28,7 +28,7 @@
     <name value="AverageBloodPressureOrganizer"/>
     <title value="Average Blood Pressure Organizer"/>
     <status value="draft"/>
-    <description value="This template represents a single instance of an Average Blood Pressure reading. It contains two Vital Sign Observation components for the two parts of the reading."/>
+    <description value="This template represents a single instance of an Average Blood Pressure reading. Average (mean) Blood Pressure (systolic and diastolic) is the average of two or more blood pressure (BP) readings in a specified time period or according to a specified algorithm or protocol determined by the organization collecting the data. This template contains two Vital Sign Observation components for the two parts of the reading."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -48,6 +48,13 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain text/reference/@value"/>
                 <expression value="sdtcText.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
             </constraint>
         </element>

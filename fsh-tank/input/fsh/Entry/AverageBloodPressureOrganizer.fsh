@@ -2,10 +2,11 @@ Profile: AverageBloodPressureOrganizer
 Parent: $Organizer
 Id: AverageBloodPressureOrganizer
 Title: "Average Blood Pressure Organizer"
-Description: """This template represents a single instance of an Average Blood Pressure reading. It contains two Vital Sign Observation components for the two parts of the reading."""
+Description: """This template represents a single instance of an Average Blood Pressure reading. Average (mean) Blood Pressure (systolic and diastolic) is the average of two or more blood pressure (BP) readings in a specified time period or according to a specified algorithm or protocol determined by the organization collecting the data. This template contains two Vital Sign Observation components for the two parts of the reading."""
 
 * insert LogicalModelTemplate(avg-bp-org, 2.16.840.1.113883.10.20.22.4.512, 2024-05-01)
 * insert NarrativeLinkOrganizer
+* obeys should-author
 
 * classCode = #BATTERY
 

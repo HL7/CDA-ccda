@@ -1,14 +1,13 @@
-<observation classCode="OBS" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
-  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09" />
+<organizer classCode="BATTERY" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdtc="urn:hl7-org:sdtc">
+  <templateId root="2.16.840.1.113883.10.20.22.4.512" extension="2024-05-01" />
   <id root="604b2f9e-a3e7-4f4c-a4f8-0022d72dee2b" />
   <code code="96607-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Blood pressure panel mean systolic and mean diastolic" />
-  <text>
+  <sdtc:text>
     <reference value="#AvgBP_1"/>
-  </text>
+  </sdtc:text>
   <statusCode code="completed" />
   <effectiveTime value="20140519193605-0500" />
-  <value xsi:type="PQ" nullFlavor="NA" unit="{NA}" />
-  <entryRelationship typeCode="COMP">
+  <component typeCode="COMP">
     <observation classCode="OBS" moodCode="EVN">  
       <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09" />
       <id root="a24910a8-2710-4940-908e-b3d805d5130c" />
@@ -23,8 +22,8 @@
       <value xsi:type="PQ" value="122" unit="mm[Hg]" />
       <!-- Additional information of interpretation and/or reference range may be included but are optional-->
     </observation>
-  </entryRelationship>
-  <entryRelationship typeCode="COMP">
+  </component>
+  <component typeCode="COMP">
     <observation classCode="OBS" moodCode="EVN">  
       <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09" />
       <id root="553f3f45-9046-4659-b3e7-5de904003550" />
@@ -36,5 +35,5 @@
       <effectiveTime value="20140520193605-0500" />
       <value xsi:type="PQ" value="82" unit="mm[Hg]" />
     </observation>
-  </entryRelationship>
-</observation>
+  </component>
+</organizer>
