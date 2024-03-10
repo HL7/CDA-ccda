@@ -17,8 +17,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
 * moodCode = #EVN (exactly)
 * id 1..*
 * code 1..1
-* code from http://hl7.org/fhir/us/core/ValueSet/us-core-smoking-status-observation-codes
-  * ^short = "Note - to be updated with 4 concepts including 8663-7: Cigarettes smoked current (pack per day) and 8664-5: Cigarettes smoked total (pack per year)"
+* code from $SmokingStatusType
   * code 1..1
 * statusCode 1..1
   * code 1..1
@@ -41,7 +40,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
   * ^short = "Only used for Smoking Status where code = 8663-7 or 8664-5"
 * value[coded] only $CD
   * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.41 (required)
+  * code from $SmokingStatusComprehensive (required)
 * obeys numeric-status
 
 Invariant: numeric-status
