@@ -38,3 +38,9 @@ Immunization Refusal Reason 2.16.840.1.113883.10.20.22.4.53 should be used to re
 * value from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (preferred)
   * ^short = "If the ID element does not reference a problem recorded elsewhere in the document, then observation/value must be populated with a coded entry."
   * ^comment = "MAY contain zero or one [0..1] value with @xsi:type=\"CD\", where the code MAY be selected from ValueSet US Core Condition Codes."
+* obeys indication-value
+
+Invariant: indication-value
+Severity: #error
+Description: "If the ID element does not reference a problem recorded elsewhere in the document, then observation/value must be populated with a coded entry."
+Expression: "value.exists() or (%resource.descendants().ofType(CDA.Observation).where(id.exists($this.root = %context.id.first().root  and $this.extension ~ %context.id.first().extension) and value.exists()))"

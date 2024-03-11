@@ -57,6 +57,13 @@
                 <expression value="effectiveTime.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
             </constraint>
+            <constraint>
+                <key value="indication-value"/>
+                <severity value="error"/>
+                <human value="If the ID element does not reference a problem recorded elsewhere in the document, then observation/value must be populated with a coded entry."/>
+                <expression value="value.exists() or (%resource.descendants().ofType(CDA.Observation).where(id.exists($this.root = %context.id.first().root  and $this.extension ~ %context.id.first().extension) and value.exists()))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
