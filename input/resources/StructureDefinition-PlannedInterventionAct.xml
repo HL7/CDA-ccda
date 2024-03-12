@@ -315,27 +315,6 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:plannedAct">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="plannedAct"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32665) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:plannedAct.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32704)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:plannedAct.act">
-            <path value="Act.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Planned Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1198-32705)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedAct"/>
-            </type>
-        </element>
         <element id="Act.entryRelationship:plannedEncounter">
             <path value="Act.entryRelationship"/>
             <sliceName value="plannedEncounter"/>
@@ -355,27 +334,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:plannedObservation">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="plannedObservation"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32667) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:plannedObservation.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32708)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:plannedObservation.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Planned Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1198-32709)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedObservation"/>
             </type>
         </element>
         <element id="Act.entryRelationship:plannedProcedure">

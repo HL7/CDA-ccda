@@ -63,7 +63,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-30703)."
-* entryRelationship[entryRelationship2] ^short = "The following entryRelationship represents a planned component of the goal such as Planned Encounter (V2), Planned Observation (V2), Planned Procedure (V2), Planned Medication Activity (V2), Planned Supply (V2), Planned Act (V2) or Planned Immunization Activity. Because these entries are already described in the Interventions Section of the CDA document instance, rather than repeating the full content of the entries, the Entry Reference template may be used to reference the entries."
+* entryRelationship[entryRelationship2] ^short = "The following entryRelationship represents a planned component of the goal such as Planned Encounter (V2), Planned Procedure (V2), Planned Medication Activity (V2), Planned Supply (V2), Planned Act (V2) or Planned Immunization Activity. Because these entries are already described in the Interventions Section of the CDA document instance, rather than repeating the full content of the entries, the Entry Reference template may be used to reference the entries."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-30704) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)

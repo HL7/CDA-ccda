@@ -108,10 +108,6 @@
                 </discriminator>
                 <discriminator>
                     <type value="profile"/>
-                    <path value="act"/>
-                </discriminator>
-                <discriminator>
-                    <type value="profile"/>
                     <path value="procedure"/>
                 </discriminator>
                 <discriminator>
@@ -124,22 +120,6 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-        </element>
-        <element id="Section.entry:plannedObs">
-            <path value="Section.entry"/>
-            <sliceName value="plannedObs"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-7726) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:plannedObs.observation">
-            <path value="Section.entry.observation"/>
-            <comment value="The entry, if present, SHALL contain exactly one [1..1] Planned Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1098-14751)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedObservation"/>
-            </type>
         </element>
         <element id="Section.entry:plannedEnc">
             <path value="Section.entry"/>
@@ -155,22 +135,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
-            </type>
-        </element>
-        <element id="Section.entry:plannedAct">
-            <path value="Section.entry"/>
-            <sliceName value="plannedAct"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-8807) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:plannedAct.act">
-            <path value="Section.entry.act"/>
-            <comment value="SHALL contain exactly one [1..1] Planned Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1098-30473)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedAct"/>
             </type>
         </element>
         <element id="Section.entry:plannedProc">

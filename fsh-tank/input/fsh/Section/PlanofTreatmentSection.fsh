@@ -28,8 +28,6 @@ The plan may also indicate that patient education will be provided."""
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.discriminator[+].type = #profile
-  * ^slicing.discriminator[=].path = "act"
-  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "substanceAdministration"
@@ -37,9 +35,7 @@ The plan may also indicate that patient education will be provided."""
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.rules = #open
 * entry contains
-    plannedObs 0..* and
     plannedEnc 0..* and
-    plannedAct 0..* and
     plannedProc 0..* and
     plannedMed 0..* and
     plannedSupply 0..* and
@@ -48,18 +44,10 @@ The plan may also indicate that patient education will be provided."""
     nutrition 0..* and
     plannedImmunization 0..* and
     goal 0..*
-* entry[plannedObs] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-7726) such that it"
-  * observation 1..1
-  * observation only PlannedObservation
-    * ^comment = "The entry, if present, SHALL contain exactly one [1..1] Planned Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1098-14751)."
 * entry[plannedEnc] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8805) such that it"
   * encounter 1..1
   * encounter only PlannedEncounter
     * ^comment = "SHALL contain exactly one [1..1] Planned Encounter (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.40:2014-06-09) (CONF:1098-30472)."
-* entry[plannedAct] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8807) such that it"
-  * act 1..1
-  * act only PlannedAct
-    * ^comment = "SHALL contain exactly one [1..1] Planned Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1098-30473)."
 * entry[plannedProc] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8809) such that it"
   * procedure 1..1
   * procedure only PlannedProcedure

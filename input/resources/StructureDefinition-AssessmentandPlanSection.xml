@@ -110,25 +110,25 @@
             <slicing>
                 <discriminator>
                     <type value="profile"/>
-                    <path value="act"/>
+                    <path value="procedure"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="Section.entry:plannedAct">
+        <element id="Section.entry:plannedProcedure">
             <path value="Section.entry"/>
-            <sliceName value="plannedAct"/>
+            <sliceName value="plannedProcedure"/>
             <comment value="MAY contain zero or more [0..*] entry (CONF:1098-7708) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:plannedAct.act">
-            <path value="Section.entry.act"/>
-            <comment value="SHALL contain exactly one [1..1] Planned Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1098-15448)."/>
+        <element id="Section.entry:plannedProcedure.procedure">
+            <path value="Section.entry.procedure"/>
+            <comment value="SHALL contain exactly one [1..1] Planned Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2022-06-01 ) (CONF:1098-15448)."/>
             <min value="1"/>
             <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedAct"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
             </type>
         </element>
     </differential>

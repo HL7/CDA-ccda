@@ -2524,7 +2524,7 @@ Entry templates defined to represent performed service acts are [Intervention Ac
 
 #### Placed Order
 
-Entry templates defined to represent ordered service acts such as [Planned Encounter](StructureDefinition-PlannedEncounter.html), [Planned Medication Activity](StructureDefinition-PlannedMedicationActivity.html), [Planned Observation](StructureDefinition-PlannedObservation.html), [Planned Procedure](StructureDefinition-PlannedProcedure.html), [Planned Supply](StructureDefinition-PlannedSupply.html), [Planned Act](StructureDefinition-PlannedAct.html), etc.
+Entry templates defined to represent ordered service acts such as [Planned Encounter](StructureDefinition-PlannedEncounter.html), [Planned Medication Activity](StructureDefinition-PlannedMedicationActivity.html), [Planned Procedure](StructureDefinition-PlannedProcedure.html), [Planned Supply](StructureDefinition-PlannedSupply.html), etc.
 
 Templates of these types are discussed in the context of the data class used to categorize the type of service
 activity. The key distinction for representing a placed order is to utilize the moodCode attribute with a value of

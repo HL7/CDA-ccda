@@ -62,9 +62,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
     medicationActivity 0..* and
     instruction 0..* and
     nonMedSupply 0..* and
-    plannedAct 0..* and
     plannedEncounter 0..* and
-    plannedObservation 0..* and
     plannedProcedure 0..* and
     plannedMedicationActivity 0..* and
     plannedSupply 0..* and
@@ -99,13 +97,6 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * supply 1..1
   * supply only NonMedicinalSupplyActivity
     * ^comment = "SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1198-32703)."
-* entryRelationship[plannedAct] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32665) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32704)."
-  * act 1..1
-  * act only PlannedAct
-    * ^comment = "SHALL contain exactly one [1..1] Planned Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1198-32705)."
 * entryRelationship[plannedEncounter] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32666) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -113,13 +104,6 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * encounter 1..1
   * encounter only PlannedEncounter
     * ^comment = "SHALL contain exactly one [1..1] Planned Encounter (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.40:2014-06-09) (CONF:1198-32707)."
-* entryRelationship[plannedObservation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32667) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32708)."
-  * observation 1..1
-  * observation only PlannedObservation
-    * ^comment = "SHALL contain exactly one [1..1] Planned Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1198-32709)."
 * entryRelationship[plannedProcedure] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32668) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

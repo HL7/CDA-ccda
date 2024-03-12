@@ -43,8 +43,7 @@ Description: "This template represents nutrition regimens (e.g., fluid restricti
     plannedMedActivity 0..* and
     plannedObs 0..* and
     plannedProc 0..* and
-    plannedSupply 0..* and
-    plannedAct 0..*
+    plannedSupply 0..* 
 * entryRelationship[plannedEncounter] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32382) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -59,13 +58,6 @@ Description: "This template represents nutrition regimens (e.g., fluid restricti
   * substanceAdministration 1..1
   * substanceAdministration only PlannedMedicationActivity
     * ^comment = "SHALL contain exactly one [1..1] Planned Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1098-32385)."
-* entryRelationship[plannedObs] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32386) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32930)."
-  * observation 1..1
-  * observation only PlannedObservation
-    * ^comment = "SHALL contain exactly one [1..1] Planned Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.44:2014-06-09) (CONF:1098-32387)."
 * entryRelationship[plannedProc] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32388) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -80,10 +72,3 @@ Description: "This template represents nutrition regimens (e.g., fluid restricti
   * supply 1..1
   * supply only PlannedSupply
     * ^comment = "SHALL contain exactly one [1..1] Planned Supply (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09) (CONF:1098-32391)."
-* entryRelationship[plannedAct] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32632) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32933)."
-  * act 1..1
-  * act only PlannedAct
-    * ^comment = "SHALL contain exactly one [1..1] Planned Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.39:2014-06-09) (CONF:1098-32633)."
