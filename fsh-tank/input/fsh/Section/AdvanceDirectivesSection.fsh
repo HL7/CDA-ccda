@@ -9,6 +9,8 @@ Treatment Preferences, Care Experience Preferences and Personal Health Goals con
 If a person has appointed healthcare agent(s), the Advance Directive Section SHALL include the current healthcare agent(s) information, and a reference to the external document which contains the healthcare agent appointment decisions. If a person has documented treatment preferences under certain health scenarios, the Advance Directive Section SHALL include information about who has reviewed and verified that documentation, and a reference to the external document which was reviewed. 
 
 This section differentiates between an "advance care plan document" and an "advance care plan order." It also distinguishes an advance directive that is a consent. Information in this section includes information about the person’s current/relevant goals and preferences, advance directive orders, or advance directive consents.
+
+An Advance Directive Organizer is required and all of the Advance Directive Observations should be placed in the context of this Organizer.
 """
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
