@@ -2,7 +2,7 @@ Profile: USRealmHeaderforPatientGeneratedDocument
 Parent: USRealmHeader
 Id: USRealmHeaderforPatientGeneratedDocument
 Title: "US Realm Header for Patient Generated Document"
-Description: """This template is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. 
+Description: """This template focuses on the patient or related person in the roles of author and other participants and is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. 
 The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."""
 
 * insert LogicalModelTemplate(us-patient-gen-doc, 2.16.840.1.113883.10.20.29.1, 2024-05-01)
