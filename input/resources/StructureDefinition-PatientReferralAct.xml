@@ -138,9 +138,12 @@
         </element>
         <element id="Act.statusCode.code">
             <path value="Act.statusCode.code"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;active&quot; Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31598)."/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] [1..1] @code, which SHALL be selected from ValueSet ActStatus statusCode urn:oid:2.16.840.1.113883.1.11.15933."/>
             <min value="1"/>
-            <fixedCode value="active"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15933"/>
+            </binding>
         </element>
         <element id="Act.effectiveTime">
             <path value="Act.effectiveTime"/>
