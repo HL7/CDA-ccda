@@ -54,6 +54,13 @@
                 <expression value="text.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DisabilityStatusObservation"/>
             </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DisabilityStatusObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -154,6 +161,14 @@
                 <strength value="preferred"/>
                 <valueSet value="http://loinc.org/vs/LL5052-7"/>
             </binding>
+        </element>
+        <element id="Observation.author">
+            <path value="Observation.author"/>
+            <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-13936)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+            </type>
         </element>
         <element id="Observation.entryRelationship">
             <path value="Observation.entryRelationship"/>
