@@ -19,8 +19,6 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
   * ^short = "Vital Signs"
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-32740)."
   * code 1..1
-  * code = #46680005
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"46680005\" Vital Signs (CONF:1198-32741)."
   * codeSystem 1..1
   * codeSystem = "2.16.840.1.113883.6.96"
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" SNOMED CT (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32742)."
