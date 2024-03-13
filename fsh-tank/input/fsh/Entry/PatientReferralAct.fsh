@@ -37,8 +37,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
 * participant 0..*
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1098-32635)."
   * typeCode 1..1
-  * typeCode = #REFT (exactly)
-    * ^comment = "The participant, if present, SHALL contain exactly one [1..1] @typeCode=\"REFT\" Referred to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32638)."
+    * ^comment = "The participant, if present, SHALL contain exactly one [1..1] @typeCode. Use REFT to represent the referred-to provider."
   * participantRole 1..1
     * ^comment = "The participant, if present, SHALL contain exactly one [1..1] participantRole (CONF:1098-32636)."
     * code 0..1
