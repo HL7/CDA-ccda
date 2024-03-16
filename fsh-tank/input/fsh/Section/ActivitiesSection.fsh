@@ -20,6 +20,7 @@ Instructions are information or directions to the patient. Use the Instructions 
     plannedIntervention 0..* and
     handoffCommParticipants 0..*
 * entry[intervention] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-30996) such that it"
+  * act 1..1
   * act only InterventionAct
     * ^comment = "The entry, if present, SHALL contain exactly one [1..1] Intervention Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.131:2015-08-01) (CONF:1198-30997)."
 * entry[plannedIntervention] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-32730) such that it"
