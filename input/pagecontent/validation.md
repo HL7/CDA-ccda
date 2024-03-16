@@ -15,3 +15,8 @@ java -jar validator_cli.jar -ig hl7.cda.us.ccda#current -profile http://hl7.org/
 #### Incorporate the FHIR validator into your code
 
 There is a [Confluence page](https://confluence.hl7.org/pages/viewpage.action?pageId=35718864#ProfileTooling-ValidatingResourcesagainstthespecificationandProfiles) that addresses how to incorporate the FHIR validator into your code.
+
+### Validation Note
+
+Schema, together with template specific rules, called schematron, have been the historical method that C-CDA documents are validated for conformance to the specifications. With this StructureDefinition publication of CDA and C-CDA, validation rules are inherent in the StructureDefinitions. However, headed into the ballot the accuracy of this method has not been fully tested. In addition, how this inherent new method can be deployed in industry is not yet known. 
+By publication of this Implementation Guide post ballot, we anticipate testing will have occurred and plans to assist the industry will be in place. For more discussion, please see [Validation](validation.html)
