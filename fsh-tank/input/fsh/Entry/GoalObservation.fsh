@@ -23,8 +23,8 @@ A goal may have components consisting of other goals (milestones). These milesto
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-32332)."
 * code 1..1
-  * ^short = "When the Goal is a Social Determinant of Health Goal, use @code=\"8689-2\" (History of Social function), @codeSystem=\"2.16.840.1.113883.6.1\" (LOINC)"
-  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4515-30784)."
+  * ^short = "When the Goal is Social Determinant of Health Goal, the observation/code SHOULD contain exactly one [1..1] code, which SHOULD contain exactly one [1..1] @code=\"8689-2 \"History of Social function"
+  * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC 2.16.840.1.113883.6.1)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-32333)."
   * code 1..1
@@ -34,7 +34,7 @@ A goal may have components consisting of other goals (milestones). These milesto
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-32335)." // auto-should
 * value 0..1
-  * ^short = "When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet [Social Determinant of Health Goals](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.71/expansion) **DYNAMIC** (CONF:4515-32963)."
+  * ^short = "When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet Social Determinant of Health Goals urn:oid:2.16.840.1.113762.1.4.1247.71 DYNAMIC."
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation
