@@ -16,13 +16,9 @@ Description: "This template represents the patient's physical function (e.g., mo
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-13907)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-13908)."
-  * code 1..1
-  * code = #54522-8
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"54522-8\" Functional status (CONF:1098-31522)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-31523)."
+  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-13908)."  
+  * insert CodedLoinc(54522-8, Functional status)
+  * ^comment = "This code SHALL contain exactly one [1..1] @code=\"54522-8\" Functional status (CONF:1098-31522)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-13929)."
   * code 1..1
