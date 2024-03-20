@@ -155,8 +155,6 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
         * ^short = "The name of the healthcare agent."
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."
 * reference ^slicing.discriminator[0].type = #value
-  * ^slicing.discriminator[=].path = "externalDocument"
-  * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * reference contains reference1 1..*
