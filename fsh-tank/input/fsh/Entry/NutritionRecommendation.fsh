@@ -14,8 +14,8 @@ Description: "This template represents nutrition regimens (e.g., fluid restricti
 * moodCode from $2.16.840.1.113883.11.20.9.23 (required)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-30386)."
 * code 1..1
-* code from $2.16.840.1.113883.1.11.20.2.9 (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Nutrition Recommendations urn:oid:2.16.840.1.113883.1.11.20.2.9 DYNAMIC (CONF:1098-30342)."
+* code from $2.16.840.1.113762.1.4.1095.65 (preferred)
+  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Nutrition Recommendation Grouping urn:oid:2.16.840.1.113762.1.4.1095.65."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-31697)."
   * code 1..1

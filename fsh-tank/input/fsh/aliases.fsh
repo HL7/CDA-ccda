@@ -54,6 +54,7 @@ Alias: $2.16.840.1.113762.1.4.1166.22 = http://cts.nlm.nih.gov/fhir/ValueSet/2.1
 Alias: $SDoHConditions                = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.788
 Alias: $SDoHProcedures                = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.789
 Alias: $SDoHServiceRequest            = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.790
+Alias: $2.16.840.1.113762.1.4.1095.65 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.65
 Alias: $2.16.840.1.113762.1.4.1115.5  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.5
 Alias: $2.16.840.1.113762.1.4.1186.8  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1186.8
 Alias: $2.16.840.1.113762.1.4.1240.1  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.1
