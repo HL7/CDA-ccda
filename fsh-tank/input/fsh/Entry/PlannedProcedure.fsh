@@ -19,9 +19,8 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-8571)."
 * code 1..1
-  * obeys 4515-31977
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-31976)."
-  * ^short = "If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet Social Determinant of Health Service Request (CONF:4515-32993)"
+  * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet US Core Procedure Codes urn:oid:2.16.840.1.113883.4.642.40.48.31 ."
+  * ^short = "If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code SHOULD be selected from ValueSet Social Determinant of Health Service Request (CONF:4515-32993)"
 * code from $SDoHServiceRequest (preferred)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-30446)."
@@ -112,7 +111,3 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32997)."
 
-Invariant: 4515-31977
-Description: "This @code SHOULD be selected from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) or CPT (CodeSystem: 2.16.840.1.113883.6.12) or ICD-10-PCS (CodeSystem: 2.16.840.1.113883.6.4) or HCPCS (Code System: 2.16.840.1.113883.6.285) or CDT-2 (Code System: 2.16.840.1.113883.6.13) (CONF:4515-31977)."
-Severity: #warning
-Expression: "codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96' or codeSystem = '2.16.840.1.113883.6.12' or codeSystem = '2.16.840.1.113883.6.4' or codeSystem = '2.16.840.1.113883.6.285' or codeSystem = '2.16.840.1.113883.6.13'"
