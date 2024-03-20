@@ -29,9 +29,7 @@ The effectiveTime/low of the Allergy Concern Act asserts when the concern became
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.5.6\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-32154)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-7485)."
-  * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.19 (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:1198-19086)."
+  * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
 * obeys 1198-10085 and 1198-7504
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7498)."

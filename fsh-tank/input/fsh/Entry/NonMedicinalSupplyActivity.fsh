@@ -17,9 +17,7 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-8748)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-8749)."
-  * code 1..1
-  * code from ActStatus (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32363)."
+  * insert BindAtCode(ActStatus, required)
 * obeys should-effectiveTime
 * effectiveTime 0..1
 * effectiveTime only $IVL-TS

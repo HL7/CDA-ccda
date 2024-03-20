@@ -38,10 +38,7 @@ Many systems display the nested Problem Observation with the most recent author 
 * statusCode 1..1
   * ^short = "The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved."
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-9029)."
-  * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.19 (required)
-    * ^short = "The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved."
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:1198-31525)."
+  * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-9030)."
   * low 1..1

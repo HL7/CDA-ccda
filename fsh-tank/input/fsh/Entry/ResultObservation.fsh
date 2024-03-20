@@ -39,9 +39,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7134)."
-  * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.39 (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Result Status urn:oid:2.16.840.1.113883.11.20.9.39 STATIC (CONF:4537-14849)."
+  * insert BindAtCode($2.16.840.1.113883.11.20.9.39, required)
 * effectiveTime 1..1
   * ^short = "Represents the clinically relevant time of the measurement (e.g., the time a blood pressure reading is obtained, the time the blood sample was obtained for a chemistry test)."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-7140)."

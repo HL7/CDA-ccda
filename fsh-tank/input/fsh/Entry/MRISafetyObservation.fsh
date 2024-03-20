@@ -22,9 +22,4 @@ Description: "This template is intended to be used in addition to the Product In
     * ^comment = "This code MAY contain zero or one [0..1] @displayName=\"MRI Safety\" (CONF:4437-3476)."
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113762.1.4.1021.46 (required)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Device Magnetic resonance (MR) Safety urn:oid:2.16.840.1.113762.1.4.1021.46 STATIC 2019-06-21 (CONF:4437-3477)."
-  * code 1..1
-    * ^comment = "This value SHALL contain exactly one [1..1] @code (CONF:4437-3478)."
-  * codeSystem 1..1
-    * ^comment = "This value SHALL contain exactly one [1..1] @codeSystem (CONF:4437-3479)."
+  * insert BindAtCode($2.16.840.1.113762.1.4.1021.46, required)

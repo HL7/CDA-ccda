@@ -12,9 +12,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
 * code 1..1
   * ^short = "The Procedure Note recommends use of a single document type code, 28570-0 \"Procedure Note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17182)."
-  * code 1..1
-  * code from ProcedureNoteDocumentTypeCodes (required)
-    * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureNoteDocumentTypeCodes http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.6.1 DYNAMIC (CONF:1198-17183)."
+  * insert BindAtCode(ProcedureNoteDocumentTypeCodes, required)
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.discriminator[+].type = #value

@@ -41,9 +41,7 @@ Description: "This template represents acquired or surgical wounds and is not in
         * ^comment = "This name SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31524)."
     * value 1..1
       * ^comment = "The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."
-      * code 1..1
-      * code from $2.16.840.1.113883.11.20.9.37 (preferred)
-        * ^comment = "This value SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet TargetSite Qualifiers urn:oid:2.16.840.1.113883.11.20.9.37 DYNAMIC (CONF:1198-29494)."
+      * insert BindAtCode($2.16.840.1.113883.11.20.9.37, preferred)
 // * obeys should-author // already in base-ProblemObservation
 * author 0..*
 * author only AuthorParticipation

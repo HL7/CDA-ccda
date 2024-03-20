@@ -29,9 +29,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32307)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-32225)."
-  * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.19 (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProblemAct statusCode urn:oid:2.16.840.1.113883.11.20.9.19 STATIC (CONF:1198-32314)."
+  * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
 * effectiveTime 0..1
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:1198-32226)."
 * obeys should-author

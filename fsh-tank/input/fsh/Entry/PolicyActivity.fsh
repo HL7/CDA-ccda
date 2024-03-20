@@ -54,9 +54,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * obeys should-code
     * code 0..1
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)." // auto-should
-      * code 1..1
-      * code from $2.16.840.1.113883.1.11.10416 (preferred)
-        * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Financially Responsible Party Type Value Set urn:oid:2.16.840.1.113883.1.11.10416 DYNAMIC (CONF:4537-15992)."
+      * insert BindAtCode($2.16.840.1.113883.1.11.10416, preferred)
     * addr 0..1
     * addr only USRealmAddress
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8910)."

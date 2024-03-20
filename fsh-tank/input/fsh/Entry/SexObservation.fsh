@@ -43,8 +43,4 @@ It is recommended systems include the Sex Observation in the Social History sect
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\"(CONF:4537-33080)."
-  * nullFlavor 0..0
-    * ^comment = "SHALL NOT contain [0..0] @nullFlavor (CONF:4547-33094)."
-  * code 1..1
-  * code from $2.16.840.1.113762.1.4.1240.3 (required)
-    * ^comment = "SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Sex (urn:oid:2.16.840.1.113762.1.4.1240.3) DYNAMIC 2023-06-28 (CONF:4547-33098)."
+  * insert BindAtCode($2.16.840.1.113762.1.4.1240.3, required)

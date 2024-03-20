@@ -35,9 +35,7 @@ This information should be included in an Immunization Activity when available. 
   * ^comment = "SHALL contain exactly one [1..1] @negationInd (CONF:1198-8985)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-8833)."
-  * code 1..1
-  * code from ActStatus (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1198-32359)."
+  * insert BindAtCode(ActStatus, required)
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8834)."
 * repeatNumber 0..1

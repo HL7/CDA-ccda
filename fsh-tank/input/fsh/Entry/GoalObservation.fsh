@@ -27,9 +27,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC 2.16.840.1.113883.6.1)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-32333)."
-  * code 1..1
-  * code from ActStatus (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 STATIC (CONF:4515-32334)."
+  * insert BindAtCode(ActStatus, required)
 * obeys should-effectiveTime
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-32335)." // auto-should

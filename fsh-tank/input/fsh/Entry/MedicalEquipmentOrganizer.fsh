@@ -23,9 +23,7 @@ Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy
 * statusCode 1..1
   * ^short = "The organizer is a collection of statuses for contained entries. The organizer remains active until all contained entries are done."
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-31026)."
-  * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.39 (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Result Status urn:oid:2.16.840.1.113883.11.20.9.39 STATIC 2014-09-01 (CONF:1098-31029)."
+  * insert BindAtCode($2.16.840.1.113883.11.20.9.39, required)
 * effectiveTime 1..1
   * ^short = "The effectiveTime can be used to show the time period over which the patient will be using the set of equipment. The organizer would probably not be used with devices applied in or on the patient."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-32136)."

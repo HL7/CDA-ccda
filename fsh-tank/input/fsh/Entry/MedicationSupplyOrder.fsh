@@ -16,9 +16,7 @@ Description: "This template records the intent to supply a patient with medicati
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-7430)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-7432)."
-  * code 1..1
-  * code from ActStatus (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 DYNAMIC (CONF:1098-32362)."
+  * insert BindAtCode(ActStatus, required)
 * effectiveTime ^slicing.discriminator[0].type = #exists
   * ^slicing.discriminator[=].path = "high"
   * ^slicing.rules = #open

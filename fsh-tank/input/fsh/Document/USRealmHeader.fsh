@@ -33,11 +33,7 @@ Description: "This template defines constraints that represent common administra
 * effectiveTime only USRealmDateTime
   * ^comment = "SHALL contain exactly one [1..1] US Realm Date and Time (Point in Time) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.4) (CONF:4537-5256)."
 * confidentialityCode 1..1
-* confidentialityCode from $2.16.840.1.113883.1.11.16926 (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] confidentialityCode, which SHOULD be selected from ValueSet HL7 BasicConfidentialityKind urn:oid:2.16.840.1.113883.1.11.16926 DYNAMIC (CONF:4537-5259)."
-  * nullFlavor 0..0
-    * ^comment = "SHALL NOT contain [0..0] @nullFlavor."
-  * code 1..1
+  * insert BindAtCode($2.16.840.1.113883.1.11.16926, preferred)
 * languageCode 1..1
 * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
   * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC."
@@ -199,9 +195,7 @@ Description: "This template defines constraints that represent common administra
     * code 0..1
       * ^short = "Only if this assignedAuthor is an assignedPerson should the assignedAuthor contain a code."
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4537-16787)." // auto-should
-      * code 1..1
-      * code from $2.16.840.1.114222.4.11.1066 (preferred)
-        * ^comment = "The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-16788)."
+      * insert BindAtCode($2.16.840.1.114222.4.11.1066, preferred)
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5452)."

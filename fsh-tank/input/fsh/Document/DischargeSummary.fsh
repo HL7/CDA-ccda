@@ -18,9 +18,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
 * code 1..1
   * ^short = "The Discharge Summary recommends use of a single document type code, 18842-5 \"Discharge summary\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17178)."
-  * code 1..1
-  * code from DischargeSummaryDocumentTypeCode (required)
-    * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet DischargeSummaryDocumentTypeCode http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.4.1 DYNAMIC (CONF:1198-17179)."
+  * insert BindAtCode(DischargeSummaryDocumentTypeCode, required)
 * participant 0..*
   * obeys 1198-8469
   * ^short = "The participant element in the Discharge Summary header follows the General Header Constraints for participants. Discharge Summary does not specify any use for functionCode for participants. Local policies will determine how this element should be used in implementations."

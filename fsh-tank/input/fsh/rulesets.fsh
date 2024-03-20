@@ -41,6 +41,12 @@ RuleSet: CodedSnomed(code, display)
 * codeSystem = "2.16.840.1.113883.6.96"
   * ^short = "SNOMED CT"
 
+// Equivalent to the old SHALL contain @code
+RuleSet: BindAtCode(valueSet, strength)
+* code 1..1
+* nullFlavor 0..0
+* code from {valueSet} ({strength})
+
 // Use to require code or nullFlavor on an element - makes the display look nice
 RuleSet: ShallCodeOrNullFlavor
 * code 0..1

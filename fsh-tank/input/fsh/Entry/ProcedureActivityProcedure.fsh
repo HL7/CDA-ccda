@@ -22,9 +22,7 @@ Description: "This template is used to represent the details of current and hist
   * insert NarrativeOriginalText
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-7661)."
-  * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.22 (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ProcedureAct statusCode urn:oid:2.16.840.1.113883.11.20.9.22 STATIC 2014-04-23 (CONF:4515-32366)."
+  * insert BindAtCode($2.16.840.1.113883.11.20.9.22, required)
 * obeys active-high-ts-after-document
 * effectiveTime 1..1
 * effectiveTime only USRealmDateTimeInterval

@@ -20,7 +20,6 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-32621)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-32624)."
-  * code 1..1
   * insert CodedLoinc(89571-4, Disability Status [CUBS])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-32625)."

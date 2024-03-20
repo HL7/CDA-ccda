@@ -35,9 +35,7 @@ Description: "This clinical statement represents current and/or prior pregnancy 
   /*" 201707 Errata Comment 1599: Added value set \"Pregnancy Status\" urn:oid:2.16.840.1.113883.11.20.9.85 to Trifolia. Contains values (all from SNOMED): Pregnant (finding), Possible Pregnancy (finding), Not Pregnant (finding).
   
   Updated Pregnancy Observation template - removed binding to single code (Pregnant) and added SHALL DYNAMIC binding to above value set.\" " */
-  * code 1..1
-  * code from $2.16.840.1.113762.1.4.1099.24 (required)
-    * ^comment = "This code SHALL be selected from ValueSet Extended Pregnancy Status urn:oid:2.16.840.1.113762.1.4.1099.24 DYNAMIC (CONF:81-457)."
+  * insert BindAtCode($2.16.840.1.113762.1.4.1099.24, required)
 * entryRelationship ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open

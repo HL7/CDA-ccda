@@ -22,9 +22,5 @@ Description: "This template is intended to be used in addition to the Product In
     * ^comment = "This code MAY contain zero or one [0..1] @displayName=\"Latex Safety Status\" (CONF:4437-3499)."
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113762.1.4.1021.47 (required)
+  * insert BindAtCode($2.16.840.1.113762.1.4.1021.47, required)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Device Latex Safety urn:oid:2.16.840.1.113762.1.4.1021.47 STATIC 2019-06-21 (CONF:4437-3493)."
-  * code 1..1
-    * ^comment = "This value SHALL contain exactly one [1..1] @code (CONF:4437-3500)."
-  * codeSystem 1..1
-    * ^comment = "This value SHALL contain exactly one [1..1] @codeSystem (CONF:4437-3501)."

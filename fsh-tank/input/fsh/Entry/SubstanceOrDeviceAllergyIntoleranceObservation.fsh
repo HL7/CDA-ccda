@@ -40,10 +40,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF:1098-16312)."
-  * code 1..1
-  * code from $2.16.840.1.113883.3.88.12.3221.6.2 (required)
-    * ^short = "Many systems will simply assign a fixed value here (e.g., \"allergy to substance\")."
-    * ^comment = "This value SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Allergy and Intolerance Type urn:oid:2.16.840.1.113883.3.88.12.3221.6.2 DYNAMIC (CONF:1098-16317)."
+  * insert BindAtCode($2.16.840.1.113883.3.88.12.3221.6.2, required)
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation

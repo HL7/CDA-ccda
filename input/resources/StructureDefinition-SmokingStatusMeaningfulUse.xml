@@ -136,8 +136,12 @@
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."/>
+            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:1098-14809)."/>
             <min value="1"/>
+        </element>
+        <element id="Observation.statusCode.nullFlavor">
+            <path value="Observation.statusCode.nullFlavor"/>
+            <max value="0"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>

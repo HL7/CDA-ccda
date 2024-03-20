@@ -39,6 +39,4 @@ Description: """This template is used to express the care team type. A care team
   * ^short = "value"
   //"<sliceName value=\"value1\"/>"
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF:4435-98) such that it"
-  * code 1..1
-  * code from $2.16.840.1.113883.4.642.3.155 (required)
-    * ^comment = "SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Care Team Category urn:oid:2.16.840.1.113883.4.642.3.155 DYNAMIC (CONF:4435-109)."
+  * insert BindAtCode($2.16.840.1.113883.4.642.3.155, required)

@@ -29,9 +29,7 @@ If the patient's current smoking status is unknown, the value element must be po
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32157)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-14809)."
-  * code 1..1
-  * code from $2.16.840.1.113762.1.4.1240.6 (required)
-  * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Completed or Nullified Act Status urn:oid:2.16.840.1.113762.1.4.1240.6."
+  * insert BindAtCode($2.16.840.1.113762.1.4.1240.6, required)
 * effectiveTime 1..1
   * ^short = "This template represents a \"snapshot in time\" observation, simply reflecting what the patient's current smoking status is at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp, and will approximately correspond with the author/time."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31928)."

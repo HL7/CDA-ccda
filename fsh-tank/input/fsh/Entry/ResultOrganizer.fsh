@@ -26,9 +26,7 @@ A specimen linked to a Result Organizer applies to all Result Observations. Cent
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-7128)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7123)."
-  * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.39 (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Result Status urn:oid:2.16.840.1.113883.11.20.9.39 STATIC (CONF:4537-14848)."
+  * insert BindAtCode($2.16.840.1.113883.11.20.9.39, required)
 * effectiveTime 0..1
   * ^short = "The effectiveTime is an interval that spans the effectiveTimes of the contained result observations. Because all contained result observations have a required time stamp, it is not required that this effectiveTime be populated."
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:4537-31865)."

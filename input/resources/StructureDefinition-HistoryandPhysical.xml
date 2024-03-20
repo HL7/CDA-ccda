@@ -66,9 +66,12 @@
             <short value="The H&amp;P Note recommends use of a single document type code, 34117-2 &quot;History and physical note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-17185)."/>
         </element>
+        <element id="ClinicalDocument.code.nullFlavor">
+            <path value="ClinicalDocument.code.nullFlavor"/>
+            <max value="0"/>
+        </element>
         <element id="ClinicalDocument.code.code">
             <path value="ClinicalDocument.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet HPDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.22 DYNAMIC (CONF:1198-17186)."/>
             <min value="1"/>
             <binding>
                 <strength value="required"/>

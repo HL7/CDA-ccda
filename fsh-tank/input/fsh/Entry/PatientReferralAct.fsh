@@ -21,9 +21,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Referral Types urn:oid:2.16.840.1.113883.11.20.9.56 DYNAMIC (CONF:1098-30889)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-30892)."
-  * code 1..1
-  * code from $2.16.840.1.113883.1.11.15933 (required)
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] [1..1] @code, which SHALL be selected from ValueSet ActStatus statusCode urn:oid:2.16.840.1.113883.1.11.15933."
+  * insert BindAtCode($2.16.840.1.113883.1.11.15933, required)
 * effectiveTime 1..1
   * ^short = "The effectiveTime represents the time when the future referral is intended to take place."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30893)."

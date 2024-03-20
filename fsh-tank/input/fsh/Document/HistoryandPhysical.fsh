@@ -15,9 +15,7 @@ A History and Physical Examination is required upon hospital admission as well a
 * code 1..1
   * ^short = "The H&P Note recommends use of a single document type code, 34117-2 \"History and physical note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17185)."
-  * code 1..1
-  * code from HPDocumentType (required)
-    * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet HPDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.22 DYNAMIC (CONF:1198-17186)."
+  * insert BindAtCode(HPDocumentType, required)
 * informationRecipient 0..*
   * ^comment = "MAY contain zero or more [0..*] informationRecipient (CONF:1198-32482)."
   * intendedRecipient 1..1

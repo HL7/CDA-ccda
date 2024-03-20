@@ -42,9 +42,7 @@ The effectiveTime element is used to describe dates associated with the patient'
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF-1098-16562)."
-  * code 1..1
-  * code from $2.16.840.1.113883.11.20.9.41 (required)
-    * ^comment = "This value SHALL contain exactly one [1..1] @code,  which SHALL be selected from ValueSet Tobacco Use urn:oid:2.16.840.1.113883.11.20.9.41 DYNAMIC (CONF:1098-16563)."
+  * insert BindAtCode($2.16.840.1.113883.11.20.9.41, required)
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation

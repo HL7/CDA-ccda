@@ -43,10 +43,8 @@ The components of the organizer contain the following information:
         * ^comment = "This reference SHALL contain exactly one [1..1] @value (CONF:4515-156)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-113)."
-  * code 1..1
-  * code from ActStatus (required)
-    * ^short = "When statusCode has a value set, its value MAY be rendered in the narrative."
-    * ^comment = "This statusCode SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet ActStatus urn:oid:2.16.840.1.113883.1.11.15933 STATIC (CONF:4515-119)."
+  * insert BindAtCode(ActStatus, required)
+  * ^short = "When statusCode has a value set, its value MAY be rendered in the narrative."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-127)."
   * low 1..1

@@ -125,26 +125,23 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Device Magnetic resonance (MR) Safety urn:oid:2.16.840.1.113762.1.4.1021.46 STATIC 2019-06-21 (CONF:4437-3477)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
+        </element>
+        <element id="Observation.value.nullFlavor">
+            <path value="Observation.value.nullFlavor"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.value.code">
+            <path value="Observation.value.code"/>
+            <min value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.46"/>
             </binding>
-        </element>
-        <element id="Observation.value.code">
-            <path value="Observation.value.code"/>
-            <comment value="This value SHALL contain exactly one [1..1] @code (CONF:4437-3478)."/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.value.codeSystem">
-            <path value="Observation.value.codeSystem"/>
-            <comment value="This value SHALL contain exactly one [1..1] @codeSystem (CONF:4437-3479)."/>
-            <min value="1"/>
         </element>
     </differential>
 </StructureDefinition>
