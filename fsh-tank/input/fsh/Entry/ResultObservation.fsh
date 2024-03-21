@@ -77,8 +77,6 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * ^comment = "SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)." // auto-should
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4537-7151)."
-    * code 0..0
-      * ^comment = "This observationRange SHALL NOT contain [0..0] code (CONF:4537-7152)."
     * value 1..1
       * ^comment = "This observationRange SHALL contain exactly one [1..1] value (CONF:4537-32175)."
 
