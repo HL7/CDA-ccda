@@ -24,4 +24,4 @@ Description: "The Immunization Not Given Reason documents the rationale for the 
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19104)."
 * value 1..1
 * value only $CD
-  * insert BindAtCode($2.16.840.1.113883.1.11.19717, required)
+* value from $2.16.840.1.113883.1.11.19717 (required)

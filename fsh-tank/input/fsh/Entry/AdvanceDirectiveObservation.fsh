@@ -173,7 +173,7 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
         * ^short = "The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."
         * ^comment = "The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."
     * code 1..1
-      * insert BindAtCode($2.16.840.1.113883.11.20.9.69.4, preferred)    
+    * code from $2.16.840.1.113883.11.20.9.69.4 (preferred)    
 
 Invariant: 1198-32449
 Description: "If the Advance Directive does not have a specified ending time, the <high> element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."
