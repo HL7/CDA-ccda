@@ -456,6 +456,22 @@
             <comment value="This externalDocument SHALL contain at least one [1..*] id (CONF:1198-8695)."/>
             <min value="1"/>
         </element>
+        <element id="Observation.reference:reference1.externalDocument.code">
+            <path value="Observation.reference.externalDocument.code"/>
+            <min value="1"/>
+        </element>
+        <element id="Observation.reference:reference1.externalDocument.code.nullFlavor">
+            <path value="Observation.reference.externalDocument.code.nullFlavor"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.reference:reference1.externalDocument.code.code">
+            <path value="Observation.reference.externalDocument.code.code"/>
+            <min value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4"/>
+            </binding>
+        </element>
         <element id="Observation.reference:reference1.externalDocument.text">
             <path value="Observation.reference.externalDocument.text"/>
             <comment value="This externalDocument MAY contain zero or one [0..1] text (CONF:1198-8696)."/>
