@@ -295,7 +295,7 @@ Description: "This template defines constraints that represent common administra
       * name 1..1
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] name (CONF:4537-5524)."
       * telecom 1..1
-        * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] telecom (CONF:4537-5525)."
+        * ^comment = "To supply multiple telecom, the sdtc:telecom extension can be used.  This representedCustodianOrganization SHALL contain exactly one [1..1] telecom (CONF:4537-5525)."
         * obeys should-use
         * use 0..1
         * use from $2.16.840.1.113883.11.20.9.20 (required)
