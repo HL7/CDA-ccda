@@ -18,10 +18,7 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
 * code 1..1
   * ^short = "Vital Signs"
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-32740)."
-  * code 1..1
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.96"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" SNOMED CT (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32742)."
+  * insert CodedSnomed(46680005, Vital Signs)
   * translation ^slicing.discriminator[0].type = #value
     * ^slicing.discriminator[=].path = "codeSystem"
     * ^slicing.discriminator[+].type = #value
@@ -29,13 +26,7 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
     * ^slicing.rules = #open
   * translation contains translation1 1..1
   * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"
-    * ^short = "Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel"
-    * code 1..1
-    * code = #74728-7
-      * ^comment = "SHALL contain exactly one [1..1] @code=\"74728-7\" Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.CCDAr1.1 (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32744)."
-    * codeSystem 1..1
-    * codeSystem = "2.16.840.1.113883.6.1"
-      * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" LOINC (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32746)."
+    * insert CodedLoinc(74728-7, [[Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-7284)."
   * code 1..1
