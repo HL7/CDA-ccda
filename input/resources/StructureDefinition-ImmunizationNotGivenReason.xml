@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="ImmunizationRefusalReason"/>
+    <id value="ImmunizationNotGivenReason"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -20,14 +20,15 @@
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
     </extension>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationRefusalReason"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationNotGivenReason"/>
     <identifier>
-        <value value="urn:oid:2.16.840.1.113883.10.20.22.4.53"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.53:2024-05-01"/>
     </identifier>
-    <name value="ImmunizationRefusalReason"/>
-    <title value="Immunization Refusal Reason"/>
+    <version value="2024-05-01"/>
+    <name value="ImmunizationNotGivenReason"/>
+    <title value="Immunization Not Given Reason"/>
     <status value="draft"/>
-    <description value="The Immunization Refusal Reason documents the rationale for the patient declining an immunization."/>
+    <description value="The Immunization Not Given Reason documents the rationale for the patient declining an immunization."/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -47,7 +48,7 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain text/reference/@value"/>
                 <expression value="text.reference.value.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationRefusalReason"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationNotGivenReason"/>
             </constraint>
         </element>
         <element id="Observation.templateId">
@@ -57,24 +58,29 @@
                     <type value="value"/>
                     <path value="root"/>
                 </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:imm-refuse-reason">
+        <element id="Observation.templateId:imm-not-given-reason">
             <path value="Observation.templateId"/>
-            <sliceName value="imm-refuse-reason"/>
+            <sliceName value="imm-not-given-reason"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:imm-refuse-reason.root">
+        <element id="Observation.templateId:imm-not-given-reason.root">
             <path value="Observation.templateId.root"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.53"/>
         </element>
-        <element id="Observation.templateId:imm-refuse-reason.extension">
+        <element id="Observation.templateId:imm-not-given-reason.extension">
             <path value="Observation.templateId.extension"/>
-            <max value="0"/>
+            <min value="1"/>
+            <patternString value="2024-05-01"/>
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
@@ -93,11 +99,18 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet No Immunization Reason urn:oid:2.16.840.1.113883.1.11.19717 DYNAMIC (CONF:81-8995)."/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19717"/>
-            </binding>
+            <short value="Reason Immunization Not Given"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <min value="1"/>
+            <patternCode value="71798-3"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
@@ -110,7 +123,7 @@
                 <severity value="error"/>
                 <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
                 <expression value="value.exists() implies value.startsWith('#')"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationRefusalReason"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationNotGivenReason"/>
             </constraint>
         </element>
         <element id="Observation.statusCode">
@@ -123,6 +136,26 @@
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19104)."/>
             <min value="1"/>
             <fixedCode value="completed"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+        </element>
+        <element id="Observation.value.nullFlavor">
+            <path value="Observation.value.nullFlavor"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.value.code">
+            <path value="Observation.value.code"/>
+            <min value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19717"/>
+            </binding>
         </element>
     </differential>
 </StructureDefinition>

@@ -344,6 +344,21 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
             </type>
         </element>
+        <element id="SubstanceAdministration.entryRelationship:indication.observation.code">
+            <path value="SubstanceAdministration.entryRelationship.observation.code"/>
+            <short value="Indication for Immunization"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:indication.observation.code.code">
+            <path value="SubstanceAdministration.entryRelationship.observation.code.code"/>
+            <min value="1"/>
+            <patternCode value="59785-6"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:indication.observation.code.codeSystem">
+            <path value="SubstanceAdministration.entryRelationship.observation.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
         <element id="SubstanceAdministration.entryRelationship:instruction">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="instruction"/>
@@ -434,25 +449,25 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
             </type>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:immunizationRefusal">
+        <element id="SubstanceAdministration.entryRelationship:immunizationNotGiven">
             <path value="SubstanceAdministration.entryRelationship"/>
-            <sliceName value="immunizationRefusal"/>
+            <sliceName value="immunizationNotGiven"/>
             <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1198-8988) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:immunizationRefusal.typeCode">
+        <element id="SubstanceAdministration.entryRelationship:immunizationNotGiven.typeCode">
             <path value="SubstanceAdministration.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;RSON&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8989)."/>
             <fixedCode value="RSON"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:immunizationRefusal.observation">
+        <element id="SubstanceAdministration.entryRelationship:immunizationNotGiven.observation">
             <path value="SubstanceAdministration.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Immunization Refusal Reason (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.53) (CONF:1198-15542)."/>
+            <comment value="SHALL contain exactly one [1..1] Immunization Not Given Reason (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.53:2024-05-01) (CONF:1198-15542)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationRefusalReason"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationNotGivenReason"/>
             </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:substanceAdmin">

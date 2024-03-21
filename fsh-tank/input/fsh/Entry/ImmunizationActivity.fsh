@@ -98,7 +98,7 @@ This information should be included in an Immunization Activity when available. 
     medSupplyOrder 0..1 and
     medDispense 0..1 and
     reactionObs 0..1 and
-    immunizationRefusal 0..1 and
+    immunizationNotGiven 0..1 and
     substanceAdmin 0..*
 * entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-8853) such that it"
   * typeCode 1..1
@@ -107,6 +107,8 @@ This information should be included in an Immunization Activity when available. 
   * observation 1..1
   * observation only Indication
     * ^comment = "SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1198-15537)."
+    * code 1..1
+      * insert CodedLoinc(59785-6, [[Indication for Immunization]])
 * entryRelationship[instruction] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1198-8856) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
@@ -138,13 +140,13 @@ This information should be included in an Immunization Activity when available. 
   * observation 1..1
   * observation only ReactionObservation
     * ^comment = "SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1198-15541)."
-* entryRelationship[immunizationRefusal] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1198-8988) such that it"
+* entryRelationship[immunizationNotGiven] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1198-8988) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8989)."
   * observation 1..1
-  * observation only ImmunizationRefusalReason
-    * ^comment = "SHALL contain exactly one [1..1] Immunization Refusal Reason (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.53) (CONF:1198-15542)."
+  * observation only ImmunizationNotGivenReason
+    * ^comment = "SHALL contain exactly one [1..1] Immunization Not Given Reason (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.53:2024-05-01) (CONF:1198-15542)."
 * entryRelationship[substanceAdmin] ^short = "The following entryRelationship is used to indicate a given immunization's order in a series. The nested Substance Administered Act identifies an administration in the series. The entryRelationship/sequenceNumber shows the order of this particular administration in that series."
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-31510) such that it"
   * typeCode 1..1

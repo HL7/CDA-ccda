@@ -1,10 +1,10 @@
-Profile: ImmunizationRefusalReason
+Profile: ImmunizationNotGivenReason
 Parent: $Observation
-Id: ImmunizationRefusalReason
-Title: "Immunization Refusal Reason"
-Description: "The Immunization Refusal Reason documents the rationale for the patient declining an immunization."
+Id: ImmunizationNotGivenReason
+Title: "Immunization Not Given Reason"
+Description: "The Immunization Not Given Reason documents the rationale for the patient declining an immunization."
 
-* insert LogicalModelTemplateRootOnly(imm-refuse-reason, 2.16.840.1.113883.10.20.22.4.53)
+* insert LogicalModelTemplate(imm-not-given-reason, 2.16.840.1.113883.10.20.22.4.53, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -16,10 +16,12 @@ Description: "The Immunization Refusal Reason documents the rationale for the pa
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:81-8994)."
 * code 1..1
-* code from $2.16.840.1.113883.1.11.19717 (required)
-  * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet No Immunization Reason urn:oid:2.16.840.1.113883.1.11.19717 DYNAMIC (CONF:81-8995)."
+  * insert CodedLoinc(71798-3, [[Reason Immunization Not Given]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:81-8996)."
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19104)."
+* value 1..1
+* value only $CD
+  * insert BindAtCode($2.16.840.1.113883.1.11.19717, required)
