@@ -511,7 +511,7 @@ The C-CDA specification requires the following:
 </table>
 
 
-**Figure 4: Author Participation**
+**Author Participation**
 
 Inclusion of an entry-level author is allowed in open entry templates in C-CDA where use of entry-level authors has
 not explicitly been prohibited. Its use is required on only one entry template, the [Handoff Communication Participants template](StructureDefinition-HandoffCommunicationParticipants.html).
@@ -1304,7 +1304,7 @@ some cases, the information in one section may be classified in multiple SOAP ca
 approximation designed to improve understanding of the full collection of C-CDA section templates.
 
 <table><tr><td><img src="Figure 5 Visualizing C-CDA section templates by applying the SOAP framework.png" /></td></tr></table>
-**Figure 5: Visualizing C-CDA section templates by applying the SOAP framework**
+**Visualizing C-CDA section templates by applying the SOAP framework**
 
 ##### A More Meaningful Patient Story Using C-CDA: Tell it. Use it. Share it.
 
@@ -1468,7 +1468,7 @@ communities may determine that a certain version of a template should not be use
 {% include examplebutton_default.html example="wrong_template_conformance.xml" b_title = "Click Here to See 'Section Wrong Template Conformance' Example" %}
 
 
-**Figure 6: Example of how to include templateIds for Companion Guide templates**
+**Example of how to include templateIds for Companion Guide templates**
 
 {% include examplebutton_default.html example="companion_guide_template_conformance.xml" b_title = "Click Here to See 'Companion Guide Template Conformance' Example" %}
 
@@ -2390,7 +2390,7 @@ The C-CDA document header contains roles filled by those involved in patient car
 
 ##### Care Team Organizer Template Design
 
-**Figure 7: Logical design for Care Team Organizer Template**
+**Logical design for Care Team Organizer Template**
 
 **Example 35: Care Teams Section with Care Team Member Organizer for discrete data representation.**
 

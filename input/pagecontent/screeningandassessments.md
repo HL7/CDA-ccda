@@ -67,7 +67,7 @@ to represent simple question and answer assesement questions such as, "Kinds of 
 {::options parse_block_html="false" /}
 <figure>
   <img style="padding-top:0;padding-bottom:30px" width="800px" src="Figure 9 SDOH Assessment and Planning Process.png" alt="Assessment and Planning Process SDOH example"/>
-  <figcaption>Figure 8 - Assessment and Planning Process SDOH example</figcaption>
+  <figcaption>Assessment and Planning Process SDOH example</figcaption>
 </figure>
 {::options parse_block_html="true" /}
 
@@ -91,7 +91,7 @@ template.
 {::options parse_block_html="false" /}
 <figure>
   <img style="padding-top:0;padding-bottom:30px" width="800px" src="Figure 8 Example of SDOH Grouping Value set in VSAC (Conditions).png" alt="Example of SDOH Grouping Value set in VSAC (Conditions)"/>
-  <figcaption>Figure 9 - Example of SDOH Grouping Value set in VSAC (Conditions)</figcaption>
+  <figcaption>Example of SDOH Grouping Value set in VSAC (Conditions)</figcaption>
 </figure>
 {::options parse_block_html="true" /}
 
