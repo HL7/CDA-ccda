@@ -13,3 +13,6 @@ Description: "This section contains a record of the patient's past complaints, p
   * observation 1..1
   * observation only ProblemObservation
     * ^comment = "SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15476)."
+    * ^short = "Should contain an effectiveTime/high or and/or a Problem Status with value 73425007 (Inactive), 413322009 (Problem resolved), or 277022003 (Remission phase)."
+    * effectiveTime 
+      * obeys should-high
