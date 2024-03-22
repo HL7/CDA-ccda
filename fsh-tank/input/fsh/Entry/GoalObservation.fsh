@@ -31,6 +31,7 @@ A goal may have components consisting of other goals (milestones). These milesto
 * obeys should-effectiveTime
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-32335)." // auto-should
+  * ^short = "effectiveTime/low represents when to start working on the goal. effectiveTime/high or effectiveTime/value represents when the goal should be met (i.e. a due date)"
 * value 0..1
   * ^short = "When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet Social Determinant of Health Goals urn:oid:2.16.840.1.113762.1.4.1247.71 DYNAMIC."
 * obeys should-author
