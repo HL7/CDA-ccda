@@ -26,14 +26,7 @@ Please see [Indian Entities Recognized by and Eligible To Receive Services From 
 * effectiveTime 1..1
   * ^short = "The effectiveTime reflects a point in time observation when the current tribal affiliation status was observed. Note: This template represents a \"snapshot in time\" observation, simply reflecting the patient's tribal affiliation at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-11)."
-  * low 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] low (CONF:4537-33048)."
-  * width 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] width (CONF:4537-33049)."
-  * high 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] high (CONF:4537-33050)."
-  * center 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] center (CONF:4537-33051)."
+  * insert IntervalValueOnly
 * value 1..1
 * value[physical-quantity] 0..0
 * value[coded] 1..1

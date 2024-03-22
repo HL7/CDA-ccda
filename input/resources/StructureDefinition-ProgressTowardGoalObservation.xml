@@ -132,6 +132,20 @@
             <min value="1"/>
             <fixedCode value="completed"/>
         </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <constraint>
+                <key value="value-only"/>
+                <severity value="error"/>
+                <human value="Interval fields SHALL not be present"/>
+                <expression value="(low | high | width | center).empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressTowardGoalObservation"/>
+            </constraint>
+        </element>
+        <element id="Observation.effectiveTime.value">
+            <path value="Observation.effectiveTime.value"/>
+            <short value="value should be used instead of low/high"/>
+        </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
             <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Goal Achievement urn:oid:2.16.840.1.113883.11.20.9.55 DYNAMIC (CONF:1098-31426)."/>

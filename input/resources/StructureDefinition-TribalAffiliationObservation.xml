@@ -97,26 +97,17 @@
             <path value="Observation.effectiveTime"/>
             <short value="The effectiveTime reflects a point in time observation when the current tribal affiliation status was observed. Note: This template represents a &quot;snapshot in time&quot; observation, simply reflecting the patient's tribal affiliation at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp."/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-11)."/>
+            <constraint>
+                <key value="value-only"/>
+                <severity value="error"/>
+                <human value="Interval fields SHALL not be present"/>
+                <expression value="(low | high | width | center).empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TribalAffiliationObservation"/>
+            </constraint>
         </element>
-        <element id="Observation.effectiveTime.low">
-            <path value="Observation.effectiveTime.low"/>
-            <comment value="This effectiveTime SHALL NOT contain exactly one [1..1] low (CONF:4537-33048)."/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.effectiveTime.center">
-            <path value="Observation.effectiveTime.center"/>
-            <comment value="This effectiveTime SHALL NOT contain exactly one [1..1] center (CONF:4537-33051)."/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.effectiveTime.width">
-            <path value="Observation.effectiveTime.width"/>
-            <comment value="This effectiveTime SHALL NOT contain exactly one [1..1] width (CONF:4537-33049)."/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.effectiveTime.high">
-            <path value="Observation.effectiveTime.high"/>
-            <comment value="This effectiveTime SHALL NOT contain exactly one [1..1] high (CONF:4537-33050)."/>
-            <max value="0"/>
+        <element id="Observation.effectiveTime.value">
+            <path value="Observation.effectiveTime.value"/>
+            <short value="value should be used instead of low/high"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>

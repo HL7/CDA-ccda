@@ -33,14 +33,7 @@ It is recommended systems include the Birth Sex observation in the Social Histor
 * effectiveTime 1..1
   * ^short = "Note: This template represents a \"snapshot in time\" observation, simply reflecting the patient's sex at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp. Since this represents Birth Sex it SHALL match the birthTime."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33043)."
-  * low 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] low (CONF:4537-33044)."
-  * width 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] width (CONF:4537-33045)."
-  * high 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] high (CONF:4537-33046)."
-  * center 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] center (CONF:4537-33047)."
+  * insert IntervalValueOnly
 * value 1..1
 * value only $CD
 * value from $2.16.840.1.113762.1.4.1021.24 (required)

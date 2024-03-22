@@ -33,14 +33,7 @@ If the patient's current smoking status is unknown, the value element must be po
 * effectiveTime 1..1
   * ^short = "This template represents a \"snapshot in time\" observation, simply reflecting what the patient's current smoking status is at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp, and will approximately correspond with the author/time."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-31928)."
-  * low 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain [0..0] low (CONF:1098-32894)."
-  * width 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain [0..0] width (CONF:1098-32895)."
-  * high 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain [0..0] high (CONF:1098-32896)."
-  * center 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain [0..0] center (CONF:1098-32897)."
+  * insert IntervalValueOnly
 * value 1..1
 * value only $CD
   * insert USCDI([[Smoking Status: If the patient's current smoking status is unknown, @code **SHALL** contain '266927001' (Unknown if ever smoked) from ValueSet Current Smoking Status (2.16.840.1.113883.11.20.9.38 STATIC 2014-09-01) (CONF:1098-31019).]])

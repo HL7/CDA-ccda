@@ -32,14 +32,7 @@ It is recommended systems include the Sex Observation in the Social History sect
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-33082)."
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33081)."
-  * low 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] low (CONF:4537-33090)."
-  * width 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] width (CONF:4537-33091)."
-  * high 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] high (CONF:4537-33092)."
-  * center 0..0
-    * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] center (CONF:4537-33093)."
+  * insert IntervalValueOnly
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\"(CONF:4537-33080)."
