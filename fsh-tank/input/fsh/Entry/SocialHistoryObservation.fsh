@@ -29,8 +29,15 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-31868)."
 * obeys should-value and 4515-8555
 * value 0..1
-  * ^short = "NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
+  * ^slicing.discriminator[0].type = #type
+  * ^slicing.discriminator[=].path = "$this"
+  * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or one [0..1] value (CONF:4515-8559)." // auto-should
+* value contains physical-quantity 0..1 and coded 0..1
+* value[physical-quantity] only $PQ
+  * unit 1..1
+  * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
+* value[coded] only $CD
   * ^binding.strength = #example
   * ^binding.description = "See additional binding"
   * insert AdditionalBinding(preferred, $SDoHConditions, Social Determinant of Health Observations, [[If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957).]])

@@ -35,6 +35,7 @@ Please see [Indian Entities Recognized by and Eligible To Receive Services From 
   * center 0..0
     * ^comment = "This effectiveTime SHALL NOT contain exactly one [1..1] center (CONF:4537-33051)."
 * value 1..1
-* value only $CD
-* value from TribalEntityUS (required)
+* value[physical-quantity] 0..0
+* value[coded] 1..1
+* value[coded] from TribalEntityUS (required)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which SHALL be selected from ValueSet TribalEntityUS http://terminology.hl7.org/ValueSet/v3-TribalEntityUS DYNAMIC (CONF:4537-12)."

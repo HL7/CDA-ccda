@@ -110,11 +110,18 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
+            <min value="1"/>
+        </element>
+        <element id="Observation.value:physical-quantity">
+            <path value="Observation.value"/>
+            <sliceName value="physical-quantity"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.value:coded">
+            <path value="Observation.value"/>
+            <sliceName value="coded"/>
             <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, which SHALL be selected from ValueSet Occupation ONETSOC Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7901 DYNAMIC (CONF:4537-33006)."/>
             <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
-            </type>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7901"/>

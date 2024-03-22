@@ -164,9 +164,41 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="NOTE for PQ values: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
+            <slicing>
+                <discriminator>
+                    <type value="type"/>
+                    <path value="$this"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <comment value="SHOULD contain zero or one [0..1] value (CONF:4515-8559)."/>
             <max value="1"/>
+        </element>
+        <element id="Observation.value:physical-quantity">
+            <path value="Observation.value"/>
+            <sliceName value="physical-quantity"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PQ"/>
+            </type>
+        </element>
+        <element id="Observation.value:physical-quantity.unit">
+            <path value="Observation.value.unit"/>
+            <min value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive"/>
+            </binding>
+        </element>
+        <element id="Observation.value:coded">
+            <path value="Observation.value"/>
+            <sliceName value="coded"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
             <binding>
                 <strength value="example"/>
                 <description value="See additional binding"/>

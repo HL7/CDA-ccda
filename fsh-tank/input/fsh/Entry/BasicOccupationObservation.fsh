@@ -32,8 +32,9 @@ Implementers wishing to convey more advanced Occupation detail, such as employer
     * ^short = "The high value reflects the end date of the recorded occupation. An absent high value means the occupation was current at the time the document was generated."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33008)."
 * value 1..1
-* value only $CD
-* value from $2.16.840.1.114222.4.11.7901 (required)
+* value[physical-quantity] 0..0
+* value[coded] 1..1
+* value[coded] from $2.16.840.1.114222.4.11.7901 (required)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which SHALL be selected from ValueSet Occupation ONETSOC Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7901 DYNAMIC (CONF:4537-33006)."
 * subject 0..1
   * ^short = "Indicates that this observation is for a related person whose occupation may affect the patient."
