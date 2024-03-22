@@ -21,7 +21,6 @@ An Advance Directive Organizer is required and all of the Advance Directive Obse
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
-  * ^short = "If section/@nullFlavor is not present SHALL contain an Advance Directive Observation OR an Advance Directive Organizer (NEW):"
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"
 * entry contains
     observation 0..* and
