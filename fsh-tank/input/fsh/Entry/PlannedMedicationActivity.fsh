@@ -20,10 +20,38 @@ Description: "This template represents planned medication activities. The priori
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32088)."
-* effectiveTime 1..1
-* effectiveTime only $IVL-TS
+* effectiveTime ^slicing.discriminator[+].type = #type
+  * ^slicing.discriminator[=].path = "$this"
+  * ^slicing.rules = #open
+* effectiveTime contains
+    duration 1..1 and
+    periodicFrequency 0..1 and
+    eventFrequency 0..1
+* effectiveTime[duration] only $IVL-TS
+  * obeys 1098-32890
   * ^short = "The effectiveTime in a planned medication activity represents the time that the medication activity should occur."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30468) such that it"
+  * obeys should-value-att
+  * value 0..1
+    * ^short = "indicates a single-administration timestamp"
+    * ^comment = "SHOULD contain zero or one [0..1] @value (CONF:1098-32775)." // man-should
+  * obeys should-low
+  * low 0..1
+    * ^short = "indicates when medication started"
+    * ^comment = "SHOULD contain zero or one [0..1] low (CONF:1098-32776)." // auto-should
+  * high 0..1
+    * ^short = "indicates when medication stopped"
+    * ^comment = "MAY contain zero or one [0..1] high (CONF:1098-32777)."
+* effectiveTime[periodicFrequency] only $EIVL-TS
+  * ^short = "This effectiveTime represents a periodic medication frequency (e.g., administration times per day)."
+  * operator 1..1
+  * operator = #A
+    * ^comment = "SHALL contain exactly one [1..1] @operator=\"A\" (CONF:1098-9106)."
+* effectiveTime[eventFrequency] only $PIVL-TS
+  * ^short = "This effectiveTime represents an event-based medication frequency (e.g., administration at bedtime)."
+  * operator 1..1
+  * operator = #A
+    * ^comment = "SHALL contain exactly one [1..1] @operator=\"A\" (CONF:1098-9106)."
 * repeatNumber 0..1
   * ^short = "In a Planned Medication Activity, repeatNumber defines the number of allowed administrations. For example, a repeatNumber of \"3\" means that the substance can be administered up to 3 times."
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1098-32066)."

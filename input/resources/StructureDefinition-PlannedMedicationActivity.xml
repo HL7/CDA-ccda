@@ -140,6 +140,18 @@
         </element>
         <element id="SubstanceAdministration.effectiveTime">
             <path value="SubstanceAdministration.effectiveTime"/>
+            <slicing>
+                <discriminator>
+                    <type value="type"/>
+                    <path value="$this"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:duration">
+            <path value="SubstanceAdministration.effectiveTime"/>
+            <sliceName value="duration"/>
             <short value="The effectiveTime in a planned medication activity represents the time that the medication activity should occur."/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30468) such that it"/>
             <min value="1"/>
@@ -147,6 +159,74 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
             </type>
+            <constraint>
+                <key value="1098-32890"/>
+                <severity value="error"/>
+                <human value="This effectiveTime **SHALL** contain either a low or a @value but not both (CONF:1098-32890)."/>
+                <expression value="(value.exists() or low.exists()) and ((value.exists() and low.exists()).not())"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-value-att"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain @value"/>
+                <expression value="value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
+            <constraint>
+                <key value="should-low"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain low"/>
+                <expression value="low.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
+            </constraint>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:duration.value">
+            <path value="SubstanceAdministration.effectiveTime.value"/>
+            <short value="indicates a single-administration timestamp"/>
+            <comment value="SHOULD contain zero or one [0..1] @value (CONF:1098-32775)."/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:duration.low">
+            <path value="SubstanceAdministration.effectiveTime.low"/>
+            <short value="indicates when medication started"/>
+            <comment value="SHOULD contain zero or one [0..1] low (CONF:1098-32776)."/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:duration.high">
+            <path value="SubstanceAdministration.effectiveTime.high"/>
+            <short value="indicates when medication stopped"/>
+            <comment value="MAY contain zero or one [0..1] high (CONF:1098-32777)."/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:periodicFrequency">
+            <path value="SubstanceAdministration.effectiveTime"/>
+            <sliceName value="periodicFrequency"/>
+            <short value="This effectiveTime represents a periodic medication frequency (e.g., administration times per day)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/EIVL-TS"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:periodicFrequency.operator">
+            <path value="SubstanceAdministration.effectiveTime.operator"/>
+            <comment value="SHALL contain exactly one [1..1] @operator=&quot;A&quot; (CONF:1098-9106)."/>
+            <min value="1"/>
+            <patternCode value="A"/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:eventFrequency">
+            <path value="SubstanceAdministration.effectiveTime"/>
+            <sliceName value="eventFrequency"/>
+            <short value="This effectiveTime represents an event-based medication frequency (e.g., administration at bedtime)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PIVL-TS"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime:eventFrequency.operator">
+            <path value="SubstanceAdministration.effectiveTime.operator"/>
+            <comment value="SHALL contain exactly one [1..1] @operator=&quot;A&quot; (CONF:1098-9106)."/>
+            <min value="1"/>
+            <patternCode value="A"/>
         </element>
         <element id="SubstanceAdministration.repeatNumber">
             <path value="SubstanceAdministration.repeatNumber"/>
