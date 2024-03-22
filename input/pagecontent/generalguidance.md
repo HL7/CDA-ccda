@@ -293,3 +293,6 @@ If a sender wants to state that a piece of information is unknown, the following
 ### Schema and Schema Extensions
 CDA defines a standard schema, based on the HL7 RIM, for all CDA documents.The XML Schema is designed to achieve the intentions of the CDA architecture. Please see section [The "A" in CDA]({{site.data.fhir.cda}}/overview.html) for more information. When there is a need to represent information where there is no suitable representation in the schema, the CDA standard permits extensions to be developed. The HL7 Structured Documents Work Group (SDWG) maintains a complete list of [CDA R2 extensions](https://confluence.hl7.org/display/SD/CDA+Extensions) that are approved for use within the **sdtc** namespace. These extensions exist in the stdc schema. The most current [CDA Schema](https://github.com/HL7/cda-core-2.0) is housed in the HL7 CDA GitHub repository.
 
+
+### Required Binding Expansions
+For any Required binding, any valid expansion of a value set is conformant. This means any version of the value set used with any version of the needed code systems. If an implementation or dependent IG needs to be more restrictive, then additional constraints must be added, such as adding a specific value set version and or code system version in the binding.
