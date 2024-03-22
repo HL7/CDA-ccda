@@ -12,6 +12,8 @@ The categories of advance directives source documents could include, but are not
 *    Personal advance care plan
 *    Living Will
 *    Durable Healthcare (Medical) Power of Attorney
+*    Combined Living Will and Durable Healthcare (Medical) Power of Attorney
+*    Portable Medical Order
 
 Note: Under common law, a “power of attorney” was automatically revoked by the incompetency or incapacity of the principal, so the common law power of attorney was not useful as a planning for incapacity. Accordingly, states adopted “durable” power of attorney statutes allowing an agent to continue to act as empowered by a power of attorney even after the principal became disabled, incompetent or incapacitated.
 
