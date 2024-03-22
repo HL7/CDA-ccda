@@ -43,4 +43,4 @@ It is recommended systems include the Sex Observation in the Social History sect
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\"(CONF:4537-33080)."
-  * insert BindAtCode($2.16.840.1.113762.1.4.1240.3, required)
+  * insert BindAtCode($2.16.840.1.113762.1.4.1240.3, preferred)
