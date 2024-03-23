@@ -151,8 +151,8 @@ Advance directives are effective over a range of time. The effectiveTime/low tel
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."
       * obeys should-code
       * code 0..1
-      * code from $2.16.840.1.113883.11.20.9.51 (preferred)
-        * ^comment = "This playingEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent Qualifier urn:oid:2.16.840.1.113883.11.20.9.51 DYNAMIC (CONF:1198-28444)." // man-should
+      * code from $2.16.840.1.113883.11.20.12.1 (preferred)
+        * ^comment = "This playingEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal and Legal Relationship RoleType urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC." // man-should
       * name 1..1
         * ^short = "The name of the healthcare agent."
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."
