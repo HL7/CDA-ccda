@@ -136,13 +136,19 @@
             <path value="ClinicalDocument.code"/>
             <short value="**SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:4537-9992)."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4537-5253)."/>
-            <constraint>
-                <key value="4537-32948"/>
-                <severity value="error"/>
-                <human value="This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:4537-32948)."/>
-                <expression value="codeSystem = '2.16.840.1.113883.6.1'"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
+        </element>
+        <element id="ClinicalDocument.code.nullFlavor">
+            <path value="ClinicalDocument.code.nullFlavor"/>
+            <max value="0"/>
+        </element>
+        <element id="ClinicalDocument.code.code">
+            <path value="ClinicalDocument.code.code"/>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.code.codeSystem">
+            <path value="ClinicalDocument.code.codeSystem"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="ClinicalDocument.title">
             <path value="ClinicalDocument.title"/>

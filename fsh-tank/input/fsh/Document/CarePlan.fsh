@@ -24,9 +24,7 @@ A care plan document can include entry references from the information in these 
 * insert LogicalModelTemplate(care-plan, 2.16.840.1.113883.10.20.22.1.15, 2024-05-01)
 
 * ^status = #active
-* code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-28745)."
-  * insert BindAtCode($2.16.840.1.113762.1.4.1099.10, required)
+* code from $2.16.840.1.113762.1.4.1099.10 (required)
 * obeys should-setId
 * setId 0..1
   * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." // auto-should

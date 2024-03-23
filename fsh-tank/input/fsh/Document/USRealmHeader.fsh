@@ -24,7 +24,10 @@ Description: "This template defines constraints that represent common administra
   * ^comment = "SHALL contain exactly one [1..1] id (CONF:4537-5363)."
 * code 1..1
   * ^short = "**SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:4537-9992)."
-  * obeys 4537-32948
+  * code 1..1
+  * codeSystem 1..1
+  * codeSystem = "2.16.840.1.113883.6.1"
+  * nullFlavor 0..0
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-5253)."
 * title 1..1
   * ^short = "The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code"
@@ -480,11 +483,6 @@ Description: "This template defines constraints that represent common administra
       * assignedEntity 1..1
         * obeys 1198-32905
         * ^comment = "The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."
-
-Invariant: 4537-32948
-Description: "This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:4537-32948)."
-Severity: #error
-Expression: "codeSystem = '2.16.840.1.113883.6.1'"
 
 Invariant: 4537-6380
 Description: "If setId is present versionNumber **SHALL** be present (CONF:4537-6380)."
