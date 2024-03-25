@@ -358,7 +358,7 @@ Expression: "$this = '2.16.840.1.113883.4.6'"
 Invariant: should-id-npi
 Description: "SHOULD contain an id with root='2.16.840.1.113883.4.6' (NPI)"
 Severity: #warning
-Expression: "id.where(root = '2.16.840.1.113883.4.6')"
+Expression: "id.where(root = '2.16.840.1.113883.4.6').exists()"
 
 Invariant: should-participant-callback
 Description: "SHOULD contain zero or more [0..*] participant such that it SHALL contain exactly one [1..1] @typeCode=\"CALLBCK\" call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC)"
