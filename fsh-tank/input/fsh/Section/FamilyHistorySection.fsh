@@ -4,7 +4,7 @@ Id: FamilyHistorySection
 Title: "Family History Section"
 Description: "This section contains data defining the patient's genetic relatives in terms of possible or relevant health risk factors that have a potential impact on the patient's healthcare risk profile."
 
-* insert Section(#10157-6, Family History, 2.16.840.1.113883.10.20.22.2.15, 2015-08-01)
+* insert Section(#10157-6, History of family member diseases Narrative, 2.16.840.1.113883.10.20.22.2.15, 2015-08-01)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open

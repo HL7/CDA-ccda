@@ -17,7 +17,7 @@ The effectiveTime of the organizer (TS) indicates the point in time when the adv
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-28414)."
 * code 1..1
-  * insert CodedLoinc(45473-6, Advance directive - living will)
+  * insert CodedLoinc(45473-6, [[Advance directive/living will completed]])
   * ^comment = "This code SHALL contain exactly one [1..1] @code=\"45473-6\" Advance directive - living will  (CONF:1198-31230)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-28418)."

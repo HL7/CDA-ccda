@@ -4,7 +4,7 @@ Id: ProcedureFindingsSection
 Title: "Procedure Findings Section"
 Description: "The Procedure Findings Section records clinically significant observations confirmed or discovered during a procedure or surgery."
 
-* insert Section(#59776-5, Procedure Findings, 2.16.840.1.113883.10.20.22.2.28, 2015-08-01)
+* insert Section(#59776-5, Procedure findings Narrative, 2.16.840.1.113883.10.20.22.2.28, 2015-08-01)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open

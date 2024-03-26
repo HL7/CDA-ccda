@@ -7,7 +7,7 @@ Description: """The Medications Section contains a patient's current medications
 This section requires either an entry indicating the subject is not known to be on any medications or entries summarizing the subject's medications."""
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
-* insert Section(#10160-0, History of medication use, 2.16.840.1.113883.10.20.22.2.1.1, 2014-06-09)
+* insert Section(#10160-0, History of Medication use Narrative, 2.16.840.1.113883.10.20.22.2.1.1, 2014-06-09)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "substanceAdministration"
   * ^slicing.rules = #open

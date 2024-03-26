@@ -14,7 +14,7 @@ Description: "This template represents problems or diagnoses present at the time
     * ^slicing.rules = #open
   * translation contains translation1 1..1
   * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32834) such that it"
-    * insert CodedLoinc(78375-3, Discharge Diagnosis)
+    * insert CodedLoinc(78375-3, Hospital discharge Dx Narrative)
     * ^comment = "SHALL contain exactly one [1..1] @code=\"78375-3\" Discharge Diagnosis (CONF:1198-32835)."
 * obeys should-entry
 * entry 0..1

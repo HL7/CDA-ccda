@@ -4,7 +4,7 @@ Id: AnesthesiaSection
 Title: "Anesthesia Section"
 Description: "The Anesthesia Section records the type of anesthesia (e.g., general or local) and may state the actual agent used. This may be a subsection of the Procedure Description Section. The full details of anesthesia are usually found in a separate Anesthesia Note."
 
-* insert Section(#59774-0, Anesthesia, 2.16.840.1.113883.10.20.22.2.25, 2014-06-09)
+* insert Section(#59774-0, Procedure anesthesia Narrative, 2.16.840.1.113883.10.20.22.2.25, 2014-06-09)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "procedure"

@@ -18,7 +18,7 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
 * code 1..1
   * ^short = "Vital Signs"
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-32740)."
-  * insert CodedSnomed(46680005, Vital Signs)
+  * insert CodedSnomed(46680005, Vital signs)
   * translation ^slicing.discriminator[0].type = #value
     * ^slicing.discriminator[=].path = "codeSystem"
     * ^slicing.discriminator[+].type = #value

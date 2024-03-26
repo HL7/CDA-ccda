@@ -14,7 +14,7 @@ Description: "This template represents the medications taken by the patient prio
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-7699)."
 * code 1..1
-  * insert CodedLoinc(42346-7, Medications on Admission)
+  * insert CodedLoinc(42346-7, [[Medications on admission (narrative)]])
   * ^comment = "This code SHALL contain exactly one [1..1] @code=\"42346-7\" Medications on Admission (CONF:1098-15519)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "substanceAdministration"

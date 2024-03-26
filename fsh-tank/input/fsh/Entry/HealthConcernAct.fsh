@@ -24,7 +24,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-32310)."
   * code 1..1
-  * insert CodedLoinc(75310-3, Functional Status)
+  * insert CodedLoinc(75310-3, Functional status assessment note)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-30758)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)

@@ -6,7 +6,7 @@ Description: """This section represents the clinician's conclusions and working 
 
 See also the Assessment Section: templateId 2.16.840.1.113883.10.20.22.2.8 and Plan of Treatment Section: templateId 2.16.840.1.113883.10.20.22.2.10:2014-06-09"""
 
-* insert Section(#51847-2, Assessment and Plan, 2.16.840.1.113883.10.20.22.2.9, 2014-06-09)
+* insert Section(#51847-2, [[Evaluation + Plan note]], 2.16.840.1.113883.10.20.22.2.9, 2014-06-09)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open

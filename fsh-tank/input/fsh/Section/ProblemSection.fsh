@@ -5,7 +5,7 @@ Title: "Problem Section"
 Description: "This section lists and describes all relevant clinical problems at the time the document is generated. At a minimum, all pertinent current and historical problems should be listed. Overall health status may be represented in this section."
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
-* insert Section(#11450-4, Problem List, 2.16.840.1.113883.10.20.22.2.5.1, 2015-08-01)
+* insert Section(#11450-4, [[Problem list - Reported]], 2.16.840.1.113883.10.20.22.2.5.1, 2015-08-01)
 * entry 0..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"

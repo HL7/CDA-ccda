@@ -4,7 +4,7 @@ Id: ReasonforReferralSection
 Title: "Reason for Referral Section"
 Description: "This section describes the clinical reason why a provider is sending a patient to another provider for care. The reason for referral may become the reason for visit documented by the receiving provider."
 
-* insert Section(#42349-1, Reason for Referral, 1.3.6.1.4.1.19376.1.5.3.1.3.1, 2014-06-09)
+* insert Section(#42349-1, [[Reason for referral (narrative)]], 1.3.6.1.4.1.19376.1.5.3.1.3.1, 2014-06-09)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open

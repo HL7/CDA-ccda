@@ -15,7 +15,7 @@ This template may be used directly in any section, such as Care Plan Document Se
 * negationInd 0..0
 * id 1..*
 * code 1..1
-  * insert CodedLoinc(75773-2,[[Goals, preferences, and priorities for medical treatment]])
+  * insert CodedLoinc(75773-2,[[Goals, preferences, and priorities for medical treatment [Reported] ]])
 * value 1..1
 * value only CD or ED
   * ^short = "Most of the time, the value will be a string representing the person's words."

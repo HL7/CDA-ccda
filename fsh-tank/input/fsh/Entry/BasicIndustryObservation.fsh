@@ -16,7 +16,7 @@ Description: """This template represents a simple observation about the type of 
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-33019)."
 * code 1..1
-  * insert CodedLoinc(86188-0, History of Occupation Industry)
+  * insert CodedLoinc(86188-0, History of Occupation industry)
   * ^comment = "This code SHALL contain exactly one [1..1] @code=\"86188-0\" History of Occupation Industry (CONF:4537-33015)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-33011)."

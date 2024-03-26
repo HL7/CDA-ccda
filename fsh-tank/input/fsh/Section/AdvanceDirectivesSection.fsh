@@ -14,7 +14,7 @@ An Advance Directive Organizer is required and all of the Advance Directive Obse
 """
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
-* insert Section(#42348-3, Advance Directives, 2.16.840.1.113883.10.20.22.2.21.1, 2022-02-14)
+* insert Section(#42348-3, Advance directives, 2.16.840.1.113883.10.20.22.2.21.1, 2022-02-14)
 * entry 0..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"

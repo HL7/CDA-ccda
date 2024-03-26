@@ -4,7 +4,7 @@ Id: AdmissionMedicationsSectionEntriesOptional
 Title: "Admission Medications Section (entries optional)"
 Description: "The section contains the medications taken by the patient prior to and at the time of admission to the facility."
 
-* insert Section(#42346-7, Medications on Admission, 2.16.840.1.113883.10.20.22.2.44, 2015-08-01)
+* insert Section(#42346-7, [[Medications on admission (narrative)]], 2.16.840.1.113883.10.20.22.2.44, 2015-08-01)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open

@@ -15,7 +15,7 @@ Description: """This template represents the clinical status attributed to the a
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-7319)."
 * code 1..1
-  * insert CodedLoinc(33999-4, Status)
+  * insert CodedLoinc(33999-4, Diagnosis status)
   * ^comment = "This code SHALL contain exactly one [1..1] @code=\"33999-4\" Status (CONF:1198-19131)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-7321)."

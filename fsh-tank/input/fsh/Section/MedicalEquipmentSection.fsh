@@ -8,7 +8,7 @@ Devices applied to, or placed in, the patient are represented with the Procedure
 
 These devices may be grouped together within a Medical Equipment Organizer. The organizer would probably not be used with devices applied in or on the patient but rather to organize a group of medical supplies the patient has been supplied with."""
 
-* insert Section(#46264-8, Medical Equipment, 2.16.840.1.113883.10.20.22.2.23, 2014-06-09)
+* insert Section(#46264-8, History of medical device use, 2.16.840.1.113883.10.20.22.2.23, 2014-06-09)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
