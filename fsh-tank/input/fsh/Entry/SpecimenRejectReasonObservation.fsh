@@ -12,7 +12,7 @@ Description: """This template describes a reason the specimen was rejected for t
 * moodCode 1..1
 * moodCode = #EVN (exactly)
 * code 1..1
-  * insert CodedLoinc(93048-7, [[Reason for specimen rejection [Type]]])
+  * insert CodedLoinc(93048-7, [[Reason for specimen rejection [Type] ]])
 * value 1..1
 * value only CD
 * value from http://terminology.hl7.org/ValueSet/v2-0490 (preferred)

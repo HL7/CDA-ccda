@@ -4,7 +4,7 @@ Id: DischargeDiagnosisSection
 Title: "Discharge Diagnosis Section"
 Description: "This template represents problems or diagnoses present at the time of discharge which occurred during the hospitalization. This section includes an optional entry to record patient diagnoses specific to this visit. Problems that need ongoing tracking should also be included in the Problem Section."
 
-* insert Section(#11535-2, Hospital Discharge Diagnosis, 2.16.840.1.113883.10.20.22.2.24, 2015-08-01)
+* insert Section(#11535-2, Hospital discharge Dx Narrative, 2.16.840.1.113883.10.20.22.2.24, 2015-08-01)
 
 * code
   * translation ^slicing.discriminator[0].type = #value
@@ -14,7 +14,7 @@ Description: "This template represents problems or diagnoses present at the time
     * ^slicing.rules = #open
   * translation contains translation1 1..1
   * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32834) such that it"
-    * insert CodedLoinc(78375-3, Hospital discharge Dx Narrative)
+    * insert CodedLoinc(78375-3, Discharge Diagnosis)
     * ^comment = "SHALL contain exactly one [1..1] @code=\"78375-3\" Discharge Diagnosis (CONF:1198-32835)."
 * obeys should-entry
 * entry 0..1
