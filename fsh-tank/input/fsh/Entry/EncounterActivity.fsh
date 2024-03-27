@@ -19,7 +19,8 @@ Description: "This clinical statement describes an interaction between a patient
 * code from EncounterTypeCode (preferred)
   * ^comment = "In Encounter Summaries the Encounter Type will also be present in the document header at componentOf/encompassingEncounter/code, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present.  Implementers should note that only conveying Encounter Type in the document header at componentOf/encompassingEncounter/code is insufficient."
   * insert NarrativeOriginalText
-  * translation 0..1
+  * translation 0..1 
+  * translation from $2.16.840.1.113883.11.20.9.52 (example)
     * ^short = "The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."
     * ^comment = "This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."
 * effectiveTime 1..1
