@@ -109,7 +109,7 @@
             </constraint>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.1"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
             </binding>
         </element>
         <element id="Encounter.code.originalText">
@@ -125,6 +125,12 @@
                 <expression value="value.exists() implies value.startsWith('#')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
             </constraint>
+        </element>
+        <element id="Encounter.code.translation">
+            <path value="Encounter.code.translation"/>
+            <short value="The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."/>
+            <comment value="This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."/>
+            <max value="1"/>
         </element>
         <element id="Encounter.text">
             <path value="Encounter.text"/>
