@@ -16,8 +16,11 @@ Description: "Family History Observations related to a particular family member 
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8592)."
 * code 1..1
-* code from $2.16.840.1.113762.1.4.1267.1 (preferred)
-  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Problem Type urn:oid:2.16.840.1.113762.1.4.1267.1."
+* code from $2.16.840.1.113883.3.88.12.3221.7.2 (preferred)
+  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Problem Type (SNOMEDCT) urn:oid:2.16.840.1.113883.3.88.12.3221.7.2 DYNAMIC (CONF:1198-32427)."
+  * translation 1..*
+  * translation from $2.16.840.1.113762.1.4.1099.28 (preferred)
+    * ^comment = "This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113762.1.4.1099.28 DYNAMIC (CONF:1198-32847)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-8590)."
   * code 1..1
