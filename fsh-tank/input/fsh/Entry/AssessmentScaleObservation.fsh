@@ -19,6 +19,7 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-14438)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) DYNAMIC (CONF:4515-14439)."
+  * insert AdditionalBinding(preferred, $SDoHAssessmentsAndQuestions, For Social Determinant of Health Assessments, [[If the Assessment Scale Observation is a Social Determinant of Health Assessment, the observation code **SHOULD** be selected from ValueSet [Social Determinant of Health Assessments and Questions](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.206/expansion).]])
 * derivationExpr 0..1
   * ^comment = "MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."
   * ^short = "Such derivation expression can contain a text calculation of how the components total up to the summed score"
