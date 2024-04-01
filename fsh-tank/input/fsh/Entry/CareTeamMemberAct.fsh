@@ -17,7 +17,7 @@ This id must be a pointer to another Performer."""
 * ^meta.versionId = "5"
 * ^meta.lastUpdated = "2023-07-11T23:41:50.227Z"
 
-* insert LogicalModelTemplate(care-team-member-act, 2.16.840.1.113883.10.20.22.4.500.1, 2022-06-01)
+* insert LogicalModelTemplate(care-team-member-act, 2.16.840.1.113883.10.20.22.4.500.1, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -28,12 +28,7 @@ This id must be a pointer to another Performer."""
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CONF:4515-54)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-27)."
-  * code 1..1
-  * code = #85847-2
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"85847-2\" Patient Care team information (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-48)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" LOINC (CONF:4515-49)."
+  * insert CodedLoinc(92707-9,[[Care team information panel]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-62)."
   * insert BindAtCode(ActStatus, required)
