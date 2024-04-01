@@ -29,6 +29,7 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-31868)."
 * obeys should-value and 4515-8555
 * value 0..1
+  * insert USCDI([[Alcohol Use, Substance Use, SDOH Problems/Health Concerns]])
   * ^slicing.discriminator[0].type = #type
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open

@@ -19,9 +19,10 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-8571)."
 * code 1..1
+  * code from http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code (preferred)
+  * insert USCDI([[SDOH Interventions]])
   * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet US Core Procedure Codes urn:oid:2.16.840.1.113883.4.642.40.48.31 ."
-  * ^short = "If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code SHOULD be selected from ValueSet Social Determinant of Health Service Request (CONF:4515-32993)"
-* code from $SDoHServiceRequest (preferred)
+  * insert AdditionalBinding(preferred, $SDoHServiceRequest, For Social Determinant of Planned Intervention Procedure, [[If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Service Request](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.790/expansion) **DYNAMIC** (CONF:4515-32993).]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-30446)."
   * code 1..1

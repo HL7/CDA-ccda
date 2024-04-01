@@ -32,6 +32,7 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-14445)."
   * ^short = "Represents clinically effective time of the measurement, which may be when the measurement was performed (e.g., a BP measurement), or may be when sample was taken (and measured some time afterwards)"
 * value 1..1
+  * insert USCDI([[Functional Status, Mental/Cognitive Status, Alcohol Use, Substance Use, Physical Activity, SDOH Assessment]])
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:4515-14450)."
 * interpretationCode 0..*
   * ^comment = "MAY contain zero or more [0..*] interpretationCode (CONF:4515-14459)."
