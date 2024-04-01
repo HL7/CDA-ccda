@@ -38,6 +38,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * obeys 4537-19212
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."
 * statusCode 1..1
+  * insert USCDI([[Result Status]])
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7134)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.39, required)
 * effectiveTime 1..1
