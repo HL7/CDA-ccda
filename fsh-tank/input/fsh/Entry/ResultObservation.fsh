@@ -79,6 +79,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4537-7151)."
     * value 1..1
+      * ^short = "When the value is a quantity, then the unit SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive."
       * ^comment = "This observationRange SHALL contain exactly one [1..1] value (CONF:4537-32175)."
 
 Invariant: 4537-19212
