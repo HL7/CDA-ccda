@@ -20,7 +20,7 @@ Description: "This clinical statement represents the location of a service event
 * id[CLIA].root = "2.16.840.1.113883.4.7"
 * id[NAIC].root = "2.16.840.1.113883.6.300"  
 * code 1..1
-* code from http://terminology.hl7.org/ValueSet/v3-HealthcareServiceLocation (required)
+* code from $2.16.840.1.113883.1.11.20275 (required)
   * insert USCDI([[Facility Type]])
 * obeys should-addr
 * addr 0..*
