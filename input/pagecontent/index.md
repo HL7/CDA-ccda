@@ -56,6 +56,7 @@ The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is b
 </style>
 <p class="important">
 	This is a C-CDA specification that uses FHIR R5 StructureDefinitions and ElementDefinitions to define its templates.  It does not use any of the FHIR R5 resources nor any of the FHIR R5 General-Purpose Datatypes.  Thus it is based on FHIR R5 but not in a way that FHIR Implementation Guides would be based by profiling FHIR resources.  It is important and relevant to declare the version of FHIR structures that are being used for toolsmiths and others using those structures.
+	Further, the specification is generated with the FHIR IG Publisher tooling.  Although the tooling allows for JSON and XML representations of structures, at this time, only XML is allowed for CDA documents.
 </p>
 
 ### Acknowledgements
