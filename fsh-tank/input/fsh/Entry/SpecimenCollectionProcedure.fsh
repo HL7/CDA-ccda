@@ -23,7 +23,7 @@ Description: """This template represents clinical information about the specimen
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entryRelationship contains specimenRef 1..1 and rejectReason 0..* and condition 0..*
+* entryRelationship contains specimenRef 1..1 and condition 0..*
 * entryRelationship[specimenRef] ^comment = "SHALL contain exactly one [1..1] entryRelationship such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
@@ -32,14 +32,6 @@ Description: """This template represents clinical information about the specimen
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.122)."
   * ^short = "References the specimen that is the subject of this procedure"
-* entryRelationship[rejectReason] ^comment = "SHOULD contain at least one [0..*] entryRelationship such that it"
-  * typeCode 1..1
-  * typeCode = #COMP (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."
-  * observation 0..1
-  * observation only SpecimenRejectReasonObservation
-    * ^comment = "SHOULD contain exactly one [0..1] Specimen Reject Reason Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.420:2018-09-01)."
-    * insert USCDI([[Specimen Condition Acceptability]])
 * entryRelationship[condition] ^comment = "SHOULD contain at least one [0..*] entryRelationship such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
