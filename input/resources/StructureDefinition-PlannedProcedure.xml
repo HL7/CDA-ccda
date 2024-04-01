@@ -122,19 +122,14 @@
             <comment value="This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet US Core Procedure Codes urn:oid:2.16.840.1.113883.4.642.40.48.31 ."/>
             <min value="1"/>
             <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"/>
                 <additional>
                     <purpose value="preferred"/>
                     <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.790"/>
                     <documentation value="If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Service Request](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.790/expansion) **DYNAMIC** (CONF:4515-32993)."/>
                     <shortDoco value="For Social Determinant of Planned Intervention Procedure"/>
                 </additional>
-            </binding>
-        </element>
-        <element id="Procedure.code.code">
-            <path value="Procedure.code.code"/>
-            <binding>
-                <strength value="preferred"/>
-                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"/>
             </binding>
         </element>
         <element id="Procedure.text">
