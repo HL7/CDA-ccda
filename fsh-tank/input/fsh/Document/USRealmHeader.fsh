@@ -138,6 +138,7 @@ Description: "This template defines constraints that represent common administra
             * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
       * obeys should-us-languageCommunication
       * languageCommunication 0..*
+        * insert USCDI([[Langage Communications]])
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)." // man-should
         * languageCode 1..1
         * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
@@ -303,6 +304,7 @@ Description: "This template defines constraints that represent common administra
         * use 0..1
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7998)." // man-should
+      * sdtcTelecom ^short = "The stdc:telecom extension can be used to provide additional telecom elements for the custodian organization."
       * addr 1..1
       * addr only USRealmAddress
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5559)."
@@ -402,9 +404,8 @@ Description: "This template defines constraints that represent common administra
 * obeys should-relatedParticipant
 * participant 0..*
   * obeys 4537-10006 and 4537-10007
-  //"<slicing><rules value=\"open\" /></slicing>"
-  //"<comment value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" /></element><element id=\"ClinicalDocument.participant:participant1\"><path value=\"ClinicalDocument.participant\" /><sliceName value=\"participant1\" /><short value=\"participant\" /><definition value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" />"
   * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
+  * ^comment = "SHOULD contain zero or more [0..*] RelatedPerson participant"
   * time only USRealmDateTimeInterval
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
 * inFulfillmentOf 0..*
