@@ -57,6 +57,7 @@ A specimen linked to a Result Organizer applies to all Result Observations. Cent
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
 * component contains resultObs 1..* and specimenProc 0..1
 * component[resultObs] ^short = "component"
+  * insert USCDI([[Values/Results]])
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
   * observation 1..1
   * observation only ResultObservation
