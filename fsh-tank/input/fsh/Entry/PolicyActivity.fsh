@@ -27,8 +27,6 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19109)."
-* obeys should-effectiveTime
-* effectiveTime ^short = "This records the policy coverage period, or self-pay period."
 * performer ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "templateId.root"
   * ^slicing.rules = #open
@@ -118,6 +116,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * extension 0..0
   * obeys should-time
   * time 0..1
+    * ^short = "This records the policy coverage period or self-pay period."
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8918)." // auto-should
     * obeys should-low
     * low 0..1
