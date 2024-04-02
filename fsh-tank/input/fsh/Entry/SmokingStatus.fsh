@@ -18,6 +18,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
 * id 1..*
 * code 1..1
 * code from $SmokingStatusType
+  * ^binding.description = "Smoking status type"
   * code 1..1
 * statusCode 1..1
   * code 1..1
@@ -41,6 +42,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
 * value[coded] only $CD
   * code 1..1
   * code from $SmokingStatusComprehensive (required)
+    * ^binding.description = "Smoking status comprehensive"
 * obeys numeric-status
 
 Invariant: numeric-status
