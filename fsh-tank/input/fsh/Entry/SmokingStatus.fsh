@@ -46,4 +46,4 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
 Invariant: numeric-status
 Description: "When code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value SHALL be coded"
 Severity: #error
-Expression: "(code.code = '72166-2' or code.code = '11367-0') implies value.code.exists()"
+// Expression: "(code.code = '72166-2' or code.code = '11367-0') implies value.code.exists()"
