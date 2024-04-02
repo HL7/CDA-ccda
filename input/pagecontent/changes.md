@@ -1,4 +1,14 @@
-### Version 
+### Version 3.0.0
+
+The changes in this version of Consolidated CDA were made from comments raised during the January 2024 ballot of Consolidated CDA plus other issues that were raised during the ballot timeframe.
+
+#### Major Changes
+
+#### Tracker Issues Applied
+
+
+
+### Version 3.0.0-ballot 
 
 The changes in this version of Consolidated CDA have been made from STU comments and JIRA issues that were raised by the community and approved by the Structured Documents working group.
 
