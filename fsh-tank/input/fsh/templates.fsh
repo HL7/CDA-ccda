@@ -223,6 +223,6 @@ Severity: #error
 Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(ResultOrganizer))"
 
 Invariant: shall-vital-signs-org
-Description: "SHALL contain at least one Vital Signs Organizer"
+Description: "SHALL contain at least one Vital Signs Organizer or Average Blood Pressure Organizer"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(VitalSignsOrganizer))"
+Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(VitalSignsOrganizer)) or entry.where(organizer.hasTemplateIdOf(AverageBloodPressureOrganizer))"

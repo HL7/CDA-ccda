@@ -1,7 +1,7 @@
 Profile: SmokingStatusMeaningfulUse
 Parent: $Observation
 Id: SmokingStatusMeaningfulUse
-Title: "Smoking Status - Meaningful Use"
+Title: "Smoking Status - Meaningful Use (Deprecated)"
 Description: """This template represents the current smoking status of the patient as specified in Meaningful Use (MU) Stage 2 requirements. Historic smoking status observations as well as details about the smoking habit (e.g., how many per day) would be represented in the Tobacco Use template.
 
 This template represents a "snapshot in time" observation, simply reflecting what the patient's current smoking status is at the time of the observation. As a result, the effectiveTime is constrained to a time stamp, and will approximately correspond with the author/time. Details regarding the time period when the patient is/was smoking would be recorded in the Tobacco Use template.

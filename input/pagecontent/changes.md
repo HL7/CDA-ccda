@@ -119,6 +119,8 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to only allow a timestamp instead of an interval
 - [CDA-20877](https://jira.hl7.org/browse/CDA-20877) - Removed compatibility comment on vital signs organizer
 - [CDA-20878](https://jira.hl7.org/browse/CDA-20878) - Updated LOINC code on Coverage Activity to 52556-8 Payment sources
+- [CDA-20955](https://jira.hl7.org/browse/CDA-20955) - Created new [Average Blood Pressure Organizer](StructureDefinition-AverageBloodPressureOrganizer.html) template
+- [CDA-21054](https://jira.hl7.org/browse/CDA-21054) - Created new [Smoking Status](StructureDefinition-SmokingStatus.html) template and deprecated [Smoking Status - Meaningful Use](StructureDefinition-SmokingStatusMeaningfulUse.html) and [Tobacco Use](StructureDefinition-TobaccoUse.html)
 
 
 #### Templates with New Extensions due to Major Change
