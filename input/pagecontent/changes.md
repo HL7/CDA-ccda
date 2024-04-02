@@ -4,7 +4,115 @@ The changes in this version of Consolidated CDA were made from comments raised d
 
 #### Major Changes
 
+* Removed Planned Activity Act and Planned Activity Observation templates
+* Deprecated the Smoking Status - Meaningful Use and Tobacco Use templates
+* Added new Smoking Status template
+* Added new Average Blood Pressure Organizer template
+
+
 #### Tracker Issues Applied
+- [CDA-2089](https://jira.hl7.org/browse/CDA-2089) - Create sdtc:telecom extension in CDA and reference it in the US Realm Header template.
+- [CDA-20848](https://jira.hl7.org/browse/CDA-20848) - C-CDA Vital Sign Result Type value set in VSAC corrected with appropriate vital signs types.
+- [CDA-20849](https://jira.hl7.org/browse/CDA-20849) - Update Social History Section description.
+- [CDA-20854](https://jira.hl7.org/browse/CDA-20854) - Add constraint to only contain inactive Problem observations in Past Medical History.
+- [CDA-20855](https://jira.hl7.org/browse/CDA-20855) - Update Problem Observation effectiveTime description.
+- [CDA-20882](https://jira.hl7.org/browse/CDA-20882) - Change LOINC codes for Care Team Member Act and Planned Coverage.
+- [CDA-20883](https://jira.hl7.org/browse/CDA-20883) - Update How To Read section on tabs to use the proper names of the tabs.
+- [CDA-20884](https://jira.hl7.org/browse/CDA-20884) - Provide an example of Template Inheritance showing how the old Profile that showed all constraints is different from the Differential Tab which only shows new constraints.
+- [CDA-20885](https://jira.hl7.org/browse/CDA-20885) - Add statements about US@ to US Realm Address.
+- [CDA-20886](https://jira.hl7.org/browse/CDA-20886) - Change binding at Gender Identity observationCode to Gender Identity value set and remove binding to nullFlavor (but don't preclude)
+- [CDA-20888](https://jira.hl7.org/browse/CDA-20888) - Update Care Experience Preference description.
+- [CDA-20894](https://jira.hl7.org/browse/CDA-20894) - Update Goal Observation description.
+- [CDA-20896](https://jira.hl7.org/browse/CDA-20896) - Will add effectiveTime 1..1 (nullFlavor is allowed) with just a value that indicates the point in time when the ProgressTowardsGoalObservation was made.
+- [CDA-20898](https://jira.hl7.org/browse/CDA-20898) - Fix typos.
+- [CDA-20899](https://jira.hl7.org/browse/CDA-20899) - Fix typos.
+- [CDA-20901](https://jira.hl7.org/browse/CDA-20901) - Fix typos.
+- [CDA-20902](https://jira.hl7.org/browse/CDA-20902) - Add USCDI Flag to Care Team Member Act elements.
+- [CDA-20903](https://jira.hl7.org/browse/CDA-20903) - Add display name for fixed code.
+- [CDA-20904](https://jira.hl7.org/browse/CDA-20904) - Update the How To Read page to be version-agnostic.
+- [CDA-20905](https://jira.hl7.org/browse/CDA-20905) - Add guidance in the How To Read page that the Snapshot table will show all guidance, including that inherited from base CDA models.
+- [CDA-20907](https://jira.hl7.org/browse/CDA-20907) - Fix script to create valid artifact descriptions.
+- [CDA-20908](https://jira.hl7.org/browse/CDA-20908) - Update CoverageAct.effectiveTime, Remove PolicyActivity.effectiveTime, provide guidance on PolicyActivity.participant.coverage-target.time.
+- [CDA-20909](https://jira.hl7.org/browse/CDA-20909) - Change binding on the Related Person Relationship and Name Participant associated Entity to a value set.
+- [CDA-20910](https://jira.hl7.org/browse/CDA-20910) - Make the Key Elements Table tab the default for CDA specifications.
+- [CDA-20911](https://jira.hl7.org/browse/CDA-20911) - Fix guidance on Medication Activity and Medication Information templates for typos and clarification.
+- [CDA-20912](https://jira.hl7.org/browse/CDA-20912) - Add constraint about Observation.value using UCUM units for PQ datatype to Social History Observation.
+- [CDA-20914](https://jira.hl7.org/browse/CDA-20914) - Give EncounterDiagnosis a new template version as this is a breaking change.
+- [CDA-20915](https://jira.hl7.org/browse/CDA-20915) - Change Smoking Status-Meaningful Use value from required to preferred.
+- [CDA-20916](https://jira.hl7.org/browse/CDA-20916) - Change Payers section in Referral Note from required to optional.
+- [CDA-20918](https://jira.hl7.org/browse/CDA-20918) - Add binding to Observation Interpretation on Vital Sign Observation interpretationCode.
+- [CDA-20919](https://jira.hl7.org/browse/CDA-20919) - Add USCDI flags to Encounter Activity elements.
+- [CDA-20920](https://jira.hl7.org/browse/CDA-20920) - Add link to NUBC codes as well as the license in the comments of Encounter.sdtcDischargeDispositionCode.
+- [CDA-20922](https://jira.hl7.org/browse/CDA-20922) - Add clarification on USCDI interpretation to the USCDI page.
+- [CDA-20924](https://jira.hl7.org/browse/CDA-20924) - Create actual terminology bindings for the Goal Observation constraint text.
+- [CDA-20925](https://jira.hl7.org/browse/CDA-20925) - Add missing USCDI flags to Coverage Activity
+- [CDA-20926](https://jira.hl7.org/browse/CDA-20926) - Add display name for fixed code.
+- [CDA-20927](https://jira.hl7.org/browse/CDA-20927) - Add missing USCDI flag to Result Organizer.
+- [CDA-20928](https://jira.hl7.org/browse/CDA-20928) - Add text guidance in the Description field that states that the Specimen Collection Procedure "Includes representation of the USCDI data element "Specimen Condition Acceptability"
+- [CDA-20929](https://jira.hl7.org/browse/CDA-20929) - Fix Result Organizer description.
+- [CDA-20930](https://jira.hl7.org/browse/CDA-20930) - Add missing USCDI flag to Result Observation.
+- [CDA-20931](https://jira.hl7.org/browse/CDA-20931) - Fix typo.
+- [CDA-20932](https://jira.hl7.org/browse/CDA-20932) - Add missing USCDI flag to Patient Language Code.
+- [CDA-20933](https://jira.hl7.org/browse/CDA-20933) - Ensure binding to UCUM units is preferred and not required.
+- [CDA-20936](https://jira.hl7.org/browse/CDA-20936) - We will make a note of the should-relatedParticipant invariant on the participant so that it is more prevalent.
+- [CDA-20938](https://jira.hl7.org/browse/CDA-20938) - Update SDOH bindings and add USCDI tags on the relevant elements.
+- [CDA-20939](https://jira.hl7.org/browse/CDA-20939) - Add new binding to SDOH Screening Assessments in AssessmentScaleObservation template.
+- [CDA-20940](https://jira.hl7.org/browse/CDA-20940) - Add the @code requirement on US Realm Header and reset the bindings on all document templates to the code element
+- [CDA-20941](https://jira.hl7.org/browse/CDA-20941) - Remove comment and short from Procedure Note encompassingEncounter location.
+- [CDA-20942](https://jira.hl7.org/browse/CDA-20942) - Add binding to ServiceEvent.Performer.functionCode in Patient Generated Header.
+- [CDA-20943](https://jira.hl7.org/browse/CDA-20943) - Add a constraint that if @code and @codeSystem exists, @nullFlavor can not exist.
+- [CDA-20944](https://jira.hl7.org/browse/CDA-20944) - Change Referral Participant Name template to Person Name.
+- [CDA-20945](https://jira.hl7.org/browse/CDA-20945) - Remove the Short since the invariant expresses the proper constraint.
+- [CDA-20946](https://jira.hl7.org/browse/CDA-20946) - Move the note that is on PCP.typeCode to functionCode
+- [CDA-20947](https://jira.hl7.org/browse/CDA-20947) - Remove the EVN entryRelationships from the Planned Intervention Act.
+- [CDA-20948](https://jira.hl7.org/browse/CDA-20948) - Remove the note about Hospital Discharge Diagnosis from the Encounter Diagnosis template.
+- [CDA-20949](https://jira.hl7.org/browse/CDA-20949) - Update the Care Plan notes around the required and optional sections.
+- [CDA-20950](https://jira.hl7.org/browse/CDA-20950) - Model the Planned Medication Activity's effectiveTime similar to Medication Activity.
+- [CDA-20951](https://jira.hl7.org/browse/CDA-20951) - Make an example binding to the proper value set.
+- [CDA-20952](https://jira.hl7.org/browse/CDA-20952) - Update the Health Status Evaluations Section description.
+- [CDA-20953](https://jira.hl7.org/browse/CDA-20953) - Remove the language around Assessments and Assessment and Plan from the Care Plan document.
+- [CDA-20954](https://jira.hl7.org/browse/CDA-20954) - Make both Performer slices have typeCode = PRF and remove the constraint language.
+- [CDA-20957](https://jira.hl7.org/browse/CDA-20957) - Change the Problem Observation code binding to a new Grouper value set.
+- [CDA-20958](https://jira.hl7.org/browse/CDA-20958) - Change the Problem Value set binding to the US Core Condition value set.
+- [CDA-20961](https://jira.hl7.org/browse/CDA-20961) - Update the Advance Directive Organizer description.
+- [CDA-20962](https://jira.hl7.org/browse/CDA-20962) - Change the Procedure code bindings to use the US Core Procedure set.
+- [CDA-20963](https://jira.hl7.org/browse/CDA-20963) - Remove Planned Activity Act and Planned Activity Observation Templates.
+- [CDA-20965](https://jira.hl7.org/browse/CDA-20965) - Update the Advance Directive Observation description.
+- [CDA-20969](https://jira.hl7.org/browse/CDA-20969) - Bind the playingEntity.code to the Personal and Legal Relationship Role Types value set.
+- [CDA-20970](https://jira.hl7.org/browse/CDA-20970) - Update the Advance Directive Observation externalDocument.code binding to to be Preferred to Advance Directive Categories.
+- [CDA-20973](https://jira.hl7.org/browse/CDA-20973) - Remove the prohibition on ReferenceRange.code.
+- [CDA-20974](https://jira.hl7.org/browse/CDA-20974) - Create an invariant on Indication similarly to how EntryReference and AuthorParticipation do it.
+- [CDA-20975](https://jira.hl7.org/browse/CDA-20975) - Update the value set binding from Nutrition Recommendations to Nutrition Recommendation Grouping.
+- [CDA-20977](https://jira.hl7.org/browse/CDA-20977) - Add information about XML vs JSON in the new section that explains what "based on FHIR" means.
+- [CDA-20978](https://jira.hl7.org/browse/CDA-20978) - Fix a broken link.
+- [CDA-20980](https://jira.hl7.org/browse/CDA-20980) - Add a note that SDTC extensions are used in the templates and provide a link to find information about those extensions.
+- [CDA-20981](https://jira.hl7.org/browse/CDA-20981) - Move section 3.12 to the Validation page.
+- [CDA-20983](https://jira.hl7.org/browse/CDA-20983) - Move the "How to Read" into the Guidance menu structure.
+- [CDA-20985](https://jira.hl7.org/browse/CDA-20985) - Add information about required value set bindings to the General Guidance section.
+- [CDA-20989](https://jira.hl7.org/browse/CDA-20989) - We will change the title of the guide to include C-CDA.
+- [CDA-20990](https://jira.hl7.org/browse/CDA-20990) - Fix capitalizations.
+- [CDA-20992](https://jira.hl7.org/browse/CDA-20992) - We will add a section to the How to Read about why the template versions are no longer in the name.
+- [CDA-20993](https://jira.hl7.org/browse/CDA-20993) - Remove figure numbering.
+- [CDA-20995](https://jira.hl7.org/browse/CDA-20995) - Fix typos.
+- [CDA-21017](https://jira.hl7.org/browse/CDA-21017) - Change the binding on routeCode.translation to be Preferred instead of Required.
+- [CDA-21019](https://jira.hl7.org/browse/CDA-21019) - Rename USCDI "Time of Procedure" element to "Performance Time"
+- [CDA-21041](https://jira.hl7.org/browse/CDA-21041) - Change the CCDA IG template to use the word Template instead of Profile.
+- [CDA-21042](https://jira.hl7.org/browse/CDA-21042) - Remove the SpecimenRejectReasonObservation template.
+- [CDA-21048](https://jira.hl7.org/browse/CDA-21048) - Swap the bindings on the code and the translations on Advance Directive Observation code.
+- [CDA-21049](https://jira.hl7.org/browse/CDA-21049) - Change Problem Type value set bindings to use a new Grouper value set.
+- [CDA-21051](https://jira.hl7.org/browse/CDA-21051) - Update VSAC/LOINC/SNOMED display names.
+- [CDA-21052](https://jira.hl7.org/browse/CDA-21052) - Change Vital Signs Organizer code to use LOINC code.
+- [CDA-21053](https://jira.hl7.org/browse/CDA-21053) - Changed the Patient Referral Act statusCode binding to be to ActStatus code system.
+- [CDA-21056](https://jira.hl7.org/browse/CDA-21056) - Update Basic Industry Occupation examples to match templates.
+- [CDA-21057](https://jira.hl7.org/browse/CDA-21057) - Added explanatory text on what effectiveTime means within goals
+- [CDA-21058](https://jira.hl7.org/browse/CDA-21058) - Updated the Immunization Refusal Reason template to Immunization Not Given Reason and use proper codes and value set bindings.
+- [CDA-21060](https://jira.hl7.org/browse/CDA-21060) - Update Sex Observation value set.
+- [CDA-21062](https://jira.hl7.org/browse/CDA-21062) - Update Patient Generated Document description.
+- [CDA-21064](https://jira.hl7.org/browse/CDA-21064) - Add 0..* authors to the Disability Status Observation.
+- [CDA-21065](https://jira.hl7.org/browse/CDA-21065) - Change the Sex Observation value set binding to be Preferred.
+- [CDA-21067](https://jira.hl7.org/browse/CDA-21067) - Change Patient Referral Act participant from SHALL contain exactly one to MAY contain zero or one.
+- [CDA-20955](https://jira.hl7.org/browse/CDA-20955) - Created new [Average Blood Pressure Organizer](StructureDefinition-AverageBloodPressureOrganizer.html) template
+- [CDA-21054](https://jira.hl7.org/browse/CDA-21054) - Created new [Smoking Status](StructureDefinition-SmokingStatus.html) template and deprecated [Smoking Status - Meaningful Use](StructureDefinition-SmokingStatusMeaningfulUse.html) and [Tobacco Use](StructureDefinition-TobaccoUse.html)
 
 
 
@@ -119,8 +227,6 @@ The changes in this version of Consolidated CDA have been made from STU comments
 - [CDA-20828](https://jira.hl7.org/browse/CDA-20828) - Changed constraint in Advance Directive Observation to only allow a timestamp instead of an interval
 - [CDA-20877](https://jira.hl7.org/browse/CDA-20877) - Removed compatibility comment on vital signs organizer
 - [CDA-20878](https://jira.hl7.org/browse/CDA-20878) - Updated LOINC code on Coverage Activity to 52556-8 Payment sources
-- [CDA-20955](https://jira.hl7.org/browse/CDA-20955) - Created new [Average Blood Pressure Organizer](StructureDefinition-AverageBloodPressureOrganizer.html) template
-- [CDA-21054](https://jira.hl7.org/browse/CDA-21054) - Created new [Smoking Status](StructureDefinition-SmokingStatus.html) template and deprecated [Smoking Status - Meaningful Use](StructureDefinition-SmokingStatusMeaningfulUse.html) and [Tobacco Use](StructureDefinition-TobaccoUse.html)
 
 
 #### Templates with New Extensions due to Major Change
