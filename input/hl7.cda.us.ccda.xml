@@ -59,6 +59,10 @@
             <name value="Participation &amp; Other Templates"/>
             <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."/>
         </grouping>
+        <grouping id="deprecated">
+            <name value="Deprecated Templates"/>
+            <description value="Deprecation templates are not prohibited from use, but their status as deprecated is a signal to implementers that the template may be permanently retired (terminated) in the future."/>
+        </grouping>
         <grouping id="examples">
             <name value="C-CDA Template Examples"/>
             <description value="These examples show how the C-CDA logical model templates are constructed."/>
@@ -1803,12 +1807,21 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/SmokingStatus"/>
+                <display value="Smoking Status"/>
+            </reference>
+            <name value="Smoking Status"/>
+            <description value="This template represents a patient's smoking status."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/SmokingStatusMeaningfulUse"/>
                 <display value="Smoking Status - Meaningful Use"/>
             </reference>
             <name value="Smoking Status - Meaningful Use"/>
             <description value="This template represents the current smoking status of the patient as specified in Meaningful Use (MU) Stage 2 requirements."/>
-            <groupingId value="entry"/>
+            <groupingId value="deprecated"/>
         </resource>
         <resource>
             <reference>
@@ -1889,7 +1902,7 @@
             </reference>
             <name value="Tobacco Use"/>
             <description value="This template represents a patient's tobacco use."/>
-            <groupingId value="entry"/>
+            <groupingId value="deprecated"/>
         </resource>
         <resource>
             <reference>
@@ -5532,6 +5545,22 @@
             <description value="Sexual Orientation Observation example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SexualOrientationObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
+            </extension>
+            <reference>
+                <reference value="Binary/smoking-status-example"/>
+            </reference>
+            <name value="Smoking Status Example"/>
+            <description value="Smoking Status example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
             <groupingId value="examples"/>
         </resource>
         <resource>

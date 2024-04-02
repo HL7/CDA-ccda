@@ -1,7 +1,7 @@
 Profile: TobaccoUse
 Parent: $Observation
 Id: TobaccoUse
-Title: "Tobacco Use"
+Title: "Tobacco Use (Deprecated)"
 Description: """This template represents a patient's tobacco use. 
 
 All the types of tobacco use are represented using the codes from the tobacco use and exposure-finding hierarchy in SNOMED CT, including codes required for recording smoking status in Meaningful Use Stage 2. 
