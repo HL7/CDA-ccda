@@ -64,7 +64,7 @@ The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is b
 This C-CDA guide was developed and produced through the efforts of Health Level Seven (HL7).
 
 The editors appreciate the support and sponsorship of the HL7 Structured Documents Working Group (SDWG), the HL7 Patient Care Work Group, the HL7 Cross Group Projects Work Group, the CDA Management Group, HL7’s Chief Standards Development Officer, and all volunteers and staff associated with the creation of this Implementation Guide.  Much appreciated are the many individual authors from those work groups who contributed to the design and build of C-CDA and CDA Implementation Guides since 2007.
-This guide would not have been possible without the support of the [Office of the National Coordinator](https://www.healthit.gov), and the [Federal Electronic Health Record Modernization (FEHRM)](https://www.fehrm.gov>).
+This guide would not have been possible without the support of the [Office of the National Coordinator](https://www.healthit.gov), and the [Federal Electronic Health Record Modernization (FEHRM)](https://www.fehrm.gov).
 	
 ### C-CDA Primary Authors
 
