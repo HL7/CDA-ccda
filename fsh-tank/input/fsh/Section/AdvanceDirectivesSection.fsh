@@ -2,16 +2,12 @@ Profile: AdvanceDirectivesSection
 Parent: $Section
 Id: AdvanceDirectivesSection
 Title: "Advance Directives Section"
-Description: """This section contains information describing the patient's advance directives. The description includes the kind of advance directive source documents and the type of advance directive content included in each kind of advance directive source document. The section includes information about who verified the content available in each advance directive source document, if applicable. It also includes information about who was the acting healthcare agent, if someone was acting on behalf of the patient during the encounter or during certain periods of time during the provision of care covered by the document. It provides references to the supporting documentation, including all kinds of advance directive source documents.
+Description: """This section contains information describing the patient’s advance healthcare directives.  It provides references to the supporting documentation, including all kinds of advance directive source document types (e.g., Living Will, Healthcare Power of Attorney, Personal Advance Care Plan, DNR Order, Portable Medical Order).
 
-Treatment Preferences, Care Experience Preferences and Personal Health Goals considered relevant by the organization rendering care services to the patient's care during the encompassing encounter or considered relevant to the patient's care plan SHALL be included in the Advance Directives Section as documented by the patient or consented by the patient or the patient's healthcare agent. 
+Information about each advance healthcare directive document is contained in a separate Advance Directive Organizer. The organizer describes the type of advance healthcare directive document and supplies a reference identifier for that document. It also may include a summary of relevant types of advance directive content available in the document with provenance information explaining who authored the information and who verified it with the patient or healthcare agent.
 
-If a person has appointed healthcare agent(s), the Advance Directive Section SHALL include the current healthcare agent(s) information, and a reference to the external document which contains the healthcare agent appointment decisions. If a person has documented treatment preferences under certain health scenarios, the Advance Directive Section SHALL include information about who has reviewed and verified that documentation, and a reference to the external document which was reviewed. 
+An observation made by a clinician or practitioner regarding a patient’s DNR Status based on referenced documentation or regarding another type of order placed in the local EHR based on advance healthcare directives is contained in a distinct Advance Directive Observation (one that is not used in the context of an Advance Directive Organizer."""
 
-This section differentiates between an "advance care plan document" and an "advance care plan order." It also distinguishes an advance directive that is a consent. Information in this section includes information about the person’s current/relevant goals and preferences, advance directive orders, or advance directive consents.
-
-An Advance Directive Organizer is required and all of the Advance Directive Observations should be placed in the context of this Organizer.
-"""
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
 * insert Section(#42348-3, Advance directives, 2.16.840.1.113883.10.20.22.2.21.1, 2022-02-14)

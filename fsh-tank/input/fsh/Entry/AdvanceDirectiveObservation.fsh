@@ -2,46 +2,32 @@ Profile: AdvanceDirectiveObservation
 Parent: $Observation
 Id: AdvanceDirectiveObservation
 Title: "Advance Directive Observation"
-Description: """An Advance Directive Observation template is used to record information about a document authored by the person and containing goals, preferences, and priorities for care. The observation records that the document was available and may have been reviewed (verified). It records the kind (category) of advance directive document, where the document can be accessed, who verified it, and the type of content that was determined to be present. When a person has more than one advance directive document, each document is recorded using an Advance Directive Observation template. A set of Advance Directive Observations are grouped together using an Advance Directive Organizer. 
+Description: """Advance Directive Observations may include a variety of information called different “content types”. The set of Advance Directive Observations within an Advance Directive Organizer provides a summarization of relevant information available in an external Advance Healthcare Directive document or gathered as a result of a conversation with the patient or their healthcare agent (Advance Directive document or Portable Medical Order document).
 
-An Advance Directive Observation template is not used to record information about portable medical orders, such as Medical Orders for Life Sustaining Treatments (MOLST), Physician Orders for Life Sustaining Treatments (POLST), or out-of-hospital Do Not Resuscitate (DNR) Orders. Portable medical order documents are authored by physicians, not patients. They document medical treatment intervention decisions that have been made rather than goals, preferences and priorities that a patient intends to be used as guidance when making care decisions.
-
-The Advance Directive Observation template differs from the Advance Care Planning Intervention template. The Advance Directive Observation template is used to record that a person’s advance directive document has been accessed and reviewed. The Advance Care Planning Intervention template is used to document interactions, such as discussions or education, with the patient about advance care planning and personal advance care plans.
-
-The categories of advance directives source documents could include, but are not limited to, the following:
-*    Personal advance care plan
-*    Living Will
-*    Durable Healthcare (Medical) Power of Attorney
-*    Combined Living Will and Durable Healthcare (Medical) Power of Attorney
-*    Portable Medical Order
-
-Note: Under common law, a “power of attorney” was automatically revoked by the incompetency or incapacity of the principal, so the common law power of attorney was not useful as a planning for incapacity. Accordingly, states adopted “durable” power of attorney statutes allowing an agent to continue to act as empowered by a power of attorney even after the principal became disabled, incompetent or incapacitated.
 
 The types of content in an advance directive could include, but are not limited to:
-*    Healthcare agent consent
-*    Antibiotics administration preference
-*    Artificial nutrition and hydration administration preference
-*    Intubation and Ventilation procedure preference
-*    Resuscitation procedure preference
-*    Diagnostic Testing procedure preference
-*    Preferences relating to palliative care
-*    Preferences relating to hospice care at the end of life
-*    Organ donation preference
-*    Autopsy procedure preference
-*    Burial preference
-*    Care preference that is general in nature which the patient wants care providers to take into consideration
-*    Information about a personal goal, such as seeing a grandchild born, attending a child’s wedding, finding care for a beloved pet, or dying in a certain place.
+* Healthcare agent consent
+* Resuscitation procedure preference
+* Intubation and Ventilation procedure preference
+* Antibiotics or other medication administration preference
+* Artificial nutrition or hydration administration preference
+* Diagnostic Testing procedure preference
+* Preferences relating to palliative care
+* Preferences relating to hospice care 
+* Organ donation preference
+* Autopsy procedure preference
+* Burial or funeral preference
+* Care preference that is general in nature which the patient wants care providers to take into consideration, such as likes or dislikes related to the experience of receiving care
+* Information about a personal goal, such as seeing a grandchild born, attending a child’s wedding, finding care for a beloved pet, or dying in a certain place.
 
-Examples:
-A person may have a durable healthcare power of attorney that appoints a Healthcare Power of Attorney. It may indicate that the person’s spouse has been established as the primary healthcare agent, and the person’s daughter as the first alternative healthcare agent. If the spouse was deceased, or was unavailable at the time, or unwilling to act as healthcare agent during the encounter being documented, then the person’s daughter would be identified as the acting healthcare agent at that time. In this example, “personal advance care plan” is the category of advance directive and “Healthcare Agent” is the type of advance directive content that is present. In this example, “durable healthcare power of attorney” is the category of advance directive and “Healthcare agent” is the type of advance directive content that is present. 
+Preferences can be for or against certain procedures and are typically conditional based upon a certain health scenario taking place.
 
-A personal advance care plan may contain information about a person’s treatment preferences regarding resuscitation. In this example, “personal advance care plan” is the category of advance directive and “Resuscitation” is the type of advance directive content that is present.
+The type of content in a portable medical order could include but are not limited to procedures that can be ordered such as cardiopulmonary resuscitation, hospital transfer, full/selected/comfort care, antibiotics administration, artificial nutrition and hydration administration, dialysis, intubation, ventilation, and more.
 
-The author of the Advance Directive Observation is the person documenting that the directives were reviewed and verified. The verifier is the person who read the document and verified the advance directive information. The role of verifier and the role of author need not be fulfilled by the same person, so each role is documented separately. However, the author and the verifier often will be the same person. This template supports Context Conduction. The author of the organizer can be assumed to be the author of the Advance Directive Observations within the organizer unless explicitly overridden an observation. When author identity confidence is high, implementers should explicitly assert conformance to the Provenance Author Participation template.
+Advance directives are effective when the individual is unable to communicate with their medical team themselves, due to a health crisis or emergency, and persist from execution until such time as the condition of the individual renders them appropriate for use. The effectiveTime/low tells when they went into effect (or will go into effect) and the high tells when they ceased or will cease to be in effect. If the starting effective time is not known, effectiveTime/low is UNK, but this would still be considered “Active”. At a minimum the starting effective time is the date signed. If effectiveTime/high contains a value of “NA” or it is not valued, the advance directive remains active until some action is taken to make it inactive, such as updating the document contents or revocation of the document itself. (Explicit use of nullFlavor=”NA” is the preferred approach for indicating an Advance Directive that is not time bounded.) That action may update the existing information with an effectiveTime/high or it may replace the open-ended entry with a new entry that includes the effectiveTime/high information. An advance directive is active so long as the effectiveTime/high has not been passed.
 
-When an Advance Directive Observation template indicates that the advance directives include healthcare agent appointment information, each healthcare agent can be included in a participation with @typeCode=”CST”. If the participation context (e.g. provenance) for an Advance Directive Observation is not established for the observation, then the participations for the encompassing Advance Directive Organizer apply to the observation.
-
-Advance directives are effective over a range of time. The effectiveTime/low tells when they went into effect (or will go into effect) and the high tells when they ceased or will cease to be in effect. If the starting effective time is not known, effectiveTime/low is UNK, but this would still be considered "Active". If effectiveTime/high contains a value of "NA" or it is not valued, the advance directive remains active until some action is taken to make it inactive. (Explicit use of nullFlavor="NA" is the preferred approach for indicating an Advance Directive that is not time bounded.) That action may update the existing information with an effectiveTime/high or it may replace the open-ended entry with a new entry that includes the effectiveTime/high information. An advance directive is active so long as the effectiveTime/high has not been passed."""
+The author of the Advance Directive Observation is the person documenting that the directives were reviewed and verified to be accurate for provision of treatment and care. The verifier is the person who read the document and verified the advance directive information. The role of verifier and the role of author need not be fulfilled by the same person, so each role is documented separately. However, the author and the verifier often will be the same person in advance healthcare directive documents that are NOT portable medical orders. This template supports Context Conduction. The author of the organizer can be assumed to be the author of the Advance Directive Observations within the organizer unless explicitly overridden within the contained observation. When author identity confidence is high, implementers should explicitly assert conformance to the Provenance Author Participation template.
+"""
 
 * insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2022-02-14)
 * insert NarrativeLink
