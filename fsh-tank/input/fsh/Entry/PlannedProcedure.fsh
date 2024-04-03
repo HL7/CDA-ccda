@@ -54,13 +54,13 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32996) such that it"
 * entryRelationship contains
-    entryRelationship1 0..* and
-    entryRelationship2 0..* and
-    entryRelationship3 0..* and
-    entryRelationship4 0..* and
-    entryRelationship5 0..* and
-    entryRelationship6 0..*
-* entryRelationship[entryRelationship1] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the procedure."
+    priorityPreference 0..* and
+    indication 0..* and
+    instruction 0..* and
+    coverage 0..* and
+    assessmentScale 0..* and
+    entryReference 0..*
+* entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the procedure."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31079) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -68,7 +68,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * observation 1..1
   * observation only PriorityPreference
     * ^comment = "SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-31081)."
-* entryRelationship[entryRelationship2] ^short = "The following entryRelationship represents the indication for the procedure."
+* entryRelationship[indication] ^short = "The following entryRelationship represents the indication for the procedure."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31982) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -76,7 +76,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * observation 1..1
   * observation only Indication
     * ^comment = "SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:4515-31984)."
-* entryRelationship[entryRelationship3] ^short = "The following entryRelationship captures any instructions associated with the planned procedure."
+* entryRelationship[instruction] ^short = "The following entryRelationship captures any instructions associated with the planned procedure."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31985) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
@@ -87,7 +87,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * act 1..1
   * act only Instruction
     * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:4515-31989)."
-* entryRelationship[entryRelationship4] ^short = "The following entryRelationship represents the insurance coverage the patient may have for the procedure."
+* entryRelationship[coverage] ^short = "The following entryRelationship represents the insurance coverage the patient may have for the procedure."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31990) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -95,7 +95,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * act 1..1
   * act only PlannedCoverage
     * ^comment = "SHALL contain exactly one [1..1] Planned Coverage (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.129) (CONF:4515-31992)."
-* entryRelationship[entryRelationship5] ^short = "When an Assessment Scale Observation is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Assessment scale **MAY** contain Assessment Scale observations that represent LOINC question and answer pairs from SDOH screening instruments."
+* entryRelationship[assessmentScale] ^short = "When an Assessment Scale Observation is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Assessment scale **MAY** contain Assessment Scale observations that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32994) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -103,7 +103,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32995)."
-* entryRelationship[entryRelationship6] ^short = "When an Entry Reference Template is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Entry Reference **MAY** refer to Assessment Scale Observation in the same document that represent LOINC question and answer pairs from SDOH screening instruments."
+* entryRelationship[entryReference] ^short = "When an Entry Reference Template is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Entry Reference **MAY** refer to Assessment Scale Observation in the same document that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32996) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)

@@ -237,20 +237,20 @@
             </slicing>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32969) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:social-history-entry-sprt-obs">
+        <element id="Observation.entryRelationship:supportingObs">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="social-history-entry-sprt-obs"/>
+            <sliceName value="supportingObs"/>
             <short value="When an Assessment Scale Observation is contained in a Social History Observation instance that is a Social Determinant of Health Social History Observation, that Assessment Scale Observation MAY contain Assessment Scale Supporting Observations that contain LOINC question and answer pairs from SDOH screening instruments."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32958) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:social-history-entry-sprt-obs.typeCode">
+        <element id="Observation.entryRelationship:supportingObs.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32960)."/>
             <fixedCode value="SPRT"/>
         </element>
-        <element id="Observation.entryRelationship:social-history-entry-sprt-obs.observation">
+        <element id="Observation.entryRelationship:supportingObs.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32959)."/>
             <min value="1"/>
@@ -259,19 +259,19 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:social-history-entry-sprt-act">
+        <element id="Observation.entryRelationship:entryReference">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="social-history-entry-sprt-act"/>
+            <sliceName value="entryReference"/>
             <short value="When an Entry Reference is contained in a Social History Template instance that is a Social Determinant of Health Social History, that Entry Reference **MAY** reference an Assessment Scale Observation elsewhere in the document that represent LOINC question and answer pairs from SDOH screening instruments."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:social-history-entry-sprt-act.typeCode">
+        <element id="Observation.entryRelationship:entryReference.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; Has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32971)."/>
             <fixedCode value="SPRT"/>
         </element>
-        <element id="Observation.entryRelationship:social-history-entry-sprt-act.act">
+        <element id="Observation.entryRelationship:entryReference.act">
             <path value="Observation.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32970)."/>
             <min value="1"/>

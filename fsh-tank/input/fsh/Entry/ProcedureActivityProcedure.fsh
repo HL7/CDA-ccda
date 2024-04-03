@@ -97,9 +97,9 @@ Description: "This template is used to represent the details of current and hist
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
 * participant contains
-    participant1 0..* and
-    participant2 0..*
-* participant[participant1] ^short = "participant"
+    productInstance 0..* and
+    serviceDeliveryLocation 0..*
+* participant[productInstance] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7751) such that it"
   * typeCode 1..1
   * typeCode = #DEV (exactly)
@@ -107,7 +107,7 @@ Description: "This template is used to represent the details of current and hist
   * participantRole 1..1
   * participantRole only ProductInstance
     * ^comment = "SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:4515-15911)."
-* participant[participant2] ^short = "participant"
+* participant[serviceDeliveryLocation] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
   * typeCode 1..1
   * typeCode = #LOC (exactly)
@@ -124,14 +124,14 @@ Description: "This template is used to represent the details of current and hist
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
 * entryRelationship contains
-    entryRelationship1 0..* and
-    entryRelationship2 0..1 and
-    entryRelationship3 0..* and
-    entryRelationship4 0..* and
-    entryRelationship5 0..* and
-    entryRelationship6 0..* and
-    entryRelationship7 0..*
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+    encounter 0..* and
+    instruction 0..1 and
+    indication 0..* and
+    medication 0..* and
+    reaction 0..* and
+    assessmentScaleObs 0..* and
+    entryReference 0..*
+* entryRelationship[encounter] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-7768) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -150,7 +150,7 @@ Description: "This template is used to represent the details of current and hist
     * id 1..1
       * ^short = "Set the encounter ID to the ID of an encounter in another section to signify they are the same encounter (CONF:4515-16843)."
       * ^comment = "This encounter SHALL contain exactly one [1..1] id (CONF:4515-7773)."
-* entryRelationship[entryRelationship2] ^short = "entryRelationship"
+* entryRelationship[instruction] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-7775) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
@@ -161,7 +161,7 @@ Description: "This template is used to represent the details of current and hist
   * act 1..1
   * act only Instruction
     * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:4515-31395)."
-* entryRelationship[entryRelationship3] ^short = "entryRelationship"
+* entryRelationship[indication] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-7779) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -169,7 +169,7 @@ Description: "This template is used to represent the details of current and hist
   * observation 1..1
   * observation only Indication
     * ^comment = "SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:4515-15914)."
-* entryRelationship[entryRelationship4] ^short = "entryRelationship"
+* entryRelationship[medication] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-7886) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -177,7 +177,7 @@ Description: "This template is used to represent the details of current and hist
   * substanceAdministration 1..1
   * substanceAdministration only MedicationActivity
     * ^comment = "SHALL contain exactly one [1..1] Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:4515-15915)."
-* entryRelationship[entryRelationship5] ^short = "entryRelationship"
+* entryRelationship[reaction] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32473) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -185,7 +185,7 @@ Description: "This template is used to represent the details of current and hist
   * observation 1..1
   * observation only ReactionObservation
     * ^comment = "SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:4515-32475)."
-* entryRelationship[entryRelationship6] ^short = "When an Assessment Scale Observation is contained in a Procedure Template instance that is a Social Determinant of Health intervention procedure, that Assessment scale **MAY** contain Assessment Scale observations that represent LOINC question and answer pairs from SDOH screening instruments."
+* entryRelationship[assessmentScaleObs] ^short = "When an Assessment Scale Observation is contained in a Procedure Template instance that is a Social Determinant of Health intervention procedure, that Assessment scale **MAY** contain Assessment Scale observations that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32985) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -193,7 +193,7 @@ Description: "This template is used to represent the details of current and hist
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32986)."
-* entryRelationship[entryRelationship7] ^short = "When an Entry Reference Template is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Entry Reference **MAY** refer to Assessment Scale Observation in the same document that represent LOINC question and answer pairs from SDOH screening instruments."
+* entryRelationship[entryReference] ^short = "When an Entry Reference Template is contained in a Procedure Template instance that is a Social Determinant of Health procedure, that Entry Reference **MAY** refer to Assessment Scale Observation in the same document that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)

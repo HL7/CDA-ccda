@@ -33,8 +33,8 @@ For example, a cardiologist may prescribe a patient Warfarin. The patient's prim
 * participant ^slicing.discriminator.type = #value
   * ^slicing.discriminator.path = "typeCode"
   * ^slicing.rules = #open
-* participant contains participant1 1..*
-* participant[participant1] ^comment = "SHALL contain at least one [1..*] participant (CONF:1098-28661) such that it"
+* participant contains responsible 1..*
+* participant[responsible] ^comment = "SHALL contain at least one [1..*] participant (CONF:1098-28661) such that it"
   * typeCode 1..1
   * typeCode = #RESP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RESP\" (CONF:1098-28663)."

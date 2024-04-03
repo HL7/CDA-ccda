@@ -206,49 +206,49 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:stage">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="stage"/>
             <comment value="SHALL contain exactly one [1..1] entryRelationship (CONF:1198-14718) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:stage.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14719)."/>
             <fixedCode value="SUBJ"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:stage.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] observation (CONF:1198-14720)."/>
             <min value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation.classCode">
+        <element id="Observation.entryRelationship:stage.observation.classCode">
             <path value="Observation.entryRelationship.observation.classCode"/>
             <comment value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:1198-14721)."/>
             <fixedCode value="OBS"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation.moodCode">
+        <element id="Observation.entryRelationship:stage.observation.moodCode">
             <path value="Observation.entryRelationship.observation.moodCode"/>
             <comment value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14722)."/>
             <fixedCode value="EVN"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation.code">
+        <element id="Observation.entryRelationship:stage.observation.code">
             <path value="Observation.entryRelationship.observation.code"/>
             <short value="SG 20230709: This constraint not entered properly in TWB - missing codesystem and code set at top level rather than on observation.code.code - added observation.code.code and observation.code.codeSystem"/>
             <comment value="This observation SHALL contain exactly one [1..1] code=&quot;ASSERTION&quot; Assertion (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-31930)."/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation.code.code">
+        <element id="Observation.entryRelationship:stage.observation.code.code">
             <path value="Observation.entryRelationship.observation.code.code"/>
             <min value="1"/>
             <patternCode value="ASSERTION"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation.code.codeSystem">
+        <element id="Observation.entryRelationship:stage.observation.code.codeSystem">
             <path value="Observation.entryRelationship.observation.code.codeSystem"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.5.4"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation.value">
+        <element id="Observation.entryRelationship:stage.observation.value">
             <path value="Observation.entryRelationship.observation.value"/>
             <comment value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Pressure Ulcer Stage urn:oid:2.16.840.1.113883.11.20.9.35 DYNAMIC (CONF:1198-14725)."/>
             <min value="1"/>

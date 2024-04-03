@@ -217,19 +217,19 @@
             </slicing>
             <comment value="MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"/>
         </element>
-        <element id="Act.participant:participant1">
+        <element id="Act.participant:legalAuthenticator">
             <path value="Act.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="legalAuthenticator"/>
             <short value="Represents the person(s) legally responsible for the contents of the note."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.participant:participant1.typeCode">
+        <element id="Act.participant:legalAuthenticator.typeCode">
             <path value="Act.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LA&quot; Legal Authenticator (CONF:3250-16925)."/>
             <fixedCode value="LA"/>
         </element>
-        <element id="Act.participant:participant1.time">
+        <element id="Act.participant:legalAuthenticator.time">
             <path value="Act.participant.time"/>
             <short value="Indicates the time of signing the note."/>
             <comment value="SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:3250-16926)."/>
@@ -239,7 +239,7 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
             </type>
         </element>
-        <element id="Act.participant:participant1.participantRole">
+        <element id="Act.participant:legalAuthenticator.participantRole">
             <path value="Act.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:3250-16924)."/>
             <constraint>
@@ -249,17 +249,17 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
             </constraint>
         </element>
-        <element id="Act.participant:participant1.participantRole.id">
+        <element id="Act.participant:legalAuthenticator.participantRole.id">
             <path value="Act.participant.participantRole.id"/>
             <short value="This may be the ID of the note author. If so, no additional information in this participant is required."/>
             <comment value="This participantRole SHALL contain at least one [1..*] id (CONF:3250-16927)."/>
             <min value="1"/>
         </element>
-        <element id="Act.participant:participant1.participantRole.playingEntity">
+        <element id="Act.participant:legalAuthenticator.participantRole.playingEntity">
             <path value="Act.participant.participantRole.playingEntity"/>
             <comment value="This participantRole MAY contain zero or one [0..1] playingEntity (CONF:3250-16928)."/>
         </element>
-        <element id="Act.participant:participant1.participantRole.playingEntity.name">
+        <element id="Act.participant:legalAuthenticator.participantRole.playingEntity.name">
             <path value="Act.participant.participantRole.playingEntity.name"/>
             <comment value="The playingEntity, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:3250-16929)."/>
             <min value="1"/>
@@ -279,35 +279,35 @@
             </slicing>
             <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:encounter">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="encounter"/>
             <short value="Links the note to an encounter. If the Note Activity is present within a document containing an encompassingEncounter, then this entryRelationship is optional and the note is associated with the encounter represented by the encompassingEncounter."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:encounter.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; (CONF:3250-16921)."/>
             <fixedCode value="COMP"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.inversionInd">
+        <element id="Act.entryRelationship:encounter.inversionInd">
             <path value="Act.entryRelationship.inversionInd"/>
             <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; (CONF:3250-16922)."/>
             <min value="1"/>
             <fixedBoolean value="true"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.negationInd">
+        <element id="Act.entryRelationship:encounter.negationInd">
             <path value="Act.entryRelationship.negationInd"/>
             <short value="To communicate that the note is not associated with any encounter, this entryRelationship MAY be included with @negationInd=&quot;true&quot; and encounter/id/@nullFlavor=&quot;NA&quot;. The negationInd + encounter indicate this note is not associated with any encounter."/>
             <comment value="MAY contain zero or one [0..1] @negationInd (CONF:3250-16931)."/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.encounter">
+        <element id="Act.entryRelationship:encounter.encounter">
             <path value="Act.entryRelationship.encounter"/>
             <comment value="SHALL contain exactly one [1..1] encounter (CONF:3250-16908)."/>
             <min value="1"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.encounter.id">
+        <element id="Act.entryRelationship:encounter.encounter.id">
             <path value="Act.entryRelationship.encounter.id"/>
             <comment value="This encounter SHALL contain at least one [1..*] id (CONF:3250-16909)."/>
             <min value="1"/>
@@ -329,14 +329,14 @@
             </slicing>
             <comment value="MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"/>
         </element>
-        <element id="Act.reference:reference1">
+        <element id="Act.reference:externalDocument">
             <path value="Act.reference"/>
-            <sliceName value="reference1"/>
+            <sliceName value="externalDocument"/>
             <short value="Represents an unstructured C-CDA document containing the original contents of the note in the original format."/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.reference:reference1.externalDocument">
+        <element id="Act.reference:externalDocument.externalDocument">
             <path value="Act.reference.externalDocument"/>
             <comment value="SHALL contain exactly one [1..1] externalDocument (CONF:3250-16911)."/>
             <min value="1"/>
@@ -348,13 +348,13 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
             </constraint>
         </element>
-        <element id="Act.reference:reference1.externalDocument.id">
+        <element id="Act.reference:externalDocument.externalDocument.id">
             <path value="Act.reference.externalDocument.id"/>
             <comment value="This externalDocument SHALL contain exactly one [1..1] id (CONF:3250-16915)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.reference:reference1.externalDocument.code">
+        <element id="Act.reference:externalDocument.externalDocument.code">
             <path value="Act.reference.externalDocument.code"/>
             <comment value="This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)."/>
         </element>

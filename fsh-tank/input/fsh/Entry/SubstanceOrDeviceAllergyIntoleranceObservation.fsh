@@ -49,8 +49,8 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1098-16318) such that it"
-* participant contains participant1 0..*
-* participant[participant1] ^short = "participant"
+* participant contains consumable 0..*
+* participant[consumable] ^short = "participant"
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1098-16318) such that it"
   * typeCode 1..1
   * typeCode = #CSM (exactly)
@@ -73,11 +73,11 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32935) such that it"
 * entryRelationship contains
-    entryRelationship1 0..1 and
-    entryRelationship2 0..* and
-    entryRelationship3 0..1 and
-    entryRelationship4 0..1
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+    status 0..1 and
+    reaction 0..* and
+    severity 0..1 and
+    criticality 0..1
+* entryRelationship[status] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-16333) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
@@ -88,7 +88,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * observation 1..1
   * observation only AllergyStatusObservation
     * ^comment = "SHALL contain exactly one [1..1] Allergy Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.28:2019-06-20) (CONF:1098-16336)."
-* entryRelationship[entryRelationship2] ^short = "entryRelationship"
+* entryRelationship[reaction] ^short = "entryRelationship"
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-16337) such that it"
   * typeCode 1..1
   * typeCode = #MFST (exactly)
@@ -99,7 +99,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * observation 1..1
   * observation only ReactionObservation
     * ^comment = "SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-16340)."
-* entryRelationship[entryRelationship3] ^short = "entryRelationship"
+* entryRelationship[severity] ^short = "entryRelationship"
   * ^comment = "SHOULD NOT contain zero or one [0..1] entryRelationship (CONF:1098-16341) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
@@ -110,7 +110,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * observation 1..1
   * observation only SeverityObservation
     * ^comment = "SHALL contain exactly one [1..1] Severity Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09) (CONF:1098-16344)."
-* entryRelationship[entryRelationship4] ^short = "entryRelationship"
+* entryRelationship[criticality] ^short = "entryRelationship"
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32935) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)

@@ -200,38 +200,38 @@
             </slicing>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1098-16318) such that it"/>
         </element>
-        <element id="Observation.participant:participant1">
+        <element id="Observation.participant:consumable">
             <path value="Observation.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="consumable"/>
             <short value="participant"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.participant:participant1.typeCode">
+        <element id="Observation.participant:consumable.typeCode">
             <path value="Observation.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CSM&quot; Consumable (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-16319)."/>
             <fixedCode value="CSM"/>
         </element>
-        <element id="Observation.participant:participant1.participantRole">
+        <element id="Observation.participant:consumable.participantRole">
             <path value="Observation.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:1098-16320)."/>
         </element>
-        <element id="Observation.participant:participant1.participantRole.classCode">
+        <element id="Observation.participant:consumable.participantRole.classCode">
             <path value="Observation.participant.participantRole.classCode"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] @classCode=&quot;MANU&quot; Manufactured Product (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-16321)."/>
             <fixedCode value="MANU"/>
         </element>
-        <element id="Observation.participant:participant1.participantRole.playingEntity">
+        <element id="Observation.participant:consumable.participantRole.playingEntity">
             <path value="Observation.participant.participantRole.playingEntity"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1098-16322)."/>
             <min value="1"/>
         </element>
-        <element id="Observation.participant:participant1.participantRole.playingEntity.classCode">
+        <element id="Observation.participant:consumable.participantRole.playingEntity.classCode">
             <path value="Observation.participant.participantRole.playingEntity.classCode"/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] @classCode=&quot;MMAT&quot; Manufactured Material (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:1098-16323)."/>
             <fixedCode value="MMAT"/>
         </element>
-        <element id="Observation.participant:participant1.participantRole.playingEntity.code">
+        <element id="Observation.participant:consumable.participantRole.playingEntity.code">
             <path value="Observation.participant.participantRole.playingEntity.code"/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] code, which MAY be selected from ValueSet Substance Reactant for Intolerance urn:oid:2.16.840.1.113762.1.4.1010.1 DYNAMIC (CONF:1098-16324)."/>
             <min value="1"/>
@@ -251,26 +251,26 @@
             </slicing>
             <comment value="SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32935) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:status">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="status"/>
             <short value="entryRelationship"/>
             <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:1098-16333) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:status.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-16335)."/>
             <fixedCode value="SUBJ"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.inversionInd">
+        <element id="Observation.entryRelationship:status.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-16334)."/>
             <min value="1"/>
             <fixedBoolean value="true"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:status.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Allergy Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.28:2019-06-20) (CONF:1098-16336)."/>
             <min value="1"/>
@@ -279,26 +279,26 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyStatusObservation"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2">
+        <element id="Observation.entryRelationship:reaction">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="reaction"/>
             <short value="entryRelationship"/>
             <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-16337) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.typeCode">
+        <element id="Observation.entryRelationship:reaction.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;MFST&quot; Is Manifestation of (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-16339)."/>
             <fixedCode value="MFST"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.inversionInd">
+        <element id="Observation.entryRelationship:reaction.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-16338)."/>
             <min value="1"/>
             <fixedBoolean value="true"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.observation">
+        <element id="Observation.entryRelationship:reaction.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-16340)."/>
             <min value="1"/>
@@ -307,26 +307,26 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3">
+        <element id="Observation.entryRelationship:severity">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="severity"/>
             <short value="entryRelationship"/>
             <comment value="SHOULD NOT contain zero or one [0..1] entryRelationship (CONF:1098-16341) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.typeCode">
+        <element id="Observation.entryRelationship:severity.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-16342)."/>
             <fixedCode value="SUBJ"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.inversionInd">
+        <element id="Observation.entryRelationship:severity.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-16343)."/>
             <min value="1"/>
             <fixedBoolean value="true"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.observation">
+        <element id="Observation.entryRelationship:severity.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Severity Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.8:2014-06-09) (CONF:1098-16344)."/>
             <min value="1"/>
@@ -335,25 +335,25 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SeverityObservation"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4">
+        <element id="Observation.entryRelationship:criticality">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="criticality"/>
             <short value="entryRelationship"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4.typeCode">
+        <element id="Observation.entryRelationship:criticality.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32936)."/>
             <fixedCode value="SUBJ"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4.inversionInd">
+        <element id="Observation.entryRelationship:criticality.inversionInd">
             <path value="Observation.entryRelationship.inversionInd"/>
             <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; True (CONF:1098-32937)."/>
             <min value="1"/>
             <fixedBoolean value="true"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4.observation">
+        <element id="Observation.entryRelationship:criticality.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Criticality Observation  (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.145) (CONF:1098-32938)."/>
             <min value="1"/>

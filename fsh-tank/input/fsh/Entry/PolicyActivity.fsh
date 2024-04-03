@@ -32,9 +32,9 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
 * performer contains
-    performer1 1..1 and
-    performer2 0..*
-* performer[performer1] ^short = "This performer represents the Payer."
+    payer 1..1 and
+    guarantor 0..*
+* performer[payer] ^short = "This performer represents the Payer."
   * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4537-8906) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)
@@ -64,7 +64,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * obeys should-name
       * name 0..1
         * ^comment = "The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)." // auto-should
-* performer[performer2] ^short = "This performer represents the Guarantor."
+* performer[guarantor] ^short = "This performer represents the Guarantor."
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)    

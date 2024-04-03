@@ -42,8 +42,8 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
 * component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* component contains component1 1..*
-* component[component1] ^comment = "SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"
+* component contains vitalSignObs 1..*
+* component[vitalSignObs] ^comment = "SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"
   * observation 1..1
   * observation only VitalSignObservation
     * ^comment = "SHALL contain exactly one [1..1] Vital Sign Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:1198-15946)."

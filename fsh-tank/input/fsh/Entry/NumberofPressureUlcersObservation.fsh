@@ -53,8 +53,8 @@ Description: "This template represents the number of pressure ulcers observed at
   * ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entryRelationship contains entryRelationship1 1..1
-* entryRelationship[entryRelationship1] ^comment = "SHALL contain exactly one [1..1] entryRelationship (CONF:1198-14718) such that it"
+* entryRelationship contains stage 1..1
+* entryRelationship[stage] ^comment = "SHALL contain exactly one [1..1] entryRelationship (CONF:1198-14718) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14719)."

@@ -185,19 +185,19 @@
             </slicing>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4537-32629) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:assessmentScaleObs">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="assessmentScaleObs"/>
             <short value="entryRelationship"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:assessmentScaleObs.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CONF:4537-32631)."/>
             <fixedCode value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:assessmentScaleObs.observation">
             <path value="Observation.entryRelationship.observation"/>
             <short value="A system **MAY** record the six-item set of questions and their answers options from the American Community Survey (ACS) in the Assessment Scale Observation using the [Disability Status Assessment](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.49/expansion) value set (CONF:4537-33057)."/>
             <comment value="SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.69:2022-06-01) (CONF:4537-32630)."/>

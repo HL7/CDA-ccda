@@ -373,24 +373,24 @@
             </slicing>
             <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:encounter">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="encounter"/>
             <short value="entryRelationship"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-86) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:encounter.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-87)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.act">
+        <element id="Act.entryRelationship:encounter.act">
             <path value="Act.entryRelationship.act"/>
             <max value="0"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.encounter">
+        <element id="Act.entryRelationship:encounter.encounter">
             <path value="Act.entryRelationship.encounter"/>
             <comment value="SHALL contain exactly one [1..1] encounter (CONF:4515-88)."/>
             <min value="1"/>
@@ -402,30 +402,30 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberAct"/>
             </constraint>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.encounter.id">
+        <element id="Act.entryRelationship:encounter.encounter.id">
             <path value="Act.entryRelationship.encounter.id"/>
             <comment value="This encounter SHALL contain exactly one [1..1] id (CONF:4515-89)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation">
+        <element id="Act.entryRelationship:encounter.observation">
             <path value="Act.entryRelationship.observation"/>
             <max value="0"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2">
+        <element id="Act.entryRelationship:note">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="note"/>
             <short value="This is the note activity to narratively describe information about the member on the care team."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-91) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.typeCode">
+        <element id="Act.entryRelationship:note.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-92)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.act">
+        <element id="Act.entryRelationship:note.act">
             <path value="Act.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-93)."/>
             <min value="1"/>
@@ -434,35 +434,35 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.encounter">
+        <element id="Act.entryRelationship:note.encounter">
             <path value="Act.entryRelationship.encounter"/>
             <max value="0"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship2.observation">
+        <element id="Act.entryRelationship:note.observation">
             <path value="Act.entryRelationship.observation"/>
             <max value="0"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3">
+        <element id="Act.entryRelationship:schedule">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="schedule"/>
             <short value="This is the schedule of when or how frequently the care team member participates (or provides care to the patient) on the care team."/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.typeCode">
+        <element id="Act.entryRelationship:schedule.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-96)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.act">
+        <element id="Act.entryRelationship:schedule.act">
             <path value="Act.entryRelationship.act"/>
             <max value="0"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.encounter">
+        <element id="Act.entryRelationship:schedule.encounter">
             <path value="Act.entryRelationship.encounter"/>
             <max value="0"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship3.observation">
+        <element id="Act.entryRelationship:schedule.observation">
             <path value="Act.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Care Team Member Schedule Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.3:2022-06-01) (CONF:4515-95)."/>
             <min value="1"/>

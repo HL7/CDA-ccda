@@ -107,34 +107,34 @@ The components of the organizer contain the following information:
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4515-152) such that it"
 * component contains
-    component1 0..* and
-    component2 0..* and
-    component3 0..* and
-    component4 0..1 and
-    component5 1..*
-* component[component1] ^short = "component"
+    type 0..* and
+    entryReference 0..* and
+    encounter 0..* and
+    note 0..1 and
+    member 1..*
+* component[type] ^short = "component"
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-110) such that it"
   * observation 1..1
   * observation only CareTeamTypeObservation
     * ^comment = "SHALL contain exactly one [1..1] Care Team Type Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.2:2019-07-01) (CONF:4515-163)."
-* component[component2] ^short = "The following components represent the reasons for the existence of the care team. These entry references are typically a health concern, risk concern or problem but can also be some other entry present in the document."
+* component[entryReference] ^short = "The following components represent the reasons for the existence of the care team. These entry references are typically a health concern, risk concern or problem but can also be some other entry present in the document."
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-146) such that it"
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-147)."
-* component[component3] ^short = "component"
+* component[encounter] ^short = "component"
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-148) such that it"
   * encounter 1..1
     * ^comment = "SHALL contain exactly one [1..1] encounter (CONF:4515-164)."
     * id 1..*
       * ^short = "1.\tIf the id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor=NA, then this entry SHALL conform to the Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4435-145)."
       * ^comment = "This encounter SHALL contain at least one [1..*] id (CONF:4515-165)."
-* component[component4] ^short = "component"
+* component[note] ^short = "component"
   * ^comment = "MAY contain zero or one [0..1] component (CONF:4515-150) such that it"
   * act 1..1
   * act only NoteActivity
     * ^comment = "SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-151)."
-* component[component5] ^short = "component"
+* component[member] ^short = "component"
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4515-152) such that it"
   * act 1..1
   * act only CareTeamMemberAct

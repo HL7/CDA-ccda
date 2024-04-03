@@ -152,35 +152,35 @@
             <comment value="SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"/>
             <min value="1"/>
         </element>
-        <element id="Act.performer:performer1">
+        <element id="Act.performer:payer">
             <path value="Act.performer"/>
-            <sliceName value="performer1"/>
+            <sliceName value="payer"/>
             <short value="This performer represents the Payer."/>
             <comment value="SHALL contain exactly one [1..1] performer (CONF:4537-8906) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.performer:performer1.templateId">
+        <element id="Act.performer:payer.templateId">
             <path value="Act.performer.templateId"/>
             <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-16808), SHALL not contain [0..0] extension.."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.performer:performer1.templateId.root">
+        <element id="Act.performer:payer.templateId.root">
             <path value="Act.performer.templateId.root"/>
             <comment value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.87&quot; Payer Performer (CONF:4537-16809)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.87"/>
         </element>
-        <element id="Act.performer:performer1.templateId.extension">
+        <element id="Act.performer:payer.templateId.extension">
             <path value="Act.performer.templateId.extension"/>
             <max value="0"/>
         </element>
-        <element id="Act.performer:performer1.typeCode">
+        <element id="Act.performer:payer.typeCode">
             <path value="Act.performer.typeCode"/>
             <min value="1"/>
         </element>
-        <element id="Act.performer:performer1.assignedEntity">
+        <element id="Act.performer:payer.assignedEntity">
             <path value="Act.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8908)."/>
             <constraint>
@@ -198,7 +198,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
             </constraint>
         </element>
-        <element id="Act.performer:performer1.assignedEntity.id">
+        <element id="Act.performer:payer.assignedEntity.id">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
                 <valueBoolean value="true"/>
             </extension>
@@ -206,15 +206,15 @@
             <short value="(USCDI) **PAYER IDENTIFIER**: This is the Payer id. The root is a unique identifier to an openly available assigning authority, such as National Association of Insurance Commissioners (NAIC) (2.16.840.1.113883.6.300), and the extension identifiers the payer within that authority."/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-8909)."/>
         </element>
-        <element id="Act.performer:performer1.assignedEntity.code">
+        <element id="Act.performer:payer.assignedEntity.code">
             <path value="Act.performer.assignedEntity.code"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)."/>
         </element>
-        <element id="Act.performer:performer1.assignedEntity.code.nullFlavor">
+        <element id="Act.performer:payer.assignedEntity.code.nullFlavor">
             <path value="Act.performer.assignedEntity.code.nullFlavor"/>
             <max value="0"/>
         </element>
-        <element id="Act.performer:performer1.assignedEntity.code.code">
+        <element id="Act.performer:payer.assignedEntity.code.code">
             <path value="Act.performer.assignedEntity.code.code"/>
             <min value="1"/>
             <binding>
@@ -222,7 +222,7 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.10416"/>
             </binding>
         </element>
-        <element id="Act.performer:performer1.assignedEntity.addr">
+        <element id="Act.performer:payer.assignedEntity.addr">
             <path value="Act.performer.assignedEntity.addr"/>
             <comment value="This assignedEntity MAY contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8910)."/>
             <max value="1"/>
@@ -231,11 +231,11 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
         </element>
-        <element id="Act.performer:performer1.assignedEntity.telecom">
+        <element id="Act.performer:payer.assignedEntity.telecom">
             <path value="Act.performer.assignedEntity.telecom"/>
             <comment value="This assignedEntity MAY contain zero or more [0..*] telecom (CONF:4537-8911)."/>
         </element>
-        <element id="Act.performer:performer1.assignedEntity.representedOrganization">
+        <element id="Act.performer:payer.assignedEntity.representedOrganization">
             <path value="Act.performer.assignedEntity.representedOrganization"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)."/>
             <constraint>
@@ -246,14 +246,14 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
             </constraint>
         </element>
-        <element id="Act.performer:performer1.assignedEntity.representedOrganization.name">
+        <element id="Act.performer:payer.assignedEntity.representedOrganization.name">
             <path value="Act.performer.assignedEntity.representedOrganization.name"/>
             <comment value="The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)."/>
             <max value="1"/>
         </element>
-        <element id="Act.performer:performer2">
+        <element id="Act.performer:guarantor">
             <path value="Act.performer"/>
-            <sliceName value="performer2"/>
+            <sliceName value="guarantor"/>
             <short value="This performer represents the Guarantor."/>
             <min value="0"/>
             <max value="*"/>
@@ -265,31 +265,31 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
             </constraint>
         </element>
-        <element id="Act.performer:performer2.templateId">
+        <element id="Act.performer:guarantor.templateId">
             <path value="Act.performer.templateId"/>
             <comment value="SHALL contain exactly one [1..1] templateId (CONF:4537-16810), SHALL not contain [0..0] extension."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.performer:performer2.templateId.root">
+        <element id="Act.performer:guarantor.templateId.root">
             <path value="Act.performer.templateId.root"/>
             <comment value="This templateId SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.22.4.88&quot; Guarantor Performer (CONF:4537-16811)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.88"/>
         </element>
-        <element id="Act.performer:performer2.templateId.extension">
+        <element id="Act.performer:guarantor.templateId.extension">
             <path value="Act.performer.templateId.extension"/>
             <max value="0"/>
         </element>
-        <element id="Act.performer:performer2.typeCode">
+        <element id="Act.performer:guarantor.typeCode">
             <path value="Act.performer.typeCode"/>
             <min value="1"/>
         </element>
-        <element id="Act.performer:performer2.time">
+        <element id="Act.performer:guarantor.time">
             <path value="Act.performer.time"/>
             <comment value="SHOULD contain zero or one [0..1] time (CONF:4537-8963)."/>
         </element>
-        <element id="Act.performer:performer2.assignedEntity">
+        <element id="Act.performer:guarantor.assignedEntity">
             <path value="Act.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8962)."/>
             <constraint>
@@ -314,24 +314,24 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PolicyActivity"/>
             </constraint>
         </element>
-        <element id="Act.performer:performer2.assignedEntity.code">
+        <element id="Act.performer:guarantor.assignedEntity.code">
             <path value="Act.performer.assignedEntity.code"/>
             <comment value="This assignedEntity SHALL contain exactly one [1..1] code (CONF:4537-8968)."/>
             <min value="1"/>
         </element>
-        <element id="Act.performer:performer2.assignedEntity.code.code">
+        <element id="Act.performer:guarantor.assignedEntity.code.code">
             <path value="Act.performer.assignedEntity.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;GUAR&quot; Guarantor (CONF:4537-16096)."/>
             <min value="1"/>
             <patternCode value="GUAR"/>
         </element>
-        <element id="Act.performer:performer2.assignedEntity.code.codeSystem">
+        <element id="Act.performer:guarantor.assignedEntity.code.codeSystem">
             <path value="Act.performer.assignedEntity.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.110&quot; (CONF:4537-32165)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.5.110"/>
         </element>
-        <element id="Act.performer:performer2.assignedEntity.addr">
+        <element id="Act.performer:guarantor.assignedEntity.addr">
             <path value="Act.performer.assignedEntity.addr"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)."/>
             <max value="1"/>
@@ -340,7 +340,7 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
         </element>
-        <element id="Act.performer:performer2.assignedEntity.telecom">
+        <element id="Act.performer:guarantor.assignedEntity.telecom">
             <path value="Act.performer.assignedEntity.telecom"/>
             <comment value="This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)."/>
         </element>

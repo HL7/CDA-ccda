@@ -46,8 +46,8 @@ When an Assessment Scale Observation is contained in a Problem Observation, a So
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:4515-14451) such that it"
-* entryRelationship contains entryRelationship1 0..*
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+* entryRelationship contains supportingObs 0..*
+* entryRelationship[supportingObs] ^short = "entryRelationship"
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:4515-14451) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)

@@ -42,8 +42,8 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4537-32629) such that it"
-* entryRelationship contains entryRelationship1 0..*
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+* entryRelationship contains assessmentScaleObs 0..*
+* entryRelationship[assessmentScaleObs] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4537-32629) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)

@@ -29,8 +29,8 @@ Description: "This template represents equipment supplied to the patient (e.g., 
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-* participant contains participant1 0..1
-* participant[participant1] ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-8752) such that it"
+* participant contains product 0..1
+* participant[product] ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-8752) such that it"
   * typeCode 1..1
   * typeCode = #PRD (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"PRD\" Product (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1098-8754)."

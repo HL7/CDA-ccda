@@ -48,13 +48,13 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31559) such that it"
 * entryRelationship contains
-    entryRelationship1 0..* and
-    entryRelationship2 0..* and
-    entryRelationship3 0..1 and
-    entryRelationship4 0..* and
-    entryRelationship5 0..* and
-    entryRelationship6 0..*
-* entryRelationship[entryRelationship1] ^short = "The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in this entryRelationship to refer the template."
+    refersToGoal 0..* and
+    componentEntry 0..* and
+    priorityPreference 0..1 and
+    goal 0..* and
+    refersToGeneric 0..* and
+    progressTowardGoal 0..*
+* entryRelationship[refersToGoal] ^short = "The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in this entryRelationship to refer the template."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-30701) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -62,7 +62,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-30703)."
-* entryRelationship[entryRelationship2] ^short = "The following entryRelationship represents a planned component of the goal such as Planned Encounter (V2), Planned Procedure (V2), Planned Medication Activity (V2), Planned Supply (V2), Planned Act (V2) or Planned Immunization Activity. Because these entries are already described in the Interventions Section of the CDA document instance, rather than repeating the full content of the entries, the Entry Reference template may be used to reference the entries."
+* entryRelationship[componentEntry] ^short = "The following entryRelationship represents a planned component of the goal such as Planned Encounter (V2), Planned Procedure (V2), Planned Medication Activity (V2), Planned Supply (V2), Planned Act (V2) or Planned Immunization Activity. Because these entries are already described in the Interventions Section of the CDA document instance, rather than repeating the full content of the entries, the Entry Reference template may be used to reference the entries."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-30704) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -70,7 +70,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32879)."
-* entryRelationship[entryRelationship3] ^short = "The following entryRelationship represents the priority that the patient or a provider puts on the goal."
+* entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that the patient or a provider puts on the goal."
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:4515-30785) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -78,7 +78,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * observation 1..1
   * observation only PriorityPreference
     * ^comment = "SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-30787)."
-* entryRelationship[entryRelationship4] ^short = "The following entryRelationship represents the relationship between two Goal Observations where the target is a component of the source (Goal Observation HAS COMPONENT Goal Observation). The component goal (target) is a Milestone."
+* entryRelationship[goal] ^short = "The following entryRelationship represents the relationship between two Goal Observations where the target is a component of the source (Goal Observation HAS COMPONENT Goal Observation). The component goal (target) is a Milestone."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31448) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
@@ -86,7 +86,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * observation 1..1
   * observation only GoalObservation
     * ^comment = "SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:4515-32880)."
-* entryRelationship[entryRelationship5] ^short = "Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
+* entryRelationship[refersToGeneric] ^short = "Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31559) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -94,7 +94,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31588)."
-* entryRelationship[entryRelationship6] ^short = "entryRelationship"
+* entryRelationship[progressTowardGoal] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

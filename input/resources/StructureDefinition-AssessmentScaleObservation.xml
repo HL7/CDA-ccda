@@ -184,19 +184,19 @@
             </slicing>
             <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:4515-14451) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:supportingObs">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="supportingObs"/>
             <short value="entryRelationship"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:supportingObs.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CONF:4515-16741)."/>
             <fixedCode value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:supportingObs.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Assessment Scale Supporting Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.86) (CONF:4515-16742)."/>
             <min value="1"/>

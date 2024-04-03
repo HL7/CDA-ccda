@@ -38,8 +38,8 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-* entryRelationship contains entryRelationship1 1..*
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+* entryRelationship contains policy 1..*
+* entryRelationship[policy] ^short = "entryRelationship"
   * ^comment = "SHALL contain at least one [1..*] entryRelationship (CONF:4537-8878) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
