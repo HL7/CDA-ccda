@@ -151,7 +151,7 @@ The Patient Generated Document Header template is not a separate document type. 
       * functionCode 0..1
         * ^comment = "When indicating the performer was the primary care physician, implementers should indicate \"PCP\" as the functionCode"
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
-        * obeys should-us-code
+        // No need for this - it's on USRealmHeader * obeys should-code-attr
         * code 0..1
         * code from $2.16.840.1.113883.1.11.10267 (required)
       * assignedEntity 1..1
