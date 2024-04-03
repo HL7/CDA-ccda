@@ -2,7 +2,7 @@ Profile: ServiceDeliveryLocation
 Parent: $ParticipantRole
 Id: ServiceDeliveryLocation
 Title: "Service Delivery Location"
-Description: "This clinical statement represents the location of a service event where an act, observation or procedure took place."
+Description: "This clinical statement represents the physical place of available services or resources. It is the location of a service event where an act, observation or procedure took or can place."
 
 * insert LogicalModelTemplateRootOnly(service-delivery-loc, 2.16.840.1.113883.10.20.22.4.32)
 
