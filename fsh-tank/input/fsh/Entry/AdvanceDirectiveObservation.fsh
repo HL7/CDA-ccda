@@ -27,6 +27,24 @@ The type of content in a portable medical order could include but are not limite
 Advance directives are effective when the individual is unable to communicate with their medical team themselves, due to a health crisis or emergency, and persist from execution until such time as the condition of the individual renders them appropriate for use. The effectiveTime/low tells when they went into effect (or will go into effect) and the high tells when they ceased or will cease to be in effect. If the starting effective time is not known, effectiveTime/low is UNK, but this would still be considered “Active”. At a minimum the starting effective time is the date signed. If effectiveTime/high contains a value of “NA” or it is not valued, the advance directive remains active until some action is taken to make it inactive, such as updating the document contents or revocation of the document itself. (Explicit use of nullFlavor=”NA” is the preferred approach for indicating an Advance Directive that is not time bounded.) That action may update the existing information with an effectiveTime/high or it may replace the open-ended entry with a new entry that includes the effectiveTime/high information. An advance directive is active so long as the effectiveTime/high has not been passed.
 
 The author of the Advance Directive Observation is the person documenting that the directives were reviewed and verified to be accurate for provision of treatment and care. The verifier is the person who read the document and verified the advance directive information. The role of verifier and the role of author need not be fulfilled by the same person, so each role is documented separately. However, the author and the verifier often will be the same person in advance healthcare directive documents that are NOT portable medical orders. This template supports Context Conduction. The author of the organizer can be assumed to be the author of the Advance Directive Observations within the organizer unless explicitly overridden within the contained observation. When author identity confidence is high, implementers should explicitly assert conformance to the Provenance Author Participation template.
+
+Advance Directive Observations that would appear in the context of an Advance Directive Organizer:
+
+| Information Content Type (as evidenced in an external document, or provided verbally during a patient encounter and not contained in an external document) | How the Observation is used to represent this information for exchange |
+| --- | --- |
+| Existing advance healthcare directive document | Observation.code = 75320 <br/> Observation.code.translation = 92183-3 (Form type) <br/> Observation.value = a code from Advance Healthcare Directive Categories <br/> Optional: entryRelationship to reference the external source document by identifier |
+| Appointment of healthcare agents  that are consented to by the patient.| Observation.code = 75320 <br/> Observation.code.translation = 81335-2 <br/> Observation.value = a code from Healthcare Agent or Proxy Choices  <br/> If no healthcare agents are appointed, Observation.value/@nullflavor = a code from No Healthcare Agent Included Reason <br/>  Observation.participant is used to record an appointed healthcare agent. Each Advance Directive Observation of this type holds only one Healthcare Agent, necessitating that if a primary healthcare agent and a backup healthcare agent are designed two Advance Directive Observation entries are required. |
+| Patient’s Treatment Intervention Preferences (also supports preconditional health scenarios), Care Experience Preferences, and Upon Death Preferences. | When documenting that a patient has documented or expressed Treatment Intervention Preferences, Care Experience Preferences, or Upon Death Preferences, the person verifying the content in the referenced document is the performer of the observation and the observation.value tells what type of content was verified or discussed.<br/>  The documented preference is included as a reference to the Treatment Intervention Preference, Care Experience Preference or Upon Death Preference identified in the source document.<br/>The verified current preference can be included as entryRelationships to a Treatment Intervention Preference or Care Experience Preference where the performer is the person verifying the information with the patient or the healthcare agent, the informant is the patient or healthcare agent, and the author is the person recording this documentation in the EHR. <br/> Observation.code = 75320 <br/> Observation.code.translation = 95541-9 Care Experience Preference <br/> 81378-2 Personal Intervention Preference <br/> 81337-8 Upon Death Preferences <br/> Observation.value = code from Advance Directive Content Type |
+| Personal healthcare goals (also supports preconditional health scenarios) | Observation.code = 75320 <br/> Observation.code.translation = 87528-6  Personal Health Goal <br/> Observation.value = a code from Health Goals at End of Life Grouping |
+| Practitioner Orders that are in place in a Portable Medical Order document. | Observation.code = 75320 <br/> Observation.code.translation = Code should come from CPT or SNOMED CT codes. <br/> Observation.value will be from a specialized value set including coded values appropriate for the specific order. Or if coded concepts are not available, Observation.value will be a Boolean where T = perform and F=do-not-perform |
+{:.grid}
+
+Advance Directive Observation that would not be contained in the context of an Advance Directive Organizer:
+
+| Information Content Type (as evidenced in an external document, or provided verbally during a patient encounter and not contained in an external document) | How the Observation is used to represent this information for exchange |
+| --- | --- |
+| Advance Directive Observation authored by the organization creating the C-CDA document to show the Patient’s DNR Status. | Observation.code = 75320 <br/> Observation.code.translation = 100822-6 Cardiopulmonary resuscitation orders <br/> Observation.value will be  LA33470-8 (Yes CPR) or LA33471-6 (No CPR) |
+{:.grid}
 """
 
 * insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2022-02-14)
@@ -65,8 +83,8 @@ The author of the Advance Directive Observation is the person documenting that t
 * value 1..1
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:1198-30804)."
 * value only CD
-  * code from $2.16.840.1.113762.1.4.1115.5
-  * codeSystem = "2.16.840.1.113883.6.96"
+* value from $2.16.840.1.113762.1.4.1099.57
+  * ^binding.description = "Advance Directive Content Type"
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation

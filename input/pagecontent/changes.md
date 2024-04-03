@@ -72,14 +72,18 @@ The changes in this version of Consolidated CDA were made from comments raised d
 - [CDA-20952](https://jira.hl7.org/browse/CDA-20952) - Update the Health Status Evaluations Section description.
 - [CDA-20953](https://jira.hl7.org/browse/CDA-20953) - Remove the language around Assessments and Assessment and Plan from the Care Plan document.
 - [CDA-20954](https://jira.hl7.org/browse/CDA-20954) - Make both Performer slices have typeCode = PRF and remove the constraint language.
+- [CDA-20955](https://jira.hl7.org/browse/CDA-20955) - Created new [Average Blood Pressure Organizer](StructureDefinition-AverageBloodPressureOrganizer.html) template
 - [CDA-20957](https://jira.hl7.org/browse/CDA-20957) - Change the Problem Observation code binding to a new Grouper value set.
 - [CDA-20958](https://jira.hl7.org/browse/CDA-20958) - Change the Problem Value set binding to the US Core Condition value set.
 - [CDA-20961](https://jira.hl7.org/browse/CDA-20961) - Update the Advance Directive Organizer description.
 - [CDA-20962](https://jira.hl7.org/browse/CDA-20962) - Change the Procedure code bindings to use the US Core Procedure set.
 - [CDA-20963](https://jira.hl7.org/browse/CDA-20963) - Remove Planned Activity Act and Planned Activity Observation Templates.
 - [CDA-20965](https://jira.hl7.org/browse/CDA-20965) - Update the Advance Directive Observation description.
+- [CDA-20966](https://jira.hl7.org/browse/CDA-20966) - Update the Advance Directive Organizer description.
+- [CDA-20967](https://jira.hl7.org/browse/CDA-20967) - Update the Advance Directive Observation description.
 - [CDA-20969](https://jira.hl7.org/browse/CDA-20969) - Bind the playingEntity.code to the Personal and Legal Relationship Role Types value set.
 - [CDA-20970](https://jira.hl7.org/browse/CDA-20970) - Update the Advance Directive Observation externalDocument.code binding to to be Preferred to Advance Directive Categories.
+- [CDA-20971](https://jira.hl7.org/browse/CDA-20971) - Update the Advance Directive Observation code binding to be to a new grouper value set.
 - [CDA-20973](https://jira.hl7.org/browse/CDA-20973) - Remove the prohibition on ReferenceRange.code.
 - [CDA-20974](https://jira.hl7.org/browse/CDA-20974) - Create an invariant on Indication similarly to how EntryReference and AuthorParticipation do it.
 - [CDA-20975](https://jira.hl7.org/browse/CDA-20975) - Update the value set binding from Nutrition Recommendations to Nutrition Recommendation Grouping.
@@ -103,6 +107,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 - [CDA-21051](https://jira.hl7.org/browse/CDA-21051) - Update VSAC/LOINC/SNOMED display names.
 - [CDA-21052](https://jira.hl7.org/browse/CDA-21052) - Change Vital Signs Organizer code to use LOINC code.
 - [CDA-21053](https://jira.hl7.org/browse/CDA-21053) - Changed the Patient Referral Act statusCode binding to be to ActStatus code system.
+- [CDA-21054](https://jira.hl7.org/browse/CDA-21054) - Created new [Smoking Status](StructureDefinition-SmokingStatus.html) template and deprecated [Smoking Status - Meaningful Use](StructureDefinition-SmokingStatusMeaningfulUse.html) and [Tobacco Use](StructureDefinition-TobaccoUse.html)
 - [CDA-21056](https://jira.hl7.org/browse/CDA-21056) - Update Basic Industry Occupation examples to match templates.
 - [CDA-21057](https://jira.hl7.org/browse/CDA-21057) - Added explanatory text on what effectiveTime means within goals
 - [CDA-21058](https://jira.hl7.org/browse/CDA-21058) - Updated the Immunization Refusal Reason template to Immunization Not Given Reason and use proper codes and value set bindings.
@@ -111,8 +116,6 @@ The changes in this version of Consolidated CDA were made from comments raised d
 - [CDA-21064](https://jira.hl7.org/browse/CDA-21064) - Add 0..* authors to the Disability Status Observation.
 - [CDA-21065](https://jira.hl7.org/browse/CDA-21065) - Change the Sex Observation value set binding to be Preferred.
 - [CDA-21067](https://jira.hl7.org/browse/CDA-21067) - Change Patient Referral Act participant from SHALL contain exactly one to MAY contain zero or one.
-- [CDA-20955](https://jira.hl7.org/browse/CDA-20955) - Created new [Average Blood Pressure Organizer](StructureDefinition-AverageBloodPressureOrganizer.html) template
-- [CDA-21054](https://jira.hl7.org/browse/CDA-21054) - Created new [Smoking Status](StructureDefinition-SmokingStatus.html) template and deprecated [Smoking Status - Meaningful Use](StructureDefinition-SmokingStatusMeaningfulUse.html) and [Tobacco Use](StructureDefinition-TobaccoUse.html)
 
 
 
