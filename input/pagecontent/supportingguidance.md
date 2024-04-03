@@ -977,6 +977,8 @@ represent the clinical note information.
     </tr>
 </table>
 
+Each distinct document template defines the specific code that is used to identify that document type.  Since the ClinicalDocument.code is defined as a CE, it allows for translation codes to also be specified.  These translation codes can provide more details about the document type.
+
 #### Section Structure by Document Type
 
 The following tables describe the required and optional section templates for each document type defined in C-CDA. They include sections that support best practices for representing data for exchange such as Patient Goals and Health Concerns.
