@@ -150,7 +150,7 @@
         </element>
         <element id="ParticipantRole.addr">
             <path value="ParticipantRole.addr"/>
-            <comment value="SHOULD contain zero or more [0..*] addr (CONF:81-7760)."/>
+            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
@@ -163,6 +163,7 @@
         <element id="ParticipantRole.playingEntity">
             <path value="ParticipantRole.playingEntity"/>
             <comment value="MAY contain zero or one [0..1] playingEntity (CONF:81-7762)."/>
+            <min value="1"/>
         </element>
         <element id="ParticipantRole.playingEntity.classCode">
             <path value="ParticipantRole.playingEntity.classCode"/>
@@ -175,7 +176,7 @@
             </extension>
             <path value="ParticipantRole.playingEntity.name"/>
             <short value="(USCDI) Facility Name"/>
-            <comment value="The playingEntity, if present, MAY contain zero or one [0..1] name (CONF:81-16037)."/>
+            <min value="1"/>
             <max value="1"/>
         </element>
     </differential>

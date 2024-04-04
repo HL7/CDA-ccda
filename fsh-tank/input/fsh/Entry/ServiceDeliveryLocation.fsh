@@ -23,17 +23,15 @@ Description: "This clinical statement represents the physical place of available
 * code from $2.16.840.1.113883.1.11.20275 (required)
   * insert USCDI([[Facility Type]])
 * obeys should-addr
-* addr 0..*
+* addr 0..1
 * addr only USRealmAddress
-  * ^comment = "SHOULD contain zero or more [0..*] addr (CONF:81-7760)." // auto-should
 * obeys should-telecom
 * telecom 0..*
   * ^comment = "SHOULD contain zero or more [0..*] telecom (CONF:81-7761)." // auto-should
-* playingEntity 0..1
+* playingEntity 1..1
   * ^comment = "MAY contain zero or one [0..1] playingEntity (CONF:81-7762)."
   * classCode 1..1
   * classCode = #PLC (exactly)
     * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] @classCode=\"PLC\" (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:81-7763)."
-  * name 0..1
+  * name 1..1
     * insert USCDI([[Facility Name]])
-    * ^comment = "The playingEntity, if present, MAY contain zero or one [0..1] name (CONF:81-16037)."
