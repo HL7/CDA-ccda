@@ -139,9 +139,15 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
         </element>
-        <element id="Observation.sdtcPrecondition2.criterion">
-            <path value="Observation.sdtcPrecondition2.criterion"/>
-            <min value="1"/>
+        <element id="Observation.sdtcPrecondition2">
+            <path value="Observation.sdtcPrecondition2"/>
+            <constraint>
+                <key value="should-criterion"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain criterion"/>
+                <expression value="criterion.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TreatmentInterventionPreference"/>
+            </constraint>
         </element>
         <element id="Observation.sdtcPrecondition2.criterion.code">
             <path value="Observation.sdtcPrecondition2.criterion.code"/>
