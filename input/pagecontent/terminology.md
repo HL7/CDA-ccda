@@ -5,10 +5,10 @@ This page lists all the ValueSets, CodeSystems, and ConceptMaps defined as part 
 
 These value sets are used in this implementation guide:
 
-{% include valueset-ref-all-list.xhtml %}
+{% include valueset-ref-all-table-generator.html %}
 
 ### Code Systems
 
 These code systems are used in this implementation guide:
 
-{% include codesystem-ref-all-list.xhtml %}
+{% include codesystem-ref-all-table-generator.html %}
