@@ -19,6 +19,7 @@ This template may be used directly in any section, such as Care Plan Document Se
 * value 1..1
 * value only CD or ED
   * ^short = "Most of the time, the value will be a string representing the person's words."
+* obeys should-sdtcPrecondition2
 * sdtcPrecondition2
   * obeys should-criterion
   * criterion
