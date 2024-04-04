@@ -99,17 +99,17 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
+            <short value="Number of pressure ulcers"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-14767)."/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;2264892003&quot; Number of pressure ulcers (CONF:1198-14768)."/>
             <min value="1"/>
             <patternCode value="2264892003"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1198-32164)."/>
+            <short value="SNOMED CT"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
@@ -131,19 +131,19 @@
         <element id="Observation.code.translation:translation1">
             <path value="Observation.code.translation"/>
             <sliceName value="translation1"/>
+            <short value="Number of pressure ulcers"/>
             <comment value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32849) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.code.translation:translation1.code">
             <path value="Observation.code.translation.code"/>
-            <comment value="SHALL contain exactly one [1..1] @code=&quot;75277-4&quot; Number of pressure ulcers (CONF:1198-32850)."/>
             <min value="1"/>
             <patternCode value="75277-4"/>
         </element>
         <element id="Observation.code.translation:translation1.codeSystem">
             <path value="Observation.code.translation.codeSystem"/>
-            <comment value="SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32851)."/>
+            <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
@@ -235,18 +235,18 @@
         </element>
         <element id="Observation.entryRelationship:stage.observation.code">
             <path value="Observation.entryRelationship.observation.code"/>
-            <short value="SG 20230709: This constraint not entered properly in TWB - missing codesystem and code set at top level rather than on observation.code.code - added observation.code.code and observation.code.codeSystem"/>
-            <comment value="This observation SHALL contain exactly one [1..1] code=&quot;ASSERTION&quot; Assertion (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-31930)."/>
+            <short value="Pressure Injury Stage NPUAP"/>
         </element>
         <element id="Observation.entryRelationship:stage.observation.code.code">
             <path value="Observation.entryRelationship.observation.code.code"/>
             <min value="1"/>
-            <patternCode value="ASSERTION"/>
+            <patternCode value="91150-3"/>
         </element>
         <element id="Observation.entryRelationship:stage.observation.code.codeSystem">
             <path value="Observation.entryRelationship.observation.code.codeSystem"/>
+            <short value="LOINC"/>
             <min value="1"/>
-            <patternString value="2.16.840.1.113883.5.4"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.entryRelationship:stage.observation.value">
             <path value="Observation.entryRelationship.observation.value"/>
