@@ -57,6 +57,13 @@
                 <expression value="author.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation"/>
             </constraint>
+            <constraint>
+                <key value="should-not-severity"/>
+                <severity value="warning"/>
+                <human value="Allergy should not include severity. Severity belongs at reaction level, while Criticality is used at the allergy level."/>
+                <expression value="entryRelationship.observation.where(code.code = 'SEV' and code.codeSystem = '2.16.840.1.113883.5.4').empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
