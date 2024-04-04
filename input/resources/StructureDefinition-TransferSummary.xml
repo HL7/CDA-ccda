@@ -101,23 +101,23 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="ClinicalDocument.participant:participant1">
+        <element id="ClinicalDocument.participant:indirect">
             <path value="ClinicalDocument.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="indirect"/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-31599) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.typeCode">
+        <element id="ClinicalDocument.participant:indirect.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31872)."/>
             <fixedCode value="IND"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31600)."/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.classCode">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode, which SHALL be selected from ValueSet INDRoleclassCodes urn:oid:2.16.840.1.113883.11.20.9.33 DYNAMIC (CONF:1198-31873)."/>
             <binding>
@@ -125,29 +125,29 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31601)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.associatedPerson.name">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.associatedPerson.name">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
             <comment value="This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31602)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2">
+        <element id="ClinicalDocument.participant:callback">
             <path value="ClinicalDocument.participant"/>
-            <sliceName value="participant2"/>
+            <sliceName value="callback"/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-31626) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.typeCode">
+        <element id="ClinicalDocument.participant:callback.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; Call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31627)."/>
             <fixedCode value="CALLBCK"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity">
+        <element id="ClinicalDocument.participant:callback.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31628)."/>
             <constraint>
@@ -158,17 +158,17 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.classCode">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;ASSIGNED&quot; assigned entity (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-31641)."/>
             <fixedCode value="ASSIGNED"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.id">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.id">
             <path value="ClinicalDocument.participant.associatedEntity.id"/>
             <comment value="This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31629)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.addr">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.addr">
             <path value="ClinicalDocument.participant.associatedEntity.addr"/>
             <comment value="This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31630)."/>
             <type>
@@ -176,22 +176,22 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.telecom">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.telecom">
             <path value="ClinicalDocument.participant.associatedEntity.telecom"/>
             <comment value="This associatedEntity SHALL contain at least one [1..*] telecom (CONF:1198-31631)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31632)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson.name">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.associatedPerson.name">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
             <comment value="This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31633)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.scopingOrganization">
+        <element id="ClinicalDocument.participant:callback.associatedEntity.scopingOrganization">
             <path value="ClinicalDocument.participant.associatedEntity.scopingOrganization"/>
             <comment value="This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31634)."/>
         </element>

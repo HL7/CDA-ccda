@@ -198,20 +198,20 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:primary">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
-            <sliceName value="performer1"/>
+            <sliceName value="primary"/>
             <short value="This performer participant represents clinicians who actually and principally carry out the serviceEvent. Typically, these are clinicians who have the appropriate privileges in their institutions such as gastroenterologists, interventional radiologists, and family practice physicians. Performers may also be non-physician providers (NPPs) who have other significant roles in the procedure such as a radiology technician, dental assistant, or nurse. Any assistants are identified as a secondary performer (SPRF) in a second performer participant."/>
             <comment value="This serviceEvent SHALL contain exactly one [1..1] performer (CONF:1198-8520) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.typeCode">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:primary.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;PPRF&quot; Primary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8521)."/>
             <fixedCode value="PPRF"/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:primary.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-14911)."/>
             <constraint>
@@ -222,7 +222,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer1.assignedEntity.code">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:primary.assignedEntity.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-14912)."/>
             <binding>
@@ -230,19 +230,19 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:secondary">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
-            <sliceName value="performer2"/>
+            <sliceName value="secondary"/>
             <comment value="This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32732) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2.typeCode">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:secondary.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRF&quot; Secondary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32734)."/>
             <fixedCode value="SPRF"/>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2.assignedEntity">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:secondary.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32733)."/>
             <constraint>
@@ -253,7 +253,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:performer2.assignedEntity.code">
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer:secondary.assignedEntity.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32735)."/>
             <binding>
@@ -391,14 +391,14 @@
             </slicing>
             <min value="5"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component1">
+        <element id="ClinicalDocument.component.structuredBody.component:complications">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component1"/>
+            <sliceName value="complications"/>
             <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30353)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component1.section">
+        <element id="ClinicalDocument.component.structuredBody.component:complications.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="This component SHALL contain exactly one [1..1] Complications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.37:2024-05-01) (CONF:1198-30387)."/>
             <type>
@@ -406,14 +406,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ComplicationsSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component2">
+        <element id="ClinicalDocument.component.structuredBody.component:procedureDescription">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component2"/>
+            <sliceName value="procedureDescription"/>
             <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30355) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component2.section">
+        <element id="ClinicalDocument.component.structuredBody.component:procedureDescription.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Description Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.27) (CONF:1198-30356)."/>
             <type>
@@ -421,14 +421,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureDescriptionSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component3">
+        <element id="ClinicalDocument.component.structuredBody.component:indications">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component3"/>
+            <sliceName value="indications"/>
             <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30357) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component3.section">
+        <element id="ClinicalDocument.component.structuredBody.component:indications.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Indications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.29:2014-06-09) (CONF:1198-30358)."/>
             <type>
@@ -436,14 +436,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureIndicationsSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component4">
+        <element id="ClinicalDocument.component.structuredBody.component:postProcedureDx">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component4"/>
+            <sliceName value="postProcedureDx"/>
             <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30359) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component4.section">
+        <element id="ClinicalDocument.component.structuredBody.component:postProcedureDx.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Postprocedure Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.36:2024-05-01) (CONF:1198-30360)."/>
             <type>
@@ -451,14 +451,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosisSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component5">
+        <element id="ClinicalDocument.component.structuredBody.component:assessment">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component5"/>
+            <sliceName value="assessment"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30361) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component5.section">
+        <element id="ClinicalDocument.component.structuredBody.component:assessment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30362)."/>
             <type>
@@ -466,14 +466,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component6">
+        <element id="ClinicalDocument.component.structuredBody.component:assessmentAndPlan">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component6"/>
+            <sliceName value="assessmentAndPlan"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30363) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component6.section">
+        <element id="ClinicalDocument.component.structuredBody.component:assessmentAndPlan.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Assessment and Plan Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09) (CONF:1198-30364)."/>
             <type>
@@ -481,14 +481,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component7">
+        <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component7"/>
+            <sliceName value="planOfTreatment"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30365) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component7.section">
+        <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30366)."/>
             <type>
@@ -496,14 +496,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component8">
+        <element id="ClinicalDocument.component.structuredBody.component:allergies">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component8"/>
+            <sliceName value="allergies"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30367) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component8.section">
+        <element id="ClinicalDocument.component.structuredBody.component:allergies.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2024-05-01) (CONF:1198-30368)."/>
             <type>
@@ -511,14 +511,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component9">
+        <element id="ClinicalDocument.component.structuredBody.component:anesthesia">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component9"/>
+            <sliceName value="anesthesia"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30369) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component9.section">
+        <element id="ClinicalDocument.component.structuredBody.component:anesthesia.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Anesthesia Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09) (CONF:1198-30370)."/>
             <type>
@@ -526,14 +526,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AnesthesiaSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component10">
+        <element id="ClinicalDocument.component.structuredBody.component:chiefComplaint">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component10"/>
+            <sliceName value="chiefComplaint"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30371) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component10.section">
+        <element id="ClinicalDocument.component.structuredBody.component:chiefComplaint.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Chief Complaint Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) (CONF:1198-30372)."/>
             <type>
@@ -541,14 +541,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component11">
+        <element id="ClinicalDocument.component.structuredBody.component:chiefComplaintRFV">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component11"/>
+            <sliceName value="chiefComplaintRFV"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30373) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component11.section">
+        <element id="ClinicalDocument.component.structuredBody.component:chiefComplaintRFV.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Chief Complaint and Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.13) (CONF:1198-30374)."/>
             <type>
@@ -556,14 +556,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintandReasonforVisitSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component12">
+        <element id="ClinicalDocument.component.structuredBody.component:familyHistory">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component12"/>
+            <sliceName value="familyHistory"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30375) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component12.section">
+        <element id="ClinicalDocument.component.structuredBody.component:familyHistory.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2024-05-01) (CONF:1198-30376)."/>
             <type>
@@ -571,14 +571,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistorySection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component13">
+        <element id="ClinicalDocument.component.structuredBody.component:pastMedicalHistory">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component13"/>
+            <sliceName value="pastMedicalHistory"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30377) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component13.section">
+        <element id="ClinicalDocument.component.structuredBody.component:pastMedicalHistory.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2024-05-01) (CONF:1198-30378)."/>
             <type>
@@ -586,14 +586,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PastMedicalHistory"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component14">
+        <element id="ClinicalDocument.component.structuredBody.component:historyPresentIllness">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component14"/>
+            <sliceName value="historyPresentIllness"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30379) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component14.section">
+        <element id="ClinicalDocument.component.structuredBody.component:historyPresentIllness.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-30380)."/>
             <type>
@@ -601,14 +601,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryofPresentIllnessSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component15">
+        <element id="ClinicalDocument.component.structuredBody.component:medicalHistory">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component15"/>
+            <sliceName value="medicalHistory"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30381) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component15.section">
+        <element id="ClinicalDocument.component.structuredBody.component:medicalHistory.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Medical (General) History Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.39) (CONF:1198-30382)."/>
             <type>
@@ -616,14 +616,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicalGeneralHistorySection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component16">
+        <element id="ClinicalDocument.component.structuredBody.component:medications">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component16"/>
+            <sliceName value="medications"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30383) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component16.section">
+        <element id="ClinicalDocument.component.structuredBody.component:medications.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.1.1:2014-06-09) (CONF:1198-30384)."/>
             <type>
@@ -631,14 +631,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component17">
+        <element id="ClinicalDocument.component.structuredBody.component:medsAdministered">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component17"/>
+            <sliceName value="medsAdministered"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30388) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component17.section">
+        <element id="ClinicalDocument.component.structuredBody.component:medsAdministered.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Medications Administered Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.38:2014-06-09) (CONF:1198-30389)."/>
             <type>
@@ -646,14 +646,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsAdministeredSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component18">
+        <element id="ClinicalDocument.component.structuredBody.component:physicalExam">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component18"/>
+            <sliceName value="physicalExam"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30390) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component18.section">
+        <element id="ClinicalDocument.component.structuredBody.component:physicalExam.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2024-05-01) (CONF:1198-30391)."/>
             <type>
@@ -661,14 +661,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PhysicalExamSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component19">
+        <element id="ClinicalDocument.component.structuredBody.component:plannedProcedure">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component19"/>
+            <sliceName value="plannedProcedure"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30392) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component19.section">
+        <element id="ClinicalDocument.component.structuredBody.component:plannedProcedure.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Planned Procedure Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.30:2014-06-09) (CONF:1198-30393)."/>
             <type>
@@ -676,14 +676,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedureSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component20">
+        <element id="ClinicalDocument.component.structuredBody.component:procedureDisposition">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component20"/>
+            <sliceName value="procedureDisposition"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30394) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component20.section">
+        <element id="ClinicalDocument.component.structuredBody.component:procedureDisposition.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Disposition Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.12) (CONF:1198-30395)."/>
             <type>
@@ -691,14 +691,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureDispositionSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component21">
+        <element id="ClinicalDocument.component.structuredBody.component:estBloodLoss">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component21"/>
+            <sliceName value="estBloodLoss"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30396) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component21.section">
+        <element id="ClinicalDocument.component.structuredBody.component:estBloodLoss.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Estimated Blood Loss Section (identifier: urn:oid:2.16.840.1.113883.10.20.18.2.9) (CONF:1198-30397)."/>
             <type>
@@ -706,14 +706,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureEstimatedBloodLossSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component22">
+        <element id="ClinicalDocument.component.structuredBody.component:findings">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component22"/>
+            <sliceName value="findings"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30398) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component22.section">
+        <element id="ClinicalDocument.component.structuredBody.component:findings.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Findings Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.28:2024-05-01) (CONF:1198-30399)."/>
             <type>
@@ -721,14 +721,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureFindingsSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component23">
+        <element id="ClinicalDocument.component.structuredBody.component:implants">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component23"/>
+            <sliceName value="implants"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30400) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component23.section">
+        <element id="ClinicalDocument.component.structuredBody.component:implants.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Implants Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.40) (CONF:1198-30401)."/>
             <type>
@@ -736,14 +736,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureImplantsSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component24">
+        <element id="ClinicalDocument.component.structuredBody.component:specimensTaken">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component24"/>
+            <sliceName value="specimensTaken"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30402) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component24.section">
+        <element id="ClinicalDocument.component.structuredBody.component:specimensTaken.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedure Specimens Taken Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.31) (CONF:1198-30403)."/>
             <type>
@@ -751,14 +751,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureSpecimensTakenSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component25">
+        <element id="ClinicalDocument.component.structuredBody.component:procedures">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component25"/>
+            <sliceName value="procedures"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30404) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component25.section">
+        <element id="ClinicalDocument.component.structuredBody.component:procedures.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30405)."/>
             <type>
@@ -766,14 +766,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component26">
+        <element id="ClinicalDocument.component.structuredBody.component:reasonForVisit">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component26"/>
+            <sliceName value="reasonForVisit"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30406) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component26.section">
+        <element id="ClinicalDocument.component.structuredBody.component:reasonForVisit.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.12) (CONF:1198-30407)."/>
             <type>
@@ -781,14 +781,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforVisitSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component27">
+        <element id="ClinicalDocument.component.structuredBody.component:reviewOfSystems">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component27"/>
+            <sliceName value="reviewOfSystems"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30408) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component27.section">
+        <element id="ClinicalDocument.component.structuredBody.component:reviewOfSystems.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Review of Systems Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:1198-30409)."/>
             <type>
@@ -796,14 +796,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ReviewofSystemsSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component28">
+        <element id="ClinicalDocument.component.structuredBody.component:socialHistory">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component28"/>
+            <sliceName value="socialHistory"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30410) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component28.section">
+        <element id="ClinicalDocument.component.structuredBody.component:socialHistory.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2024-05-01) (CONF:1198-30411)."/>
             <type>
@@ -811,14 +811,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistorySection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component29">
+        <element id="ClinicalDocument.component.structuredBody.component:advDirectives">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component29"/>
+            <sliceName value="advDirectives"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component29.section">
+        <element id="ClinicalDocument.component.structuredBody.component:advDirectives.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."/>
             <type>

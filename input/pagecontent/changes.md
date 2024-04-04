@@ -115,6 +115,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 - [CDA-21062](https://jira.hl7.org/browse/CDA-21062) - Update Patient Generated Document description.
 - [CDA-21064](https://jira.hl7.org/browse/CDA-21064) - Add 0..* authors to the Disability Status Observation.
 - [CDA-21065](https://jira.hl7.org/browse/CDA-21065) - Change the Sex Observation value set binding to be Preferred.
+- [CDA-21066](https://jira.hl7.org/browse/CDA-21066) - Update slice names throughout guide
 - [CDA-21067](https://jira.hl7.org/browse/CDA-21067) - Change Patient Referral Act participant from SHALL contain exactly one to MAY contain zero or one.
 - [CDA-21070](https://jira.hl7.org/browse/CDA-21070) - Add slicing logic to [Medications Administered Section](StructureDefinition-MedicationsAdministeredSection.html)
 - [CDA-21076](https://jira.hl7.org/browse/CDA-21076) - Add test for SHOULD NOT on [Allergy](StructureDefinition-SubstanceOrDeviceAllergyIntoleranceObservation.html) severity
