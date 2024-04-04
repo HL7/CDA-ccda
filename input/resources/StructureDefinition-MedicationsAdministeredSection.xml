@@ -97,9 +97,22 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-8156)."/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="substanceAdministration"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
         </element>
-        <element id="Section.entry.substanceAdministration">
+        <element id="Section.entry:medication">
+            <path value="Section.entry"/>
+            <sliceName value="medication"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-8156)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Section.entry:medication.substanceAdministration">
             <path value="Section.entry.substanceAdministration"/>
             <comment value="The entry, if present, SHALL contain exactly one [1..1] Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-15499)."/>
             <min value="1"/>
