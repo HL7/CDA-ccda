@@ -47,6 +47,7 @@ Description: "The Mental Status Observation template represents an observation a
   * ^slicing.rules = #open
 * entryRelationship contains assessmentScale 0..*
 * entryRelationship[assessmentScale] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-14469) such that it"
+  * insert USCDI()
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14595)."

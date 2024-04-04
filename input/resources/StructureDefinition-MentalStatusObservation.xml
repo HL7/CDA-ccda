@@ -195,8 +195,12 @@
             </slicing>
         </element>
         <element id="Observation.entryRelationship:assessmentScale">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.entryRelationship"/>
             <sliceName value="assessmentScale"/>
+            <short value="(USCDI) "/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-14469) such that it"/>
             <min value="0"/>
             <max value="*"/>

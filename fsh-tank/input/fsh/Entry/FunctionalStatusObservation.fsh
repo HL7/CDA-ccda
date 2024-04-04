@@ -59,6 +59,7 @@ Description: "This template represents the patient's physical function (e.g., mo
   * observation only CaregiverCharacteristics
     * ^comment = "SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:1098-13897)."
 * entryRelationship[assessmentScaleObservation] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-14465) such that it"
+  * insert USCDI()
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has component (CONF:1098-14598)."

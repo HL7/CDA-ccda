@@ -44,6 +44,7 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4537-32629) such that it"
 * entryRelationship contains assessmentScaleObs 0..*
 * entryRelationship[assessmentScaleObs] ^short = "entryRelationship"
+  * insert USCDI()
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4537-32629) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
