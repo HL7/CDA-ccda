@@ -4,7 +4,7 @@ Id: SmokingStatus
 Title: "Smoking Status"
 Description: """This template represents a patient's smoking status. It is a combination and replacement of the two previous templates Smoking Status - Meaningful Use and Tobacco Use, and it aligns with the US Core Smoking Status profile.
 
-When the code represents a quantifiable observation (such as 8664-5 - Cigarettes smoked total (pack per year)), the value may be a Physical Quantity. When the code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value **SHALL** be coded.
+When the code represents a quantifiable observation (such as Cigarette pack-years - 401201003), the value may be a Physical Quantity. When the code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value **SHALL** be coded.
 
 Regarding effectiveTime: some values in the Tobacco Use value set represent temporal meanings (e.g. 266919005 - Never smoked tobacco) and should correspond to a single timestamp representing when the observation was true. Other codes, such as 59978006 - Cigar smoker, may be represented with a single timestamp or a time range indicating when the patient began smoking and when they stopped."""
 
@@ -35,17 +35,17 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
   * ^slicing.discriminator[0].type = #type
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #closed
-  * ^short = "REAL shall only be used for Smoking Status where code = 8663-7 or 8664-5"
-* value contains count 0..1 and coded 0..1
-* value[count] only $REAL
-  * ^short = "Only used for Smoking Status where code = 8663-7 or 8664-5"
+  * ^short = "REAL shall only be used for Smoking Status where code = 401201003 or 782516008"
+* value contains packYears 0..1 and coded 0..1
+* value[packYears] only $REAL
+  * ^short = "Only used for Smoking Status where code = 401201003 or 782516008"
 * value[coded] only $CD
   * code 1..1
   * code from $SmokingStatusComprehensive (required)
     * ^binding.description = "Smoking status comprehensive"
-* obeys numeric-status
+* obeys coded-value
 
-Invariant: numeric-status
+Invariant: coded-value
 Description: "When code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value SHALL be coded"
 Severity: #error
 // Expression: "(code.code = '72166-2' or code.code = '11367-0') implies value.code.exists()"
