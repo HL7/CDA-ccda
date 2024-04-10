@@ -28,40 +28,50 @@ improving a person's overall health and wellness when confronted with health pro
 
 ### Specific USCDI Data Elements Represented with Assessment Screening
 
+Systems **SHALL** support representing detailed questions and answers from a formal assessment in the [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html).
+
+Systems **SHALL** support representing a simple question and answer from a formal assessment in the [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without contained Assessment Scale Supporting Observations. 
+
+Systems **SHALL** support representing a clinical judgement that may be dervied from a formal assessment using the [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) Observation.value.
+- When a Problem observation or Social History Observation is recorded based on a structured screening and assessment, the Assessment Scale Observation should be contained in the Problem Observation or Social History Observation or they should refer to the Assessment Scale Observation using the [Entry Reference Template](StructureDefinition-EntryReference.html).
+
+Specific observations, such as Disability Status Observation, includes a USCDI indicator on the Assessment scale observation to formalize this USCDI requirement. 
+The ability for systems to support  [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) is a USCDI requirement.
+
 #### Alcohol Use
 
 The [Alcohol Use Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1585/expansion) contains the LOINC Panel Codes for Alcohol Use Disorder Identification Test - Consumption AUDIT-C and PROMIS short form - alcohol - alcohol use 7a - version 1.0.
-These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about alcohol use.
+This value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about alcohol use.
 
 #### Substance Use (Including Alcohol Use)
 
-The [Substance Use](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
+The [Substance Use](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
 to represent simple question and answer assesement questions such as, "How often do you have a drink containing alcohol" or "How often have you used any prescription medications just for the feeling, more than prescribed or that were not prescribed for you in past 12 months (TAPS)".
 
-The [Drug Misuse](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) **SHOULD** be used with [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) at Observation.value
+The [Drug Misuse](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) this value set is used with [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) at Observation.value
 to represent conclusions or diagnoses pertaining to drug misuse or abuse.
 
 #### Mental and Cognitive Health
 
 The [Cognitive Health Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.979/expansion) contains LOINC panel Codes that represent Mental or Cognitive health screening assessments, such as FACIT, PROMIS and MoCA.
-These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about asssessing mental or cognitive health.
+This value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about asssessing mental or cognitive health.
 
-The [Cognitive Function Clinician Interpretation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
+The [Cognitive Function Clinician Interpretation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
 to represent simple question and answer assesement questions such as, "Cognitive Function Interpretation", that may have a text answer of clinician's assessment and "Memory/recall ability during assessment period" that may have answers such as the ability to recal the current season or the where the person is.
 
-The [Mental Status Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.1/expansion) value set **SHOULD** be used with [Mental Status Observation](StructureDefinition-MentalStatusObservation.html) to represent an observation about mental status that can come from a broad range of subjective and objective information 
+The [Mental Status Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.1/expansion) value set is used with [Mental Status Observation](StructureDefinition-MentalStatusObservation.html) to represent an observation about mental status that can come from a broad range of subjective and objective information 
 such as Assessment and Screening tools.
 
 #### Functional Status
 
 The [Functional Status Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1586/expansion) contains LOINC panel Codes that represent functional status questionnaire LOINC panel codes
-These **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about functional status.
+This value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about functional status.
 
 The [Functional Status Observation](StructureDefinition-FunctionalStatusObservation.html) may be used to represent an observation about mental status that can come from a broad range of subjective and objective information such as what may be derived from Assessment and Screening tools.
 
 #### Physical Activity
 
-The [Physical Activity Level](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1068/expansion) **SHOULD** be used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
+The [Physical Activity Level](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1068/expansion) value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
 to represent simple question and answer assesement questions such as, "Kinds of physical activity you usually performed while on the job this last year" or "Days per week of moderate to vigorous physical activity".
 
 {::options parse_block_html="false" /}
