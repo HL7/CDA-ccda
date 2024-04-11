@@ -112,7 +112,7 @@ Expression: "(low | high | width | center).empty()"
 
 RuleSet: IdentifierURI(value)
 * ^identifier[+].value = "{value}"
-// TODO: * ^identifier[=].system = "urn:ietf:rfc:3986"
+* ^identifier[=].system = "urn:ietf:rfc:3986"
 
 ////////////////////////////////////////////////////////////
 //                                                        //
