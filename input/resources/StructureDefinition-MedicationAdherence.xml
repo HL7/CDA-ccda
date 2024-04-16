@@ -146,8 +146,8 @@
             <path value="Observation.value.code"/>
             <min value="1"/>
             <binding>
-                <strength value="extensible"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.59"/>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.8"/>
             </binding>
         </element>
         <element id="Observation.informant">
@@ -155,7 +155,18 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Observation.informant"/>
-            <short value="(USCDI) 'The person or organization that provided the information about the medication adherence.'"/>
+            <short value="(USCDI) The person or organization that provided the information about the medication adherence."/>
+        </element>
+        <element id="Observation.informant.assignedEntity">
+            <path value="Observation.informant.assignedEntity"/>
+            <min value="1"/>
+        </element>
+        <element id="Observation.informant.assignedEntity.code">
+            <path value="Observation.informant.assignedEntity.code"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.11"/>
+            </binding>
         </element>
     </differential>
 </StructureDefinition>
