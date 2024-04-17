@@ -35,8 +35,7 @@ Description: "This template represents the observation that a patient has died. 
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF:1198-14857)."
-  * code 1..1
-    * ^comment = "This value SHALL contain exactly one [1..1] @code=\"419099009\" Dead (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1198-15142)."
+  * insert CodedSnomed(419099009,Dead)
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #value
