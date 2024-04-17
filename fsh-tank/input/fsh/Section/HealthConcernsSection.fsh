@@ -11,6 +11,8 @@ Problem Concerns are a subset of Health Concerns that have risen to the level of
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entry contains
     healthStatus 0..* and
