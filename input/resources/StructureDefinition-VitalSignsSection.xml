@@ -42,7 +42,7 @@
             <constraint>
                 <key value="shall-vital-signs-org"/>
                 <severity value="error"/>
-                <human value="SHALL contain at least one Vital Signs Organizer or Average Blood Pressure Organizer"/>
+                <human value="If section/@nullFlavor is not present, SHALL contain at least one Vital Signs Organizer or Average Blood Pressure Organizer"/>
                 <expression value="nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsOrganizer')) or entry.where(organizer.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsSection"/>
             </constraint>
