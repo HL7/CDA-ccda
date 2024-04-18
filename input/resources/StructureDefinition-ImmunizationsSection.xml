@@ -43,7 +43,7 @@
                 <key value="shall-immunization-activity"/>
                 <severity value="error"/>
                 <human value="If section/@nullFlavor is not present, SHALL contain at least one Immunization Activity"/>
-                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity'))"/>
+                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationActivity')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationsSection"/>
             </constraint>
         </element>

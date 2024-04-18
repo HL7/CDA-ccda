@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////
-//                                                        //
 //                  Section SHOULD's                      //
-//                                                        //
 ////////////////////////////////////////////////////////////
 // Basically all identical; copy, paste, change
 // Apply at top-level of section
@@ -155,74 +153,74 @@ Expression: "entry.where(observation.hasTemplateIdOf(SmokingStatusMeaningfulUse)
 Invariant: shall-adv-directive-organizer
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Advance Directive Organizer"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(AdvanceDirectiveOrganizer))"
+Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(AdvanceDirectiveOrganizer)).exists()"
 
 Invariant: shall-allergy-concern
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Allergy Concern Act"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(AllergyConcernAct))"
+Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(AllergyConcernAct)).exists()"
 
 Invariant: shall-discharge-med
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Discharge Medication"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(DischargeMedication))"
+Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(DischargeMedication)).exists()"
 
 Invariant: shall-encounter-activity
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Encounter Activity"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(encounter.hasTemplateIdOf(EncounterActivity))"
+Expression: "nullFlavor.exists() or entry.where(encounter.hasTemplateIdOf(EncounterActivity)).exists()"
 
 Invariant: shall-goal-obs
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Goal Observation"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(observation.hasTemplateIdOf(GoalObservation))"
+Expression: "nullFlavor.exists() or entry.where(observation.hasTemplateIdOf(GoalObservation)).exists()"
 
 Invariant: shall-health-concern-act
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Health Concern Act"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(HealthConcernAct))"
+Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(HealthConcernAct)).exists()"
 
 Invariant: shall-immunization-activity
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Immunization Activity"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf(ImmunizationActivity))"
+Expression: "nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf(ImmunizationActivity)).exists()"
 
 Invariant: shall-instruction
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Instruction"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(Instruction))"
+Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(Instruction)).exists()"
 
 Invariant: shall-med-activity
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Medication Activity"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf(MedicationActivity))"
+Expression: "nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf(MedicationActivity)).exists()"
 
 Invariant: shall-note-activity
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Note Activity"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(NoteActivity))"
+Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(NoteActivity)).exists()"
 
 Invariant: shall-outcome-obs
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Outcome Observation"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(observation.hasTemplateIdOf(OutcomeObservation))"
+Expression: "nullFlavor.exists() or entry.where(observation.hasTemplateIdOf(OutcomeObservation)).exists()"
 
 Invariant: shall-procedure-act-procedure
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Procedure Activity Procedure"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(procedure.hasTemplateIdOf(ProcedureActivityProcedure))"
+Expression: "nullFlavor.exists() or entry.where(procedure.hasTemplateIdOf(ProcedureActivityProcedure)).exists()"
 
 Invariant: shall-problem-concern-act
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Problem Concern Act"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(ProblemConcernAct))"
+Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(ProblemConcernAct)).exists()"
 
 Invariant: shall-result-org
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Result Organizer"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(ResultOrganizer))"
+Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(ResultOrganizer)).exists()"
 
 Invariant: shall-vital-signs-org
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Vital Signs Organizer or Average Blood Pressure Organizer"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(VitalSignsOrganizer)) or entry.where(organizer.hasTemplateIdOf(AverageBloodPressureOrganizer))"
+Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(VitalSignsOrganizer)).exists() or entry.where(organizer.hasTemplateIdOf(AverageBloodPressureOrganizer)).exists()"

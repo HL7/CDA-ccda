@@ -43,7 +43,7 @@
                 <key value="no-a-p"/>
                 <severity value="error"/>
                 <human value="When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used."/>
-                <expression value="%resource.component.structuredBody.component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection') or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection')).empty()"/>
+                <expression value="%resource.component.structuredBody.component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection').exists() or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection').exists()).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection"/>
             </constraint>
         </element>

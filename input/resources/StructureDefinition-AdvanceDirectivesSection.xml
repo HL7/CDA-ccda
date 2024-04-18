@@ -43,7 +43,7 @@
                 <key value="shall-adv-directive-organizer"/>
                 <severity value="error"/>
                 <human value="If section/@nullFlavor is not present, SHALL contain at least one Advance Directive Organizer"/>
-                <expression value="nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer'))"/>
+                <expression value="nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveOrganizer')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectivesSection"/>
             </constraint>
         </element>

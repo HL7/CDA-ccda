@@ -42,7 +42,7 @@
                 <key value="no-cc-rfv"/>
                 <severity value="error"/>
                 <human value="When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used."/>
-                <expression value="%resource.component.structuredBody.component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintSection') or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforVisitSection')).empty()"/>
+                <expression value="%resource.component.structuredBody.component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintSection').exists() or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforVisitSection').exists()).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintandReasonforVisitSection"/>
             </constraint>
         </element>

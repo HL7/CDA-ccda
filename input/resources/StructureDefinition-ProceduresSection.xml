@@ -43,7 +43,7 @@
                 <key value="shall-procedure-act-procedure"/>
                 <severity value="error"/>
                 <human value="If section/@nullFlavor is not present, SHALL contain at least one Procedure Activity Procedure"/>
-                <expression value="nullFlavor.exists() or entry.where(procedure.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure'))"/>
+                <expression value="nullFlavor.exists() or entry.where(procedure.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection"/>
             </constraint>
         </element>

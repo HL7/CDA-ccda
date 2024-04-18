@@ -166,4 +166,4 @@ Expression: "assignedEntity.assignedPerson.exists() or assignedEntity.represente
 Invariant: ccrfv-or-cc-or-rfv
 Description: "This structuredBody **SHALL** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) or a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12)."
 Severity: #error
-Expression: "component.where(section.hasTemplateIdOf(ChiefComplaintandReasonforVisitSection) or section.hasTemplateIdOf(ChiefComplaintSection) or section.hasTemplateIdOf(ReasonforVisitSection)).exists()"
+Expression: "component.where(section.hasTemplateIdOf(ChiefComplaintandReasonforVisitSection).exists() or section.hasTemplateIdOf(ChiefComplaintSection).exists() or section.hasTemplateIdOf(ReasonforVisitSection).exists()).exists()"

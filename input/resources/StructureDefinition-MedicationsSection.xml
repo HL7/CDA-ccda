@@ -43,7 +43,7 @@
                 <key value="shall-med-activity"/>
                 <severity value="error"/>
                 <human value="If section/@nullFlavor is not present, SHALL contain at least one Medication Activity"/>
-                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity'))"/>
+                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
             </constraint>
         </element>
