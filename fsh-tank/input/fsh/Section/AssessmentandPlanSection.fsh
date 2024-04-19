@@ -20,4 +20,4 @@ See also the Assessment Section: templateId 2.16.840.1.113883.10.20.22.2.8 and P
 Invariant: no-a-p
 Description: "When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used."
 Severity: #error
-Expression: "%resource.component.structuredBody.component.where(section.hasTemplateIdOf(AssessmentSection).exists() or section.hasTemplateIdOf(PlanofTreatmentSection).exists()).empty()"
+Expression: "%resource.component.structuredBody.component.where(section.hasTemplateIdOf(AssessmentSection) or section.hasTemplateIdOf(PlanofTreatmentSection)).empty()"

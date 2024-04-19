@@ -245,14 +245,14 @@
                 <key value="ap-or-a-and-p"/>
                 <severity value="error"/>
                 <human value="**SHALL** include an Assessment and Plan Section, or both an Assessment Section and a Plan of Treatment Section."/>
-                <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection')).exists() or (component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection').exists() or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection').exists()).count() = 2)"/>
+                <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection')).exists() or (component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection') or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection')).count() = 2)"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
             </constraint>
             <constraint>
                 <key value="ap-combo"/>
                 <severity value="error"/>
                 <human value="This structuredBody **SHALL NOT** contain an Assessment and Plan Section (2.16.840.1.113883.10.20.22.2.9:2014-06-09) when either an Assessment Section (2.16.840.1.113883.10.20.22.2.8) or a Plan of Treatment Section (2.16.840.1.113883.10.20.22.2.10:2014-06-09) is present."/>
-                <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection')).exists() implies component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection').exists() or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection').exists()).empty()"/>
+                <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection')).exists() implies component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentSection') or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/PlanofTreatmentSection')).empty()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
             </constraint>
             <constraint>
