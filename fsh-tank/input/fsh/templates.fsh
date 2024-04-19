@@ -139,9 +139,9 @@ Severity: #warning
 Expression: "entry.where(procedure.hasTemplateIdOf(ProcedureActivityProcedure))"
 
 Invariant: should-smoking-status
-Description: "SHOULD contain Smoking Status - Meaningful Use"
+Description: "SHOULD contain Smoking Status"
 Severity: #warning
-Expression: "entry.where(observation.hasTemplateIdOf(SmokingStatusMeaningfulUse))"
+Expression: "entry.where(observation.hasTemplateIdOf(SmokingStatus))"
 
 
 ////////////////////////////////////////////////////////////
