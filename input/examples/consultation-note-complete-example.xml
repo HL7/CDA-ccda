@@ -2,10 +2,11 @@
 <?xml-stylesheet type="text/xsl" href="CDA.xsl"?>
 <!--
  Title:        Consultation Note
- Filename:     C-CDA_R2_Consultation_Note.xml
+
+ Based on:     C-CDA_R2_Consultation_Note.xml
  Created by:   Lantana Consulting Group, LLC
  
- $LastChangedDate: 2014-11-12 23:25:09 -0500 (Wed, 12 Nov 2014) $
+ Updated for C-CDA R3.0 with a focus on header elements
   
  ********************************************************
  Disclaimer: This sample file contains representative data elements to represent a Consultation Note. 
@@ -20,11 +21,11 @@
 	<realmCode code="US"/>
 	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
 	<!-- Identifies document as conformant to US Realm Header (V2) Template -->
-	<templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2023-05-01"/>
+	<templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2024-05-01"/>
 	<!-- Consultation Note V2  -->
-	<templateId root="2.16.840.1.113883.10.20.22.1.4" extension="2015-08-01"/>
+	<templateId root="2.16.840.1.113883.10.20.22.1.4" extension="2024-05-01"/>
 	<id extension="TT988" root="2.16.840.1.113883.19.5.99999.1"/>
-	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="11488-4" displayName="Consultation Note"/>
+	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="11488-4" displayName="Consult Note"/>
 	<title>Community Health Consult Note</title>
 	<effectiveTime value="201308010500-0800"/>
 	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
@@ -66,10 +67,10 @@
 					categories defined by OMB Standards -->
 				<raceCode code="2106-3" displayName="White" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
 				<!-- The raceCode extension is only used if raceCode is valued -->
-				<sdtc:raceCode code="2076-8" displayName="Hawaiian or Other Pacific Islander" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+				<sdtc:raceCode code="2076-8" displayName="Native Hawaiian or Other Pacific Islander" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
 				<ethnicGroupCode code="2186-5" displayName="Not Hispanic or Latino" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
 				<guardian>
-					<code code="POWATT" displayName="Power of Attorney" codeSystem="2.16.840.1.113883.1.11.19830" codeSystemName="ResponsibleParty"/>
+					<code code="POWATT" displayName="Power of Attorney" codeSystem="2.16.840.1.113883.5.111" codeSystemName="ResponsibleParty"/>
 					<addr use="HP">
 						<streetAddressLine>2222 Home Street</streetAddressLine>
 						<city>Beaverton</city>
@@ -109,8 +110,8 @@
 				<!-- Organizations SHOULD have an NPI; this is a real root; fake extension -->
 				<id extension="219BX" root="2.16.840.1.113883.4.6"/>
 				<name>The DoctorsTogether Physician Group</name>
-				<telecom use="WP" value="tel: +1(555)555-5000"/>
-				<addr>
+				<telecom use="WP" value="tel:+1(555)555-5000"/>
+				<addr use="WP">
 					<streetAddressLine>1007 Health Drive</streetAddressLine>
 					<city>Portland</city>
 					<state>OR</state>
@@ -121,11 +122,11 @@
 		</patientRole>
 	</recordTarget>
 	<author>
-		<time value="20130731"/>
+		<time value="201307311230-0800"/>
 		<assignedAuthor>
 			<id extension="555555555" root="2.16.840.1.113883.4.6"/>
 			<code code="207QA0505X" displayName="Adult Medicine" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
-			<addr>
+			<addr use="WP">
 				<streetAddressLine>1004 Healthcare Drive </streetAddressLine>
 				<city>Portland</city>
 				<state>OR</state>
@@ -146,7 +147,7 @@
 	<dataEnterer>
 		<assignedEntity>
 			<id extension="333777777" root="2.16.840.1.113883.4.6"/>
-			<addr>
+			<addr use="WP">
 				<streetAddressLine>1007 Healthcare Drive</streetAddressLine>
 				<city>Portland</city>
 				<state>OR</state>
@@ -165,7 +166,7 @@
 	<informant>
 		<assignedEntity>
 			<id extension="888888888" root="2.16.840.1.113883.19.5"/>
-			<addr>
+			<addr use="WP">
 				<streetAddressLine>1007 Healthcare Drive</streetAddressLine>
 				<city>Portland</city>
 				<state>OR</state>
@@ -218,7 +219,7 @@
 		<assignedEntity>
 			<id extension="555555555" root="2.16.840.1.113883.4.6"/>
 			<code code="207QA0505X" displayName="Adult Medicine" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
-			<addr>
+			<addr use="WP">
 				<streetAddressLine>1004 Healthcare Drive </streetAddressLine>
 				<city>Portland</city>
 				<state>OR</state>
@@ -242,7 +243,7 @@
 		<assignedEntity>
 			<id extension="555555555" root="2.16.840.1.113883.4.6"/>
 			<code code="207QA0505X" displayName="Adult Medicine" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
-			<addr>
+			<addr use="WP">
 				<streetAddressLine>1004 Healthcare Drive </streetAddressLine>
 				<city>Portland</city>
 				<state>OR</state>
@@ -266,7 +267,7 @@
 		<associatedEntity classCode="ASSIGNED">
 			<id extension="99999999" root="2.16.840.1.113883.4.6"/>
 			<code code="200000000X" codeSystem="2.16.840.1.113883.6.101" displayName="Allopathic &amp; Osteopathic Physicians"/>
-			<addr>
+			<addr use="WP">
 				<streetAddressLine>1002 Healthcare Drive </streetAddressLine>
 				<city>Ann Arbor</city>
 				<state>MI</state>
@@ -295,8 +296,8 @@
 			<id extension="9937012" root="2.16.840.1.113883.19"/>
 			<code codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" code="99213" displayName="Evaluation and Management"/>
 			<effectiveTime>
-				<low value="20130731"/>
-				<high value="20130731"/>
+				<low value="201307310900-0800"/>
+				<high value="201307311030-0800"/>
 			</effectiveTime>
 			<location>
 				<healthCareFacility>
@@ -311,8 +312,76 @@
 *******************************************************
 	-->
 	<component>
-    <!-- TODO - Structured Body -->
     <structuredBody>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
+					<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>ALLERGIES AND ADVERSE REACTIONS</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08-01"/>
+					<code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+							displayName="PROBLEM LIST"/>
+					<title>PROBLEMS</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.1.1" extension="2014-06-09"/>
+					<code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+							displayName="HISTORY OF MEDICATION USE"/>
+					<title>MEDICATIONS</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.9" extension="2014-06-09"/>
+					<code code="51847-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+							displayName="Evaluation + Plan note"/>
+					<title>Assessment and Plan</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.4"/>
+					<code code="10164-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+							displayName="History of Present illness Narrative"/>
+					<title>History of Present Illness</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08-01"/>
+					<code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+							displayName="RESULTS"/>
+					<title>RESULTS</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.12" />
+					<code code="29299-5" displayName="Reason for visit Narrative" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+					<title>Reason for Visit</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.2.10" extension="2015-08-01" />
+					<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="29545-1" displayName="Physical Findings" />
+					<title>Physical Examination</title>
+					<text>No information</text>
+				</section>
+			</component>
     </structuredBody>
 	</component>
 </ClinicalDocument>
