@@ -5,7 +5,7 @@ Title: "Nutrition Section"
 Description: "The Nutrition Section represents diet and nutrition information including special diet requirements and restrictions (e.g., texture modified diet, liquids only, enteral feeding). It also represents the overall nutritional status of the patient and nutrition assessment findings."
 * insert OldSection(#61144-2,  Diet and nutrition Narrative , 2.16.840.1.113883.10.20.22.2.57)
 
-* entry ^slicing.discriminator.type = #value
+* entry ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open
 * entry contains nutritionalStatus 0..*
