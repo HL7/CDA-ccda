@@ -187,6 +187,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * act 1..1
   * act only AuthorizationActivity
     * moodCode = #EVN (exactly) // Copied from AuthorizationActivity
+      * ^short = "EVN" // Keep this, so act.moodCode remains in SD (needed for schematron)
 * entryRelationship[plan] ^short = "Represents the Coverage Plan"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
