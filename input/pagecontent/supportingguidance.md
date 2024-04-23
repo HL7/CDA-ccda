@@ -3417,4 +3417,4 @@ methods to record this information:
 
 - [Indication](StructureDefinition-Indication.html) is used to represent the rationale for an action such as an encounter, a medication administration, or a procedure. 
 - [Reason](StructureDefinition-Reason.html) is use to provide the rationale for why something was not done.
-- [Immunization Refusal Reason](StructureDefinition-ImmunizationRefusalReason.html) is used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.
+- [Immunization Not Given Reason](StructureDefinition-ImmunizationNotGivenReason.html) is used to represent the rationale for the patient declining an immunization as the value set is crafted for the immunization use case.

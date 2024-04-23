@@ -13,8 +13,8 @@ updated:
 Code System Sources:
 
 - [FHIR]({{site.data.fhir.path}})
-- [US CORE](terminology.html)
-<!-- - [PHINVADS](http://phinvads.cdc.gov/fhir/) -->
+- [US CORE]({{site.data.uscore.path}}/terminology.html)
+- PHINVADS
 - [THO](http://terminology.hl7.org/)
 - [SNOMED](http://snomed.info/sct)
 - [LOINC](http://loinc.org)
@@ -44,8 +44,8 @@ Code System Sources:
 
 {% if item.URL contains 'http://hl7.org/fhir/us/core/CodeSystem/' %}
 {% assign source = "US CORE" %}<!-- US Core -->
-{% assign stem_URL = item.URL | split: 'CodeSystem/' | last %}
-{% assign cs_link = "CodeSystem-" | append: stem_URL | append: '.html' %}
+{% assign stem_URL = item.URL | split: 'CodeSystem/' | last  %}
+{% assign cs_link = site.data.uscore.path | append: "codesystem-" | append: stem_URL | append: '.html' %}
 {% elsif bad-THO-list contains item.URL %}
 {% assign source = "THO" %} <!-- THO-->
 {% assign no_link = true %}

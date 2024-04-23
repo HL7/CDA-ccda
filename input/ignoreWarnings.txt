@@ -24,6 +24,9 @@ Error from http://tx.fhir.org/r4: Unable to provide support for code system http
 # xsi:type information - firing on templates with constrained type, but still required in CDA
 xsi:type is unnecessary at this point
 
+# Each slice is optional, so the maximum still applies
+The slice definition for Observation.value has a maximum of 1 but the slices add up to a maximum of 2. Check that this is what is intended
+
 # Embedded templateIds - not individual templates
 The CDA Template 2.16.840.1.113883.10.20.1.58 is not known
 The CDA Template 2.16.840.1.113883.10.20.21.3.1 is not known
@@ -31,3 +34,15 @@ The CDA Template 2.16.840.1.113883.10.20.22.4.87 is not known
 The CDA Template 2.16.840.1.113883.10.20.22.4.88 is not known
 The CDA Template 2.16.840.1.113883.10.20.22.4.89 is not known
 The CDA Template 2.16.840.1.113883.10.20.22.4.90 is not known
+
+# Resource OIDs match multiple instances in our dependency graph
+The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r5#5.5.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology#5.2.0), http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r4#5.5.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology.r5#5.3.0)); http://nucc.org/provider-taxonomy was chosen as the most appropriate
+
+The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r5#5.5.0), http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r4#5.5.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology#5.2.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology.r5#5.3.0)); http://nucc.org/provider-taxonomy was chosen as the most appropriate
+
+The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r4#5.5.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology.r5#5.3.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology#5.2.0), http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r5#5.5.0)); http://nucc.org/provider-taxonomy was chosen as the most appropriate
+
+The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r4#5.5.0), http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r5#5.5.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology.r5#5.3.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology#5.2.0)); http://nucc.org/provider-taxonomy was chosen as the most appropriate
+
+The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r5#5.5.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology.r5#5.3.0), http://nucc.org/provider-taxonomy|4.0.0(hl7.terminology.r4#5.5.0), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(hl7.terminology#5.2.0)); http://nucc.org/provider-taxonomy was chosen as the most appropriate
+

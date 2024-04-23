@@ -348,25 +348,25 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:smokingStatus-MeaningfulUse">
+        <element id="Act.entryRelationship:smokingStatus">
             <path value="Act.entryRelationship"/>
-            <sliceName value="smokingStatus-MeaningfulUse"/>
+            <sliceName value="smokingStatus"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32189) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:smokingStatus-MeaningfulUse.typeCode">
+        <element id="Act.entryRelationship:smokingStatus.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32244)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:smokingStatus-MeaningfulUse.observation">
+        <element id="Act.entryRelationship:smokingStatus.observation">
             <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:1198-32245)."/>
+            <comment value="SHALL contain exactly one [1..1] Smoking Status (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.511:2024-05-01) (CONF:1198-32245)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
             </type>
         </element>
         <element id="Act.entryRelationship:encounterDiagnosis">
@@ -640,27 +640,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:tobaccoUse">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="tobaccoUse"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32205) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:tobaccoUse.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32276)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:tobaccoUse.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:1198-32277)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse"/>
             </type>
         </element>
         <element id="Act.entryRelationship:vitalSignObservation">

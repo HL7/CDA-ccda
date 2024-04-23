@@ -14,8 +14,8 @@ Value Set Sources:
 
 - [VSAC](http://cts.nlm.nih.gov/fhir/)
 - [FHIR]({{site.data.fhir.path}})
-- [US CORE](terminology.html)
-- [PHINVADS](http://phinvads.cdc.gov/fhir/)
+- [US CORE]({{site.data.uscore.path}}/terminology.html)
+- PHINVADS
 - [THO](http://terminology.hl7.org/)
 
 {% assign rows = site.data.valueset-ref-all-list | sort: "Title" %}
@@ -29,15 +29,16 @@ Value Set Sources:
 <tr>
 <th>Row #</th>
 <th>Value Set</th>
-<th>Profiles Where Used</th>
+<th>Templates Where Used</th>
 <th>Source</th>
 </tr>
 </thead>
 <tbody>
 {% endif %}
+
 {% assign base_URL = item.URL | split: 'ValueSet/' | first %}
 {% assign stem_URL = item.URL | split: 'ValueSet/' | last %}
-{% assign vs_link = site.data.source[base_URL][1] | replace: "{{stem_URL}}", stem_URL | replace: "{{site.data.fhir.path}}", {{site.data.fhir.path}} | replace: "v2-2.7-0360", "v2-0360" %}
+{% assign vs_link = site.data.source[base_URL][1] | replace: "{{stem_URL}}", stem_URL | replace: "{{site.data.fhir.path}}", {{site.data.fhir.path}} | replace: "{{site.data.uscore.path}}", {{site.data.uscore.path}} %}
 <tr>
 <td>{{forloop.index}}</td>
 <td><a href="{{vs_link}}">{{item.Title}}</a></td>

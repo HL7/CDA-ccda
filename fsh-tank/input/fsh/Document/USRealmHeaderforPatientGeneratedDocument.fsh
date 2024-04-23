@@ -63,7 +63,7 @@ The Patient Generated Document Header template is not a separate document type. 
     * ^comment = "SHALL contain exactly one [1..1] relatedEntity (CONF:1198-28682)."
     * code 0..1
       * ^comment = "This relatedEntity MAY contain zero or one [0..1] code (CONF:1198-28683)."
-      * obeys should-code-attr
+      * obeys should-us-code-attr
       * code 0..1
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
         * ^comment = "The code, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28684)." // man-should
