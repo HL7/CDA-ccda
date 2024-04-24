@@ -14,7 +14,8 @@ Value Set Sources:
 
 - [VSAC](http://cts.nlm.nih.gov/fhir/)
 - [FHIR]({{site.data.fhir.path}})
-- [US CORE]({{site.data.uscore.path}}/terminology.html)
+- [US CORE]({{site.data.fhir.uscore}}/terminology.html)
+- [CDA]({{site.data.fhir.cda}}/)
 - PHINVADS
 - [THO](http://terminology.hl7.org/)
 
@@ -38,7 +39,7 @@ Value Set Sources:
 
 {% assign base_URL = item.URL | split: 'ValueSet/' | first %}
 {% assign stem_URL = item.URL | split: 'ValueSet/' | last %}
-{% assign vs_link = site.data.source[base_URL][1] | replace: "{{stem_URL}}", stem_URL | replace: "{{site.data.fhir.path}}", {{site.data.fhir.path}} | replace: "{{site.data.uscore.path}}", {{site.data.uscore.path}} %}
+{% assign vs_link = site.data.source[base_URL][1] | replace: "{{stem_URL}}", stem_URL | replace: "{{site.data.fhir.path}}", {{site.data.fhir.path}} | replace: "{{site.data.fhir.uscore}}", {{site.data.fhir.uscore}} | replace: "{{site.data.fhir.cda}}", {{site.data.fhir.cda}} | replace: "{{site.data.fhir.ccda}}", {{site.data.fhir.ccda}} %}
 <tr>
 <td>{{forloop.index}}</td>
 <td><a href="{{vs_link}}">{{item.Title}}</a></td>
