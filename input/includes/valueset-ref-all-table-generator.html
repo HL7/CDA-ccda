@@ -43,7 +43,15 @@ Value Set Sources:
 <tr>
 <td>{{forloop.index}}</td>
 <td><a href="{{vs_link}}">{{item.Title}}</a></td>
-<td>{{item.Uses | split: ',' | join: '<br />'}}</td>
+<td>
+  {% assign uses = item.Uses | split: ',' %}
+  {% for use in uses %}
+    {% assign parts = use | split: '/' %}
+    {% assign definitionName = parts | last %}
+    {% assign url = "StructureDefinition-" | append: definitionName | append: ".html" %}
+    <a href="{{ url }}">{{ definitionName }}</a>{% unless forloop.last %}, {% endunless %}
+  {% endfor %}
+</td>
 <td>{{site.data.source[base_URL][0]}}</td>
 </tr>
 
