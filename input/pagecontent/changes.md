@@ -123,6 +123,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 - [CDA-21076](https://jira.hl7.org/browse/CDA-21076) - Add test for SHOULD NOT on [Allergy](StructureDefinition-SubstanceOrDeviceAllergyIntoleranceObservation.html) severity
 - [CDA-21080](https://jira.hl7.org/browse/CDA-21080) - Fix comment to reference proper code on ProcedureNote participant typeCode
 - [CDA-21081](https://jira.hl7.org/browse/CDA-21081) - Combine Goal Observation's two REFR EntryReference entries into one
+- [CDA-21087](https://jira.hl7.org/browse/CDA-21087) - Fix the OID for LOINC 
 - [CDA-21088](https://jira.hl7.org/browse/CDA-21088) - Combine Risk Concern Act's two REFR EntryReference entries into one
 
 ### Version 3.0.0-ballot 
