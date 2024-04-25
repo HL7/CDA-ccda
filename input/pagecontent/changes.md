@@ -31,6 +31,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 - [CDA-20903](https://jira.hl7.org/browse/CDA-20903) - Add display name for fixed code.
 - [CDA-20904](https://jira.hl7.org/browse/CDA-20904) - Update the How To Read page to be version-agnostic.
 - [CDA-20905](https://jira.hl7.org/browse/CDA-20905) - Add guidance in the How To Read page that the Snapshot table will show all guidance, including that inherited from base CDA models.
+- [CDA-20906](https://jira.hl7.org/browse/CDA-20906) - Changed closed templates from using invariants to specifically excluding unneeded elements.
 - [CDA-20907](https://jira.hl7.org/browse/CDA-20907) - Fix script to create valid artifact descriptions.
 - [CDA-20908](https://jira.hl7.org/browse/CDA-20908) - Update CoverageAct.effectiveTime, Remove PolicyActivity.effectiveTime, provide guidance on PolicyActivity.participant.coverage-target.time.
 - [CDA-20909](https://jira.hl7.org/browse/CDA-20909) - Change binding on the Related Person Relationship and Name Participant associated Entity to a value set.
@@ -87,6 +88,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 - [CDA-20973](https://jira.hl7.org/browse/CDA-20973) - Remove the prohibition on ReferenceRange.code.
 - [CDA-20974](https://jira.hl7.org/browse/CDA-20974) - Create an invariant on Indication similarly to how EntryReference and AuthorParticipation do it.
 - [CDA-20975](https://jira.hl7.org/browse/CDA-20975) - Update the value set binding from Nutrition Recommendations to Nutrition Recommendation Grouping.
+- [CDA-20976](https://jira.hl7.org/browse/CDA-20976) - Add a paragraph about how the guide uses FHIR Structure Definitions and change "based on FHIR" to be "generated with"
 - [CDA-20977](https://jira.hl7.org/browse/CDA-20977) - Add information about XML vs JSON in the new section that explains what "based on FHIR" means.
 - [CDA-20978](https://jira.hl7.org/browse/CDA-20978) - Fix a broken link.
 - [CDA-20980](https://jira.hl7.org/browse/CDA-20980) - Add a note that SDTC extensions are used in the templates and provide a link to find information about those extensions.
@@ -119,7 +121,9 @@ The changes in this version of Consolidated CDA were made from comments raised d
 - [CDA-21067](https://jira.hl7.org/browse/CDA-21067) - Change Patient Referral Act participant from SHALL contain exactly one to MAY contain zero or one.
 - [CDA-21070](https://jira.hl7.org/browse/CDA-21070) - Add slicing logic to [Medications Administered Section](StructureDefinition-MedicationsAdministeredSection.html)
 - [CDA-21076](https://jira.hl7.org/browse/CDA-21076) - Add test for SHOULD NOT on [Allergy](StructureDefinition-SubstanceOrDeviceAllergyIntoleranceObservation.html) severity
-
+- [CDA-21080](https://jira.hl7.org/browse/CDA-21080) - Fix comment to reference proper code on ProcedureNote participant typeCode
+- [CDA-21081](https://jira.hl7.org/browse/CDA-21081) - Combine Goal Observation's two REFR EntryReference entries into one
+- [CDA-21088](https://jira.hl7.org/browse/CDA-21088) - Combine Risk Concern Act's two REFR EntryReference entries into one
 
 ### Version 3.0.0-ballot 
 
