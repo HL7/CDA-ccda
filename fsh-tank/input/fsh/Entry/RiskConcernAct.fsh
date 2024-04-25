@@ -40,8 +40,6 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
-  * ^slicing.discriminator[+].type = #value
-  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^short = "Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
 * entryRelationship contains
