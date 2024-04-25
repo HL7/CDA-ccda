@@ -22,7 +22,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
 * participant[participant1] ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8504) such that it"
   * typeCode 1..1
   * typeCode = #IND (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"IND\" Individual (CodeSystem: HL7ParticipationFunction urn:oid:2.16.840.1.113883.5.88 STATIC) (CONF:1198-8505)."
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"IND\" Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8505)."
   * functionCode 1..1
     * ^comment = "SHALL contain exactly one [1..1] functionCode=\"PCP\" Primary Care Physician (CodeSystem: HL7ParticipationFunction urn:oid:2.16.840.1.113883.5.88 STATIC) (CONF:1198-8506)."
     * code 1..1
