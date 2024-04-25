@@ -143,17 +143,53 @@
         </element>
         <element id="Organizer.component">
             <path value="Organizer.component"/>
-            <comment value="SHALL contain exactly one [1..1] component (CONF:4437-3488)."/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Organizer.component:deviceObs">
+            <path value="Organizer.component"/>
+            <sliceName value="deviceObs"/>
+            <short value="component"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Organizer.component.observation">
+        <element id="Organizer.component:deviceObs.observation">
             <path value="Organizer.component.observation"/>
-            <comment value="This component SHALL contain exactly one [1..1] Device Identifier Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.304:2019-06-21) (CONF:4437-3489)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DeviceIdentifierObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:otherObs">
+            <path value="Organizer.component"/>
+            <sliceName value="otherObs"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Organizer.component:otherObs.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/LotOrBatchNumberObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SerialNumberObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ManufacturingDateObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ExpirationDateObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DistinctIdentificationCodeObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BrandNameObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ModelNumberObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CompanyNameObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CatalogNumberObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/LatexSafetyObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MRISafetyObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImplantableDeviceStatusObservation"/>
             </type>
         </element>
     </differential>
