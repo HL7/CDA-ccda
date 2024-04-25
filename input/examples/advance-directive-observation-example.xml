@@ -3,7 +3,7 @@
     <templateId root="2.16.840.1.113883.10.20.22.4.48" 
         extension="2022-02-14" />
     <id root="9b54c3c9-1673-49c7-aef9-b037ed72ed27" />
-  <code code="75773-2"
+  <code code="75320-2"
     displayName="Personal goals, preferences, and priorities for medical
     treatment"
     codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
@@ -51,12 +51,12 @@
   <participant typeCode="VRF">
       <templateId root="2.16.840.1.113883.10.20.1.58" />
       <time value="20130213" />
-      <participantRole>
+      <participantRole classCode="CON">
         <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
         <code code="163W00000X" 
-             codeSystem="2.16.840.1.113883.6.101" 
-             codeSystemName="Health Care Provider Taxonomy (HIPAA)" 
-             displayName="Registered nurse" />
+          codeSystem="2.16.840.1.113883.6.101" 
+          codeSystemName="Health Care Provider Taxonomy (HIPAA)" 
+          displayName="Registered nurse" />
         <addr use="H">
           <streetAddressLine>23 Anywhere Street</streetAddressLine>
           <city>El Paso</city>
@@ -64,7 +64,7 @@
           <postalCode>90210</postalCode>
           <country>US</country>
         </addr>
-        <playingEntity>
+        <playingEntity classCode="PSN">
           <code code="63161005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Principal" />
           <name>
             <given>Nurse</given>
@@ -86,7 +86,7 @@
             <country>US</country>
           </addr>
           <telecom value="tel:(999)555-1212" use="WP" />
-        <playingEntity>
+        <playingEntity classCode="PSN">
           <code code="63161005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Principal" />
           <name>
             <prefix>Mrs.</prefix>
@@ -99,6 +99,10 @@
     <reference typeCode="REFR">
       <externalDocument>
         <id root="b50b7910-7ffb-4f4c-bbe4-177ed68cbbf3" />
+        <code codeSystem="2.16.840.1.113883.6.1" 
+          codeSystemName="LOINC" 
+          code="57133-1"
+          displayName="Referral Note" />
         <text mediaType="application/pdf">
           <reference value="AdvanceDirective.b50b7910-7ffb-4f4c-bbe4-177ed68cbbf3.pdf" />
         </text>
