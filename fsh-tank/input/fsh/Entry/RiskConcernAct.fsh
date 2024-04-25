@@ -21,12 +21,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-32223)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-32305)."
-  * code 1..1
-  * code = #281694009
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"281694009\" At risk for (CONF:1198-32306)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.96"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32307)."
+  * insert CodedSnomed(281694009, [[At risk - finding]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-32225)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
@@ -45,6 +40,8 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^short = "Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
 * entryRelationship contains

@@ -1,41 +1,20 @@
-<substanceAdministration moodCode="INT" classCode="SBADM" xmlns="urn:hl7-org:v3">
+<substanceAdministration moodCode="INT" classCode="SBADM" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <templateId root="2.16.840.1.113883.10.20.22.4.42" extension="2014-06-09" />
   <!-- Planned Medication Activity-->
   <id root="cdbd33f0-6cde-11db-9fe1-0800200c9a66" />
-  <text>Heparin 0.25 ml Prefilled Syringe</text>
+  <text>Heparin 0.5 ml Prefilled Syringe
+    <reference value="#med1" />
+  </text>
   <statusCode code="active" />
   <!-- The effectiveTime in a planned medication activity 
     represents the time that the medication activity should occur. -->
   <effectiveTime value="20130905" />
   <consumable>
     <manufacturedProduct classCode="MANU">
-      <!-- Medication Information -->
-      ...
-    
+      <templateId root="2.16.840.1.113883.10.20.22.4.23" extension="2014-06-09" />
+      <manufacturedMaterial>
+        <code code="1658634" codeSystem="2.16.840.1.113883.6.88" displayName="0.5 ML heparin sodium, porcine 10000 UNT/ML Injection" />
+      </manufacturedMaterial>
     </manufacturedProduct>
   </consumable>
-  <entryRelationship typeCode="REFR">
-    <observation classCode="OBS" moodCode="EVN">
-      <!-- Patient Priority Preference-->
-      ...
-    
-    </observation>
-  </entryRelationship>
-  <entryRelationship typeCode="REFR">
-    <observation classCode="OBS" moodCode="EVN">
-      <!-- Provider Priority Preference-->
-      ...
-    
-    </observation>
-  </entryRelationship>
-  <entryRelationship typeCode="RSON">
-    <!-- Indication -->
-    ...
-  
-  </entryRelationship>
-  <entryRelationship typeCode="SUBJ">
-    <!-- Instruction -->
-    ...
-  
-  </entryRelationship>
 </substanceAdministration>

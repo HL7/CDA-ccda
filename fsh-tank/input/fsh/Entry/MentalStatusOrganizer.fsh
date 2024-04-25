@@ -39,6 +39,6 @@ Description: "The Mental Status Organizer template may be used to group related 
     * ^comment = "SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:1198-14381)."
 
 Invariant: 1198-14698
-Description: "**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (codeSystem 2.16.840.1.113883.6.96) (CONF:1198-14698)."
+Description: "**SHOULD** be selected from ICF (codeSystem 2.16.840.1.113883.6.254) *OR* LOINC (codeSystem 2.16.840.1.113883.6.1) (CONF:1198-14698)."
 Severity: #warning
-Expression: "codeSystem.exists() implies (codeSystem = '2.16.840.1.113883.6.254' or codeSystem = '2.16.840.1.113883.6.96')"
+Expression: "codeSystem.exists() implies (codeSystem = '2.16.840.1.113883.6.254' or codeSystem = '2.16.840.1.113883.6.1')"
