@@ -2,7 +2,7 @@ Profile: EstimatedDateofDelivery
 Parent: $Observation
 Id: EstimatedDateofDelivery
 Title: "Estimated Date of Delivery"
-Description: "This clinical statement represents the anticipated date when a woman will give birth."
+Description: "This clinical statement represents the anticipated date when a woman will give birth.  NOTE: This is a Closed template so only the elements needed for the template are allowed.  All other elements are not allowed."
 
 * insert LogicalModelTemplateRootOnly(est-date-delivery, 2.16.840.1.113883.10.20.15.3.1)
 * insert NarrativeLink
