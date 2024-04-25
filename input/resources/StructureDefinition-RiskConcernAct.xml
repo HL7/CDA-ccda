@@ -102,17 +102,17 @@
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
+            <short value="At risk - finding"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-32305)."/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;281694009&quot; At risk for (CONF:1198-32306)."/>
             <min value="1"/>
             <patternCode value="281694009"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32307)."/>
+            <short value="SNOMED CT"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
@@ -173,6 +173,10 @@
                 <discriminator>
                     <type value="profile"/>
                     <path value="organizer"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
@@ -874,27 +878,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemConcernAct"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryReference3">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryReference3"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32217) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryReference3.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32301)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryReference3.act">
-            <path value="Act.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32302)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
         <element id="Act.reference">

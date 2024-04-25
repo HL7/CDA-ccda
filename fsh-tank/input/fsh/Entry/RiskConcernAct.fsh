@@ -21,12 +21,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-32223)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-32305)."
-  * code 1..1
-  * code = #281694009
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"281694009\" At risk for (CONF:1198-32306)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.96"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32307)."
+  * insert CodedSnomed(281694009, [[At risk - finding]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-32225)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
@@ -42,6 +37,8 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^short = "Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
 * entryRelationship contains
@@ -77,8 +74,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
     resultOrganizer 0..* and
     priorityPreference1 0..* and
     priorityPreference2 0..* and
-    problemConcernAct 0..* and
-    entryReference3 0..*
+    problemConcernAct 0..*
 * entryRelationship[problemObservation1] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32179) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -315,13 +311,6 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * act 1..1
   * act only ProblemConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Problem Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-32299)."
-* entryRelationship[entryReference3] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32217) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32301)."
-  * act 1..1
-  * act only EntryReference
-    * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32302)."
 * reference 0..*
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1198-32769)."
   * typeCode 1..1
