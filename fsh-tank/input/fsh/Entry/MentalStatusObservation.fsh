@@ -16,13 +16,7 @@ Description: "The Mental Status Observation template represents an observation a
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-14257)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-14591)."
-  * code 1..1
-  * code = #8693-4
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"8693-4\" Cognitive function (CONF:1198-32788)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32789)."
+  * insert CodedLoinc(8693-4, Mental Status)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-14254)."
   * code 1..1
