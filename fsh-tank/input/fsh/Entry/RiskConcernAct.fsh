@@ -36,7 +36,10 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32300)." // man-should
-* entryRelationship ^slicing.discriminator[0].type = #profile
+* entryRelationship 
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "act"
@@ -77,8 +80,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
     resultOrganizer 0..* and
     priorityPreference1 0..* and
     priorityPreference2 0..* and
-    problemConcernAct 0..* and
-    entryReference3 0..*
+    problemConcernAct 0..*
 * entryRelationship[problemObservation1] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32179) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -93,7 +95,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * observation 1..1
   * observation only AllergyIntoleranceObservation
     * ^comment = "SHALL contain exactly one [1..1] Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09) (CONF:1198-32229)."
-* entryRelationship[entryReferenceRefr] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern RELATES TO Health Concern). The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."
+* entryRelationship[entryReferenceRefr] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern RELATES TO Health Concern). It can also represent the relationship between a Health Concern and another entry already described in the CDA document instance. The Entry Reference template is used here because the target entry will be defined elsewhere and thus a reference to that instance is all that is required."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32182) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -315,13 +317,6 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * act 1..1
   * act only ProblemConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Problem Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-32299)."
-* entryRelationship[entryReference3] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32217) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32301)."
-  * act 1..1
-  * act only EntryReference
-    * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32302)."
 * reference 0..*
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1198-32769)."
   * typeCode 1..1
