@@ -2,42 +2,25 @@
   <!--  Planned Immunization Activity -->
   <templateId root="2.16.840.1.113883.10.20.22.4.120" />
   <id root="81505d5e-2305-42b3-9273-f579d622000d" />
+  <text>
+    <reference value="#imm1" />
+  </text>
   <statusCode code="active" />
   <effectiveTime xsi:type="IVL_TS" value="20131115" />
   <repeatNumber value="1" />
-  <routeCode code="IM" codeSystem="2.16.840.1.113883.5.112" codeSystemName="RouteOfAdministration" displayName="Intramuscular injection" />
+  <routeCode code="IM" codeSystem="2.16.840.1.113883.5.112" codeSystemName="RouteOfAdministration" displayName="Intramuscular injection">
+    <translation code="78421000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Intramuscular route (qualifier value)" />
+  </routeCode>
   <consumable>
-    <!-- Immunization Medication Information -->
+    <manufacturedProduct classCode="MANU">
+      <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09" />
+      <manufacturedMaterial>
+        <code code="130" codeSystem="2.16.840.1.113883.12.292" displayName="Diphtheria, tetanus toxoids and acellular pertussis vaccine, and poliovirus vaccine, inactivated" />
+        <lotNumberText>352435465</lotNumberText>
+      </manufacturedMaterial>
+      <manufacturerOrganization>
+        <name>Shots-r-us</name>
+      </manufacturerOrganization>
+    </manufacturedProduct>
   </consumable>
-  <performer>
-        ...
-    </performer>
-  <author>
-    <!-- Author Participation -->
-  </author>
-  <entryRelationship typeCode="REFR">
-    <!-- Patient Priority Preference -->
-        ...
-    
-  </entryRelationship>
-  <entryRelationship typeCode="REFR">
-    <!-- Provider Priority Preference -->
-        ...
-    
-  </entryRelationship>
-  <entryRelationship typeCode="RSON">
-    <!-- Indication -->
-        ...
-    
-  </entryRelationship>
-  <entryRelationship typeCode="SUBJ">
-    <!-- Instruction -->
-        ...
-    
-  </entryRelationship>
-  <precondition typeCode="PRCN">
-    <!-- Precondition for Substance Administration -->
-        ...
-    
-  </precondition>
 </substanceAdministration>
