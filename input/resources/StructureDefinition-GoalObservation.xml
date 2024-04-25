@@ -181,20 +181,20 @@
             </slicing>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31559) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:refersToGoal">
+        <element id="Observation.entryRelationship:refersTo">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="refersToGoal"/>
-            <short value="The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in this entryRelationship to refer the template."/>
+            <sliceName value="refersTo"/>
+            <short value="The following entryRelationship represents the relationship between a Goal Observation and another entry (usually a Health Concern Act) (Goal Observation REFERS TO Health Concern Act) already described in the CDA document instance. Rather than clone the whole entry, an Entry Reference may be used in this entryRelationship to reference this entry."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-30701) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:refersToGoal.typeCode">
+        <element id="Observation.entryRelationship:refersTo.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-30702)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Observation.entryRelationship:refersToGoal.act">
+        <element id="Observation.entryRelationship:refersTo.act">
             <path value="Observation.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-30703)."/>
             <min value="1"/>
@@ -267,27 +267,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
-            </type>
-        </element>
-        <element id="Observation.entryRelationship:refersToGeneric">
-            <path value="Observation.entryRelationship"/>
-            <sliceName value="refersToGeneric"/>
-            <short value="Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Observation.entryRelationship:refersToGeneric.typeCode">
-            <path value="Observation.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31560)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Observation.entryRelationship:refersToGeneric.act">
-            <path value="Observation.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31588)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
         <element id="Observation.entryRelationship:progressTowardGoal">

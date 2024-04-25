@@ -48,13 +48,12 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31559) such that it"
 * entryRelationship contains
-    refersToGoal 0..* and
+    refersTo 0..* and
     componentEntry 0..* and
     priorityPreference 0..1 and
     goal 0..* and
-    refersToGeneric 0..* and
     progressTowardGoal 0..*
-* entryRelationship[refersToGoal] ^short = "The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in this entryRelationship to refer the template."
+* entryRelationship[refersTo] ^short = "The following entryRelationship represents the relationship between a Goal Observation and another entry (usually a Health Concern Act) (Goal Observation REFERS TO Health Concern Act) already described in the CDA document instance. Rather than clone the whole entry, an Entry Reference may be used in this entryRelationship to reference this entry."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-30701) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -86,14 +85,6 @@ A goal may have components consisting of other goals (milestones). These milesto
   * observation 1..1
   * observation only GoalObservation
     * ^comment = "SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:4515-32880)."
-* entryRelationship[refersToGeneric] ^short = "Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
-  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31559) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31560)."
-  * act 1..1
-  * act only EntryReference
-    * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31588)."
 * entryRelationship[progressTowardGoal] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship such that it"
   * typeCode 1..1
