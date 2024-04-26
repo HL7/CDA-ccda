@@ -15,8 +15,8 @@ Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-Observati
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActPriority|2018-08-12
 
 # Inherent collections where collection is limited to a single value
-%The left side is inherently a collection, and so the expression 'item.country.xmlText != 'US'' may fail%
-%The left side is inherently a collection, and so the expression 'item.country.xmlText != 'USA'' may fail%
+%The left side is inherently a collection, and so the expression 'item.country.xmlText%
+%The left side is inherently a collection, and so the expression 'value.unit%
 
 # Unavailable code system
 Error from http://tx.fhir.org/r4: Unable to provide support for code system https://www.nubc.org/CodeSystem/PatDischargeStatus
@@ -31,6 +31,9 @@ xsi:type is unnecessary at this point
 # Each slice is optional, so the maximum still applies
 The slice definition for Observation.value has a maximum of 1 but the slices add up to a maximum of 2. Check that this is what is intended
 
+# @value or low is required - exapmles have low
+Constraint failed: should-value-att: 'SHOULD contain @value' (defined in http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity)
+
 # Embedded templateIds - not individual templates
 The CDA Template 2.16.840.1.113883.10.20.1.58 is not known
 The CDA Template 2.16.840.1.113883.10.20.21.3.1 is not known
@@ -42,10 +45,13 @@ The CDA Template 2.16.840.1.113883.10.20.22.4.90 is not known
 # Resource OIDs match multiple instances in our dependency graph
 The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0%
 
+# LOOK AT THIS WARNING LATER WHEN IT GETS FIXED
+The OID '2.16.840.1.113883.6.101' matches multiple resources (http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes%
+A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes' could not be found, so the code cannot be validated
 
-# Examples will not enforce the text references
+# Examples may not enforce the text references - SHOULD LOOK AT THESE TO SEE IF WE CAN FIX
 Constraint failed: should-text-ref-value: 'SHOULD contain text/reference/@value'%
 Constraint failed: should-sdtctext-ref-value: 'SHOULD contain text/reference/@value'%
 
-# Examples will not always contain an author
+# Examples will not always contain an author - SHOULD LOOK AT THESE TO SEE IF WE CAN FIX
 Constraint failed: should-author: 'SHOULD contain author'%
