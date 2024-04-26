@@ -15,22 +15,29 @@
 		<low value="20140103"/>
 	</effectiveTime>
 	<!-- This specifies that the allergy is a propensity to adverse reactions to substance -->
-	<value xsi:type="CD" code="418038007" displayName="Propensity to adverse reactions to substance (disorder)" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
-	<author>
-		<templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-		<time value="20140104"/>
-		<assignedAuthor>
-			<id extension="99999999" root="2.16.840.1.113883.4.6"/>
-			<code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Health Care Provider Taxonomy" displayName="Allopathic &amp; Osteopathic Physicians; Family Medicine"/>
-			<telecom use="WP" value="tel:555-555-1002"/>
-			<assignedPerson>
-				<name>
-					<given>Henry</given>
-					<family>Seven</family>
-				</name>
-			</assignedPerson>
-		</assignedAuthor>
-	</author>
+	<value xsi:type="CD" code="418038007" displayName="Propensity to adverse reactions to substance (finding)" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+  <author typeCode="AUT">
+    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+    <time value="200808141030-0800" />
+    <assignedAuthor>
+      <id extension="555555555" root="2.16.840.1.113883.4.6" />
+      <code code="207QA0505X" 
+        displayName="Adult Medicine Physician" 
+        codeSystem="2.16.840.1.113883.6.101"
+        codeSystemName="Healthcare Provider Taxonomy (HIPAA)" />
+      <addr use="H">
+        <streetAddressLine>23 Anywhere Street</streetAddressLine>
+        <city>El Paso</city>
+        <state>TX</state>
+        <postalCode>90210</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom value="tel:(999)555-1212" use="WP" />
+      <assignedPerson>
+        <name>Joe Anywhere</name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
 	<participant typeCode="CSM">
 		<participantRole classCode="MANU">
 			<playingEntity classCode="MMAT">
@@ -48,7 +55,6 @@
 	<entryRelationship typeCode="MFST" inversionInd="true">
 		<observation classCode="OBS" moodCode="EVN">
 			<!-- Reaction Observation template -->
-			<templateId root="2.16.840.1.113883.10.20.22.4.9"/>
 			<templateId root="2.16.840.1.113883.10.20.22.4.9" extension="2014-06-09"/>
 			<id root="0506c036-adfb-4e6e-b9e1-eea76177ead5"/>
 			<code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
@@ -58,13 +64,13 @@
 			<statusCode code="completed"/>
 			<effectiveTime>
 				<low value="20140103"/>
+				<high nullFlavor="UNK"/>
 			</effectiveTime>
 			<value xsi:type="CD" code="39579001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Anaphylaxis"/>
 			<!-- The Severity observation is no longer recommended, use criticality observation in future exchanges -->
 			<entryRelationship typeCode="SUBJ" inversionInd="true">
 				<observation classCode="OBS" moodCode="EVN">
 					<!-- Severity Observation template -->
-					<templateId root="2.16.840.1.113883.10.20.22.4.8"/>
 					<templateId root="2.16.840.1.113883.10.20.22.4.8" extension="2014-06-09"/>
 					<code code="SEV" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode"/>
 					<text>
