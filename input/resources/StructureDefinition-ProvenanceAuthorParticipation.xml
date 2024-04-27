@@ -218,13 +218,6 @@
                 <expression value="nullFlavor = 'NA' or (id.where(root='2.16.840.1.113883.4.2').exists() and id.where(root='2.16.840.1.113883.4.6').exists() and name.exists())"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
             </constraint>
-            <constraint>
-                <key value="should-telecom"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain telecom"/>
-                <expression value="telecom.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
-            </constraint>
         </element>
         <element id="Author.assignedAuthor.representedOrganization.nullFlavor">
             <path value="Author.assignedAuthor.representedOrganization.nullFlavor"/>
