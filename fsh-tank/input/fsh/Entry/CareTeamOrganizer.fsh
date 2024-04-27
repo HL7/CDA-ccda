@@ -98,11 +98,12 @@ The components of the organizer contain the following information:
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] @classCode=\"PLC\" Place (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41) (CONF:4515-141)."
       * name 1..1
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] name (CONF:4515-142)."
-* component ^slicing.discriminator[0].type = #profile
+* component 
+  * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
-  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4515-152) such that it"

@@ -55,8 +55,11 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31147)." // man-should
-* entryRelationship ^slicing.discriminator[0].type = #profile
+* entryRelationship 
+  * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[0].type = #profile
+  * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entryRelationship contains
     age 0..1 and
