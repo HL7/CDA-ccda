@@ -89,9 +89,10 @@ The Procedure Note is created immediately following a non-operative procedure. I
 * authorization 0..1
   * ^short = "Authorization represents consent. Consent, if present, shall be represented by authorization/consent."
   * ^comment = "MAY contain zero or one [0..1] authorization (CONF:1198-32412)."
-  * typeCode 1..1
-  * typeCode = #AUTH (exactly)
-    * ^comment = "The authorization, if present, SHALL contain exactly one [1..1] @typeCode=\"AUTH\" authorized by (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32413)."
+  // Removing for now - this is a fixed-value element in base CDA with a discrepancy between the fixed value (AUTH) and the coding system (AUTHEN)
+  // * typeCode 1..1
+  // * typeCode = #AUTH (exactly)
+  //   * ^comment = "The authorization, if present, SHALL contain exactly one [1..1] @typeCode=\"AUTH\" authorized by (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32413)."
   * consent 1..1
     * ^comment = "The authorization, if present, SHALL contain exactly one [1..1] consent (CONF:1198-32414)."
     * classCode 1..1

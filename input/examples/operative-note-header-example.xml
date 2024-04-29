@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="CDA.xsl"?>
 <!--
- Title:        Discharge Summary
-
- Based on:     C-CDA_R2_Discharge_Summary.xml
+ Title:        Operative Note
+ Based on:     C-CDA_R2_Operative_Note.xml
  
  Updated for C-CDA R3.0 with a focus on header elements
   - required/suggested sections are populated with nullFlavor="NI"
@@ -11,7 +10,7 @@
 		all contain "No information" as this is an example of the header
   
  ********************************************************
- Disclaimer: This sample file contains representative data elements to represent a Discharge Summary. 
+ Disclaimer: This sample file contains representative data elements to represent a Operative Note. 
  The file depicts a fictional character's health data. Any resemblance to a real person is coincidental. 
  To illustrate as many data elements as possible, the clinical scenario may not be plausible. 
  The data in this sample file is not intended to represent real patients, people or clinical events. 
@@ -24,12 +23,12 @@
 	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
 	<!-- US General Header Template -->
 	<templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2024-05-01"/>
-	<!-- *** Note: The next templateId, code and title will differ depending on what type of document is being sent. *** -->
-	<templateId root="2.16.840.1.113883.10.20.22.1.8" extension="2024-05-01"/>
+	<!-- Operative Note Template -->
+	<templateId root="2.16.840.1.113883.10.20.22.1.7" extension="2024-05-01"/>
 	<id extension="TT988" root="2.16.840.1.113883.19.5.99999.1"/>
-	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="18842-5" displayName="Discharge summary"/>
-	<title>Community Health and Hospitals: Discharge Summary</title>
-	<effectiveTime value="201409171904+0500"/>
+	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="11504-8" displayName="Surgical Operation Note"/>
+	<title>Community Health and Hospitals: Operative Note</title>
+	<effectiveTime value="201209161910-0400"/>
 	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
 	<languageCode code="en-US"/>
 	<setId extension="sTT988" root="2.16.840.1.113883.19.5.99999.19"/>
@@ -55,13 +54,16 @@
 				<name use="L">
 					<!-- L is "Legal" from HL7 EntityNameUse 2.16.840.1.113883.5.45 -->
 					<given>Isabella</given>
+					<given>Isa</given>
+					<!-- CL is "Call me" from HL7 EntityNamePartQualifier 2.16.840.1.113883.5.43 -->
 					<family>Jones</family>
 				</name>
 				<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
 				<birthTime value="20050501"/>
 				<maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2" codeSystemName="MaritalStatusCode"/>
 				<religiousAffiliationCode code="1013" displayName="Christian (non-Catholic, non-specific)" codeSystemName="HL7 Religious Affiliation" codeSystem="2.16.840.1.113883.5.1076"/>
-				<raceCode code="2028-9" displayName="Asian" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+				<raceCode code="1002-5" displayName="American Indian or Alaska Native" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+				<sdtc:raceCode code="1966-1" displayName="Aleut" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
 				<ethnicGroupCode code="2186-5" displayName="Not Hispanic or Latino" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
 				<guardian>
 					<code code="GRPRN" displayName="Grandparent" codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 Role code"/>
@@ -100,7 +102,7 @@
 				</languageCommunication>
 			</patient>
 			<providerOrganization>
-				<id root="2.16.840.1.113883.19.5.9999.1393"/>
+				<id extension="444444444" root="2.16.840.1.113883.4.6"/>
 				<name>Community Health and Hospitals</name>
 				<telecom use="WP" value="tel:555-555-5000"/>
 				<addr use="WP">
@@ -114,7 +116,7 @@
 		</patientRole>
 	</recordTarget>
 	<author>
-		<time value="201409171904+0500"/>
+		<time value="20050329224411+0500"/>
 		<assignedAuthor>
 			<id extension="99999999" root="2.16.840.1.113883.4.6"/>
 			<code code="200000000X" codeSystem="2.16.840.1.113883.6.101" displayName="Allopathic &amp; Osteopathic Physicians"/>
@@ -132,36 +134,6 @@
 					<family>Seven</family>
 				</name>
 			</assignedPerson>
-		</assignedAuthor>
-	</author>
-	<author>
-		<time value="201409171904+0500"/>
-		<assignedAuthor>
-			<id nullFlavor="NI"/>
-			<addr use="WP">
-				<streetAddressLine>1001 Village Avenue</streetAddressLine>
-				<city>Portland</city>
-				<state>OR</state>
-				<postalCode>99123</postalCode>
-				<country>US</country>
-			</addr>
-			<telecom use="WP" value="tel:+1(555)555-1004"/>
-			<assignedAuthoringDevice>
-				<manufacturerModelName>Generic EHR Clinical System 2.0.0.0.0.0</manufacturerModelName>
-				<softwareName>Generic EHR C-CDA Factory 2.0.0.0.0.0 - C-CDA Transform 2.0.0.0.0</softwareName>
-			</assignedAuthoringDevice>
-			<representedOrganization>
-				<id root="2.16.840.1.113883.19.5.9999.1393"/>
-				<name>Community Health and Hospitals</name>
-				<telecom use="WP" value="tel:555-555-5000"/>
-				<addr>
-					<streetAddressLine>1001 Village Avenue</streetAddressLine>
-					<city>Portland</city>
-					<state>OR</state>
-					<postalCode>99123</postalCode>
-					<country>US</country>
-				</addr>
-			</representedOrganization>
 		</assignedAuthor>
 	</author>
 	<dataEnterer>
@@ -204,8 +176,7 @@
 	</informant>
 	<informant>
 		<relatedEntity classCode="PRS">
-			<!-- classCode PRS represents a person with personal relationship with
-        the patient. -->
+			<!-- classCode PRS represents a person with personal relationship with the patient. -->
 			<code code="SPS" displayName="SPOUSE" codeSystem="2.16.840.1.113883.1.11.19563" codeSystemName="Personal Relationship Role Type Value Set"/>
 			<relatedPerson>
 				<name>
@@ -222,7 +193,7 @@
 				<name>Community Health and Hospitals</name>
 				<telecom value="tel:555-555-1002" use="WP"/>
 				<addr use="WP">
-					<streetAddressLine>1001 Village Avenue</streetAddressLine>
+					<streetAddressLine>1002 Healthcare Drive </streetAddressLine>
 					<city>Portland</city>
 					<state>OR</state>
 					<postalCode>99123</postalCode>
@@ -245,7 +216,7 @@
 		</intendedRecipient>
 	</informationRecipient>
 	<legalAuthenticator>
-		<time value="201409171904+0500"/>
+		<time value="20090227130000+0500"/>
 		<signatureCode code="S"/>
 		<assignedEntity>
 			<id extension="999999999" root="2.16.840.1.113883.4.6"/>
@@ -266,7 +237,7 @@
 		</assignedEntity>
 	</legalAuthenticator>
 	<authenticator>
-		<time value="201409171904+0500"/>
+		<time value="20090227130000+0500"/>
 		<signatureCode code="S"/>
 		<assignedEntity>
 			<id extension="999999999" root="2.16.840.1.113883.4.6"/>
@@ -286,84 +257,20 @@
 			</assignedPerson>
 		</assignedEntity>
 	</authenticator>
-	<participant typeCode="IND">
-		<time xsi:type="IVL_TS">
-			<low value="19890101"/>
-			<high value="20140916"/>
-		</time>
-		<associatedEntity classCode="NOK">
-			<code code="MTH" codeSystem="2.16.840.1.113883.5.111"/>
-			<addr>
-				<streetAddressLine>17 Daws Rd.</streetAddressLine>
-				<city>Beaverton</city>
-				<state>OR</state>
-				<postalCode>97867</postalCode>
-				<country>US</country>
-			</addr>
-			<telecom value="tel:(999)555-1212" use="WP"/>
-			<associatedPerson>
-				<name>
-					<prefix>Mrs.</prefix>
-					<given>Martha</given>
-					<family>Jones</family>
-				</name>
-			</associatedPerson>
-		</associatedEntity>
-	</participant>
 	<documentationOf typeCode="DOC">
 		<serviceEvent classCode="PCPR">
-			<code code="6025007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Laparoscopic appendectomy"/>
+			<code code="73761001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Colonoscopy"/>
 			<effectiveTime>
-				<low value="201409091904+0500"/>
-				<high value="201409161904+0500"/>
+				<low value="201209091910-0400"/>
+				<high value="201209161910-0400"/>
 			</effectiveTime>
-			<performer typeCode="PRF">
-				<functionCode code="PP" displayName="Primary Care Provider" codeSystem="2.16.840.1.113883.12.443" codeSystemName="Provider Role">
-					<originalText>Primary Care Provider</originalText>
-				</functionCode>
-				<time>
-					<low value="201409091904+0500"/>
-					<high value="201409161904+0500"/>
-				</time>
-				<assignedEntity>
-					<id extension="PseudoMD-1" root="2.16.840.1.113883.4.6"/>
-						<code code="207RG0100X" displayName="Gastroenterology Physician" codeSystemName="Provider Codes" codeSystem="2.16.840.1.113883.6.101"/>
-						<addr use="WP">
-						<streetAddressLine>1001 Village Avenue</streetAddressLine>
-						<city>Portland</city>
-						<state>OR</state>
-						<postalCode>99123</postalCode>
-						<country>US</country>
-					</addr>
-					<telecom value="tel:+1-555-555-5000" use="WP"/>
-					<assignedPerson>
-						<name>
-							<prefix>Dr.</prefix>
-							<given>Henry</given>
-							<family>Seven</family>
-						</name>
-					</assignedPerson>
-					<representedOrganization>
-						<id root="2.16.840.1.113883.19.5.9999.1393"/>
-						<name>Community Health and Hospitals</name>
-						<telecom value="tel:+1-555-555-5000" use="WP"/>
-						<addr>
-							<streetAddressLine>1001 Village Avenue</streetAddressLine>
-							<city>Portland</city>
-							<state>OR</state>
-							<postalCode>99123</postalCode>
-							<country>US</country>
-						</addr>
-					</representedOrganization>
-				</assignedEntity>
-			</performer>
 			<performer typeCode="PPRF">
-				<functionCode code="PP" displayName="Primary Performer" codeSystem="2.16.840.1.113883.12.443" codeSystemName="Provider Role">
+				<functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88" codeSystemName="ParticipationFunction" displayName="Primary Care Physician">
 					<originalText>Primary Care Provider</originalText>
 				</functionCode>
 				<time>
-					<low value="201409091904+0500"/>
-					<high value="201409161904+0500"/>
+					<low value="201209091910-0400"/>
+					<high value="201209161910-0400"/>
 				</time>
 				<assignedEntity>
 					<id extension="PseudoMD-3" root="2.16.840.1.113883.4.6"/>
@@ -379,8 +286,8 @@
 					<assignedPerson>
 						<name>
 							<prefix>Dr.</prefix>
-							<given>Herman</given>
-							<family>Eight</family>
+							<given>Henry</given>
+							<family>Seven</family>
 						</name>
 					</assignedPerson>
 					<representedOrganization>
@@ -399,96 +306,86 @@
 			</performer>
 		</serviceEvent>
 	</documentationOf>
-	<componentOf>
-		<encompassingEncounter>
-			<id extension="9937012" root="2.16.840.1.113883.19"/>
-			<!-- 
-      <code codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" code="99213" displayName="Evaluation and Management"/>
-      -->
-			<effectiveTime>
-				<!-- This is the admission date of the hospitalization -->
-				<low value="201409091904+0500"/>
-				<!-- This is the discharge date of the hospitalization -->
-				<high value="201409161904+0500"/>
-			</effectiveTime>
-			<dischargeDispositionCode code="01" codeSystem="2.16.840.1.113883.12.112" displayName="Routine Discharge" codeSystemName="HL7 Discharge Disposition"/>
-			<location>
-				<healthCareFacility>
-					<id root="2.16.540.1.113883.19.2"/>
-				</healthCareFacility>
-			</location>
-		</encompassingEncounter>
-	</componentOf>
+	<authorization typeCode="AUTH">
+		<consent classCode="CONS" moodCode="EVN">
+			<id root="629deb70-5306-11df-9879-0800200c9a66"/>
+			<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="64293-4" displayName="Procedure consent"/>
+			<statusCode code="completed"/>
+		</consent>
+	</authorization>
 	<component>
     <!-- All sections are set to nullFlavor / text = No information, 
         as this is a header example, not a complete body example -->
 		<structuredBody>
+			<!-- Anesthesia -->
 			<component>
 				<section nullFlavor="NI">
-					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
-					<code code="8648-8" displayName="HOSPITAL COURSE" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>Hospital Course</title>
+					<templateId root="2.16.840.1.113883.10.20.22.2.25" extension="2014-06-09" />
+					<code code="59774-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Anesthesia" />
+					<title>Procedure Anesthesia</title>
 					<text>No information</text>
 				</section>
 			</component>
+			<!-- Complications -->
 			<component>
 				<section nullFlavor="NI">
-					<templateId root="2.16.840.1.113883.10.20.22.2.24" extension="2015-08-01" />
-					<code code="11535-2" displayName="Hospital Discharge Diagnosis" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
-						<translation code="78375-3" displayName="Discharge Diagnosis" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"></translation>
-					</code>
-					<title>Discharge Diagnosis</title>
+					<templateId root="2.16.840.1.113883.10.20.22.2.37" extension="2015-08-01" />
+					<code code="55109-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Complications" />
+					<title>Complications</title>
+					<text>No information</text>
+				</section>
+			</component>		
+			<!-- Preop Dx -->
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.34" extension="2015-08-01" />
+					<code code="10219-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PREOPERATIVE DIAGNOSIS" />
+					<title>Preoperative Diagnosis</title>
 					<text>No information</text>
 				</section>
 			</component>
+			<!-- ProcEstBloodLoss -->
 			<component>
 				<section nullFlavor="NI">
-					<templateId root="2.16.840.1.113883.10.20.22.2.10" extension="2014-06-09" />
-					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Treatment plan" />
-					<title>TREATMENT PLAN</title>
+					<templateId root="2.16.840.1.113883.10.20.18.2.9"/>
+					<code code="59770-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PROCEDURE ESTIMATED BLOOD LOSS"/>
+					<title>Procedure Estimated Blood Loss</title>
 					<text>No information</text>
 				</section>
 			</component>
+			<!-- ProcFindings -->
 			<component>
 				<section nullFlavor="NI">
-					<templateId root="2.16.840.1.113883.10.20.22.2.42"/>
-					<code code="18841-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Hospital Consultations Section"/>
-					<title>HOSPITAL CONSULTATIONS</title>
+					<templateId root="2.16.840.1.113883.10.20.22.2.28" extension="2015-08-01" />
+					<code code="59776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PROCEDURE FINDINGS" />
+					<title>Procedure Findings</title>
 					<text>No information</text>
 				</section>
 			</component>
+			<!-- ProcSpecimensTaken -->
 			<component>
 				<section nullFlavor="NI">
-					<templateId root="2.16.840.1.113883.10.20.22.2.11.1" extension="2015-08-01" />
-					<code code="10183-2" displayName="Hospital Discharge Medications" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
-						<translation code="75311-1" displayName="Discharge Medications" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
-					</code>
-					<title>Discharge Medications</title>
+					<templateId root="2.16.840.1.113883.10.20.22.2.31"/>
+					<code code="59773-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PROCEDURE SPECIMENS TAKEN"/>
+					<title>Procedure Specimens Taken</title>
 					<text>No information</text>
 				</section>
 			</component>
+			<!-- Proc Description -->
 			<component>
 				<section nullFlavor="NI">
-					<templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
-					<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>ALLERGIES AND ADVERSE REACTIONS</title>
+					<templateId root="2.16.840.1.113883.10.20.22.2.27"/>
+					<code code="29554-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PROCEDURE DESCRIPTION"/>
+					<title>Procedure Description</title>
 					<text>No information</text>
 				</section>
 			</component>
+			<!-- Postop Dx-->
 			<component>
 				<section nullFlavor="NI">
-					<templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08-01"/>
-					<code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-							displayName="RESULTS"/>
-					<title>RESULTS</title>
-					<text>No information</text>
-				</section>
-			</component>
-			<component>
-				<section nullFlavor="NI">
-					<templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09" />
-					<code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PROCEDURES" />
-					<title>Procedures</title>
+					<templateId root="2.16.840.1.113883.10.20.22.2.35"/>
+					<code code="10218-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="POSTOPERATIVE DIAGNOSIS"/>
+					<title>Postoperative Diagnosis</title>
 					<text>No information</text>
 				</section>
 			</component>
