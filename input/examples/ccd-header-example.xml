@@ -5,7 +5,10 @@
  
  Taken from C-CDA 2.1 example in companion guide
 
- All sections removed (contain nullFlavor=NI)
+ Updated for C-CDA R3.0 with a focus on header elements
+  - required/suggested sections are populated with nullFlavor="NI"
+	  to demonstrate WHICH sections should be included, but they
+		all contain "No information" as this is an example of the header
   
  ********************************************************
 Disclaimer: The data in this sample file is not intended to represent real patients, people or clinical events. The file depicts a fictional character's health data. 
@@ -573,8 +576,9 @@ This sample is designed to be used in conjunction with the HL7 CDA® R2 IG: C-CD
             </performer>
         </serviceEvent>
     </documentationOf>
-    <!-- ******************************************************** CDA Body ******************************************************** -->
     <component>
+        <!-- All sections are set to nullFlavor / text = No information, 
+            as this is a header example, not a complete body example -->
         <structuredBody>
             <!-- ******************** ENCOUNTERS ************************ -->
             <component>

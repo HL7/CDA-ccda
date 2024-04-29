@@ -5,6 +5,9 @@
  Based on:     C-CDA_R2_Procedure_Note.xml
  
  Updated for C-CDA R3.0 with a focus on header elements
+  - required/suggested sections are populated with nullFlavor="NI"
+	  to demonstrate WHICH sections should be included, but they
+		all contain "No information" as this is an example of the header
   
  ********************************************************
  Disclaimer: This sample file contains representative data elements to represent a Procedure Note. 
@@ -374,12 +377,13 @@
 			</location>
 		</encompassingEncounter>
 	</componentOf>
-	<!-- ********* CDA Body ********* -->
 	<component>
+    <!-- All sections are set to nullFlavor / text = No information, 
+        as this is a header example, not a complete body example -->
 		<structuredBody>
 			<!-- Complications -->
 			<component>
-				<section>
+				<section nullFlavor="NI">
 					<templateId root="2.16.840.1.113883.10.20.22.2.37" extension="2015-08-01" />
 					<code code="55109-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Complications" />
 					<title>Complications</title>
