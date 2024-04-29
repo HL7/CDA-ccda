@@ -3,17 +3,17 @@ The following document provides guidance to readers of the Consolidated CDA Impl
 
 The Artifact Index/Summary page presents the templates that had been previously located in Volume 2.  The Artifact Summary page lists the Document Templates, the Section Templates, the Entry Templates, and the Other Templates.  As well, there is a listing of all the Examples found in the guide.
 
-C-CDA Templates are represented as Resource Profiles in the Implementation Guide.  For the rest of this page, we will use Templates to refer to what is published in the original specification and Profiles to refer to what is published in the new web publication.  There are several different ways of viewing a Resource Profile.  The most useful tab is the Key Elements Table, but the Differential Table does provide some information and the Snapshot Table presents all the elements present in the template/profile.  The Statistics/References tab shows a summary of elements in the profile and a list of templates that are used by the template.
+C-CDA Templates are represented as Resource Profiles in the Implementation Guide.  For the rest of this page, we will use Templates to refer to what is published in the original specification and Resource Profiles to refer to what is published in the new web publication.  There are several different ways of viewing a Resource Profile.  The most useful tab is the Key Elements Table, but the Differential Table does provide some information and the Snapshot Table presents all the elements present in the template/profile.  The Statistics/References tab shows a summary of elements in the profile and a list of templates that are used by the template.
 
 {::options parse_block_html="false" /}
 <figure>
   <img style="padding-top:0;padding-bottom:0px" src="resource_profile_info_tabs.png"/>
-  <figcaption>Figure 1 - Resource Profile Information Tabs</figcaption>
+  <figcaption>Figure 1 - Formal Views of Template Content</figcaption>
 </figure>
 {::options parse_block_html="true" /}
  
 #### Template Differentials
-All the Resource Profiles inherit from either a CDA Clinical Statement structure or from another Resource Profile.  The Key Elements Table tab shows all of the changes from the base CDA structure includig any changes from an inherited Profile.  The Differential Table shows *only* the differences between profile and the inherited profile.  See the [Allergy-Intolerance Observation template](StructureDefinition-AllergyIntoleranceObservation.html) for an example of the difference between the two tabs.  To see everything that is specified in a template, looking at the Snapshot Table will show all of the elements.
+All the Resource Profiles inherit from either a CDA Clinical Statement structure or from another Resource Profile.  The Key Elements Table tab shows all of the changes from the base CDA structure including any changes from a parent Template.  The Differential Table shows *only* the differences between a Template and the parent Template.  See the [Allergy-Intolerance Observation template](StructureDefinition-AllergyIntoleranceObservation.html) for an example of the difference between the two tabs.  To see everything that is specified in a template, looking at the Snapshot Table will show all of the elements.
 
 #### Template Identifier
 The Template Identifier is listed as another identifier of the template.

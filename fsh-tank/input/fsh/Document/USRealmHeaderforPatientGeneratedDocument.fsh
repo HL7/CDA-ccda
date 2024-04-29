@@ -149,7 +149,7 @@ The Patient Generated Document Header template is not a separate document type. 
       * typeCode from $2.16.840.1.113883.1.11.19601 (required)
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."      
       * functionCode 0..1
-        * ^comment = "When indicating the performer was the primary care physician, implementers should indicate \"PCP\" as the functionCode"
+        * ^short = "When indicating the performer was the primary care physician, implementers should indicate \"PCP\" as the functionCode"
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
         // No need for this - it's on USRealmHeader * obeys should-code-attr
         * code 0..1

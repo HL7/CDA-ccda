@@ -101,51 +101,17 @@
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
-            <short value="Vital signs"/>
+            <short value="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-32740)."/>
             <min value="1"/>
         </element>
         <element id="Organizer.code.code">
             <path value="Organizer.code.code"/>
             <min value="1"/>
-            <patternCode value="46680005"/>
+            <patternCode value="74728-7"/>
         </element>
         <element id="Organizer.code.codeSystem">
             <path value="Organizer.code.codeSystem"/>
-            <short value="SNOMED CT"/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.6.96"/>
-        </element>
-        <element id="Organizer.code.translation">
-            <path value="Organizer.code.translation"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="codeSystem"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Organizer.code.translation:translation1">
-            <path value="Organizer.code.translation"/>
-            <sliceName value="translation1"/>
-            <short value="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel"/>
-            <comment value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Organizer.code.translation:translation1.code">
-            <path value="Organizer.code.translation.code"/>
-            <min value="1"/>
-            <patternCode value="74728-7"/>
-        </element>
-        <element id="Organizer.code.translation:translation1.codeSystem">
-            <path value="Organizer.code.translation.codeSystem"/>
             <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>

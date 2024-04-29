@@ -23,7 +23,7 @@ Description: "This clinical statement describes an interaction between a patient
   * insert NarrativeOriginalText
   * translation 0..1 
   * translation from $2.16.840.1.113883.11.20.9.52 (example)
-    * ^short = "The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) value set to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) value set."
+    * ^short = "The translation may exist to provide an Encounter Planned code that is equivalent or narrower than the EncounterTypeCode code."
     * ^comment = "This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."
 * effectiveTime 1..1
   * insert USCDI(Time)

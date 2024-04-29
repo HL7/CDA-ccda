@@ -150,8 +150,33 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet Social Determinant of Health Goals urn:oid:2.16.840.1.113762.1.4.1247.71 DYNAMIC."/>
+            <slicing>
+                <discriminator>
+                    <type value="type"/>
+                    <path value="$this"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <max value="1"/>
+        </element>
+        <element id="Observation.value:coded">
+            <path value="Observation.value"/>
+            <sliceName value="coded"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <binding>
+                <strength value="example"/>
+                <description value="See additional binding"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.71"/>
+                    <documentation value="When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet [Social Determinant of Health Goals 2.16.840.1.113762.1.4.1247.71](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.71/expansion) **DYNAMIC**."/>
+                    <shortDoco value="Social Determinant of Health Goals"/>
+                </additional>
+            </binding>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>

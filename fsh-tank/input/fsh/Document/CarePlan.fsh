@@ -9,15 +9,14 @@ A Care Plan represents one or more Plan(s) of Care and serves to reconcile and r
 The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.
 
 Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):
-There are 2 required sections:
-*    Health Concerns
-*    Goals
-
-There are 2 optional sections:
-*    Activities
-*    Outcomes
-	Provides the ability to identify patient and provider priorities with each act
-	Provides a header participant to indicate occurrences of Care Plan review
+* There are 2 required sections:
+** Health Concerns
+** Goals
+* There are 2 optional sections:
+** Activities
+** Outcomes
+* Provides the ability to identify patient and provider priorities with each act
+* Provides a header participant to indicate occurrences of Care Plan review
 
 A care plan document can include entry references from the information in these sections to the information (entries) in other sections."""
 

@@ -27,7 +27,7 @@ For example, an observation outcome of a blood oxygen saturation level of 95% is
   * codeSystem 1..1
   * codeSystem = "2.16.840.1.113883.5.4"
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.5.4\" (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-31425)."
-* effectiveTime 0..1
+* effectiveTime 1..1
   * insert IntervalValueOnly
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-31609)."

@@ -26,13 +26,13 @@ Description: """This template represents a single instance of an Average Blood P
 * component contains systolic 1..1 and diastolic 1..1
 * component[systolic]
   * observation 1..1
-  * observation only VitalSignObservation
     * code 1..1
       * insert CodedLoinc(96608-5, Systolic blood pressure mean)
+    * value only $PQ
     * value.unit = #mm[Hg]
 * component[diastolic]
   * observation 1..1
-  * observation only VitalSignObservation
     * code 1..1
       * insert CodedLoinc(96609-3, Diastolic blood pressure mean)
+    * value only $PQ
     * value.unit = #mm[Hg]

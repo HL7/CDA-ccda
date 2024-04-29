@@ -138,7 +138,7 @@ Description: "This template defines constraints that represent common administra
             * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
       * obeys should-us-languageCommunication
       * languageCommunication 0..*
-        * insert USCDI([[Langage Communications]])
+        * insert USCDI([[Preferred Language]])
         * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)." // man-should
         * languageCode 1..1
         * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)

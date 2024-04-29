@@ -124,6 +124,6 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
 * obeys should-not-severity
 
 Invariant: should-not-severity
-Description: "Allergy should not include severity. Severity belongs at reaction level, while Criticality is used at the allergy level."
+Description: "Allergy SHOULD NOT include severity. Severity belongs at reaction level, while Criticality is used at the allergy level."
 Severity: #warning
 Expression: "entryRelationship.observation.where(code.code = 'SEV' and code.codeSystem = '2.16.840.1.113883.5.4').empty()"

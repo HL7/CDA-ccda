@@ -32,7 +32,7 @@ Systems **SHALL** support representing detailed questions and answers from a for
 
 Systems **SHALL** support representing a simple question and answer from a formal assessment in the [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without contained Assessment Scale Supporting Observations. 
 
-Systems **SHALL** support representing a clinical judgement that may be dervied from a formal assessment using the [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) Observation.value.
+Systems **SHALL** support representing a clinical judgement that may be derived from a formal assessment using the [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) Observation.value.
 - When a Problem observation or Social History Observation is recorded based on a structured screening and assessment, the Assessment Scale Observation should be contained in the Problem Observation or Social History Observation or they should refer to the Assessment Scale Observation using the [Entry Reference Template](StructureDefinition-EntryReference.html).
 
 Specific observations, such as Disability Status Observation, includes a USCDI indicator on the Assessment scale observation to formalize this USCDI requirement. 
