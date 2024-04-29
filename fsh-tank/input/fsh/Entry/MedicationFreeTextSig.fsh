@@ -4,12 +4,12 @@ Id: MedicationFreeTextSig
 Title: "Medication Free Text Sig"
 Description: """The template is available to explicitly identify the free text Sig within each medication. 
 
-An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."""
+An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning.
+
+NOTE: This is a Closed template so only the elements needed for the template are allowed.  All other elements are not allowed."""
 
 * insert LogicalModelTemplateRootOnly(med-freeTextSig, 2.16.840.1.113883.10.20.22.4.147)
 * insert NarrativeLink
-
-* obeys sig-closed
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"SBADM\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:81-32770)."
@@ -37,8 +37,25 @@ An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."
       * nullFlavor = #NA (exactly)
         * ^comment = "This manufacturedLabeledDrug SHALL contain exactly one [1..1] @nullFlavor=\"NA\" Not Applicable (CONF:81-32779)."
 
-Invariant: sig-closed
-Description: "This is a closed template and shall not contain any elements besides code, text, and consumable"
-Severity: #error
-Expression: "(typeId | statusCode | effectiveTime | priorityCode | repeatNumber | routeCode | approachSiteCode | doseQuantity | rateQuantity | maxDoseQuantity | administrationUnitCode | subject | specimen | performer | informant | participant | entryRelationship | precondition).empty()"
-// (omitting id and author since id is generally recommended, and author pariticpations are allowed anywhere)
+// Closed Template Rules
+* typeId ..0
+// * id ..0 // Keeping id as it's universally recommended for entries
+// * text ..0  // Keeping text per V1's recommendation to include text everywhere
+* statusCode ..0
+* effectiveTime ..0
+* priorityCode ..0
+* repeatNumber ..0
+* routeCode ..0
+* approachSiteCode ..0
+* doseQuantity ..0
+* rateQuantity ..0
+* maxDoseQuantity ..0
+* administrationUnitCode ..0
+* subject ..0
+* specimen ..0
+* performer ..0
+// * author ..0 // Keeping author since C-CDA has a general author participation that can be applied anywhere
+* informant ..0
+* participant ..0
+* entryRelationship ..0
+* precondition ..0
