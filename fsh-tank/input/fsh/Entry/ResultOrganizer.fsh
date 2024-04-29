@@ -54,7 +54,7 @@ A specimen linked to a Result Organizer applies to all Result Observations. Cent
 * component
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
-  * ^slicing.discriminator[0].type = #profile
+  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
