@@ -51,8 +51,11 @@ A specimen linked to a Result Organizer applies to all Result Observations. Cent
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-31149)." // man-should
-* component ^slicing.discriminator[0].type = #profile
+* component
+  * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[0].type = #profile
+  * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
 * component contains resultObs 1..* and specimenProc 0..1

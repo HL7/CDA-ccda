@@ -209,4 +209,4 @@ Expression: "assignedPerson.name.exists() or representedOrganization.name.exists
 Invariant: 4537-17139
 Description: "When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139)."
 Severity: #error
-Expression: "participant.where(typeCode='COV').participantRole.code.where(code = 'SELF') implies participant.where(typeCode='HLD').empty()"
+Expression: "participant.where(typeCode='COV').participantRole.code.where(code = 'SELF').exists() implies participant.where(typeCode='HLD').empty()"
