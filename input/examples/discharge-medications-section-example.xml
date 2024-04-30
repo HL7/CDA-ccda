@@ -14,6 +14,53 @@
   <!-- Discharge Medication Entry -->
   <entry typeCode="DRIV">
     <act classCode="ACT" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.35" extension="2016-03-01" />
+      <code code="10183-2" 
+        displayName="Hospital discharge medication" 
+        codeSystem="2.16.840.1.113883.6.1" 
+        codeSystemName="LOINC">
+        <translation code="75311-1" 
+          displayName="Discharge medication" 
+          codeSystem="2.16.840.1.113883.6.1" 
+          codeSystemName="LOINC"/>
+      </code>
+      <text>
+        <reference value="#medicationactivity"/>
+      </text>
+      <statusCode code="completed"/>
+      <entryRelationship typeCode="SUBJ">
+        <substanceAdministration classCode="SBADM" moodCode="EVN">
+          <!-- ** Medication Activity ** -->
+          <templateId root="2.16.840.1.113883.10.20.22.4.16" 
+            extension="2014-06-09"/>
+          <id root="6c844c75-aa34-411c-b7bd-5e4a9f206e29"/>
+          <text><reference value="#medicationactivity"/></text>
+          <statusCode code="active"/>
+          <effectiveTime xsi:type="IVL_TS">
+            <low value="20120318"/>
+          </effectiveTime>
+          <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+            <period value="12" unit="h"/>
+          </effectiveTime>
+          <routeCode code="C28161" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="National Cancer Institute (NCI) Thesaurus" displayName="INTRAMUSCULAR">
+            <translation code="78421000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Intramuscular route"/>
+          </routeCode>
+          <doseQuantity value="1" unit="1"/>
+          <consumable>
+            <manufacturedProduct classCode="MANU">
+              <!-- ** Medication information ** -->
+              <templateId root="2.16.840.1.113883.10.20.22.4.23" 
+                extension="2014-06-09"/>
+              <id root="2a620155-9d11-439e-92b3-5d9815ff4ee8"/>
+              <manufacturedMaterial>
+                <code code="1000147"  
+                  displayName="estradiol cypionate 10 MG/ML" 
+                  codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"/>
+              </manufacturedMaterial>
+            </manufacturedProduct>
+          </consumable>
+        </substanceAdministration>
+      </entryRelationship>
     </act>
   </entry>
 </section>
