@@ -200,7 +200,6 @@ A care plan document can include entry references from the information in these 
         advDirectives 0..1
     * component[healthConcerns] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755)."
       * section only HealthConcernsSection
-        * ^comment = "This component SHALL contain exactly one [1..1] Health Concerns Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.58:2024-05-01) (CONF:1198-28756)."
     * component[goals] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28761) such that it"
       * section only GoalsSection
         * ^comment = "SHALL contain exactly one [1..1] Goals Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.60) (CONF:1198-28762)."

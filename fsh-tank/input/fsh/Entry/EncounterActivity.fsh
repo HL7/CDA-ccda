@@ -72,4 +72,3 @@ Description: "This clinical statement describes an interaction between a patient
   * act 1..1
   * act only EncounterDiagnosis
   * insert USCDI(Diagnosis)
-    * ^comment = "SHALL contain exactly one [1..1] Encounter Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:1198-15973)."
