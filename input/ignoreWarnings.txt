@@ -28,7 +28,7 @@ xsi:type is unnecessary at this point
 # Each slice is optional, so the maximum still applies
 The slice definition for Observation.value has a maximum of 1 but the slices add up to a maximum of 2. Check that this is what is intended
 
-# @value or low is required - exapmles have low
+# @value or low is required - examples have low
 Constraint failed: should-value-att: 'SHOULD contain @value' (defined in http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity)
 
 # Embedded templateIds - not individual templates
@@ -57,7 +57,7 @@ Constraint failed: should-author: 'SHOULD contain author'%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader%
-This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation%
 
 # Assigned Author different slices
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD%
@@ -87,6 +87,10 @@ Unable to check whether the code is in the value set 'http://phinvads.cdc.gov/fh
 A definition for CodeSystem 'https://www.nubc.org/CodeSystem/PatDischargeStatus' could not be found, so the code cannot be validated%
 Unable to check whether the code is in the value set 'http://hl7.org/cda/us/ccda/ValueSet/2.16.840.1.113883.3.88.12.80.33|3.0.0-ballot' because the code system https://www.nubc.org/CodeSystem/PatDischargeStatus was not found
 A definition for CodeSystem 'urn:oid:2.16.840.1.113883.12.112' could not be found, so the code cannot be validated
+
+# Document template descriptions have embedded HTML
+The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
 # SHOULD constraints that we are ignoring
 %1098-7513%
@@ -127,5 +131,26 @@ A definition for CodeSystem 'urn:oid:2.16.840.1.113883.12.112' could not be foun
 %should-us-code%
 %should-use%
 %should-value%
-%should-value-att%
 %ts-should-minute%
+
+# ERROR with industry class codes - have verified that given code is actually in the value set
+None of the codings provided are in the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066, and a coding from this value set is required) (codes = ValueSet[http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066|20190521])
+
+# ERROR with QNames in our examples
+The QName 'urn:hl7-org:v3::addr' does not match the expected QName 'urn:hl7-org:v3::AD'
+The QName 'urn:hl7-org:v3::time' does not match the expected QName 'urn:hl7-org:v3::TS'
+The QName 'urn:hl7-org:v3::effectiveTime' does not match the expected QName 'urn:hl7-org:v3::IVL_TS'
+
+# ERROR where full document examples are there and do get validated but seem unable to resolve reference
+Unable to resolve resource with reference 'Binary/care-plan-complete-example'
+Unable to resolve resource with reference 'Binary/ccd-header-example'
+Unable to resolve resource with reference 'Binary/consultation-note-complete-example'
+Unable to resolve resource with reference 'Binary/discharge-summary-header-example'
+Unable to resolve resource with reference 'Binary/history-and-physical-header-example'
+Unable to resolve resource with reference 'Binary/operative-note-header-example'
+Unable to resolve resource with reference 'Binary/patient-generated-document-informationrecipient'
+Unable to resolve resource with reference 'Binary/procedure-note-header-example'
+Unable to resolve resource with reference 'Binary/progress-note-header-example'
+Unable to resolve resource with reference 'Binary/referral-note-header-example'
+Unable to resolve resource with reference 'Binary/transfer-summary-header-example'
+Unable to resolve resource with reference 'Binary/us-realm-header-example'
