@@ -13,6 +13,7 @@ Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 # Draft code system in THO
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ObservationValue|3.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActPriority|2018-08-12
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActReason|2018-08-12
 
 # Inherent collections where collection is limited to a single value
 %The left side is inherently a collection, and so the expression 'item.country.xmlText%
@@ -20,10 +21,6 @@ Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActPriori
 
 # Unavailable code system
 Error from http://tx.fhir.org/r4: Unable to provide support for code system https://www.nubc.org/CodeSystem/PatDischargeStatus
-
-# Warnings to determine later
-1098-7513: The type specified in ofType() is http://hl7.org/cda/stds/core/StructureDefinition/PIVL_TS which is not a possible candidate for the existing types () in the expression ofType(CDA.PIVL_TS).exists(). Check the paths and types to be sure this is what is intended
-1098-7513: The type specified in ofType() is http://hl7.org/cda/stds/core/StructureDefinition/EIVL_TS which is not a possible candidate for the existing types () in the expression ofType(CDA.EIVL_TS).exists(). Check the paths and types to be sure this is what is intended
 
 # xsi:type information - firing on templates with constrained type, but still required in CDA
 xsi:type is unnecessary at this point
@@ -60,15 +57,75 @@ Constraint failed: should-author: 'SHOULD contain author'%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation
+
+# Assigned Author different slices
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary%
+
+# Not a code slice
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation%
+
+# Note Activity is not a defined slice
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure%
+
+# Goal Observation is not a defined slice
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation%
 
 # Template requires a retired code
 The code 'NP' is valid but is retired
+The code '421927004' is valid but is not active
 
 # Unknown code systems used in examples
 The OID '2.16.840.1.113883.6.255.1336' is not known, so the code cant be validated
+The OID '2.16.840.1.113883.1.11.19563' is not known, so the code cant be validated
+The OID '2.16.840.1.113883.12.112' is not known, so the code cant be validated
 
 A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated%
 Unable to check whether the code is in the value set 'http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7900|1' because the code system http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH was not found
 Unable to check whether the code is in the value set 'http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7901|1' because the code system http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH was not found
 A definition for CodeSystem 'https://www.nubc.org/CodeSystem/PatDischargeStatus' could not be found, so the code cannot be validated%
 Unable to check whether the code is in the value set 'http://hl7.org/cda/us/ccda/ValueSet/2.16.840.1.113883.3.88.12.80.33|3.0.0-ballot' because the code system https://www.nubc.org/CodeSystem/PatDischargeStatus was not found
+A definition for CodeSystem 'urn:oid:2.16.840.1.113883.12.112' could not be found, so the code cannot be validated
+
+# SHOULD constraints that we are ignoring
+%1098-7513%
+%4537-10007%
+%should-addr%
+%should-assignedPerson%
+%should-care-team-org%
+%should-effectiveTime%
+%should-entry%
+%should-health-status-obs%
+%should-id-npi%
+%should-legalAuthenticator%
+%should-maritalStatusCode%
+%should-npi%
+%should-nutritional-status-obs%
+%should-otext-ref-value%
+%should-performer%
+%should-post-procedure-dx%
+%should-preop-dx%
+%should-procedure-act-procedure%
+%should-proficiencyLevelCode%
+%should-relatedParticipant%
+%should-responsibleParty%
+%should-routeCode%
+%should-section-advance-directives%
+%should-section-discharge-dx%
+%should-section-functional-status%
+%should-section-hpi%
+%should-section-mental-status%
+%should-section-nutrition%
+%should-section-plan-of-treatment%
+%should-section-procedures%
+%should-sh-author%
+%should-smoking-status%
+%should-targetSiteCode%
+%should-telecom%
+%should-time%
+%should-us-code%
+%should-use%
+%should-value%
+%should-value-att%
+%ts-should-minute%
