@@ -58,7 +58,7 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
 * entryRelationship 
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
-  * ^slicing.discriminator[0].type = #profile
+  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entryRelationship contains

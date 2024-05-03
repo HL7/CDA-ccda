@@ -4,6 +4,63 @@
   <title>Goals Section</title>
   <text />
   <entry>
-    <observation />
+		<observation classCode="OBS" moodCode="GOL" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		  <templateId root="2.16.840.1.113883.10.20.22.4.121" extension="2022-06-01"/>
+		  <id root="3700b3b0-fbed-11e2-b778-0800200c9a66" />
+		  <code code="59408-5" 
+		        codeSystem="2.16.840.1.113883.6.1" 
+		        codeSystemName="LOINC" 
+		        displayName="Oxygen saturation in Arterial blood by Pulse oximetry" />
+		  <text>
+		    <reference value="#Goal1" />
+		  </text>
+		  <statusCode code="active" />
+		  <effectiveTime value="20130902" />
+		  <value xsi:type="IVL_PQ">
+		    <low value="92" unit="%" />
+		  </value>
+		  <!--
+		    If the author is set to the recordTarget (patient), this is a patient goal.  
+		    If the author is set to a provider, this is a provider goal. 
+		    If both patient and provider are set as authors, this is a negotiated goal.
+		  -->
+		  <!-- Provider Author ID is NPI -->
+		  <author>
+		    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+		    <time value="20130901102230+0500" />
+		    <assignedAuthor>
+		      <id root="2.16.840.1.113883.4.6" extension="...." />
+		      <addr nullFlavor="UNK" />
+		      <telecom nullFlavor="UNK" />
+		      <assignedPerson>
+		        <name>Dr. Provider</name>
+		      </assignedPerson>
+		    </assignedAuthor>
+		  </author>
+		  <!-- Patient Author ID matches recordTarget -->
+		  <author typeCode="AUT">
+		    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+		    <time value="20130901102230+0500" />
+		    <assignedAuthor>
+		      <id extension="444222222" root="2.16.840.1.113883.4.1"/>
+		      <addr nullFlavor="UNK" />
+		      <telecom nullFlavor="UNK" />
+		      <assignedPerson>
+		        <name>Eve Betterhalf</name>
+		      </assignedPerson>
+		    </assignedAuthor>
+		  </author>
+		  <!-- This entryRelationship represents the relationship "Goal REFERS TO Health Concern" -->
+		  <entryRelationship typeCode="REFR">
+		    <!-- Entry Reference Concern Act -->
+		    <act classCode="ACT" moodCode="EVN">
+		      <templateId root="2.16.840.1.113883.10.20.22.4.122" />
+		      <!-- This id points to an already defined Health Concern in the Health Concerns Section -->
+		      <id root="4eab0e52-dd7d-4285-99eb-72d32ddb195c" />
+		      <code nullFlavor="NP" />
+		      <statusCode code="completed" />
+		    </act>
+		  </entryRelationship>
+		</observation>
   </entry>
 </section>

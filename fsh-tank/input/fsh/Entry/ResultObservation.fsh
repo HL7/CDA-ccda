@@ -61,7 +61,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * translation 0..1
     * ^short = "Can be used to represent the original results as output by the lab"
 * obeys should-interpretationCode
-* interpretationCode from http://terminology.hl7.org/ValueSet/v3-ObservationInterpretation
+* interpretationCode
   * insert USCDI([[Result Interpretation]])
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)." // man-should
 * methodCode 0..1

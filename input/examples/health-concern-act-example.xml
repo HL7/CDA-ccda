@@ -13,71 +13,22 @@
   <!-- Health Concern: Current every day smoker-->
   <entryRelationship typeCode="REFR">
     <!-- Tobacco Use -->
-    <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.85" extension="2014-06-09" />
-      ...
-    
-        
-    </observation>
-  </entryRelationship>
-  <!-- Health Concern Problem: Respiratory insufficiency -->
-  <entryRelationship typeCode="REFR">
-    <!-- Problem Observation -->
-    <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2024-05-01" />
-      ...
-    
-        
-    </observation>
-  </entryRelationship>
-  <!-- Health Concern Diagnosis: Pneumonia -->
-  <entryRelationship typeCode="REFR">
-    <!-- Problem Observation -->
-    <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2024-05-01" />
-      ...
-    
-        
-    </observation>
-  </entryRelationship>
-  <!-- 
-        This is an entry relationship of the SPRT (support) type which shows 
-        that the productive cough supports the Health Concern (Problem: Respiratory 
-        Insufficiency and Diagnosis: Pneumonia
-        This entryRelationship represents the relationship: 
-         Health Concern HAS SUPPORT Observation
-       -->
-  <entryRelationship typeCode="SPRT">
-    <!-- Problem Observation -->
-    <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2024-05-01" />
-      ...
-    
-        
-    </observation>
-  </entryRelationship>
-  <!-- Priority Preference -->
-  <entryRelationship typeCode="RSON">
-    <!-- Priority Preference - this is the preference that the patient 
-      (specified by the Author Participation template)
-       places on the Health Concern -->
-    <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.143" />
-      ...
-    
-        
-    </observation>
-  </entryRelationship>
-  <!--  Priority Preference - this is the preference that the provider 
-    (specified by the Author Participation template)
-     places on the Health Concern -->
-  <entryRelationship typeCode="RSON">
-    <!--  Priority Preference -->
-    <observation classCode="OBS" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.143" />
-      ...
-    
-        
-    </observation>
+		<observation classCode="OBS" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		  <!-- ** Tobacco use ** 2.16.840.1.113883.10.20.22.4.511, 2024-05-01 -->
+		  <templateId root="2.16.840.1.113883.10.20.22.4.511" extension="2024-05-01" />
+		  <id root="45efb604-7049-4a2e-ad33-d38556c9636c" />
+		  <code code="11367-0" codeSystem="2.16.840.1.113883.6.1" displayName="History of tobacco use" />
+		  <text>
+		    <reference value="#tobaccouse" />
+		  </text>
+		  <statusCode code="completed" />
+		  <effectiveTime>
+		    <!-- The low value reflects the start date of the observation/value (moderate smoker) -->
+		    <low value="20090214" />
+		    <!-- The high value reflects the end date of the observation/value (moderate smoker) -->
+		    <high value="20110215" />
+		  </effectiveTime>
+		  <value xsi:type="CD" code="160604004" displayName="Moderate cigarette smoker, 10-19/day" codeSystem="2.16.840.1.113883.6.96" /> 
+		</observation>
   </entryRelationship>
 </act>
