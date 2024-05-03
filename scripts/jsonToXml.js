@@ -174,5 +174,5 @@ function appendSectionUsageToDescription(sd) {
 function profileLink(profileNameOrUrl) {
   if (!profileNameOrUrl) return '';
   const profileId = profileNameOrUrl.includes('/') ? profileNameOrUrl.split('/').pop() : profileNameOrUrl;
-  return `<a href="StructureDefinition-${profileId}.html">${profileId}</a>`;
+  return `[${profileId}](StructureDefinition-${profileId}.html)`;
 }
