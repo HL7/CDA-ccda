@@ -103,7 +103,7 @@ The components of the organizer contain the following information:
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
-  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4515-152) such that it"
@@ -115,16 +115,22 @@ The components of the organizer contain the following information:
     member 1..*
 * component[type] ^short = "component"
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-110) such that it"
+  * act 0..0
+  * encounter 0..0
   * observation 1..1
   * observation only CareTeamTypeObservation
     * ^comment = "SHALL contain exactly one [1..1] Care Team Type Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.2:2019-07-01) (CONF:4515-163)."
 * component[entryReference] ^short = "The following components represent the reasons for the existence of the care team. These entry references are typically a health concern, risk concern or problem but can also be some other entry present in the document."
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-146) such that it"
+  * observation 0..0
+  * encounter 0..0
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-147)."
 * component[encounter] ^short = "component"
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-148) such that it"
+  * act 0..0
+  * observation 0..0
   * encounter 1..1
     * ^comment = "SHALL contain exactly one [1..1] encounter (CONF:4515-164)."
     * id 1..*
@@ -132,11 +138,15 @@ The components of the organizer contain the following information:
       * ^comment = "This encounter SHALL contain at least one [1..*] id (CONF:4515-165)."
 * component[note] ^short = "component"
   * ^comment = "MAY contain zero or one [0..1] component (CONF:4515-150) such that it"
+  * observation 0..0
+  * encounter 0..0
   * act 1..1
   * act only NoteActivity
     * ^comment = "SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-151)."
 * component[member] ^short = "component"
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4515-152) such that it"
+  * observation 0..0
+  * encounter 0..0
   * act 1..1
   * act only CareTeamMemberAct
     * ^comment = "SHALL contain exactly one [1..1] Care Team Member Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.500.1:2022-06-01) (CONF:4515-166)."
