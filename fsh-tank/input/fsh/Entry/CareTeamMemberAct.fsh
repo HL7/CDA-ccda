@@ -175,7 +175,7 @@ assignedPerson.exists() or
 Invariant: 4515-90
 Description: "If the first id does not match an encounter/id from an encounter elsewhere within the same document and the id does not contain @nullFlavor=\"NA\", then this entry SHALL conform to the Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:4515-90)."
 Severity: #error
-Expression: "id.first().nullFlavor = 'NA' or (%resource.descendants().ofType(CDA.Encounter).where(hasTemplateIdOf(EncounterActivity).exists() and id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension)))"
+Expression: "id.first().nullFlavor = 'NA' or (%resource.descendants().ofType(CDA.Encounter).where(hasTemplateIdOf(EncounterActivity) and id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension)))"
 /*
 id.nullFlavor = 'NA' or (
   %resource.descendants().ofType(CDA.Encounter).where(
