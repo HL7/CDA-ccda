@@ -67,6 +67,9 @@ const xml2js = require('xml2js');
         igResource.description.$.value = period ? period[1] : json.description.substring(0, 100);
       }
 
+      // Build a list of required / recommended / additional sections
+      appendSectionUsageToDescription(json);
+
       const xml = fhir.jsonToXml(JSON.stringify(json));
       if (!xml) {
         console.error(`Failed to convert ${filePath}`);
@@ -96,3 +99,80 @@ const xml2js = require('xml2js');
   fs.writeFileSync('input/hl7.cda.us.ccda.xml', newXml);
 
 })();
+
+function appendSectionUsageToDescription(sd) {
+  const sBody = sd.differential?.element.find(e => e.id === 'ClinicalDocument.component.structuredBody');
+  if (!sBody) return;
+
+  const shouldSections = [];
+  const shallSections = [];
+  let maySections = [];
+
+  for (const constraint of sBody.constraint || []) {
+    if (constraint.key === 'ap-or-a-and-p') {
+      shallSections.push(`${profileLink('AssessmentandPlanSection')} or both ${profileLink('AssessmentSection')} and ${profileLink('PlanofTreatmentSection')}`);
+      continue;
+    }
+    if (constraint.key === 'ccrfv-or-cc-or-rfv') {
+      shallSections.push(`${profileLink('ChiefComplaintandReasonforVisitSection')} or both ${profileLink('ChiefComplaintSection')} and ${profileLink('ReasonforVisitSection')}`);
+      continue;
+    }
+    if (constraint.key === '1198-9504') {
+      shallSections.push(`${profileLink('ReasonforReferralSection')} or ${profileLink('ReasonforVisitSection')}`);
+      continue;
+    }
+    // Ignore these
+    if (['ap-combo', 'cc-rfv-combo', '1198-31044'].includes(constraint.key)) continue;
+    if (constraint.expression.split('hasTemplateIdOf').length > 2) {
+      console.warn(`${sd.name}'s constraint ${constraint.key} needs to be handled manually in jsonToXml.js > appendSectionUsageToDescription`);
+      continue;
+    }
+    const match = constraint.expression.match(/hasTemplateIdOf\(\'([^)]+)\'\)/);
+    if (!match) {
+      console.log(`Match not found in constraint ${constraint.expression}`);
+      continue;
+    }
+    if (constraint.severity === 'error') {
+      console.warn(`constraint ${constraint.key} is an error but only one templateId. What? (${constraint.expression})`);
+    } else {
+      shouldSections.push(profileLink(match[1]));
+    }
+  }
+
+  for (const section of sd.differential.element.filter(e => e.path === 'ClinicalDocument.component.structuredBody.component.section')) {
+    const profile = section.type?.[0].profile?.[0];
+    if (!profile) {
+      console.error(`${sd.name} element id ${section.id} does not specify a profile...?`);
+    }
+    const element = sd.differential.element.find(e => e.id === section.id.split('.section')[0]);
+    if (element.min === 0) {
+      maySections.push(profileLink(profile));
+    } else {
+      shallSections.push(profileLink(profile));
+    }
+  }
+
+  maySections = maySections.filter(may => !shallSections.find(shall => shall.includes(may)));
+
+  if ([...shallSections, ...shouldSections, ...maySections].length === 0) return;
+
+  sd.description += '\n\n#### Document Sections\nAlthough document templates may contain any section, the following sections are specifically called out by this template:';
+  if (shallSections.length) {
+    sd.description += '\n\n**Required Sections**\n';
+    sd.description += shallSections.map(s => `- ${s}`).join('\n');
+  }
+  if (shouldSections.length) {
+    sd.description += '\n\n**Recommended Sections**\n';
+    sd.description += shouldSections.map(s => `- ${s}`).join('\n');
+  }
+  if (maySections.length) {
+    sd.description += '\n\n**Additional Sections**\n';
+    sd.description += maySections.map(s => `- ${s}`).join('\n');
+  }
+}
+
+function profileLink(profileNameOrUrl) {
+  if (!profileNameOrUrl) return '';
+  const profileId = profileNameOrUrl.includes('/') ? profileNameOrUrl.split('/').pop() : profileNameOrUrl;
+  return `<a href="StructureDefinition-${profileId}.html">${profileId}</a>`;
+}
