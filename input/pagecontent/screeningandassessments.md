@@ -46,25 +46,25 @@ This value set is used with [Assessment Scale observation](StructureDefinition-A
 #### Substance Use (Including Alcohol Use)
 
 The [Substance Use](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
-to represent simple question and answer assesement questions such as, "How often do you have a drink containing alcohol" or "How often have you used any prescription medications just for the feeling, more than prescribed or that were not prescribed for you in past 12 months (TAPS)".
+to represent simple question and answer assessement questions such as, "How often do you have a drink containing alcohol" or "How often have you used any prescription medications just for the feeling, more than prescribed or that were not prescribed for you in past 12 months (TAPS)".
 
-The [Drug Misuse](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) this value set is used with [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) at Observation.value
+The [Drug Misuse](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) value set is used with [Problem Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.707/expansion) at Observation.value or with [Social History Observation](StructureDefinition-SocialHistoryObservation.html) at Observation.value
 to represent conclusions or diagnoses pertaining to drug misuse or abuse.
 
 #### Mental and Cognitive Health
 
 The [Cognitive Health Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.979/expansion) contains LOINC panel Codes that represent Mental or Cognitive health screening assessments, such as FACIT, PROMIS and MoCA.
-This value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about asssessing mental or cognitive health.
+This value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about assessing mental or cognitive health.
 
 The [Cognitive Function Clinician Interpretation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1015/expansion) value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
-to represent simple question and answer assesement questions such as, "Cognitive Function Interpretation", that may have a text answer of clinician's assessment and "Memory/recall ability during assessment period" that may have answers such as the ability to recal the current season or the where the person is.
+to represent simple question and answer assessement questions. Examples are "Cognitive Function Interpretation", that may have a text answer of clinician's assessment and "Memory/recall ability during assessment period" that may have answers such as the ability to recall the current season or the where the person is.
 
 The [Mental Status Observation](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.1/expansion) value set is used with [Mental Status Observation](StructureDefinition-MentalStatusObservation.html) to represent an observation about mental status that can come from a broad range of subjective and objective information 
 such as Assessment and Screening tools.
 
 #### Functional Status
 
-The [Functional Status Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1586/expansion) contains LOINC panel Codes that represent functional status questionnaire LOINC panel codes
+The [Functional Status Related Questionnaire Panel Codes](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1586/expansion) contains LOINC panel codes that represent functional status questionnaire LOINC panel codes
 This value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) together with [Assessment Scale Supporting observations](StructureDefinition-AssessmentScaleSupportingObservation.html) to represent detailed patient questionnaires about functional status.
 
 The [Functional Status Observation](StructureDefinition-FunctionalStatusObservation.html) may be used to represent an observation about mental status that can come from a broad range of subjective and objective information such as what may be derived from Assessment and Screening tools.
@@ -72,7 +72,7 @@ The [Functional Status Observation](StructureDefinition-FunctionalStatusObservat
 #### Physical Activity
 
 The [Physical Activity Level](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.1068/expansion) value set is used with [Assessment Scale observation](StructureDefinition-AssessmentScaleObservation.html) without the Assessment Scale Supporting Observation
-to represent simple question and answer assesement questions such as, "Kinds of physical activity you usually performed while on the job this last year" or "Days per week of moderate to vigorous physical activity".
+to represent simple question and answer assessement questions such as, "Kinds of physical activity you usually performed while on the job this last year" or "Days per week of moderate to vigorous physical activity".
 
 {::options parse_block_html="false" /}
 <figure>
@@ -85,7 +85,7 @@ to represent simple question and answer assesement questions such as, "Kinds of 
 #### Value Sets Developed by the Gravity Project
 
 For the SDOH Clinical Care HL7 Implementation Guide, the Gravity project has defined the following value sets
-across specific social risk factor domains for problems/health concerns, goals, procedures, service requests and health screeing assessments:
+across specific social risk factor domains for problems/health concerns, goals, procedures, service requests and health screening assessments:
 
 - [Social Determinants of Health Conditions Value Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
 - [Social Determinants of Health Procedures Value Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.789/expansion)

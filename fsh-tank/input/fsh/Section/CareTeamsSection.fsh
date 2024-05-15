@@ -2,7 +2,7 @@ Profile: CareTeamsSection
 Parent: $Section
 Id: CareTeamsSection
 Title: "Care Teams Section"
-Description: """The Care Team Section is used to share historical and current Care Team information. 
+Description: """The Care Teams Section is used to share historical and current Care Team information. 
 
 The Care Team Section may be included in any type of C-CDA structured document that is an open template.
 

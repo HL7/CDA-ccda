@@ -1,5 +1,5 @@
 ### What happened to the Schematron?
-With the change to using the FHIR StructureDefinition, schematrons are not being produced for new version of the C-CDA specification.  The CDA schema is still appropriate for validating the structure of the C-CDA document.  Instead of using schematron for testing the constraints, C-CDA documents should be validated using the FHIR validator.
+With the change to using the FHIR StructureDefinition, schematrons are not being produced for new versions of the C-CDA specification.  The CDA schema is still appropriate for validating the structure of the C-CDA document.  Instead of using schematron for testing the constraints, C-CDA documents should be validated using the FHIR validator.
 
 ### Validate C-CDA Documents Using FHIR Tooling
 The FHIR validator can be used to validate C-CDA documents.  There are three ways of using the FHIR validator.
@@ -18,5 +18,5 @@ There is a [Confluence page](https://confluence.hl7.org/pages/viewpage.action?pa
 
 ### Validation Note
 
-Schema, together with template specific rules, called schematron, have been the historical method that C-CDA documents are validated for conformance to the specifications. With this StructureDefinition publication of CDA and C-CDA, validation rules are inherent in the StructureDefinitions. However, headed into the ballot the accuracy of this method has not been fully tested. In addition, how this inherent new method can be deployed in industry is not yet known. 
+Schema, together with template specific rules, called schematron, have been the historical method that C-CDA documents were validated for conformance to the specifications. With this StructureDefinition publication of CDA and C-CDA, validation rules are inherent in the StructureDefinitions. However, headed into the ballot the accuracy of this method has not been fully tested. In addition, how this inherent new method can be deployed in industry is not yet known. 
 By publication of this Implementation Guide post ballot, we anticipate testing will have occurred and plans to assist the industry will be in place. For more discussion, please see [Validation](validation.html)

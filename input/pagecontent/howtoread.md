@@ -1,5 +1,5 @@
 ### How To Read Consolidated CDA Implementation Guide
-The following document provides guidance to readers of the Consolidated CDA Implementation Guide published using HL7 Structure Definition.  With the switch to representing C-CDA templates using Structure Definitions, the presentation of the templates is different.  Although all the same content is present, it can be found in different places and in different formats.  This guide highlights where all template content can be found.
+The following document provides guidance to readers of the Consolidated CDA Implementation Guide published using HL7 Structure Definition.  With the switch to representing C-CDA templates using StructureDefinition, the presentation of the templates is different.  Although all the same content is present, it can be found in different places and in different formats.  This guide highlights where all template content can be found.
 
 The Artifact Index/Summary page presents the templates that had been previously located in Volume 2.  The Artifact Summary page lists the Document Templates, the Section Templates, the Entry Templates, and the Other Templates.  As well, there is a listing of all the Examples found in the guide.
 
@@ -160,4 +160,4 @@ Feedback on the C-CDA Structured Definition web publication can be made by click
 </figure>
 {::options parse_block_html="true" /}
 
-Following that link will take the reader to the HL7 JIRA.  On the JIRA, clicking on the Create button will allow one to create an issue against the HL7 Software Change Request project.  The component should be set to “C-CDA Templates Clinical Notes”.  A clear summary and description of the issue should be submitted.
+Following that link will take the reader to the HL7 JIRA.  On JIRA, clicking on the Create button will allow one to create an issue against the HL7 Software Change Request project.  The component should be set to “C-CDA Templates Clinical Notes”.  A clear summary and description of the issue should be submitted.
