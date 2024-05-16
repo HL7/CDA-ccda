@@ -549,7 +549,6 @@
             </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication"/>
             <short value="(USCDI) Preferred Language"/>
-            <comment value="This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."/>
             <constraint>
                 <key value="should-proficiencyLevelCode"/>
                 <severity value="warning"/>
@@ -568,6 +567,10 @@
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode"/>
             <min value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/simple-language"/>
+            </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.modeCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.modeCode"/>

@@ -139,9 +139,8 @@ Description: "This template defines constraints that represent common administra
       * obeys should-us-languageCommunication
       * languageCommunication 0..*
         * insert USCDI([[Preferred Language]])
-        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)." // man-should
         * languageCode 1..1
-        * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
+        * languageCode from http://hl7.org/fhir/us/core/ValueSet/simple-language (required)
         * modeCode 0..1
         * modeCode from LanguageAbilityMode (required)
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:4537-5409)."
