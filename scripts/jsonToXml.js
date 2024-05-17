@@ -152,7 +152,7 @@ function appendSectionUsageToDescription(sd) {
     }
   }
 
-  maySections = maySections.filter(may => !shallSections.find(shall => shall.includes(may)));
+  maySections = maySections.filter(may => ![...shallSections, ...shouldSections].find(shall => shall.includes(may)));
 
   if ([...shallSections, ...shouldSections, ...maySections].length === 0) return;
 
