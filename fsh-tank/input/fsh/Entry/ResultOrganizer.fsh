@@ -10,8 +10,8 @@ A specimen linked to a Result Organizer applies to all Result Observations. Cent
 
 For laboratory test codes include codes from http://loinc.org where CLASSTYPE = 1  
 Please see https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html used in US Core which has a partial expansion of the 61,898 codes.
-To retrieve a list of the most commonly used LOINC lab codes (20,000), in "Search LOINC (loinc.org/search/)" enter: "CommonLabResult:true"
-
+To retrieve a list of the most commonly used LOINC lab codes (20,000), in "Search LOINC (loinc.org/search/)" enter: "CommonLabResult:true"  
+To retrieve a list of Radiology LOINC codes, in "Search LOINC (loinc.org/search/)" enter: "Radiology: true"  
 
 """
 
