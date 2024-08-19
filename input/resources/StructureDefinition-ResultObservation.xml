@@ -28,7 +28,7 @@
     <name value="ResultObservation"/>
     <title value="Result Observation"/>
     <status value="draft"/>
-    <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus.&#xA;&#xA;If code contains a valid non-null LOINC then the xsi:type value SHOULD match the LOINC Scale Part based on the table below:&#xA;&#xA;| LOINC Scale Part     | Value xsi:type |&#xA;| -------- | ------- |&#xA;| Qn - Quantitative | INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Ord - Ordinal | CD |&#xA;| Nom - Nominal | CD |&#xA;| Nar - Narrative | ED, ST |&#xA;| OrdQn - Quantitative or Ordinal | CD, INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Multi - Multi | ED |&#xA;| Doc - Document | ED |&#xA;"/>
+    <description value="This template represents the results of a laboratory, radiology, or other study performed on a patient.&#xA;&#xA;The result observation includes a statusCode to allow recording the status of an observation. Pending results (e.g., a test has been run but results have not been reported yet) should be represented as active ActStatus.&#xA;&#xA;If code contains a valid non-null LOINC then the xsi:type value SHOULD match the LOINC Scale Part based on the table below:&#xA;&#xA;| LOINC Scale Part     | Value xsi:type |&#xA;| -------- | ------- |&#xA;| Qn - Quantitative | INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Ord - Ordinal | CD |&#xA;| Nom - Nominal | CD |&#xA;| Nar - Narrative | ED, ST |&#xA;| OrdQn - Quantitative or Ordinal | CD, INT, IVL_INT, MO, IVL_MO, REAL, IVL_REAL, PQ, IVL_PQ, RTO, TS, IVL_TS |&#xA;| Multi - Multi | ED |&#xA;| Doc - Document | ED |&#xA;&#xA;For laboratory test codes include codes from http://loinc.org where CLASSTYPE = 1  &#xA;Please see https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html used in US Core which has a partial expansion of the 61,898 codes.&#xA;To retrieve a list of the most commonly used LOINC lab codes (20,000), in &quot;Search LOINC (loinc.org/search/)&quot; enter: &quot;CommonLabResult:true&quot;&#xA;"/>
     <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="rim"/>
@@ -255,6 +255,10 @@
             <path value="Observation.interpretationCode"/>
             <short value="(USCDI) Result Interpretation"/>
             <comment value="SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-ObservationInterpretation"/>
+            </binding>
         </element>
         <element id="Observation.methodCode">
             <path value="Observation.methodCode"/>
