@@ -3003,14 +3003,14 @@ This observation represents the biological sex assigned to the patient at birth.
 
 #### Pregnancy Status
 
-The Pregnancy Observation is used to represent a person’s pregnancy status over time. It is a type of social history
+The Pregnancy Status Observation is used to represent a person’s pregnancy status over time. It is a type of social history
 observation and can included in the Social History Section. For communicating more detailed observations related
 to an individual’s pregnancy status, implementers can also consider utilizing the templates in the [HL7 CDA® R2
 Implementation Guide: C-CDA R2.1 Supplemental Templates for Pregnancy Status, Release 1 - US Realm](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=494).
 
-| **Entry Template**   | **Pregnancy Observation<br/>[observation: identifier urn:oid:2.16.840.1.113883.10.20.15.3.8 (open)]**    |
+| **Entry Template**   | **Pregnancy Status Observation<br/>[observation: identifier urn:oid:2.16.840.1.113883.10.20.15.3.8 (open)]**    |
 | ---- | ------ |
-| **Template**   | [Pregnancy Observation](StructureDefinition-PregnancyObservation.html) |
+| **Template**   | [Pregnancy Status Observation](StructureDefinition-PregnancyStatusObservation.html) |
 | **Purpose**   | This template contains information that describes a patient's pregnancy status over time.  |
 | **ActStatus**   | This template always has a statusCode of “completed.”<br />The effectiveTime element is used to describe dates associated with the patient's different pregnancy statuses over time. It represents the clinically relevant time of the observation about the patient’s pregnancy status. |
 | **Negation**   | Not explicitly specified.  |
@@ -3019,13 +3019,13 @@ Implementation Guide: C-CDA R2.1 Supplemental Templates for Pregnancy Status, Re
 | **Example**   | Example 54: Patient was not pregnant |
 | **Example**   | Example 55: Unknown if the patient was pregnant or not |
 {:.grid}
-**Table 57: Pregnancy Observation**
+**Table 57: Pregnancy Status Observation**
 
 **Example 53: Patient was pregnant from 4/10/2011 to 1/12/2012**
 
 {% include examplebutton_default.html example="pregnancy.xml" b_title = "Click Here to See 'Pregnancy' Example" %}
 
-To indicate that the patient was not pregnant during a specified date range, the Pregnancy Observation entry
+To indicate that the patient was not pregnant during a specified date range, the Pregnancy Status Observation entry
 should also be used, but with a negationInd set to “true” to indicate that the patient was not pregnant during the
 date range specified by the effectiveTime element.
 

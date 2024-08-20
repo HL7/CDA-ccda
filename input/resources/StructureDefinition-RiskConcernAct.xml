@@ -499,25 +499,25 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosis"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:pregnancyObservation">
+        <element id="Act.entryRelationship:pregnancyStatusObservation">
             <path value="Act.entryRelationship"/>
-            <sliceName value="pregnancyObservation"/>
+            <sliceName value="pregnancyStatusObservation"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32198) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:pregnancyObservation.typeCode">
+        <element id="Act.entryRelationship:pregnancyStatusObservation.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32262)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:pregnancyObservation.observation">
+        <element id="Act.entryRelationship:pregnancyStatusObservation.observation">
             <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Pregnancy Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:1198-32263)."/>
+            <comment value="SHALL contain exactly one [1..1] Pregnancy Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:1198-32263)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
             </type>
         </element>
         <element id="Act.entryRelationship:preoperativeDiagnosis">
