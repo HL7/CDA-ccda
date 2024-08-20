@@ -2,7 +2,7 @@ Profile: PregnancyStatusObservation
 Parent: $Observation
 Id: PregnancyStatusObservation
 Title: "Pregnancy Status Observation"
-Description: "This clinical statement meets the requirements of the U.S. Core Data for Interoperability (USCDI) Pregnancy Status Data Element. It represents the State or condition of being pregnant at a point in time. To represent the patient’s intent to become pregnant, use the Pregnancy Intention in Next Year template."
+Description: "This clinical statement meets the requirements of the U.S. Core Data for Interoperability (USCDI) Pregnancy Status Data Element. It represents the State or condition of being pregnant at a point in time. To represent the patient's intent to become pregnant, use the Pregnancy Intention in Next Year template."
 
 * insert LogicalModelTemplateRootOnly(pregnancy-obs, 2.16.840.1.113883.10.20.15.3.8)
 * insert NarrativeLink
