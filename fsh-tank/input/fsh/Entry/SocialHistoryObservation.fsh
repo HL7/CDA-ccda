@@ -39,9 +39,7 @@ There are supplemental templates and guidance for observations of [Occupational 
   * unit 1..1
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
 * value[coded] only $CD
-  * ^binding.strength = #example
-  * ^binding.description = "See additional binding"
-  * insert AdditionalBinding(preferred, $SDoHConditions, Social Determinant of Health Observations, [[If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957).]])
+  * insert AdditionalBinding(preferred, $SDoHConditions, Applies to Social Determinant of Health Observations, [[If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957).]])
 * obeys should-sh-author
 * author 0..*
 * author only AuthorParticipation
