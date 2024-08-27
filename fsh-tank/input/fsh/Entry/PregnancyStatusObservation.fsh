@@ -33,10 +33,7 @@ Description: "This clinical statement meets the requirements of the U.S. Core Da
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\"."
-  /*" 201707 Errata Comment 1599: Added value set \"Pregnancy Status\" urn:oid:2.16.840.1.113883.11.20.9.85 to Trifolia. Contains values (all from SNOMED): Pregnant (finding), Possible Pregnancy (finding), Not Pregnant (finding).
-  
-  Updated Pregnancy Status Observation template - removed binding to single code (Pregnant) and added SHALL DYNAMIC binding to above value set.\" " */
-  * insert BindAtCode($2.16.840.1.113762.1.4.1099.24, required)
+  * insert BindAtCode($2.16.840.1.113762.1.4.1240.12, required)
 * entryRelationship ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open
