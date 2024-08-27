@@ -3,7 +3,7 @@ The following document provides guidance to readers of the Consolidated CDA Impl
 
 The Artifact Index/Summary page presents the templates that had been previously located in Volume 2.  The Artifact Summary page lists the Document Templates, the Section Templates, the Entry Templates, and the Other Templates.  As well, there is a listing of all the Examples found in the guide.
 
-C-CDA Templates are represented as Resource Profiles in the Implementation Guide.  For the rest of this document, we will use Templates to refer to what is published in the original specification and Profiles to refer to what is published in the new web publication.  There are several different ways of viewing a Resource Profile.  The most useful tab is the Differential Table, but the Text Summary does provide some information and the Snapshot Table presents all the elements present in the template/profile.
+C-CDA Templates are represented as Resource Profiles in the Implementation Guide.  For the rest of this document, we will use Templates to refer to what is published in the original specification and Profiles to refer to what is published in the new web publication.  There are several different ways of viewing a Resource Profile.  The most useful tab is the Differential Table, but the Text Summary does provide some information and the Snapshot Table presents all the elements present in the template.
 
 {::options parse_block_html="false" /}
 <figure>
@@ -65,10 +65,10 @@ are listed in the Text Summary tab under the Structures heading:
 </figure>
 {::options parse_block_html="true" /}
 
-NOTE: The indication of optional or required for contained by and contains is not present in the corresponding profile.  This can be seen in Figure 7 where the three templates have “(optional)” while the profiles in Figure 8 do not.  This means that sometimes a template may be listed twice in the Contained By or Contains in the pdf publication, (once as required and once as optional) but will only be listed once in the corresponding profile documentation.
+NOTE: The indication of optional or required for contained by and contains is not present in the corresponding template.  This can be seen in Figure 7 where the three templates have “(optional)” while the templates in Figure 8 do not.  This means that sometimes a template may be listed twice in the Contained By or Contains in the pdf publication, (once as required and once as optional) but will only be listed once in the corresponding template documentation.
 
 #### Template Constraints
-All the template constraints can be found in two equivalent places in the profile listing.  The Differential Table tab presents constraints as they affect the underlying structure (Document, Section, Entry, or Other).  Cardinality constraints, fixed value constraints, template constraints, and terminology constraints will all be found in the Differential Table.  Some of the text constraints that affect a specific element can also be found in the Differential Table.
+All the template constraints can be found in two equivalent places in the template listing.  The Differential Table tab presents constraints as they affect the underlying structure (Document, Section, Entry, or Other).  Cardinality constraints, fixed value constraints, template constraints, and terminology constraints will all be found in the Differential Table.  Some of the text constraints that affect a specific element can also be found in the Differential Table.
  
 {::options parse_block_html="false" /}
 <figure>
@@ -87,7 +87,7 @@ All the template constraints can be found in two equivalent places in the profil
 
 NOTE: For elements that repeat but have been constrained, the Profile will be “sliced”, and the constraint will be found on one of the slices.  This applies to fixed value constraints as well as template constraints.
 
-NOTE: If a template inherits constraints from a parent profile, e.g., Care Team Member Act inherits from Care Team Organizer, the full constraints will not be present in the Differential Tab of the child profile but will be found in in the Snapshot Tab of the child profile, or in the Differential Tab of the parent profile.
+NOTE: If a template inherits constraints from a parent template, e.g., Care Team Member Act inherits from Care Team Organizer, the full constraints will not be present in the Differential Tab of the child template but will be found in in the Snapshot Tab of the child template, or in the Differential Tab of the parent template.
 
 The Detailed Descriptions tab will have all the Template Constraints listed by the specific element being constrained. This is where constraint numbers as found in the pdf publication are asserted.
  
@@ -106,7 +106,7 @@ The Detailed Descriptions tab will have all the Template Constraints listed by t
 {::options parse_block_html="true" /}
 
 #### Template Terminology Bindings
-All terminology constraints are represented as value set bindings in the profile listing.  All bound value sets are represented by the name of the value set and this name is a hyperlink.  Many of the value sets can be found in National Library of Medicine’s Value Set Authority Center (VSAC) and will require a UMLS login to see the value set content.  SHALL constraints are represented as Required bindings while SHOULD and MAY are represented as Preferred bindings.
+All terminology constraints are represented as value set bindings in the template listing.  All bound value sets are represented by the name of the value set and this name is a hyperlink.  Many of the value sets can be found in National Library of Medicine’s Value Set Authority Center (VSAC) and will require a UMLS login to see the value set content.  SHALL constraints are represented as Required bindings while SHOULD and MAY are represented as Preferred bindings.
 
  
 {::options parse_block_html="false" /}
@@ -134,10 +134,10 @@ All template constraints that refer to a separate template (e.g., document templ
 </figure>
 {::options parse_block_html="true" /}
 
-In Figure 13, there are six entryRelationship slices that refer to other profiles and this is shown in the Element Type column.  The Type name is the Template Name with all spaces and punctuation removed, e.g., Medication Supply Order becomes MedicationSupplyOrder.  Each name is a hyperlink to the appropriate profile definition.
+In Figure 13, there are six entryRelationship slices that refer to other templates and this is shown in the Element Type column.  The Type name is the Template Name with all spaces and punctuation removed, e.g., Medication Supply Order becomes MedicationSupplyOrder.  Each name is a hyperlink to the appropriate template definition.
 
 #### Template Examples
-If a template has examples, those will be found listed on the Examples tab of the profile.  Each example will be listed with its name which is a hyperlink to the example XML instance.
+If a template has examples, those will be found listed on the Examples tab of the template.  Each example will be listed with its name which is a hyperlink to the example XML instance.
 
  
 {::options parse_block_html="false" /}
