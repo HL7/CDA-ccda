@@ -14,7 +14,7 @@ This template may be used directly in any section, such as Care Plan Document Se
 * moodCode = #INT (exactly)
 * id 1..*
 * code 1..1
-  * insert CodedLoinc(95541-9,[[Care Experience Preference]])
+  * insert CodedLoinc(95541-9,[[Care experience preference]])
 * value 1..1
 * value only CD or ED
   * ^short = "Most of the time, the value will be a string representing the person's words."

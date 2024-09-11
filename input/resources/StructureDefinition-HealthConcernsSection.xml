@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernsSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.58:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This section contains data describing an interest or worry about a health state or process that could possibly require attention, intervention, or management. A Health Concern is a health related matter that is of interest, importance or worry to someone, who may be the patient, patient's family or patient's health care provider. Health concerns are derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). Health concerns can be medical, surgical, nursing, allied health or patient-reported concerns.&#xA;&#xA;Problem Concerns are a subset of Health Concerns that have risen to the level of importance that they typically would belong on a classic &quot;Problem List&quot;, such as &quot;Diabetes Mellitus&quot; or &quot;Family History of Melanoma&quot; or &quot;Tobacco abuse&quot;. These are of broad interest to multiple members of the care team. Examples of other Health Concerns that might not typically be considered a Problem Concern include &quot;Risk of Hyperkalemia&quot; for a patient taking an ACE-inhibitor medication, or &quot;Transportation difficulties&quot; for someone who doesn't drive and has trouble getting to appointments, or &quot;Under-insured&quot; for someone who doesn't have sufficient insurance to properly cover their medical needs such as medications. These are typically most important to just a limited number of care team members."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -53,8 +49,8 @@
             <constraint>
                 <key value="shall-health-concern-act"/>
                 <severity value="error"/>
-                <human value="SHALL contain at least one Health Concern Act"/>
-                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct'))"/>
+                <human value="If section/@nullFlavor is not present, SHALL contain at least one Health Concern Act"/>
+                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernAct')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernsSection"/>
             </constraint>
         </element>
@@ -95,7 +91,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="Health concerns document"/>
+            <short value="Health concerns Document"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">
@@ -122,6 +118,10 @@
                 <discriminator>
                     <type value="profile"/>
                     <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="act"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

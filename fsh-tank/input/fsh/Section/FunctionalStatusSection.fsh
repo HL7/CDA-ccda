@@ -4,7 +4,7 @@ Id: FunctionalStatusSection
 Title: "Functional Status Section"
 Description: "The Functional Status Section contains observations and assessments of a patient's physical abilities. A patient's functional status may include information regarding the patient's ability to perform Activities of Daily Living (ADLs) in areas such as Mobility (e.g., ambulation), Self-Care (e.g., bathing, dressing, feeding, grooming) or Instrumental Activities of Daily Living (IADLs) (e.g., shopping, using a telephone, balancing a check book). Problems that impact function (e.g., dyspnea, dysphagia) can be contained in the section."
 
-* insert Section(#47420-5, Functional Status, 2.16.840.1.113883.10.20.22.2.14, 2014-06-09)
+* insert Section(#47420-5, Functional status assessment note, 2.16.840.1.113883.10.20.22.2.14, 2014-06-09)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "organizer"

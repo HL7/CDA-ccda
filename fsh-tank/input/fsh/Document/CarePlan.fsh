@@ -9,24 +9,21 @@ A Care Plan represents one or more Plan(s) of Care and serves to reconcile and r
 The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.
 
 Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):
-There are 2 required sections:
-*    Health Concerns
-*    Goals
-
-There are 2 optional sections:
-*    Activities
-*    Outcomes
-	Provides the ability to identify patient and provider priorities with each act
-	Provides a header participant to indicate occurrences of Care Plan review
+* There are 2 required sections:
+** Health Concerns
+** Goals
+* There are 2 optional sections:
+** Activities
+** Outcomes
+* Provides the ability to identify patient and provider priorities with each act
+* Provides a header participant to indicate occurrences of Care Plan review
 
 A care plan document can include entry references from the information in these sections to the information (entries) in other sections."""
 
 * insert LogicalModelTemplate(care-plan, 2.16.840.1.113883.10.20.22.1.15, 2024-05-01)
 
 * ^status = #active
-* code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-28745)."
-  * insert BindAtCode($2.16.840.1.113762.1.4.1099.10, required)
+* code from $2.16.840.1.113762.1.4.1099.10 (required)
 * obeys should-setId
 * setId 0..1
   * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." // auto-should
@@ -88,9 +85,9 @@ A care plan document can include entry references from the information in these 
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
-    participant1 0..* and
-    participant2 0..*
-* participant[participant1] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31677) such that it"
+    verifier 0..* and
+    indirect 0..*
+* participant[verifier] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31677) such that it"
   * typeCode 1..1
   * typeCode = #VRF (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"VRF\" Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31678)."
@@ -117,7 +114,7 @@ A care plan document can include entry references from the information in these 
       * code 0..1
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
         * ^comment = "The code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-32367)."
-* participant[participant2] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31895) such that it"
+* participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31895) such that it"
   * typeCode 1..1
   * typeCode = #IND (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"IND\" Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31896)."
@@ -134,8 +131,8 @@ A care plan document can include entry references from the information in these 
   * ^slicing.discriminator[=].path = "serviceEvent.classCode"
   * ^slicing.rules = #open
   * ^short = "The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."
-* documentationOf contains documentationOf1 1..1
-* documentationOf[documentationOf1] ^comment = "SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it"
+* documentationOf contains care-provision 1..1
+* documentationOf[care-provision] ^comment = "SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it"
   * serviceEvent 1..1
     // Removed slicing on performer since it was only branched on assignedEntity which is required anyway
     * ^short = "The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."
@@ -196,24 +193,23 @@ A care plan document can include entry references from the information in these 
       * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
-        component1 1..1 and
-        component2 1..1 and
-        component3 0..1 and
-        component4 0..1 and
-        component5 0..1
-    * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755)."
+        healthConcerns 1..1 and
+        goals 1..1 and
+        activities 0..1 and
+        healthStatusEvalOutcm 0..1 and
+        advDirectives 0..1
+    * component[healthConcerns] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755)."
       * section only HealthConcernsSection
-        * ^comment = "This component SHALL contain exactly one [1..1] Health Concerns Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.58:2024-05-01) (CONF:1198-28756)."
-    * component[component2] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28761) such that it"
+    * component[goals] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28761) such that it"
       * section only GoalsSection
         * ^comment = "SHALL contain exactly one [1..1] Goals Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.60) (CONF:1198-28762)."
-    * component[component3] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28763) such that it"
+    * component[activities] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28763) such that it"
       * section only ActivitiesSection
         * ^comment = "SHALL contain exactly one [1..1] Activities Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2024-05-01) (CONF:1198-28764)."
-    * component[component4] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
+    * component[healthStatusEvalOutcm] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
       * section only HealthStatusEvaluationsandOutcomesSection
         * ^comment = "SHALL contain exactly one [1..1] Health Status Evaluations and Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."
-    * component[component5] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
+    * component[advDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
         * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
 

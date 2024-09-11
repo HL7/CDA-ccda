@@ -2,7 +2,6 @@
   <!-- Social History Observation templateId; every Basic Occupation Observation is also
        a Social History Observation, so the Social History Observation templateId(s)
        SHALL be present. -->
-  <templateId root="2.16.840.1.113883.10.20.22.4.38"/>
   <templateId root="2.16.840.1.113883.10.20.22.4.38" extension="2022-06-01"/>
   <!-- Basic Occupation Observation templateId -->
   <templateId root="2.16.840.1.113883.10.20.22.4.503" extension="2023-05-01"/>
@@ -21,9 +20,29 @@
                 displayName="Automobile Brake Bonder [Adhesive Bonding Machine Operators and Tenders]"
                 codeSystem="2.16.840.1.114222.4.5.327"
                 codeSystemName="Occupational Data for Health (ODH)"/>
-  <entryRelationship typeCode="REFR">
-    <observation classCode="OBS" moodCode="EVN">
-      <!-- Basic Industry Observation goes here... -->
-    </observation>
-  </entryRelationship>
+  <author>
+    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+    <time value="200803190830-0800" />
+    <assignedAuthor>
+      <id extension="333444444" root="1.1.1.1.1.1.1.4" />
+      <addr use="HP">
+        <streetAddressLine>1017 Health Drive</streetAddressLine>
+        <city>Portland</city>
+        <state>OR</state>
+        <postalCode>99123</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom use="WP" value="tel:+1(555)555-1017" />
+      <assignedPerson>
+        <name>
+          <given>William</given>
+          <given qualifier="CL">Bill</given>
+          <family>Beaker</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <name>Good Health Laboratory</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
 </observation>

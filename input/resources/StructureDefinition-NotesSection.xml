@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/NotesSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.65:2016-11-01"/>
     </identifier>
     <version value="2016-11-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="The Notes Section allow for inclusion of clinical documentation which does not fit precisely within any other C-CDA section. Multiple Notes sections may be included in a document provided they each include different types of note content as indicated by a different section.code.&#xA;The Notes Section SHOULD NOT be used in place of a more specific C-CDA section. For example, notes about procedure should be placed within the Procedures Section, not a Notes Section.&#xA;When a Notes Section is present, Note Activity entries contain structured information about the note information allowing it to be more machine processable. "/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -46,8 +42,8 @@
             <constraint>
                 <key value="shall-note-activity"/>
                 <severity value="error"/>
-                <human value="SHALL contain at least one Note Activity"/>
-                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity'))"/>
+                <human value="If section/@nullFlavor is not present, SHALL contain at least one Note Activity"/>
+                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NotesSection"/>
             </constraint>
         </element>
@@ -107,7 +103,7 @@
         </element>
         <element id="Section.text">
             <path value="Section.text"/>
-            <short value="The narrative SHOULD contain human-readable representations using standard CDA narrative markup of each note to ensure widest compatibility with receivers.&#xA;&#xA;While allowed by CDA, the use of &lt;renderMultiMedia&gt; elements, which contain a referencedObject attribute pointing to an &lt;observationMedia&gt; or &lt;regionOfInterest&gt; element in the discrete entries, is discouraged in Note Sections because rendering support for these elements is not widespread."/>
+            <short value="The narrative SHOULD contain human-readable representations using standard CDA narrative markup of each note to ensure widest compatibility with receivers.&#xA;&#xA;While allowed by CDA, the use of renderMultiMedia elements, which contain a referencedObject attribute pointing to an observationMedia or regionOfInterest element in the discrete entries, is discouraged in Note Sections because rendering support for these elements is not widespread."/>
             <min value="1"/>
         </element>
         <element id="Section.entry">

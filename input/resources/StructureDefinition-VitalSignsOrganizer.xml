@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignsOrganizer"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This template provides a mechanism for grouping vital signs (e.g., grouping systolic blood pressure and diastolic blood pressure)."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
@@ -105,51 +101,17 @@
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
-            <short value="Vital Signs"/>
+            <short value="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-32740)."/>
             <min value="1"/>
         </element>
         <element id="Organizer.code.code">
             <path value="Organizer.code.code"/>
             <min value="1"/>
-            <patternCode value="46680005"/>
+            <patternCode value="74728-7"/>
         </element>
         <element id="Organizer.code.codeSystem">
             <path value="Organizer.code.codeSystem"/>
-            <short value="SNOMED CT"/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.6.96"/>
-        </element>
-        <element id="Organizer.code.translation">
-            <path value="Organizer.code.translation"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="codeSystem"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Organizer.code.translation:translation1">
-            <path value="Organizer.code.translation"/>
-            <sliceName value="translation1"/>
-            <short value="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel"/>
-            <comment value="This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Organizer.code.translation:translation1.code">
-            <path value="Organizer.code.translation.code"/>
-            <min value="1"/>
-            <patternCode value="74728-7"/>
-        </element>
-        <element id="Organizer.code.translation:translation1.codeSystem">
-            <path value="Organizer.code.translation.codeSystem"/>
             <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
@@ -203,14 +165,14 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Organizer.component:component1">
+        <element id="Organizer.component:vitalSignObs">
             <path value="Organizer.component"/>
-            <sliceName value="component1"/>
+            <sliceName value="vitalSignObs"/>
             <comment value="SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Organizer.component:component1.observation">
+        <element id="Organizer.component:vitalSignObs.observation">
             <path value="Organizer.component.observation"/>
             <comment value="SHALL contain exactly one [1..1] Vital Sign Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:1198-15946)."/>
             <min value="1"/>

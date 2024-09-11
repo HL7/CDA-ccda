@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<observation xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" classCode="OBS" moodCode="EVN">
+	<!-- ** Allergy observation ** -->
+	<templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09"/>
+	<templateId root="2.16.840.1.113883.10.20.24.3.90" extension="2014-06-09"/>
+	<id root="4a2ac5fc-0c85-4223-baee-c2e254803974"/>
+	<code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+	<text>
+		<reference value="#allergy3"/>
+	</text>
+	<statusCode code="completed"/>
+	<!-- This is the time stamp for the biological onset of the allergy. -->
+	<!-- Just the year is shown since a specific month and date was not reported -->
+	<effectiveTime>
+		<low value="2006"/>
+	</effectiveTime>
+	<!-- This specifies that the allergy is to a medication in contrast to other allergies (substance) -->
+	<value xsi:type="CD" code="416098002" displayName="Allergy to drug" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+  <author typeCode="AUT">
+    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+    <time value="200808141030-0800" />
+    <assignedAuthor>
+      <id extension="555555555" root="2.16.840.1.113883.4.6" />
+      <code code="207QA0505X" 
+        displayName="Adult Medicine Physician" 
+        codeSystem="2.16.840.1.113883.6.101"
+        codeSystemName="Healthcare Provider Taxonomy (HIPAA)" />
+      <addr use="H">
+        <streetAddressLine>23 Anywhere Street</streetAddressLine>
+        <city>El Paso</city>
+        <state>TX</state>
+        <postalCode>90210</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom value="tel:(999)555-1212" use="WP" />
+      <assignedPerson>
+        <name>Joe Anywhere</name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+	<participant typeCode="CSM">
+		<participantRole classCode="MANU">
+			<playingEntity classCode="MMAT">
+				<!-- SNOMED CT is used to report drug class allergies. Note to use RxNorm for specific drugs -->
+				<code code="764146007" displayName="Penicillin" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+					<originalText>
+						<reference value="#allergy3allergen"/>
+					</originalText>
+				</code>
+			</playingEntity>
+		</participantRole>
+	</participant>
+	<entryRelationship typeCode="MFST" inversionInd="true">
+		<observation classCode="OBS" moodCode="EVN">
+			<!-- Reaction Observation template -->
+			<templateId root="2.16.840.1.113883.10.20.22.4.9" extension="2014-06-09"/>
+			<id root="0506c036-adfb-4e6e-b9e1-eea76177ead5"/>
+			<code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+			<text>
+				<reference value="#allergy3reaction"/>
+			</text>
+			<statusCode code="completed"/>
+			<effectiveTime>
+				<low value="2006"/>
+				<high nullFlavor="UNK"/>
+			</effectiveTime>
+			<value xsi:type="CD" code="39579001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Anaphylaxis"/>
+			<entryRelationship typeCode="SUBJ" inversionInd="true">
+				<observation classCode="OBS" moodCode="EVN">
+					<!-- Severity Observation template -->
+					<templateId root="2.16.840.1.113883.10.20.22.4.8" extension="2014-06-09"/>
+					<code code="SEV" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode"/>
+					<text>
+						<reference value="#allergy3reactionseverity"/>
+					</text>
+					<statusCode code="completed"/>
+					<value xsi:type="CD" code="24484000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Severe"/>
+				</observation>
+			</entryRelationship>
+		</observation>
+	</entryRelationship>
+</observation>

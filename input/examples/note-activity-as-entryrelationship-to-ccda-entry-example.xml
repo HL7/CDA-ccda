@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Demonstrates a Note Activity as an entryRelationship to a -->
 <section xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <!-- C-CDA 2.1 Procedures Section -->
-  <templateId root="2.16.840.1.113883.10.20.22.2.7.1"/>
   <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09"/>
   <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF PROCEDURES"/>
   <title>Procedures</title>
@@ -31,7 +30,7 @@
   <entry typeCode="DRIV">
     <!-- Procedures should be used for care that directly changes the patient's physical state.-->
     <procedure moodCode="EVN" classCode="PROC">
-      <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+      <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2024-05-01"/>
       <id root="64af26d5-88ef-4169-ba16-c6ef16a1824f"/>
       <code code="6025007" displayName="Laparoscopic appendectomy" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
         <originalText>
@@ -43,7 +42,11 @@
       </text>
       <statusCode code="completed" />
       <effectiveTime>
-        <low value="20140203092205-0700" />
+        <!-- Would be <low value="20140203092205-0700" /> but since
+             we don't have a complete document example, the Validator
+             cannot compare this to ClinicalDocument/effectiveTime to
+             satisfy the ts-value-before-document constraint  -->
+        <low nullFlavor="NI" />
         <high value="20140203111514-0700" />
       </effectiveTime>
       <!-- Note Activity entry -->
@@ -66,6 +69,8 @@
             <time value="20140204083215-0500" />
             <assignedAuthor>
               <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
+              <addr use="WP" nullFlavor="UNK" />
+              <telecom use="WP" nullFlavor="UNK" />
               <assignedPerson>
                 <name>Dr. Physician</name>
               </assignedPerson>

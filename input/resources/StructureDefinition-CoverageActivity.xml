@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CoverageActivity"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.60:2024-05-01"/>
     </identifier>
     <version value="2024-05-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="A Coverage Activity groups the policy and authorization acts within a Payers Section to order the payment sources. A Coverage Activity contains one or more Policy Activities, each of which contains zero or more Authorization Activities. &#xA;The sequenceNumber/@value shows the policy order of preference. &#xA;The Member Identifier is described in the contained Policy Activity Template 2.16.840.1.113883.10.20.22.4.61."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -109,7 +105,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Act.code"/>
-            <short value="Payment sources"/>
+            <short value="Display: Payment sources. (USCDI) COVERAGE TYPE: Records the category of health care payers, insurance products, or benefits."/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
@@ -152,7 +148,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Act.effectiveTime"/>
-            <short value="(USCDI) **Coverage Status** : Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional effectiveTime inside the Policy Activity. Systems may prioritize Coverages using the sequenceNumber."/>
+            <short value="(USCDI) COVERAGE STATUS : Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional time inside the Policy Activity/coverage-target participant. Systems may prioritize Coverages using the sequenceNumber."/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-33064)."/>
         </element>
         <element id="Act.effectiveTime.value">
@@ -175,29 +171,29 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:policy">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="policy"/>
             <short value="entryRelationship"/>
             <comment value="SHALL contain at least one [1..*] entryRelationship (CONF:4537-8878) such that it"/>
             <min value="1"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:policy.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4537-8879)."/>
             <fixedCode value="COMP"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.sequenceNumber">
+        <element id="Act.entryRelationship:policy.sequenceNumber">
             <path value="Act.entryRelationship.sequenceNumber"/>
             <comment value="MAY contain zero or one [0..1] sequenceNumber (CONF:4537-17174)."/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.sequenceNumber.value">
+        <element id="Act.entryRelationship:policy.sequenceNumber.value">
             <path value="Act.entryRelationship.sequenceNumber.value"/>
             <comment value="The sequenceNumber, if present, SHALL contain exactly one [1..1] @value (CONF:4537-17175)."/>
             <min value="1"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.act">
+        <element id="Act.entryRelationship:policy.act">
             <path value="Act.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Policy Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.61:2015-08-01) (CONF:4537-15528)."/>
             <min value="1"/>

@@ -4,7 +4,7 @@ Id: AdmissionDiagnosisSection
 Title: "Admission Diagnosis Section"
 Description: "This section contains a narrative description of the problems or diagnoses identified by the clinician at the time of the patient's admission. This section may contain a coded entry which represents the admitting diagnoses."
 
-* insert Section(#46241-6, Hospital Admission diagnosis, 2.16.840.1.113883.10.20.22.2.43, 2015-08-01)
+* insert Section(#46241-6, Hospital admission diagnosis Narrative - Reported, 2.16.840.1.113883.10.20.22.2.43, 2015-08-01)
 
 * code
   * translation ^slicing.discriminator[0].type = #value

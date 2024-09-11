@@ -90,7 +90,7 @@ Examples of referral situations are when a patient is referred from a family phy
     * component contains
         planOfTreatment 0..1 and
         advanceDirectives 0..1 and
-        historyOfPresentIllness 0..1 and
+        hpi 0..1 and
         familyHistory 0..1 and
         immunizations 0..1 and
         problem 1..1 and
@@ -104,7 +104,7 @@ Examples of referral situations are when a patient is referred from a family phy
         nutrition 0..1 and
         mentalStatus 0..1 and
         medicalEquip 0..1 and
-        allergiesAndIntolerances 1..1 and
+        allergies 1..1 and
         assessment 0..1 and
         assessmentAndPlan 0..1 and
         medicalHistory 0..1 and
@@ -118,7 +118,7 @@ Examples of referral situations are when a patient is referred from a family phy
     * component[advanceDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29068) such that it"
       * section only AdvanceDirectivesSection
         * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01) (CONF:1198-29069)."
-    * component[historyOfPresentIllness] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29074) such that it"
+    * component[hpi] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29074) such that it"
       * section only HistoryofPresentIllnessSection
         * ^comment = "SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-29075)."
     * component[familyHistory] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-29076) such that it"
@@ -160,7 +160,7 @@ Examples of referral situations are when a patient is referred from a family phy
     * component[medicalEquip] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30798) such that it"
       * section only MedicalEquipmentSection
         * ^comment = "SHALL contain exactly one [1..1] Medical Equipment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.23:2014-06-09) (CONF:1198-30799)."
-    * component[allergiesAndIntolerances] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30911) such that it"
+    * component[allergies] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30911) such that it"
       * section only AllergiesAndIntolerancesSection
         * ^comment = "SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2024-05-01) (CONF:1198-30912)."
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30913) such that it"

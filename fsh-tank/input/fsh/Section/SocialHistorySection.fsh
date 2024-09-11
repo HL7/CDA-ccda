@@ -4,7 +4,7 @@ Id: SocialHistorySection
 Title: "Social History Section"
 Description: "This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header. Mental/behavioral health assessments such as PHQ-9 (Patient Health Questionnaire-9) for depression screening are captured in the Mental Status section."
 
-* insert Section(#29762-2, Social History, 2.16.840.1.113883.10.20.22.2.17, 2015-08-01)
+* insert Section(#29762-2, Social history Narrative, 2.16.840.1.113883.10.20.22.2.17, 2015-08-01)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
@@ -13,7 +13,6 @@ Description: "This section contains social history data that influence a patient
     socialHistory 0..* and
     pregnancyPregnancy 0..* and
     smokingStatus 0..* and
-    tobaccoUse 0..* and
     caregiver 0..* and
     culteralReligious 0..* and
     homeCharacteristics 0..*
@@ -27,12 +26,8 @@ Description: "This section contains social history data that influence a patient
     * ^comment = "SHALL contain exactly one [1..1] Pregnancy Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:1198-14822)."
 * entry[smokingStatus] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-14823) such that it"
   * observation 1..1
-  * observation only SmokingStatusMeaningfulUse
-    * ^comment = "SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:1198-14824)."
-* entry[tobaccoUse] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-16816) such that it"
-  * observation 1..1
-  * observation only TobaccoUse
-    * ^comment = "SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:1198-16817)."
+  * observation only SmokingStatus
+    * ^comment = "SHALL contain exactly one [1..1] Smoking Status(identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.511:2024-05-01) (CONF:1198-14824)."
 * entry[caregiver] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-28361) such that it"
   * observation 1..1
   * observation only CaregiverCharacteristics

@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.5.6:2019-10-01"/>
     </identifier>
     <version value="2019-10-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This template represents the key information to record Provenance in an Author Participation.&#xA;&#xA;This Participation is appropriate at any place CDA allows an author. For example, at the CDA Header, CDA Section, CDA Entry, or within a CDA entry (e.g. Organizer and contained Observation(s)).&#xA;&#xA;This template is consistent with the C-CDA Author Participation, however, it doesnt use a formal conforms to relationship. All constraints for conformance are defined in this template which specializes the Author Participation (2.16.840.1.113883.10.20.22.4.119).&#xA;&#xA;This template is used to identify primary authorship for an entry. An entry may have many authors, but recipients need a single authoritative point of contact for resolving issues. This is typically the last provider to make substantive changes to the entry If two providers are simultaneously involved in that activity, the implementer must choose one, ideally in a repeatable way.&#xA;&#xA;The `assignedAuthor/id` may be set equal to (a pointer to) an id on a participant elsewhere in the document (header or entries) or a new author participant can be described here.&#xA;&#xA;Note: The Provenance template title includes a version 2 to support moving from the 'Basic Provenance' guide to the this Companion Guide, so the templateId has not changed."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
@@ -144,7 +140,7 @@
             <binding>
                 <strength value="example"/>
                 <description value="See additional bindings"/>
-                <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleCode"/>
+                <valueSet value="http://hl7.org/cda/stds/core/ValueSet/CDARoleCode"/>
                 <additional>
                     <purpose value="preferred"/>
                     <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"/>
@@ -220,13 +216,6 @@
                 <severity value="error"/>
                 <human value="If the author is not a clinician, set nullFlavor='NA'. Otherwise, the taxId, npi, and name are required."/>
                 <expression value="nullFlavor = 'NA' or (id.where(root='2.16.840.1.113883.4.2').exists() and id.where(root='2.16.840.1.113883.4.6').exists() and name.exists())"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
-            </constraint>
-            <constraint>
-                <key value="should-telecom"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain telecom"/>
-                <expression value="telecom.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
             </constraint>
         </element>

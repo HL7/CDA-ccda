@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PhysicalExamSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.2.10:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="The section includes direct observations made by a clinician. The examination may include the use of simple instruments and may also describe simple maneuvers performed directly on the patient's body.&#xA;&#xA;It also includes observations made by the examining clinician using only inspection, palpation, auscultation, and percussion. It does not include laboratory or imaging findings.&#xA;&#xA;The exam may be limited to pertinent body systems based on the patient's chief complaint or it may include a comprehensive examination. The examination may be reported as a collection of random clinical statements or it may be reported categorically.&#xA;&#xA;The Physical Exam Section may contain multiple nested subsections."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -74,7 +70,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="Physical Findings"/>
+            <short value="Physical findings Narrative"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">

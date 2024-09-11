@@ -21,12 +21,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-32223)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-32305)."
-  * code 1..1
-  * code = #281694009
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"281694009\" At risk for (CONF:1198-32306)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.96"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32307)."
+  * insert CodedSnomed(281694009, [[At risk - finding]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-32225)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
@@ -36,7 +31,10 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32300)." // man-should
-* entryRelationship ^slicing.discriminator[0].type = #profile
+* entryRelationship 
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "typeCode"
+  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "act"
@@ -53,7 +51,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
     mentalStatusObservation1 0..* and
     self-CareActivitiesADLandIADL 0..* and
     mentalStatusObservation2 0..* and
-    smokingStatus-MeaningfulUse 0..* and
+    smokingStatus 0..* and
     encounterDiagnosis 0..* and
     entryRelationship11 0..* and
     functionalStatusObservation 0..* and
@@ -67,7 +65,6 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
     sensoryStatus 0..* and
     socialHistoryObservation 0..* and
     substanceorDeviceAllergy-IntoleranceObservation 0..* and
-    tobaccoUse 0..* and
     vitalSignObservation 0..* and
     longitudinalCareWoundObservation 0..* and
     problemObservation2 0..* and
@@ -78,8 +75,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
     resultOrganizer 0..* and
     priorityPreference1 0..* and
     priorityPreference2 0..* and
-    problemConcernAct 0..* and
-    entryReference3 0..*
+    problemConcernAct 0..*
 * entryRelationship[problemObservation1] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32179) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -94,7 +90,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * observation 1..1
   * observation only AllergyIntoleranceObservation
     * ^comment = "SHALL contain exactly one [1..1] Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.7:2014-06-09) (CONF:1198-32229)."
-* entryRelationship[entryReferenceRefr] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern RELATES TO Health Concern). The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."
+* entryRelationship[entryReferenceRefr] ^short = "The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern RELATES TO Health Concern). It can also represent the relationship between a Health Concern and another entry already described in the CDA document instance. The Entry Reference template is used here because the target entry will be defined elsewhere and thus a reference to that instance is all that is required."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32182) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -138,13 +134,13 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * observation 1..1
   * observation only MentalStatusObservation
     * ^comment = "SHALL contain exactly one [1..1] Mental Status Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2015-08-01) (CONF:1198-32243)."
-* entryRelationship[smokingStatus-MeaningfulUse] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32189) such that it"
+* entryRelationship[smokingStatus] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32189) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32244)."
   * observation 1..1
-  * observation only SmokingStatusMeaningfulUse
-    * ^comment = "SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:1198-32245)."
+  * observation only SmokingStatus
+    * ^comment = "SHALL contain exactly one [1..1] Smoking Status (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.511:2024-05-01) (CONF:1198-32245)."
 * entryRelationship[encounterDiagnosis] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32190) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -236,13 +232,6 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * observation 1..1
   * observation only SubstanceOrDeviceAllergyIntoleranceObservation
     * ^comment = "SHALL contain exactly one [1..1] Substance or Device Allergy - Intolerance Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.24.3.90:2014-06-09) (CONF:1198-32275)."
-* entryRelationship[tobaccoUse] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32205) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32276)."
-  * observation 1..1
-  * observation only TobaccoUse
-    * ^comment = "SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:1198-32277)."
 * entryRelationship[vitalSignObservation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32206) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -323,13 +312,6 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * act 1..1
   * act only ProblemConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Problem Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-32299)."
-* entryRelationship[entryReference3] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32217) such that it"
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32301)."
-  * act 1..1
-  * act only EntryReference
-    * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32302)."
 * reference 0..*
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1198-32769)."
   * typeCode 1..1

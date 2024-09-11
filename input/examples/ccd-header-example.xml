@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="CDA.xsl"?>
+<!--
+ Title:        Continuity of Care Document (CCD)
+ 
+ Taken from C-CDA 2.1 example in companion guide
+
+ Updated for C-CDA R3.0 with a focus on header elements
+  - required/suggested sections are populated with nullFlavor="NI"
+	  to demonstrate WHICH sections should be included, but they
+		all contain "No information" as this is an example of the header
+  
+ ********************************************************
+Disclaimer: The data in this sample file is not intended to represent real patients, people or clinical events. The file depicts a fictional character's health data. 
+Any resemblance to a real person is coincidental. To illustrate as many data elements as possible, the clinical scenario may not be plausible. Dates and times also may not coorelate well from a temporal perspective.
+This sample is designed to be used in conjunction with the HL7 CDA® R2 IG: C-CDA Templates for Clinical Notes Companion Guide, Release 4.
+ ********************************************************
+ -->
+<!-- *************** US REALM HEADER (V4) *************** -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc">
+    <realmCode code="US"/>
+    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+    <!-- CCD template ID-->
+    <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2024-05-01"/>
+    <templateId root="2.16.840.1.113883.10.20.22.1.2" extension="2024-05-01"/>
+    <!-- Globally unique identifier for the document  -->
+    <id extension="TT988" root="2.16.840.1.113883.19.5.99999.1"/>
+    <code code="34133-9" displayName="Summarization of Episode Note"
+        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+    <!-- Title of this document -->
+    <title>Patient Summary</title>
+    <effectiveTime value="20230501114559-0500"/>
+    <confidentialityCode code="N" displayName="normal" codeSystem="2.16.840.1.113883.5.25"
+        codeSystemName="Confidentiality"/>
+    <languageCode code="en-US"/>
+    <setId extension="sTT988" root="2.16.840.1.113883.19.5.99999.19"/>
+    <!-- Version of this document -->
+    <versionNumber value="1"/>
+    <recordTarget>
+        <patientRole>
+            <id extension="444222222" root="2.16.840.1.113883.4.1"/>
+            <!-- Example Social Security Number using the actual SSN OID. -->
+            <addr use="HP">
+                <!-- HP is "primary home" from codeSystem 2.16.840.1.113883.5.1119 -->
+                <streetAddressLine>2222 Home Street</streetAddressLine>
+                <city>Beaverton</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+                <!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
+            </addr>
+            <telecom value="tel:+1(555)555-2003" use="HP"/>
+            <!-- HP is "primary home" from HL7 AddressUse 2.16.840.1.113883.5.1119 -->
+            <patient>
+                <name use="L">
+                    <given>Eve</given>
+                    <!-- The "SP" is "Spouse" from HL7 Code System EntityNamePartQualifier 2.16.840.1.113883.5.43 -->
+                    <family qualifier="SP">Betterhalf</family>
+                </name>
+                <administrativeGenderCode code="F" displayName="Female"
+                    codeSystem="2.16.840.1.113883.5.1" codeSystemName="AdministrativeGender"/>
+                <!-- Date of birth need only be precise to the day -->
+                <birthTime value="19750501"/>
+                <maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2"
+                    codeSystemName="MaritalStatusCode"/>
+                <religiousAffiliationCode code="1013"
+                    displayName="Christian (non-Catholic, non-specific)"
+                    codeSystem="2.16.840.1.113883.5.1076" codeSystemName="HL7 Religious Affiliation"/>
+                <!-- CDC Race and Ethnicity code set contains the five minimum race and ethnicity 
+					categories defined by OMB Standards -->
+                <raceCode code="2076-8" displayName="Native Hawaiian or Other Pacific Islander"
+                    codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+                <sdtc:raceCode code="2079-2" displayName="Native Hawaiian"
+                    codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+                <sdtc:raceCode code="1074-4" displayName="Spanish American Indian"
+                    codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+                <ethnicGroupCode code="2135-2" displayName="Hispanic or Latino"
+                    codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+
+                <!-- If a patient has a guardian, the guardian's information would be included here. -->
+                <!--		<guardian>
+					<code code="POWATT" displayName="Power of Attorney" codeSystem="2.16.840.1.113883.5.111" codeSystemName="RoleCode"/>
+					<addr use="HP">
+						<streetAddressLine>2222 Home Street</streetAddressLine>
+						<city>Beaverton</city>
+						<state>MD</state>
+						<postalCode>21014</postalCode>
+						<country>US</country>
+					</addr>
+					<telecom value="tel:+1(555)555-2016" use="MC"/>
+					<guardianPerson>
+						<name>
+							<given>Boris</given>
+							<given qualifier="CL">Bo</given>
+							<family>Betterhalf</family>
+						</name>
+					</guardianPerson>
+				</guardian>-->
+                <birthplace>
+                    <place>
+                        <addr>
+                            <streetAddressLine>4444 Home Street</streetAddressLine>
+                            <city>Beaverton</city>
+                            <state>MD</state>
+                            <postalCode>21014</postalCode>
+                            <country>US</country>
+                        </addr>
+                    </place>
+                </birthplace>
+                <languageCommunication>
+                    <languageCode code="en"/>
+                    <!-- "en" is ISO 639-1 alpha-2 code for "English" -->
+                    <modeCode code="ESP" displayName="Expressed spoken"
+                        codeSystem="2.16.840.1.113883.5.60" codeSystemName="LanguageAbilityMode"/>
+                    <proficiencyLevelCode code="G" displayName="Good"
+                        codeSystem="2.16.840.1.113883.5.61"
+                        codeSystemName="LanguageAbilityProficiency"/>
+                    <!-- Patient's preferred language -->
+                    <preferenceInd value="true"/>
+                </languageCommunication>
+            </patient>
+            <providerOrganization>
+                <id extension="219BX" root="1.1.1.1.1.1.1.1.2"/>
+                <name>The DoctorsTogether Physician Group</name>
+                <telecom use="WP" value="tel:+(555)-555-5000"/>
+                <addr>
+                    <streetAddressLine>1007 Health Drive</streetAddressLine>
+                    <city>Portland</city>
+                    <state>OR</state>
+                    <postalCode>99123</postalCode>
+                    <country>US</country>
+                </addr>
+            </providerOrganization>
+        </patientRole>
+    </recordTarget>
+    <!-- The author represents the person who provides the content in the document   -->
+    <author>
+        <templateId root="2.16.840.1.113883.10.20.22.5.6" extension="2019-10-01"/>
+        <time value="20230501114559-0500"/>
+        <assignedAuthor>
+            <id extension="5555555555" root="2.16.840.1.113883.4.6"/>
+            <code code="207QA0505X" displayName="Adult Medicine Physician"
+                codeSystem="2.16.840.1.113883.6.101"
+                codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
+            <addr use="WP">
+                <streetAddressLine>1004 Healthcare Drive </streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1004"/>
+            <assignedPerson>
+                <name>
+                    <given>Patricia</given>
+                    <given qualifier="CL">Patty</given>
+                    <family>Colon</family>
+                    <suffix qualifier="AC">M.D.</suffix>
+                </name>
+            </assignedPerson>
+            <representedOrganization>
+                <id extension="6555555556" root="2.16.840.1.113883.4.6"/>
+                <id extension="999-99-7777" root="2.16.840.1.113883.4.2"/>
+                <name>Good Health Hospital System</name>
+                <telecom use="WP" value="tel:+1(555)555-1000"/>
+                <addr>
+                    <streetAddressLine>101 Somewhere</streetAddressLine>
+                    <city>Portland</city>
+                    <state>MD</state>
+                    <postalCode>21014</postalCode>
+                    <country>USA</country>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <!-- This author represents an author that is a DEVICE. CCDs are often authored entirely by a device -->
+    <author>
+        <time value="20230501114559-0500"/>
+        <assignedAuthor>
+            <id extension="8.3" root="1.2.840.114350.1.1"/>
+            <addr use="WP">
+                <streetAddressLine>101 Somewhere</streetAddressLine>
+                <city>Madison</city>
+                <state>WI</state>
+                <postalCode>53558</postalCode>
+                <country>USA</country>
+            </addr>
+            <telecom nullFlavor="NA"/>
+            <assignedAuthoringDevice>
+                <manufacturerModelName>PMEHR - Version 8.3</manufacturerModelName>
+                <softwareName>PMEHR - Version 8.3</softwareName>
+            </assignedAuthoringDevice>
+            <representedOrganization>
+                <id extension="6500" root="1.2.840.114350.1.13.6289.1.7.2.688879"/>
+                <name>Good Health Hospital System</name>
+                <telecom use="WP" value="tel:+1(555)555-1000"/>
+                <addr>
+                    <streetAddressLine>101 Somewhere</streetAddressLine>
+                    <city>Portland</city>
+                    <state>MD</state>
+                    <postalCode>21014</postalCode>
+                    <country>USA</country>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+
+    <!-- The dataEnterer transferred the content created by the author into the document -->
+    <dataEnterer>
+        <assignedEntity>
+            <id extension="333777777" root="2.16.840.1.113883.4.6"/>
+            <addr use="WP">
+                <streetAddressLine>1007 Healthcare Drive</streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1050"/>
+            <assignedPerson>
+                <name>
+                    <given>Ellen</given>
+                    <family>Enter</family>
+                </name>
+            </assignedPerson>
+        </assignedEntity>
+    </dataEnterer>
+    <!-- The informant represents any sources of information for document content. -->
+    <!-- A number of examples are included to show how to represent different possible types of informants 
+		who may be involved with providing information used to create this documentation. -->
+    <informant>
+        <!-- A practitioner from another organization. -->
+        <assignedEntity>
+            <id extension="888888888" root="2.16.840.1.113883.4.6"/>
+            <addr use="WP">
+                <streetAddressLine>1007 Healthcare Drive</streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1003"/>
+            <assignedPerson>
+                <name>
+                    <given>Harold</given>
+                    <family>Hippocrates</family>
+                    <suffix qualifier="AC">M.D.</suffix>
+                </name>
+            </assignedPerson>
+            <representedOrganization>
+                <name>The DoctorsApart Physician Group</name>
+            </representedOrganization>
+        </assignedEntity>
+    </informant>
+    <informant>
+        <!-- A practitioner from another organization. -->
+        <assignedEntity>
+            <id extension="222223333" root="2.16.840.1.113883.4.6"/>
+            <addr use="WP">
+                <streetAddressLine>1025 Health Drive</streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1025"/>
+            <assignedPerson>
+                <name>
+                    <given>Ramsey</given>
+                    <family>Reaction</family>
+                    <suffix qualifier="AC">M.D.</suffix>
+                </name>
+            </assignedPerson>
+            <representedOrganization>
+                <name>The DoctorsApart Physician Group</name>
+            </representedOrganization>
+        </assignedEntity>
+    </informant>
+    <informant>
+        <!-- A practitioner from another organization. -->
+        <assignedEntity>
+            <id extension="333444444" root="2.16.840.1.113883.4.6"/>
+            <addr use="WP">
+                <streetAddressLine>1017 Health Drive</streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1017"/>
+            <assignedPerson>
+                <name>
+                    <given>William</given>
+                    <given qualifier="CL">Bill</given>
+                    <family>Beaker</family>
+                </name>
+            </assignedPerson>
+            <representedOrganization>
+                <name>Good Health Laboratory</name>
+            </representedOrganization>
+        </assignedEntity>
+    </informant>
+    <informant>
+        <!-- A practitioner from another organization. -->
+        <assignedEntity>
+            <id extension="333222222" root="2.16.840.1.113883.4.6"/>
+            <addr use="WP">
+                <streetAddressLine>1016 Health Drive</streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1016"/>
+            <assignedPerson>
+                <name>
+                    <given>Susan</given>
+                    <family>Script</family>
+                    <suffix qualifier="AC">Pharm.D.</suffix>
+                </name>
+            </assignedPerson>
+            <representedOrganization>
+                <name>People's Pharmacy</name>
+            </representedOrganization>
+        </assignedEntity>
+    </informant>
+    <informant>
+        <!-- A practitioner from another organization. -->
+        <assignedEntity>
+            <id extension="222334444" root="2.16.840.1.113883.4.6"/>
+            <addr use="WP">
+                <streetAddressLine>1027 Health Drive</streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1027"/>
+            <assignedPerson>
+                <name>
+                    <given>Patrick</given>
+                    <family>Pump</family>
+                    <suffix qualifier="AC">M.D.</suffix>
+                </name>
+            </assignedPerson>
+            <representedOrganization>
+                <name>The DoctorsApart Physician Group</name>
+            </representedOrganization>
+        </assignedEntity>
+    </informant>
+    <informant>
+        <!-- A related person. -->
+        <relatedEntity classCode="PRS">
+            <!-- classCode "PRS" represents a person with personal relationship with the patient -->
+            <code code="SPS" displayName="SPOUSE" codeSystem="2.16.840.1.113883.1.11.19563"
+                codeSystemName="Personal Relationship Role Type Value Set"/>
+            <relatedPerson>
+                <name>
+                    <given>Boris</given>
+                    <given qualifier="CL">Bo</given>
+                    <family>Betterhalf</family>
+                </name>
+            </relatedPerson>
+        </relatedEntity>
+    </informant>
+    <!-- The custodian represents the organization charged with maintaining the original source document -->
+    <custodian>
+        <assignedCustodian>
+            <representedCustodianOrganization>
+                <id extension="321CX" root="2.16.840.1.113883.4.6"/>
+                <name>Good Health Hospital HIE</name>
+                <telecom use="WP" value="tel:+1(555)555-1009"/>
+                <addr use="WP">
+                    <streetAddressLine>1009 Healthcare Drive </streetAddressLine>
+                    <city>Portland</city>
+                    <state>MD</state>
+                    <postalCode>21014</postalCode>
+                    <country>US</country>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <!-- The informationRecipient represents the intended recipient of the document -->
+    <informationRecipient>
+        <intendedRecipient>
+            <informationRecipient>
+                <name>
+                    <given>Sara</given>
+                    <family>Specialize</family>
+                    <suffix qualifier="AC">M.D.</suffix>
+                </name>
+            </informationRecipient>
+            <receivedOrganization>
+                <name>The DoctorsApart Physician Group</name>
+            </receivedOrganization>
+        </intendedRecipient>
+    </informationRecipient>
+    <!-- The legalAuthenticator represents the individual who is responsible for the document -->
+    <legalAuthenticator>
+        <time value="20150625150000-0500"/>
+        <signatureCode code="S"/>
+        <assignedEntity>
+            <id extension="5555555555" root="2.16.840.1.113883.4.6"/>
+            <code code="207QA0505X" displayName="Adult Medicine Physician"
+                codeSystem="2.16.840.1.113883.6.101"
+                codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
+            <addr use="WP">
+                <streetAddressLine>1004 Healthcare Drive </streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1004"/>
+            <assignedPerson>
+                <name>
+                    <given>Wilma</given>
+                    <family>Colon</family>
+                    <suffix qualifier="AC">M.D.</suffix>
+                </name>
+            </assignedPerson>
+        </assignedEntity>
+    </legalAuthenticator>
+    <!-- The authenticator represents the individual attesting to the accuracy of information in the document-->
+    <authenticator>
+        <time value="20150625150000-0500"/>
+        <signatureCode code="S"/>
+        <assignedEntity>
+            <id extension="5555555555" root="2.16.840.1.113883.4.6"/>
+            <code code="207QA0505X" displayName="Adult Medicine Physician"
+                codeSystem="2.16.840.1.113883.6.101"
+                codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
+            <addr use="WP">
+                <streetAddressLine>1004 Healthcare Drive </streetAddressLine>
+                <city>Portland</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom use="WP" value="tel:+1(555)555-1004"/>
+            <assignedPerson>
+                <name>
+                    <given>Wilma</given>
+                    <family>Colon</family>
+                    <suffix qualifier="AC">M.D.</suffix>
+                </name>
+            </assignedPerson>
+        </assignedEntity>
+    </authenticator>
+    <!-- The participant represents supporting entities -->
+    <participant typeCode="IND">
+        <!-- typeCode "IND" represents an individual -->
+        <associatedEntity classCode="NOK">
+            <!-- classCode "NOK" represents the patient's next of kin-->
+            <addr use="HP">
+                <streetAddressLine>2222 Home Street</streetAddressLine>
+                <city>Beaverton</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom value="tel:+1(555)555-2016" use="MC"/>
+            <associatedPerson>
+                <name>
+                    <given>Boris</given>
+                    <given qualifier="CL">Bo</given>
+                    <family>Betterhalf</family>
+                </name>
+            </associatedPerson>
+        </associatedEntity>
+    </participant>
+    <!-- Entities playing multiple roles are recorded in multiple participants -->
+    <participant typeCode="IND">
+        <associatedEntity classCode="ECON">
+            <!-- classCode "ECON" represents an emergency contact -->
+            <addr use="HP">
+                <streetAddressLine>2222 Home Street</streetAddressLine>
+                <city>Beaverton</city>
+                <state>MD</state>
+                <postalCode>21014</postalCode>
+                <country>US</country>
+            </addr>
+            <telecom value="tel:+1(555)555-2016" use="MC"/>
+            <associatedPerson>
+                <name>
+                    <given>Boris</given>
+                    <given qualifier="CL">Bo</given>
+                    <family>Betterhalf</family>
+                </name>
+            </associatedPerson>
+        </associatedEntity>
+    </participant>
+    <!-- NEW TEMPLATED PARTICIPANT FOR USCDI RELATED PERSON RELATIONSHIP AND NAME 
+        The participant represents a related person -->
+    <participant typeCode="IND">
+        <templateId root="2.16.840.1.113883.10.20.22.5.8" extension="2023-05-01"/>
+        <!-- This associatedEntity SHALL contain exactly one [1..1] @classCode="PRS" Person (CodeSystem: HL7RoleCode urn:oid:2.16.840.1.113883.5.111) (CONF:4537-33076). -->
+        <associatedEntity classCode="PRS">
+            <!-- This associatedEntity/code represents the person's relationship to the patient (Personal And Legal Relationship Role Type Value Set) -->
+            <code code="MTH" codeSystem="2.16.840.1.113883.5.111"/>
+            <!-- OPTIONAL ADDRESS -->
+            <addr use="HP">
+                <streetAddressLine>2222 Home Street</streetAddressLine>
+                <city>Beaverton</city>
+                <state>OR</state>
+                <postalCode>97867</postalCode>
+                <country>US</country>
+            </addr>
+            <!-- OPTIONAL TELECOM -->
+            <telecom value="tel:+1(555)555-2008" use="MC"/>
+            <associatedPerson>
+                <!-- SHALL REQUIRED US Realm Person Name Format -->
+                <name>
+                    <given>Boris</given>
+                    <given qualifier="CL">Bo</given>
+                    <family>Betterhalf</family>
+                </name>
+            </associatedPerson>
+        </associatedEntity>
+    </participant>
+    <documentationOf>
+        <serviceEvent classCode="PCPR">
+            <!-- The effectiveTime reflects the provision of care summarized in the document. 
+				In this scenario, the provision of care summarized is the lifetime for the patient -->
+            <!-- Note, that by limitting the scope of the document to only the most recent encounter
+			    The providers listed as performing care services would only include providers involved
+			    in that most recent encounter. -->
+            <!-- Best practive for including documentation of a patient's care team members is to 
+				use the Care Teams Section. -->
+            <effectiveTime>
+                <low value="19750501"/>
+                <!-- The low value represents when the summarized provision of care began. 
+					In this scenario, the patient's date of birth -->
+                <high value="20160412"/>
+                <!-- The high value represents when the summarized provision of care being ended. 
+					In this scenario, when chart summary was created -->
+            </effectiveTime>
+            <performer typeCode="PRF">
+                <functionCode code="ATTPHYS" codeSystem="2.16.840.1.113883.5.88"
+                    codeSystemName="ParticipationFunction" displayName="attending physician">
+                    <originalText>Attending Physician</originalText>
+                </functionCode>
+                <assignedEntity classCode="ASSIGNED">
+                    <id extension="811111111" root="2.16.840.1.113883.4.6"/>
+                    <code code="207QA0505X" displayName="Adult Medicine Physician"
+                        codeSystem="2.16.840.1.113883.6.101"
+                        codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
+                    <addr>
+                        <streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
+                        <city>Bel Air</city>
+                        <state>MD</state>
+                        <postalCode>21014</postalCode>
+                    </addr>
+                    <telecom use="WP" value="tel:+1-410-555-5544"/>
+                    <assignedPerson>
+                        <name>
+                            <given>Wilma</given>
+                            <family>Colon</family>
+                        </name>
+                    </assignedPerson>
+                    <representedOrganization classCode="ORG">
+                        <name>Good Health Hospital</name>
+                        <telecom use="WP" value="tel:+1-410-555-5544"/>
+                        <addr>
+                            <streetAddressLine>8333 Clairemont Mesa Blvd.</streetAddressLine>
+                            <city>Bel Air</city>
+                            <state>MD</state>
+                            <postalCode>21014</postalCode>
+                        </addr>
+                    </representedOrganization>
+                </assignedEntity>
+            </performer>
+        </serviceEvent>
+    </documentationOf>
+    <component>
+        <!-- All sections are set to nullFlavor / text = No information, 
+            as this is a header example, not a complete body example -->
+        <structuredBody>
+            <!-- ******************** ENCOUNTERS ************************ -->
+            <component>
+                <section nullFlavor="NI">
+                    <!-- *** Encounters section (entries required) (V3) *** -->
+                    <templateId root="2.16.840.1.113883.10.20.22.2.22.1" extension="2015-08-01"/>
+                    <code code="46240-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="History of encounters"/>
+                    <title>ENCOUNTERS</title>
+                    <text>No information</text>
+                </section>
+            </component>
+            <!-- ******************* SOCIAL HISTORY ********************* -->
+            <component>
+                <section nullFlavor="NI">
+                    <!--  ** Social History Section (V3) ** -->
+                    <templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08-01"/>
+                    <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="Social History"/>
+                    <title>SOCIAL HISTORY</title>
+                    <text>No information</text>
+                </section>
+            </component>
+            <!-- ******************** ALLERGIES ************************ -->
+            <component>
+                <section nullFlavor="NI">
+                    <!-- *** Allergies and Intolerances Section (entries required) (V3) *** -->
+                    <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
+                    <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>ALLERGIES AND ADVERSE REACTIONS</title>
+                    <text>No information</text>
+                </section>
+            </component>
+            <!-- ***************** PROBLEM LIST *********************** -->
+            <component>
+                <section nullFlavor="NI">
+                    <!--  *** Problem Section (entries required) (V3) *** -->
+                    <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08-01"/>
+                    <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="PROBLEM LIST"/>
+                    <title>PROBLEMS</title>
+                    <text>No information</text>
+                </section>
+            </component>
+            <!-- ******************** MEDICATIONS ************************ -->
+            <component>
+                <section nullFlavor="NI">
+                    <!-- *** Medications Section (entries required) (V2) *** -->
+                    <templateId root="2.16.840.1.113883.10.20.22.2.1.1" extension="2014-06-09"/>
+                    <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="HISTORY OF MEDICATION USE"/>
+                    <title>MEDICATIONS</title>
+                    <text>No information</text>
+                </section>
+            </component>
+            <!-- ******************** RESULTS ************************ -->
+            <component>
+                <section nullFlavor="NI">
+                    <!-- Results Section (entries required) (V3) -->
+                    <templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08-01"/>
+                    <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="RESULTS"/>
+                    <title>RESULTS</title>
+                    <text>No information</text>
+                </section>
+            </component>
+            <!-- ************* VITAL SIGNS *************** -->
+            <component>
+                <section nullFlavor="NI">
+                    <!-- ** Vital Signs Section (entries required) (V3) ** -->
+                    <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08-01"/>
+                    <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="VITAL SIGNS"/>
+                    <title>VITAL SIGNS</title>
+                    <text>No information</text>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

@@ -23,7 +23,7 @@ It is recommended systems include the Birth Sex observation in the Social Histor
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-33042)."
 * code 1..1
-  * insert CodedLoinc(76689-9, Sex Assigned At Birth)
+  * insert CodedLoinc(76689-9, Sex assigned at birth)
   * ^comment = "This code SHALL contain exactly one [1..1] @code=\"76689-9\" Sex Assigned At Birth (CONF:4537-33038)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-33031)."

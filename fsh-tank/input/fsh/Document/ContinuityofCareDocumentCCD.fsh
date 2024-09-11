@@ -14,7 +14,7 @@ This document type was originally based on the Continuity of Care Document (CCD)
 
 * ^status = #active
 * code 1..1
-  * insert CodedLoinc(34133-9, Summarization of Episode Note)
+  * insert CodedLoinc(34133-9, Summary of episode note)
   * ^comment = "This code SHALL contain exactly one [1..1] @code=\"34133-9\" Summarization of Episode Note (CONF:1198-17181)."
 * author 1..*
   * ^comment = "SHALL contain at least one [1..*] author (CONF:1198-9442)."

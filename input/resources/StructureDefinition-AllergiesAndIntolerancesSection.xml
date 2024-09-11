@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This section lists and describes any medication allergies, adverse reactions, idiosyncratic reactions, anaphylaxis/anaphylactoid reactions to food items, and metabolic variations or adverse reactions/allergies to other substances (such as latex, iodine, tape adhesives). At a minimum, it should list currently active and any relevant historical allergies and adverse reactions."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -46,8 +42,8 @@
             <constraint>
                 <key value="shall-allergy-concern"/>
                 <severity value="error"/>
-                <human value="SHALL contain at least one Allergy Concern Act"/>
-                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct'))"/>
+                <human value="If section/@nullFlavor is not present, SHALL contain at least one Allergy Concern Act"/>
+                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/AllergyConcernAct')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
             </constraint>
         </element>
@@ -88,7 +84,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="Allergies, adverse reactions, alerts"/>
+            <short value="Allergies and adverse reactions Document"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">

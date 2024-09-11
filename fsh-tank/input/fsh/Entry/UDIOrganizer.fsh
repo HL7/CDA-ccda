@@ -59,8 +59,14 @@ urn:hl7ii:2.16.840.1.113883.10.20.22.4.305 2019-06-21 NCIt: C160939 MAY be inclu
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4437-3543)."
-* component 1..1
-  * ^comment = "SHALL contain exactly one [1..1] component (CONF:4437-3488)."
+
+* component ^slicing.discriminator[0].type = #profile
+  * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.rules = #open
+* component contains deviceObs 1..1 and otherObs 0..*
+* component[deviceObs] ^short = "component"
   * observation 1..1
   * observation only DeviceIdentifierObservation
-    * ^comment = "This component SHALL contain exactly one [1..1] Device Identifier Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.304:2019-06-21) (CONF:4437-3489)."
+* component[otherObs]
+  * observation 1..1
+  * observation only LotOrBatchNumberObservation or SerialNumberObservation or ManufacturingDateObservation or ExpirationDateObservation or DistinctIdentificationCodeObservation or BrandNameObservation or ModelNumberObservation or CompanyNameObservation or CatalogNumberObservation or LatexSafetyObservation or MRISafetyObservation or ImplantableDeviceStatusObservation

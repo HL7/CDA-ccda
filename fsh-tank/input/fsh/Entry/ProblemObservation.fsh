@@ -39,6 +39,7 @@ The effectiveTime of the Problem Observation is the definitive indication of whe
 * value 1..1
 * value only $CD
 * value from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (preferred)
+  * insert USCDI([[SDOH Problems/Health Concerns]])
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet US Core Condition Codes."
   * code 0..1
     * ^short = "A negationInd of \"true\" coupled with an observation/value/@code of SNOMED code 64572001 \"Disease (disorder)\" indicates that the patient has no known conditions.  When the Problem is Social Determinant of Health Observation, the observation/value SHOULD be a SNOMED code selected from ValueSet Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788 DYNAMIC (CONF:4515-32951)."
@@ -54,8 +55,11 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31147)." // man-should
-* entryRelationship ^slicing.discriminator[0].type = #profile
+* entryRelationship 
+  * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entryRelationship contains
     age 0..1 and

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="AverageBloodPressureOrganizer"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="organizer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-container">
+        <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.512:2024-05-01"/>
+    </identifier>
+    <version value="2024-05-01"/>
+    <name value="AverageBloodPressureOrganizer"/>
+    <title value="Average Blood Pressure Organizer"/>
+    <status value="draft"/>
+    <description value="This template represents a single instance of an Average Blood Pressure reading. Average (mean) Blood Pressure (systolic and diastolic) is the average of two or more blood pressure (BP) readings in a specified time period or according to a specified algorithm or protocol determined by the organization collecting the data. This template contains two Vital Sign Observation components for the two parts of the reading."/>
+    <fhirVersion value="5.0.0"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Organizer">
+            <path value="Organizer"/>
+            <constraint>
+                <key value="should-sdtctext-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="sdtcText.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-author"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain author"/>
+                <expression value="author.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
+            </constraint>
+        </element>
+        <element id="Organizer.templateId">
+            <path value="Organizer.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Organizer.templateId:avg-bp-org">
+            <path value="Organizer.templateId"/>
+            <sliceName value="avg-bp-org"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.templateId:avg-bp-org.root">
+            <path value="Organizer.templateId.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.512"/>
+        </element>
+        <element id="Organizer.templateId:avg-bp-org.extension">
+            <path value="Organizer.templateId.extension"/>
+            <min value="1"/>
+            <patternString value="2024-05-01"/>
+        </element>
+        <element id="Organizer.classCode">
+            <path value="Organizer.classCode"/>
+            <patternCode value="BATTERY"/>
+        </element>
+        <element id="Organizer.code">
+            <path value="Organizer.code"/>
+            <short value="Blood pressure panel mean systolic and mean diastolic"/>
+            <min value="1"/>
+        </element>
+        <element id="Organizer.code.code">
+            <path value="Organizer.code.code"/>
+            <min value="1"/>
+            <patternCode value="96607-7"/>
+        </element>
+        <element id="Organizer.code.codeSystem">
+            <path value="Organizer.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Organizer.sdtcText">
+            <path value="Organizer.sdtcText"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Organizer.sdtcText.reference">
+            <path value="Organizer.sdtcText.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
+            </constraint>
+        </element>
+        <element id="Organizer.statusCode.code">
+            <path value="Organizer.statusCode.code"/>
+            <min value="1"/>
+            <patternCode value="completed"/>
+        </element>
+        <element id="Organizer.effectiveTime">
+            <path value="Organizer.effectiveTime"/>
+            <short value="Shall match the time of the individual components"/>
+        </element>
+        <element id="Organizer.author">
+            <path value="Organizer.author"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+            </type>
+        </element>
+        <element id="Organizer.component">
+            <path value="Organizer.component"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="observation.code.code"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="2"/>
+        </element>
+        <element id="Organizer.component:systolic">
+            <path value="Organizer.component"/>
+            <sliceName value="systolic"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:systolic.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+        </element>
+        <element id="Organizer.component:systolic.observation.code">
+            <path value="Organizer.component.observation.code"/>
+            <short value="Systolic blood pressure mean"/>
+        </element>
+        <element id="Organizer.component:systolic.observation.code.code">
+            <path value="Organizer.component.observation.code.code"/>
+            <min value="1"/>
+            <patternCode value="96608-5"/>
+        </element>
+        <element id="Organizer.component:systolic.observation.code.codeSystem">
+            <path value="Organizer.component.observation.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Organizer.component:systolic.observation.value">
+            <path value="Organizer.component.observation.value"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PQ"/>
+            </type>
+        </element>
+        <element id="Organizer.component:systolic.observation.value.unit">
+            <path value="Organizer.component.observation.value.unit"/>
+            <patternCode value="mm[Hg]"/>
+        </element>
+        <element id="Organizer.component:diastolic">
+            <path value="Organizer.component"/>
+            <sliceName value="diastolic"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:diastolic.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+        </element>
+        <element id="Organizer.component:diastolic.observation.code">
+            <path value="Organizer.component.observation.code"/>
+            <short value="Diastolic blood pressure mean"/>
+        </element>
+        <element id="Organizer.component:diastolic.observation.code.code">
+            <path value="Organizer.component.observation.code.code"/>
+            <min value="1"/>
+            <patternCode value="96609-3"/>
+        </element>
+        <element id="Organizer.component:diastolic.observation.code.codeSystem">
+            <path value="Organizer.component.observation.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Organizer.component:diastolic.observation.value">
+            <path value="Organizer.component.observation.value"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PQ"/>
+            </type>
+        </element>
+        <element id="Organizer.component:diastolic.observation.value.unit">
+            <path value="Organizer.component.observation.value.unit"/>
+            <patternCode value="mm[Hg]"/>
+        </element>
+    </differential>
+</StructureDefinition>

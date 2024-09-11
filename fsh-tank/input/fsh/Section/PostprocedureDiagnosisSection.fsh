@@ -4,7 +4,7 @@ Id: PostprocedureDiagnosisSection
 Title: "Postprocedure Diagnosis Section"
 Description: "The Postprocedure Diagnosis Section records the diagnosis or diagnoses discovered or confirmed during the procedure. Often it is the same as the preprocedure diagnosis or indication."
 
-* insert Section(#59769-0, Postprocedure Diagnosis, 2.16.840.1.113883.10.20.22.2.36, 2015-08-01)
+* insert Section(#59769-0, Postprocedure diagnosis Narrative, 2.16.840.1.113883.10.20.22.2.36, 2015-08-01)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open

@@ -18,15 +18,7 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
 * code 1..1
   * ^short = "Vital Signs"
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-32740)."
-  * insert CodedSnomed(46680005, Vital Signs)
-  * translation ^slicing.discriminator[0].type = #value
-    * ^slicing.discriminator[=].path = "codeSystem"
-    * ^slicing.discriminator[+].type = #value
-    * ^slicing.discriminator[=].path = "code"
-    * ^slicing.rules = #open
-  * translation contains translation1 1..1
-  * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32743) such that it"
-    * insert CodedLoinc(74728-7, [[Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel]])
+  * insert CodedLoinc(74728-7, [[Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-7284)."
   * code 1..1
@@ -42,8 +34,8 @@ Description: """This template provides a mechanism for grouping vital signs (e.g
 * component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* component contains component1 1..*
-* component[component1] ^comment = "SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"
+* component contains vitalSignObs 1..*
+* component[vitalSignObs] ^comment = "SHALL contain at least one [1..*] component (CONF:1198-7285) such that it"
   * observation 1..1
   * observation only VitalSignObservation
     * ^comment = "SHALL contain exactly one [1..1] Vital Sign Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.27:2014-06-09) (CONF:1198-15946)."

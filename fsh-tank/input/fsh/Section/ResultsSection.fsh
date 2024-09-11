@@ -14,7 +14,7 @@ Subsections MAY be used to partition the entries into different categories. For 
 
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
-* insert Section(#30954-2, Relevant diagnostic tests and/or laboratory data, 2.16.840.1.113883.10.20.22.2.3.1, 2015-08-01)
+* insert Section(#30954-2, Relevant diagnostic tests/laboratory data Narrative, 2.16.840.1.113883.10.20.22.2.3.1, 2015-08-01)
 
 
 * entry ^slicing.discriminator[0].type = #profile

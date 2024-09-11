@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ChiefComplaintandReasonforVisitSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.2.13"/>
     </identifier>
     <name value="ChiefComplaintandReasonforVisitSection"/>
@@ -29,11 +30,6 @@
     <status value="draft"/>
     <description value="This section records the patient's chief complaint (the patient's own description) and/or the reason for the patient's visit (the provider's description of the reason for visit). Local policy determines whether the information is divided into two sections or recorded in one section serving both purposes."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -78,7 +74,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="Chief Complaint and Reason for Visit"/>
+            <short value="Chief complaint+Reason for visit Narrative"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">

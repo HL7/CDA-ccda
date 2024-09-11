@@ -4,7 +4,7 @@ Id: NumberofPressureUlcersObservation
 Title: "Number of Pressure Ulcers Observation"
 Description: "This template represents the number of pressure ulcers observed at a particular stage."
 
-* insert LogicalModelTemplate(numberof-pressure-ulcers-obs, 2.16.840.1.113883.10.20.22.4.76, 2015-08-01)
+* insert LogicalModelTemplate(numberof-pressure-ulcers-obs, 2.16.840.1.113883.10.20.22.4.76, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -17,12 +17,7 @@ Description: "This template represents the number of pressure ulcers observed at
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-14709)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-14767)."
-  * code 1..1
-  * code = #2264892003
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"2264892003\" Number of pressure ulcers (CONF:1198-14768)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.96"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96 STATIC) (CONF:1198-32164)."
+  * insert CodedSnomed(2264892003, [[Number of pressure ulcers]])
   * translation ^slicing.discriminator[0].type = #value
     * ^slicing.discriminator[=].path = "codeSystem"
     * ^slicing.discriminator[+].type = #value
@@ -30,12 +25,7 @@ Description: "This template represents the number of pressure ulcers observed at
     * ^slicing.rules = #open
   * translation contains translation1 1..1
   * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32849) such that it"
-    * code 1..1
-    * code = #75277-4
-      * ^comment = "SHALL contain exactly one [1..1] @code=\"75277-4\" Number of pressure ulcers (CONF:1198-32850)."
-    * codeSystem 1..1
-    * codeSystem = "2.16.840.1.113883.6.1"
-      * ^comment = "SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32851)."
+    * insert CodedLoinc(75277-4, [[Number of pressure ulcers]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-14714)."
   * code 1..1
@@ -53,8 +43,8 @@ Description: "This template represents the number of pressure ulcers observed at
   * ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entryRelationship contains entryRelationship1 1..1
-* entryRelationship[entryRelationship1] ^comment = "SHALL contain exactly one [1..1] entryRelationship (CONF:1198-14718) such that it"
+* entryRelationship contains stage 1..1
+* entryRelationship[stage] ^comment = "SHALL contain exactly one [1..1] entryRelationship (CONF:1198-14718) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14719)."
@@ -67,12 +57,7 @@ Description: "This template represents the number of pressure ulcers observed at
     * moodCode = #EVN (exactly)
       * ^comment = "This observation SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-14722)."
     * code 1..1
-      * ^short = "SG 20230709: This constraint not entered properly in TWB - missing codesystem and code set at top level rather than on observation.code.code - added observation.code.code and observation.code.codeSystem"
-      * ^comment = "This observation SHALL contain exactly one [1..1] code=\"ASSERTION\" Assertion (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1198-31930)."
-      * code 1..1
-      * code = #ASSERTION
-      * codeSystem 1..1
-      * codeSystem = "2.16.840.1.113883.5.4"
+      * insert CodedLoinc(91150-3, [[Pressure Injury Stage NPUAP]])
     * value 1..1
     * value only $CD
     * value from $2.16.840.1.113883.11.20.9.35 (preferred)

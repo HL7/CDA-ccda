@@ -22,18 +22,14 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.147"/>
     </identifier>
     <name value="MedicationFreeTextSig"/>
     <title value="Medication Free Text Sig"/>
     <status value="draft"/>
-    <description value="The template is available to explicitly identify the free text Sig within each medication. &#xA;&#xA;An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning."/>
+    <description value="The template is available to explicitly identify the free text Sig within each medication. &#xA;&#xA;An example free text sig: Thyroxin 150 ug, take one tab by mouth every morning.&#xA;&#xA;NOTE: This is a Closed template so only the elements needed for the template are allowed.  All other elements are not allowed."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
@@ -49,13 +45,10 @@
                 <expression value="text.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
             </constraint>
-            <constraint>
-                <key value="sig-closed"/>
-                <severity value="error"/>
-                <human value="This is a closed template and shall not contain any elements besides code, text, and consumable"/>
-                <expression value="(typeId | statusCode | effectiveTime | priorityCode | repeatNumber | routeCode | approachSiteCode | doseQuantity | rateQuantity | maxDoseQuantity | administrationUnitCode | subject | specimen | performer | informant | participant | entryRelationship | precondition).empty()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationFreeTextSig"/>
-            </constraint>
+        </element>
+        <element id="SubstanceAdministration.typeId">
+            <path value="SubstanceAdministration.typeId"/>
+            <max value="0"/>
         </element>
         <element id="SubstanceAdministration.templateId">
             <path value="SubstanceAdministration.templateId"/>
@@ -136,6 +129,46 @@
             <path value="SubstanceAdministration.text.reference.value"/>
             <comment value="This reference SHOULD contain zero or one [0..1] @value (CONF:81-32756)."/>
         </element>
+        <element id="SubstanceAdministration.statusCode">
+            <path value="SubstanceAdministration.statusCode"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime">
+            <path value="SubstanceAdministration.effectiveTime"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.priorityCode">
+            <path value="SubstanceAdministration.priorityCode"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.repeatNumber">
+            <path value="SubstanceAdministration.repeatNumber"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.routeCode">
+            <path value="SubstanceAdministration.routeCode"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.approachSiteCode">
+            <path value="SubstanceAdministration.approachSiteCode"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.doseQuantity">
+            <path value="SubstanceAdministration.doseQuantity"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.rateQuantity">
+            <path value="SubstanceAdministration.rateQuantity"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.maxDoseQuantity">
+            <path value="SubstanceAdministration.maxDoseQuantity"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.administrationUnitCode">
+            <path value="SubstanceAdministration.administrationUnitCode"/>
+            <max value="0"/>
+        </element>
         <element id="SubstanceAdministration.consumable">
             <path value="SubstanceAdministration.consumable"/>
             <comment value="SHALL contain exactly one [1..1] consumable (CONF:81-32776)."/>
@@ -154,6 +187,34 @@
             <comment value="This manufacturedLabeledDrug SHALL contain exactly one [1..1] @nullFlavor=&quot;NA&quot; Not Applicable (CONF:81-32779)."/>
             <min value="1"/>
             <fixedCode value="NA"/>
+        </element>
+        <element id="SubstanceAdministration.subject">
+            <path value="SubstanceAdministration.subject"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.specimen">
+            <path value="SubstanceAdministration.specimen"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.performer">
+            <path value="SubstanceAdministration.performer"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.informant">
+            <path value="SubstanceAdministration.informant"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.participant">
+            <path value="SubstanceAdministration.participant"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.precondition">
+            <path value="SubstanceAdministration.precondition"/>
+            <max value="0"/>
         </element>
     </differential>
 </StructureDefinition>

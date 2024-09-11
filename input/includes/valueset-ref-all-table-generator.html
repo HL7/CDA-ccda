@@ -1,0 +1,64 @@
+<!-- This create the all valueset table in C-CDA. The source table for it is the ig-publisher generated temp/pages/valueset-ref-all-list.csv which needs to be manually or by script copied into the _data folder.
+
+There is also a hand crafted `input/data/source.yml` mapping the name of source to the base_URL and linking to a user friendly view since this data is not produced by the generated table :-( 
+
+updated:
+- VSAC to reference the user facing page in instead of FHIR valueset page
+- FHBIR to reference ver R4 FHIR valueset page
+- US CORE to reference current ver valueset page
+- phinvads??? does not seem to be a FHIR valueset page opr proper link?
+- THO to reference current ver valueset page
+-->
+
+Value Set Sources:
+
+- [VSAC](http://cts.nlm.nih.gov/fhir/)
+- [FHIR]({{site.data.fhir.path}})
+- [US CORE]({{site.data.fhir.uscore}}/terminology.html)
+- [CDA]({{site.data.fhir.cda}}/)
+- PHINVADS
+- [THO](http://terminology.hl7.org/)
+
+{% assign rows = site.data.valueset-ref-all-list | sort: "Title" %}
+
+{% for item in rows %}
+
+{% if forloop.first %}
+
+<table class="grid">
+<thead>
+<tr>
+<th>Row #</th>
+<th>Value Set</th>
+<th>Templates Where Used</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+{% endif %}
+
+{% assign base_URL = item.URL | split: 'ValueSet/' | first %}
+{% assign stem_URL = item.URL | split: 'ValueSet/' | last %}
+{% assign vs_link = site.data.source[base_URL][1] | replace: "{{stem_URL}}", stem_URL | replace: "{{site.data.fhir.path}}", {{site.data.fhir.path}} | replace: "{{site.data.fhir.uscore}}", {{site.data.fhir.uscore}} | replace: "{{site.data.fhir.cda}}", {{site.data.fhir.cda}} | replace: "{{site.data.fhir.ccda}}", {{site.data.fhir.ccda}} %}
+<tr>
+<td>{{forloop.index}}</td>
+<td><a href="{{vs_link}}">{{item.Title}}</a></td>
+<td>
+  {% assign uses = item.Uses | split: ',' %}
+  {% for use in uses %}
+    {% assign parts = use | split: '/' %}
+    {% assign definitionName = parts | last %}
+    {% assign url = "StructureDefinition-" | append: definitionName | append: ".html" %}
+    <a href="{{ url }}">{{ definitionName }}</a>{% unless forloop.last %}, {% endunless %}
+  {% endfor %}
+</td>
+<td>{{site.data.source[base_URL][0]}}</td>
+</tr>
+
+{% if forloop.last %}
+</tbody>
+</table>
+{% endif %}
+
+{% endfor %}
+

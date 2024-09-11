@@ -29,6 +29,7 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-31868)."
 * obeys should-value and 4515-8555
 * value 0..1
+  * insert USCDI([[Alcohol Use, Substance Use, SDOH Problems/Health Concerns]])
   * ^slicing.discriminator[0].type = #type
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
@@ -53,9 +54,9 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32969) such that it"
 * entryRelationship contains
-    social-history-entry-sprt-obs 0..* and
-    social-history-entry-sprt-act 0..*
-* entryRelationship[social-history-entry-sprt-obs] ^short = "When an Assessment Scale Observation is contained in a Social History Observation instance that is a Social Determinant of Health Social History Observation, that Assessment Scale Observation MAY contain Assessment Scale Supporting Observations that contain LOINC question and answer pairs from SDOH screening instruments."
+    supportingObs 0..* and
+    entryReference 0..*
+* entryRelationship[supportingObs] ^short = "When an Assessment Scale Observation is contained in a Social History Observation instance that is a Social Determinant of Health Social History Observation, that Assessment Scale Observation MAY contain Assessment Scale Supporting Observations that contain LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32958) such that it"
   * typeCode 1..1
   * typeCode = #SPRT (exactly)
@@ -63,7 +64,7 @@ There are supplemental templates and guidance for observations of [Occupational 
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32959)."
-* entryRelationship[social-history-entry-sprt-act] ^short = "When an Entry Reference is contained in a Social History Template instance that is a Social Determinant of Health Social History, that Entry Reference **MAY** reference an Assessment Scale Observation elsewhere in the document that represent LOINC question and answer pairs from SDOH screening instruments."
+* entryRelationship[entryReference] ^short = "When an Entry Reference is contained in a Social History Template instance that is a Social Determinant of Health Social History, that Entry Reference **MAY** reference an Assessment Scale Observation elsewhere in the document that represent LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32969) such that it"
   * typeCode 1..1
   * typeCode = #SPRT (exactly)

@@ -2,7 +2,7 @@ Profile: ServiceDeliveryLocation
 Parent: $ParticipantRole
 Id: ServiceDeliveryLocation
 Title: "Service Delivery Location"
-Description: "This clinical statement represents the location of a service event where an act, observation or procedure took place."
+Description: "This clinical statement represents the physical place of available services or resources. It is the location of a service event where an act, observation or procedure took or can place."
 
 * insert LogicalModelTemplateRootOnly(service-delivery-loc, 2.16.840.1.113883.10.20.22.4.32)
 
@@ -20,20 +20,18 @@ Description: "This clinical statement represents the location of a service event
 * id[CLIA].root = "2.16.840.1.113883.4.7"
 * id[NAIC].root = "2.16.840.1.113883.6.300"  
 * code 1..1
-* code from http://terminology.hl7.org/ValueSet/v3-HealthcareServiceLocation (required)
+* code from $2.16.840.1.113883.1.11.20275 (required)
   * insert USCDI([[Facility Type]])
 * obeys should-addr
-* addr 0..*
+* addr 0..1
 * addr only USRealmAddress
-  * ^comment = "SHOULD contain zero or more [0..*] addr (CONF:81-7760)." // auto-should
 * obeys should-telecom
 * telecom 0..*
   * ^comment = "SHOULD contain zero or more [0..*] telecom (CONF:81-7761)." // auto-should
-* playingEntity 0..1
+* playingEntity 1..1
   * ^comment = "MAY contain zero or one [0..1] playingEntity (CONF:81-7762)."
   * classCode 1..1
   * classCode = #PLC (exactly)
     * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] @classCode=\"PLC\" (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:81-7763)."
-  * name 0..1
+  * name 1..1
     * insert USCDI([[Facility Name]])
-    * ^comment = "The playingEntity, if present, MAY contain zero or one [0..1] name (CONF:81-16037)."

@@ -5,8 +5,8 @@
       <entry>
         <!-- Care Team Member Act Template -->
         <act classCode="PCPR" moodCode="EVN">
-          <templateId root="2.16.840.1.113883.10.20.22.4.500.1" extension="2022-06-01" />
-          <code code="85847-2" codeSystem="2.16.840.1.113883.6.1" />
+          <templateId root="2.16.840.1.113883.10.20.22.4.500.1" extension="2024-05-01" />
+          <code code="92707-9" codeSystem="2.16.840.1.113883.6.1" />
           <text><reference value="#careTeamMember"/></text>
           <statusCode code="active" />
           <effectiveTime>
@@ -20,8 +20,8 @@
                    otherwise assignedPerson must be present here -->
             </assignedEntity>
           </performer>
-          <entryRelationship>
-            <encounter>
+          <entryRelationship typeCode="REFR">
+            <encounter classCode="ENC" moodCode="EVN">
               <!-- This ID matches an EncounterActivity either here or elsewhere in the document -->
               <id root="1.2.3.4" extension="ZZ321" />
             </encounter>
@@ -34,9 +34,9 @@
   <!-- Elsewhere in the document-->
   <component>
     <section>
-      <entry>
+      <entry typeCode="COMP">
         <!-- The encounter may be present in an encounters section -->
-        <encounter>
+        <encounter classCode="ENC" moodCode="EVN">
           <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01" />
           <id root="1.2.3.4" extension="ZZ321" />
           <!-- implementation nerf'd for sake of example -->

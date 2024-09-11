@@ -4,15 +4,87 @@
   <title>Results</title>
   <text />
   <entry typeCode="DRIV">
-    <organizer classCode="BATTERY" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2014-06-09" />
-      <organizer>
-        <component>
-          <observation classCode="OBS" moodCode="EVN">
-            <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2014-06-09" />
-          </observation>
-        </component>
-      </organizer>
-    </organizer>
+		<organizer classCode="BATTERY" moodCode="EVN" xmlns="urn:hl7-org:v3">
+		  <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2023-05-01" />
+		  <id root="7d5a02b0-67a4-11db-bd13-0800200c9a66" />
+		  <code code="57021-8" displayName="CBC W Auto Differential panel in Blood" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+		  <statusCode code="completed" />
+		  <effectiveTime>
+		    <low value="200803190830-0800" />
+		    <high value="200803190830-0800" />
+		  </effectiveTime>
+		  <author>
+				<templateId root="2.16.840.1.113883.10.20.22.4.119"/>
+		    <time value="200803190830-0800" />
+		    <assignedAuthor>
+		      <id extension="333444444" root="1.1.1.1.1.1.1.4" />
+		      <addr use="HP">
+		        <streetAddressLine>1017 Health Drive</streetAddressLine>
+		        <city>Portland</city>
+		        <state>OR</state>
+		        <postalCode>99123</postalCode>
+		        <country>US</country>
+		      </addr>
+		      <telecom use="WP" value="tel:+1(555)555-1017" />
+		      <assignedPerson>
+		        <name>
+		          <given>William</given>
+		          <given qualifier="CL">Bill</given>
+		          <family>Beaker</family>
+		        </name>
+		      </assignedPerson>
+		      <representedOrganization>
+		        <name>Good Health Laboratory</name>
+		      </representedOrganization>
+		    </assignedAuthor>
+		  </author>
+		  <component>
+				<observation classCode="OBS" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+				  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2023-05-01" />
+				  <id root="7c0704bb-9c40-41b5-9c7d-26b2d59e234f" />
+				  <code code="20570-8" displayName="Hematocrit" codeSystem="2.16.840.1.113883.6.1"
+				codeSystemName="LOINC" />
+				  <statusCode code="completed" />
+				  <effectiveTime value="200803190830-0800" />
+				  <value xsi:type="PQ" value="35.3" unit="%" />
+				  <interpretationCode code="L" codeSystem="2.16.840.1.113883.5.83" />
+				  <author>
+				    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+				    <time value="200803190830-0800" />
+				    <assignedAuthor>
+				      <id extension="333444444" root="1.1.1.1.1.1.1.4" />
+				      <addr use="HP">
+				        <streetAddressLine>1017 Health Drive</streetAddressLine>
+				        <city>Portland</city>
+				        <state>OR</state>
+				        <postalCode>99123</postalCode>
+				        <country>US</country>
+				      </addr>
+				      <telecom use="WP" value="tel:+1(555)555-1017" />
+				      <assignedPerson>
+				        <name>
+				          <given>William</given>
+				          <given qualifier="CL">Bill</given>
+				          <family>Beaker</family>
+				        </name>
+				      </assignedPerson>
+				      <representedOrganization>
+				        <name>Good Health Laboratory</name>
+				      </representedOrganization>
+				    </assignedAuthor>
+				  </author>
+				  <referenceRange>
+				    <observationRange>
+				      <text>Low</text>
+				      <value xsi:type="IVL_PQ">
+				        <low value="34.9" unit="%" />
+				        <high value="44.5" unit="%" />
+				      </value>
+				      <interpretationCode code="L" codeSystem="2.16.840.1.113883.5.83"/>
+				    </observationRange>
+				  </referenceRange>
+				</observation>
+		  </component>
+		</organizer>
   </entry>
 </section>

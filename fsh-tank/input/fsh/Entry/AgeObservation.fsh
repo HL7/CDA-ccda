@@ -14,7 +14,7 @@ Description: "This Age Observation represents the subject's age at onset of an e
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-7614)."
 * code 1..1
-  * insert CodedSnomed(445518008, Age At Onset)
+  * insert CodedSnomed(445518008, Age at onset of clinical finding)
   * ^comment = "This code SHALL contain exactly one [1..1] @code=\"445518008\" Age At Onset (CONF:81-16776)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:81-15965)."

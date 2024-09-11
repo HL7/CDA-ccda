@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalsSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.2.60"/>
     </identifier>
     <name value="GoalsSection"/>
@@ -29,11 +30,6 @@
     <status value="draft"/>
     <description value="This template represents patient Goals. A goal is a defined outcome or condition to be achieved in the process of patient care. Goals include patient-defined over-arching goals (e.g., alleviation of health concerns, desired/intended positive outcomes from interventions, longevity, function, symptom management, comfort) and health concern-specific or intervention-specific goals to achieve desired outcomes."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -45,8 +41,8 @@
             <constraint>
                 <key value="shall-goal-obs"/>
                 <severity value="error"/>
-                <human value="SHALL contain at least one Goal Observation"/>
-                <expression value="nullFlavor.exists() or entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation'))"/>
+                <human value="If section/@nullFlavor is not present, SHALL contain at least one Goal Observation"/>
+                <expression value="nullFlavor.exists() or entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalsSection"/>
             </constraint>
         </element>
@@ -82,7 +78,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="Goals"/>
+            <short value="Goals Narrative"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">
@@ -107,7 +103,7 @@
             <path value="Section.entry"/>
             <slicing>
                 <discriminator>
-                    <type value="value"/>
+                    <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>

@@ -17,7 +17,7 @@ This id must be a pointer to another Performer."""
 * ^meta.versionId = "5"
 * ^meta.lastUpdated = "2023-07-11T23:41:50.227Z"
 
-* insert LogicalModelTemplate(care-team-member-act, 2.16.840.1.113883.10.20.22.4.500.1, 2022-06-01)
+* insert LogicalModelTemplate(care-team-member-act, 2.16.840.1.113883.10.20.22.4.500.1, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -28,12 +28,7 @@ This id must be a pointer to another Performer."""
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CONF:4515-54)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-27)."
-  * code 1..1
-  * code = #85847-2
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"85847-2\" Patient Care team information (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-48)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" LOINC (CONF:4515-49)."
+  * insert CodedLoinc(92707-9,[[Care team information panel]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-62)."
   * insert BindAtCode(ActStatus, required)
@@ -122,10 +117,10 @@ This id must be a pointer to another Performer."""
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"
 * entryRelationship contains
-    entryRelationship1 0..* and
-    entryRelationship2 0..* and
-    entryRelationship3 0..1
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+    encounter 0..* and
+    note 0..* and
+    schedule 0..1
+* entryRelationship[encounter] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-86) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -138,7 +133,7 @@ This id must be a pointer to another Performer."""
     * ^comment = "SHALL contain exactly one [1..1] encounter (CONF:4515-88)."
     * id 1..1
       * ^comment = "This encounter SHALL contain exactly one [1..1] id (CONF:4515-89)."
-* entryRelationship[entryRelationship2] ^short = "This is the note activity to narratively describe information about the member on the care team."
+* entryRelationship[note] ^short = "This is the note activity to narratively describe information about the member on the care team."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-91) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -148,7 +143,7 @@ This id must be a pointer to another Performer."""
   * act 1..1
   * act only NoteActivity
     * ^comment = "SHALL contain exactly one [1..1] Note Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01) (CONF:4515-93)."
-* entryRelationship[entryRelationship3] ^short = "This is the schedule of when or how frequently the care team member participates (or provides care to the patient) on the care team."
+* entryRelationship[schedule] ^short = "This is the schedule of when or how frequently the care team member participates (or provides care to the patient) on the care team."
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

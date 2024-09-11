@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"/>
     </identifier>
     <version value="2014-06-09"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="The Medications Section contains a patient's current medications and pertinent medication history. At a minimum, the currently active medications are listed. An entire medication history is an option. The section can describe a patient's prescription and dispense history and information about intended drug monitoring. &#xA;&#xA;This section requires either an entry indicating the subject is not known to be on any medications or entries summarizing the subject's medications."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -46,8 +42,8 @@
             <constraint>
                 <key value="shall-med-activity"/>
                 <severity value="error"/>
-                <human value="SHALL contain at least one Medication Activity"/>
-                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity'))"/>
+                <human value="If section/@nullFlavor is not present, SHALL contain at least one Medication Activity"/>
+                <expression value="nullFlavor.exists() or entry.where(substanceAdministration.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection"/>
             </constraint>
         </element>
@@ -88,7 +84,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="History of medication use"/>
+            <short value="History of Medication use Narrative"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">

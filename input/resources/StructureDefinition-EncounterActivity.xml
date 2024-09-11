@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This clinical statement describes an interaction between a patient and clinician. Interactions may include in-person encounters, telephone conversations, and email exchanges."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
@@ -92,12 +88,20 @@
             <fixedCode value="EVN"/>
         </element>
         <element id="Encounter.id">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Encounter.id"/>
+            <short value="(USCDI) Identifier"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1198-8713)."/>
             <min value="1"/>
         </element>
         <element id="Encounter.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Encounter.code"/>
+            <short value="(USCDI) Type"/>
             <comment value="In Encounter Summaries the Encounter Type will also be present in the document header at componentOf/encompassingEncounter/code, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present.  Implementers should note that only conveying Encounter Type in the document header at componentOf/encompassingEncounter/code is insufficient."/>
             <min value="1"/>
             <constraint>
@@ -109,7 +113,7 @@
             </constraint>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.1"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
             </binding>
         </element>
         <element id="Encounter.code.originalText">
@@ -126,6 +130,16 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
             </constraint>
         </element>
+        <element id="Encounter.code.translation">
+            <path value="Encounter.code.translation"/>
+            <short value="The translation may exist to provide an Encounter Planned code that is equivalent or narrower than the EncounterTypeCode code."/>
+            <comment value="This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."/>
+            <max value="1"/>
+            <binding>
+                <strength value="example"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.52"/>
+            </binding>
+        </element>
         <element id="Encounter.text">
             <path value="Encounter.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
@@ -141,12 +155,26 @@
             </constraint>
         </element>
         <element id="Encounter.effectiveTime">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Encounter.effectiveTime"/>
+            <short value="(USCDI) Time"/>
             <comment value="In Encounter Summaries the Encounter Time will also be present in the document header at componentOf/encompassingEncounter/effectiveTime, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."/>
             <min value="1"/>
         </element>
         <element id="Encounter.sdtcDischargeDispositionCode">
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
+                <valueUri value="urn:hl7-org:sdtc"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+                <valueString value="dischargeDispositionCode"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Encounter.sdtcDischargeDispositionCode"/>
+            <short value="(USCDI) Disposition"/>
             <comment value="Implementers should note that a Discharge Disposition is not appropriate for all document types. Hospital Discharge Summary documents SHOULD have a discharge disposition. Progress Notes, or H&amp;P, typically won’t have a discharge disposition. In Encounter Summaries, the Encounter Disposition will also be present in the document header at componentOf/encompassingEncounter/dischargeDispositionCode, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present. While an Encounter Summary provides a snapshot of the patient’s condition at the time of the encounter as authored by the clinician, a Patient summary provides the most current information available from the sending system across multiple encounters. [CodeSystem-AHANUBCPatientDischargeStatus](https://terminology.hl7.org/CodeSystem-AHANUBCPatientDischargeStatus.html)"/>
             <binding>
                 <strength value="preferred"/>
@@ -184,8 +212,12 @@
             </slicing>
         </element>
         <element id="Encounter.participant:location">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Encounter.participant"/>
             <sliceName value="location"/>
+            <short value="(USCDI) Location"/>
             <comment value="In Encounter Summaries the Encounter Location will also be present in the document header at componentOf/encompassingEncounter/location, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."/>
             <min value="0"/>
             <max value="*"/>
@@ -239,15 +271,18 @@
             </type>
         </element>
         <element id="Encounter.entryRelationship:diagnosis">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Encounter.entryRelationship"/>
             <sliceName value="diagnosis"/>
+            <short value="(USCDI) Diagnosis"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Encounter.entryRelationship:diagnosis.act">
             <path value="Encounter.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Encounter Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.80:2015-08-01) (CONF:1198-15973)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>

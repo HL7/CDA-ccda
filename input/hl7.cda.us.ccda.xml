@@ -2,10 +2,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
     <id value="hl7.cda.us.ccda"/>
     <url value="http://hl7.org/cda/us/ccda/ImplementationGuide/hl7.cda.us.ccda"/>
-    <version value="3.0.0-ballot"/>
+    <version value="3.0.0"/>
     <name value="CCDA"/>
-    <title value="Consolidated CDA"/>
-    <status value="draft"/>
+    <title value="Consolidated CDA (C-CDA)"/>
+    <status value="active"/>
     <publisher value="Health Level Seven"/>
     <contact>
         <name value="HL7 International - Structured Documents"/>
@@ -25,12 +25,12 @@
     <dependsOn id="cda">
         <uri value="http://hl7.org/cda/stds/core/ImplementationGuide/hl7.cda.uv.core"/>
         <packageId value="hl7.cda.uv.core"/>
-        <version value="2.0.0-sd-snapshot1"/>
+        <version value="2.0.0-sd"/>
     </dependsOn>
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
-        <version value="0.17.0"/>
+        <version value="0.18.0"/>
     </dependsOn>
     <dependsOn id="phinvads">
         <uri value="http://fhir.org/packages/us.cdc.phinvads/ImplementationGuide/us.cdc.phinvads"/>
@@ -40,7 +40,7 @@
     <dependsOn id="uscore">
         <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
         <packageId value="hl7.fhir.us.core"/>
-        <version value="current"/>
+        <version value="7.0.0"/>
     </dependsOn>
     <definition>
         <grouping id="document">
@@ -49,7 +49,7 @@
         </grouping>
         <grouping id="section">
             <name value="Section Templates"/>
-            <description value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.&#xA;&#xA;Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).&#xA;&#xA;Each section-level template contains the following:&#xA;* Template metadata (e.g., templateId, etc.)&#xA;* Description and explanatory narrative&#xA;* LOINC section code&#xA;* Section title&#xA;* Requirements for a text element&#xA;* Entry-level template names and Ids for referenced templates (required and optional)&#xA;&#xA;Narrative Text&#xA;&#xA;The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.&#xA;&#xA;The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.&#xA;&#xA;As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.&#xA;&#xA;As for all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.&#xA;&#xA;By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.&#xA;&#xA;Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6."/>
+            <description value="This chapter contains the section-level templates referenced by one or more of the document types of this consolidated guide. These templates describe the purpose of each section and the section-level constraints.&#xA;&#xA;Section-level templates are always included in a document. One and only one of each section type is allowed in a given document instance. Please see the document context tables to determine the sections that are contained in a given document type. Please see the conformance verb in the conformance statements to determine if it is required (SHALL), strongly recommended (SHOULD), or optional (MAY).&#xA;&#xA;Each section-level template contains the following:&#xA;* Template metadata (e.g., templateId, etc.)&#xA;* Description and explanatory narrative&#xA;* LOINC section code&#xA;* Section title&#xA;* Requirements for a text element&#xA;* Entry-level template names and Ids for referenced templates (required and optional)&#xA;&#xA;Narrative Text&#xA;&#xA;The text element within the section stores the narrative to be rendered, as described in the CDA R2 specification, and is referred to as the CDA narrative block.&#xA;&#xA;The content model of the CDA narrative block schema is handcrafted to meet requirements of human readability and rendering. The schema is registered as a MIME type (text/x-hl7-text+xml), which is the fixed media type for the text element.&#xA;&#xA;As noted in the CDA R2 specification, the document originator is responsible for ensuring that the narrative block contains the complete, human readable, attested content of the section. Structured entries support computer processing and computation and are not a replacement for the attestable, human-readable content of the CDA narrative block. The special case of structured entries with an entry relationship of &quot;DRIV&quot; (is derived from) indicates to the receiving application that the source of the narrative block is the structured entries, and that the contents of the two are clinically equivalent.&#xA;&#xA;For all CDA documents—even when a report consisting entirely of structured entries is transformed into CDA—the encoding application must ensure that the authenticated content (narrative plus multimedia) is a faithful and complete rendering of the clinical content of the structured source data. As a general guideline, a generated narrative block should include the same human readable content that would be available to users viewing that content in the originating system. Although content formatting in the narrative block need not be identical to that in the originating system, the narrative block should use elements from the CDA narrative block schema to provide sufficient formatting to support human readability when rendered according to the rules defined in Section Narrative Block (§ 4.3.5 ) of the CDA R2 specification.&#xA;&#xA;By definition, a receiving application cannot assume that all clinical content in a section (i.e., in the narrative block and multimedia) is contained in the structured entries unless the entries in the section have an entry relationship of &quot;DRIV&quot;.&#xA;&#xA;Additional specification information for the CDA narrative block can be found in the CDA R2 specification in sections 1.2.1, 1.2.3, 1.3, 1.3.1, 1.3.2, 4.3.4.2, and 6."/>
         </grouping>
         <grouping id="entry">
             <name value="Entry Templates"/>
@@ -59,9 +59,17 @@
             <name value="Participation &amp; Other Templates"/>
             <description value="The participation and other templates chapter contains templates for CDA participations (e.g., author, performer), and other fielded items (e.g., address, name) that cannot stand on their own without being nested in another template."/>
         </grouping>
+        <grouping id="deprecated">
+            <name value="Deprecated Templates"/>
+            <description value="Deprecated templates are not prohibited from use, but their status as deprecated is a signal to implementers that the template may be permanently retired (terminated) in the future."/>
+        </grouping>
         <grouping id="examples">
             <name value="C-CDA Template Examples"/>
             <description value="These examples show how the C-CDA logical model templates are constructed."/>
+        </grouping>
+        <grouping id="terminology">
+            <name value="C-CDA Internal Terminology"/>
+            <description value="Code Systems and Value Sets that are defined in this guide."/>
         </grouping>
         <resource>
             <reference>
@@ -106,7 +114,7 @@
                 <display value="Advance Directive Observation"/>
             </reference>
             <name value="Advance Directive Observation"/>
-            <description value="An Advance Directive Observation template is used to record information about a document authored by the person and containing goals, preferences, and priorities for care."/>
+            <description value="Advance Directive Observations may include a variety of information called different “content types”."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -115,7 +123,7 @@
                 <display value="Advance Directive Organizer"/>
             </reference>
             <name value="Advance Directive Organizer"/>
-            <description value="This clinical statement groups a set of advance directive observations documented together at a single point in time, and relevant during the episode of care being documented."/>
+            <description value="The Advance Directive Organizer includes information about who verified the content available in each advance healthcare directive source document or other verified source documentation."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -124,7 +132,7 @@
                 <display value="Advance Directives Section"/>
             </reference>
             <name value="Advance Directives Section"/>
-            <description value="This section contains information describing the patient's advance directives."/>
+            <description value="This section contains information describing the patient’s advance healthcare directives."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -237,6 +245,15 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/AverageBloodPressureOrganizer"/>
+                <display value="Average Blood Pressure Organizer"/>
+            </reference>
+            <name value="Average Blood Pressure Organizer"/>
+            <description value="This template represents a single instance of an Average Blood Pressure reading."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/BasicIndustryObservation"/>
                 <display value="Basic Industry Observation"/>
             </reference>
@@ -331,7 +348,7 @@
                 <display value="Care Teams Section"/>
             </reference>
             <name value="Care Teams Section"/>
-            <description value="The Care Team Section is used to share historical and current Care Team information."/>
+            <description value="The Care Teams Section is used to share historical and current Care Team information."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -754,7 +771,7 @@
                 <display value="Health Status Evaluations and Outcomes Section"/>
             </reference>
             <name value="Health Status Evaluations and Outcomes Section"/>
-            <description value="This template represents observations regarding the evaluation or assessment of the patient, and the outcome of care from the interventions used to treat the patient."/>
+            <description value="This section represents observations regarding the evaluation or assessment of the patient, and the outcome of care from the interventions used to treat the patient."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -1407,11 +1424,11 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/PregnancyObservation"/>
-                <display value="Pregnancy Observation"/>
+                <reference value="StructureDefinition/PregnancyStatusObservation"/>
+                <display value="Pregnancy Status Observation"/>
             </reference>
-            <name value="Pregnancy Observation"/>
-            <description value="This clinical statement represents current and/or prior pregnancy dates enabling investigators to determine if the subject of the case report was pregnant during the course of a condition."/>
+            <name value="Pregnancy Status Observation"/>
+            <description value="This clinical statement meets the requirements of the U.S."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1762,7 +1779,7 @@
                 <display value="Service Delivery Location"/>
             </reference>
             <name value="Service Delivery Location"/>
-            <description value="This clinical statement represents the location of a service event where an act, observation or procedure took place."/>
+            <description value="This clinical statement represents the physical place of available services or resources."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1794,12 +1811,21 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/SmokingStatus"/>
+                <display value="Smoking Status"/>
+            </reference>
+            <name value="Smoking Status"/>
+            <description value="This template represents a patient's smoking status."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/SmokingStatusMeaningfulUse"/>
                 <display value="Smoking Status - Meaningful Use"/>
             </reference>
             <name value="Smoking Status - Meaningful Use"/>
             <description value="This template represents the current smoking status of the patient as specified in Meaningful Use (MU) Stage 2 requirements."/>
-            <groupingId value="entry"/>
+            <groupingId value="deprecated"/>
         </resource>
         <resource>
             <reference>
@@ -1835,15 +1861,6 @@
             </reference>
             <name value="Specimen Condition Observation"/>
             <description value="This template conveys the condition (mode or state of being) that describes the nature of the specimen."/>
-            <groupingId value="entry"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/SpecimenRejectReasonObservation"/>
-                <display value="Specimen Reject Reason Observation"/>
-            </reference>
-            <name value="Specimen Reject Reason Observation"/>
-            <description value="This template describes a reason the specimen was rejected for the specified observation/result/analysis."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1889,7 +1906,7 @@
             </reference>
             <name value="Tobacco Use"/>
             <description value="This template represents a patient's tobacco use."/>
-            <groupingId value="entry"/>
+            <groupingId value="deprecated"/>
         </resource>
         <resource>
             <reference>
@@ -2171,7 +2188,7 @@
             <name value="Allergies and Intolerances Section Example"/>
             <description value="Allergies and Intolerances Section example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergiesAndIntolerancesSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -2198,10 +2215,42 @@
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/allergy-intolerance-observation-example"/>
+                <reference value="Binary/allergy-intolerance-observation-medication-example"/>
             </reference>
-            <name value="Allergy Intolerance Observation Example"/>
-            <description value="Allergy Intolerance Observation example"/>
+            <name value="Allergy Intolerance Observation Medication Example"/>
+            <description value="Allergy Intolerance Observation Medication example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/allergy-intolerance-observation-drugclass-example"/>
+            </reference>
+            <name value="Allergy Intolerance Observation Drug Class Example"/>
+            <description value="Allergy Intolerance Observation Drug Class example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/allergy-intolerance-observation-nonmedication-example"/>
+            </reference>
+            <name value="Allergy Intolerance Observation Non-Medication Example"/>
+            <description value="Allergy Intolerance Observation Non-Medication example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AllergyIntoleranceObservation"/>
             <groupingId value="examples"/>
@@ -2227,15 +2276,15 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentAndPlanSection"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection"/>
             </extension>
             <reference>
                 <reference value="Binary/assessment-and-plan-section-example"/>
             </reference>
-            <name value="Assessment and PlanSection Example"/>
+            <name value="Assessment and Plan Section Example"/>
             <description value="Assessment and Plan Section example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentAndPlanSection"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentandPlanSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -2361,7 +2410,7 @@
                 <reference value="Binary/birth-sex-example"/>
             </reference>
             <name value="Birth Sex Observation Example"/>
-            <description value="Birth Sex Obseration example"/>
+            <description value="Birth Sex Observation example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
             <groupingId value="examples"/>
@@ -2472,8 +2521,8 @@
             <reference>
                 <reference value="Binary/care-plan-complete-example"/>
             </reference>
-            <name value="Care Plan Complete Example"/>
-            <description value="Care Plan Complete example"/>
+            <name value="Care Plan Complete Header Example"/>
+            <description value="Demonstrates most of the Care Plan header requirements. Body sections are empty with nullFlavors."/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             <groupingId value="examples"/>
@@ -2507,7 +2556,7 @@
             <name value="Care Team Member Schedule Observation Example"/>
             <description value="Care Team Member Schedule Observation example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CareTeamMemberScheduleObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -2691,6 +2740,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+            </extension>
+            <reference>
+                <reference value="Binary/ccd-header-example"/>
+            </reference>
+            <name value="Continuity Of Care Document Complete Header Example"/>
+            <description value="Demonstrates a fully-valid (but empty) CCD. Nullflavors have been added to all required sections."/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
             </extension>
             <reference>
@@ -2744,8 +2809,8 @@
             <reference>
                 <reference value="Binary/consultation-note-complete-example"/>
             </reference>
-            <name value="Consultation Note Complete Example"/>
-            <description value="Consultation Note Complete Example"/>
+            <name value="Consultation Note Complete Header Example"/>
+            <description value="Demonstrates most of the Consultation Note header requirements. Body sections are empty with nullFlavors."/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
             <groupingId value="examples"/>
@@ -2979,6 +3044,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary"/>
+            </extension>
+            <reference>
+                <reference value="Binary/discharge-summary-header-example"/>
+            </reference>
+            <name value="Discharge Summary Complete Header Example"/>
+            <description value="Demonstrates a fully-valid Discharge Summary. Nullflavors have been added to all required sections."/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ComponentOf"/>
             </extension>
             <reference>
@@ -3003,7 +3084,7 @@
             <name value="Distinct Identification Code Observation Example"/>
             <description value="Distinct Identification Code Observation example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DistictIdentificationCodeObservation"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DistinctIdentificationCodeObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -3275,7 +3356,7 @@
             <name value="Gender Identity Observation Example"/>
             <description value="Gender Identity Observation example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GenderIdentityObservationExample"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GenderIdentityObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -3379,7 +3460,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
+                <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/StructuredBody"/>
             </extension>
             <reference>
                 <reference value="Binary/health-status-evaluations-and-outcomes-section-example"/>
@@ -3434,6 +3515,22 @@
             </reference>
             <name value="History and Physical Encompassing Encounter Example"/>
             <description value="History and Physical Encompassing Encounter example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
+            </extension>
+            <reference>
+                <reference value="Binary/history-and-physical-header-example"/>
+            </reference>
+            <name value="History and Physical Complete Header Example"/>
+            <description value="Demonstrates most of the History and Physical header requirements. Body sections are empty with nullFlavors."/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HistoryandPhysical"/>
             <groupingId value="examples"/>
@@ -3529,7 +3626,7 @@
                 <reference value="Binary/hospital-discharge-instructions-section-example"/>
             </reference>
             <name value="Hospital Discharge Instructions Section Example"/>
-            <description value="Hospital Discharge InstructionsSection example"/>
+            <description value="Hospital Discharge Instructions Section example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HospitalDischargeInstructionsSection"/>
             <groupingId value="examples"/>
@@ -3603,15 +3700,15 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationRefusalReason"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationNotGivenReason"/>
             </extension>
             <reference>
-                <reference value="Binary/immunization-refusal-reason-example"/>
+                <reference value="Binary/immunization-notgiven-reason-example"/>
             </reference>
-            <name value="Immunization Refusal Reason Example"/>
-            <description value="Immunization Refusal Reason example"/>
+            <name value="Immunization Not Given Reason Example"/>
+            <description value="Immunization Not Given Reason example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationRefusalReason"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImmunizationNotGivenReason"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -3820,6 +3917,22 @@
             <description value="Medication Activity example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
+            </extension>
+            <reference>
+                <reference value="Binary/medication-adherence-example"/>
+            </reference>
+            <name value="Medication Adherence Example"/>
+            <description value="Medication Adherence example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -4051,7 +4164,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection"/>
             </extension>
             <reference>
                 <reference value="Binary/note-activity-as-entryrelationship-to-ccda-entry-example"/>
@@ -4067,7 +4180,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection"/>
             </extension>
             <reference>
                 <reference value="Binary/note-activity-as-standalone-entry-example"/>
@@ -4220,6 +4333,22 @@
             <description value="Objective Section example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ObjectiveSection"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
+            </extension>
+            <reference>
+                <reference value="Binary/operative-note-header-example"/>
+            </reference>
+            <name value="Operative Note Complete Header Example"/>
+            <description value="Demonstrates most of the Operative Note header requirements. Body sections are empty with nullFlavors."/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -4739,6 +4868,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosis"/>
+            </extension>
+            <reference>
+                <reference value="Binary/postprocedure-diagnosis-example"/>
+            </reference>
+            <name value="Postprocedure Diagnosis Example"/>
+            <description value="Postprocedure Diagnosis example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosis"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PostprocedureDiagnosisSection"/>
             </extension>
             <reference>
@@ -4908,6 +5053,22 @@
             <description value="Problem Section example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemSection"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
+            </extension>
+            <reference>
+                <reference value="Binary/procedure-note-header-example"/>
+            </reference>
+            <name value="Procedure Note Complete Header Example"/>
+            <description value="Demonstrates most of the Procedure Note header requirements. Body sections are empty with nullFlavors."/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -5139,6 +5300,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
+            </extension>
+            <reference>
+                <reference value="Binary/progress-note-header-example"/>
+            </reference>
+            <name value="Progress Note Complete Header Example"/>
+            <description value="Demonstrates most of the Progress Note header requirements. Body sections are empty with nullFlavors."/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/ComponentOf"/>
             </extension>
             <reference>
@@ -5283,6 +5460,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            </extension>
+            <reference>
+                <reference value="Binary/referral-note-header-example"/>
+            </reference>
+            <name value="Referral Note Complete Header Example"/>
+            <description value="Demonstrates most of the Referral Note header requirements. Body sections are empty with nullFlavors."/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralNote"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
@@ -5379,7 +5572,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultsSectopm"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultsSection"/>
             </extension>
             <reference>
                 <reference value="Binary/results-section-example"/>
@@ -5539,6 +5732,38 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
+            </extension>
+            <reference>
+                <reference value="Binary/smoking-status-coded-example"/>
+            </reference>
+            <name value="Smoking Status Coded Example"/>
+            <description value="Smoking Status Coded example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
+            </extension>
+            <reference>
+                <reference value="Binary/smoking-status-quantity-example"/>
+            </reference>
+            <name value="Smoking Status Quantity Example"/>
+            <description value="Smoking Status Quantity example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse"/>
             </extension>
             <reference>
@@ -5555,15 +5780,31 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SpecimenCollectionProcedure"/>
             </extension>
             <reference>
-                <reference value="Binary/social-history-observation-example"/>
+                <reference value="Binary/specimen-collection-procedure-example"/>
             </reference>
-            <name value="Social History Observation Example"/>
-            <description value="Social History Observation example"/>
+            <name value="Specimen Collection Procedure Example"/>
+            <description value="Specimen Collection Procedure example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SpecimenCollectionProcedure"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SpecimenConditionObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/specimen-condition-observation-example"/>
+            </reference>
+            <name value="Specimen Condition Observation Example"/>
+            <description value="Specimen Condition Observation example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SpecimenConditionObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -5651,6 +5892,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
+            </extension>
+            <reference>
+                <reference value="Binary/transfer-summary-header-example"/>
+            </reference>
+            <name value="Transfer Summary Complete Header Example"/>
+            <description value="Demonstrates most of the Transfer Summary header requirements. Body sections are empty with nullFlavors."/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/TransferSummary"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
             </extension>
             <reference>
@@ -5691,7 +5948,7 @@
             <name value="Tribal Affiliation Observation Example"/>
             <description value="Tribal Affiliation Observation example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/TribalAffiliationOBservation"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/TribalAffiliationObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -5811,15 +6068,15 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
             </extension>
             <reference>
-                <reference value="Binary/vital-sign-observation-average-bp-example"/>
+                <reference value="Binary/average-bp-example"/>
             </reference>
-            <name value="Vital Sign Average Blood Pressure Example"/>
-            <description value="Vital Sign Observation example of average blood pressure"/>
+            <name value="Average Blood Pressure Organizer Example"/>
+            <description value="Example of average blood pressure"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/VitalSignObservation"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AverageBloodPressureOrganizer"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -5892,6 +6149,7 @@
             </reference>
             <name value="NUBC UB-04 FL17 Patient Status"/>
             <description value="These codes are used to convey the patient discharge status."/>
+            <groupingId value="terminology"/>
         </resource>
         <page>
             <sourceUrl value="index.html"/>
@@ -5958,7 +6216,14 @@
                 <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
                 <code value="releaselabel"/>
             </code>
-            <value value="ballot"/>
+            <value value="STU3"/>
+        </parameter>
+        <parameter>
+            <code>
+                <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+                <code value="path-expansion-params"/>
+            </code>
+            <value value="../exp-params.json"/>
         </parameter>
         <parameter>
             <code>

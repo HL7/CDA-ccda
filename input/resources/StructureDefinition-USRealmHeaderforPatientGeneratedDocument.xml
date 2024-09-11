@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.29.1:2024-05-01"/>
     </identifier>
     <version value="2024-05-01"/>
@@ -30,11 +31,6 @@
     <status value="active"/>
     <description value="This template focuses on the patient or related person in the roles of author and other participants and is designed to be used in conjunction with the US Realm Header. It includes additional conformances which further constrain the US Realm Header. &#xA;The Patient Generated Document Header template is not a separate document type. The document body may contain any structured or unstructured content from C-CDA."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
@@ -112,6 +108,17 @@
             <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.code"/>
             <comment value="The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28473)."/>
         </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication"/>
+            <comment value="This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+            </binding>
+        </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.preferenceInd">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.preferenceInd"/>
             <short value="Indicates a preference for information about care delivery and treatments be communicated (or translated if needed) into this language.&#xA;&#xA;If more than one languageCommunication is present, only one languageCommunication element SHALL have a preferenceInd with a value of 1."/>
@@ -184,7 +191,7 @@
             <path value="ClinicalDocument.informant.relatedEntity.code"/>
             <comment value="This relatedEntity MAY contain zero or one [0..1] code (CONF:1198-28683)."/>
             <constraint>
-                <key value="should-code-attr"/>
+                <key value="should-us-code-attr"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain @code"/>
                 <expression value="code.exists()"/>
@@ -381,13 +388,6 @@
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
             <short value="When indicating the performer was the primary care physician, implementers should indicate &quot;PCP&quot; as the functionCode"/>
-            <constraint>
-                <key value="should-code-attr"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain @code"/>
-                <expression value="code.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeaderforPatientGeneratedDocument"/>
-            </constraint>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode.code"/>

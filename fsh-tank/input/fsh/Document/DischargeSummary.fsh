@@ -15,10 +15,9 @@ The best practice for a Discharge Summary is to include the discharge dispositio
 * insert LogicalModelTemplate(discharge-summary, 2.16.840.1.113883.10.20.22.1.8, 2024-05-01)
 
 * ^status = #active
-* code 1..1
+* code from DischargeSummaryDocumentTypeCode (required) 
   * ^short = "The Discharge Summary recommends use of a single document type code, 18842-5 \"Discharge summary\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17178)."
-  * insert BindAtCode(DischargeSummaryDocumentTypeCode, required)
 * participant 0..*
   * obeys 1198-8469
   * ^short = "The participant element in the Discharge Summary header follows the General Header Constraints for participants. Discharge Summary does not specify any use for functionCode for participants. Local policies will determine how this element should be used in implementations."
@@ -68,116 +67,112 @@ The best practice for a Discharge Summary is to include the discharge dispositio
       * ^slicing.discriminator[=].path = "section"
       * ^slicing.rules = #open
     * component contains
-        component1 1..1 and
-        component2 1..1 and
-        component3 1..1 and
-        component4 0..1 and
-        component5 1..1 and
-        component6 0..1 and
-        component7 0..1 and
-        component8 0..1 and
-        component9 0..1 and
-        component10 0..1 and
-        component11 0..1 and
-        component12 0..1 and
-        component13 0..1 and
-        component14 0..1 and
-        component15 1..1 and
-        component16 0..1 and
-        component17 0..1 and
-        component18 0..1 and
-        component19 0..1 and
-        component20 0..1 and
-        component21 1..1 and
-        component22 0..1 and
-        component23 0..1 and
-        component24 0..1 and
-        component25 0..1 and
-        component26 0..1 and
-        component27 1..1 and
-        component28 0..1
-    * component[component1] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30519)."
+        allergies 1..1 and
+        hospitalCourse 1..1 and
+        dischargeDx 1..1 and
+        dischargeMeds 0..1 and
+        planOfTreatment 1..1 and
+        chiefComplaint 0..1 and
+        chiefComplaintRFV 0..1 and
+        nutrition 0..1 and
+        familyHistory 0..1 and
+        functionalStatus 0..1 and
+        pastMedicalHistory 0..1 and
+        hpi 0..1 and
+        admissionDx 0..1 and
+        admissionMeds 0..1 and
+        hospitalConsults 1..1 and
+        dischargeInstructions 0..1 and
+        dischargePhysical 0..1 and
+        dischargeStudies 0..1 and
+        immunization 0..1 and
+        problems 0..1 and
+        procedures 1..1 and
+        reasonForVisit 0..1 and
+        reviewOfSystems 0..1 and
+        socialHist 0..1 and
+        vitalSigns 0..1 and
+        results 1..1 and
+        advDirectives 0..1
+    * component[allergies] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30519)."
       * section only AllergiesAndIntolerancesSection
         * ^comment = "This component SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2024-05-01) (CONF:1198-30520)."
-    * component[component2] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30521) such that it"
+    * component[hospitalCourse] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30521) such that it"
       * section only HospitalCourseSection
         * ^comment = "SHALL contain exactly one [1..1] Hospital Course Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.5) (CONF:1198-30522)."
-    * component[component3] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
+    * component[dischargeDx] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
       * section only DischargeDiagnosisSection
         * ^comment = "SHALL contain exactly one [1..1] Discharge Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.24:2024-05-01) (CONF:1198-30524)."
-    * component[component4] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30525) such that it" // man-should
+    * component[dischargeMeds] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30525) such that it" // man-should
       * section only DischargeMedicationsSection
         * ^comment = "SHALL contain exactly one [1..1] Discharge Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.11.1:2024-05-01) (CONF:1198-30526)."
-    * component[component5] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30527) such that it"
+    * component[planOfTreatment] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30527) such that it"
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30528)."
-    * component[component6] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30529) such that it"
+    * component[chiefComplaint] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30529) such that it"
       * section only ChiefComplaintSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) (CONF:1198-30530)."
-    * component[component7] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30531) such that it"
+    * component[chiefComplaintRFV] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30531) such that it"
       * section only ChiefComplaintandReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint and Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.13) (CONF:1198-30532)."
-    * component[component8] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30533) such that it"
+    * component[nutrition] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30533) such that it"
       * section only NutritionSection
         * ^comment = "SHALL contain exactly one [1..1] Nutrition Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.57) (CONF:1198-30534)."
-    * component[component9] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30535) such that it"
+    * component[familyHistory] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30535) such that it"
       * section only FamilyHistorySection
         * ^comment = "SHALL contain exactly one [1..1] Family History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.15:2024-05-01) (CONF:1198-30536)."
-    * component[component10] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30537) such that it"
+    * component[functionalStatus] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30537) such that it"
       * section only FunctionalStatusSection
         * ^comment = "SHALL contain exactly one [1..1] Functional Status Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.14:2014-06-09) (CONF:1198-30538)."
-    * component[component11] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30539) such that it"
+    * component[pastMedicalHistory] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30539) such that it"
       * section only PastMedicalHistory
         * ^comment = "SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2024-05-01) (CONF:1198-30540)."
-    * component[component12] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30541) such that it"
+    * component[hpi] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30541) such that it"
       * section only HistoryofPresentIllnessSection
         * ^comment = "SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-30542)."
-    * component[component13] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30543) such that it"
+    * component[admissionDx] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30543) such that it"
       * section only AdmissionDiagnosisSection
         * ^comment = "SHALL contain exactly one [1..1] Admission Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.43:2024-05-01) (CONF:1198-30544)."
-    * component[component14] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30545) such that it"
+    * component[admissionMeds] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30545) such that it"
       * section only AdmissionMedicationsSectionEntriesOptional
         * ^comment = "SHALL contain exactly one [1..1] Admission Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.44.1:2024-05-01) (CONF:1198-30546)."
-    * component[component15] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
+    * component[hospitalConsults] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
       * section only HospitalConsultationsSection
         * ^comment = "SHALL contain exactly one [1..1] Hospital Consultations Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.42) (CONF:1198-30548)."
-    * component[component16] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30549) such that it"
+    * component[dischargeInstructions] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30549) such that it"
       * section only HospitalDischargeInstructionsSection
         * ^comment = "SHALL contain exactly one [1..1] Hospital Discharge Instructions Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.41) (CONF:1198-30550)."
-    * component[component17] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30551) such that it"
+    * component[dischargePhysical] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30551) such that it"
       * section only HospitalDischargePhysicalSection
         * ^comment = "SHALL contain exactly one [1..1] Hospital Discharge Physical Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.26) (CONF:1198-30552)."
-    * component[component18] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30553) such that it"
+    * component[dischargeStudies] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30553) such that it"
       * section only HospitalDischargeStudiesSummarySection
         * ^comment = "SHALL contain exactly one [1..1] Hospital Discharge Studies Summary Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.16) (CONF:1198-30554)."
-    * component[component19] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30555) such that it"
+    * component[immunization] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30555) such that it"
       * section only ImmunizationsSection
         * ^comment = "SHALL contain exactly one [1..1] Immunizations Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.2.1:2024-05-01) (CONF:1198-30556)."
-    * component[component20] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30557) such that it"
+    * component[problems] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30557) such that it"
       * section only ProblemSection
         * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2024-05-01) (CONF:1198-30558)."
-    * component[component21] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
+    * component[procedures] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30523) such that it"
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30560)."
-    * component[component22] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30561) such that it"
+    * component[reasonForVisit] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30561) such that it"
       * section only ReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.12) (CONF:1198-30562)."
-    * component[component23] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30563) such that it"
+    * component[reviewOfSystems] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30563) such that it"
       * section only ReviewofSystemsSection
         * ^comment = "SHALL contain exactly one [1..1] Review of Systems Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:1198-30564)."
-    * component[component24] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30565) such that it"
+    * component[socialHist] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30565) such that it"
       * section only SocialHistorySection
         * ^comment = "SHALL contain exactly one [1..1] Social History Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2024-05-01) (CONF:1198-30566)."
-    * component[component25] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30567) such that it"
+    * component[vitalSigns] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30567) such that it"
       * section only VitalSignsSection
         * ^comment = "SHALL contain exactly one [1..1] Vital Signs Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.4.1:2024-05-01) (CONF:1198-30568)."
-    * component[component26] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-31586) such that it"
-      * section only DischargeMedicationsSection
-        * ^comment = "SHALL contain exactly one [1..1] Discharge Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.11.1:2024-05-01) (CONF:1198-31587)."
-    * component[component27] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30559) such that it"
+    * component[results] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30559) such that it"
       * section only ResultsSection
         * ^comment = "SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2014-06-09) (CONF:1198-30560)."
-    * component[component28] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
+    * component[advDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
         * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
 

@@ -19,8 +19,9 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8874)."
 * code 1..1
-  * insert USCDI([[**Coverage Type**: Records the category of health care payers, insurance products, or benefits.]])
+  * insert USCDI([[COVERAGE TYPE: Records the category of health care payers, insurance products, or benefits.]])
   * insert CodedLoinc(52556-8, Payment sources)
+  * ^short = "Display: Payment sources. (USCDI) COVERAGE TYPE: Records the category of health care payers, insurance products, or benefits."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8875)."
   * code 1..1
@@ -28,7 +29,7 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19094)."
 * obeys should-effectiveTime
 * effectiveTime 0..1
-  * insert USCDI([[**Coverage Status** : Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional effectiveTime inside the Policy Activity. Systems may prioritize Coverages using the sequenceNumber.]])
+  * insert USCDI([[COVERAGE STATUS : Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional time inside the Policy Activity/coverage-target participant. Systems may prioritize Coverages using the sequenceNumber.]])
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-33064)." // auto-should
   * value 1..1
     * ^comment = "The effectiveTime, if present, SHALL contain exactly one [1..1] @value (CONF:4537-33065)."
@@ -37,8 +38,8 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-* entryRelationship contains entryRelationship1 1..*
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+* entryRelationship contains policy 1..*
+* entryRelationship[policy] ^short = "entryRelationship"
   * ^comment = "SHALL contain at least one [1..*] entryRelationship (CONF:4537-8878) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)

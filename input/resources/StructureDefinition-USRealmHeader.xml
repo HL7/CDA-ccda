@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.1:2024-05-01"/>
     </identifier>
     <version value="2024-05-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
@@ -136,13 +132,19 @@
             <path value="ClinicalDocument.code"/>
             <short value="**SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:4537-9992)."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4537-5253)."/>
-            <constraint>
-                <key value="4537-32948"/>
-                <severity value="error"/>
-                <human value="This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:4537-32948)."/>
-                <expression value="codeSystem = '2.16.840.1.113883.6.1'"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
-            </constraint>
+        </element>
+        <element id="ClinicalDocument.code.nullFlavor">
+            <path value="ClinicalDocument.code.nullFlavor"/>
+            <max value="0"/>
+        </element>
+        <element id="ClinicalDocument.code.code">
+            <path value="ClinicalDocument.code.code"/>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.code.codeSystem">
+            <path value="ClinicalDocument.code.codeSystem"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="ClinicalDocument.title">
             <path value="ClinicalDocument.title"/>
@@ -542,8 +544,11 @@
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication"/>
-            <comment value="This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)."/>
+            <short value="(USCDI) Preferred Language"/>
             <constraint>
                 <key value="should-proficiencyLevelCode"/>
                 <severity value="warning"/>
@@ -562,6 +567,10 @@
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode"/>
             <min value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/simple-language"/>
+            </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.modeCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.modeCode"/>
@@ -1009,6 +1018,10 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.20"/>
             </binding>
         </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.sdtcTelecom">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.sdtcTelecom"/>
+            <short value="The stdc:telecom extension can be used to provide additional telecom elements for the custodian organization."/>
+        </element>
         <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr">
             <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr"/>
             <comment value="This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5559)."/>
@@ -1252,6 +1265,7 @@
         <element id="ClinicalDocument.participant">
             <path value="ClinicalDocument.participant"/>
             <short value="The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."/>
+            <comment value="SHOULD contain zero or more [0..*] RelatedPerson participant"/>
             <constraint>
                 <key value="4537-10006"/>
                 <severity value="error"/>
@@ -1335,9 +1349,9 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
             <comment value="The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."/>
             <constraint>
-                <key value="should-us-code"/>
+                <key value="should-code-attr"/>
                 <severity value="warning"/>
-                <human value="SHOULD contain code"/>
+                <human value="SHOULD contain @code"/>
                 <expression value="code.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
             </constraint>

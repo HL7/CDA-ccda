@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.69:2022-06-01"/>
     </identifier>
     <version value="2022-06-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="An assessment scale is a collection of observations that together can yield a calculated or non-calculated summary evaluation of a one or more conditions. Examples include the Braden Scale (assesses pressure ulcer risk), APACHE Score (estimates mortality in critically ill patients), Mini-Mental Status Exam (assesses cognitive function), APGAR Score (assesses the health of a newborn), Glasgow Coma Scale (assesses coma and impaired consciousness), and WE CARE (Well Child Care, Evaluation, Community Resources, Advocacy, Referral, Education - a clinic-based screening and referral system developed for pediatric settings).&#xA;&#xA;When an Assessment Scale Observation is contained in a Problem Observation, a Social History Observation or a Procedure instance that is Social Determinant of Health focused, that Assessment scale **MAY** contain assessment scale observations that represent question and answer pairs from SDOH screening instruments that are represented in LOINC. Note that guidance on the use of LOINC in assessment scales already exists in Assessment Scale Observation constraints and Assessment Scale Supporting Observations constraints.&#xA;&#xA;Observation value is intended to hold the calculated score, if a calculated score exists in the originating questionaire or scale from the contained Assessment Scale Observations, and the associated answer integer will be at observation.value.translationCode, if present."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -100,6 +96,16 @@
         <element id="Observation.code">
             <path value="Observation.code"/>
             <comment value="SHALL contain exactly one [1..1] code, which SHALL be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) DYNAMIC (CONF:4515-14439)."/>
+            <binding>
+                <strength value="example"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-ObservationType"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueAet/2.16.840.1.113762.1.4.1247.206"/>
+                    <documentation value="If the Assessment Scale Observation is a Social Determinant of Health Assessment, the observation code **SHOULD** be selected from ValueSet [Social Determinant of Health Assessments and Questions](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.206/expansion)."/>
+                    <shortDoco value="For Social Determinant of Health Assessments"/>
+                </additional>
+            </binding>
         </element>
         <element id="Observation.derivationExpr">
             <path value="Observation.derivationExpr"/>
@@ -138,6 +144,9 @@
             <min value="1"/>
         </element>
         <element id="Observation.value">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.value"/>
             <short value="Intended to hold the calculated score, if a calculated score exists in the originating questionaire or scale from the contained Assessment Scale Observations, and the associated answer integer will be at observation.value.translationCode, if present"/>
             <comment value="SHALL contain exactly one [1..1] value (CONF:4515-14450)."/>
@@ -171,19 +180,19 @@
             </slicing>
             <comment value="SHOULD contain zero or more [0..*] entryRelationship (CONF:4515-14451) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:supportingObs">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="supportingObs"/>
             <short value="entryRelationship"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:supportingObs.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CONF:4515-16741)."/>
             <fixedCode value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.observation">
+        <element id="Observation.entryRelationship:supportingObs.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Assessment Scale Supporting Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.86) (CONF:4515-16742)."/>
             <min value="1"/>

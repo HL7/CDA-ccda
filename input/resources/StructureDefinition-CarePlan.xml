@@ -22,19 +22,15 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.15:2024-05-01"/>
     </identifier>
     <version value="2024-05-01"/>
     <name value="CarePlan"/>
     <title value="Care Plan"/>
     <status value="active"/>
-    <description value="A Care Plan is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):&#xA;There are 2 required sections:&#xA;*    Health Concerns&#xA;*    Goals&#xA;&#xA;There are 2 optional sections:&#xA;*    Activities&#xA;*    Outcomes&#xA;	Provides the ability to identify patient and provider priorities with each act&#xA;	Provides a header participant to indicate occurrences of Care Plan review&#xA;&#xA;A care plan document can include entry references from the information in these sections to the information (entries) in other sections."/>
+    <description value="A Care Plan is a consensus-driven dynamic plan that represents a patient's and Care Team Member's prioritized concerns, goals, and planned interventions. It serves as a blueprint shared by all Care Team Members (including the patient, their caregivers and providers), to guide the patient'ss care. A Care Plan integrates multiple interventions proposed by multiple providers and disciplines for multiple conditions.&#xA;&#xA;A Care Plan represents one or more Plan(s) of Care and serves to reconcile and resolve conflicts between the various Plans of Care developed for a specific patient by different providers. While both a plan of care and a care plan include the patients life goals and require Care Team Members (including patients) to prioritize goals and interventions, the reconciliation process becomes more complex as the number of plans of care increases. The Care Plan also serves to enable longitudinal coordination of care.&#xA;&#xA;The CDA Care Plan represents an instance of this dynamic Care Plan at a point in time. The CDA document itself is NOT dynamic.&#xA;&#xA;Key differentiators between a Care Plan CDA and CCD (another snapshot in time document):&#xA;* There are 2 required sections:&#xA;** Health Concerns&#xA;** Goals&#xA;* There are 2 optional sections:&#xA;** Activities&#xA;** Outcomes&#xA;* Provides the ability to identify patient and provider priorities with each act&#xA;* Provides a header participant to indicate occurrences of Care Plan review&#xA;&#xA;A care plan document can include entry references from the information in these sections to the information (entries) in other sections.&#xA;&#xA;#### Document Sections&#xA;Although document templates may contain any section, the following sections are specifically called out by this template:&#xA;&#xA;**Required Sections**&#xA;- [HealthConcernsSection](StructureDefinition-HealthConcernsSection.html)&#xA;- [GoalsSection](StructureDefinition-GoalsSection.html)&#xA;&#xA;**Recommended Sections**&#xA;- [HealthStatusEvaluationsandOutcomesSection](StructureDefinition-HealthStatusEvaluationsandOutcomesSection.html)&#xA;&#xA;**Additional Sections**&#xA;- [ActivitiesSection](StructureDefinition-ActivitiesSection.html)&#xA;- [AdvanceDirectivesSection](StructureDefinition-AdvanceDirectivesSection.html)"/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
@@ -94,15 +90,6 @@
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-28745)."/>
-        </element>
-        <element id="ClinicalDocument.code.nullFlavor">
-            <path value="ClinicalDocument.code.nullFlavor"/>
-            <max value="0"/>
-        </element>
-        <element id="ClinicalDocument.code.code">
-            <path value="ClinicalDocument.code.code"/>
-            <min value="1"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.10"/>
@@ -252,41 +239,41 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="ClinicalDocument.participant:participant1">
+        <element id="ClinicalDocument.participant:verifier">
             <path value="ClinicalDocument.participant"/>
-            <sliceName value="participant1"/>
+            <sliceName value="verifier"/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-31677) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.typeCode">
+        <element id="ClinicalDocument.participant:verifier.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;VRF&quot; Verifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31678)."/>
             <fixedCode value="VRF"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.functionCode">
+        <element id="ClinicalDocument.participant:verifier.functionCode">
             <path value="ClinicalDocument.participant.functionCode"/>
             <comment value="SHALL contain exactly one [1..1] functionCode (CONF:1198-31679)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.functionCode.code">
+        <element id="ClinicalDocument.participant:verifier.functionCode.code">
             <path value="ClinicalDocument.participant.functionCode.code"/>
             <comment value="This functionCode SHALL contain exactly one [1..1] @code=&quot;425268008&quot; Review of Care Plan (CONF:1198-31680)."/>
             <min value="1"/>
             <patternCode value="425268008"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.functionCode.codeSystem">
+        <element id="ClinicalDocument.participant:verifier.functionCode.codeSystem">
             <path value="ClinicalDocument.participant.functionCode.codeSystem"/>
             <comment value="This functionCode SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-31681)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.time">
+        <element id="ClinicalDocument.participant:verifier.time">
             <path value="ClinicalDocument.participant.time"/>
             <comment value="SHALL contain exactly one [1..1] time (CONF:1198-31682)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity">
+        <element id="ClinicalDocument.participant:verifier.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31683)."/>
             <constraint>
@@ -297,21 +284,21 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.classCode">
+        <element id="ClinicalDocument.participant:verifier.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode=&quot;ASSIGNED&quot; (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110) (CONF:1198-31686)."/>
             <fixedCode value="ASSIGNED"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.id">
+        <element id="ClinicalDocument.participant:verifier.associatedEntity.id">
             <path value="ClinicalDocument.participant.associatedEntity.id"/>
             <comment value="This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31684)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.code">
+        <element id="ClinicalDocument.participant:verifier.associatedEntity.code">
             <path value="ClinicalDocument.participant.associatedEntity.code"/>
             <comment value="This associatedEntity SHOULD contain zero or one [0..1] code (CONF:1198-31685)."/>
         </element>
-        <element id="ClinicalDocument.participant:participant1.associatedEntity.code.code">
+        <element id="ClinicalDocument.participant:verifier.associatedEntity.code.code">
             <path value="ClinicalDocument.participant.associatedEntity.code.code"/>
             <comment value="The code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-32367)."/>
             <binding>
@@ -319,23 +306,23 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.participant:participant2">
+        <element id="ClinicalDocument.participant:indirect">
             <path value="ClinicalDocument.participant"/>
-            <sliceName value="participant2"/>
+            <sliceName value="indirect"/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-31895) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.typeCode">
+        <element id="ClinicalDocument.participant:indirect.typeCode">
             <path value="ClinicalDocument.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;IND&quot; Indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31896)."/>
             <fixedCode value="IND"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity">
             <path value="ClinicalDocument.participant.associatedEntity"/>
             <comment value="SHALL contain exactly one [1..1] associatedEntity (CONF:1198-31897)."/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.classCode">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.classCode">
             <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] @classCode, which SHALL be selected from ValueSet INDRoleclassCodes urn:oid:2.16.840.1.113883.11.20.9.33 STATIC (CONF:1198-31898)."/>
             <binding>
@@ -343,12 +330,12 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33"/>
             </binding>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.associatedPerson">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
             <comment value="This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31899)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.participant:participant2.associatedEntity.associatedPerson.name">
+        <element id="ClinicalDocument.participant:indirect.associatedEntity.associatedPerson.name">
             <path value="ClinicalDocument.participant.associatedEntity.associatedPerson.name"/>
             <comment value="This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31900)."/>
             <min value="1"/>
@@ -365,57 +352,58 @@
             <short value="The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1">
+        <element id="ClinicalDocument.documentationOf:care-provision">
             <path value="ClinicalDocument.documentationOf"/>
-            <sliceName value="documentationOf1"/>
+            <sliceName value="care-provision"/>
             <comment value="SHALL contain exactly one [1..1] documentationOf (CONF:1198-31901) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
             <short value="The serviceEvent describes the provision of healthcare over a period of time. The duration over which care was provided is indicated in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range)."/>
             <comment value="SHALL contain exactly one [1..1] serviceEvent (CONF:1198-31902)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.classCode">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.classCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.classCode"/>
             <comment value="This serviceEvent SHALL contain exactly one [1..1] @classCode=&quot;PCPR&quot; Care Provision (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31903)."/>
+            <min value="1"/>
             <fixedCode value="PCPR"/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.effectiveTime">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
             <comment value="This serviceEvent SHALL contain exactly one [1..1] effectiveTime (CONF:1198-31904)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime.low">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.effectiveTime.low">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.effectiveTime.high">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.effectiveTime.high">
             <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high"/>
             <comment value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-32331)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.performer">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.performer.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
             <comment value="SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31907)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity.id">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.performer.assignedEntity.id">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
             <comment value="This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-31908)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity.code">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.performer.assignedEntity.code">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
             <comment value="This assignedEntity MAY contain zero or one [0..1] code (CONF:1198-31909)."/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity.assignedPerson">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.performer.assignedEntity.assignedPerson">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson"/>
             <comment value="This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-32328)."/>
             <min value="1"/>
         </element>
-        <element id="ClinicalDocument.documentationOf:documentationOf1.serviceEvent.performer.assignedEntity.assignedPerson.name">
+        <element id="ClinicalDocument.documentationOf:care-provision.serviceEvent.performer.assignedEntity.assignedPerson.name">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.name"/>
             <comment value="This assignedPerson SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32329)."/>
             <min value="1"/>
@@ -514,29 +502,28 @@
             </slicing>
             <min value="2"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component1">
+        <element id="ClinicalDocument.component.structuredBody.component:healthConcerns">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component1"/>
+            <sliceName value="healthConcerns"/>
             <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component1.section">
+        <element id="ClinicalDocument.component.structuredBody.component:healthConcerns.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
-            <comment value="This component SHALL contain exactly one [1..1] Health Concerns Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.58:2024-05-01) (CONF:1198-28756)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthConcernsSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component2">
+        <element id="ClinicalDocument.component.structuredBody.component:goals">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component2"/>
+            <sliceName value="goals"/>
             <comment value="This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28761) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component2.section">
+        <element id="ClinicalDocument.component.structuredBody.component:goals.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Goals Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.60) (CONF:1198-28762)."/>
             <type>
@@ -544,14 +531,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalsSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component3">
+        <element id="ClinicalDocument.component.structuredBody.component:activities">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component3"/>
+            <sliceName value="activities"/>
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28763) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component3.section">
+        <element id="ClinicalDocument.component.structuredBody.component:activities.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Activities Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2024-05-01) (CONF:1198-28764)."/>
             <type>
@@ -559,14 +546,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ActivitiesSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component4">
+        <element id="ClinicalDocument.component.structuredBody.component:healthStatusEvalOutcm">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component4"/>
+            <sliceName value="healthStatusEvalOutcm"/>
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component4.section">
+        <element id="ClinicalDocument.component.structuredBody.component:healthStatusEvalOutcm.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Health Status Evaluations and Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."/>
             <type>
@@ -574,14 +561,14 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component5">
+        <element id="ClinicalDocument.component.structuredBody.component:advDirectives">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="component5"/>
+            <sliceName value="advDirectives"/>
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:component5.section">
+        <element id="ClinicalDocument.component.structuredBody.component:advDirectives.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."/>
             <type>

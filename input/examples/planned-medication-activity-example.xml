@@ -1,41 +1,45 @@
-<substanceAdministration moodCode="INT" classCode="SBADM" xmlns="urn:hl7-org:v3">
+<substanceAdministration moodCode="INT" classCode="SBADM" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <templateId root="2.16.840.1.113883.10.20.22.4.42" extension="2014-06-09" />
   <!-- Planned Medication Activity-->
   <id root="cdbd33f0-6cde-11db-9fe1-0800200c9a66" />
-  <text>Heparin 0.25 ml Prefilled Syringe</text>
+  <text>Heparin 0.5 ml Prefilled Syringe
+    <reference value="#med1" />
+  </text>
   <statusCode code="active" />
   <!-- The effectiveTime in a planned medication activity 
     represents the time that the medication activity should occur. -->
-  <effectiveTime value="20130905" />
+  <effectiveTime xsi:type="IVL_TS">
+    <low value="20130905" />
+    <high value="20131005" />
+  </effectiveTime>
   <consumable>
     <manufacturedProduct classCode="MANU">
-      <!-- Medication Information -->
-      ...
-    
+      <templateId root="2.16.840.1.113883.10.20.22.4.23" extension="2014-06-09" />
+      <manufacturedMaterial>
+        <code code="1658634" codeSystem="2.16.840.1.113883.6.88" displayName="0.5 ML heparin sodium, porcine 10000 UNT/ML Injection" />
+      </manufacturedMaterial>
     </manufacturedProduct>
   </consumable>
-  <entryRelationship typeCode="REFR">
-    <observation classCode="OBS" moodCode="EVN">
-      <!-- Patient Priority Preference-->
-      ...
-    
-    </observation>
-  </entryRelationship>
-  <entryRelationship typeCode="REFR">
-    <observation classCode="OBS" moodCode="EVN">
-      <!-- Provider Priority Preference-->
-      ...
-    
-    </observation>
-  </entryRelationship>
-  <entryRelationship typeCode="RSON">
-    <!-- Indication -->
-    ...
-  
-  </entryRelationship>
-  <entryRelationship typeCode="SUBJ">
-    <!-- Instruction -->
-    ...
-  
-  </entryRelationship>
+  <author typeCode="AUT">
+    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+    <time value="199803161030-0800" />
+    <assignedAuthor>
+      <id extension="555555555" root="1.1.1.1.1.1.1.2" />
+      <addr use="HP">
+        <streetAddressLine>2222 Home Street</streetAddressLine>
+        <city>Beaverton</city>
+        <state>OR</state>
+        <postalCode>97867</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom value="tel:+1(555)555-2003" use="HP"/>
+      <assignedPerson>
+        <name>
+          <given>Nurse</given>
+          <family>Nightingale</family>
+          <suffix>RN</suffix>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
 </substanceAdministration>

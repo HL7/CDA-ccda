@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2024-05-01"/>
     </identifier>
     <version value="2024-05-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the &quot;biologically relevant time&quot; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago. &#xA;&#xA;The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is inactive. If the problem is known to be resolved, in remission, or otherwise inactive, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -113,7 +109,7 @@
             <path value="Observation.code"/>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.1"/>
+                <valueSet value="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.1"/>
             </binding>
         </element>
         <element id="Observation.text">
@@ -162,7 +158,11 @@
             <comment value="This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-15604)."/>
         </element>
         <element id="Observation.value">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.value"/>
+            <short value="(USCDI) SDOH Problems/Health Concerns"/>
             <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet US Core Condition Codes."/>
             <min value="1"/>
             <max value="1"/>
@@ -208,6 +208,10 @@
                 <discriminator>
                     <type value="profile"/>
                     <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="act"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>

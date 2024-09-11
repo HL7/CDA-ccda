@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistorySection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.17:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header. Mental/behavioral health assessments such as PHQ-9 (Patient Health Questionnaire-9) for depression screening are captured in the Mental Status section."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -46,8 +42,8 @@
             <constraint>
                 <key value="should-smoking-status"/>
                 <severity value="warning"/>
-                <human value="SHOULD contain Smoking Status - Meaningful Use"/>
-                <expression value="entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse'))"/>
+                <human value="SHOULD contain Smoking Status"/>
+                <expression value="entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistorySection"/>
             </constraint>
         </element>
@@ -84,7 +80,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="Social History"/>
+            <short value="Social history Narrative"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">
@@ -156,27 +152,11 @@
         </element>
         <element id="Section.entry:smokingStatus.observation">
             <path value="Section.entry.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:1198-14824)."/>
+            <comment value="SHALL contain exactly one [1..1] Smoking Status(identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.511:2024-05-01) (CONF:1198-14824)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse"/>
-            </type>
-        </element>
-        <element id="Section.entry:tobaccoUse">
-            <path value="Section.entry"/>
-            <sliceName value="tobaccoUse"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1198-16816) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:tobaccoUse.observation">
-            <path value="Section.entry.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:1198-16817)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
             </type>
         </element>
         <element id="Section.entry:caregiver">

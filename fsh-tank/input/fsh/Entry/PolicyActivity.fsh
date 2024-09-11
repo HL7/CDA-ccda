@@ -27,16 +27,14 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19109)."
-* obeys should-effectiveTime
-* effectiveTime ^short = "This records the policy coverage period, or self-pay period."
 * performer ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "templateId.root"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
 * performer contains
-    performer1 1..1 and
-    performer2 0..*
-* performer[performer1] ^short = "This performer represents the Payer."
+    payer 1..1 and
+    guarantor 0..*
+* performer[payer] ^short = "This performer represents the Payer."
   * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4537-8906) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)
@@ -66,7 +64,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * obeys should-name
       * name 0..1
         * ^comment = "The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)." // auto-should
-* performer[performer2] ^short = "This performer represents the Guarantor."
+* performer[guarantor] ^short = "This performer represents the Guarantor."
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
   * typeCode 1..1
   * typeCode = #PRF (exactly)    
@@ -118,6 +116,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * extension 0..0
   * obeys should-time
   * time 0..1
+    * ^short = "This records the policy coverage period or self-pay period."
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8918)." // auto-should
     * obeys should-low
     * low 0..1
@@ -188,6 +187,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * act 1..1
   * act only AuthorizationActivity
     * moodCode = #EVN (exactly) // Copied from AuthorizationActivity
+      * ^short = "EVN" // Keep this, so act.moodCode remains in SD (needed for schematron)
 * entryRelationship[plan] ^short = "Represents the Coverage Plan"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -209,4 +209,4 @@ Expression: "assignedPerson.name.exists() or representedOrganization.name.exists
 Invariant: 4537-17139
 Description: "When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139)."
 Severity: #error
-Expression: "participant.where(typeCode='COV').participantRole.code.where(code = 'SELF') implies participant.where(typeCode='HLD').empty()"
+Expression: "participant.where(typeCode='COV').participantRole.code.where(code = 'SELF').exists() implies participant.where(typeCode='HLD').empty()"

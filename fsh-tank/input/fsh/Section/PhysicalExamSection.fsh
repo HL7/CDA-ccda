@@ -10,7 +10,7 @@ The exam may be limited to pertinent body systems based on the patient's chief c
 
 The Physical Exam Section may contain multiple nested subsections."""
 
-* insert Section(#29545-1, Physical Findings, 2.16.840.1.113883.10.20.2.10, 2015-08-01)
+* insert Section(#29545-1, Physical findings Narrative, 2.16.840.1.113883.10.20.2.10, 2015-08-01)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open

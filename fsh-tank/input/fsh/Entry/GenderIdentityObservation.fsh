@@ -20,6 +20,7 @@ This observation is not appropriate for recording patient gender (administrative
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-1231)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-1222)."
+  * ^short = "Gender Identity"
   * code 1..1
   * code = #76691-5
     * ^comment = "This code SHALL contain exactly one [1..1] @code=\"76691-5\" Gender identity (CONF:4537-1227)."

@@ -1,19 +1,23 @@
 ### How To Read Consolidated CDA Implementation Guide
-The following document provides guidance to readers of the Consolidated CDA Implementation Guide published using HL7 Structure Definition.  With the switch to representing C-CDA templates using Structure Definitions, the presentation of the templates is different.  Although all the same content is present, it can be found in different places and in different formats.  This guide highlights where all template content can be found.
+The following document provides guidance to readers of the Consolidated CDA Implementation Guide published using HL7 Structure Definition.  With the switch to representing C-CDA templates using StructureDefinition, the presentation of the templates is different.  Although all the same content is present, it can be found in different places and in different formats.  This guide highlights where all template content can be found.
 
 The Artifact Index/Summary page presents the templates that had been previously located in Volume 2.  The Artifact Summary page lists the Document Templates, the Section Templates, the Entry Templates, and the Other Templates.  As well, there is a listing of all the Examples found in the guide.
 
+<<<<<<< HEAD
 C-CDA Templates are represented as Resource Profiles in the Implementation Guide.  For the rest of this document, we will use Templates to refer to what is published in the original specification and Profiles to refer to what is published in the new web publication.  There are several different ways of viewing a Resource Profile.  The most useful tab is the Differential Table, but the Text Summary does provide some information and the Snapshot Table presents all the elements present in the template.
+=======
+C-CDA Templates are represented as Resource Profiles in the Implementation Guide.  For the rest of this page, we will use Templates to refer to what is published in the original specification and Resource Profiles to refer to what is published in the new web publication.  There are several different ways of viewing a Resource Profile.  The most useful tab is the Key Elements Table, but the Differential Table does provide some information and the Snapshot Table presents all the elements present in the template/profile.  The Statistics/References tab shows a summary of elements in the profile and a list of templates that are used by the template.
+>>>>>>> master
 
 {::options parse_block_html="false" /}
 <figure>
   <img style="padding-top:0;padding-bottom:0px" src="resource_profile_info_tabs.png"/>
-  <figcaption>Figure 1 - Resource Profile Information Tabs</figcaption>
+  <figcaption>Figure 1 - Formal Views of Template Content</figcaption>
 </figure>
 {::options parse_block_html="true" /}
  
 #### Template Differentials
-All the Resource Profiles inherit from either a CDA Clinical Statement structure or from another Resource Profile.  The Differential Table shows the difference from what the Profile inherits from.  This will result in a few times where a Profile shows slightly different content from its corresponding Template.  For those instances, looking at the Snapshot Table will show all of the constraints including those inherited from the parent Profile.
+All the Resource Profiles inherit from either a CDA Clinical Statement structure or from another Resource Profile.  The Key Elements Table tab shows all of the changes from the base CDA structure including any changes from a parent Template.  The Differential Table shows *only* the differences between a Template and the parent Template.  See the [Allergy-Intolerance Observation template](StructureDefinition-AllergyIntoleranceObservation.html) for an example of the difference between the two tabs.  To see everything that is specified in a template, looking at the Snapshot Table will show all of the elements.
 
 #### Template Identifier
 The Template Identifier is listed as another identifier of the template.
@@ -56,7 +60,7 @@ The Contained templates:
 </figure>
 {::options parse_block_html="true" /}
 
-are listed in the Text Summary tab under the Structures heading:
+are listed in the Statistics/References tab under the Structures heading:
  
 {::options parse_block_html="false" /}
 <figure>
@@ -65,10 +69,17 @@ are listed in the Text Summary tab under the Structures heading:
 </figure>
 {::options parse_block_html="true" /}
 
+<<<<<<< HEAD
 NOTE: The indication of optional or required for contained by and contains is not present in the corresponding template.  This can be seen in Figure 7 where the three templates have “(optional)” while the templates in Figure 8 do not.  This means that sometimes a template may be listed twice in the Contained By or Contains in the pdf publication, (once as required and once as optional) but will only be listed once in the corresponding template documentation.
 
 #### Template Constraints
 All the template constraints can be found in two equivalent places in the template listing.  The Differential Table tab presents constraints as they affect the underlying structure (Document, Section, Entry, or Other).  Cardinality constraints, fixed value constraints, template constraints, and terminology constraints will all be found in the Differential Table.  Some of the text constraints that affect a specific element can also be found in the Differential Table.
+=======
+NOTE: The indication of optional or required for contained by and contains is not present in the corresponding profile.  This can be seen in Figure 5 where the three templates have “(optional)” while the profiles in Figure 6 do not.  This means that sometimes a template may be listed twice in the Contained By or Contains in the pdf publication, (once as required and once as optional) but will only be listed once in the corresponding profile documentation.
+
+#### Template Constraints
+All the template constraints can be found in two equivalent places in the profile listing.  The Key Elements Table tab presents constraints as they affect the underlying structure (Document, Section, Entry, or Other).  Cardinality constraints, fixed value constraints, template constraints, and terminology constraints will all be found in the Differential Table.  Some of the text constraints that affect a specific element can also be found in the Key Elements Table.
+>>>>>>> master
  
 {::options parse_block_html="false" /}
 <figure>
@@ -81,7 +92,7 @@ All the template constraints can be found in two equivalent places in the templa
 {::options parse_block_html="false" /}
 <figure>
   <img style="padding-top:0;padding-bottom:0px" src="sample_profile_differential.png"/>
-  <figcaption>Figure 8 - Sample Profile Differential Tab</figcaption>
+  <figcaption>Figure 8 - Sample Profile Key Elements Tab</figcaption>
 </figure>
 {::options parse_block_html="true" /}
 
@@ -147,6 +158,9 @@ If a template has examples, those will be found listed on the Examples tab of th
 </figure>
 {::options parse_block_html="true" /}
 
+#### Template Versioning
+In previous releases of the C-CDA guide, templates were versioned in two ways.  The template templateId would receive a new extension and the name of the template would have "(Vn)" appended to it.  With this release of the C-CDA guide, only the templateId extensions will change.  The names will remain consistent from one release to another and will no longer have "(Vn)" appended to it.  Any templates that did have the Vn in their name have had it removed.
+
 #### Providing Feedback
 Feedback on the C-CDA Structured Definition web publication can be made by clicking the “Propose a change” at the bottom of every page.
  
@@ -157,6 +171,4 @@ Feedback on the C-CDA Structured Definition web publication can be made by click
 </figure>
 {::options parse_block_html="true" /}
 
-Following that link will take the reader to the HL7 JIRA.  On the JIRA, clicking on the Create button will allow one to create an issue against the HL7 Software Change Request project.  The component should be set to “C-CDA Templates Clinical Notes”.  A clear summary and description of the issue should be submitted.
-
-Feedback on this document can also be submitted by navigating to the HL7 JIRA and creating an issue.  Refer to the “How to Read” document in the issue description.
+Following that link will take the reader to the HL7 JIRA.  On JIRA, clicking on the Create button will allow one to create an issue against the HL7 Software Change Request project.  The component should be set to “C-CDA Templates Clinical Notes”.  A clear summary and description of the issue should be submitted.

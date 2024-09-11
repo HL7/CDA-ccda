@@ -24,7 +24,10 @@ Description: "This template defines constraints that represent common administra
   * ^comment = "SHALL contain exactly one [1..1] id (CONF:4537-5363)."
 * code 1..1
   * ^short = "**SHALL** specify the particular kind of document (e.g., History and Physical, Discharge Summary, Progress Note) (CONF:4537-9992)."
-  * obeys 4537-32948
+  * code 1..1
+  * codeSystem 1..1
+  * codeSystem = "2.16.840.1.113883.6.1"
+  * nullFlavor 0..0
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-5253)."
 * title 1..1
   * ^short = "The title can either be a locally defined name or the displayName corresponding to clinicalDocument/code"
@@ -135,9 +138,9 @@ Description: "This template defines constraints that represent common administra
             * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
       * obeys should-us-languageCommunication
       * languageCommunication 0..*
-        * ^comment = "This patient SHOULD contain zero or more [0..*] languageCommunication which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC (CONF:XXX)." // man-should
+        * insert USCDI([[Preferred Language]])
         * languageCode 1..1
-        * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
+        * languageCode from http://hl7.org/fhir/us/core/ValueSet/simple-language (required)
         * modeCode 0..1
         * modeCode from LanguageAbilityMode (required)
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:4537-5409)."
@@ -300,6 +303,7 @@ Description: "This template defines constraints that represent common administra
         * use 0..1
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7998)." // man-should
+      * sdtcTelecom ^short = "The stdc:telecom extension can be used to provide additional telecom elements for the custodian organization."
       * addr 1..1
       * addr only USRealmAddress
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5559)."
@@ -399,9 +403,8 @@ Description: "This template defines constraints that represent common administra
 * obeys should-relatedParticipant
 * participant 0..*
   * obeys 4537-10006 and 4537-10007
-  //"<slicing><rules value=\"open\" /></slicing>"
-  //"<comment value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" /></element><element id=\"ClinicalDocument.participant:participant1\"><path value=\"ClinicalDocument.participant\" /><sliceName value=\"participant1\" /><short value=\"participant\" /><definition value=\"MAY contain zero or more [0..*] participant (CONF:4537-10003) such that it\" />"
   * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
+  * ^comment = "SHOULD contain zero or more [0..*] RelatedPerson participant"
   * time only USRealmDateTimeInterval
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
 * inFulfillmentOf 0..*
@@ -430,7 +433,7 @@ Description: "This template defines constraints that represent common administra
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
       * functionCode 0..1
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
-        * obeys should-us-code
+        * obeys should-code-attr
         * code 0..1
         * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
           * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)." // man-should
@@ -480,11 +483,6 @@ Description: "This template defines constraints that represent common administra
       * assignedEntity 1..1
         * obeys 1198-32905
         * ^comment = "The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."
-
-Invariant: 4537-32948
-Description: "This code **SHALL** be drawn from the LOINC document type ontology (LOINC codes where SCALE = DOC) (CONF:4537-32948)."
-Severity: #error
-Expression: "codeSystem = '2.16.840.1.113883.6.1'"
 
 Invariant: 4537-6380
 Description: "If setId is present versionNumber **SHALL** be present (CONF:4537-6380)."

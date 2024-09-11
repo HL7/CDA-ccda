@@ -22,19 +22,15 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/TreatmentInterventionPreference"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.510:2024-05-01"/>
     </identifier>
     <version value="2024-05-01"/>
     <name value="TreatmentInterventionPreference"/>
     <title value="Treatment Intervention Preference"/>
     <status value="draft"/>
-    <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is required to represent the situation when a person would prefer the stated intervention preferences.&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
+    <description value="This Treatment Intervention Preference template represents personal health goals, preferences, and priorities for medical treatments or interventions in the event of a future health scenario where a person is unable to make medical decisions because of a serious illness or injury. This does not represent actual orders or formal advance directives, but holds observations about wishes. These observations may inform the placement of future orders or creation of advance directives. While observation.code is encoded to support system queries, the answers represented at observation.value are likley to be text. Precondition.Criterion is recommended to represent the situation when a person would prefer the stated intervention preferences.&#xA;This template may be used directly in any section, such as Care Plan Document Sections, Social History, or Advance Directives, and may be used inside any entry such as Procedure or Medication Activity."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -48,6 +44,13 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain text/reference/@value"/>
                 <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TreatmentInterventionPreference"/>
+            </constraint>
+            <constraint>
+                <key value="should-sdtcPrecondition2"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain sdtc:Precondition2"/>
+                <expression value="sdtcPrecondition2.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TreatmentInterventionPreference"/>
             </constraint>
         </element>
@@ -100,7 +103,7 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <short value="Goals, preferences, and priorities for medical treatment"/>
+            <short value="Goals, preferences, and priorities for medical treatment [Reported]"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
@@ -141,12 +144,13 @@
         </element>
         <element id="Observation.sdtcPrecondition2">
             <path value="Observation.sdtcPrecondition2"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.sdtcPrecondition2.criterion">
-            <path value="Observation.sdtcPrecondition2.criterion"/>
-            <min value="1"/>
+            <constraint>
+                <key value="should-criterion"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain criterion"/>
+                <expression value="criterion.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TreatmentInterventionPreference"/>
+            </constraint>
         </element>
         <element id="Observation.sdtcPrecondition2.criterion.code">
             <path value="Observation.sdtcPrecondition2.criterion.code"/>

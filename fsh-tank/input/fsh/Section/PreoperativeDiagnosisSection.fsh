@@ -4,7 +4,7 @@ Id: PreoperativeDiagnosisSection
 Title: "Preoperative Diagnosis Section"
 Description: "The Preoperative Diagnosis Section records the surgical diagnoses assigned to the patient before the surgical procedure which are the reason for the surgery. The preoperative diagnosis is, in the surgeon's opinion, the diagnosis that will be confirmed during surgery."
 
-* insert Section(#10219-4, Preoperative Diagnosis, 2.16.840.1.113883.10.20.22.2.34, 2015-08-01)
+* insert Section(#10219-4, Surgical operation note preoperative diagnosis Narrative, 2.16.840.1.113883.10.20.22.2.34, 2015-08-01)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open

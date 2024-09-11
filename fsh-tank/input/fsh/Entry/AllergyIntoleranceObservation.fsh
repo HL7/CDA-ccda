@@ -15,6 +15,6 @@ The agent responsible for an allergy or adverse reaction is not always a manufac
   * ^comment = "MAY contain zero or one [0..1] @negationInd (CONF:1098-31526)."
 * effectiveTime ^short = "If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'."
 
-* participant[participant1].participantRole.playingEntity
+* participant[consumable].participantRole.playingEntity
   * code from $2.16.840.1.113762.1.4.1186.8 (preferred)
     * insert USCDI([[Substance]])

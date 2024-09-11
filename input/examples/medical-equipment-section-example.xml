@@ -12,15 +12,6 @@
         <item>Biliary Stent, May 5, 2013</item>
       </list>
     </text>
-    <!-- Optional entries 
-    <entry>
-      <organizer classCode="CLUSTER" moodCode="EVN">
-        // Medical Equipment Organizer template
-        <templateId root="2.16.840.1.113883.10.20.22.4.135" />
-                ...
-            
-      </organizer>
-    </entry> -->
     <entry>
       <supply classCode="SPLY" moodCode="EVN">
         <!--// Non-medicinal supply activity template ******* -->
@@ -49,87 +40,5 @@
           </participantRole>
         </participant>
       </supply>
-    </entry>
-    <entry>
-      <procedure classCode="PROC" moodCode="EVN">
-        <!--// Procedure Activity Procedure -->
-        <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2022-06-01" />
-        <id root="d5b614bd-01ce-410d-8726-e1fd01dcc72a" />
-        <code code="103716009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Stent Placement">
-          <originalText>
-            <reference value="#Proc1" />
-          </originalText>
-        </code>
-        <text><reference value="#procedure"/></text>
-        <statusCode code="completed" />
-        <effectiveTime>
-          <low value="20050412130000+0500" />
-          <high value="20130512130000+0500" />
-        </effectiveTime>
-        <targetSiteCode code="28273000" displayName="bile duct" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
-        <specimen typeCode="SPC">
-          <specimenRole classCode="SPEC">
-            <id root="a6d7b927-2b70-43c7-bdf3-0e7c4133062c" />
-            <specimenPlayingEntity>
-              <code code="57259009" codeSystem="2.16.840.1.113883.6.96" displayName="gallbladder bile" />
-            </specimenPlayingEntity>
-          </specimenRole>
-        </specimen>
-        <performer>
-          <assignedEntity>
-            <id root="2.16.840.1.113883.19.5.9999.456" extension="2981824" />
-            <addr use="WP">
-              <streetAddressLine>1007 Health Drive</streetAddressLine>
-              <city>Portland</city>
-              <state>OR</state>
-              <postalCode>99123</postalCode>
-              <country>US</country>
-            </addr>
-            <telecom use="WP" value="tel:+(555)-555-1030" />
-            <assignedPerson>
-              <name>
-                <given>Harold</given>
-                <family>Hippocrates</family>
-              </name>
-            </assignedPerson>
-            <representedOrganization>
-              <id root="2.16.840.1.113883.19.5.9999.1394" />
-              <name>Good Health Clinic</name>
-              <telecom use="WP" value="tel:+(555)-555-1030" />
-              <addr use="WP">
-                <streetAddressLine>1007 Health Drive</streetAddressLine>
-                <city>Portland</city>
-                <state>OR</state>
-                <postalCode>99123</postalCode>
-                <country>US</country>
-              </addr>
-            </representedOrganization>
-          </assignedEntity>
-        </performer>
-        <author typeCode="AUT">
-          <templateId root="2.16.840.1.113883.10.20.22.4.119" />
-          <time value="201209101145-0800" />
-          <assignedAuthor>
-            <id extension="555555555" root="1.1.1.1.1.1.1.2" />
-            <addr use="HP">
-              <!-- HP is "primary home" from codeSystem 2.16.840.1.113883.5.1119 -->
-              <streetAddressLine>2222 Home Street</streetAddressLine>
-              <city>Beaverton</city>
-              <state>OR</state>
-              <postalCode>97867</postalCode>
-              <country>US</country>
-              <!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
-            </addr>
-            <telecom value="tel:+1(555)555-2003" use="HP"/>
-            <assignedPerson>
-              <name>
-                <given>Nurse</given>
-                <family>Nightingale</family>
-                <suffix>RN</suffix>
-              </name>
-            </assignedPerson>
-          </assignedAuthor>
-        </author>
-      </procedure>
     </entry>
 </section>

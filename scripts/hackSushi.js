@@ -25,15 +25,15 @@ fs.readFile(filePath, 'utf8', (err, data) => {
   }
 
   if (!searchString.test(data)) {
-    console.error('Sushi could not be modified for C-CDA. Are you sure the correct version (3.5.0) is installed?');
+    console.error('Sushi could not be modified for C-CDA. Are you sure the correct version (3.8.0) is installed?');
     return;
   }
 
   // Magical expression interpolation (testing)
-  newData = data.replace(new RegExp('expression: invariant.expression'), 'expression: invariant.expression.replace(new RegExp("{%thisSDUrl}"), this.structDef.url)');
+  // newData = data.replace(new RegExp('expression: invariant.expression'), 'expression: invariant.expression.replace(new RegExp("{%thisSDUrl}"), this.structDef.url)');
 
   // Bug with how Sushi reconciles logical-model definitions based on .type instead of .url
-  newData = newData.replace(searchString, 'matchesLogicalType = t2.code && (t2.code === md.sdType || t2.code === md.url);')
+  newData = data.replace(searchString, 'matchesLogicalType = t2.code && (t2.code === md.sdType || t2.code === md.url);')
     .replace(new RegExp(': match.metadata.sdType;'), ": (this.structDef.kind == 'logical' ? match.code : match.metadata.sdType);")
     .replace(/match\.metadata\.sdType &&\n\s+match\.metadata\.sdType === /g, '');
 

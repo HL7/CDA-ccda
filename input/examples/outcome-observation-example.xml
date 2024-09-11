@@ -3,19 +3,40 @@
   <templateId root="2.16.840.1.113883.10.20.22.4.144" />
   <id root="0aaaa123-24e2-46b3-9d49-6b753c712dec" />
   <code code="44616-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Pulse oximetry panel" />
+  <text>
+    <reference value="#goal1" />
+  </text>
   <statusCode code="completed" />
   <effectiveTime value="20130806" />
   <value xsi:type="PQ" value="95" unit="%" />
-  <author>
-        ...
-    </author>
   <!-- This Outcome Observation EVALUATES a Goal 
     (Pulse ox reading of 95 evaluates the goal of Pulse ox reading > 92) -->
   <entryRelationship typeCode="GEVL">
-        ...
-    </entryRelationship>
-  <!-- This Outcome Observation SUPPORTS the Progress Toward Goal Observation -->
-  <entryRelationship typeCode="SPRT" inversionInd="true">
-        ...
-    </entryRelationship>
+    <act classCode="ACT" moodCode="EVN">
+      <!-- Entry reference -->
+      <templateId root="2.16.840.1.113883.10.20.22.4.122" />
+      <!-- Must reference a Goal Observation -->
+      <id root="36700436-475d-4c47-bbac-a14e55fa990b" />
+      <code nullFlavor="NP" />
+      <text>
+        <reference value="#goal1" />
+      </text>
+      <statusCode code="completed" />
+    </act>
+  </entryRelationship>
+
+  <!-- ...Typically elsewhere in the document, the Goal Reference... 
+      If embedded within OutcomeObservation, the above EntryReference template would not be needed-->
+  <entryRelationship typeCode="GEVL">
+    <observation classCode="OBS" moodCode="GOL">
+      <templateId root="2.16.840.1.113883.10.20.22.4.121" extension="2022-06-01" />
+      <id root="36700436-475d-4c47-bbac-a14e55fa990b" />
+      <code nullFlavor="UNK" />
+      <text>
+        <reference value="#goal1" />
+      </text>
+      <statusCode code="completed" />
+      <effectiveTime nullFlavor="UNK" />
+    </observation>
+  </entryRelationship>
 </observation>

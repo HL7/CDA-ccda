@@ -21,6 +21,7 @@ Observation value is intended to hold the calculated score, if a calculated scor
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-14438)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) DYNAMIC (CONF:4515-14439)."
+  * insert AdditionalBinding(preferred, $SDoHAssessmentsAndQuestions, For Social Determinant of Health Assessments, [[If the Assessment Scale Observation is a Social Determinant of Health Assessment, the observation code **SHOULD** be selected from ValueSet [Social Determinant of Health Assessments and Questions](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.206/expansion).]])
 * derivationExpr 0..1
   * ^comment = "MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."
   * ^short = "Such derivation expression can contain a text calculation of how the components total up to the summed score"
@@ -33,6 +34,7 @@ Observation value is intended to hold the calculated score, if a calculated scor
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-14445)."
   * ^short = "Represents clinically effective time of the measurement, which may be when the measurement was performed (e.g., a BP measurement), or may be when sample was taken (and measured some time afterwards)"
 * value 1..1
+  * insert USCDI([[Functional Status, Mental/Cognitive Status, Alcohol Use, Substance Use, Physical Activity, SDOH Assessment]])
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:4515-14450)."
   * ^short = "Intended to hold the calculated score, if a calculated score exists in the originating questionaire or scale from the contained Assessment Scale Observations, and the associated answer integer will be at observation.value.translationCode, if present"
 * interpretationCode 0..*
@@ -47,8 +49,8 @@ Observation value is intended to hold the calculated score, if a calculated scor
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:4515-14451) such that it"
-* entryRelationship contains entryRelationship1 0..*
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+* entryRelationship contains supportingObs 0..*
+* entryRelationship[supportingObs] ^short = "entryRelationship"
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:4515-14451) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)

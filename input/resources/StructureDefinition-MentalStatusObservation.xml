@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.74:2024-05-01"/>
     </identifier>
     <version value="2024-05-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="The Mental Status Observation template represents an observation about mental status that can come from a broad range of subjective and objective information (including measured data) to address those categories described in the Mental Status Section. See also Assessment Scale Observation for specific collections of observations that together yield a summary evaluation of a particular condition."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -106,17 +102,16 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:1198-14591)."/>
+            <short value="Mental Status"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;8693-4&quot; Cognitive function (CONF:1198-32788)."/>
             <min value="1"/>
             <patternCode value="8693-4"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1198-32789)."/>
+            <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
@@ -195,8 +190,12 @@
             </slicing>
         </element>
         <element id="Observation.entryRelationship:assessmentScale">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.entryRelationship"/>
             <sliceName value="assessmentScale"/>
+            <short value="(USCDI) Mental/Cognitive Status"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-14469) such that it"/>
             <min value="0"/>
             <max value="*"/>

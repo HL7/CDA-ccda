@@ -329,6 +329,11 @@ Description: "SHOULD contain code"
 Severity: #warning
 Expression: "code.exists()"
 
+Invariant: should-us-code-attr
+Description: "SHOULD contain @code"
+Severity: #warning
+Expression: "code.exists()"
+
 Invariant: should-us-languageCommunication
 Description: "SHOULD contain languageCommunication"
 Severity: #warning

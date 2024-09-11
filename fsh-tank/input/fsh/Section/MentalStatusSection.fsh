@@ -14,7 +14,7 @@ Description: """The Mental Status Section contains observations and evaluations 
 *  Cognition (e.g., memory, alertness/consciousness, attention, orientation)  which were included in Cognitive Status Observation in earlier publications of C-CDA.
 *  Insight and judgment (e.g., understanding of condition, decision making)"""
 
-* insert Section(#10190-7, Mental Status, 2.16.840.1.113883.10.20.22.2.56, 2015-08-01)
+* insert Section(#10190-7, Mental status Narrative, 2.16.840.1.113883.10.20.22.2.56, 2015-08-01)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "organizer"

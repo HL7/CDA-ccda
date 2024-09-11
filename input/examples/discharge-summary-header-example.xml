@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="CDA.xsl"?>
+<!--
+ Title:        Discharge Summary
+
+ Based on:     C-CDA_R2_Discharge_Summary.xml
+ 
+ Updated for C-CDA R3.0 with a focus on header elements
+  - required/suggested sections are populated with nullFlavor="NI"
+	  to demonstrate WHICH sections should be included, but they
+		all contain "No information" as this is an example of the header
+  
+ ********************************************************
+ Disclaimer: This sample file contains representative data elements to represent a Discharge Summary. 
+ The file depicts a fictional character's health data. Any resemblance to a real person is coincidental. 
+ To illustrate as many data elements as possible, the clinical scenario may not be plausible. 
+ The data in this sample file is not intended to represent real patients, people or clinical events. 
+ This sample is designed to be used in conjunction with the C-CDA Clinical Notes Implementation Guide.
+ ********************************************************
+ -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:cda="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
+	<!-- ** CDA Header ** -->
+	<realmCode code="US"/>
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<!-- US General Header Template -->
+	<templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2024-05-01"/>
+	<!-- *** Note: The next templateId, code and title will differ depending on what type of document is being sent. *** -->
+	<templateId root="2.16.840.1.113883.10.20.22.1.8" extension="2024-05-01"/>
+	<id extension="TT988" root="2.16.840.1.113883.19.5.99999.1"/>
+	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="18842-5" displayName="Discharge summary"/>
+	<title>Community Health and Hospitals: Discharge Summary</title>
+	<effectiveTime value="201409171904+0500"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="en-US"/>
+	<setId extension="sTT988" root="2.16.840.1.113883.19.5.99999.19"/>
+	<versionNumber value="1"/>
+	<recordTarget>
+		<patientRole>
+			<id extension="998991" root="2.16.840.1.113883.19.5.99999.2"/>
+			<!-- Fake ID using HL7 example OID. -->
+			<id extension="111-00-2330" root="2.16.840.1.113883.4.1"/>
+			<!-- Fake Social Security Number using the actual SSN OID. -->
+			<addr use="HP">
+				<!-- HP is "primary home" from codeSystem 2.16.840.1.113883.5.1119 -->
+				<streetAddressLine>1357 Amber Drive</streetAddressLine>
+				<city>Beaverton</city>
+				<state>OR</state>
+				<postalCode>97867</postalCode>
+				<country>US</country>
+				<!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
+			</addr>
+			<telecom value="tel:(816)276-6909" use="HP"/>
+			<!-- HP is "primary home" from HL7 AddressUse 2.16.840.1.113883.5.1119 -->
+			<patient>
+				<name use="L">
+					<!-- L is "Legal" from HL7 EntityNameUse 2.16.840.1.113883.5.45 -->
+					<given>Isabella</given>
+					<family>Jones</family>
+				</name>
+				<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
+				<birthTime value="20050501"/>
+				<maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2" codeSystemName="MaritalStatusCode"/>
+				<religiousAffiliationCode code="1013" displayName="Christian (non-Catholic, non-specific)" codeSystemName="HL7 Religious Affiliation" codeSystem="2.16.840.1.113883.5.1076"/>
+				<raceCode code="2028-9" displayName="Asian" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+				<ethnicGroupCode code="2186-5" displayName="Not Hispanic or Latino" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+				<guardian>
+					<code code="GRPRN" displayName="Grandparent" codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 Role code"/>
+					<addr use="HP">
+						<!-- HP is "primary home" from codeSystem 2.16.840.1.113883.5.1119 -->
+						<streetAddressLine>1357 Amber Drive</streetAddressLine>
+						<city>Beaverton</city>
+						<state>OR</state>
+						<postalCode>97867</postalCode>
+						<country>US</country>
+						<!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
+					</addr>
+					<telecom value="tel:(816)276-6909" use="HP"/>
+					<guardianPerson>
+						<name>
+							<given>Ralph</given>
+							<family>Jones</family>
+						</name>
+					</guardianPerson>
+				</guardian>
+				<birthplace>
+					<place>
+						<addr>
+							<city>Beaverton</city>
+							<state>OR</state>
+							<postalCode>97867</postalCode>
+							<country>US</country>
+						</addr>
+					</place>
+				</birthplace>
+				<languageCommunication>
+					<languageCode code="en"/>
+					<modeCode code="ESP" displayName="Expressed spoken" codeSystem="2.16.840.1.113883.5.60" codeSystemName="LanguageAbilityMode"/>
+					<proficiencyLevelCode code="G" displayName="Good" codeSystem="2.16.840.1.113883.5.61" codeSystemName="LanguageAbilityProficiency"/>
+					<preferenceInd value="true"/>
+				</languageCommunication>
+			</patient>
+			<providerOrganization>
+				<id root="2.16.840.1.113883.19.5.9999.1393"/>
+				<name>Community Health and Hospitals</name>
+				<telecom use="WP" value="tel:555-555-5000"/>
+				<addr use="WP">
+					<streetAddressLine>1001 Village Avenue</streetAddressLine>
+					<city>Portland</city>
+					<state>OR</state>
+					<postalCode>99123</postalCode>
+					<country>US</country>
+				</addr>
+			</providerOrganization>
+		</patientRole>
+	</recordTarget>
+	<author>
+		<time value="201409171904+0500"/>
+		<assignedAuthor>
+			<id extension="99999999" root="2.16.840.1.113883.4.6"/>
+			<code code="200000000X" codeSystem="2.16.840.1.113883.6.101" displayName="Allopathic &amp; Osteopathic Physicians"/>
+			<addr use="WP">
+				<streetAddressLine>1002 Healthcare Drive </streetAddressLine>
+				<city>Portland</city>
+				<state>OR</state>
+				<postalCode>99123</postalCode>
+				<country>US</country>
+			</addr>
+			<telecom use="WP" value="tel:555-555-1002"/>
+			<assignedPerson>
+				<name>
+					<given>Henry</given>
+					<family>Seven</family>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
+	<author>
+		<time value="201409171904+0500"/>
+		<assignedAuthor>
+			<id nullFlavor="NI"/>
+			<addr use="WP">
+				<streetAddressLine>1001 Village Avenue</streetAddressLine>
+				<city>Portland</city>
+				<state>OR</state>
+				<postalCode>99123</postalCode>
+				<country>US</country>
+			</addr>
+			<telecom use="WP" value="tel:+1(555)555-1004"/>
+			<assignedAuthoringDevice>
+				<manufacturerModelName>Generic EHR Clinical System 2.0.0.0.0.0</manufacturerModelName>
+				<softwareName>Generic EHR C-CDA Factory 2.0.0.0.0.0 - C-CDA Transform 2.0.0.0.0</softwareName>
+			</assignedAuthoringDevice>
+			<representedOrganization>
+				<id root="2.16.840.1.113883.19.5.9999.1393"/>
+				<name>Community Health and Hospitals</name>
+				<telecom use="WP" value="tel:555-555-5000"/>
+				<addr>
+					<streetAddressLine>1001 Village Avenue</streetAddressLine>
+					<city>Portland</city>
+					<state>OR</state>
+					<postalCode>99123</postalCode>
+					<country>US</country>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<dataEnterer>
+		<assignedEntity>
+			<id root="2.16.840.1.113883.4.6" extension="999999943252"/>
+			<addr use="WP">
+				<streetAddressLine>1001 Village Avenue</streetAddressLine>
+				<city>Portland</city>
+				<state>OR</state>
+				<postalCode>99123</postalCode>
+				<country>US</country>
+			</addr>
+			<telecom use="WP" value="tel:555-555-1002"/>
+			<assignedPerson>
+				<name>
+					<given>Henry</given>
+					<family>Seven</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</dataEnterer>
+	<informant>
+		<assignedEntity>
+			<id extension="KP00017" root="2.16.840.1.113883.19.5"/>
+			<addr use="WP">
+				<streetAddressLine>1001 Village Avenue</streetAddressLine>
+				<city>Portland</city>
+				<state>OR</state>
+				<postalCode>99123</postalCode>
+				<country>US</country>
+			</addr>
+			<telecom use="WP" value="tel:555-555-1002"/>
+			<assignedPerson>
+				<name>
+					<given>Henry</given>
+					<family>Seven</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</informant>
+	<informant>
+		<relatedEntity classCode="PRS">
+			<!-- classCode PRS represents a person with personal relationship with
+        the patient. -->
+			<code code="SPS" displayName="SPOUSE" codeSystem="2.16.840.1.113883.1.11.19563" codeSystemName="Personal Relationship Role Type Value Set"/>
+			<relatedPerson>
+				<name>
+					<given>Frank</given>
+					<family>Jones</family>
+				</name>
+			</relatedPerson>
+		</relatedEntity>
+	</informant>
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id extension="99999999" root="2.16.840.1.113883.4.6"/>
+				<name>Community Health and Hospitals</name>
+				<telecom value="tel:555-555-1002" use="WP"/>
+				<addr use="WP">
+					<streetAddressLine>1001 Village Avenue</streetAddressLine>
+					<city>Portland</city>
+					<state>OR</state>
+					<postalCode>99123</postalCode>
+					<country>US</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<informationRecipient>
+		<intendedRecipient>
+			<informationRecipient>
+				<name>
+					<given>Henry</given>
+					<family>Seven</family>
+				</name>
+			</informationRecipient>
+			<receivedOrganization>
+				<name>Community Health and Hospitals</name>
+			</receivedOrganization>
+		</intendedRecipient>
+	</informationRecipient>
+	<legalAuthenticator>
+		<time value="201409171904+0500"/>
+		<signatureCode code="S"/>
+		<assignedEntity>
+			<id extension="999999999" root="2.16.840.1.113883.4.6"/>
+			<addr use="WP">
+				<streetAddressLine>1001 Village Avenue</streetAddressLine>
+				<city>Portland</city>
+				<state>OR</state>
+				<postalCode>99123</postalCode>
+				<country>US</country>
+			</addr>
+			<telecom use="WP" value="tel:555-555-1002"/>
+			<assignedPerson>
+				<name>
+					<given>Henry</given>
+					<family>Seven</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</legalAuthenticator>
+	<authenticator>
+		<time value="201409171904+0500"/>
+		<signatureCode code="S"/>
+		<assignedEntity>
+			<id extension="999999999" root="2.16.840.1.113883.4.6"/>
+			<addr use="WP">
+				<streetAddressLine>1001 Village Avenue</streetAddressLine>
+				<city>Portland</city>
+				<state>OR</state>
+				<postalCode>99123</postalCode>
+				<country>US</country>
+			</addr>
+			<telecom use="WP" value="tel:555-555-1002"/>
+			<assignedPerson>
+				<name>
+					<given>Henry</given>
+					<family>Seven</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</authenticator>
+	<participant typeCode="IND">
+		<time xsi:type="IVL_TS">
+			<low value="19890101"/>
+			<high value="20140916"/>
+		</time>
+		<associatedEntity classCode="NOK">
+			<code code="MTH" codeSystem="2.16.840.1.113883.5.111"/>
+			<addr>
+				<streetAddressLine>17 Daws Rd.</streetAddressLine>
+				<city>Beaverton</city>
+				<state>OR</state>
+				<postalCode>97867</postalCode>
+				<country>US</country>
+			</addr>
+			<telecom value="tel:(999)555-1212" use="WP"/>
+			<associatedPerson>
+				<name>
+					<prefix>Mrs.</prefix>
+					<given>Martha</given>
+					<family>Jones</family>
+				</name>
+			</associatedPerson>
+		</associatedEntity>
+	</participant>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="PCPR">
+			<code code="6025007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Laparoscopic appendectomy"/>
+			<effectiveTime>
+				<low value="201409091904+0500"/>
+				<high value="201409161904+0500"/>
+			</effectiveTime>
+			<performer typeCode="PRF">
+				<functionCode code="PP" displayName="Primary Care Provider" codeSystem="2.16.840.1.113883.12.443" codeSystemName="Provider Role">
+					<originalText>Primary Care Provider</originalText>
+				</functionCode>
+				<time>
+					<low value="201409091904+0500"/>
+					<high value="201409161904+0500"/>
+				</time>
+				<assignedEntity>
+					<id extension="PseudoMD-1" root="2.16.840.1.113883.4.6"/>
+						<code code="207RG0100X" displayName="Gastroenterology Physician" codeSystemName="Provider Codes" codeSystem="2.16.840.1.113883.6.101"/>
+						<addr use="WP">
+						<streetAddressLine>1001 Village Avenue</streetAddressLine>
+						<city>Portland</city>
+						<state>OR</state>
+						<postalCode>99123</postalCode>
+						<country>US</country>
+					</addr>
+					<telecom value="tel:+1-555-555-5000" use="WP"/>
+					<assignedPerson>
+						<name>
+							<prefix>Dr.</prefix>
+							<given>Henry</given>
+							<family>Seven</family>
+						</name>
+					</assignedPerson>
+					<representedOrganization>
+						<id root="2.16.840.1.113883.19.5.9999.1393"/>
+						<name>Community Health and Hospitals</name>
+						<telecom value="tel:+1-555-555-5000" use="WP"/>
+						<addr>
+							<streetAddressLine>1001 Village Avenue</streetAddressLine>
+							<city>Portland</city>
+							<state>OR</state>
+							<postalCode>99123</postalCode>
+							<country>US</country>
+						</addr>
+					</representedOrganization>
+				</assignedEntity>
+			</performer>
+			<performer typeCode="PPRF">
+				<functionCode code="PP" displayName="Primary Performer" codeSystem="2.16.840.1.113883.12.443" codeSystemName="Provider Role">
+					<originalText>Primary Care Provider</originalText>
+				</functionCode>
+				<time>
+					<low value="201409091904+0500"/>
+					<high value="201409161904+0500"/>
+				</time>
+				<assignedEntity>
+					<id extension="PseudoMD-3" root="2.16.840.1.113883.4.6"/>
+					<code code="207RG0100X" displayName="Gastroenterology Physician" codeSystemName="Provider Codes" codeSystem="2.16.840.1.113883.6.101"/>
+					<addr use="WP">
+						<streetAddressLine>1001 Village Avenue</streetAddressLine>
+						<city>Portland</city>
+						<state>OR</state>
+						<postalCode>99123</postalCode>
+						<country>US</country>
+					</addr>
+					<telecom value="tel:+1-555-555-5000" use="HP"/>
+					<assignedPerson>
+						<name>
+							<prefix>Dr.</prefix>
+							<given>Herman</given>
+							<family>Eight</family>
+						</name>
+					</assignedPerson>
+					<representedOrganization>
+						<id root="2.16.840.1.113883.19.5.9999.1393"/>
+						<name>Community Health and Hospitals</name>
+						<telecom value="tel:+1-555-555-5000" use="HP"/>
+						<addr use="WP">
+							<streetAddressLine>1001 Village Avenue</streetAddressLine>
+							<city>Portland</city>
+							<state>OR</state>
+							<postalCode>99123</postalCode>
+							<country>US</country>
+						</addr>
+					</representedOrganization>
+				</assignedEntity>
+			</performer>
+		</serviceEvent>
+	</documentationOf>
+	<componentOf>
+		<encompassingEncounter>
+			<id extension="9937012" root="2.16.840.1.113883.19"/>
+			<!-- 
+      <code codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" code="99213" displayName="Evaluation and Management"/>
+      -->
+			<effectiveTime>
+				<!-- This is the admission date of the hospitalization -->
+				<low value="201409091904+0500"/>
+				<!-- This is the discharge date of the hospitalization -->
+				<high value="201409161904+0500"/>
+			</effectiveTime>
+			<dischargeDispositionCode code="01" codeSystem="2.16.840.1.113883.12.112" displayName="Routine Discharge" codeSystemName="HL7 Discharge Disposition"/>
+			<location>
+				<healthCareFacility>
+					<id root="2.16.540.1.113883.19.2"/>
+				</healthCareFacility>
+			</location>
+		</encompassingEncounter>
+	</componentOf>
+	<component>
+    <!-- All sections are set to nullFlavor / text = No information, 
+        as this is a header example, not a complete body example -->
+		<structuredBody>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
+					<code code="8648-8" displayName="HOSPITAL COURSE" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Hospital Course</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.24" extension="2015-08-01" />
+					<code code="11535-2" displayName="Hospital Discharge Diagnosis" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+						<translation code="78375-3" displayName="Discharge Diagnosis" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"></translation>
+					</code>
+					<title>Discharge Diagnosis</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.10" extension="2014-06-09" />
+					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Treatment plan" />
+					<title>TREATMENT PLAN</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.42"/>
+					<code code="18841-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Hospital Consultations Section"/>
+					<title>HOSPITAL CONSULTATIONS</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.11.1" extension="2015-08-01" />
+					<code code="10183-2" displayName="Hospital Discharge Medications" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+						<translation code="75311-1" displayName="Discharge Medications" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+					</code>
+					<title>Discharge Medications</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
+					<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>ALLERGIES AND ADVERSE REACTIONS</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08-01"/>
+					<code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+							displayName="RESULTS"/>
+					<title>RESULTS</title>
+					<text>No information</text>
+				</section>
+			</component>
+			<component>
+				<section nullFlavor="NI">
+					<templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09" />
+					<code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PROCEDURES" />
+					<title>Procedures</title>
+					<text>No information</text>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

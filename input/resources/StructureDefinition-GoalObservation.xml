@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.121:2022-06-01"/>
     </identifier>
     <version value="2022-06-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This template represents a patient health goal. A Goal Observation template may have related components that are acts, encounters, observations, procedures, substance administrations, or supplies. A goal identifies a future desired condition or state. Goals are often related to physical or mental health conditions or diseases, but also may be related to a Social Determinant of Health (SDOH) risks or states. For example, to have adequate quality meals and snacks, gain transportation security - able to access health and social needs). SDOH data relate to conditions in which people live, learn, work, and play and their effects on health risks and outcomes.  A Goal is established by the patient or provider or both. &#xA;&#xA;A goal may be a patient or provider goal. If the author is set to the recordTarget (patient), this is a patient goal. If the author is set to a provider, this is a provider goal. If both patient and provider are set as authors, this is called a negotiated or shared goal.&#xA;&#xA;A goal usually has a related health concern and/or risk.&#xA;&#xA;A goal may have components consisting of other goals (milestones). These milestones are related to the overall goal through entryRelationships."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -154,8 +150,33 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet Social Determinant of Health Goals urn:oid:2.16.840.1.113762.1.4.1247.71 DYNAMIC."/>
+            <slicing>
+                <discriminator>
+                    <type value="type"/>
+                    <path value="$this"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <max value="1"/>
+        </element>
+        <element id="Observation.value:coded">
+            <path value="Observation.value"/>
+            <sliceName value="coded"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <binding>
+                <strength value="example"/>
+                <description value="See additional binding"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.71"/>
+                    <documentation value="When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet [Social Determinant of Health Goals 2.16.840.1.113762.1.4.1247.71](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.71/expansion) **DYNAMIC**."/>
+                    <shortDoco value="Social Determinant of Health Goals"/>
+                </additional>
+            </binding>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
@@ -185,20 +206,20 @@
             </slicing>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31559) such that it"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1">
+        <element id="Observation.entryRelationship:refersTo">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
-            <short value="The following entryRelationship represents the relationship between a Goal Observation and a Health Concern Act (Goal Observation REFERS TO Health Concern Act). As Health Concern Act is already defined in Health Concerns Section, rather than clone the whole Health Concern Act template, an Entry Reference may be used in this entryRelationship to refer the template."/>
+            <sliceName value="refersTo"/>
+            <short value="The following entryRelationship represents the relationship between a Goal Observation and another entry (usually a Health Concern Act) (Goal Observation REFERS TO Health Concern Act) already described in the CDA document instance. Rather than clone the whole entry, an Entry Reference may be used in this entryRelationship to reference this entry."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-30701) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.typeCode">
+        <element id="Observation.entryRelationship:refersTo.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-30702)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship1.act">
+        <element id="Observation.entryRelationship:refersTo.act">
             <path value="Observation.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-30703)."/>
             <min value="1"/>
@@ -207,20 +228,20 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2">
+        <element id="Observation.entryRelationship:componentEntry">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship2"/>
+            <sliceName value="componentEntry"/>
             <short value="The following entryRelationship represents a planned component of the goal such as Planned Encounter (V2), Planned Procedure (V2), Planned Medication Activity (V2), Planned Supply (V2), Planned Act (V2) or Planned Immunization Activity. Because these entries are already described in the Interventions Section of the CDA document instance, rather than repeating the full content of the entries, the Entry Reference template may be used to reference the entries."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-30704) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.typeCode">
+        <element id="Observation.entryRelationship:componentEntry.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-30705)."/>
             <fixedCode value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship2.act">
+        <element id="Observation.entryRelationship:componentEntry.act">
             <path value="Observation.entryRelationship.act"/>
             <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32879)."/>
             <min value="1"/>
@@ -229,20 +250,20 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3">
+        <element id="Observation.entryRelationship:priorityPreference">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship3"/>
+            <sliceName value="priorityPreference"/>
             <short value="The following entryRelationship represents the priority that the patient or a provider puts on the goal."/>
             <comment value="SHOULD contain zero or one [0..1] entryRelationship (CONF:4515-30785) such that it"/>
             <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.typeCode">
+        <element id="Observation.entryRelationship:priorityPreference.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-30786)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship3.observation">
+        <element id="Observation.entryRelationship:priorityPreference.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Priority Preference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.143) (CONF:4515-30787)."/>
             <min value="1"/>
@@ -251,20 +272,20 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PriorityPreference"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4">
+        <element id="Observation.entryRelationship:goal">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship4"/>
+            <sliceName value="goal"/>
             <short value="The following entryRelationship represents the relationship between two Goal Observations where the target is a component of the source (Goal Observation HAS COMPONENT Goal Observation). The component goal (target) is a Milestone."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-31448) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4.typeCode">
+        <element id="Observation.entryRelationship:goal.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31449)."/>
             <fixedCode value="COMP"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship4.observation">
+        <element id="Observation.entryRelationship:goal.observation">
             <path value="Observation.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:4515-32880)."/>
             <min value="1"/>
@@ -273,41 +294,20 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
             </type>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship5">
+        <element id="Observation.entryRelationship:progressTowardGoal">
             <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship5"/>
-            <short value="Where a Goal Observation needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship5.typeCode">
-            <path value="Observation.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31560)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship5.act">
-            <path value="Observation.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-31588)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
-            </type>
-        </element>
-        <element id="Observation.entryRelationship:entryRelationship6">
-            <path value="Observation.entryRelationship"/>
-            <sliceName value="entryRelationship6"/>
+            <sliceName value="progressTowardGoal"/>
             <short value="entryRelationship"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship6.typeCode">
+        <element id="Observation.entryRelationship:progressTowardGoal.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-31560)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Observation.entryRelationship:entryRelationship6.observation">
+        <element id="Observation.entryRelationship:progressTowardGoal.observation">
             <path value="Observation.entryRelationship.observation"/>
             <short value="act"/>
             <comment value="SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110)."/>

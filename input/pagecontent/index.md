@@ -25,18 +25,18 @@ Section templates, which help organize content within a document, and entry temp
 
 The [Artifact Index page](artifacts.html) lists the C-CDA Templates that have been defined for this IG. The templates are the most recent versions of each C-CDA template which was drawn from either C-CDA R2.1 or the C-CDA Companion Guide R4.1. New templates and/or new additions to existing templates were added to represent the [U.S. Core Data for Interoperability (USCDI) V4](https://www.healthit.gov/isa/sites/isa/files/2023-10/USCDI-Version-4-October-2023-Errata-Final.pdf).
 
-The Guidance pages provide USCDI guidance, calls out key information from the underlying CDA standard, provides learnings gleaned from vendors and CDA Implementation-a-thons, etc., added since C-CDA’s inception in 2011. The Guidance was drawn from  C-CDA 2.1 Introduction (Volume 1) Sept 2022 Errata  and  C-CDA 2.1 Companion Guide R4.1 June 2023 Publication and edited to be appropriate for this StructureDefinition publication.
+The Guidance pages provide USCDI guidance, call out key information from the underlying CDA standard, provide learnings gleaned from vendors and CDA Implementation-a-thons, and include other improvements added since C-CDA’s inception in 2011. The Guidance was drawn from  C-CDA 2.1 Introduction (Volume 1) Sept 2022 Errata  and  C-CDA 2.1 Companion Guide R4.1 June 2023 Publication and edited to be appropriate for this StructureDefinition publication.
 
 ### Background
 Consolidated CDA (C-CDA) is a library of CDA templates developed by HL7. It leveraged prior CDA implementation guides developed under the HL7 Health Story Project, Integrating the Healthcare Enterprise (IHE), and the Health Information Technology Standards Panel (HITSP). It harmonized and consolidated the templates into the C-CDA guide. The C-CDA guide was developed within the ONC’s Standards and Interoperability (S&I) Framework to provide a definitive set of harmonized CDA templates for the US Realm.
 
-Since 2017, separate C-CDA Companion Guides were developed to provide supplemental implementer guidance, and new templates, initially to meet Meaningful Use criteria, and next with designs and guidance for the USCDI annual data element releases. The C-CDA 2.1 guide has had only errata releases since 2015 and no new design.
+Since 2017, separate C-CDA Companion Guides were developed to provide supplemental implementer guidance and new templates, initially to meet Meaningful Use criteria, and then with designs and guidance for the USCDI annual data element releases. The C-CDA 2.1 guide has had only errata releases since 2015 and no new design.
 
 ### This Project
 
 C-CDA 3.0 merges the C-CDA R2.1 and the C-CDA Companion Guides, adds C-CDA enhancement requests, and incorporates new design and guidance for USCDI V4.  Annual updates will occur to provide design for USCDI releases and to address comments or requests from the US Realm C-CDA community. 
 
-Within HL7, since 2020, an initiative to develop the same underlying publication process tech stack across all HL7 standards has been underway. The intent is to provide the same look and feel, to leverage inherent [validation and versioning](validation.html), to ease annual updates, and to avoid the unwieldy word and pdf publication process. This publication of C-CDA R3.0 is the realization of that intent for the CDA product family.
+Within HL7, since 2020, an initiative to develop the same underlying publication process technical stack across all HL7 standards has been underway. The intent is to provide the same look and feel, to leverage inherent [validation and versioning](validation.html), to ease annual updates, and to avoid the unwieldy word and pdf publication process. This publication of C-CDA R3.0 is the realization of that intent for the CDA product family.
 
 The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is built upon the underlying [CDA standard’s structures defined as Logical Models in CDA 2.0 StructureDefinition](https://build.fhir.org/ig/HL7/CDA-core-2.0/). These FHIR Logical models are abstract data structures which have been instantiated into physical CDA templates to be implemented in CDA data exchange. As such, it adheres to the [CDA Release 2.0 standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=7) and remains a CDA-based Implementation Guide (IG). 
 
@@ -56,6 +56,7 @@ The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is b
 </style>
 <p class="important">
 	This is a C-CDA specification that uses FHIR R5 StructureDefinitions and ElementDefinitions to define its templates.  It does not use any of the FHIR R5 resources nor any of the FHIR R5 General-Purpose Datatypes.  Thus it is based on FHIR R5 but not in a way that FHIR Implementation Guides would be based by profiling FHIR resources.  It is important and relevant to declare the version of FHIR structures that are being used for toolsmiths and others using those structures.
+	Further, the specification is generated with the FHIR IG Publisher tooling.  Although the tooling allows for JSON and XML representations of structures, at this time, only XML is allowed for CDA documents.
 </p>
 
 ### Acknowledgements
@@ -63,7 +64,7 @@ The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is b
 This C-CDA guide was developed and produced through the efforts of Health Level Seven (HL7).
 
 The editors appreciate the support and sponsorship of the HL7 Structured Documents Working Group (SDWG), the HL7 Patient Care Work Group, the HL7 Cross Group Projects Work Group, the CDA Management Group, HL7’s Chief Standards Development Officer, and all volunteers and staff associated with the creation of this Implementation Guide.  Much appreciated are the many individual authors from those work groups who contributed to the design and build of C-CDA and CDA Implementation Guides since 2007.
-This guide would not have been possible without the support of the [Office of the National Coordinator](https://www.healthit.gov), and the [Federal Electronic Health Record Modernization (FEHRM)](https://www.fehrm.gov>).
+This guide would not have been possible without the support of the [Office of the National Coordinator](https://www.healthit.gov), and the [Federal Electronic Health Record Modernization (FEHRM)](https://www.fehrm.gov).
 	
 ### C-CDA Primary Authors
 

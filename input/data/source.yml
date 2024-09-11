@@ -1,0 +1,26 @@
+##############################################################################
+# mapping of valueset source name to the base_URL and link to a user friendly view.
+# this is used by the `input/includes/valueset-ref-all-table-generator.html`
+# to generate the valueset reference table.
+##############################################################################
+'http://cts.nlm.nih.gov/fhir/':
+  - VSAC
+  - 'https://vsac.nlm.nih.gov/valueset/{{stem_URL}}/expansion'
+'http://hl7.org/fhir/':
+  - FHIR
+  - '{{site.data.fhir.path}}valueset-{{stem_URL}}.html'
+'http://hl7.org/fhir/us/core/':
+  - US CORE
+  - '{{site.data.fhir.uscore}}/ValueSet-{{stem_URL}}.html'
+'http://phinvads.cdc.gov/fhir/':
+  - PHINVADS
+  - 'http://phinvads.cdc.gov/fhir/ValueSet/{{stem_URL}}'
+'http://terminology.hl7.org/':
+  - THO
+  - 'http://terminology.hl7.org/ValueSet/{{stem_URL}}'
+'http://hl7.org/cda/us/ccda/':
+  - CCDA
+  - 'ValueSet-{{stem_URL}}.html'
+'http://hl7.org/cda/stds/core/':
+  - CDA
+  - '{{site.data.fhir.cda}}/ValueSet-{{stem_URL}}.html'

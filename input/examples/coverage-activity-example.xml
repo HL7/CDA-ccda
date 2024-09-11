@@ -1,4 +1,4 @@
-<act classCode="ACT" moodCode="EVN" xmlns="urn:hl7-org:v3">
+<act classCode="ACT" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
   <templateId root="2.16.840.1.113883.10.20.22.4.60" extension="2024-05-01" />
   <id root="1fe2cdd0-7aad-11db-9fe1-0800200c9a66" />
   <code code="52556-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Payment sources" />
@@ -9,16 +9,36 @@
     <sequenceNumber value="2" />
     <act classCode="ACT" moodCode="EVN">
       <!-- Policy Activity -->
-      <templateId root="2.16.840.1.113883.10.20.22.4.61" extension="2023-05-01" />
+      <templateId root="2.16.840.1.113883.10.20.22.4.61" extension="2024-05-01" />
       <id root="1fe2cdd0-7aad-11db-9fe1-0800200c9a66"/>
       <code code="1" codeSystem="2.16.840.1.113883.3.221.5" codeSystemName="SOP" displayName="MEDICARE"/>
       <statusCode code="completed"/>
       <performer typeCode="PRF">
         <templateId root="2.16.840.1.113883.10.20.22.4.87"/>
-        <assignedEntity>
-          <!-- Payer ID -->
-          <id root="2.16.840.1.113883.6.300" extension="PAYER1"/>
-        </assignedEntity>
+		    <assignedEntity>
+		      <id root="2.16.840.1.113883.19" />
+		      <code code="PAYOR" codeSystem="2.16.840.1.113883.5.110" codeSystemName="HL7 RoleCode" />
+		      <addr use="WP">
+		        <streetAddressLine>123 Insurance Road</streetAddressLine>
+		        <city>Blue Bell</city>
+		        <state>MA</state>
+		        <postalCode>02368</postalCode>
+		        <country>US</country>
+		        <!-- US is "United States" from ISO 3166-1 Country Codes: 1.0.3166.1 -->
+		      </addr>
+		      <telecom value="tel:+(555)555-1515" use="WP" />
+		      <representedOrganization>
+		        <name>Good Health Insurance</name>
+		        <telecom value="tel:+(555)555-1515" use="WP" />
+		        <addr use="WP">
+		          <streetAddressLine>123 Insurance Road</streetAddressLine>
+		          <city>Blue Bell</city>
+		          <state>MA</state>
+		          <postalCode>02368</postalCode>
+		          <country>US</country>
+		        </addr>
+		      </representedOrganization>
+		    </assignedEntity>
       </performer>
       <participant typeCode="COV">
         <!-- Coverage Target -->
@@ -26,6 +46,23 @@
         <participantRole>
           <id root="1fe2cdd0-7aad-11db-9fe1-0800200c9a66"/>
           <code code="SELF" codeSystem="2.16.840.1.113883.5.111" codeSystemName="RoleCode" displayName="self"/>
+		      <addr use="HP">
+		        <streetAddressLine>17 Daws Rd.</streetAddressLine>
+		        <city>Blue Bell</city>
+		        <state>MA</state>
+		        <postalCode>02368</postalCode>
+		        <country>US</country>
+		      </addr>
+		      <playingEntity>
+		        <name>
+		          <!-- Name is needed if different than name on health plan. -->
+		          <prefix>Mr.</prefix>
+		          <given>Frank</given>
+		          <given>A.</given>
+		          <family>Everyman</family>
+		        </name>
+		        <sdtc:birthTime value="19620206" />
+		      </playingEntity>
         </participantRole>
       </participant>
     </act>

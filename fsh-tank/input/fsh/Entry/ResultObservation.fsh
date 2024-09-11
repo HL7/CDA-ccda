@@ -43,6 +43,7 @@ To retrieve a list of Radiology LOINC codes, in "Search LOINC (loinc.org/search/
   * obeys 4537-19212
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."
 * statusCode 1..1
+  * insert USCDI([[Result Status]])
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7134)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.39, required)
 * effectiveTime 1..1
@@ -65,7 +66,7 @@ To retrieve a list of Radiology LOINC codes, in "Search LOINC (loinc.org/search/
   * translation 0..1
     * ^short = "Can be used to represent the original results as output by the lab"
 * obeys should-interpretationCode
-* interpretationCode from http://terminology.hl7.org/ValueSet/v3-ObservationInterpretation
+* interpretationCode
   * insert USCDI([[Result Interpretation]])
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)." // man-should
 * methodCode 0..1
@@ -83,6 +84,7 @@ To retrieve a list of Radiology LOINC codes, in "Search LOINC (loinc.org/search/
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4537-7151)."
     * value 1..1
+      * ^short = "When the value is a quantity, then the unit SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive."
       * ^comment = "This observationRange SHALL contain exactly one [1..1] value (CONF:4537-32175)."
 
 Invariant: 4537-19212

@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/RiskConcernAct"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.136:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This template represents a risk concern. &#xA;&#xA;It is a wrapper for a single risk concern which may be derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). &#xA;&#xA;A Risk Concern Act represents a health concern that is a risk. A risk is a clinical or socioeconomic condition that the patient does not currently have, but the probability of developing that condition rises to the level of concern such that an intervention and/or monitoring is needed."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
@@ -106,17 +102,17 @@
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
+            <short value="At risk - finding"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-32305)."/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;281694009&quot; At risk for (CONF:1198-32306)."/>
             <min value="1"/>
             <patternCode value="281694009"/>
         </element>
         <element id="Act.code.codeSystem">
             <path value="Act.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.96&quot; (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1198-32307)."/>
+            <short value="SNOMED CT"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.96"/>
         </element>
@@ -166,6 +162,10 @@
         <element id="Act.entryRelationship">
             <path value="Act.entryRelationship"/>
             <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
                 <discriminator>
                     <type value="profile"/>
                     <path value="observation"/>
@@ -227,7 +227,7 @@
         <element id="Act.entryRelationship:entryReferenceRefr">
             <path value="Act.entryRelationship"/>
             <sliceName value="entryReferenceRefr"/>
-            <short value="The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern RELATES TO Health Concern). The Entry Reference template is used here because the target Health Concern Act will be defined elsewhere in the Health Concerns Section and thus a reference to that template is all that is required."/>
+            <short value="The following entryRelationship represents the relationship between two Health Concern Acts where there is a general relationship between the source and the target (Health Concern RELATES TO Health Concern). It can also represent the relationship between a Health Concern and another entry already described in the CDA document instance. The Entry Reference template is used here because the target entry will be defined elsewhere and thus a reference to that instance is all that is required."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32182) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -352,25 +352,25 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:smokingStatus-MeaningfulUse">
+        <element id="Act.entryRelationship:smokingStatus">
             <path value="Act.entryRelationship"/>
-            <sliceName value="smokingStatus-MeaningfulUse"/>
+            <sliceName value="smokingStatus"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32189) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:smokingStatus-MeaningfulUse.typeCode">
+        <element id="Act.entryRelationship:smokingStatus.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32244)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Act.entryRelationship:smokingStatus-MeaningfulUse.observation">
+        <element id="Act.entryRelationship:smokingStatus.observation">
             <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Smoking Status - Meaningful Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.78:2014-06-09) (CONF:1198-32245)."/>
+            <comment value="SHALL contain exactly one [1..1] Smoking Status (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.511:2024-05-01) (CONF:1198-32245)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
             </type>
         </element>
         <element id="Act.entryRelationship:encounterDiagnosis">
@@ -646,27 +646,6 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation"/>
             </type>
         </element>
-        <element id="Act.entryRelationship:tobaccoUse">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="tobaccoUse"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32205) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:tobaccoUse.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32276)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:tobaccoUse.observation">
-            <path value="Act.entryRelationship.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Tobacco Use (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.85:2014-06-09) (CONF:1198-32277)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse"/>
-            </type>
-        </element>
         <element id="Act.entryRelationship:vitalSignObservation">
             <path value="Act.entryRelationship"/>
             <sliceName value="vitalSignObservation"/>
@@ -899,27 +878,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemConcernAct"/>
-            </type>
-        </element>
-        <element id="Act.entryRelationship:entryReference3">
-            <path value="Act.entryRelationship"/>
-            <sliceName value="entryReference3"/>
-            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-32217) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Act.entryRelationship:entryReference3.typeCode">
-            <path value="Act.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32301)."/>
-            <fixedCode value="REFR"/>
-        </element>
-        <element id="Act.entryRelationship:entryReference3.act">
-            <path value="Act.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32302)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
         </element>
         <element id="Act.reference">

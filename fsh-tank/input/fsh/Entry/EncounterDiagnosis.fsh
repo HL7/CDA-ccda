@@ -4,7 +4,7 @@ Id: EncounterDiagnosis
 Title: "Encounter Diagnosis"
 Description: "This template wraps relevant problems or diagnoses at the close of a visit or that need to be followed after the visit. This entry requires at least one Problem Observation entry.  The Problem Status template in the Problem Observation entry indicates the status of the diagnosis."
 
-* insert LogicalModelTemplate(encounter-dx, 2.16.840.1.113883.10.20.22.4.80, 2015-08-01)
+* insert LogicalModelTemplate(encounter-dx, 2.16.840.1.113883.10.20.22.4.80, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1

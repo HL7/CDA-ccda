@@ -1,23 +1,51 @@
 <section xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <templateId root="2.16.840.1.113883.10.20.22.2.14" extension="2015-08-01" />
+  <templateId root="2.16.840.1.113883.10.20.22.2.56" extension="2015-08-01" />
   <!-- Mental Status Section -->
   <code code="10190-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Mental status Narrative" />
   <title>MENTAL STATUS</title>
   <text>
-      ...
-    </text>
+    <list>
+      <item ID="mentalStatus1">
+        <caption>Cognitive function - measured October 12, 2023</caption>
+        <paragraph ID="mentalStatus1obs1">Memory finding</paragraph>
+      </item>
+    </list>
+  </text>
   <entry>
-    <observation classCode="OBS" moodCode="EVN">
-      <!-- Mental Status Observation -->
-      <templateId root="2.16.840.1.113883.10.20.22.4.74" extension="2015-08-01" />
-    </observation>
-  </entry>
-  <entry>
-    <organizer classCode="CLUSTER" moodCode="EVN">
+    <organizer classCode="CLUSTER" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <!-- Mental Status Organizer-->
       <templateId root="2.16.840.1.113883.10.20.22.4.75" extension="2015-08-01" />
       <id root="a7bc1062-8649-42a0-833d-ekd65bd013c9" />
-          
+      <!-- Note this code is just SHOULD ICF or SHOULD LOINC
+           Future versions of C-CDA may assign a fixed code here -->
+      <code code="75275-8" 
+          displayName="Cognitive function"
+          codeSystem="2.16.840.1.113883.6.1"
+          codeSystemName="LOINC" />
+      <!-- The organizer's text element is in namespace urn:hl7-org:sdtc-->
+      <sdtc:text>
+        <reference value="#mentalStatus1" />
+      </sdtc:text>
+      <statusCode code="completed" />
+      <effectiveTime>
+        <low value="202310120652-0500" />
+        <high value="202310120652-0500" />
+      </effectiveTime>
+      <component>
+        <observation classCode="OBS" moodCode="EVN" xmlns="urn:hl7-org:v3">
+          <!-- Mental Status Observation -->
+          <templateId root="2.16.840.1.113883.10.20.22.4.74" extension="2024-05-01" />
+          <id root="41cf96a8-6e2f-41b3-b210-5640ea0375a6" />
+          <code code="8693-4" displayName="Mental Status"  codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <text>
+            <reference value="#mentalStatus1obs1" />
+          </text>
+          <statusCode code="completed"/>
+          <effectiveTime value="202310120652-0500" />
+          <value xsi:type="CD" code="106136008" displayName="Memory finding (finding)" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+        </observation>
+      </component>
+      <!-- Additional <component> observations may be included -->
     </organizer>
   </entry>
 </section>

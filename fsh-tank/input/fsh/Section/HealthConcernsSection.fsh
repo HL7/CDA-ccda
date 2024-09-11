@@ -7,10 +7,12 @@ Description: """This section contains data describing an interest or worry about
 Problem Concerns are a subset of Health Concerns that have risen to the level of importance that they typically would belong on a classic "Problem List", such as "Diabetes Mellitus" or "Family History of Melanoma" or "Tobacco abuse". These are of broad interest to multiple members of the care team. Examples of other Health Concerns that might not typically be considered a Problem Concern include "Risk of Hyperkalemia" for a patient taking an ACE-inhibitor medication, or "Transportation difficulties" for someone who doesn't drive and has trouble getting to appointments, or "Under-insured" for someone who doesn't have sufficient insurance to properly cover their medical needs such as medications. These are typically most important to just a limited number of care team members."""
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
-* insert Section(#75310-3, Health concerns document, 2.16.840.1.113883.10.20.22.2.58, 2015-08-01)
+* insert Section(#75310-3, Health concerns Document, 2.16.840.1.113883.10.20.22.2.58, 2015-08-01)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entry contains
     healthStatus 0..* and

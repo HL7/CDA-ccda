@@ -21,9 +21,9 @@ Standardization of information used in this form will promote interoperability; 
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
-    participant1 0..* and
-    participant2 0..*
-* participant[participant1] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31599) such that it"  // man-should
+    indirect 0..* and
+    callback 0..*
+* participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31599) such that it"  // man-should
   * typeCode 1..1
   * typeCode = #IND (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"IND\" indirect (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31872)."
@@ -36,7 +36,7 @@ Standardization of information used in this form will promote interoperability; 
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31601)."
       * name 1..*
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31602)."
-* participant[participant2] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31626) such that it"  // man-should
+* participant[callback] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31626) such that it"  // man-should
   * typeCode 1..1
   * typeCode = #CALLBCK (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"CALLBCK\" Call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-31627)."

@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/EncountersSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This section lists and describes any healthcare encounters pertinent to the patient's current health status or historical health history. An encounter is an interaction, regardless of the setting, between a patient and a practitioner who is vested with primary responsibility for diagnosing, evaluating, or treating the patient's condition. It may include visits, appointments, as well as non-face-to-face interactions. It is also a contact between a patient and a practitioner who has primary responsibility (exercising independent judgment) for assessing and treating the patient at a given contact. This section may contain all encounters for the time period being summarized, but should include notable encounters.  NOTE: Since the EncounterActivity entry template has a moodCode of EVN, it is not possible to use it for planned encounters.  The PlannedEncounter entry template should be used if future encounters are being included in this section."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -46,8 +42,8 @@
             <constraint>
                 <key value="shall-encounter-activity"/>
                 <severity value="error"/>
-                <human value="SHALL contain at least one Encounter Activity"/>
-                <expression value="nullFlavor.exists() or entry.where(encounter.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity'))"/>
+                <human value="If section/@nullFlavor is not present, SHALL contain at least one Encounter Activity"/>
+                <expression value="nullFlavor.exists() or entry.where(encounter.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncountersSection"/>
             </constraint>
         </element>
@@ -88,7 +84,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="Encounters"/>
+            <short value="History of Hospitalizations+Outpatient visits Narrative"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">

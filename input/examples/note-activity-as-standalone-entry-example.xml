@@ -1,7 +1,5 @@
 <section xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <!-- C-CDA 2.1 Procedures Section, entries optional -->
-  <templateId root="2.16.840.1.113883.10.20.22.2.7"/>
-  <templateId root="2.16.840.1.113883.10.20.22.2.7" extension="2014-06-09"/>
+  <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09"/>
   <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF PROCEDURES"/>
   <title>Procedures</title>
   <text>
@@ -12,8 +10,65 @@
       </item>
     </list>
   </text>
-  <!-- If section were entries required, an additional <entry nullFlavor="NI"> would be required for a Procedure Activity -->
-  <!-- Note Activity entry -->
+	<entry>
+		<procedure classCode="PROC" moodCode="EVN" xmlns="urn:hl7-org:v3">
+		  <!-- Procedure Activity Procedure -->
+		  <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2024-05-01" />
+		  <id root="d5b614bd-01ce-410d-8726-e1fd01dcc72a" />
+		  <code code="103716009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Stent Placement">
+		    <originalText>
+		      <reference value="#Proc1" />
+		    </originalText>
+		  </code>
+		  <statusCode code="completed" />
+		  <effectiveTime xsi:type="IVL_TS">
+				<low nullFlavor="UNK"/>
+				<high value="20130512120000-0700" />
+			</effectiveTime>
+		  <targetSiteCode code="28273000" displayName="bile duct" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+		  <specimen typeCode="SPC">
+		    <specimenRole classCode="SPEC">
+		      <id root="a6d7b927-2b70-43c7-bdf3-0e7c4133062c" />
+		      <specimenPlayingEntity>
+		        <code code="57259009" codeSystem="2.16.840.1.113883.6.96" displayName="gallbladder bile" />
+		      </specimenPlayingEntity>
+		    </specimenRole>
+		  </specimen>
+			<performer typeCode="PRF" xmlns="urn:hl7-org:v3">
+			  <assignedEntity>
+			    <id extension="IO00017" root="2.16.840.1.113883.19.5" />
+			    <code code="207RG0100X" codeSystem="2.16.840.1.113883.6.96" codeSystemName="NUCC" displayName="Gastroenterologist" />
+			    <addr use="WP">
+			      <streetAddressLine>1001 Hospital Lane</streetAddressLine>
+			      <city>Ann Arbor</city>
+			      <state>MI</state>
+			      <postalCode>99999</postalCode>
+			      <country>US</country>
+			    </addr>
+			    <telecom value="tel:(999)555-1212" />
+			    <assignedPerson>
+			      <name>
+			        <prefix>Dr.</prefix>
+			        <given>Tony</given>
+			        <family>Tum</family>
+			      </name>
+			    </assignedPerson>
+		      <representedOrganization classCode="ORG">
+		        <id root="2.16.840.1.113883.19.5" />
+		        <name>Good Health Hospital</name>
+				    <telecom value="tel:(999)555-1212" />
+				    <addr use="WP">
+				      <streetAddressLine>1001 Hospital Lane</streetAddressLine>
+				      <city>Ann Arbor</city>
+				      <state>MI</state>
+				      <postalCode>99999</postalCode>
+				      <country>US</country>
+				    </addr>
+		      </representedOrganization>
+			  </assignedEntity>
+			</performer>
+		</procedure>
+	</entry>
   <entry>
     <act classCode="ACT" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.202" extension="2016-11-01"/>
@@ -33,6 +88,14 @@
         <time value="20140204083215-0500" />
         <assignedAuthor>
           <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
+			    <addr use="WP">
+			      <streetAddressLine>1001 Hospital Lane</streetAddressLine>
+			      <city>Ann Arbor</city>
+			      <state>MI</state>
+			      <postalCode>99999</postalCode>
+			      <country>US</country>
+			    </addr>
+			    <telecom value="tel:(999)555-1212" />
           <assignedPerson>
             <name>Dr. Physician</name>
           </assignedPerson>

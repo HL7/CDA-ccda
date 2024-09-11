@@ -10,7 +10,7 @@ Instructions are nested within interventions and may include self-care instructi
 
 Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Activities Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."""
 
-* insert Section(#62387-6, Interventions Provided, 2.16.840.1.113883.10.20.21.2.3, 2015-08-01)
+* insert Section(#62387-6, Interventions Narrative, 2.16.840.1.113883.10.20.21.2.3, 2015-08-01)
 * entry ..*
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"

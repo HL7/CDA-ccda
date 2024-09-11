@@ -12,7 +12,6 @@ For laboratory test codes include codes from http://loinc.org where CLASSTYPE = 
 Please see https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html used in US Core which has a partial expansion of the 61,898 codes.
 To retrieve a list of the most commonly used LOINC lab codes (20,000), in "Search LOINC (loinc.org/search/)" enter: "CommonLabResult:true"  
 To retrieve a list of Radiology LOINC codes, in "Search LOINC (loinc.org/search/)" enter: "Radiology: true"  
-
 """
 
 * insert LogicalModelTemplate(result-org, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
@@ -57,12 +56,16 @@ To retrieve a list of Radiology LOINC codes, in "Search LOINC (loinc.org/search/
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-31149)." // man-should
-* component ^slicing.discriminator[0].type = #profile
+* component
+  * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
 * component contains resultObs 1..* and specimenProc 0..1
 * component[resultObs] ^short = "component"
+  * insert USCDI([[Values/Results]])
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
   * observation 1..1
   * observation only ResultObservation

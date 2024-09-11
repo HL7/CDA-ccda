@@ -42,41 +42,6 @@ const xml2js = require('xml2js');
 
   const files = fs.readdirSync(fshDirectory);
 
-  const identifiers = [];
-
-  function saveIdentifier(sd) {
-    const value = sd.identifier?.[0].value;
-    if (!value) return null;
-    identifiers[sd.name] = value;
-    return value;
-  }
-  function getIdentifierForSD(name) {
-    if (identifiers[name]) return identifiers[name];
-    try {
-      const data = fs.readFileSync(path.join(fshDirectory, `StructureDefinition-${name}.json`));
-      const json = JSON.parse(data);
-      return saveIdentifier(json);
-    } catch (e) {
-      console.error(`Error looking up identifier for ${name}: ${e.message}`);
-    }
-  }
-  function buildTemplateIdWhere(name) {
-    const identifier = getIdentifierForSD(name);
-    if (!identifier) {
-      console.error(`Could not load identifier for ${name}`);
-      return;
-    }
-    const rootExt = identifier.match(/^urn:hl7ii:(\d(?:\.\d+)+):(\d{4}-\d{2}-\d{2})$/);
-    if (rootExt) {
-      return `root = '${rootExt[1]}' and extension = '${rootExt[2]}'`;
-    }
-    const rootOnly = identifier.match(/^urn:oid:(\d(?:\.\d+)+)$/);
-    if (rootOnly) {
-      return `root = '${rootOnly[1]}' and extension.empty()`;
-    }
-    console.error(`Unrecognized identifier format: ${identifier}`);
-  }
-
   // Iterate through each file
   files.forEach(async (file) => {
     if (path.extname(file) === '.json') {
@@ -84,15 +49,10 @@ const xml2js = require('xml2js');
 
       let data = fs.readFileSync(filePath, 'utf8');
 
-      // Implement custom hasTemplateIdOf(SDName) function!
-      // data = data.replace(/hasTemplateIdOf\((\w+)\)/g, (match, capture) => {
-      //   const rootExt = buildTemplateIdWhere(capture);
-      //   return rootExt ? `templateId.where(${rootExt})` : 'not()';
-      // });
+      // Shortcut to add canonical URL to each hasTemplateIdOf function
       data = data.replace(/hasTemplateIdOf\((\w+)\)/g, `hasTemplateIdOf('${canonical}/StructureDefinition/$1')`);
 
       const json = JSON.parse(data);
-      saveIdentifier(json);
 
       // Make sure the description in the IG matches the description from the SD
       const sdId = json.id;
@@ -106,6 +66,9 @@ const xml2js = require('xml2js');
         const period = json.description.match(/^(.*?[.])(?:\s|\n|&#xA;|$)/);
         igResource.description.$.value = period ? period[1] : json.description.substring(0, 100);
       }
+
+      // Build a list of required / recommended / additional sections
+      appendSectionUsageToDescription(json);
 
       const xml = fhir.jsonToXml(JSON.stringify(json));
       if (!xml) {
@@ -136,3 +99,80 @@ const xml2js = require('xml2js');
   fs.writeFileSync('input/hl7.cda.us.ccda.xml', newXml);
 
 })();
+
+function appendSectionUsageToDescription(sd) {
+  const sBody = sd.differential?.element.find(e => e.id === 'ClinicalDocument.component.structuredBody');
+  if (!sBody) return;
+
+  const shouldSections = [];
+  const shallSections = [];
+  let maySections = [];
+
+  for (const constraint of sBody.constraint || []) {
+    if (constraint.key === 'ap-or-a-and-p') {
+      shallSections.push(`${profileLink('AssessmentandPlanSection')} or both ${profileLink('AssessmentSection')} and ${profileLink('PlanofTreatmentSection')}`);
+      continue;
+    }
+    if (constraint.key === 'ccrfv-or-cc-or-rfv') {
+      shallSections.push(`${profileLink('ChiefComplaintandReasonforVisitSection')} or both ${profileLink('ChiefComplaintSection')} and ${profileLink('ReasonforVisitSection')}`);
+      continue;
+    }
+    if (constraint.key === '1198-9504') {
+      shallSections.push(`${profileLink('ReasonforReferralSection')} or ${profileLink('ReasonforVisitSection')}`);
+      continue;
+    }
+    // Ignore these
+    if (['ap-combo', 'cc-rfv-combo', '1198-31044'].includes(constraint.key)) continue;
+    if (constraint.expression.split('hasTemplateIdOf').length > 2) {
+      console.warn(`${sd.name}'s constraint ${constraint.key} needs to be handled manually in jsonToXml.js > appendSectionUsageToDescription`);
+      continue;
+    }
+    const match = constraint.expression.match(/hasTemplateIdOf\(\'([^)]+)\'\)/);
+    if (!match) {
+      console.log(`Match not found in constraint ${constraint.expression}`);
+      continue;
+    }
+    if (constraint.severity === 'error') {
+      console.warn(`constraint ${constraint.key} is an error but only one templateId. What? (${constraint.expression})`);
+    } else {
+      shouldSections.push(profileLink(match[1]));
+    }
+  }
+
+  for (const section of sd.differential.element.filter(e => e.path === 'ClinicalDocument.component.structuredBody.component.section')) {
+    const profile = section.type?.[0].profile?.[0];
+    if (!profile) {
+      console.error(`${sd.name} element id ${section.id} does not specify a profile...?`);
+    }
+    const element = sd.differential.element.find(e => e.id === section.id.split('.section')[0]);
+    if (element.min === 0) {
+      maySections.push(profileLink(profile));
+    } else {
+      shallSections.push(profileLink(profile));
+    }
+  }
+
+  maySections = maySections.filter(may => ![...shallSections, ...shouldSections].find(shall => shall.includes(may)));
+
+  if ([...shallSections, ...shouldSections, ...maySections].length === 0) return;
+
+  sd.description += '\n\n#### Document Sections\nAlthough document templates may contain any section, the following sections are specifically called out by this template:';
+  if (shallSections.length) {
+    sd.description += '\n\n**Required Sections**\n';
+    sd.description += shallSections.map(s => `- ${s}`).join('\n');
+  }
+  if (shouldSections.length) {
+    sd.description += '\n\n**Recommended Sections**\n';
+    sd.description += shouldSections.map(s => `- ${s}`).join('\n');
+  }
+  if (maySections.length) {
+    sd.description += '\n\n**Additional Sections**\n';
+    sd.description += maySections.map(s => `- ${s}`).join('\n');
+  }
+}
+
+function profileLink(profileNameOrUrl) {
+  if (!profileNameOrUrl) return '';
+  const profileId = profileNameOrUrl.includes('/') ? profileNameOrUrl.split('/').pop() : profileNameOrUrl;
+  return `[${profileId}](StructureDefinition-${profileId}.html)`;
+}

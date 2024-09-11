@@ -4,7 +4,7 @@ Id: PlannedCoverage
 Title: "Planned Coverage"
 Description: "This template represents the insurance coverage intended to cover an act or procedure."
 
-* insert LogicalModelTemplateRootOnly(planned-coverage, 2.16.840.1.113883.10.20.22.4.129)
+* insert LogicalModelTemplate(planned-coverage, 2.16.840.1.113883.10.20.22.4.129, 2024-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -18,11 +18,7 @@ Description: "This template represents the insurance coverage intended to cover 
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-31951)."
   * code 1..1
-  * code = #48768-6
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"48768-6\" Payment Sources (CONF:1098-31952)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-31953)."
+  * insert CodedLoinc(52556-8,[[Payment sources]])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-31954)."
   * code 1..1

@@ -6,14 +6,17 @@ Description: """The Vital Signs Section contains relevant vital signs for the co
 Vital signs are represented in the same way as other results, but are aggregated into their own section to follow clinical conventions."""
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
-* insert Section(#8716-3, Vital Signs, 2.16.840.1.113883.10.20.22.2.4.1, 2015-08-01)
+* insert Section(#8716-3, Vital signs, 2.16.840.1.113883.10.20.22.2.4.1, 2015-08-01)
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains organizer 0..*
-* entry[organizer] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7276) such that it"
+* entry contains vitalsOrg 0..* and averageBPOrg 0..*
+* entry[vitalsOrg] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7276) such that it"
   * organizer 1..1
   * organizer only VitalSignsOrganizer
     * ^comment = "SHALL contain exactly one [1..1] Vital Signs Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01) (CONF:1198-15964)."
+* entry[averageBPOrg] ^short = "Used to represent average blood pressure"
+  * organizer 1..1
+  * organizer only AverageBloodPressureOrganizer
 * obeys shall-vital-signs-org

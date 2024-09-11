@@ -5,9 +5,62 @@
   <text>
     </text>
   <entry typeCode="DRIV">
-    <act classCode="ACT" moodCode="EVN">
-      <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2014-06-09" />
-         
-    </act>
+		<act classCode="ACT" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		  <!-- ** Allergy Concern Act ** -->
+		  <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08-01" />
+		  <id root="36e3e930-7b14-11db-9fe1-0800200c9a66" />
+		  <code code="CONC" codeSystem="2.16.840.1.113883.5.6" />
+		  <!-- The statusCode represents the need to continue tracking the allergy -->
+		  <!-- This is of ongoing concern to the provider -->
+		  <text><reference value="#allergyConcern"/></text>
+		  <statusCode code="active" />
+		  <effectiveTime>
+		    <!-- The low value represents when the allergy was first recorded in the 
+		             patient's chart -->
+		    <!-- Concern started being tracked as an active issue on May 1, 1998 -->
+		    <low value="199805011145-0800" />
+		  </effectiveTime>
+		  <author typeCode="AUT">
+		    <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+		    <time value="200808141030-0800" />
+		    <assignedAuthor>
+		      <id extension="555555555" root="2.16.840.1.113883.4.6" />
+		      <code code="207QA0505X" 
+		        displayName="Adult Medicine Physician" 
+		        codeSystem="2.16.840.1.113883.6.101"
+		        codeSystemName="Healthcare Provider Taxonomy (HIPAA)" />
+		      <addr use="H">
+		        <streetAddressLine>23 Anywhere Street</streetAddressLine>
+		        <city>El Paso</city>
+		        <state>TX</state>
+		        <postalCode>90210</postalCode>
+		        <country>US</country>
+		      </addr>
+		      <telecom value="tel:(999)555-1212" use="WP" />
+		      <assignedPerson>
+		        <name>Joe Anywhere</name>
+		      </assignedPerson>
+		    </assignedAuthor>
+		  </author>
+		  <entryRelationship typeCode="SUBJ">
+		    <observation classCode="OBS" moodCode="EVN">
+		      <!-- ** Allergy observation ** -->
+		      <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09" />
+		      <templateId root="2.16.840.1.113883.10.20.24.3.90" extension="2014-06-09" />
+		      <id root="901db0f8-9355-4794-81cd-fd951ef07917" />
+		      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" />
+		      <text><reference value="#allergy"/></text>
+		      <!-- Observation statusCode represents the status of the act of observing -->
+		      <statusCode code="completed" />
+		      <effectiveTime>
+		        <!-- The low value reflects the date of onset of the allergy -->
+		        <low nullFlavor="UNK" />
+		        <!-- The high value reflects when the allergy was known to be resolved 
+		            (and will generally be absent) -->
+		      </effectiveTime>
+		      <value xsi:type="CD" code="416098002" displayName="Allergy to drug" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+		    </observation>
+		  </entryRelationship>
+		</act>
   </entry>
 </section>

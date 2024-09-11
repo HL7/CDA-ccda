@@ -22,6 +22,7 @@
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ActivitiesSection"/>
     <identifier>
+        <system value="urn:ietf:rfc:3986"/>
         <value value="urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2015-08-01"/>
     </identifier>
     <version value="2015-08-01"/>
@@ -30,11 +31,6 @@
     <status value="draft"/>
     <description value="This template represents Activities. Activities are actions taken to maximize the prospects of the goals of care for the patient, including the removal of barriers to success. Activities can be planned, ordered, historical, etc.&#xA;&#xA;Activities include actions that may be ongoing (e.g., maintenance medications that the patient is taking, or monitoring the patient's health status or the status of an intervention). &#xA;&#xA;Instructions are nested within interventions and may include self-care instructions. Instructions are information or directions to the patient and other providers including how to care for the individual's condition, what to do at home, when to call for help, any additional appointments, testing, and changes to the medication list or medication instructions, clinical guidelines and a summary of best practice.&#xA;&#xA;Instructions are information or directions to the patient. Use the Instructions Section when instructions are included as part of a document that is not a Care Plan. Use the Activities Section, containing the Intervention Act containing the Instruction entry, when instructions are part of a structured care plan."/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
@@ -91,7 +87,7 @@
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <short value="Interventions Provided"/>
+            <short value="Interventions Narrative"/>
             <min value="1"/>
         </element>
         <element id="Section.code.code">

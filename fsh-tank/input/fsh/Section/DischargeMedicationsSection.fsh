@@ -5,7 +5,7 @@ Title: "Discharge Medications Section"
 Description: "This section contains the medications the patient is intended to take or stop after discharge. Current, active medications must be listed. The section may also include a patient's prescription history and indicate the source of the medication list."
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
-* insert Section(#10183-2, Hospital Discharge Medications, 2.16.840.1.113883.10.20.22.2.11.1, 2015-08-01)
+* insert Section(#10183-2, Hospital discharge medications Narrative, 2.16.840.1.113883.10.20.22.2.11.1, 2015-08-01)
 
 * code
   * translation ^slicing.discriminator[0].type = #value
