@@ -56,7 +56,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * typeCode 1..1
   * typeCode = #REFR (exactly)
   * observation 1..1
-  * observation only ProblemObservation or AllergyIntoleranceObservation or AssessmentScaleObservation or SelfCareActivitiesADLandIADL or MentalStatusObservation or SmokingStatus or FunctionalStatusObservation or NutritionAssessment or PregnancyObservation or ReactionObservation or ResultObservation or SensoryStatus or SocialHistoryObservation or SubstanceOrDeviceAllergyIntoleranceObservation or VitalSignObservation or LongitudinalCareWoundObservation or ProblemObservation or CaregiverCharacteristics or CulturalandReligiousObservation or CharacteristicsofHomeEnvironment or NutritionalStatusObservation or PriorityPreference
+  * observation only ProblemObservation or AllergyIntoleranceObservation or AssessmentScaleObservation or SelfCareActivitiesADLandIADL or MentalStatusObservation or SmokingStatusMeaningfulUse or FunctionalStatusObservation or NutritionAssessment or PregnancyStatusObservation or ReactionObservation or ResultObservation or SensoryStatus or SocialHistoryObservation or SubstanceOrDeviceAllergyIntoleranceObservation or TobaccoUse or VitalSignObservation or LongitudinalCareWoundObservation or ProblemObservation or CaregiverCharacteristics or CulturalandReligiousObservation or CharacteristicsofHomeEnvironment or NutritionalStatusObservation or PriorityPreference
 * entryRelationship[acts]
   * typeCode 1..1
   * typeCode = #REFR (exactly)

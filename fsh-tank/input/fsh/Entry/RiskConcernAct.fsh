@@ -58,7 +58,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
     hospitalAdmissionDiagnosis 0..* and
     nutritionAssessment 0..* and
     postprocedureDiagnosis 0..* and
-    pregnancyObservation 0..* and
+    pregnancyStatusObservation 0..* and
     preoperativeDiagnosis 0..* and
     reactionObservation 0..* and
     resultObservation 0..* and
@@ -183,13 +183,13 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * act 1..1
   * act only PostprocedureDiagnosis
     * ^comment = "SHALL contain exactly one [1..1] Postprocedure Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.51:2015-08-01) (CONF:1198-32261)."
-* entryRelationship[pregnancyObservation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32198) such that it"
+* entryRelationship[pregnancyStatusObservation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32198) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32262)."
   * observation 1..1
-  * observation only PregnancyObservation
-    * ^comment = "SHALL contain exactly one [1..1] Pregnancy Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:1198-32263)."
+  * observation only PregnancyStatusObservation
+    * ^comment = "SHALL contain exactly one [1..1] Pregnancy Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:1198-32263)."
 * entryRelationship[preoperativeDiagnosis] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32199) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
