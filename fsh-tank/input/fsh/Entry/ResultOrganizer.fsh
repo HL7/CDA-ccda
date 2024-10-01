@@ -8,10 +8,9 @@ If any Result Observation within the organizer has a statusCode of "active", the
 
 A specimen linked to a Result Organizer applies to all Result Observations. Centralizing specimen details within the Organizer is advised for clarity and consistency, as Result Observations typically relate to a single specimen collection, like using a purple top tube for CBCs. In cases of poor-quality specimens, a specimen reject reason is logically associated with the procedure, not the result, as there may be no result. The Result Organizer includes the specimen collection procedure, which may contain information about specimen condition acceptability. The Specimen Colection Procedure includes representation of the USCDI data element "Specimen Condition Acceptability".
 
-For laboratory test codes include codes from http://loinc.org where CLASSTYPE = 1  
-Please see https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html used in US Core which has a partial expansion of the 61,898 codes.
-To retrieve a list of the most commonly used LOINC lab codes (20,000), in "Search LOINC (loinc.org/search/)" enter: "CommonLabResult:true"  
-To retrieve a list of Radiology LOINC codes, in "Search LOINC (loinc.org/search/)" enter: "Radiology: true"  
+- **Laboratory** - For laboratory test codes include codes from [LOINC](http://loinc.org) where CLASSTYPE = 1. Please see https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html used in US Core which has a partial expansion of the 61,898 codes.
+- **Common Lab Result** - To retrieve a list of the most commonly used LOINC lab codes (20,000), in "[Search LOINC](loinc.org/search/)" enter: "CommonLabResult:true"  
+- **Radiology** - To retrieve a list of Radiology LOINC codes, in "[Search LOINC](loinc.org/search/)" enter: "Radiology: true"  
 """
 
 * insert LogicalModelTemplate(result-org, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
