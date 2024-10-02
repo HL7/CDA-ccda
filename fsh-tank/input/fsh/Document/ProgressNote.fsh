@@ -85,7 +85,8 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
         vitalSigns 0..1 and
         nutrition 0..1 and
         mentalStatus 0..1 and
-        advDirectives 0..1
+        advDirectives 0..1 and 
+        notesSection 1..1
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30618)."
       * section only AssessmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30619)."
@@ -140,6 +141,9 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
     * component[advDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
         * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
+    * component[notesSection] ^comment = "This structuredBody SHALL contain exactly one [1..1] component such that it"
+      * section only NotesSection
+        * ^comment = "SHALL contain exactly one [1..1] Notes Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.65:2016-11-01)."
 
 Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."
