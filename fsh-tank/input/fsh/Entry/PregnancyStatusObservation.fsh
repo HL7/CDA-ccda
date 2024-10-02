@@ -17,6 +17,7 @@ Description: "This clinical statement meets the requirements of the US Core Data
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:81-19153)."
   * code 1..1
   * code = #82810-3
+    * ^short = "Pregnancy Status"
     * ^comment = "This code SHALL contain exactly one [1..1] @code=\"82810-3\" Pregnancy Status."
   * codeSystem 1..1
   * codeSystem = "2.16.840.1.113883.5.4"
