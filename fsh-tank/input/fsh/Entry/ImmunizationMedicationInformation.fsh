@@ -17,8 +17,7 @@ Description: "The Immunization Medication Information represents product informa
     * ^comment = "This manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered Vaccine Set urn:oid:2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)."
   * obeys should-lotNumberText
   * lotNumberText 0..1
-    * insert USCDI([[Lot Number Text]])
-    * ^short = "lotNumberText should be included if known. It may not be known for historical immunizations, planned immunizations, or refused/deferred immunizations."
+    * insert USCDI([[Lot Number Text - lotNumberText should be included if known. It may not be known for historical immunizations, planned immunizations, or refused/deferred immunizations.]])
     * ^comment = "This manufacturedMaterial SHOULD contain zero or one [0..1] lotNumberText (CONF:1098-9014)." // auto-should
 * obeys should-manufacturerOrganization
 * manufacturerOrganization 0..1
