@@ -41,6 +41,9 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
   * insert USCDI([[Tests]])
   * obeys 4537-19212
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:4537-7133)."
+  * insert AdditionalBinding(preferred, $CommonLabTests, Common Lab Tests, [[If the Result Observation is a common lab test, the code **SHOULD** be selected from ValueSet [Common Lab Tests](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.17/expansion).]])
+  * insert AdditionalBinding(preferred, $Radiology, Radiology, [[If the Result Observation is for radiology, the code **SHOULD** be selected from ValueSet [Radiology](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.18/expansion).]])
+  * insert AdditionalBinding(preferred, $ClinicalTest, Clinical Test, [[If the Result Observation is a clinical test, the code **SHOULD** be selected from ValueSet [Clinical Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.19/expansion).]])  
 * statusCode 1..1
   * insert USCDI([[Result Status]])
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7134)."

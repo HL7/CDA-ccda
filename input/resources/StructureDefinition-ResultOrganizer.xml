@@ -100,7 +100,6 @@
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>
-            <short value="Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:4537-19219)."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4537-7128)."/>
             <min value="1"/>
             <constraint>
@@ -110,6 +109,28 @@
                 <expression value="codeSystem = '2.16.840.1.113883.6.1' or codeSystem = '2.16.840.1.113883.6.96'"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
             </constraint>
+            <binding>
+                <strength value="example"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActCode"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="https://cts.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.17"/>
+                    <documentation value="If the Result Observation is a common lab test, the code **SHOULD** be selected from ValueSet [Common Lab Tests](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.17/expansion)."/>
+                    <shortDoco value="Common Lab Tests"/>
+                </additional>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="https://cts.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.18"/>
+                    <documentation value="If the Result Observation is for radiology, the code **SHOULD** be selected from ValueSet [Radiology](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.18/expansion)."/>
+                    <shortDoco value="Radiology"/>
+                </additional>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="https://cts.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.19"/>
+                    <documentation value="If the Result Observation is a clinical test, the code **SHOULD** be selected from ValueSet [Clinical Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.19/expansion)."/>
+                    <shortDoco value="Clinical Test"/>
+                </additional>
+            </binding>
         </element>
         <element id="Organizer.sdtcText">
             <path value="Organizer.sdtcText"/>

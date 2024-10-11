@@ -26,8 +26,10 @@ A specimen linked to a Result Organizer applies to all Result Observations. Cent
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7127)."
 * code 1..1
   * obeys 4537-19218
-  * ^short = "Laboratory results **SHOULD** be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or other constrained terminology named by the US Department of Health and Human Services Office of National Coordinator or other federal agency (CONF:4537-19219)."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-7128)."
+  * insert AdditionalBinding(preferred, $CommonLabTests, Common Lab Tests, [[If the Result Observation is a common lab test, the code **SHOULD** be selected from ValueSet [Common Lab Tests](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.17/expansion).]])
+  * insert AdditionalBinding(preferred, $Radiology, Radiology, [[If the Result Observation is for radiology, the code **SHOULD** be selected from ValueSet [Radiology](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.18/expansion).]])
+  * insert AdditionalBinding(preferred, $ClinicalTest, Clinical Test, [[If the Result Observation is a clinical test, the code **SHOULD** be selected from ValueSet [Clinical Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.19/expansion).]])  
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7123)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.39, required)

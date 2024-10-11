@@ -71,6 +71,9 @@ Alias: $2.16.840.1.113762.1.4.1267.1  = https://cts.nlm.nih.gov/fhir/ValueSet/2.
 Alias: $2.16.840.1.113762.1.4.1267.11  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.11
 Alias: $SmokingStatusComprehensive    = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.3
 Alias: $SmokingStatusType             = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.6
+Alias: $CommonLabTests = https://cts.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.17
+Alias: $Radiology = https://cts.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.18
+Alias: $ClinicalTest = https://cts.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1267.19
 Alias: $2.16.840.1.113762.1.4.1046.35 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.35
 Alias: $2.16.840.1.113883.1.11.1      = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1
 Alias: $2.16.840.1.113883.1.11.10267  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.10267
@@ -143,6 +146,7 @@ Alias: $2.16.840.1.113883.11.20.9.68 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16
 Alias: $2.16.840.1.113883.11.20.9.69.4 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4
 
 Alias: $1.3.6.1.4.1.12009.10.1.3932 =  http://loinc.org/vs/LL5052-7
+
 
 // NUBC UB-04 FL17 Patient Status
 Alias: $2.16.840.1.113883.3.88.12.80.33 = http://hl7.org/cda/us/ccda/ValueSet/2.16.840.1.113883.3.88.12.80.33
