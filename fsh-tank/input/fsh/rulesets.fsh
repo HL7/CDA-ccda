@@ -107,7 +107,7 @@ RuleSet: IntervalValueOnly
   * ^short = "value should be used instead of low/high"
 Invariant: value-only
 Severity: #error
-Description: "Interval fields SHALL not be present"
+Description: "Interval fields SHALL NOT be present"
 Expression: "(low | high | width | center).empty()"
 
 RuleSet: IdentifierURI(value)
