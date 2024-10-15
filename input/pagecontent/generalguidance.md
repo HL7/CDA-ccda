@@ -294,3 +294,7 @@ CDA defines a standard schema, based on the HL7 RIM, for all CDA documents. The 
 
 ### Required Binding Expansions
 For any Required binding, any valid expansion of a value set is conformant; any version of the value set used with any version of the needed code systems. If an implementation or dependent IG needs to be more restrictive, then additional constraints must be added, such as adding a specific value set version and or code system version in the binding.
+
+
+### Clinically Relevant Information Requirements
+In all C-CDA Document templates, at least one section SHALL contain clinically relevant information. A document that contains only empty sections (nullFlavor = NI) is unhelpful to providers and fails to meet the essential purpose of conveying meaningful clinical data. Such documents contribute to inefficiencies and frustration in the healthcare process, as they do not provide the necessary information for informed decision-making

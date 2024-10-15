@@ -2,7 +2,9 @@ Profile: USRealmHeader
 Parent: $ClinicalDocument
 Id: USRealmHeader
 Title: "US Realm Header"
-Description: "This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template."
+Description: """This template defines constraints that represent common administrative and demographic concepts for US Realm CDA documents. Further specification, such as ClinicalDocument/code, are provided in document templates that conform to this template.
+
+In all C-CDA documents, at least one section SHALL contain clinically relevant information. A document that contains only empty sections is unhelpful to providers and fails to meet the essential purpose of conveying meaningful clinical data. Such documents contribute to inefficiencies and frustration in the healthcare process, as they do not provide the necessary information for informed decision-making."""
 
 * insert LogicalModelTemplate(us-realm, 2.16.840.1.113883.10.20.22.1.1, 2024-05-01)
 

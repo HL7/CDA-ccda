@@ -2,7 +2,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
     <id value="hl7.cda.us.ccda"/>
     <url value="http://hl7.org/cda/us/ccda/ImplementationGuide/hl7.cda.us.ccda"/>
-    <version value="3.0.0"/>
+    <version value="4.0.0"/>
     <name value="CCDA"/>
     <title value="Consolidated CDA (C-CDA)"/>
     <status value="active"/>
@@ -30,7 +30,7 @@
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
-        <version value="0.18.0"/>
+        <version value="0.19.0"/>
     </dependsOn>
     <dependsOn id="phinvads">
         <uri value="http://fhir.org/packages/us.cdc.phinvads/ImplementationGuide/us.cdc.phinvads"/>
@@ -1424,11 +1424,11 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/PregnancyObservation"/>
-                <display value="Pregnancy Observation"/>
+                <reference value="StructureDefinition/PregnancyStatusObservation"/>
+                <display value="Pregnancy Status Observation"/>
             </reference>
-            <name value="Pregnancy Observation"/>
-            <description value="This clinical statement represents current and/or prior pregnancy dates enabling investigators to determine if the subject of the case report was pregnant during the course of a condition."/>
+            <name value="Pregnancy Status Observation"/>
+            <description value="This clinical statement meets the requirements of the US Core Data for Interoperability (USCDI) Pregnancy Status Data Element."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -4932,15 +4932,15 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
             </extension>
             <reference>
-                <reference value="Binary/pregnancy-observation-example"/>
+                <reference value="Binary/pregnancy-status-observation-example"/>
             </reference>
-            <name value="Pregnancy Observation Example"/>
-            <description value="Pregnancy Observation example"/>
+            <name value="Pregnancy Status Observation Example"/>
+            <description value="Pregnancy Status Observation example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>

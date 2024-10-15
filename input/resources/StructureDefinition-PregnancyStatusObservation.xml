@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="PregnancyObservation"/>
+    <id value="PregnancyStatusObservation"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -20,15 +20,15 @@
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
     </extension>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:2.16.840.1.113883.10.20.15.3.8"/>
     </identifier>
-    <name value="PregnancyObservation"/>
-    <title value="Pregnancy Observation"/>
+    <name value="PregnancyStatusObservation"/>
+    <title value="Pregnancy Status Observation"/>
     <status value="draft"/>
-    <description value="This clinical statement represents current and/or prior pregnancy dates enabling investigators to determine if the subject of the case report was pregnant during the course of a condition."/>
+    <description value="This clinical statement meets the requirements of the US Core Data for Interoperability (USCDI) Pregnancy Status Data Element. It represents the State or condition of being pregnant at a point in time. To represent the patient's intent to become pregnant, use the [Pregnancy Intention in Next Year template](StructureDefinition-PregnancyIntentionInNextYear.html)."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -43,14 +43,14 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain text/reference/@value"/>
                 <expression value="text.reference.value.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
             </constraint>
             <constraint>
                 <key value="should-effectiveTime"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain effectiveTime"/>
                 <expression value="effectiveTime.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
             </constraint>
         </element>
         <element id="Observation.templateId">
@@ -95,9 +95,10 @@
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; Assertion (CONF:81-19154)."/>
+            <short value="Pregnancy Status"/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;82810-3&quot; Pregnancy Status."/>
             <min value="1"/>
-            <patternCode value="ASSERTION"/>
+            <patternCode value="82810-3"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
@@ -116,7 +117,7 @@
                 <severity value="error"/>
                 <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
                 <expression value="value.exists() implies value.startsWith('#')"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyObservation"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
             </constraint>
         </element>
         <element id="Observation.statusCode">
@@ -132,7 +133,19 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:81-2018)."/>
+            <comment value="SHALL contain exactly one [1..1] effectiveTime."/>
+            <min value="1"/>
+            <constraint>
+                <key value="value-only"/>
+                <severity value="error"/>
+                <human value="Interval fields SHALL NOT be present"/>
+                <expression value="(low | high | width | center).empty()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
+            </constraint>
+        </element>
+        <element id="Observation.effectiveTime.value">
+            <path value="Observation.effectiveTime.value"/>
+            <short value="value should be used instead of low/high"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
@@ -152,7 +165,7 @@
             <min value="1"/>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.24"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.12"/>
             </binding>
         </element>
         <element id="Observation.entryRelationship">
