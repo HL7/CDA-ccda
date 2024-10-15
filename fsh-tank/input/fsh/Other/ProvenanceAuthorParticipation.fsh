@@ -42,7 +42,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
       * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-23)."
   * obeys should-code
   * code 0..1
-    * ^short = "When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."
+    * insert USCDI([[Code - When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient.]])
     * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)." // auto-should
     * ^binding.description = "See additional bindings"
     * insert AdditionalBinding(preferred, $2.16.840.1.114222.4.11.1066, Providers, [[If the content is provider authored, the code SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4515-56).]])
@@ -53,7 +53,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
   * telecom 0..*
     * ^short = "Required on at least one instance of this author in the document"
   * assignedPerson 0..1
-    * ^short = "assignedPerson/name or assignedAuthoringDevice/manufacturerModelName is required on at least one instance of this author in the document"
+    * insert USCDI([[Assigned Person - assignedPerson/name or assignedAuthoringDevice/manufacturerModelName is required on at least one instance of this author in the document]])
     * name 1..*
       * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] name (CONF:4515-32977)."
       * obeys shall-family

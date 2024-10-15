@@ -134,8 +134,11 @@
             <comment value="SHOULD contain zero or one [0..1] @extension (CONF:4515-23)."/>
         </element>
         <element id="Author.assignedAuthor.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Author.assignedAuthor.code"/>
-            <short value="When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."/>
+            <short value="(USCDI) Code - When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."/>
             <comment value="This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)."/>
             <binding>
                 <strength value="example"/>
@@ -168,8 +171,11 @@
             <short value="Required on at least one instance of this author in the document"/>
         </element>
         <element id="Author.assignedAuthor.assignedPerson">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Author.assignedAuthor.assignedPerson"/>
-            <short value="assignedPerson/name or assignedAuthoringDevice/manufacturerModelName is required on at least one instance of this author in the document"/>
+            <short value="(USCDI) Assigned Person - assignedPerson/name or assignedAuthoringDevice/manufacturerModelName is required on at least one instance of this author in the document"/>
         </element>
         <element id="Author.assignedAuthor.assignedPerson.name">
             <path value="Author.assignedAuthor.assignedPerson.name"/>
