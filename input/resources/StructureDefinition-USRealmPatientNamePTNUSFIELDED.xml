@@ -94,7 +94,11 @@
             <comment value="SHALL contain at least one [1..*] given (CONF:81-7157)."/>
         </element>
         <element id="PN.item.given.qualifier">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="PN.item.given.qualifier"/>
+            <short value="(USCDI) callMe meets the USCID 'Name to use' requirement"/>
             <comment value="Such givens MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7158)."/>
             <max value="1"/>
             <binding>
