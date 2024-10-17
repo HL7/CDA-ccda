@@ -1,5 +1,5 @@
 Profile: SexualOrientationObservation
-Parent: SocialHistoryObservation
+Parent: $Organizer
 Id: SexualOrientationObservation
 Title: "Sexual Orientation Observation"
 Description: """This observation represents the sexual orientation of the patient. Defined as:
@@ -11,6 +11,7 @@ This template was informed by the HL7 Gender Harmony project.
 This observation is not appropriate for recording patient gender (administrativeGender), Gender Identity (Gender Identity Observation), or birth sex (Birth Sex Observation)."""
 
 * insert LogicalModelTemplate(sexual-orientation-obs, 2.16.840.1.113883.10.20.22.4.501, 2023-05-01)
+* insert NarrativeLink
 * ^status = #draft
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -18,6 +19,8 @@ This observation is not appropriate for recording patient gender (administrative
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-194)."
+* id 1..*
+  * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-186)."
   * code 1..1
@@ -26,6 +29,7 @@ This observation is not appropriate for recording patient gender (administrative
   * codeSystem 1..1
   * codeSystem = "2.16.840.1.113883.6.1"
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-191)."
+* text 0..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-32881)."
   * code 1..1

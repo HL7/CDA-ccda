@@ -1,16 +1,17 @@
 Profile: GenderIdentityObservation
-Parent: SocialHistoryObservation
+Parent: $Organizer
 Id: GenderIdentityObservation
 Title: "Gender Identity Observation"
 Description: """This observation represents the gender identity of the patient. Defined as:
 
-> "Ones basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with ones sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)
+> One's basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with one's sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)
 
 This template follows the guidelines from the HL7 Gender Harmony project. This template is based on C-CDA Social History Observation template.
 
 This observation is not appropriate for recording patient gender (administrativeGender) or birth sex."""
 
 * insert LogicalModelTemplate(gender-identity-obs, 2.16.840.1.113883.10.20.34.3.45, 2023-05-01)
+* insert NarrativeLink
 * ^status = #draft
 * classCode 1..1
 * classCode = #OBS (exactly)
@@ -18,6 +19,8 @@ This observation is not appropriate for recording patient gender (administrative
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-1231)."
+* id 1..*
+  * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-1222)."
   * ^short = "Gender Identity"
@@ -27,6 +30,7 @@ This observation is not appropriate for recording patient gender (administrative
   * codeSystem 1..1
   * codeSystem = "2.16.840.1.113883.6.1"
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-1228)."
+* text 0..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-33067)."
   * code 1..1
