@@ -60,7 +60,8 @@ Description: "This clinical statement describes an interaction between a patient
   * ^slicing.rules = #open
 * entryRelationship contains
     indication 0..* and
-    diagnosis 0..*
+    diagnosis 0..* and
+    observation 0..*
 * entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-8722) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -72,3 +73,8 @@ Description: "This clinical statement describes an interaction between a patient
   * act 1..1
   * act only EncounterDiagnosis
   * insert USCDI(Diagnosis)
+* entryRelationship[observation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"
+  * observation 1..1
+  * observation only InterpreterNeededObservation
+  * insert USCDI(Interpreter Needed Observation)
+    * ^comment = "SHALL contain exactly one [1..1] Interpreter Needed Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.515:2025-05-01)."

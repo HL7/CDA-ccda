@@ -56,7 +56,8 @@ Description: "This template represents a planned or ordered encounter. The type 
   * ^short = "The following entryRelationship captures the reason for the planned or ordered encounter"
 * entryRelationship contains
     priorityPreference 0..1 and
-    indication 0..*
+    indication 0..* and
+    observation 0..*
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the encounter."
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-31033) such that it"
   * typeCode 1..1
@@ -72,3 +73,8 @@ Description: "This template represents a planned or ordered encounter. The type 
   * observation 1..1
   * observation only Indication
     * ^comment = "SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:1098-31879)."
+* entryRelationship[observation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"
+  * observation 1..1
+  * observation only InterpreterNeededObservation
+  * insert USCDI(Interpreter Needed Observation)
+    * ^comment = "SHALL contain exactly one [1..1] Interpreter Needed Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.515:2025-05-01)."
