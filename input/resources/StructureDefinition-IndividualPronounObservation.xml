@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="IndividualPronounObservation"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="observation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-container">
+        <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueUri value="cda"/>
+    </extension>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/IndividualPronounObservation"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.15.2:2022-09-01"/>
+    </identifier>
+    <version value="2022-09-01"/>
+    <name value="IndividualPronounObservation"/>
+    <title value="Individual Pronoun Observation"/>
+    <status value="draft"/>
+    <description value="The Individual Personal Pronoun Observation represents words specified by a person to replace their name when referring to them in speech, clinical notes, and written instructions."/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="rim"/>
+        <uri value="http://hl7.org/v3"/>
+        <name value="RIM Mapping"/>
+    </mapping>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/IndividualPronounObservation"/>
+            </constraint>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:interpreter-needed-obs">
+            <path value="Observation.templateId"/>
+            <sliceName value="interpreter-needed-obs"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.templateId:interpreter-needed-obs.root">
+            <path value="Observation.templateId.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.15.2"/>
+        </element>
+        <element id="Observation.templateId:interpreter-needed-obs.extension">
+            <path value="Observation.templateId.extension"/>
+            <min value="1"/>
+            <patternString value="2022-09-01"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC)."/>
+            <fixedCode value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC)."/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <comment value="SHALL contain exactly one [1..1] code."/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;90778-2&quot; Personal pronouns Reported."/>
+            <min value="1"/>
+            <patternCode value="90778-2"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32172)."/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Observation.text">
+            <path value="Observation.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Observation.text.reference">
+            <path value="Observation.text.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/IndividualPronounObservation"/>
+            </constraint>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <comment value="SHALL contain exactly one [1..1] statusCode."/>
+            <min value="1"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC)."/>
+            <min value="1"/>
+            <fixedCode value="completed"/>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <comment value="This effectiveTime MAY contain zero or one [0..1] high."/>
+            <min value="1"/>
+        </element>
+        <element id="Observation.effectiveTime.low">
+            <path value="Observation.effectiveTime.low"/>
+            <min value="1"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.3290"/>
+            </binding>
+        </element>
+    </differential>
+</StructureDefinition>
