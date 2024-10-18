@@ -29,7 +29,7 @@
     <name value="PlannedProcedure"/>
     <title value="Planned Procedure"/>
     <status value="draft"/>
-    <description value="This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure.&#xA;&#xA;Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;."/>
+    <description value="This template is used to represent ordered procedures for a patient. A procedure is an activity that is performed on, with, or for a patient as part of the provision of care. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves. &#xA;&#xA;Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -125,6 +125,24 @@
                     <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.790"/>
                     <documentation value="If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Service Request](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.790/expansion) **DYNAMIC** (CONF:4515-32993)."/>
                     <shortDoco value="For Social Determinant of Planned Intervention Procedure"/>
+                </additional>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.17"/>
+                    <documentation value="IFor common lab tests."/>
+                    <shortDoco value="Common Lab Tests"/>
+                </additional>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.18"/>
+                    <documentation value="For radiology."/>
+                    <shortDoco value="Radiology"/>
+                </additional>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.19"/>
+                    <documentation value="For clinical tests."/>
+                    <shortDoco value="Clinical Test"/>
                 </additional>
             </binding>
         </element>

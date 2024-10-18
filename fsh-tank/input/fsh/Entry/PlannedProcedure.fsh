@@ -2,7 +2,7 @@ Profile: PlannedProcedure
 Parent: $Procedure
 Id: PlannedProcedure
 Title: "Planned Procedure"
-Description: """This template represents planned alterations of the patient's physical condition. Examples of such procedures are tracheostomy, knee replacement, and craniectomy. The priority of the procedure to the patient and provider is communicated through Priority Preference. The effectiveTime indicates the time when the procedure is intended to take place and authorTime indicates when the documentation of the plan occurred. The Planned Procedure Template may also indicate the potential insurance coverage for the procedure.
+Description: """This template is used to represent ordered procedures for a patient. A procedure is an activity that is performed on, with, or for a patient as part of the provision of care. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves. 
 
 Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the "immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient", or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as "interventions" such as "Home Environment Evaluation" or "Assessment of nutritional status".
 """
@@ -23,6 +23,9 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * insert USCDI([[SDOH Interventions]])
   * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet US Core Procedure Codes urn:oid:2.16.840.1.113883.4.642.40.48.31 ."
   * insert AdditionalBinding(preferred, $SDoHServiceRequest, For Social Determinant of Planned Intervention Procedure, [[If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Service Request](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.790/expansion) **DYNAMIC** (CONF:4515-32993).]])
+  * insert AdditionalBinding(preferred, $CommonLabTests, Common Lab Tests, [[IFor common lab tests.]])
+  * insert AdditionalBinding(preferred, $Radiology, Radiology, [[For radiology.]])
+  * insert AdditionalBinding(preferred, $ClinicalTest, Clinical Test, [[For clinical tests.]])  
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-30446)."
   * code 1..1
