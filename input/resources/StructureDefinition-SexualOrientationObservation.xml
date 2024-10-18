@@ -34,12 +34,33 @@
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-    <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SexualOrientationObservation"/>
+            </constraint>
+        </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
-            <min value="2"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.templateId:sexual-orientation-obs">
             <path value="Observation.templateId"/>
@@ -60,10 +81,17 @@
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
             <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-193)."/>
+            <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
             <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-194)."/>
+            <fixedCode value="EVN"/>
+        </element>
+        <element id="Observation.id">
+            <path value="Observation.id"/>
+            <comment value="SHALL contain at least one [1..*] id."/>
+            <min value="1"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
@@ -81,18 +109,36 @@
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
         </element>
+        <element id="Observation.text">
+            <path value="Observation.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Observation.text.reference">
+            <path value="Observation.text.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SexualOrientationObservation"/>
+            </constraint>
+        </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-32881)."/>
+            <min value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4537-33073)."/>
+            <min value="1"/>
+            <fixedCode value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
             <short value="The effectiveTime represents the  relevant time of the observation. A patient's &quot;sexual orientation&quot; may change and using effectiveTime/low and effectiveTime/high defines the time during which the patient had identified their emotional, romantic, sexual, or affectional attraction to another person."/>
             <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33072)."/>
+            <min value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
@@ -105,21 +151,15 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.value:physical-quantity">
-            <path value="Observation.value"/>
-            <sliceName value="physical-quantity"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.value:coded">
-            <path value="Observation.value"/>
-            <sliceName value="coded"/>
             <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Sexual Orientation urn:oid:2.16.840.1.113762.1.4.1240.11 DYNAMIC."/>
             <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.11"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.32"/>
             </binding>
         </element>
     </differential>

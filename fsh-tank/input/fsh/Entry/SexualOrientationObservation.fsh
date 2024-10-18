@@ -1,5 +1,5 @@
 Profile: SexualOrientationObservation
-Parent: $Organizer
+Parent: $Observation
 Id: SexualOrientationObservation
 Title: "Sexual Orientation Observation"
 Description: """This observation represents the sexual orientation of the patient. Defined as:
@@ -43,7 +43,6 @@ This observation is not appropriate for recording patient gender (administrative
   * high 0..1
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33075)."
 * value 1..1
-* value[physical-quantity] 0..0
-* value[coded] 1..1
-* value[coded] from $2.16.840.1.113762.1.4.1240.11 (required)
+* value only $CD
+* value from $2.16.840.1.113762.1.4.1021.32 (required)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Sexual Orientation urn:oid:2.16.840.1.113762.1.4.1240.11 DYNAMIC."
