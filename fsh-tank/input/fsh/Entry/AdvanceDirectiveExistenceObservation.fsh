@@ -28,7 +28,7 @@ Description: """ This observation represents a simple observation indicating whe
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC)."
 * effectiveTime 1..1
-  * ^short = "Note: This template represents a \"snapshot in time\" observation, simply reflecting the patient's sex at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp."
+  * ^short = "Note: This template represents a \"snapshot in time\" observation. As a result, the effectiveTime is constrained to just a time stamp."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime."
   * insert IntervalValueOnly
 * value 1..1
@@ -41,9 +41,6 @@ Description: """ This observation represents a simple observation indicating whe
   * ^short = "MAY contain zero or one [0..1] informant"
 * entryRelationship 0..*
   * ^comment = "MAY contain zero or more [0..*] entryRelationship."
-  * typeCode 1..1
-  * typeCode = #REFR (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32236)."
   * observation 1..1
   * observation only AdvanceDirectiveObservation
     * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2022-02-14)."
