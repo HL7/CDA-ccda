@@ -22,7 +22,7 @@ Code System Sources:
 - [CDC](https://www.cdc.gov/index.htm)
 - Code systems published by other standards organizations
 
-{% assign rows = site.data.codesystem-ref-all-list | sort: "Title" %}
+{% assign rows = site.data.codesystem-filtered | sort: "Title" %}
 {% assign bad-THO-list = "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category, http://terminology.hl7.org/CodeSystem/medicationdispense-status, http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-status-reason" | split: ", " %}
 {% for item in rows %}
 {% assign cs_link = item.URL %}
@@ -32,7 +32,6 @@ Code System Sources:
 <table class="grid">
 <thead>
 <tr>
-<th>Row #</th>
 <th>Code System</th>
 <th>Code System URI</th>
 <th>Value Sets Where Used</th>
@@ -82,7 +81,6 @@ Code System Sources:
 {% else %} <!--  Other sources - us URL as link -->
 {% endif %}
 <tr>
-<td>{{forloop.index}}</td>
 <td>{% if no_link %}{{item.Title}}</td>{% else %}<a href="{{cs_link}}">{{item.Title}}</a></td>{% endif %}
 <td><code>{{item.URL}}</code></td>
 <td>{{item.Used | split: ',' | join: '<br />'}}</td>
