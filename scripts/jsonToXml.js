@@ -121,11 +121,8 @@ const parse = require('csv-parse/sync').parse;
     if (vsName === vs) {
       // Not sure why these aren't showing up after IG Publisher run... to investigate!
       const hardCodedName = {
-        'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.1': 'Substance Reactant for Intolerance',
         'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.12': 'Pregnancy Status Observation',
-        'http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state': 'USPS Two Letter Alphabetic Codes',
         'http://loinc.org/vs/LL5052-7': 'CUBS_Disability',
-        'http://terminology.hl7.org/ValueSet/v3-Country2': 'Country2'
       }[vs];
       if (hardCodedName) {
         vsName = hardCodedName;
@@ -266,7 +263,9 @@ function profileLink(profileNameOrUrl) {
 function parseTerminologyCSV(vsORcs) {
   const csvPaths = [
     path.resolve(__dirname, `../input/data/${vsORcs}-ref-all-list.csv`),
-    path.resolve(__dirname, `../temp/pages/${vsORcs}-ref-all-list.csv`)
+    path.resolve(__dirname, `../temp/pages/${vsORcs}-ref-all-list.csv`),
+    path.resolve(__dirname, `../temp/pages/${vsORcs}-ref-list.csv`)
+    // (Contrary to popular belief, ref-list may actually contain more than ref-all-list)
   ];
   
   let termCSVMap = new Map();
@@ -276,7 +275,7 @@ function parseTerminologyCSV(vsORcs) {
       const csv = fs.readFileSync(csvPath, 'utf-8');
       const records = parse(csv, { columns: true, relax_column_count: true });
       const headers = Object.keys(records[0]);
-      for (const record of records.slice(1)) {
+      for (const record of records) {
         const url = record.URL;
         termCSVMap.set(url, record);
       }
