@@ -142,6 +142,13 @@ const parse = require('csv-parse/sync').parse;
   terminologyContent = 'URL,Title,Used\n';
 
   for (const cs of codeSystemCSV.values()) {
+    if (cs.URL === 'http://hl7.org/fhir/sid/icd-10-cm') {
+      cs.Used = 'ValueSet/us-core-condition-code'; // Bug in IG Publisher output
+    }
+    if (cs.URL === 'http://loinc.org') {
+      // Okay, _really_ need to fix this in the IG Publisher
+      cs.Used = 'ValueSet/2.16.840.1.113883.11.20.1.1,ValueSet/2.16.840.1.113883.1.11.20.22,ValueSet/2.16.840.1.113883.11.20.6.1,ValueSet/2.16.840.1.113883.4.642.3.155,ValueSet/2.16.840.1.113883.11.20.4.1,ValueSet/2.16.840.1.113883.11.20.9.47,ValueSet/2.16.840.1.113883.3.88.12.80.62,ValueSet/2.16.840.1.113883.11.20.9.68,ValueSet/2.16.840.1.113762.1.4.1099.10,ValueSet/doc-typecodes,ValueSet/2.16.840.1.113762.1.4.1115.23,ValueSet/2.16.840.1.113762.1.4.1046.35,ValueSet/v3-DocumentSectionType,ValueSet/2.16.840.1.113883.11.20.9.65,ValueSet/2.16.840.1.113883.11.20.9.69.4,ValueSet/2.16.840.1.113883.11.20.9.31,ValueSet/2.16.840.1.113883.1.11.20.2.3,ValueSet/us-core-procedure-code,ValueSet/2.16.840.1.113883.1.11.20.2.4,ValueSet/2.16.840.1.113883.11.20.8.1,ValueSet/2.16.840.1.113883.1.11.20.2.5';
+    }
     const csUsed = cs.Used
       .split(',')
       .map(vs => {
