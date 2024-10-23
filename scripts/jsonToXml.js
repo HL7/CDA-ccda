@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const xmlFormat = require('xml-formatter');
 const xml2js = require('xml2js');
+const parse = require('csv-parse/sync').parse;
 
 (async function () {
   // Need to load R5 for this to work....for now
@@ -42,6 +43,10 @@ const xml2js = require('xml2js');
 
   const files = fs.readdirSync(fshDirectory);
 
+  const valueSets = {};
+  const valueSetCSV = parseTerminologyCSV('valueset');
+  const codeSystemCSV = parseTerminologyCSV('codesystem');
+
   // Iterate through each file
   files.forEach(async (file) => {
     if (path.extname(file) === '.json') {
@@ -70,6 +75,9 @@ const xml2js = require('xml2js');
       // Build a list of required / recommended / additional sections
       appendSectionUsageToDescription(json);
 
+      // Save value sets used by this SD
+      collectValueSets(json);
+
       const xml = fhir.jsonToXml(JSON.stringify(json));
       if (!xml) {
         console.error(`Failed to convert ${filePath}`);
@@ -81,7 +89,6 @@ const xml2js = require('xml2js');
       fs.writeFileSync(newPath, pretty, 'utf8');
     }
   });
-
 
   // Write the updated IG resource
   const builder = new xml2js.Builder({
@@ -97,6 +104,89 @@ const xml2js = require('xml2js');
   });
   const newXml = builder.buildObject(ccdaIg);
   fs.writeFileSync('input/hl7.cda.us.ccda.xml', newXml);
+
+  // Write filtered terminology files
+  const terminologyFilePath = 'input/data/valueset-filtered.csv';
+  let terminologyContent = 'URL,Title,Uses\n';
+
+  const sortedValueSets = Object.keys(valueSets).sort((a, b) => {
+    const aName = valueSetCSV.get(a)?.Name || a;
+    const bName = valueSetCSV.get(b)?.Name || b;
+    return aName.localeCompare(bName);
+  });
+
+  for (const vs of sortedValueSets) {
+    const sds = valueSets[vs];
+    let vsName = valueSetCSV.get(vs)?.Name || vs;
+    if (vsName === vs) {
+      // Not sure why these aren't showing up after IG Publisher run... to investigate!
+      const hardCodedName = {
+        'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.12': 'Pregnancy Status Observation',
+        'http://loinc.org/vs/LL5052-7': 'CUBS_Disability',
+      }[vs];
+      if (hardCodedName) {
+        vsName = hardCodedName;
+      } else {
+        console.warn(`ValueSet ${vs} not loaded yet. Re-run 'npm run sushi-post' after running the IG publisher (or just update valueset-filtered.csv manually)`);
+      }
+    }
+    //const vsSource = valueSetCSV.get(vs)?.Sources || '';
+    const vsUsed = [...new Set(sds)].sort().map(sd => `StructureDefinition/${sd}`).join(', ');
+    terminologyContent += `${vs},${vsName},${vsUsed}\n`;
+  }
+
+  fs.writeFileSync(terminologyFilePath, terminologyContent, 'utf8');
+
+  // Filter code systems to only those used by ValueSets listed in Guide
+  const codeSystemFilePath = 'input/data/codesystem-filtered.csv';
+  terminologyContent = 'URL,Title,Used\n';
+
+  for (const cs of codeSystemCSV.values()) {
+    if (cs.URL === 'http://hl7.org/fhir/sid/icd-10-cm') {
+      cs.Used = 'ValueSet/us-core-condition-code'; // Bug in IG Publisher output
+    }
+    if (cs.URL === 'http://loinc.org') {
+      // Okay, _really_ need to fix this in the IG Publisher
+      cs.Used = 'ValueSet/2.16.840.1.113883.11.20.1.1,ValueSet/2.16.840.1.113883.1.11.20.22,ValueSet/2.16.840.1.113883.11.20.6.1,ValueSet/2.16.840.1.113883.4.642.3.155,ValueSet/2.16.840.1.113883.11.20.4.1,ValueSet/2.16.840.1.113883.11.20.9.47,ValueSet/2.16.840.1.113883.3.88.12.80.62,ValueSet/2.16.840.1.113883.11.20.9.68,ValueSet/2.16.840.1.113762.1.4.1099.10,ValueSet/doc-typecodes,ValueSet/2.16.840.1.113762.1.4.1115.23,ValueSet/2.16.840.1.113762.1.4.1046.35,ValueSet/v3-DocumentSectionType,ValueSet/2.16.840.1.113883.11.20.9.65,ValueSet/2.16.840.1.113883.11.20.9.69.4,ValueSet/2.16.840.1.113883.11.20.9.31,ValueSet/2.16.840.1.113883.1.11.20.2.3,ValueSet/us-core-procedure-code,ValueSet/2.16.840.1.113883.1.11.20.2.4,ValueSet/2.16.840.1.113883.11.20.8.1,ValueSet/2.16.840.1.113883.1.11.20.2.5';
+    }
+    const csUsed = cs.Used
+      .split(',')
+      .map(vs => {
+        const vsId = Object.keys(valueSets).find(k => k.includes(vs));
+        return vsId ? (valueSetCSV.get(vsId)?.Name || vsId) : null;
+      })
+      .filter(Boolean);
+    if (csUsed.length === 0) continue;
+    terminologyContent += `${cs.URL},${cs.Name},"${csUsed}"\n`;
+  }
+  fs.writeFileSync(codeSystemFilePath, terminologyContent, 'utf8');
+
+
+  function addValueSet(vs, sd) {
+    if (!vs || !sd) return;
+
+    if (!valueSets[vs]) {
+      valueSets[vs] = [];
+    };
+    valueSets[vs].push(sd.name);
+  }
+  
+  function collectValueSets(sd) {
+    const valueSets = [];
+    for (const element of sd.differential?.element || []) {
+      if (element.binding?.valueSet) {
+        addValueSet(element.binding.valueSet, sd);
+      }
+      for (const additional of element.binding?.additional || []) {
+        if (additional.valueSet) {
+          addValueSet(additional.valueSet, sd);
+        }
+      }
+      // Potentially add VS in invariant code
+    }
+    return valueSets;
+  }
+
 
 })();
 
@@ -175,4 +265,30 @@ function profileLink(profileNameOrUrl) {
   if (!profileNameOrUrl) return '';
   const profileId = profileNameOrUrl.includes('/') ? profileNameOrUrl.split('/').pop() : profileNameOrUrl;
   return `[${profileId}](StructureDefinition-${profileId}.html)`;
+}
+
+function parseTerminologyCSV(vsORcs) {
+  const csvPaths = [
+    path.resolve(__dirname, `../input/data/${vsORcs}-ref-all-list.csv`),
+    path.resolve(__dirname, `../temp/pages/${vsORcs}-ref-all-list.csv`),
+    path.resolve(__dirname, `../temp/pages/${vsORcs}-ref-list.csv`)
+    // (Contrary to popular belief, ref-list may actually contain more than ref-all-list)
+  ];
+  
+  let termCSVMap = new Map();
+  for (const csvPath of csvPaths) {
+    if (fs.existsSync(csvPath)) {
+      console.log(`Parsing ${csvPath}`);
+      const csv = fs.readFileSync(csvPath, 'utf-8');
+      const records = parse(csv, { columns: true, relax_column_count: true });
+      const headers = Object.keys(records[0]);
+      for (const record of records) {
+        const url = record.URL;
+        termCSVMap.set(url, record);
+      }
+    } else {
+      console.log(`${csvPath} not found...`);
+    }
+  }
+  return termCSVMap;
 }
