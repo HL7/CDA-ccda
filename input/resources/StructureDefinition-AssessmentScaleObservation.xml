@@ -95,10 +95,31 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code, which SHALL be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) DYNAMIC (CONF:4515-14439)."/>
+            <short value="survey"/>
+            <constraint>
+                <key value="should-translation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain translation"/>
+                <expression value="translation.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <min value="1"/>
+            <patternCode value="survey"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="Observation Category Codes"/>
+            <min value="1"/>
+            <patternString value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+        </element>
+        <element id="Observation.code.translation">
+            <path value="Observation.code.translation"/>
             <binding>
-                <strength value="example"/>
-                <valueSet value="http://terminology.hl7.org/ValueSet/v3-ObservationType"/>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.13"/>
                 <additional>
                     <purpose value="preferred"/>
                     <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.206"/>
