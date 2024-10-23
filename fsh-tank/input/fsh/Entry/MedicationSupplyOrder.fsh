@@ -47,6 +47,5 @@ Description: "This template records the intent to supply a patient with medicati
   * inversionInd 1..1
   * inversionInd = true (exactly)
     * ^comment = "The entryRelationship, if present, SHALL contain exactly one [1..1] @inversionInd=\"true\" True (CONF:1098-7445)."
-  * act 1..1
-  * act only Instruction
-    * ^comment = "The entryRelationship, if present, SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31391)."
+  * observation 1..1
+  * observation only InstructionObservation

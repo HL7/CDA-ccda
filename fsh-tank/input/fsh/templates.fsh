@@ -188,7 +188,7 @@ Expression: "nullFlavor.exists() or entry.where(substanceAdministration.hasTempl
 Invariant: shall-instruction
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Instruction"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(Instruction)).exists()"
+Expression: "nullFlavor.exists() or entry.where(act.hasTemplateIdOf(Instruction)).exists() or entry.where(observation.hasTemplateIdOf(InstructionObservation)).exists()"
 
 Invariant: shall-med-activity
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Medication Activity"

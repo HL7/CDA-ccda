@@ -43,7 +43,7 @@
                 <key value="shall-instruction"/>
                 <severity value="error"/>
                 <human value="If section/@nullFlavor is not present, SHALL contain at least one Instruction"/>
-                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/Instruction')).exists()"/>
+                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/Instruction')).exists() or entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionsSection"/>
             </constraint>
         </element>
@@ -112,6 +112,10 @@
                     <type value="profile"/>
                     <path value="act"/>
                 </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
@@ -119,17 +123,29 @@
         <element id="Section.entry:instruction">
             <path value="Section.entry"/>
             <sliceName value="instruction"/>
-            <comment value="SHALL contain at least one [1..*] entry (CONF:1098-10116) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:instruction.act">
             <path value="Section.entry.act"/>
-            <comment value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31398)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
+            </type>
+        </element>
+        <element id="Section.entry:instructionObservation">
+            <path value="Section.entry"/>
+            <sliceName value="instructionObservation"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:instructionObservation.observation">
+            <path value="Section.entry.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
             </type>
         </element>
     </differential>

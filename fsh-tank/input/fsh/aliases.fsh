@@ -22,6 +22,7 @@ Alias: $PQ = http://hl7.org/cda/stds/core/StructureDefinition/PQ
 Alias: $Procedure = http://hl7.org/cda/stds/core/StructureDefinition/Procedure
 Alias: $REAL = http://hl7.org/cda/stds/core/StructureDefinition/REAL
 Alias: $Section = http://hl7.org/cda/stds/core/StructureDefinition/Section
+Alias: $ST = http://hl7.org/cda/stds/core/StructureDefinition/ST
 Alias: $SubstanceAdministration = http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration
 Alias: $Supply = http://hl7.org/cda/stds/core/StructureDefinition/Supply
 Alias: $TS = http://hl7.org/cda/stds/core/StructureDefinition/TS

@@ -61,9 +61,8 @@ The plan may also indicate that patient education will be provided."""
   * supply only PlannedSupply
     * ^comment = "SHALL contain exactly one [1..1] Planned Supply (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09) (CONF:1098-30476)."
 * entry[instruction] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-14695) such that it"
-  * act 1..1
-  * act only Instruction
-    * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31397)."
+  * observation 1..1
+  * observation only InstructionObservation
 * entry[handoffCommParticipants] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-29621) such that it"
   * act 1..1
   * act only HandoffCommunicationParticipants
