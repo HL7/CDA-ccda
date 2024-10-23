@@ -149,7 +149,3 @@ Alias: $2.16.840.1.113883.11.20.9.68 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16
 Alias: $2.16.840.1.113883.11.20.9.69.4 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4
 
 Alias: $1.3.6.1.4.1.12009.10.1.3932 =  http://loinc.org/vs/LL5052-7
-
-
-// NUBC UB-04 FL17 Patient Status
-Alias: $2.16.840.1.113883.3.88.12.80.33 = http://hl7.org/cda/us/ccda/ValueSet/2.16.840.1.113883.3.88.12.80.33

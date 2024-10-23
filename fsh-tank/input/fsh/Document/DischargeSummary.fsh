@@ -40,7 +40,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
         * ^short = "The discharge date is recorded in the componentOf/encompassingEncounter/effectiveTime/high."
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-8475)."
     * dischargeDispositionCode 1..1
-    * dischargeDispositionCode from $2.16.840.1.113883.3.88.12.80.33 (preferred)
+    * dischargeDispositionCode from http://terminology.hl7.org/ValueSet/v3-DischargeDisposition (preferred)
       * ^short = "The dischargeDispositionCode records the disposition of the patient at time of discharge. Access to the National Uniform Billing Committee (NUBC) code system requires a membership. The following conformance statement aligns with HITSP C80 requirements. \n\nThe dischargeDispositionCode, @displayName, or NUBC UB-04 Print Name, must be displayed when the document is rendered."
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] dischargeDispositionCode, which SHOULD be selected from ValueSet NUBC UB-04 FL17 Patient Status urn:oid:2.16.840.1.113883.3.88.12.80.33 DYNAMIC (CONF:1198-8476)."
     * responsibleParty 0..1
