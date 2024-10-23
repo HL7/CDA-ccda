@@ -133,7 +133,7 @@ The C-CDA R3.0 recommends that clinical statements include a link between the na
 ### Unknown and No Known Information
 Information technology solutions store and manage data, but sometimes data are not available. An item may be unknown, not relevant, or not computable or measurable, such as where a patient arrives at an emergency department unconscious and with no identification.
 
-In many cases, the C-CDA standard will stipulate that a piece of information is required (e.g., via a SHALL conformance verb). However, in most of these cases, the standard provides an “out”, allowing the sender to indicate that the information isn’t known.
+Many C-CDA templates will stipulate that a piece of information is required (e.g., via a SHALL conformance verb). However, in most of these cases, the CDA standard provides an “out”, allowing the sender to indicate that the information isn’t known.
 
 Here, we provide guidance on representing unknown information. Further details can be found in the HL7 V3 Data Types Release 1 specification that accompanies the CDA R2 normative standard. However, it should be noted that the focus of Consolidated CDA is on the unambiguous representation of known data, and that in general, the often subtle nuances of unknown information representation are less relevant to the recipient.
 
@@ -288,6 +288,15 @@ If a sender wants to state that a piece of information is unknown, the following
 </entry>
 ```
 
+#### Constraining Usage of Concepts for Unknown, No Known and Other Data Absent Reasons
+Some C-CDA templates are designed to be more specific and eliminate the “out” provided by the CDA standard. When these templates stipulate that a piece of information is required (e.g., via a SHALL conformance verb), the allowable null flavor or data absent reason concepts are constrained as part of the vocabulary binding on the code attribute of the data element.
+ 
+When the information being modeled requires the set of allowable reasons that the data may be absent be constrained along with the allowable concepts for the data itself, this can be accomplished using the following method. The allowable concepts from the nullFlavor codeSystem as well as those needed from the Data Absent Reason codeSystem are incorporated into the value set bound directly to the code attribute of the element in the model that is being constrained.  This allows the modeling for standardized answers to be more precise.  It establishes the full range of allowable answers including the permitted concepts for “missing” information.
+ 
+Binding the value set to the code attribute of the element prevents the use of the nullFlavor attribute in the model and thus avoids the possibility of contradictory information being added into the model.
+ 
+This constraint pattern can be used to clarify when only certain NullFlavor concepts are permitted or when a mix of NullFlavor and DataAbsentReason concepts are allowed in addition to the range of expected data concepts.
+
 ### Schema and Schema Extensions
 CDA defines a standard schema, based on the HL7 RIM, for all CDA documents. The XML Schema is designed to achieve the intentions of the CDA architecture. Please see section [The "A" in CDA]({{site.data.fhir.cda}}/overview.html) for more information. When there is a need to represent information where there is no suitable representation in the schema, the CDA standard permits extensions to be developed. The HL7 Structured Documents Work Group (SDWG) maintains a complete list of [CDA R2 extensions](https://confluence.hl7.org/display/SD/CDA+Extensions) that are approved for use within the **sdtc** namespace. These extensions exist in the stdc schema. The most current [CDA Schema](https://github.com/HL7/cda-core-2.0) is housed in the HL7 CDA GitHub repository.
 
@@ -298,3 +307,6 @@ For any Required binding, any valid expansion of a value set is conformant; any 
 
 ### Clinically Relevant Information Requirements
 In all C-CDA Document templates, at least one section SHALL contain clinically relevant information. A document that contains only empty sections (nullFlavor = NI) is unhelpful to providers and fails to meet the essential purpose of conveying meaningful clinical data. Such documents contribute to inefficiencies and frustration in the healthcare process, as they do not provide the necessary information for informed decision-making
+
+### C-CDA Examples
+Although this guide contains a lot of examples, the CDA Examples Task Force maintains even more examples.  The [CDA Example Search repository](http://cdasearch.hl7.org) can be used to find examples for specific templates.
