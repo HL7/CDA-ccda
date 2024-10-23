@@ -17,7 +17,7 @@ Description: "This template represents a planned or ordered encounter. The type 
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-8567)."
 * obeys should-code
 * code 0..1
-* code from $2.16.840.1.113883.11.20.9.52 (preferred)
+* code from $2.16.840.1.113762.1.4.1267.23 (preferred)
   * ^short = "Records the type of encounter ordered or recommended."
   * ^comment = "SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Encounter Planned urn:oid:2.16.840.1.113883.11.20.9.52 DYNAMIC (CONF:1098-31032)." // man-should
 * statusCode 1..1
