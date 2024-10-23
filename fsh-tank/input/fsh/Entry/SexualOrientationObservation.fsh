@@ -22,13 +22,7 @@ This observation is not appropriate for recording patient gender (administrative
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-186)."
-  * code 1..1
-  * code = #76690-7
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"76690-7\" Sexual Orientation (CONF:4537-190)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1 STATIC) (CONF:4537-191)."
+  * insert CodedLoinc(76690-7, [[Sexual Orientation]])
 * text 0..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-32881)."

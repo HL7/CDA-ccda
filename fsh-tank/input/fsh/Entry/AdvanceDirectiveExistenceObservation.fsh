@@ -16,11 +16,7 @@ Description: """ This observation represents a simple observation indicating whe
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code."
-  * code 1..1
-  * code = #45473-6
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"45473-6\" Advance directive/living (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."
-    * ^short = "Advance Directive/Living"    
+  * insert CodedLoinc(45473-6, [[Advance directive/Living will]])
 * text 1..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode."
@@ -35,7 +31,7 @@ Description: """ This observation represents a simple observation indicating whe
 * value only $CD
 * value from $2.16.840.1.113762.1.4.1267.16 (required)
 * author 1..1
-* author only AuthorParticipation
+* author only ProvenanceAuthorParticipation
   * ^comment = "SHALL contain exactly [1..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."
 * informant 0..1
   * ^short = "MAY contain zero or one [0..1] informant"

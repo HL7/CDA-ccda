@@ -14,8 +14,9 @@ Description: "This section contains social history data that influence a patient
     pregnancyPregnancy 0..* and
     smokingStatus 0..* and
     caregiver 0..* and
-    culteralReligious 0..* and
-    homeCharacteristics 0..*
+    culturalReligious 0..* and
+    homeCharacteristics 0..* and
+	individualPronoun 0..*
 * entry[socialHistory] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-7953) such that it"
   * observation 1..1
   * observation only SocialHistoryObservation
@@ -32,7 +33,7 @@ Description: "This section contains social history data that influence a patient
   * observation 1..1
   * observation only CaregiverCharacteristics
     * ^comment = "SHALL contain exactly one [1..1] Caregiver Characteristics (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.72) (CONF:1198-28362)."
-* entry[culteralReligious] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-28366) such that it"
+* entry[culturalReligious] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-28366) such that it"
   * observation 1..1
   * observation only CulturalandReligiousObservation
     * ^comment = "SHALL contain exactly one [1..1] Cultural and Religious Observation (identifier: urn:oi\n                d:2.16.840.1.113883.10.20.22.4.111) (CONF:1198-28367)."
@@ -40,4 +41,9 @@ Description: "This section contains social history data that influence a patient
   * observation 1..1
   * observation only CharacteristicsofHomeEnvironment
     * ^comment = "SHALL contain exactly one [1..1] Characteristics of Home Environment (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.109) (CONF:1198-28826)."
+* entry[individualPronoun] ^comment = "MAY contain zero or more [0..*] entry such that it"
+  * observation 1..1
+  * observation only IndividualPronounObservation
+    * insert USCDI([[Individual Pronoun - SHALL contain exactly one [1..1] Individual Pronoun Observation (identifier: urn:oid:2.16.840.1.113883.10.15.2:2025-05-01).]])
 * obeys should-smoking-status
+	

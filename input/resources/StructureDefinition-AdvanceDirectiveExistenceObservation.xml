@@ -31,11 +31,6 @@
     <status value="draft"/>
     <description value="This observation represents a simple observation indicating whether a person has an advance directive document. When available, a system can nest the references to the advance directive documents inside this observation. "/>
     <fhirVersion value="5.0.0"/>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
     <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
@@ -100,14 +95,18 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code."/>
+            <short value="Advance directive/Living will"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <short value="Advance Directive/Living"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;45473-6&quot; Advance directive/living (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."/>
             <min value="1"/>
             <patternCode value="45473-6"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
@@ -171,7 +170,7 @@
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
             </type>
         </element>
         <element id="Observation.informant">

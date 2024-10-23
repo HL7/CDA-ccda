@@ -4,7 +4,7 @@ Id: IndividualPronounObservation
 Title: "Individual Pronoun Observation"
 Description: "The Individual Personal Pronoun Observation represents words specified by a person to replace their name when referring to them in speech, clinical notes, and written instructions."
 
-* insert LogicalModelTemplate(interpreter-needed-obs, 2.16.840.1.113883.10.15.2, 2022-09-01)
+* insert LogicalModelTemplate(individual-pronoun-obs, 2.16.840.1.113883.10.15.2, 2025-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -14,13 +14,7 @@ Description: "The Individual Personal Pronoun Observation represents words speci
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code."
-  * code 1..1
-  * code = #90778-2
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"90778-2\" Personal pronouns Reported."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32172)."
+  * insert CodedLoinc(90779-2, [[Personal pronounds reported]])
 * text 0..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode."

@@ -59,10 +59,7 @@ Advance Directive Observation that would not be contained in the context of an A
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:3250-16895)."
-  * code 1..1
-  * code = #75320-2
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"75320-2\" Advance directive (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."
+  * insert CodedLoinc(75320-2, [[Advance Directive]])
   * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113883.11.20.9.69.4 (preferred)   

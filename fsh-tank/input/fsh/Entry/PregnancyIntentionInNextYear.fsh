@@ -15,8 +15,8 @@ Description: """This template represents a patient's reported intention or desir
 * classCode = #OBS (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"OBS\" (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-26557)."
 * moodCode 1..1
-* moodCode = #INT (exactly)
-  * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"INT\" Intent (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-26558)."
+* moodCode = #EVN (exactly)
+  * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-26981)."
 * code 1..1

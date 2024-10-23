@@ -23,7 +23,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * insert USCDI([[SDOH Interventions]])
   * ^comment = "This code SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet US Core Procedure Codes urn:oid:2.16.840.1.113883.4.642.40.48.31 ."
   * insert AdditionalBinding(preferred, $SDoHServiceRequest, For Social Determinant of Planned Intervention Procedure, [[If the Planned Intervention Procedure is a Social Determinant of Health Planned Intervention Procedure, the procedure code **SHOULD** be selected from ValueSet [Social Determinant of Health Service Request](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.790/expansion) **DYNAMIC** (CONF:4515-32993).]])
-  * insert AdditionalBinding(preferred, $CommonLabTests, Common Lab Tests, [[IFor common lab tests.]])
+  * insert AdditionalBinding(preferred, $CommonLabTests, Common Lab Tests, [[For common lab tests.]])
   * insert AdditionalBinding(preferred, $Radiology, Radiology, [[For radiology.]])
   * insert AdditionalBinding(preferred, $ClinicalTest, Clinical Test, [[For clinical tests.]])  
 * statusCode 1..1
