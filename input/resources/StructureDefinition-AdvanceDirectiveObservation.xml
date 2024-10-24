@@ -443,11 +443,7 @@
             <fixedCode value="REFR"/>
         </element>
         <element id="Observation.reference:reference1.externalDocument">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
             <path value="Observation.reference.externalDocument"/>
-            <short value="(USCDI) Author"/>
             <comment value="SHALL contain exactly one [1..1] externalDocument (CONF:1198-8693)."/>
             <min value="1"/>
         </element>
@@ -478,6 +474,20 @@
                 <human value="If a URL is referenced, then it **SHOULD** have a corresponding linkHTML element in narrative block (CONF:1198-8699)."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
+        </element>
+        <element id="Observation.reference:reference1.externalDocument.sdtcAuthor">
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
+                <valueUri value="urn:hl7-org:sdtc"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+                <valueString value="author"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="Observation.reference.externalDocument.sdtcAuthor"/>
+            <short value="(USCDI) Author"/>
+            <max value="1"/>
         </element>
     </differential>
 </StructureDefinition>

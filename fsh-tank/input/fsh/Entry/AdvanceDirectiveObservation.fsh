@@ -167,7 +167,6 @@ Advance Directive Observation that would not be contained in the context of an A
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8694)."
   * externalDocument 1..1
     * ^comment = "SHALL contain exactly one [1..1] externalDocument (CONF:1198-8693)."
-    * insert USCDI([[Author]])
     * id 1..*
       * ^comment = "This externalDocument SHALL contain at least one [1..*] id (CONF:1198-8695)."
     * text 0..1
@@ -177,7 +176,9 @@ Advance Directive Observation that would not be contained in the context of an A
         * ^short = "The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."
         * ^comment = "The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."
     * code 1..1
-    * code from $2.16.840.1.113883.11.20.9.69.4 (preferred)    
+    * code from $2.16.840.1.113883.11.20.9.69.4 (preferred)
+    * sdtcAuthor 0..1
+      * insert USCDI([[Author]])
 
 Invariant: 1198-32449
 Description: "If the Advance Directive does not have a specified ending time, the <high> element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."
