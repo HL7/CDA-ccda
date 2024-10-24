@@ -177,7 +177,7 @@ Advance Directive Observation that would not be contained in the context of an A
         * ^comment = "The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."
     * code 1..1
     * code from $2.16.840.1.113883.11.20.9.69.4 (preferred)
-    * sdtcAuthor 0..1
+    * sdtcAuthor
       * insert USCDI([[Author]])
 
 Invariant: 1198-32449
