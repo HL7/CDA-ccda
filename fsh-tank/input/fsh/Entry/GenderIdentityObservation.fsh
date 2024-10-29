@@ -4,7 +4,7 @@ Id: GenderIdentityObservation
 Title: "Gender Identity Observation"
 Description: """This observation represents the gender identity of the patient. Defined as:
 
-> One's basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with one's sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)
+One's basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with one's sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)
 
 This template follows the guidelines from the HL7 Gender Harmony project.
 

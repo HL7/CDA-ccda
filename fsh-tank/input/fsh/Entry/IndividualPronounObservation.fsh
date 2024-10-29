@@ -23,10 +23,11 @@ Description: "The Individual Personal Pronoun Observation represents words speci
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC)."
 * effectiveTime 1..1
   * ^comment = "This observation SHALL contain exactly one [1..1] effectiveTime."
+  * should-high
   * low 1..1
   * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low."
   * high 0..1
-  * ^comment = "This effectiveTime MAY contain zero or one [0..1] high."
+  * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] high."
 * value 1..1
 * value only $CD
 * value from https://terminology.hl7.org/5.5.0/ValueSet-pronouns.html (preferred)

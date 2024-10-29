@@ -4,7 +4,7 @@ Id: SexualOrientationObservation
 Title: "Sexual Orientation Observation"
 Description: """This observation represents the sexual orientation of the patient. Defined as:
 
-> A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.
+A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.
 
 This template was informed by the HL7 Gender Harmony project.
 
