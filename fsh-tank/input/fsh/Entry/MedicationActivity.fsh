@@ -72,8 +72,8 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * insert USCDI([[Route Code - SPL]])
   * obeys should-translation
   * translation 0..*
-  * translation from $2.16.840.1.113762.1.4.1099.12 (preferred)
-    * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32950)." // man-should
+  * translation from $2.16.840.1.113762.1.4.1099.12 (required)
+    * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32950)." // man-should
     * insert USCDI([[Route Code - SNOMED]])
 * approachSiteCode 0..1
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)

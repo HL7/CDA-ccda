@@ -24,7 +24,7 @@ Description: "This clinical statement describes an interaction between a patient
 * effectiveTime 1..1
   * insert USCDI(Time)
   * ^comment = "In Encounter Summaries the Encounter Time will also be present in the document header at componentOf/encompassingEncounter/effectiveTime, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."
-* sdtcDischargeDispositionCode from  http://terminology.hl7.org/ValueSet/v3-DischargeDisposition (preferred)
+* sdtcDischargeDispositionCode from  http://terminology.hl7.org/ValueSet/v3-USEncounterDischargeDisposition (preferred)
   * insert USCDI(Disposition)
   * ^comment = """Implementers should note that a Discharge Disposition is not appropriate for all document types. Hospital Discharge Summary documents SHOULD have a discharge disposition. Progress Notes, or H&P, typically won’t have a discharge disposition. In Encounter Summaries, the Encounter Disposition will also be present in the document header at componentOf/encompassingEncounter/dischargeDispositionCode, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present. While an Encounter Summary provides a snapshot of the patient’s condition at the time of the encounter as authored by the clinician, a Patient summary provides the most current information available from the sending system across multiple encounters. [CodeSystem-AHANUBCPatientDischargeStatus](https://terminology.hl7.org/CodeSystem-AHANUBCPatientDischargeStatus.html)"""
 * performer 0..*

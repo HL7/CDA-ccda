@@ -24,7 +24,7 @@ The Observation value is used to record a calculated score using an integer. A L
   * code 1..1
   * code = #survey
   * codeSystem 1..1
-  * codeSystem = "http://terminology.hl7.org/CodeSystem/observation-category"
+  * codeSystem = "2.16.840.1.113883.4.642.1.1125"
     * ^short = "Observation Category Codes"
   * obeys should-translation
   * translation 0..*

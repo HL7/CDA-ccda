@@ -8,7 +8,7 @@ Description: "The interpreter needed observation represents an indication of whe
 * insert NarrativeLink
 
 * code 1..1
-  * insert CodedLoinc(54588-9, [[Interpereter needed]])
+  * insert CodedLoinc(54588-9, [[Interpreter needed]])
 * effectiveTime 1..1
   * ^comment = "This observation SHALL contain exactly one [1..1] effectiveTime (CONF:1198-31904)."
   * low 1..1

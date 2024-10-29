@@ -29,4 +29,4 @@ Description: "The Individual Personal Pronoun Observation represents words speci
   * ^comment = "This effectiveTime MAY contain zero or one [0..1] high."
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113883.4.642.3.3290 (preferred)
+* value from https://terminology.hl7.org/5.5.0/ValueSet-pronouns.html (preferred)
