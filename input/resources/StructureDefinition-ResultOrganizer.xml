@@ -47,6 +47,13 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
             </constraint>
             <constraint>
+                <key value="should-sdtcCategory"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain sdtcCategory"/>
+                <expression value="sdtcCategory.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
+            </constraint>
+            <constraint>
                 <key value="should-author"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain author"/>
@@ -97,6 +104,14 @@
             <path value="Organizer.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:4537-7127)."/>
             <min value="1"/>
+        </element>
+        <element id="Organizer.sdtcCategory">
+            <path value="Organizer.sdtcCategory"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/R4/valueset-diagnostic-service-sections"/>
+            </binding>
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>

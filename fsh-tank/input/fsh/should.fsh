@@ -240,6 +240,11 @@ Description: "SHOULD contain subject"
 Severity: #warning
 Expression: "subject.exists()"
 
+Invariant: should-sdtcCategory
+Description: "SHOULD contain sdtcCategory"
+Severity: #warning
+Expression: "sdtcCategory.exists()"
+
 Invariant: should-sdtcId
 Description: "SHOULD contain sdtcId"
 Severity: #warning
