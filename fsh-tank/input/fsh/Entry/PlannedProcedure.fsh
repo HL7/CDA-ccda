@@ -18,6 +18,9 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2011-09-30 (CONF:4515-8569)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-8571)."
+* obeys should-sdtcCategory
+* sdtcCategory 0..1
+* sdtcCategory from http://hl7.org/fhir/us/core/ValueSet/us-core-servicerequest-category(preferred)
 * code 1..1
 * code from http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code (preferred)
   * insert USCDI([[SDOH Interventions]])
