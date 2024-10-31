@@ -8,7 +8,10 @@ Taber's medical dictionary defines a Progress Note as "An ongoing record of a pa
 
 Mosby's medical dictionary defines a Progress Note as "Notes made by a nurse, physician, social worker, physical therapist, and other health care professionals that describe the patient's condition and the treatment given or planned."
 
-A Progress Note is not a re-evaluation note. A Progress Note is not intended to be a Progress Report for Medicare. Medicare B Section 1833(e) defines the requirements of a Medicare Progress Report."""
+A Progress Note is not a re-evaluation note. A Progress Note is not intended to be a Progress Report for Medicare. Medicare B Section 1833(e) defines the requirements of a Medicare Progress Report.
+
+Systems shall include the full narrative Progress Note in an appropriate section. Acceptable sections include the Assessment, Plan of Treatment, Assessment and Plan, or Note sections. In all cases, the narrative Progress Note shall be wrapped within a Note Activity Act to ensure proper ingestion.
+"""
 
 * insert LogicalModelTemplate(progress-note, 2.16.840.1.113883.10.20.22.1.9, 2024-05-01)
 
@@ -85,8 +88,8 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
         vitalSigns 0..1 and
         nutrition 0..1 and
         mentalStatus 0..1 and
-        advDirectives 0..1 and 
-        notesSection 1..1
+        advDirectives 0..1 and
+        notes 0..1
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30618)."
       * section only AssessmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30619)."
@@ -141,7 +144,7 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
     * component[advDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
         * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
-    * component[notesSection] ^comment = "This structuredBody SHALL contain exactly one [1..1] component such that it"
+    * component[notes] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only NotesSection
         * ^comment = "SHALL contain exactly one [1..1] Notes Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.65:2016-11-01)."
 
