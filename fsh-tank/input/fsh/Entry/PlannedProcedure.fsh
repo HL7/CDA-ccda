@@ -20,7 +20,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-8571)."
 * obeys should-sdtcCategory
 * sdtcCategory 0..1
-* sdtcCategory from http://hl7.org/fhir/us/core/ValueSet/us-core-servicerequest-category(preferred)
+* sdtcCategory from http://hl7.org/fhir/us/core/ValueSet/us-core-servicerequest-category (preferred)
 * code 1..1
 * code from http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code (preferred)
   * insert USCDI([[SDOH Interventions]])
