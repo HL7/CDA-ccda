@@ -88,9 +88,8 @@ Depending on the type of supply, the product or participant will be either a Med
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32058)."
-  * act 1..1
-  * act only Instruction
-    * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32059)."
+  * observation 1..1
+  * observation only InstructionObservation
 * entryRelationship[plannedCoverage] ^short = "The following entryRelationship represents the insurance coverage the patient may have for the supply."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32060) such that it"
   * typeCode 1..1

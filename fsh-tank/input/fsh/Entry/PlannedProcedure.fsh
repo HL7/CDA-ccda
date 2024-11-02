@@ -90,9 +90,8 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * inversionInd 1..1
   * inversionInd = true (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @inversionInd=\"true\" True (CONF:4515-31987)."
-  * act 1..1
-  * act only Instruction
-    * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:4515-31989)."
+  * observation 1..1
+  * observation only InstructionObservation
 * entryRelationship[coverage] ^short = "The following entryRelationship represents the insurance coverage the patient may have for the procedure."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31990) such that it"
   * typeCode 1..1

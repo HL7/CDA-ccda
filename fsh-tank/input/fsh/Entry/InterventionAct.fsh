@@ -118,9 +118,8 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
   * typeCode 1..1
   * typeCode = #REFR (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32956)."
-  * act 1..1
-  * act only Instruction
-    * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1198-31176)."
+  * observation 1..1
+  * observation only InstructionObservation
 * entryRelationship[nonMedSupply] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-31177) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

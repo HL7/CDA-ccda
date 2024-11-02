@@ -99,11 +99,8 @@ Description: "This template represents planned medication activities. The priori
   * ^short = "The author in a planned medication activity represents the clinician who is requesting or planning the medication activity."
   * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32046)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
-  * ^slicing.discriminator[=].path = "act"
-  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-  * ^short = "The following entryRelationship captures any instructions associated with the planned medication activity."
 * entryRelationship contains
     priorityPreference 0..* and
     indication 0..* and
@@ -129,9 +126,8 @@ Description: "This template represents planned medication activities. The priori
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32073)."
-  * act 1..1
-  * act only Instruction
-    * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32074)."
+  * observation 1..1
+  * observation only InstructionObservation
 * precondition 0..*
   * ^comment = "MAY contain zero or more [0..*] precondition (CONF:1098-32084)."
   * typeCode 1..1

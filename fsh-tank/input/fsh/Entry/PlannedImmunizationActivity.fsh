@@ -87,9 +87,8 @@ The priority of the immunization activity to the patient and provider is communi
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32118)."
-  * act 1..1
-  * act only Instruction
-    * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32119)."
+  * observation 1..1
+  * observation only InstructionObservation
 * precondition ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "criterion"
   * ^slicing.rules = #open

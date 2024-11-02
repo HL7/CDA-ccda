@@ -43,7 +43,7 @@
                 <key value="shall-instruction"/>
                 <severity value="error"/>
                 <human value="If section/@nullFlavor is not present, SHALL contain at least one Instruction"/>
-                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/Instruction')).exists() or entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation')).exists()"/>
+                <expression value="nullFlavor.exists() or entry.where(act.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/InstructionActivity')).exists() or entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation')).exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionsSection"/>
             </constraint>
         </element>
@@ -120,18 +120,18 @@
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
         </element>
-        <element id="Section.entry:instruction">
+        <element id="Section.entry:instructionAct">
             <path value="Section.entry"/>
-            <sliceName value="instruction"/>
+            <sliceName value="instructionAct"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:instruction.act">
+        <element id="Section.entry:instructionAct.act">
             <path value="Section.entry.act"/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionActivity"/>
             </type>
         </element>
         <element id="Section.entry:instructionObservation">

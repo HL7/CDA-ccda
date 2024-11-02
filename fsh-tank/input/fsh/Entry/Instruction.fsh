@@ -1,7 +1,7 @@
-Profile: Instruction
+Profile: InstructionActivity
 Parent: $Act
-Id: Instruction
-Title: "Instruction Activity"
+Id: InstructionActivity
+Title: "Instruction Activity (Deprecated)"
 Description: "The Instruction template is used to record instructions intended to be given to the patient. The template's moodCode can only be INT. If an instruction was already given, Instruction Observation (instead of this template) should be used to represent the already occurred instruction. The act/code defines the type of instruction."
 
 * insert LogicalModelTemplate(instruction, 2.16.840.1.113883.10.20.22.4.20, 2014-06-09)
