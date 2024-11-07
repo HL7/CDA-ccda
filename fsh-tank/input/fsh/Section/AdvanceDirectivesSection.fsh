@@ -29,8 +29,7 @@ An observation made by a clinician or practitioner regarding a patient’s DNR S
 * entry[advdirobservation] ^comment = "MAY contain zero or more [0..*] entry such that it"
   * observation 1..1
   * observation only AdvanceDirectiveObservation
-    * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2022-02-14) (CONF:1198-15443)."
-* obeys shall-adv-directive-organizer
+    * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2025-05-01) (CONF:1198-15443)."
 * entry[advdirexistenceobservation] ^comment = "MAY contain zero or more [0..*] entry such that it"
   * observation 1..1
   * observation only AdvanceDirectiveExistenceObservation

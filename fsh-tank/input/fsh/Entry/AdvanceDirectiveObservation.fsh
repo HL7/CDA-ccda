@@ -47,7 +47,7 @@ Advance Directive Observation that would not be contained in the context of an A
 {:.grid}
 """
 
-* insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2022-02-14)
+* insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2025-05-01)
 * insert NarrativeLink
 
 * classCode 1..1

@@ -39,4 +39,4 @@ Description: """ This observation represents a simple observation indicating whe
   * ^comment = "MAY contain zero or more [0..*] entryRelationship."
   * observation 1..1
   * observation only AdvanceDirectiveObservation
-    * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2022-02-14)."
+    * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2025-05-01)."
