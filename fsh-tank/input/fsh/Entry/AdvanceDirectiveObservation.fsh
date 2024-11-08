@@ -59,6 +59,7 @@ Advance Directive Observation that would not be contained in the context of an A
   * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
   * insert CodedLoinc(75320-2, [[Advance Directive]])
+  * insert USCDI([[Advance Directive Type]])
   * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113883.11.20.9.69.4 (preferred)   
@@ -76,22 +77,22 @@ Advance Directive Observation that would not be contained in the context of an A
   * high 1..1
     * obeys 1198-32449
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high."
-* value 1..1
-  * ^comment = "SHALL contain exactly one [1..1] value (CONF:1198-30804)."
-* value only CD
-* value from $2.16.840.1.113762.1.4.1099.57
-  * ^binding.description = "Advance Directive Content Type"
+* value 0..1
+  * ^comment = "MAY contain zero or more [0..*] value."
+  * insert USCDI([[Value]])
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)." // man-should
+  * insert USCDI([[Author]])
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
     verifier 0..* and
     custodian 0..*
-* participant[verifier] ^short = "The participant \"VRF\" represents the clinician(s) who verified the patient advance directive."
+* participant[verifier]
+  * insert USCDI([[The participant \"VRF\" represents the clinician(s) who verified the patient advance directive.]])
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
   * typeCode 1..1
   * typeCode = #VRF (exactly)
@@ -166,7 +167,7 @@ Advance Directive Observation that would not be contained in the context of an A
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REFR\" Refers to (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-8694)."
   * externalDocument 1..1
     * ^comment = "SHALL contain exactly one [1..1] externalDocument (CONF:1198-8693)."
-    * insert USCDI([[Author]])
+    * insert USCDI([[External Document]])
     * id 1..*
       * ^comment = "This externalDocument SHALL contain at least one [1..*] id (CONF:1198-8695)."
     * text 0..1

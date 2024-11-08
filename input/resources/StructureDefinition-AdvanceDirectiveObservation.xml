@@ -108,8 +108,11 @@
             <min value="1"/>
         </element>
         <element id="Observation.code">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.code"/>
-            <short value="Advance Directive"/>
+            <short value="(USCDI) Advance Directive Type"/>
             <constraint>
                 <key value="should-translation"/>
                 <severity value="warning"/>
@@ -186,21 +189,20 @@
             </constraint>
         </element>
         <element id="Observation.value">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value (CONF:1198-30804)."/>
-            <min value="1"/>
+            <short value="(USCDI) Value"/>
+            <comment value="MAY contain zero or more [0..*] value."/>
             <max value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
-            </type>
-            <binding>
-                <strength value="required"/>
-                <description value="Advance Directive Content Type"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.57"/>
-            </binding>
         </element>
         <element id="Observation.author">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.author"/>
+            <short value="(USCDI) Author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
@@ -222,9 +224,12 @@
             </slicing>
         </element>
         <element id="Observation.participant:verifier">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.participant"/>
             <sliceName value="verifier"/>
-            <short value="The participant &quot;VRF&quot; represents the clinician(s) who verified the patient advance directive."/>
+            <short value="(USCDI) The participant &quot;VRF&quot; represents the clinician(s) who verified the patient advance directive."/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"/>
             <min value="0"/>
             <max value="*"/>
