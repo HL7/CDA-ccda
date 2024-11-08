@@ -2,8 +2,7 @@ Profile: AdvanceDirectiveObservation
 Parent: $Observation
 Id: AdvanceDirectiveObservation
 Title: "Advance Directive Observation"
-Description: """Advance Directive Observations may include a variety of information called different “content types”. The set of Advance Directive Observations within an Advance Directive Organizer provides a summarization of relevant information available in an external Advance Healthcare Directive document or gathered as a result of a conversation with the patient or their healthcare agent (Advance Directive document or Portable Medical Order document).
-
+Description: """The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents. This template provides details about the type of advance directive document and may also include information on the document’s author, as well as any individuals who verified its contents with the patient or their designated healthcare agent.
 
 The types of content in an advance directive could include, but are not limited to:
 * Healthcare agent consent
