@@ -40,6 +40,13 @@
         <element id="ClinicalDocument">
             <path value="ClinicalDocument"/>
             <constraint>
+                <key value="category-11488-4"/>
+                <severity value="error"/>
+                <human value="If category is present, then there shall be a category with LOINC code '11488-4'."/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = '11488-4' and codeSystem = '2.16.840.1.113883.6.1')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            </constraint>
+            <constraint>
                 <key value="should-participant-callback"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain zero or more [0..*] participant such that it SHALL contain exactly one [1..1] @typeCode=&quot;CALLBCK&quot; call back contact (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC)"/>
@@ -67,9 +74,13 @@
             <min value="1"/>
             <patternString value="2024-05-01"/>
         </element>
+        <element id="ClinicalDocument.sdtcCategory">
+            <path value="ClinicalDocument.sdtcCategory"/>
+            <short value="Used to categorize the document as a Consult Note. If present, there SHALL be a category of 11488-4 (Consult note)."/>
+        </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <short value="The Consultation Note recommends use of  the document type code 11488-4 &quot;Consult Note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
+            <short value="The Consultation Note recommends use of  the document type code 11488-4 &quot;Consult note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
             <comment value="SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet ConsultDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.31 DYNAMIC (CONF:1198-17176)."/>
             <binding>
                 <strength value="required"/>

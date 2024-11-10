@@ -40,6 +40,13 @@
         <element id="ClinicalDocument">
             <path value="ClinicalDocument"/>
             <constraint>
+                <key value="category-11506-3"/>
+                <severity value="error"/>
+                <human value="If category is present, then there shall be a category with LOINC code '11506-3'."/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = '11506-3' and codeSystem = '2.16.840.1.113883.6.1')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProgressNote"/>
+            </constraint>
+            <constraint>
                 <key value="should-documentationOf"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain documentationOf"/>
@@ -67,9 +74,13 @@
             <min value="1"/>
             <patternString value="2024-05-01"/>
         </element>
+        <element id="ClinicalDocument.sdtcCategory">
+            <path value="ClinicalDocument.sdtcCategory"/>
+            <short value="Used to categorize the document as a Progress Note. If present, there SHALL be a category of 11506-3 (Progress note)."/>
+        </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <short value="The Progress Note recommends use of a single document type code, 11506-3 &quot;Subsequent evaluation note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
+            <short value="The Progress Note recommends use of a single document type code, 11506-3 &quot;Progress note&quot;, with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-17189)."/>
             <binding>
                 <strength value="required"/>

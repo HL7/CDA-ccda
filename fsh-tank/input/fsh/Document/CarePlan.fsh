@@ -21,6 +21,7 @@ Key differentiators between a Care Plan CDA and CCD (another snapshot in time do
 A care plan document can include entry references from the information in these sections to the information (entries) in other sections."""
 
 * insert LogicalModelTemplate(care-plan, 2.16.840.1.113883.10.20.22.1.15, 2024-05-01)
+* insert DocumentCategory(Care Plan, 18776-5, Plan of care note)
 
 * ^status = #active
 * code from $2.16.840.1.113762.1.4.1099.10 (required)
@@ -217,3 +218,8 @@ Invariant: 1198-31044
 Description: "This structuredBody **SHALL NOT** contain a Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-31044)."
 Severity: #error
 Expression: "component.where(section.hasTemplateIdOf(PlanofTreatmentSection)).empty()"
+
+Invariant: category-18776-5
+Description: "If category is present, then there shall be a category with LOINC code '18776-5'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18776-5' and codeSystem = '2.16.840.1.113883.6.1')"

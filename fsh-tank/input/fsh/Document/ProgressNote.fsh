@@ -14,10 +14,11 @@ Systems shall include the full narrative Progress Note in an appropriate section
 """
 
 * insert LogicalModelTemplate(progress-note, 2.16.840.1.113883.10.20.22.1.9, 2024-05-01)
+* insert DocumentCategory(Progress Note, 11506-3, Progress note)
 
 * ^status = #active
 * code from ProgressNoteDocumentTypeCode (required)
-  * ^short = "The Progress Note recommends use of a single document type code, 11506-3 \"Subsequent evaluation note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
+  * ^short = "The Progress Note recommends use of a single document type code, 11506-3 \"Progress note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17189)."
 * obeys should-documentationOf
 * documentationOf 0..1
@@ -152,3 +153,8 @@ Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."
 Severity: #error
 Expression: "width.empty() implies high.exists()"
+
+Invariant: category-11506-3
+Description: "If category is present, then there shall be a category with LOINC code '11506-3'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11506-3' and codeSystem = '2.16.840.1.113883.6.1')"

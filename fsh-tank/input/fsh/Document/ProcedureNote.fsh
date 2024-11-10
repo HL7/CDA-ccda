@@ -7,10 +7,11 @@ Description: """A Procedure Note encompasses many types of non-operative procedu
 The Procedure Note is created immediately following a non-operative procedure. It records the indications for the procedure and, when applicable, postprocedure diagnosis, pertinent events of the procedure, and the patient's tolerance for the procedure. It should be detailed enough to justify the procedure, describe the course of the procedure, and provide continuity of care."""
 
 * insert LogicalModelTemplate(procedure-note, 2.16.840.1.113883.10.20.22.1.6, 2024-05-01)
+* insert DocumentCategory(Procedure Note, 28570-0, Procedure note)
 
 * ^status = #active
 * code from ProcedureNoteDocumentTypeCodes (required)
-  * ^short = "The Procedure Note recommends use of a single document type code, 28570-0 \"Procedure Note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
+  * ^short = "The Procedure Note recommends use of a single document type code, 28570-0 \"Procedure note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17182)."
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
@@ -259,3 +260,8 @@ Invariant: 1198-8511
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."
 Severity: #error
 Expression: "codeSystem = '2.16.840.1.113883.6.104' or codeSystem = '2.16.840.1.113883.6.4' or codeSystem = '2.16.840.1.113883.6.12' or codeSystem = '2.16.840.1.113883.6.285' or (codeSystem = '2.16.840.1.113883.6.96' and code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28'))"
+
+Invariant: category-28570-0
+Description: "If category is present, then there shall be a category with LOINC code '28570-0'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '28570-0' and codeSystem = '2.16.840.1.113883.6.1')"

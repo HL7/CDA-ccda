@@ -13,6 +13,7 @@ Description: """The Discharge Summary is a document which synopsizes a patient's
 The best practice for a Discharge Summary is to include the discharge disposition in the display of the header."""
 
 * insert LogicalModelTemplate(discharge-summary, 2.16.840.1.113883.10.20.22.1.8, 2024-05-01)
+* insert DocumentCategory(Discharge Summary, 18842-5, Discharge summary)
 
 * ^status = #active
 * code from DischargeSummaryDocumentTypeCode (required) 
@@ -189,3 +190,8 @@ Invariant: 1198-32899
 Description: "This assignedEntity **SHALL** contain an assignedPerson or a representedOrganization or both (CONF:1198-32899)."
 Severity: #error
 Expression: "assignedPerson.exists() or representedOrganization.exists()"
+
+Invariant: category-18842-5
+Description: "If category is present, then there shall be a category with LOINC code '18842-5'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18842-5' and codeSystem = '2.16.840.1.113883.6.1')"

@@ -7,11 +7,12 @@ Description: """The Transfer Summary standardizes critical information for excha
 Standardization of information used in this form will promote interoperability; create information suitable for reuse in quality measurement, public health, research, and for reimbursement."""
 
 * insert LogicalModelTemplate(transfer-summary, 2.16.840.1.113883.10.20.22.1.13, 2024-05-01)
+* insert DocumentCategory(Transfer Summary, 18761-7, Transfer summary note)
 
 * ^status = #active
 * code 1..1
 * code from TransferDocumentType (required)
-  * ^short = "The Transfer Summary recommends use of the document type code 18761-7 \"Provider Unspecified Transfer Summary\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Transfer Summary note would not be authored by a Pediatric Cardiologist.\n\nPre-coordinated codes are those that indicate the specialty or service provided in the LOINC Long Common Name (Print Name in the TransferDocumentType valueSet table).\n\nWhen using a generic type of code such as 18761-7 (Provider - Unspecified Transfer Summary), the types of services involved in the care are handled in documentationOf/serviceEvent with the use of serviceEvent/code (e.g., use a SNOMED CT procedure code such as 69031006 (Excision of breast tissue) while performers/providers involved in the care can be identified using the functionCode (bound to Healthcare Provider Taxonomy role codes)."
+  * ^short = "The Transfer Summary recommends use of the document type code 18761-7 \"Transfer summary note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Transfer Summary note would not be authored by a Pediatric Cardiologist.\n\nPre-coordinated codes are those that indicate the specialty or service provided in the LOINC Long Common Name (Print Name in the TransferDocumentType valueSet table).\n\nWhen using a generic type of code such as 18761-7 (Provider - Unspecified Transfer Summary), the types of services involved in the care are handled in documentationOf/serviceEvent with the use of serviceEvent/code (e.g., use a SNOMED CT procedure code such as 69031006 (Excision of breast tissue) while performers/providers involved in the care can be identified using the functionCode (bound to Healthcare Provider Taxonomy role codes)."
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet TransferDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.4 DYNAMIC (CONF:1198-28243)."
 * title 1..1
   * ^comment = "SHALL contain exactly one [1..1] title (CONF:1198-29838)."
@@ -216,3 +217,8 @@ Standardization of information used in this form will promote interoperability; 
     * component[courseOfCare] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-32648) such that it"
       * section only CourseofCareSection
         * ^comment = "SHALL contain exactly one [1..1] Course of Care Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.64) (CONF:1198-32649)."
+
+Invariant: category-18761-7
+Description: "If category is present, then there shall be a category with LOINC code '18761-7'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18761-7' and codeSystem = '2.16.840.1.113883.6.1')"

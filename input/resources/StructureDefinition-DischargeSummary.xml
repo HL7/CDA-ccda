@@ -37,6 +37,16 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="category-18842-5"/>
+                <severity value="error"/>
+                <human value="If category is present, then there shall be a category with LOINC code '18842-5'."/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = '18842-5' and codeSystem = '2.16.840.1.113883.6.1')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
@@ -56,6 +66,10 @@
             <path value="ClinicalDocument.templateId.extension"/>
             <min value="1"/>
             <patternString value="2024-05-01"/>
+        </element>
+        <element id="ClinicalDocument.sdtcCategory">
+            <path value="ClinicalDocument.sdtcCategory"/>
+            <short value="Used to categorize the document as a Discharge Summary. If present, there SHALL be a category of 18842-5 (Discharge summary)."/>
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
