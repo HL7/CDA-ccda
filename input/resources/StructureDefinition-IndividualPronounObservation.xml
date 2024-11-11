@@ -130,8 +130,15 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <comment value="This effectiveTime MAY contain zero or one [0..1] high."/>
+            <comment value="This effectiveTime SHOULD contain zero or one [0..1] high."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-high"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/IndividualPronounObservation"/>
+            </constraint>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
@@ -146,7 +153,7 @@
             </type>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.3290"/>
+                <valueSet value="https://terminology.hl7.org/5.5.0/ValueSet-pronouns.html"/>
             </binding>
         </element>
     </differential>

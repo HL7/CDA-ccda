@@ -18,7 +18,10 @@ Care expectations may range from being treated only by female clinicians, to exp
 
 Overarching goals described in this section are not tied to a specific condition, problem, health concern, or intervention. Examples of overarching goals could be to minimize pain or dependence on others, or to walk a daughter down the aisle for her marriage. 
 
-The plan may also indicate that patient education will be provided."""
+The plan may also indicate that patient education will be provided.
+
+Wrapping the text of this section in a Note Activity will support ingestion.
+"""
 
 // !!! Caution - this templateId and extension is used in CarePlan invariant 1198-31044. If changed here, replace there.
 * insert Section(#18776-5, Plan of care note, 2.16.840.1.113883.10.20.22.2.10, 2014-06-09)
@@ -33,6 +36,8 @@ The plan may also indicate that patient education will be provided."""
   * ^slicing.discriminator[=].path = "substanceAdministration"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "supply"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entry contains
     plannedEnc 0..* and
@@ -43,7 +48,8 @@ The plan may also indicate that patient education will be provided."""
     handoffCommParticipants 0..* and
     nutrition 0..* and
     plannedImmunization 0..* and
-    goal 0..*
+    goal 0..* and
+	notes 0..*
 * entry[plannedEnc] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8805) such that it"
   * encounter 1..1
   * encounter only PlannedEncounter
@@ -61,9 +67,8 @@ The plan may also indicate that patient education will be provided."""
   * supply only PlannedSupply
     * ^comment = "SHALL contain exactly one [1..1] Planned Supply (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.43:2014-06-09) (CONF:1098-30476)."
 * entry[instruction] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-14695) such that it"
-  * act 1..1
-  * act only Instruction
-    * ^comment = "SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31397)."
+  * observation 1..1
+  * observation only InstructionObservation
 * entry[handoffCommParticipants] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-29621) such that it"
   * act 1..1
   * act only HandoffCommunicationParticipants
@@ -80,3 +85,8 @@ The plan may also indicate that patient education will be provided."""
   * observation 1..1
   * observation only GoalObservation
     * ^comment = "SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:1098-32888)."
+* entry[notes] ^comment = "MAY contain zero or more [0..*] entry such that it"
+  * act 1..1
+  * act only NoteActivity
+    * ^comment = "SHALL contain exactly one [1..1] Notes Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.202,2016-11-01)."
+

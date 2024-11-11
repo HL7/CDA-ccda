@@ -72,6 +72,11 @@ const parse = require('csv-parse/sync').parse;
         igResource.description.$.value = period ? period[1] : json.description.substring(0, 100);
       }
 
+      // Sushi started re-adding version from sushi-config. 
+      // We currently already set this to the templateId extension... if there was an extension.
+      // So, if the version is 2.1, that means Sushi added it, and we actually want to skip it
+      if (json.version === '2.1') delete json.version;
+
       // Build a list of required / recommended / additional sections
       appendSectionUsageToDescription(json);
 

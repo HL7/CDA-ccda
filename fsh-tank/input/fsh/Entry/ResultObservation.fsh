@@ -18,10 +18,7 @@ If code contains a valid non-null LOINC then the xsi:type value SHOULD match the
 | Multi - Multi | ED |
 | Doc - Document | ED |
 
-- **Laboratory** - For laboratory test codes include codes from [LOINC](http://loinc.org) where CLASSTYPE = 1. Please see [US Core Laboratory Test Codes](https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html) used in US Core which has a partial expansion of the 61,898 codes.
-- **Common Lab Result** - To retrieve a list of the most commonly used LOINC lab codes (20,000), in "[Search LOINC](loinc.org/search/)" enter: "CommonLabResult:true"  
-- **Radiology** - To retrieve a list of Radiology LOINC codes, in "[Search LOINC](loinc.org/search/)" enter: "Radiology: true"  
-
+The Result Observation template is a versatile template designed to represent any type of finding resulting from various types of tests. Value set bindings for Observation.code have been created to support implementers, covering three categories: 1) Common Laboratory Tests, 2) Radiology Tests, and 3) Clinical Tests. If a suitable code is not available within these value sets, first use another LOINC code. If no LOINC code is appropriate, a local code may be used.
 """
 
 * insert LogicalModelTemplate(result-obs, 2.16.840.1.113883.10.20.22.4.2, 2023-05-01)

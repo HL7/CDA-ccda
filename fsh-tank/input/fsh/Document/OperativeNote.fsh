@@ -7,10 +7,11 @@ Description: """The Operative Note is a frequently used type of procedure note w
 The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care."""
 
 * insert LogicalModelTemplate(operative-note, 2.16.840.1.113883.10.20.22.1.7, 2024-05-01)
+* insert DocumentCategory(Operative Note, 11504-8, Surgical operation note)
 
 * ^status = #active
 * code from SurgicalOperationNoteDocumentTypeCode (required)
-  * ^short = "The Operative Note recommends use of a single document type code, 11504-8 \"Provider-unspecified Operation Note\", with further specification provided by author or performer, setting, or specialty data in the CDA header. Some of the LOINC codes in the Surgical Operation Note Document Type Code table are pre-coordinated with the practice setting or the training or professional level of the author. Use of pre-coordinated codes is not recommended because of potential conflict with other information in the header. When these codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
+  * ^short = "The Operative Note recommends use of a single document type code, 11504-8 \"Surgical operation note\", with further specification provided by author or performer, setting, or specialty data in the CDA header. Some of the LOINC codes in the Surgical Operation Note Document Type Code table are pre-coordinated with the practice setting or the training or professional level of the author. Use of pre-coordinated codes is not recommended because of potential conflict with other information in the header. When these codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17187)."
 * documentationOf 1..*
   * ^short = "A serviceEvent represents the main act, such as a colonoscopy or an appendectomy, being documented. A serviceEvent can further specialize the act inherent in the ClinicalDocument/code, such as where the ClinicalDocument/code is simply \"Surgical Operation Note\" and the procedure is \"Appendectomy.\" serviceEvent is required in the Operative Note and it must be equivalent to or further specialize the value inherent in the ClinicalDocument/code; it shall not conflict with the value inherent in the ClinicalDocument/code, as such a conflict would create ambiguity. serviceEvent/effectiveTime can be used to indicate the time the actual event (as opposed to the encounter surrounding the event) took place. If the date and the duration of the procedure is known, serviceEvent/effectiveTime/low is used with a width element that describes the duration; no high element is used. However, if only the date is known, the date is placed in both the low and high elements."
@@ -173,3 +174,8 @@ Invariant: width-or-high
 Description: "Width and high are mutually exclusive. If width is known, high **SHALL NOT** be present. If with is not present, **SHALL** include high."
 Severity: #error
 Expression: "(width | high).count() = 1"
+
+Invariant: category-11504-8
+Description: "If category is present, then there shall be a category with LOINC code '11504-8'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11504-8' and codeSystem = '2.16.840.1.113883.6.1')"

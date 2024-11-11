@@ -4,7 +4,7 @@ Id: SexualOrientationObservation
 Title: "Sexual Orientation Observation"
 Description: """This observation represents the sexual orientation of the patient. Defined as:
 
-> A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.
+A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.
 
 This template was informed by the HL7 Gender Harmony project.
 
@@ -38,5 +38,4 @@ This observation is not appropriate for recording patient gender (administrative
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33075)."
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113762.1.4.1021.32 (required)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Sexual Orientation urn:oid:2.16.840.1.113762.1.4.1240.11 DYNAMIC."
+  * insert BindAtCode($2.16.840.1.113762.1.4.1240.11, required)

@@ -113,7 +113,7 @@
             </constraint>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.23"/>
             </binding>
         </element>
         <element id="Encounter.code.originalText">
@@ -129,16 +129,6 @@
                 <expression value="value.exists() implies value.startsWith('#')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/EncounterActivity"/>
             </constraint>
-        </element>
-        <element id="Encounter.code.translation">
-            <path value="Encounter.code.translation"/>
-            <short value="The translation may exist to provide an Encounter Planned code that is equivalent or narrower than the EncounterTypeCode code."/>
-            <comment value="This code MAY contain zero or one [0..1] translation (CONF:1198-32323)."/>
-            <max value="1"/>
-            <binding>
-                <strength value="example"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.52"/>
-            </binding>
         </element>
         <element id="Encounter.text">
             <path value="Encounter.text"/>
@@ -178,7 +168,7 @@
             <comment value="Implementers should note that a Discharge Disposition is not appropriate for all document types. Hospital Discharge Summary documents SHOULD have a discharge disposition. Progress Notes, or H&amp;P, typically won’t have a discharge disposition. In Encounter Summaries, the Encounter Disposition will also be present in the document header at componentOf/encompassingEncounter/dischargeDispositionCode, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present. While an Encounter Summary provides a snapshot of the patient’s condition at the time of the encounter as authored by the clinician, a Patient summary provides the most current information available from the sending system across multiple encounters. [CodeSystem-AHANUBCPatientDischargeStatus](https://terminology.hl7.org/CodeSystem-AHANUBCPatientDischargeStatus.html)"/>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://hl7.org/cda/us/ccda/ValueSet/2.16.840.1.113883.3.88.12.80.33"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-USEncounterDischargeDisposition"/>
             </binding>
         </element>
         <element id="Encounter.performer">

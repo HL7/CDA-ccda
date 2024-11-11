@@ -277,9 +277,9 @@
             </extension>
             <path value="SubstanceAdministration.routeCode.translation"/>
             <short value="(USCDI) Route Code - SNOMED"/>
-            <comment value="The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32950)."/>
+            <comment value="The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32950)."/>
             <binding>
-                <strength value="preferred"/>
+                <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.12"/>
             </binding>
         </element>
@@ -467,13 +467,12 @@
             <min value="1"/>
             <fixedBoolean value="true"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:instruction.act">
-            <path value="SubstanceAdministration.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-31387)."/>
+        <element id="SubstanceAdministration.entryRelationship:instruction.observation">
+            <path value="SubstanceAdministration.entryRelationship.observation"/>
             <min value="1"/>
             <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
             </type>
         </element>
         <element id="SubstanceAdministration.entryRelationship:supplyOrder">

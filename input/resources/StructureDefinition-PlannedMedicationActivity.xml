@@ -344,15 +344,10 @@
             <slicing>
                 <discriminator>
                     <type value="profile"/>
-                    <path value="act"/>
-                </discriminator>
-                <discriminator>
-                    <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <short value="The following entryRelationship captures any instructions associated with the planned medication activity."/>
         </element>
         <element id="SubstanceAdministration.entryRelationship:priorityPreference">
             <path value="SubstanceAdministration.entryRelationship"/>
@@ -401,6 +396,7 @@
         <element id="SubstanceAdministration.entryRelationship:instruction">
             <path value="SubstanceAdministration.entryRelationship"/>
             <sliceName value="instruction"/>
+            <short value="The following entryRelationship captures any instructions associated with the planned medication activity."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-32072) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -410,13 +406,12 @@
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32073)."/>
             <fixedCode value="SUBJ"/>
         </element>
-        <element id="SubstanceAdministration.entryRelationship:instruction.act">
-            <path value="SubstanceAdministration.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:1098-32074)."/>
+        <element id="SubstanceAdministration.entryRelationship:instruction.observation">
+            <path value="SubstanceAdministration.entryRelationship.observation"/>
             <min value="1"/>
             <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
             </type>
         </element>
         <element id="SubstanceAdministration.precondition">

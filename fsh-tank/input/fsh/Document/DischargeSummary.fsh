@@ -13,6 +13,7 @@ Description: """The Discharge Summary is a document which synopsizes a patient's
 The best practice for a Discharge Summary is to include the discharge disposition in the display of the header."""
 
 * insert LogicalModelTemplate(discharge-summary, 2.16.840.1.113883.10.20.22.1.8, 2024-05-01)
+* insert DocumentCategory(Discharge Summary, 18842-5, Discharge summary)
 
 * ^status = #active
 * code from DischargeSummaryDocumentTypeCode (required) 
@@ -40,9 +41,8 @@ The best practice for a Discharge Summary is to include the discharge dispositio
         * ^short = "The discharge date is recorded in the componentOf/encompassingEncounter/effectiveTime/high."
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-8475)."
     * dischargeDispositionCode 1..1
-    * dischargeDispositionCode from $2.16.840.1.113883.3.88.12.80.33 (preferred)
+    * dischargeDispositionCode from http://terminology.hl7.org/ValueSet/v3-USEncounterDischargeDisposition (preferred)
       * ^short = "The dischargeDispositionCode records the disposition of the patient at time of discharge. Access to the National Uniform Billing Committee (NUBC) code system requires a membership. The following conformance statement aligns with HITSP C80 requirements. \n\nThe dischargeDispositionCode, @displayName, or NUBC UB-04 Print Name, must be displayed when the document is rendered."
-      * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] dischargeDispositionCode, which SHOULD be selected from ValueSet NUBC UB-04 FL17 Patient Status urn:oid:2.16.840.1.113883.3.88.12.80.33 DYNAMIC (CONF:1198-8476)."
     * responsibleParty 0..1
       * ^short = "The responsibleParty element represents only the party responsible for the encounter, not necessarily the entire episode of care."
       * ^comment = "This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-8479)."
@@ -190,3 +190,8 @@ Invariant: 1198-32899
 Description: "This assignedEntity **SHALL** contain an assignedPerson or a representedOrganization or both (CONF:1198-32899)."
 Severity: #error
 Expression: "assignedPerson.exists() or representedOrganization.exists()"
+
+Invariant: category-18842-5
+Description: "If category is present, then there shall be a category with LOINC code '18842-5'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18842-5' and codeSystem = '2.16.840.1.113883.6.1')"

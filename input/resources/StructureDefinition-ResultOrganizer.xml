@@ -29,7 +29,7 @@
     <name value="ResultOrganizer"/>
     <title value="Result Organizer"/>
     <status value="draft"/>
-    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;. &#xA;&#xA;A specimen linked to a Result Organizer applies to all Result Observations. Centralizing specimen details within the Organizer is advised for clarity and consistency, as Result Observations typically relate to a single specimen collection, like using a purple top tube for CBCs. In cases of poor-quality specimens, a specimen reject reason is logically associated with the procedure, not the result, as there may be no result. The Result Organizer includes the specimen collection procedure, which may contain information about specimen condition acceptability. The Specimen Colection Procedure includes representation of the USCDI data element &quot;Specimen Condition Acceptability&quot;.&#xA;&#xA;- **Laboratory** - For laboratory test codes include codes from [LOINC](http://loinc.org) where CLASSTYPE = 1. Please see https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html used in US Core which has a partial expansion of the 61,898 codes.&#xA;- **Common Lab Result** - To retrieve a list of the most commonly used LOINC lab codes (20,000), in &quot;[Search LOINC](loinc.org/search/)&quot; enter: &quot;CommonLabResult:true&quot;  &#xA;- **Radiology** - To retrieve a list of Radiology LOINC codes, in &quot;[Search LOINC](loinc.org/search/)&quot; enter: &quot;Radiology: true&quot;  "/>
+    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;. &#xA;&#xA;A specimen linked to a Result Organizer applies to all Result Observations. Centralizing specimen details within the Organizer is advised for clarity and consistency, as Result Observations typically relate to a single specimen collection, like using a purple top tube for CBCs. In cases of poor-quality specimens, a specimen reject reason is logically associated with the procedure, not the result, as there may be no result. The Result Organizer includes the specimen collection procedure, which may contain information about specimen condition acceptability. The Specimen Colection Procedure includes representation of the USCDI data element &quot;Specimen Condition Acceptability&quot;.&#xA;&#xA;The Result Organizer template is a versatile template designed to represent any type of finding resulting from various types of tests. Value set bindings for Observation.code have been created to support implementers, covering three categories: 1) Common Laboratory Tests, 2) Radiology Tests, and 3) Clinical Tests. If a suitable code is not available within these value sets, first use another LOINC code. If no LOINC code is appropriate, a local code may be used."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -44,6 +44,13 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain text/reference/@value"/>
                 <expression value="sdtcText.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-sdtcCategory"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain sdtcCategory"/>
+                <expression value="sdtcCategory.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
             </constraint>
             <constraint>
@@ -97,6 +104,14 @@
             <path value="Organizer.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:4537-7127)."/>
             <min value="1"/>
+        </element>
+        <element id="Organizer.sdtcCategory">
+            <path value="Organizer.sdtcCategory"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/R4/valueset-diagnostic-service-sections"/>
+            </binding>
         </element>
         <element id="Organizer.code">
             <path value="Organizer.code"/>

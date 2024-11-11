@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="BirthSexObservation"/>
-    <meta>
-        <versionId value="4"/>
-        <lastUpdated value="2023-07-11T23:41:33.961Z"/>
-    </meta>
+    <id value="InstructionObservation"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -24,16 +20,16 @@
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
         <valueUri value="cda"/>
     </extension>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.200:2024-05-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.515:2025-05-01"/>
     </identifier>
-    <version value="2024-05-01"/>
-    <name value="BirthSexObservation"/>
-    <title value="Birth Sex Observation"/>
+    <version value="2025-05-01"/>
+    <name value="InstructionObservation"/>
+    <title value="Instruction Observation"/>
     <status value="draft"/>
-    <description value="This observation represents the sex of the patient at birth. It is the sex that is entered on the person's birth certificate at time of birth.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender).&#xA;&#xA;This observation is not appropriate for recording Gender Identity (GI).&#xA;&#xA;It is recommended systems include the Birth Sex observation in the Social History section."/>
+    <description value="The Instruction observation template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order. Though not defined in this template, a Vaccine Information Statement (VIS) document could be referenced through observation/reference/externalDocument, and patient awareness of the instructions can be represented with the generic participant and the participant/awarenessCode.&#xA;&#xA;The value element represents the actual instructions given to the patient. Typically recorded as a string or a narrative reference, the value may also be coded, though this template enforces no limits on the set of codes that can be used."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -48,7 +44,7 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain text/reference/@value"/>
                 <expression value="text.reference.value.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
             </constraint>
         </element>
         <element id="Observation.templateId">
@@ -66,47 +62,52 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Observation.templateId:birth-sex-obs">
+        <element id="Observation.templateId:instruction">
             <path value="Observation.templateId"/>
-            <sliceName value="birth-sex-obs"/>
+            <sliceName value="instruction"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.templateId:birth-sex-obs.root">
+        <element id="Observation.templateId:instruction.root">
             <path value="Observation.templateId.root"/>
             <min value="1"/>
-            <patternString value="2.16.840.1.113883.10.20.22.4.200"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.515"/>
         </element>
-        <element id="Observation.templateId:birth-sex-obs.extension">
+        <element id="Observation.templateId:instruction.extension">
             <path value="Observation.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2024-05-01"/>
+            <patternString value="2025-05-01"/>
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
-            <comment value="SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6 STATIC) (CONF:4537-33041)."/>
             <fixedCode value="OBS"/>
         </element>
         <element id="Observation.moodCode">
             <path value="Observation.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode=&quot;EVN&quot; (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-33042)."/>
             <fixedCode value="EVN"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <short value="Sex assigned at birth"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;76689-9&quot; Sex Assigned At Birth (CONF:4537-33038)."/>
+            <short value="Instructions Provided"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
             <min value="1"/>
-            <patternCode value="76689-9"/>
+            <patternCode value="89187-7"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
             <short value="LOINC"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Observation.code.translation">
+            <path value="Observation.code.translation"/>
+            <short value="Can further classify the type of instructions provided"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.34"/>
+            </binding>
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
@@ -119,31 +120,26 @@
                 <severity value="error"/>
                 <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
                 <expression value="value.exists() implies value.startsWith('#')"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
             </constraint>
         </element>
         <element id="Observation.statusCode">
             <path value="Observation.statusCode"/>
-            <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4537-33031)."/>
             <min value="1"/>
         </element>
         <element id="Observation.statusCode.code">
             <path value="Observation.statusCode.code"/>
-            <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-33035)."/>
             <min value="1"/>
             <fixedCode value="completed"/>
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <short value="Note: This template represents a &quot;snapshot in time&quot; observation, simply reflecting the patient's sex at the time of the observation. As a result, the effectiveTime is constrained to just a time stamp. Since this represents Birth Sex it SHALL match the birthTime."/>
-            <comment value="SHALL contain exactly one [1..1] effectiveTime (CONF:4537-33043)."/>
-            <min value="1"/>
             <constraint>
                 <key value="value-only"/>
                 <severity value="error"/>
                 <human value="Interval fields SHALL NOT be present"/>
                 <expression value="(low | high | width | center).empty()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
             </constraint>
         </element>
         <element id="Observation.effectiveTime.value">
@@ -152,23 +148,18 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
+            <short value="The actual instructions provided"/>
             <min value="1"/>
             <max value="1"/>
             <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ED"/>
+            </type>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ST"/>
+            </type>
+            <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
-        </element>
-        <element id="Observation.value.nullFlavor">
-            <path value="Observation.value.nullFlavor"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.value.code">
-            <path value="Observation.value.code"/>
-            <min value="1"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.24"/>
-            </binding>
         </element>
     </differential>
 </StructureDefinition>

@@ -37,6 +37,16 @@
     <baseDefinition value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
     <derivation value="constraint"/>
     <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="category-11504-8"/>
+                <severity value="error"/>
+                <human value="If category is present, then there shall be a category with LOINC code '11504-8'."/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = '11504-8' and codeSystem = '2.16.840.1.113883.6.1')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"/>
+            </constraint>
+        </element>
         <element id="ClinicalDocument.templateId">
             <path value="ClinicalDocument.templateId"/>
             <min value="2"/>
@@ -57,9 +67,13 @@
             <min value="1"/>
             <patternString value="2024-05-01"/>
         </element>
+        <element id="ClinicalDocument.sdtcCategory">
+            <path value="ClinicalDocument.sdtcCategory"/>
+            <short value="Used to categorize the document as a Operative Note. If present, there SHALL be a category of 11504-8 (Surgical operation note)."/>
+        </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
-            <short value="The Operative Note recommends use of a single document type code, 11504-8 &quot;Provider-unspecified Operation Note&quot;, with further specification provided by author or performer, setting, or specialty data in the CDA header. Some of the LOINC codes in the Surgical Operation Note Document Type Code table are pre-coordinated with the practice setting or the training or professional level of the author. Use of pre-coordinated codes is not recommended because of potential conflict with other information in the header. When these codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
+            <short value="The Operative Note recommends use of a single document type code, 11504-8 &quot;Surgical operation note&quot;, with further specification provided by author or performer, setting, or specialty data in the CDA header. Some of the LOINC codes in the Surgical Operation Note Document Type Code table are pre-coordinated with the practice setting or the training or professional level of the author. Use of pre-coordinated codes is not recommended because of potential conflict with other information in the header. When these codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1198-17187)."/>
             <binding>
                 <strength value="required"/>

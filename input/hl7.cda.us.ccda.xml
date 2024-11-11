@@ -25,12 +25,12 @@
     <dependsOn id="cda">
         <uri value="http://hl7.org/cda/stds/core/ImplementationGuide/hl7.cda.uv.core"/>
         <packageId value="hl7.cda.uv.core"/>
-        <version value="2.0.0-sd"/>
+        <version value="current"/>
     </dependsOn>
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
-        <version value="0.19.0"/>
+        <version value="0.20.0"/>
     </dependsOn>
     <dependsOn id="phinvads">
         <uri value="http://fhir.org/packages/us.cdc.phinvads/ImplementationGuide/us.cdc.phinvads"/>
@@ -114,7 +114,7 @@
                 <display value="Advance Directive Observation"/>
             </reference>
             <name value="Advance Directive Observation"/>
-            <description value="Advance Directive Observations may include a variety of information called different “content types”."/>
+            <description value="The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -132,7 +132,7 @@
                 <display value="Advance Directives Section"/>
             </reference>
             <name value="Advance Directives Section"/>
-            <description value="This section contains information describing the patient’s advance healthcare directives."/>
+            <description value="This section contains details about the patient’s advance healthcare directives, including references to supporting documents such as Living Wills, Healthcare Power of Attorney, Personal Advance Care Plans, DNR Orders, and Portable Medical Orders."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -222,7 +222,7 @@
                 <display value="Assessment Section"/>
             </reference>
             <name value="Assessment Section"/>
-            <description value="The Assessment Section (also referred to as &quot;impression&quot; or &quot;diagnoses&quot; outside of the context of CDA) represents the clinician's conclusions and working assumptions that will guide treatment of the patient."/>
+            <description value="The Assessment Section (also referred to as \&quot;impression\&quot; or \&quot;diagnoses\&quot; outside of the context of CDA) represents the clinician's conclusions and working assumptions that will guide treatment of the patient."/>
             <groupingId value="section"/>
         </resource>
         <resource>
@@ -938,11 +938,20 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/Instruction"/>
-                <display value="Instruction"/>
+                <reference value="StructureDefinition/InstructionActivity"/>
+                <display value="Instruction Activity"/>
             </reference>
-            <name value="Instruction"/>
-            <description value="The Instruction template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order."/>
+            <name value="Instruction Activity"/>
+            <description value="The Instruction template is used to record instructions intended to be given to the patient."/>
+            <groupingId value="deprecated"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/InstructionObservation"/>
+                <display value="Instruction Observation"/>
+            </reference>
+            <name value="Instruction Observation"/>
+            <description value="The Instruction observation template can be used in several ways, such as to record patient instructions within a Medication Activity or to record fill instructions within a supply order."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -2431,6 +2440,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/birth-sex-example-nullflavor"/>
+            </reference>
+            <name value="Birth Sex Observation Example with Null Flavor"/>
+            <description value="Birth Sex Observation example with Null Flavor"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/BrandNameObservation"/>
             </extension>
             <reference>
@@ -3375,6 +3400,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/GenderIdentityObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/gender-identity-observation-nullflavor-example"/>
+            </reference>
+            <name value="Gender Identity Observation NullFlavor Example"/>
+            <description value="Gender Identity Observation example with null flavor"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GenderIdentityObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/GeneralStatusSection"/>
             </extension>
             <reference>
@@ -3942,6 +3983,22 @@
             </reference>
             <name value="Medication Adherence Example"/>
             <description value="Medication Adherence example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
+            </extension>
+            <reference>
+                <reference value="Binary/medication-adherence-nullflavor-example"/>
+            </reference>
+            <name value="Medication Adherence NullFlavor Example"/>
+            <description value="Medication Adherence example with null flavor"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MedicationAdherence"/>
             <groupingId value="examples"/>
@@ -5727,6 +5784,38 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SexObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/sex-observation-example"/>
+            </reference>
+            <name value="Sex Observation Example"/>
+            <description value="Sex Observation example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SexObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SexObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/sex-observation-nullflavor-example"/>
+            </reference>
+            <name value="Sex Observation Null Flavor Example"/>
+            <description value="Sexu Observation example with nullflavor code"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SexObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SexualOrientationObservation"/>
             </extension>
             <reference>
@@ -5734,6 +5823,22 @@
             </reference>
             <name value="Sexual Orientation Observation Example"/>
             <description value="Sexual Orientation Observation example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SexualOrientationObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/SexualOrientationObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/sexual-orientation-observation-nullflavor-example"/>
+            </reference>
+            <name value="Sexual Orientation Observation Null Flavor Example"/>
+            <description value="Sexual Orientation Observation example with nullflavor code"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SexualOrientationObservation"/>
             <groupingId value="examples"/>
@@ -6256,6 +6361,20 @@
                 <code value="jira-code"/>
             </code>
             <value value="ccda"/>
+        </parameter>
+        <parameter>
+            <code>
+                <system value="http://hl7.org/cda/stds/core/CodeSystem/IGParametersCDAValidation"/>
+                <code value="value-set-limit"/>
+            </code>
+            <value value="1000"/>
+        </parameter>
+        <parameter>
+            <code>
+                <system value="http://hl7.org/cda/stds/core/CodeSystem/IGParametersCDAValidation"/>
+                <code value="parent-template-id"/>
+            </code>
+            <value value="2.16.840.1.113883.10.20.22"/>
         </parameter>
     </definition>
 </ImplementationGuide>

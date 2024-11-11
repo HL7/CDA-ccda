@@ -1,0 +1,16 @@
+<observation classCode="OBS" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- New templateId for Birth Sex -->
+  <!-- Not asserting conformance to Social History Observation due to different vocab. -->
+  <templateId root="2.16.840.1.113883.10.20.22.4.200" extension="2024-05-01"/>
+  <code code="76689-9" codeSystem="2.16.840.1.113883.6.1" 
+            displayName="Sex Assigned At Birth"/>
+  <text>
+    <reference value="#BSex_Narrative1"/>
+  </text>
+  <statusCode code="completed"/>
+  <!-- effectiveTime if present should match birthTime -->  
+  <effectiveTime value="20100519193605-0500" />
+  <value xsi:type="CD" code="asked-declined" 
+    displayName="Asked But Declined" 
+    codeSystem="2.16.840.1.113883.4.642.4"/>
+</observation>

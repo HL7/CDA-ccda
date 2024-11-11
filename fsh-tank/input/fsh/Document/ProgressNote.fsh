@@ -8,13 +8,17 @@ Taber's medical dictionary defines a Progress Note as "An ongoing record of a pa
 
 Mosby's medical dictionary defines a Progress Note as "Notes made by a nurse, physician, social worker, physical therapist, and other health care professionals that describe the patient's condition and the treatment given or planned."
 
-A Progress Note is not a re-evaluation note. A Progress Note is not intended to be a Progress Report for Medicare. Medicare B Section 1833(e) defines the requirements of a Medicare Progress Report."""
+A Progress Note is not a re-evaluation note. A Progress Note is not intended to be a Progress Report for Medicare. Medicare B Section 1833(e) defines the requirements of a Medicare Progress Report.
+
+Systems shall include the full narrative Progress Note in an appropriate section. Acceptable sections include the Assessment, Plan of Treatment, Assessment and Plan, or Note sections. In all cases, the narrative Progress Note shall be wrapped within a Note Activity Act to ensure proper ingestion.
+"""
 
 * insert LogicalModelTemplate(progress-note, 2.16.840.1.113883.10.20.22.1.9, 2024-05-01)
+* insert DocumentCategory(Progress Note, 11506-3, Progress note)
 
 * ^status = #active
 * code from ProgressNoteDocumentTypeCode (required)
-  * ^short = "The Progress Note recommends use of a single document type code, 11506-3 \"Subsequent evaluation note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
+  * ^short = "The Progress Note recommends use of a single document type code, 11506-3 \"Progress note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17189)."
 * obeys should-documentationOf
 * documentationOf 0..1
@@ -85,8 +89,8 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
         vitalSigns 0..1 and
         nutrition 0..1 and
         mentalStatus 0..1 and
-        advDirectives 0..1 and 
-        notesSection 1..1
+        advDirectives 0..1 and
+        notes 0..1
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30618)."
       * section only AssessmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30619)."
@@ -141,7 +145,7 @@ A Progress Note is not a re-evaluation note. A Progress Note is not intended to 
     * component[advDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
         * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
-    * component[notesSection] ^comment = "This structuredBody SHALL contain exactly one [1..1] component such that it"
+    * component[notes] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only NotesSection
         * ^comment = "SHALL contain exactly one [1..1] Notes Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.65:2016-11-01)."
 
@@ -149,3 +153,8 @@ Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."
 Severity: #error
 Expression: "width.empty() implies high.exists()"
+
+Invariant: category-11506-3
+Description: "If category is present, then there shall be a category with LOINC code '11506-3'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11506-3' and codeSystem = '2.16.840.1.113883.6.1')"

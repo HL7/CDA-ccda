@@ -8,9 +8,7 @@ If any Result Observation within the organizer has a statusCode of "active", the
 
 A specimen linked to a Result Organizer applies to all Result Observations. Centralizing specimen details within the Organizer is advised for clarity and consistency, as Result Observations typically relate to a single specimen collection, like using a purple top tube for CBCs. In cases of poor-quality specimens, a specimen reject reason is logically associated with the procedure, not the result, as there may be no result. The Result Organizer includes the specimen collection procedure, which may contain information about specimen condition acceptability. The Specimen Colection Procedure includes representation of the USCDI data element "Specimen Condition Acceptability".
 
-- **Laboratory** - For laboratory test codes include codes from [LOINC](http://loinc.org) where CLASSTYPE = 1. Please see https://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html used in US Core which has a partial expansion of the 61,898 codes.
-- **Common Lab Result** - To retrieve a list of the most commonly used LOINC lab codes (20,000), in "[Search LOINC](loinc.org/search/)" enter: "CommonLabResult:true"  
-- **Radiology** - To retrieve a list of Radiology LOINC codes, in "[Search LOINC](loinc.org/search/)" enter: "Radiology: true"  
+The Result Organizer template is a versatile template designed to represent any type of finding resulting from various types of tests. Value set bindings for Observation.code have been created to support implementers, covering three categories: 1) Common Laboratory Tests, 2) Radiology Tests, and 3) Clinical Tests. If a suitable code is not available within these value sets, first use another LOINC code. If no LOINC code is appropriate, a local code may be used.
 """
 
 * insert LogicalModelTemplate(result-org, 2.16.840.1.113883.10.20.22.4.1, 2023-05-01)
@@ -24,6 +22,9 @@ A specimen linked to a Result Organizer applies to all Result Observations. Cent
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7122)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7127)."
+* obeys should-sdtcCategory
+* sdtcCategory 0..1
+* sdtcCategory from http://hl7.org/fhir/R4/valueset-diagnostic-service-sections (preferred)
 * code 1..1
   * obeys 4537-19218
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-7128)."

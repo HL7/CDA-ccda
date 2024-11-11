@@ -40,6 +40,13 @@
         <element id="ClinicalDocument">
             <path value="ClinicalDocument"/>
             <constraint>
+                <key value="category-18776-5"/>
+                <severity value="error"/>
+                <human value="If category is present, then there shall be a category with LOINC code '18776-5'."/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = '18776-5' and codeSystem = '2.16.840.1.113883.6.1')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
+            </constraint>
+            <constraint>
                 <key value="should-setId"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain setId"/>
@@ -87,6 +94,10 @@
             <path value="ClinicalDocument.templateId.extension"/>
             <min value="1"/>
             <patternString value="2024-05-01"/>
+        </element>
+        <element id="ClinicalDocument.sdtcCategory">
+            <path value="ClinicalDocument.sdtcCategory"/>
+            <short value="Used to categorize the document as a Care Plan. If present, there SHALL be a category of 18776-5 (Plan of care note)."/>
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>

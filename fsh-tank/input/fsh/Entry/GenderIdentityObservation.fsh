@@ -4,7 +4,7 @@ Id: GenderIdentityObservation
 Title: "Gender Identity Observation"
 Description: """This observation represents the gender identity of the patient. Defined as:
 
-> One's basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with one's sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)
+One's basic sense of being male, female, or other gender (for example, transgender or gender queer). Gender identity can be congruent or incongruent with one's sex assigned at birth based on the appearance of external genitalia. (Advancing Effective Communication, Cultural Competence, and Patient- and Family-Centered Care for the Lesbian, Gay, Bisexual, and Transgender (LGBT) CommunityA Field Guide, The Joint Commission (2011).)
 
 This template follows the guidelines from the HL7 Gender Harmony project.
 
@@ -38,6 +38,4 @@ This observation is not appropriate for recording patient gender (administrative
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33071)."
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113762.1.4.1021.32 (required)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHALL be selected from ValueSet Gender Identity urn:oid:2.16.840.1.113762.1.4.1021.32 DYNAMIC."
-
+  * insert BindAtCode($2.16.840.1.113762.1.4.1021.32, required)

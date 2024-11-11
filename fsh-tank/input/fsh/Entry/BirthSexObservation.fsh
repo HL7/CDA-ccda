@@ -36,4 +36,4 @@ It is recommended systems include the Birth Sex observation in the Social Histor
   * insert IntervalValueOnly
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113762.1.4.1021.24 (required)
+  * insert BindAtCode($2.16.840.1.113762.1.4.1021.24, required)

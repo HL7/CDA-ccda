@@ -1,5 +1,6 @@
 URL,Title,Uses
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.46,Ability,StructureDefinition/SelfCareActivitiesADLandIADL
+http://terminology.hl7.org/ValueSet/v3-ActCode,ActCode,StructureDefinition/ResultOrganizer
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.5,ActEncounterCodes,StructureDefinition/USRealmHeader
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.16866,ActPriority,StructureDefinition/PatientReferralAct, StructureDefinition/ProcedureActivityProcedure
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15933,ActStatus,StructureDefinition/CareTeamMemberAct, StructureDefinition/CareTeamOrganizer, StructureDefinition/DrugMonitoringAct, StructureDefinition/GoalObservation, StructureDefinition/ImmunizationActivity, StructureDefinition/MedicationSupplyOrder, StructureDefinition/NonMedicinalSupplyActivity, StructureDefinition/PatientReferralAct
@@ -8,7 +9,6 @@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.47,ADLResultType,
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.30,AdministrationUnitDoseForm,StructureDefinition/ImmunizationActivity, StructureDefinition/MedicationActivity, StructureDefinition/PlannedMedicationActivity
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1,AdministrativeGenderHL7V3,StructureDefinition/FamilyHistoryOrganizer, StructureDefinition/USRealmHeader
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4,AdvanceDirectivesCategories,StructureDefinition/AdvanceDirectiveObservation
-http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.57,AdvanceDirectivesContentType,StructureDefinition/AdvanceDirectiveObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.21,AgePQ_UCUM,StructureDefinition/AgeObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2,AllergyAndIntoleranceType,StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.29,AllergyClinicalStatus,StructureDefinition/AllergyStatusObservation
@@ -33,8 +33,7 @@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.877,DetailedEthnicit
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.47,DeviceLatexSafety,StructureDefinition/LatexSafetyObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.46,DeviceMagneticResonanceMRSafety,StructureDefinition/MRISafetyObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.4.1,DischargeSummaryDocumentTypeCode,StructureDefinition/DischargeSummary
-http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.52,EncounterPlanned,StructureDefinition/EncounterActivity, StructureDefinition/PlannedEncounter
-http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32,EncounterTypeCode,StructureDefinition/EncounterActivity
+http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.23,EncounterType,StructureDefinition/EncounterActivity, StructureDefinition/PlannedEncounter
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.26,EntityPersonNamePartQualifier,StructureDefinition/USRealmPatientNamePTNUSFIELDED
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837,Ethnicity,StructureDefinition/USRealmHeader
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19579,FamilyMemberValue,StructureDefinition/FamilyHistoryOrganizer
@@ -43,13 +42,19 @@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.32,GenderIdentit
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.55,GoalAchievement,StructureDefinition/ProgressTowardGoalObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.35,HealthcareAgentOrProxyChoices,StructureDefinition/AdvanceDirectiveObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066,HealthcareProviderTaxonomy,StructureDefinition/AdvanceDirectiveObservation, StructureDefinition/AuthorParticipation, StructureDefinition/CarePlan, StructureDefinition/EncounterActivity, StructureDefinition/HandoffCommunicationParticipants, StructureDefinition/OperativeNote, StructureDefinition/PatientReferralAct, StructureDefinition/ProcedureNote, StructureDefinition/ProvenanceAuthorParticipation, StructureDefinition/TransferSummary, StructureDefinition/USRealmHeader
-http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275,HealthcareServiceLocation,StructureDefinition/ServiceDeliveryLocation
+http://terminology.hl7.org/ValueSet/v3-HealthcareServiceLocation,HealthcareServiceLocation,StructureDefinition/ServiceDeliveryLocation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.12,HealthStatus,StructureDefinition/HealthStatusObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.16926,HL7BasicConfidentialityKind,StructureDefinition/USRealmHeader
 http://terminology.hl7.org/ValueSet/v2-0493,Hl7VSSpecimenCondition,StructureDefinition/SpecimenConditionObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.22,HPDocumentType,StructureDefinition/HistoryandPhysical
-http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.12,Pregnancy Status Observation,StructureDefinition/PregnancyStatusObservation
+http://cts.nlm.nih.gov/fhir/Valueset/2.16.840.1.113762.1.4.1267.16,http://cts.nlm.nih.gov/fhir/Valueset/2.16.840.1.113762.1.4.1267.16,StructureDefinition/AdvanceDirectiveExistenceObservation, StructureDefinition/InterpreterNeededObservation
+http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.3181,http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.3181,StructureDefinition/SexParameterForClinicalUseObservation
+http://hl7.org/fhir/R4/valueset-diagnostic-service-sections,http://hl7.org/fhir/R4/valueset-diagnostic-service-sections,StructureDefinition/ResultOrganizer
 http://loinc.org/vs/LL5052-7,CUBS_Disability,StructureDefinition/DisabilityStatusObservation
+https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.17,https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.17,StructureDefinition/PlannedProcedure, StructureDefinition/ResultObservation, StructureDefinition/ResultOrganizer
+https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.18,https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.18,StructureDefinition/PlannedProcedure, StructureDefinition/ResultObservation, StructureDefinition/ResultOrganizer
+https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.19,https://cts.nlm.nih.gov/Valueset/2.16.840.1.113762.1.4.1267.19,StructureDefinition/PlannedProcedure, StructureDefinition/ResultObservation, StructureDefinition/ResultOrganizer
+https://terminology.hl7.org/5.5.0/ValueSet-pronouns.html,https://terminology.hl7.org/5.5.0/ValueSet-pronouns.html,StructureDefinition/IndividualPronounObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.48,ImplantableDeviceStatus,StructureDefinition/ImplantableDeviceStatusObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.33,INDRoleclassCodes,StructureDefinition/CarePlan, StructureDefinition/DischargeSummary, StructureDefinition/ReferralNote, StructureDefinition/TransferSummary
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.11,InformationSourceForMedicationAdherence,StructureDefinition/MedicationAdherence
@@ -69,12 +74,10 @@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19717,NoImmunization
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68,NoteTypes,StructureDefinition/NoteActivity, StructureDefinition/NotesSection
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20.2.7,NutritionalStatus,StructureDefinition/NutritionalStatusObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.65,NutritionRecommendationGrouping,StructureDefinition/NutritionRecommendation
-http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.78,ObservationInterpretationHL7,StructureDefinition/VitalSignObservation
-http://terminology.hl7.org/ValueSet/v3-ObservationType,ObservationType,StructureDefinition/AssessmentScaleObservation
+http://terminology.hl7.org/ValueSet/v3-ObservationType,ObservationType,StructureDefinition/ResultObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.10267,ParticipationFunction,StructureDefinition/USRealmHeaderforPatientGeneratedDocument
-http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.34,PatientEducation,StructureDefinition/Instruction
+http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.34,PatientEducation,StructureDefinition/InstructionActivity, StructureDefinition/InstructionObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.66,PatientReferralActMoodCode,StructureDefinition/PatientReferralAct
-http://hl7.org/cda/us/ccda/ValueSet/2.16.840.1.113883.3.88.12.80.33,PatientStatus,StructureDefinition/DischargeSummary, StructureDefinition/EncounterActivity
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591,PayerType,StructureDefinition/PlannedCoverage, StructureDefinition/PolicyActivity
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1,PersonalAndLegalRelationshipRoleType,StructureDefinition/AdvanceDirectiveObservation, StructureDefinition/AuthorParticipation, StructureDefinition/CarePlan, StructureDefinition/ProvenanceAuthorParticipation, StructureDefinition/RelatedPersonRelationshipAndNameParticipant, StructureDefinition/USRealmHeader, StructureDefinition/USRealmHeaderforPatientGeneratedDocument
 http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7900,PHVS_Industry_NAICS_Detail _ODH,StructureDefinition/BasicIndustryObservation
@@ -84,6 +87,7 @@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.54,PlannedInterve
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.23,PlannedMoodCodeActEncounterProcedure,StructureDefinition/NutritionRecommendation, StructureDefinition/PlannedEncounter, StructureDefinition/PlannedProcedure
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.24,PlannedMoodCodeSubstanceAdministrationSupply,StructureDefinition/PlannedImmunizationActivity, StructureDefinition/PlannedMedicationActivity, StructureDefinition/PlannedSupply
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.22,PregnancyIntention,StructureDefinition/PregnancyIntentionInNextYear
+http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.12,PregnancyStatusObservation,StructureDefinition/PregnancyStatusObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.35,PressureUlcerStage,StructureDefinition/NumberofPressureUlcersObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.60,PriorityLevel,StructureDefinition/PriorityPreference
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.19,ProblemActStatusCode,StructureDefinition/AllergyConcernAct, StructureDefinition/HealthConcernAct, StructureDefinition/ProblemConcernAct, StructureDefinition/RiskConcernAct
@@ -100,6 +104,7 @@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.56,ReferralTypes,
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.19185,ReligiousAffiliation,StructureDefinition/USRealmHeader
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.49,ResidenceAndAccommodationType,StructureDefinition/CharacteristicsofHomeEnvironment
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.39,ResultStatus,StructureDefinition/MedicalEquipmentOrganizer, StructureDefinition/ResultObservation, StructureDefinition/ResultOrganizer
+http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.13,ScreeningAndAssesmentSurveyCodes,StructureDefinition/AssessmentScaleObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.50,SensoryStatusProblemType,StructureDefinition/SensoryStatus
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.8,Severity,StructureDefinition/SeverityObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.3,Sex,StructureDefinition/SexObservation
@@ -127,6 +132,8 @@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12839,UnitsOfMeasure
 http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive,UnitsOfMeasureCaseSensitive,StructureDefinition/ResultObservation, StructureDefinition/SocialHistoryObservation
 http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code,USCoreConditionCodes,StructureDefinition/FamilyHistoryObservation, StructureDefinition/Indication, StructureDefinition/PreconditionforSubstanceAdministration, StructureDefinition/ProblemObservation, StructureDefinition/ReactionObservation
 http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code,USCoreProcedureCodes,StructureDefinition/PlannedProcedure, StructureDefinition/ProcedureActivityProcedure
+http://hl7.org/fhir/us/core/ValueSet/us-core-servicerequest-category,USCoreServiceRequestCategoryCodes,StructureDefinition/PlannedProcedure
+http://terminology.hl7.org/ValueSet/v3-USEncounterDischargeDisposition,USEncounterDischargeDisposition,StructureDefinition/DischargeSummary, StructureDefinition/EncounterActivity
 http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state,UspsTwoLetterAlphabeticCodes,StructureDefinition/USRealmAddress
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62,VitalSignResultType,StructureDefinition/VitalSignObservation
 http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.58,WoundCharacteristic,StructureDefinition/WoundCharacteristic

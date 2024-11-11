@@ -29,7 +29,7 @@
     <name value="SexualOrientationObservation"/>
     <title value="Sexual Orientation Observation"/>
     <status value="draft"/>
-    <description value="This observation represents the sexual orientation of the patient. Defined as:&#xA;&#xA;&gt; A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.&#xA;&#xA;This template was informed by the HL7 Gender Harmony project.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender), Gender Identity (Gender Identity Observation), or birth sex (Birth Sex Observation)."/>
+    <description value="This observation represents the sexual orientation of the patient. Defined as:&#xA;&#xA;A persons identification of their emotional, romantic, sexual, or affectional attraction to another person.&#xA;&#xA;This template was informed by the HL7 Gender Harmony project.&#xA;&#xA;This observation is not appropriate for recording patient gender (administrativeGender), Gender Identity (Gender Identity Observation), or birth sex (Birth Sex Observation)."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -150,15 +150,22 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHALL be selected from ValueSet Sexual Orientation urn:oid:2.16.840.1.113762.1.4.1240.11 DYNAMIC."/>
             <min value="1"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
+        </element>
+        <element id="Observation.value.nullFlavor">
+            <path value="Observation.value.nullFlavor"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.value.code">
+            <path value="Observation.value.code"/>
+            <min value="1"/>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.32"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.11"/>
             </binding>
         </element>
     </differential>

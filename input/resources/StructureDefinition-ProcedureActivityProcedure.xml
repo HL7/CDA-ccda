@@ -510,18 +510,17 @@
             <min value="1"/>
             <fixedBoolean value="true"/>
         </element>
-        <element id="Procedure.entryRelationship:instruction.act">
-            <path value="Procedure.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Instruction (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.20:2014-06-09) (CONF:4515-31395)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
-            </type>
-        </element>
         <element id="Procedure.entryRelationship:instruction.encounter">
             <path value="Procedure.entryRelationship.encounter"/>
             <max value="0"/>
+        </element>
+        <element id="Procedure.entryRelationship:instruction.observation">
+            <path value="Procedure.entryRelationship.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
+            </type>
         </element>
         <element id="Procedure.entryRelationship:indication">
             <path value="Procedure.entryRelationship"/>

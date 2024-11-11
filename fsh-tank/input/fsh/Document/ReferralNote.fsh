@@ -7,11 +7,12 @@ Description: """A Referral Note communicates pertinent information from a provid
 Examples of referral situations are when a patient is referred from a family physician to a cardiologist for cardiac evaluation or when patient is sent by a cardiologist to an emergency department for angina or when a patient is referred by a nurse practitioner to an audiologist for hearing screening or when a patient is referred by a hospitalist to social services."""
 
 * insert LogicalModelTemplate(referral-note, 2.16.840.1.113883.10.20.22.1.14, 2024-05-01)
+* insert DocumentCategory(Referral Note, 57133-1, Referral note)
 
 * ^status = #active
 * code 1..1
 * code from ReferralDocumentType (required)
-  * ^short = "The Referral Note recommends use of the document type code 57133-1 \"Referral Note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Referral note would not be authored by a Pediatric Cardiologist.  The type of referral and the target of the referral are specified via the participant (and not via the author)."
+  * ^short = "The Referral Note recommends use of the document type code 57133-1 \"Referral note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type. For example, an Obstetrics and Gynecology Referral note would not be authored by a Pediatric Cardiologist.  The type of referral and the target of the referral are specified via the participant (and not via the author)."
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet ReferralDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.3 DYNAMIC (CONF:1198-28949)."
 * informationRecipient 1..1
   * ^comment = "SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31589)."
@@ -184,3 +185,8 @@ Examples of referral situations are when a patient is referred from a family phy
     * component[payers] ^comment = "This structuredBody SHOULD contain exactly one [0..1] component (CONF:1198-309240) such that it"
       * section only PayersSection
         * ^comment = "SHOULD contain exactly one [0..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2024-05-01) (CONF:1198-309250)."
+
+Invariant: category-57133-1
+Description: "If category is present, then there shall be a category with LOINC code '57133-1'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '57133-1' and codeSystem = '2.16.840.1.113883.6.1')"

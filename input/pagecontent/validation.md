@@ -1,6 +1,3 @@
-### What happened to the Schematron?
-With the change to using the FHIR StructureDefinition, schematrons are not being produced for new versions of the C-CDA specification.  The CDA schema is still appropriate for validating the structure of the C-CDA document.  Instead of using schematron for testing the constraints, C-CDA documents should be validated using the FHIR validator.
-
 ### Validate C-CDA Documents Using FHIR Tooling
 The FHIR validator can be used to validate C-CDA documents.  There are three ways of using the FHIR validator.
 
@@ -16,7 +13,7 @@ java -jar validator_cli.jar -ig hl7.cda.us.ccda#current -profile http://hl7.org/
 
 There is a [Confluence page](https://confluence.hl7.org/pages/viewpage.action?pageId=35718864#ProfileTooling-ValidatingResourcesagainstthespecificationandProfiles) that addresses how to incorporate the FHIR validator into your code.
 
-### Validation Note
+### Validate C-CDA Documents Using Schematron
+For those who prefer Schematron validation for C-CDA documents, HL7 created an [open-source tool](https://github.com/HL7/fhir-cda-validation) which generates Schematron and other validation files for implementation guides created with FHIR StructureDefinitions. While we plan to integrate this functionality into the IG Publisher in the future, you can currently find C-CDA Schematron in the implementation guide's [GitHub repository](https://github.com/HL7/CDA-ccda/releases/).
 
-Schema, together with template specific rules, called schematron, have been the historical method that C-CDA documents were validated for conformance to the specifications. With this StructureDefinition publication of CDA and C-CDA, validation rules are inherent in the StructureDefinitions. However, headed into the ballot the accuracy of this method has not been fully tested. In addition, how this inherent new method can be deployed in industry is not yet known. 
-By publication of this Implementation Guide post ballot, we anticipate testing will have occurred and plans to assist the industry will be in place. For more discussion, please see [Validation](validation.html)
+To learn more about how the Schematron is generated and how other CDA implementation guides using FHIR StructureDefinitions can utilize it, refer to the [Confluence Documentation](https://confluence.hl7.org/display/SD/FHIR-CDA-Validation).
