@@ -111,6 +111,13 @@
             <path value="Observation.effectiveTime"/>
             <comment value="This effectiveTime SHOULD contain zero or one [0..1] high (CONF:1198-32331)."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-high"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/InterpreterNeededObservation"/>
+            </constraint>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
@@ -125,7 +132,7 @@
             </type>
             <binding>
                 <strength value="required"/>
-                <valueSet value="https://cts.nlm.nih.gov/fhir/Valueset/2.16.840.1.113762.1.4.1267.16"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/Valueset/2.16.840.1.113762.1.4.1267.16"/>
             </binding>
         </element>
     </differential>

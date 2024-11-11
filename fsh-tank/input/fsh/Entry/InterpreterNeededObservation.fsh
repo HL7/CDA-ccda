@@ -11,7 +11,7 @@ Description: "The interpreter needed observation represents an indication of whe
   * insert CodedLoinc(54588-9, [[Interpreter needed]])
 * effectiveTime 1..1
   * ^comment = "This observation SHALL contain exactly one [1..1] effectiveTime (CONF:1198-31904)."
-  * should-high
+  * obeys should-high
   * low 1..1
   * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."
   * high 0..1

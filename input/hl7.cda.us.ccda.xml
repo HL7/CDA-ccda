@@ -30,7 +30,7 @@
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
-        <version value="0.19.0"/>
+        <version value="0.20.0"/>
     </dependsOn>
     <dependsOn id="phinvads">
         <uri value="http://fhir.org/packages/us.cdc.phinvads/ImplementationGuide/us.cdc.phinvads"/>
@@ -2447,6 +2447,22 @@
             </reference>
             <name value="Birth Sex Observation Example"/>
             <description value="Birth Sex Observation example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/birth-sex-example-nullflavor"/>
+            </reference>
+            <name value="Birth Sex Observation Example with Null Flavor"/>
+            <description value="Birth Sex Observation example with Null Flavor"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BirthSexObservation"/>
             <groupingId value="examples"/>

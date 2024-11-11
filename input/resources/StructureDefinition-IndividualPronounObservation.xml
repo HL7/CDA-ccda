@@ -132,6 +132,13 @@
             <path value="Observation.effectiveTime"/>
             <comment value="This effectiveTime SHOULD contain zero or one [0..1] high."/>
             <min value="1"/>
+            <constraint>
+                <key value="should-high"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain high"/>
+                <expression value="high.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/IndividualPronounObservation"/>
+            </constraint>
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
