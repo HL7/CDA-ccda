@@ -34,10 +34,6 @@ The CDA Template 2.16.840.1.113883.10.20.22.4.90 is not known
 # Resource OIDs match multiple instances in our dependency graph
 The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0%
 
-# Missing VSAC value sets
-ValueSet 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.1' not found
-
-
 # Examples may not enforce the text references - SHOULD LOOK AT THESE TO SEE IF WE CAN FIX
 Constraint failed: should-text-ref-value: 'SHOULD contain text/reference/@value'%
 Constraint failed: should-sdtctext-ref-value: 'SHOULD contain text/reference/@value'%
@@ -79,13 +75,10 @@ A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationa
 None of the codings provided are in the value set 'Industry NAICS Detail (ODH)' (http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7900|1), and a coding from this value set is required%
 None of the codings provided are in the value set 'Occupation ONETSOC Detail (ODH)' (http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7901|1), and a coding from this value set is required%
 A definition for CodeSystem 'https://www.nubc.org/CodeSystem/PatDischargeStatus' could not be found, so the code cannot be validated%
-Unable to check whether the code is in the value set 'http://hl7.org/cda/us/ccda/ValueSet/2.16.840.1.113883.3.88.12.80.33|4.0.0' because the code system https://www.nubc.org/CodeSystem/PatDischargeStatus was not found
 A definition for CodeSystem 'urn:oid:2.16.840.1.113883.12.112' could not be found, so the code cannot be validated
 
-# LOINC valueset from VSAC that tx.fhir.org can't expand
-Error from http://tx.fhir.org/r4: The filter "concept = 81957-3" from the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.10|20230715 was not understood in the context of http://loinc.org
-Could not confirm that the codings provided are in the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.10 and a coding from this value set is required (class = SERVER_ERROR)
-Error from http://tx.fhir.org/r4: The filter "concept is-a 1013625" from the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32|20240607 was not understood in the context of http://www.ama-assn.org/go/cpt
+# CPT valueset from VSAC that tx.fhir.org can't expand
+Error from http://tx.fhir.org/r4: The filter "concept is-a 1013625" from the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32|20240711 was not understood in the context of http://www.ama-assn.org/go/cpt
 
 # SHOULD constraints that we are ignoring
 %1098-7513%
@@ -118,7 +111,6 @@ Error from http://tx.fhir.org/r4: The filter "concept is-a 1013625" from the val
 %should-section-nutrition%
 %should-section-plan-of-treatment%
 %should-section-procedures%
-%should-sh-author%
 %should-smoking-status%
 %should-targetSiteCode%
 %should-telecom%
@@ -157,11 +149,6 @@ Binding http://hl7.org/fhir/us/core/ValueSet/simple-language could not be expand
 A definition for the value Set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253' could not be found
 Unable to check whether the code is in the value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.790|20240604' because the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253 was not found
 Unable to check whether the code is in the value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.789|20240604' because the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253 was not found
-A definition for the value Set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.221' could not be found
-Unable to check whether the code is in the value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.206|20231206' because the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.221 was not found
-A definition for the value Set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.217' could not be found
-Unable to check whether the code is in the value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.788|20231206' because the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.217 was not found
-ValueSet 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.12' not found
 
 # Duplicate anchor ids produced by publisher
 The html source has duplicate anchor Ids:%
