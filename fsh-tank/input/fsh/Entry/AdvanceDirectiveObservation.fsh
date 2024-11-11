@@ -18,10 +18,10 @@ Description: """The Advance Directive Observation template is nested within the 
   * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
   * insert CodedLoinc(75320-2, [[Advance Directive]])
-  * insert USCDI([[Advance Directive Type]])
   * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113883.11.20.9.69.4 (preferred)   
+    * insert USCDI([[Advance Directive Type]])
     * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Advance Directives Categories urn:oid:2.16.840.1.113883.11.20.9.69.4." // man-should
 * text 1..1
 * statusCode 1..1
@@ -38,12 +38,10 @@ Description: """The Advance Directive Observation template is nested within the 
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high."
 * value 0..1
   * ^comment = "MAY contain zero or more [0..*] value."
-  * insert USCDI([[Value]])
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)." // man-should
-  * insert USCDI([[Author]])
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
@@ -51,7 +49,7 @@ Description: """The Advance Directive Observation template is nested within the 
     verifier 0..* and
     custodian 0..*
 * participant[verifier]
-  * insert USCDI([[The participant \"VRF\" represents the clinician(s) who verified the patient advance directive.]])
+  * insert USCDI([[Verifier - The participant \"VRF\" represents the clinician(s) who verified the patient advance directive.]])
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
   * typeCode 1..1
   * typeCode = #VRF (exactly)
