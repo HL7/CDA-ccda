@@ -158,9 +158,17 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
+        </element>
+        <element id="Observation.value.nullFlavor">
+            <path value="Observation.value.nullFlavor"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.value.code">
+            <path value="Observation.value.code"/>
+            <min value="1"/>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.3181"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/sex-parameter-for-clinical-use"/>
             </binding>
         </element>
         <element id="Observation.author">

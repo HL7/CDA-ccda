@@ -29,7 +29,7 @@ Description: """The Sex Parameter for Clinical Use (SPCU) observation is a clini
   * insert IntervalValueOnly
 * value 1..1
 * value only $CD
-* value from $2.16.840.1.113883.4.642.3.3181 (required)
+  * insert BindAtCode(http://terminology.hl7.org/ValueSet/sex-parameter-for-clinical-use, required)
 * author 1..1
 * author only ProvenanceAuthorParticipation
   * ^comment = "SHALL contain exactly [1..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."
