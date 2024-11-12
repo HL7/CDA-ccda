@@ -30,4 +30,4 @@ Description: "The Individual Personal Pronoun Observation represents words speci
   * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] high."
 * value 1..1
 * value only $CD
-* value from https://terminology.hl7.org/5.5.0/ValueSet-pronouns.html (preferred)
+* value from http://terminology.hl7.org/ValueSet/pronouns (preferred)
