@@ -15,4 +15,4 @@ Description: """This template conveys the condition (mode or state of being) tha
   * insert CodedLoinc(93047-7, [[Specimen condition]])
 * value 1..1
 * value only CD
-* value from http://terminology.hl7.org/ValueSet/v2-0493 (preferred)
+* value from http://hl7.org/fhir/us/core/ValueSet/us-core-specimen-condition (preferred)
