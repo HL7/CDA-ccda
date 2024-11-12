@@ -6,7 +6,6 @@ const path = require('path');
 const xmlFormat = require('xml-formatter');
 const xml2js = require('xml2js');
 const parse = require('csv-parse/sync').parse;
-const makeCDAInstance = require('./makeCDAInstance');
 
 (async function () {
   // Need to load R5 for this to work....for now
@@ -84,9 +83,7 @@ const makeCDAInstance = require('./makeCDAInstance');
       // Save value sets used by this SD
       collectValueSets(json);
 
-      const isCDAExample = json.resourceType.startsWith('http://hl7.org/cda/stds/core/StructureDefinition');
-
-      const xml = isCDAExample ? await makeCDAInstance(json) : fhir.jsonToXml(JSON.stringify(json));
+      const xml = fhir.jsonToXml(JSON.stringify(json));
       if (!xml) {
         console.error(`Failed to convert ${filePath}`);
         return;
