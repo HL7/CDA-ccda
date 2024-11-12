@@ -84,13 +84,13 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * obeys should-unit
   * unit 0..1
     * insert USCDI([[Dose Unit of Measure. NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units]])
-  * unit from UnitsOfMeasureCaseSensitive (preferred)
+  * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * ^definition = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)." // man-should
 * rateQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-7517)."
   * unit 1..1
-  * unit from UnitsOfMeasureCaseSensitive (required)
+  * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The rateQuantity, if present, SHALL contain exactly one [1..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7525)."
 * maxDoseQuantity 0..1

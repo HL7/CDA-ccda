@@ -70,14 +70,14 @@ Description: "This template represents planned medication activities. The priori
   * ^comment = "MAY contain zero or one [0..1] doseQuantity (CONF:1098-32068)."
   * obeys should-unit
   * unit 0..1
-  * unit from UnitsOfMeasureCaseSensitive (preferred)
+  * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32133)." // man-should
 * rateQuantity 0..1
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-32079)."
   * obeys should-unit
   * unit 0..1
-  * unit from UnitsOfMeasureCaseSensitive (required)
+  * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The rateQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32134)." // man-should
 * maxDoseQuantity 0..1

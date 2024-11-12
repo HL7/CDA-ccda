@@ -17,7 +17,7 @@ Description: """The Sex Parameter for Clinical Use (SPCU) observation is a clini
   * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
   * insert CodedLoinc(99501-9, [[Sex parameter for clinical use]])
-* text 1..1
+* text 0..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode."
   * code 1..1

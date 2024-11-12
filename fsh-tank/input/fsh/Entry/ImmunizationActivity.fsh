@@ -56,7 +56,7 @@ This information should be included in an Immunization Activity when available. 
   * ^comment = "SHOULD contain zero or one [0..1] doseQuantity (CONF:1198-8841)." // auto-should
   * obeys should-unit
   * unit 0..1
-  * unit from UnitsOfMeasureCaseSensitive (preferred)
+  * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1198-8842)." // man-should
 * administrationUnitCode 0..1
