@@ -4,7 +4,7 @@ Id: SexParameterForClinicalUseObservation
 Title: "Sex Parameter For Clinical Use Observation"
 Description: """The Sex Parameter for Clinical Use (SPCU) observation is a clinical classification indicating which sex-related information is needed to evaluate how a patient's body may respond or has responded to treatments or diagnostic tests. Rather than relying solely on a patient's gender identity or assigned sex at birth, SPCU considers observable physiological characteristics (such as hormone levels, organ inventories, or genetic data) or medical interventions (such as hormone therapy). This template may be included in, referenced by, or contain a reference to, the relevant template."""
 
-* insert LogicalModelTemplate(advance-directive-exist-obs, 2.16.840.1.113883.10.20.22.4.513, 2025-05-01)
+* insert LogicalModelTemplate(sex-parameter-clinical-use-obs, 2.16.840.1.113883.10.20.22.4.513, 2025-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
