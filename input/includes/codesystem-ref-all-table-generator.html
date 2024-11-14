@@ -14,7 +14,7 @@ Code System Sources:
 
 - [FHIR]({{site.data.fhir.path}})
 - [US CORE]({{site.data.uscore.path}}/terminology.html)
-- PHINVADS
+- [PHINVADS ODH](https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.114222.4.5.327)
 - [THO](http://terminology.hl7.org/)
 - [SNOMED](http://snomed.info/sct)
 - [LOINC](http://loinc.org)
@@ -68,7 +68,7 @@ Code System Sources:
 {% assign cs_link = site.data.fhir.path | append: "codesystem-" | append: stem_URL | append: '.html' %}
 {% elsif item.URL contains 'http://cts.nlm.nih.gov/fhir/' %}
 {% assign source = "VSAC" %}
-{% elsif item.URL contains 'http://phinvads.cdc.gov/fhir/' %}
+{% elsif item.URL contains 'http://phinvads.cdc.gov/' %}
 {% assign source = "PHINVADS" %} <!-- PHINVADS-->
 {% elsif item.URL contains 'http://snomed.info/sct' %}
 {% assign source = "SNOMED" %}
@@ -76,6 +76,15 @@ Code System Sources:
 {% assign source = "UCUM" %}
 {% elsif item.URL contains 'http://loinc.org' %}
 {% assign source = "LOINC" %}
+{% elsif item.URL contains '2.16.840.1.113883.6.238' %}
+{% assign source = "PHINVADS" %}
+{% assign cs_link = 'https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.113883.6.238' %}
+{% elsif item.URL contains 'ietf:bcp:47' %}
+{% assign source = "IETF" %}
+{% assign cs_link = 'https://www.loc.gov/standards/iso639-2/php/code_list.php' %}
+{% elsif item.URL contains 'iso:std:iso:3166' %}
+{% assign source = "ISO" %}
+{% assign cs_link = 'https://www.iso.org/iso-3166-country-codes.html' %}
 {% elsif item.URL contains 'urn' %} <!-- rest with no link e.g urn or OID -->
 {% assign no_link = true %}
 {% else %} <!--  Other sources - us URL as link -->
