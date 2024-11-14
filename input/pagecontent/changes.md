@@ -1,3 +1,96 @@
+### Version 4.0.0-ballot
+
+The changes in this version of Consolidated CDA were made from comments raised plus additions for new USCDI elements.
+
+#### Major Changes
+
+* Updated USCDI Table
+* Updated Terminology page
+
+##### New Templates
+* Advance Directive Existence Observation
+* Smoking Status Meaningful Use
+* Individual Pronoun Observation
+* Interpreter Needed Observation
+* Sex Parameter For Clinical Use Observation
+
+##### Deprecated Templates
+* Advance Directive Organizer
+* Tobacco Use
+* Smoking Status
+
+##### Replaced Templates
+* Instruction replaced by Instruction Observation
+* Pregnancy Observation replaced by Pregnancy Status Observation
+
+##### Changed Templates
+
+###### Entry Templates
+* AssessmentScaleObservation - changed code binding
+* EncounterActivity - change code and discharge disposition binding, added InterpreterNeededObservation entry
+* GenderIdentityObservation - no longer a Social History Observation
+* PlannedEncounter - changed code binding, added InterpreterNeededObservation entry
+* PlannedProcedure - added sdtcCategory
+* PregnancyIntentionInNextYear - mood changed from INT to EVN
+* ResultOrganizer - add sdtcCategory
+* ServiceDeliveryLocation - changed code binding
+* SexualOrientationObservation - no longer a Social History Observation
+* SpecimenConditionObservation - changed value binding
+
+###### Section Templates
+* AdvanceDirectivesSection - removed organizer, changed observation to existence observation
+* AssessmentSection - added MAY NotesActivity
+* AssessmentAndPlanSection - added MAY NotesActivity
+* PlanOfTreatmentSection - added MAY NotesActivity
+* SocialHistorySection - added IndividualPronounObservation
+
+#### Tracker Issues Applied
+* CDA-20007
+* CDA-20887
+* CDA-21022
+* CDA-21112
+* CDA-21113
+* CDA-21114
+* CDA-21120
+* CDA-21123
+* CDA-21124
+* CDA-21125
+* CDA-21126
+* CDA-21127
+* CDA-21128
+* CDA-21129
+* CDA-21130
+* CDA-21134
+* CDA-21137
+* CDA-21143
+* CDA-21144
+* CDA-21148
+* CDA-21151
+* CDA-21153
+* CDA-21157
+* CDA-21178
+* CDA-21179
+* CDA-21180
+* CDA-21181
+* CDA-21215
+* CDA-21221
+* CDA-21222
+* CDA-21224
+* CDA-21225
+* CDA-21226
+* CDA-21227
+* CDA-21228
+* CDA-21229
+* CDA-21230
+* CDA-21231
+* CDA-21232
+* CDA-21233
+* CDA-21234
+* CDA-21235
+* CDA-21237
+* CDA-21244
+* CDA-22328
+
 ### Version 3.0.0
 
 The changes in this version of Consolidated CDA were made from comments raised during the January 2024 ballot of Consolidated CDA plus other issues that were raised during the ballot timeframe.
