@@ -8,14 +8,15 @@ The Note Activity template can be used as a standalone entry within a standard C
 Finally, if the type of data in the note is not known or no single C-CDA section is appropriate enough, the Note Activity should be placed in a Notes Section. (e.g., a free-text consultation note or a note which includes subjective, objective, assessment, and plan information combined).
 An alternative is to place the Note Activity as an entryRelationship to an Encounter Activity entry in the Encounters Section, but implementers may wish to group notes categorically into a separate location in CDA documents rather than overloading the Encounters Section.
 
-To support USCDI requirements, the following LOINC codes present in the Note Types value set should be used:
+The narrative Clinical Notes required in USCDI, along with their associated LOINC codes, are outlined below. These note types are included in the [Note Types Value Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.11.20.9.68/expansion), which is bound to Act.code.translation.
 
-* Discharge Summary (18842-5)
-* Emergency Department Note (34111-5)
-* History & Physical Note (34117-2)
-* Procedures Note (28570-0)]
-* Surgical Operation Note (11504-8)
-* Progress Note (11506-3)
+* Consultation Note (LOINC: 11488-4)
+* Discharge Summary (LOINC: 18842-5)
+* History & Physical Note (LOINC: 34117-2)
+* Procedures Note (LOINC: 28570-0)
+* Progress Note (LOINC: 11506-3)
+* Surgical Operation Note (Operative Note) (LOINC: 11504-8)
+* Emergency Department Note (LOINC: 34111-5)
 
 """
 
