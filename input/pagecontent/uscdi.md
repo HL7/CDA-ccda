@@ -27,13 +27,14 @@ ONC's USCDI and Consolidated CDA are complementary initiatives, with USCDI defin
 
 Updates to C-CDA depend upon community input and we encourage our audience to submit questions and feedback to C-CDA specifications by clicking on the *Propose a change* link in the footer of every page.  In addition, we encourage our audience to request any necessary clarifications to USCDI through the [USCDI ONDEC process](https://www.healthit.gov/isa/ONDEC) that helps inform future updates to C-CDA.
 
-| USCDI Version | Companion Guide Release                      |
+| USCDI Version | Referenced Specification                      |
 |---------------|----------------------------------------------|
 | v5            | [C-CDA STU 4.0](https://hl7.org/cda/us/ccda/) |
 | v4            | [C-CDA STU 3.0](https://hl7.org/cda/us/ccda/) |
 | v3            | [C-CDA Companion Guide Release 4.1 (pdf)](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)      |
 | v2            | [C-CDA Companion Guide Release 3 (pdf)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        |
 | v1            | [C-CDA Companion Guide Release 2 (pdf)](http://www.hl7.org/documentcenter/public/standards/dstu/CDAR2_IG_CCDA2.1_COMPANION_R2_STU1_2019OCT_2021OCTwithErrata.zip)        |
+{:.grid}
 
 The table below lists the C-CDA templates used for the corresponding USCDI Data elements.  It is a mapping between USCDI data elements and C-CDA Templates and C-CDA elements.
 

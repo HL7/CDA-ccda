@@ -150,10 +150,10 @@ Expression: "entry.where(observation.hasTemplateIdOf(SmokingStatus))"
 //                                                        //
 ////////////////////////////////////////////////////////////
 
-Invariant: shall-adv-directive-organizer
-Description: "If section/@nullFlavor is not present, SHALL contain at least one Advance Directive Organizer"
+Invariant: shall-adv-directive-existence
+Description: "If section/@nullFlavor is not present, SHALL contain at least one Advance Directive Existence Observation"
 Severity: #error
-Expression: "nullFlavor.exists() or entry.where(organizer.hasTemplateIdOf(AdvanceDirectiveOrganizer)).exists()"
+Expression: "nullFlavor.exists() or entry.where(observation.hasTemplateIdOf(AdvanceDirectiveExistenceObservation)).exists()"
 
 Invariant: shall-allergy-concern
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Allergy Concern Act"

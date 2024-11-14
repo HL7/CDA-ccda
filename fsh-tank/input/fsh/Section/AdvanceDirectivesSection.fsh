@@ -14,9 +14,10 @@ Description: """This section contains details about the patient’s advance heal
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"
-* entry contains advdirexistenceobservation 0..*
-* entry[advdirexistenceobservation] ^comment = "MAY contain zero or more [0..*] entry such that it"
+* entry contains advdirexistenceobservation 0..1
+* entry[advdirexistenceobservation] ^comment = "SHALL contain one [1..1] entry such that it"
   * observation 1..1
   * observation only AdvanceDirectiveExistenceObservation
     * ^comment = "SHALL contain exactly one [1..1] Advance Directive Existence Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.513:2025-05-01)."
     * insert USCDI([[Advance Directive Existence Observation]])
+* obeys shall-adv-directive-existence

@@ -92,7 +92,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Encounter.id"/>
-            <short value="(USCDI) Identifier"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Identifier"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:1198-8713)."/>
             <min value="1"/>
         </element>
@@ -101,7 +101,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Encounter.code"/>
-            <short value="(USCDI) Type"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Type"/>
             <comment value="In Encounter Summaries the Encounter Type will also be present in the document header at componentOf/encompassingEncounter/code, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present.  Implementers should note that only conveying Encounter Type in the document header at componentOf/encompassingEncounter/code is insufficient."/>
             <min value="1"/>
             <constraint>
@@ -149,7 +149,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Encounter.effectiveTime"/>
-            <short value="(USCDI) Time"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Time"/>
             <comment value="In Encounter Summaries the Encounter Time will also be present in the document header at componentOf/encompassingEncounter/effectiveTime, but for Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."/>
             <min value="1"/>
         </element>
@@ -164,7 +164,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Encounter.sdtcDischargeDispositionCode"/>
-            <short value="(USCDI) Disposition"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Disposition"/>
             <comment value="Implementers should note that a Discharge Disposition is not appropriate for all document types. Hospital Discharge Summary documents SHOULD have a discharge disposition. Progress Notes, or H&amp;P, typically won’t have a discharge disposition. In Encounter Summaries, the Encounter Disposition will also be present in the document header at componentOf/encompassingEncounter/dischargeDispositionCode, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present. While an Encounter Summary provides a snapshot of the patient’s condition at the time of the encounter as authored by the clinician, a Patient summary provides the most current information available from the sending system across multiple encounters. [CodeSystem-AHANUBCPatientDischargeStatus](https://terminology.hl7.org/CodeSystem-AHANUBCPatientDischargeStatus.html)"/>
             <binding>
                 <strength value="preferred"/>
@@ -207,7 +207,7 @@
             </extension>
             <path value="Encounter.participant"/>
             <sliceName value="location"/>
-            <short value="(USCDI) Location"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Location"/>
             <comment value="In Encounter Summaries the Encounter Location will also be present in the document header at componentOf/encompassingEncounter/location, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."/>
             <min value="0"/>
             <max value="*"/>
@@ -266,7 +266,7 @@
             </extension>
             <path value="Encounter.entryRelationship"/>
             <sliceName value="diagnosis"/>
-            <short value="(USCDI) Diagnosis"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Diagnosis"/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1198-15492) such that it"/>
             <min value="0"/>
             <max value="*"/>
@@ -285,7 +285,7 @@
             </extension>
             <path value="Encounter.entryRelationship"/>
             <sliceName value="observation"/>
-            <short value="(USCDI) Interpreter Needed Observation"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Interpreter Needed Observation"/>
             <comment value="SHALL contain exactly one [1..1] Interpreter Needed Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.515:2025-05-01)."/>
             <min value="0"/>
             <max value="*"/>

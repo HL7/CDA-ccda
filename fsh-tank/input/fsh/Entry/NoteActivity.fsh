@@ -6,9 +6,18 @@ Description: """The Note Activity represents a clinical note. Notes require auth
 When the note information augments data represented in a more specific entry template, the Note Activity can be used in an entryRelationship to the associated standard C-CDA entry. For example, a Procedure Note added as an entryRelationship to a Procedure Activity Procedure entry). 
 The Note Activity template can be used as a standalone entry within a standard C-CDA section (e.g., a note about various procedures which have occurred during a visit as an entry in the Procedures Section) when it does not augment another standard entry. It may also be used to provide additional data about the source of a currently narrative-only section, such as Hospital Course.
 Finally, if the type of data in the note is not known or no single C-CDA section is appropriate enough, the Note Activity should be placed in a Notes Section. (e.g., a free-text consultation note or a note which includes subjective, objective, assessment, and plan information combined).
-An alternative is to place the Note Activity as an entryRelationship to an Encounter Activity entry in the Encounters Section, but implementers may wish to group notes categorically into a separate location in CDA documents rather than overloading the Encounters Section."""
-* ^meta.versionId = "4"
-* ^meta.lastUpdated = "2023-07-11T23:41:34.630Z"
+An alternative is to place the Note Activity as an entryRelationship to an Encounter Activity entry in the Encounters Section, but implementers may wish to group notes categorically into a separate location in CDA documents rather than overloading the Encounters Section.
+
+To support USCDI requirements, the following LOINC codes present in the Note Types value set should be used:
+
+* Discharge Summary (18842-5)
+* Emergency Department Note (34111-5)
+* History & Physical Note (34117-2)
+* Procedures Note (28570-0)]
+* Surgical Operation Note (11504-8)
+* Progress Note (11506-3)
+
+"""
 
 * insert LogicalModelTemplate(note-activity, 2.16.840.1.113883.10.20.22.4.202, 2016-11-01)
 * insert NarrativeLink

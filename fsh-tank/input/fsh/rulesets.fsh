@@ -6,7 +6,7 @@
 
 // Flag an element as meeting a USCDI requirement. If label contains, or ), surround the text witn [[ ]]
 RuleSet: USCDI(label)
-* ^short = "(USCDI) {label}"
+* ^short = "\ud835\udde8\ud835\udde6\ud835\uddd6\ud835\uddd7\ud835\udddc: {label}"
 * ^extension[http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement].valueBoolean = true
 
 
