@@ -1,5 +1,8 @@
 == Suppressed Messages ==
 
+# parameters for cda schematron generation
+Unknown Parameters: [value-set-limit=1000, parent-template-id=2.16.840.1.113883.10.20.22]
+
 # IG Publisher issue - Grahame to fix: https://chat.fhir.org/#narrow/stream/198221-cda.2Fpublish/topic/Invariant.20expression.20error
 http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-21
 
@@ -7,8 +10,9 @@ http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-21
 http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-24
 http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20
 
-# Deprecated value set for jurisdiction
+# Deprecated/draft code systems or value sets
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ObservationValue|3.1.0 from hl7.terminology.r4#6.0.2
 
 # Inherent collections where collection is limited to a single value
 %The left side is inherently a collection, and so the expression 'item.country.xmlText%
@@ -22,6 +26,9 @@ xsi:type is unnecessary at this point
 
 # Each slice is optional, so the maximum still applies
 The slice definition for Observation.value has a maximum of 1 but the slices add up to a maximum of 2. Check that this is what is intended
+
+# Slice does not match due to an error in a VSAC value set definition
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/EncountersSection|4.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # Embedded templateIds - not individual templates
 The CDA Template 2.16.840.1.113883.10.20.1.58 is not known
@@ -140,8 +147,8 @@ Unable to resolve resource with reference 'Binary/transfer-summary-header-exampl
 Unable to resolve resource with reference 'Binary/us-realm-header-example'
 
 # ERROR finding a language code in the language value set
-The value provided ('en') was not found in the value set 'Language codes with language and optionally a region modifier' (http://hl7.org/fhir/us/core/ValueSet/simple-language|7.0.0), and a code is required from this value set%
-The value provided ('fr-CN') was not found in the value set 'Language codes with language and optionally a region modifier' (http://hl7.org/fhir/us/core/ValueSet/simple-language|7.0.0), and a code is required from this value set%
+The value provided ('en') was not found in the value set 'Language codes with language and optionally a region modifier' (http://hl7.org/fhir/us/core/ValueSet/simple-language|8.0.0-ballot), and a code is required from this value set%
+The value provided ('fr-CN') was not found in the value set 'Language codes with language and optionally a region modifier' (http://hl7.org/fhir/us/core/ValueSet/simple-language|8.0.0-ballot), and a code is required from this value set%
 
 Binding http://hl7.org/fhir/us/core/ValueSet/simple-language could not be expanded
 
@@ -149,6 +156,8 @@ Binding http://hl7.org/fhir/us/core/ValueSet/simple-language could not be expand
 A definition for the value Set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253' could not be found
 Unable to check whether the code is in the value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.790|20240604' because the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253 was not found
 Unable to check whether the code is in the value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.789|20240604' because the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253 was not found
+ValueSet 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.15933' not found
+ValueSet 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.16866' not found
 
 # Duplicate anchor ids produced by publisher
 The html source has duplicate anchor Ids:%
@@ -158,3 +167,8 @@ The definition for the element 'ClinicalDocument.author.assignedAuthor.assignedA
 The definition for the element 'ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.softwareName' binds to the value set 'http://terminology.hl7.org/ValueSet/v3-SoftwareNameExample' which is experimental, but this structure is not labeled as experimental
 The definition for the element 'ParticipantRole.playingDevice.manufacturerModelName' binds to the value set 'http://terminology.hl7.org/ValueSet/v3-ManufacturerModelNameExample' which is experimental, but this structure is not labeled as experimental
 The definition for the element 'ParticipantRole.playingDevice.softwareName' binds to the value set 'http://terminology.hl7.org/ValueSet/v3-SoftwareNameExample' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Organizer.sdtcCategory' binds to the value set 'http://hl7.org/fhir/ValueSet/diagnostic-service-sections' which is experimental, but this structure is not labeled as experimental
+
+# Deprecated templates
+The profile http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse|4.0.0-ballot is retired
+The profile http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse|4.0.0-ballot is retired
