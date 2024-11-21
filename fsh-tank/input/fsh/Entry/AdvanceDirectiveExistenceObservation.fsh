@@ -30,6 +30,7 @@ Description: """ This observation represents a simple observation indicating whe
 * value 1..1
 * value only $CD
 * value from $2.16.840.1.113762.1.4.1267.16 (required)
+* obeys no-obs-if-existance-false
 * author 1..1
 * author only ProvenanceAuthorParticipation
   * ^comment = "SHALL contain exactly [1..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."
@@ -40,3 +41,8 @@ Description: """ This observation represents a simple observation indicating whe
   * observation 1..1
   * observation only AdvanceDirectiveObservation
     * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2025-05-01)."
+
+Invariant: no-obs-if-existance-false
+Severity: #error
+Description: "If value = 'false', then no Advance Directive Observation entries will be present."
+Expression: "(value.code = 'false') implies (entryRelationship.count() = 0)"
