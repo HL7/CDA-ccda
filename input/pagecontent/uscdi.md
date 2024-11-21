@@ -31,9 +31,9 @@ Updates to C-CDA depend upon community input and we encourage our audience to su
 |---------------|----------------------------------------------|
 | v5            | [C-CDA STU 4.0](https://hl7.org/cda/us/ccda/) |
 | v4            | [C-CDA STU 3.0](https://hl7.org/cda/us/ccda/) |
-| v3            | [C-CDA Companion Guide Release 4.1 (pdf)](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)      |
-| v2            | [C-CDA Companion Guide Release 3 (pdf)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        |
-| v1            | [C-CDA Companion Guide Release 2 (pdf)](http://www.hl7.org/documentcenter/public/standards/dstu/CDAR2_IG_CCDA2.1_COMPANION_R2_STU1_2019OCT_2021OCTwithErrata.zip)        |
+| v3            | [C-CDA Companion Guide Release 4.1](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)      |
+| v2            | [C-CDA Companion Guide Release 3](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        |
+| v1            | [C-CDA Companion Guide Release 2](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        |
 {:.grid}
 
 The table below lists the C-CDA templates used for the corresponding USCDI Data elements.  It is a mapping between USCDI data elements and C-CDA Templates and C-CDA elements.
