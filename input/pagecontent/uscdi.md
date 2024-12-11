@@ -16,7 +16,7 @@ icons (png files) = `input/images/<"kebab case" USCDI class names>.png`
    - this file depends on another liquid template {% include sd_link.html title = title  %} which refererence `includes/sd_link.html` to get the profile page link.
    1. icons (png images) are in the `input/images` are named using the "kebab case" USCDI class names.{% endraw %} -->
 
-The C-CDA templates were designed to meet the 2015 Edition certification criterion for Consolidated CDA Creation 170.315(g)(6). They were created for each item in the [2015 Edition Common Clinical Data Set (CCDS)](https://www.healthit.gov/sites/default/files/ccds_reference_document_v1_1.pdf). The C-CDA templates on this page contain requirements up to and including [U.S. Core Data for Interoperability (USCDI) v4](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi).  Consolidated CDA is based on community input and used for USCDI  ONC certification.
+The C-CDA templates were designed to meet the 2015 Edition certification criterion for Consolidated CDA Creation 170.315(g)(6). They were created for each item in the [2015 Edition Common Clinical Data Set (CCDS)](https://www.healthit.gov/sites/default/files/ccds_reference_document_v1_1.pdf). The C-CDA templates on this page contain requirements up to and including [U.S. Core Data for Interoperability (USCDI) v5](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi).  Consolidated CDA is based on community input and used for USCDI  ONC certification.
 
 Note that:
 -  USCDI Data Classes and Element names may not be the same as the C-CDA template names and element names.

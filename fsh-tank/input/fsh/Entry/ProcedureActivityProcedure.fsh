@@ -38,7 +38,7 @@ Description: "This template is used to represent the details of current and hist
     * ^short = "Indicates when a procedure ended. If the statusCode='active', this must be after the ClinicalDcument/effectiveTime"
     * ^comment = "MAY contain zero or one [0..1] high"
 * priorityCode 0..1
-* priorityCode from ActPriority (required)
+* priorityCode from $ActPriority (required)
   * ^comment = "MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:4515-7668)."
 * methodCode 0..1
   * ^short = "MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."
