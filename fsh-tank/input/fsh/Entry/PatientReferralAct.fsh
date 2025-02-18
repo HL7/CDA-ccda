@@ -21,7 +21,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
   * ^comment = "SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet Referral Types urn:oid:2.16.840.1.113883.11.20.9.56 DYNAMIC (CONF:1098-30889)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-30892)."
-  * insert BindAtCode($2.16.840.1.113883.1.11.15933, required)
+  * insert BindAtCode($ActStatus, required)
 * effectiveTime 1..1
   * ^short = "The effectiveTime represents the time when the future referral is intended to take place."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30893)."
@@ -76,7 +76,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
         * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31615)."
     * obeys should-priorityCode
     * priorityCode 0..1
-    * priorityCode from ActPriority (preferred)
+    * priorityCode from $ActPriority (preferred)
       * ^comment = "This observation SHOULD contain zero or one [0..1] priorityCode, which SHOULD be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-32443)." // man-should
     * value 1..1
     * value only $CD

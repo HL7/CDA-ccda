@@ -16,7 +16,7 @@ icons (png files) = `input/images/<"kebab case" USCDI class names>.png`
    - this file depends on another liquid template {% include sd_link.html title = title  %} which refererence `includes/sd_link.html` to get the profile page link.
    1. icons (png images) are in the `input/images` are named using the "kebab case" USCDI class names.{% endraw %} -->
 
-The C-CDA templates were designed to meet the 2015 Edition certification criterion for Consolidated CDA Creation 170.315(g)(6). They were created for each item in the [2015 Edition Common Clinical Data Set (CCDS)](https://www.healthit.gov/sites/default/files/ccds_reference_document_v1_1.pdf). The C-CDA templates on this page contain requirements up to and including [U.S. Core Data for Interoperability (USCDI) v4](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi).  Consolidated CDA is based on community input and used for USCDI  ONC certification.
+The C-CDA templates were designed to meet the 2015 Edition certification criterion for Consolidated CDA Creation 170.315(g)(6). They were created for each item in the [2015 Edition Common Clinical Data Set (CCDS)](https://www.healthit.gov/sites/default/files/ccds_reference_document_v1_1.pdf). The C-CDA templates on this page contain requirements up to and including [U.S. Core Data for Interoperability (USCDI) v5](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi).  Consolidated CDA is based on community input and used for USCDI  ONC certification.
 
 Note that:
 -  USCDI Data Classes and Element names may not be the same as the C-CDA template names and element names.
@@ -31,9 +31,9 @@ Updates to C-CDA depend upon community input and we encourage our audience to su
 |---------------|----------------------------------------------|
 | v5            | [C-CDA STU 4.0](https://hl7.org/cda/us/ccda/) |
 | v4            | [C-CDA STU 3.0](https://hl7.org/cda/us/ccda/) |
-| v3            | [C-CDA Companion Guide Release 4.1 (pdf)](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)      |
-| v2            | [C-CDA Companion Guide Release 3 (pdf)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        |
-| v1            | [C-CDA Companion Guide Release 2 (pdf)](http://www.hl7.org/documentcenter/public/standards/dstu/CDAR2_IG_CCDA2.1_COMPANION_R2_STU1_2019OCT_2021OCTwithErrata.zip)        |
+| v3            | [C-CDA Companion Guide Release 4.1](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)      |
+| v2            | [C-CDA Companion Guide Release 3](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        |
+| v1            | [C-CDA Companion Guide Release 2](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        |
 {:.grid}
 
 The table below lists the C-CDA templates used for the corresponding USCDI Data elements.  It is a mapping between USCDI data elements and C-CDA Templates and C-CDA elements.

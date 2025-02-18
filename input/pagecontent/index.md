@@ -23,9 +23,9 @@ Document Types:
 
 Section templates, which help organize content within a document, and entry templates, that represent discrete computable data within sections, are defined in this implementation Guide.
 
-The [Artifact Index page](artifacts.html) lists the C-CDA Templates that have been defined for this IG. The templates are the most recent versions of each C-CDA template which was drawn from either C-CDA R2.1 or the C-CDA Companion Guide R4.1. New templates and/or new additions to existing templates were added to represent the [U.S. Core Data for Interoperability (USCDI) V4](https://www.healthit.gov/isa/sites/isa/files/2023-10/USCDI-Version-4-October-2023-Errata-Final.pdf).
+The [Artifact Index page](artifacts.html) lists the C-CDA Templates that have been defined for this IG.
 
-The Guidance pages provide USCDI guidance, call out key information from the underlying CDA standard, provide learnings gleaned from vendors and CDA Implementation-a-thons, and include other improvements added since C-CDA’s inception in 2011. The Guidance was drawn from  C-CDA 2.1 Introduction (Volume 1) Sept 2022 Errata  and  C-CDA 2.1 Companion Guide R4.1 June 2023 Publication and edited to be appropriate for this StructureDefinition publication.
+The Guidance pages provide USCDI guidance, call out key information from the underlying CDA standard, provide learnings gleaned from vendors and CDA Implementation-a-thons, and include other improvements added since C-CDA’s inception in 2011. The Guidance was drawn from  C-CDA 2.1 Introduction (Volume 1) Sept 2022 Errata  and  C-CDA 2.1 Companion Guide R4.1 June 2023 Publication and edited to be appropriate for this StructureDefinition publication and has been added to with new versions.
 
 ### Background
 Consolidated CDA (C-CDA) is a library of CDA templates developed by HL7. It leveraged prior CDA implementation guides developed under the HL7 Health Story Project, Integrating the Healthcare Enterprise (IHE), and the Health Information Technology Standards Panel (HITSP). It harmonized and consolidated the templates into the C-CDA guide. The C-CDA guide was developed within the ONC’s Standards and Interoperability (S&I) Framework to provide a definitive set of harmonized CDA templates for the US Realm.

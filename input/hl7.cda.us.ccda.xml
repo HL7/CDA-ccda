@@ -25,12 +25,12 @@
     <dependsOn id="cda">
         <uri value="http://hl7.org/cda/stds/core/ImplementationGuide/hl7.cda.uv.core"/>
         <packageId value="hl7.cda.uv.core"/>
-        <version value="current"/>
+        <version value="2.0.1-sd"/>
     </dependsOn>
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
-        <version value="0.20.0"/>
+        <version value="0.21.0"/>
     </dependsOn>
     <dependsOn id="phinvads">
         <uri value="http://fhir.org/packages/us.cdc.phinvads/ImplementationGuide/us.cdc.phinvads"/>
@@ -40,7 +40,7 @@
     <dependsOn id="uscore">
         <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
         <packageId value="hl7.fhir.us.core"/>
-        <version value="current"/>
+        <version value="8.0.0-ballot"/>
     </dependsOn>
     <definition>
         <grouping id="document">
@@ -2161,6 +2161,22 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveExistenceObservation"/>
+            </extension>
+            <reference>
+                <reference value="Binary/advance-directive-existence-observation-example"/>
+            </reference>
+            <name value="Advance Directive Existance Observation Example"/>
+            <description value="Advance Directive Existence Observation example"/>
+            <isExample value="true"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveExistenceObservation"/>
+            <groupingId value="examples"/>
+        </resource>
+        <resource>
+            <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
+                <valueCode value="application/xml"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
                 <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </extension>
             <reference>
@@ -3841,7 +3857,7 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
             </extension>
             <reference>
                 <reference value="Binary/instruction-example"/>
@@ -3849,7 +3865,7 @@
             <name value="Instruction Example"/>
             <description value="Instruction example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Instruction"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -6341,7 +6357,7 @@
                 <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
                 <code value="releaselabel"/>
             </code>
-            <value value="STU3"/>
+            <value value="STU4 Ballot"/>
         </parameter>
         <parameter>
             <code>

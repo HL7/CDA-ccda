@@ -1,29 +1,39 @@
 == Suppressed Messages ==
 
-# IG Publisher issue - Grahame to fix: https://chat.fhir.org/#narrow/stream/198221-cda.2Fpublish/topic/Invariant.20expression.20error
-http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-21
+# 01 CDA Schematron generation parameters that are noted as unknown by the IG publisher
+Unknown Parameters: [value-set-limit=1000, parent-template-id=2.16.840.1.113883.10.20.22]
 
-# Deliberate decision around fixed/pattern 
+# 02 Deliberate decision around fixed/pattern which results in warnings
 http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-24
 http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20
 
-# Deprecated value set for jurisdiction
-Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+# 03 IG Publisher issue - Grahame to fix: https://chat.fhir.org/#narrow/stream/198221-cda.2Fpublish/topic/Invariant.20expression.20error
+http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-21
 
-# Inherent collections where collection is limited to a single value
+# 04 Inherent collections where collection is limited to a single value so the warning is fine
 %The left side is inherently a collection, and so the expression 'item.country.xmlText%
 %The left side is inherently a collection, and so the expression 'value.unit%
+%The left side is inherently a collection, and so the expression 'value.code%
 
-# Unavailable code system
-Error from http://tx.fhir.org/r4: Unable to provide support for code system https://www.nubc.org/CodeSystem/PatDischargeStatus
+# 05 Deprecated value set that is used by CDA and inherited by C-CDA
+Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 
-# xsi:type information - firing on templates with constrained type, but still required in CDA
+# 06 xsi:type information - firing on templates with constrained type, but still required in CDA
 xsi:type is unnecessary at this point
 
-# Each slice is optional, so the maximum still applies
+# 07 Unavailable code system in tx.fhir.org
+Error from http://tx.fhir.org/r5: Unable to provide support for code system https://www.nubc.org/CodeSystem/PatDischargeStatus
+
+# 08 Each slice is optional, so the maximum still applies
 The slice definition for Observation.value has a maximum of 1 but the slices add up to a maximum of 2. Check that this is what is intended
 
-# Embedded templateIds - not individual templates
+# 09 Slice does not match due to an error in a VSAC value set definition (see CPT value set error)
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/EncountersSection|4.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# 10 CPT valueset from VSAC that tx.fhir.org can't expand at this time
+Error from http://tx.fhir.org/r5: The filter "concept is-a 1013625" from the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32|20240711 was not understood in the context of http://www.ama-assn.org/go/cpt
+
+# 11 These are template IDs that are embedded in other templates and are not an individual template.  The validator can not find these templates and warns us about them.
 The CDA Template 2.16.840.1.113883.10.20.1.58 is not known
 The CDA Template 2.16.840.1.113883.10.20.21.3.1 is not known
 The CDA Template 2.16.840.1.113883.10.20.22.4.87 is not known
@@ -31,56 +41,53 @@ The CDA Template 2.16.840.1.113883.10.20.22.4.88 is not known
 The CDA Template 2.16.840.1.113883.10.20.22.4.89 is not known
 The CDA Template 2.16.840.1.113883.10.20.22.4.90 is not known
 
-# Resource OIDs match multiple instances in our dependency graph
-The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0%
-
-# Examples may not enforce the text references - SHOULD LOOK AT THESE TO SEE IF WE CAN FIX
+# 12 Our examples may not enforce the text references
 Constraint failed: should-text-ref-value: 'SHOULD contain text/reference/@value'%
 Constraint failed: should-sdtctext-ref-value: 'SHOULD contain text/reference/@value'%
 
-# Examples will not always contain an author - SHOULD LOOK AT THESE TO SEE IF WE CAN FIX
+# 13 Our examples will not always contain an author
 Constraint failed: should-author: 'SHOULD contain author'%
 
-# Multiple template IDs are required.
+# 14 Multiple template IDs are required so the validator throws a warning on the slices
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/SubstanceOrDeviceAllergyIntoleranceObservation%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation%
 
-# Assigned Author different slices
+# 15 In the example the OID matches two different code systems - nothing we can do about this in the guide itself.
+The OID '2.16.840.1.113883.6.101' matches multiple resources (http://nucc.org/provider-taxonomy|4.0.0(active), http://terminology.hl7.org/CodeSystem/v3-nuccProviderCodes|3.0.1(active)); http://nucc.org/provider-taxonomy was chosen as the most appropriate
+
+# 16 Assigned Author slices that are detected multiple times
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/DischargeSummary%
 
-# Not a code slice
+# 17 An extra element not specified by the template
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation%
 
-# Note Activity is not a defined slice
+# 18 Note Activity is not a defined slice in the template but can be included
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure%
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ProceduresSection%
 
-# Goal Observation is not a defined slice
+# 19 Goal Observation is not a defined slice in the template but can be included
 This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation%
 
-# Template requires a retired code
+# 20 Template requires a retired code
 The code 'NP' is valid but is retired
 The code '421927004' is valid but is not active
 
-# Unknown code systems used in examples
+# 21 Unknown code systems used in examples
 The OID '2.16.840.1.113883.6.255.1336' is not known, so the code can't be validated
 The OID '2.16.840.1.113883.1.11.19563' is not known, so the code can't be validated
 The OID '2.16.840.1.113883.12.112' is not known, so the code can't be validated
 
-# PHINVADS codes can't be found
+# 22 PHINVADS code systems that have no codes so can not be validated
 A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated%
 None of the codings provided are in the value set 'Industry NAICS Detail (ODH)' (http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7900|1), and a coding from this value set is required%
 None of the codings provided are in the value set 'Occupation ONETSOC Detail (ODH)' (http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7901|1), and a coding from this value set is required%
 A definition for CodeSystem 'https://www.nubc.org/CodeSystem/PatDischargeStatus' could not be found, so the code cannot be validated%
 A definition for CodeSystem 'urn:oid:2.16.840.1.113883.12.112' could not be found, so the code cannot be validated
 
-# CPT valueset from VSAC that tx.fhir.org can't expand
-Error from http://tx.fhir.org/r4: The filter "concept is-a 1013625" from the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.32|20240711 was not understood in the context of http://www.ama-assn.org/go/cpt
-
-# SHOULD constraints that we are ignoring
+# 23 SHOULD constraints that we are intentionally not including
 %1098-7513%
 %4537-10007%
 %should-addr%
@@ -120,12 +127,12 @@ Error from http://tx.fhir.org/r4: The filter "concept is-a 1013625" from the val
 %should-value%
 %ts-should-minute%
 
-# ERROR with QNames in our examples
+# 24 ERROR - our examples use an element that makes sense but does not match the actual datatype name
 The QName 'urn:hl7-org:v3::addr' does not match the expected QName 'urn:hl7-org:v3::AD'
 The QName 'urn:hl7-org:v3::time' does not match the expected QName 'urn:hl7-org:v3::TS'
 The QName 'urn:hl7-org:v3::effectiveTime' does not match the expected QName 'urn:hl7-org:v3::IVL_TS'
 
-# ERROR where full document examples are there and do get validated but seem unable to resolve reference
+# 25 ERROR the full document examples are there and do get validated but the validator is unable to resolve reference
 Unable to resolve resource with reference 'Binary/care-plan-complete-example'
 Unable to resolve resource with reference 'Binary/ccd-header-example'
 Unable to resolve resource with reference 'Binary/consultation-note-complete-example'
@@ -139,22 +146,31 @@ Unable to resolve resource with reference 'Binary/referral-note-header-example'
 Unable to resolve resource with reference 'Binary/transfer-summary-header-example'
 Unable to resolve resource with reference 'Binary/us-realm-header-example'
 
-# ERROR finding a language code in the language value set
-The value provided ('en') was not found in the value set 'Language codes with language and optionally a region modifier' (http://hl7.org/fhir/us/core/ValueSet/simple-language|7.0.0), and a code is required from this value set%
-The value provided ('fr-CN') was not found in the value set 'Language codes with language and optionally a region modifier' (http://hl7.org/fhir/us/core/ValueSet/simple-language|7.0.0), and a code is required from this value set%
-
+# 26 ERROR the language value set is not able to be expanded by the validator so validation can not occur
+The value provided ('en') was not found in the value set 'Language codes with language and optionally a region modifier' (http://hl7.org/fhir/us/core/ValueSet/simple-language|8.0.0-ballot), and a code is required from this value set%
+The value provided ('fr-CN') was not found in the value set 'Language codes with language and optionally a region modifier' (http://hl7.org/fhir/us/core/ValueSet/simple-language|8.0.0-ballot), and a code is required from this value set%
 Binding http://hl7.org/fhir/us/core/ValueSet/simple-language could not be expanded
 
-# New VSAC value sets
-A definition for the value Set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253' could not be found
-Unable to check whether the code is in the value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.790|20240604' because the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253 was not found
-Unable to check whether the code is in the value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.789|20240604' because the value set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253 was not found
-
-# Duplicate anchor ids produced by publisher
+# 27 Duplicate anchor ids produced by publisher - see if this can be fixed in a future release of the template
 The html source has duplicate anchor Ids:%
 
-# Experimental value sets in THO
+# 28 Experimental value sets in THO
 The definition for the element 'ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.manufacturerModelName' binds to the value set 'http://terminology.hl7.org/ValueSet/v3-ManufacturerModelNameExample' which is experimental, but this structure is not labeled as experimental
 The definition for the element 'ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.softwareName' binds to the value set 'http://terminology.hl7.org/ValueSet/v3-SoftwareNameExample' which is experimental, but this structure is not labeled as experimental
 The definition for the element 'ParticipantRole.playingDevice.manufacturerModelName' binds to the value set 'http://terminology.hl7.org/ValueSet/v3-ManufacturerModelNameExample' which is experimental, but this structure is not labeled as experimental
 The definition for the element 'ParticipantRole.playingDevice.softwareName' binds to the value set 'http://terminology.hl7.org/ValueSet/v3-SoftwareNameExample' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Organizer.sdtcCategory' binds to the value set 'http://hl7.org/fhir/ValueSet/diagnostic-service-sections' which is experimental, but this structure is not labeled as experimental
+
+# 29 Deprecated templates that are still referenced in section templates
+The profile http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse|4.0.0-ballot is retired
+The profile http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse|4.0.0-ballot is retired
+
+# 30 This is a guide that uses FHIR v5 that references guides that are FHIR v4
+This IG is for FHIR version 5.0.0, while the package 'hl7.terminology#5.2.0' is for FHIR version 4.0.1
+This IG is version 5.0.0, while the IG 'us.nlm.vsac' is from version 4.0.1
+This IG is version 5.0.0, while the IG 'us.cdc.phinvads' is from version 4.0.1
+This IG is version 5.0.0, while the IG 'hl7.fhir.us.core' is from version 4.0.1
+
+# 31 ERROR in retrieving ActCode from tx.fhir.org is affecting slicing
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ProblemSection%
+Error from http://tx.fhir.org/r5: Error reading E:\fhir-server\fhir-server\hl7.terminology.r4#6.1.0\package\CodeSystem-v3-ActCode.json%
