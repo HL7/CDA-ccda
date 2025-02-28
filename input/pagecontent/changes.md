@@ -13,14 +13,15 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * Individual Pronoun Observation
 * Interpreter Needed Observation
 * Sex Parameter For Clinical Use Observation
+* Instruction Observation
 
 ##### Deprecated Templates
 * Advance Directive Organizer
 * Tobacco Use
 * Smoking Status Meaningful Use
+* Instruction Activity
 
-##### Replaced Templates
-* Instruction replaced by Instruction Observation
+##### Renamed Templates
 * Pregnancy Observation replaced by Pregnancy Status Observation
 
 ##### Changed Templates
