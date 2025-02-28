@@ -9,7 +9,7 @@ The changes in this version of Consolidated CDA were made from comments raised p
 
 ##### New Templates
 * Advance Directive Existence Observation
-* Smoking Status Meaningful Use
+* Smoking Status 
 * Individual Pronoun Observation
 * Interpreter Needed Observation
 * Sex Parameter For Clinical Use Observation
@@ -17,7 +17,7 @@ The changes in this version of Consolidated CDA were made from comments raised p
 ##### Deprecated Templates
 * Advance Directive Organizer
 * Tobacco Use
-* Smoking Status
+* Smoking Status Meaningful Use
 
 ##### Replaced Templates
 * Instruction replaced by Instruction Observation
