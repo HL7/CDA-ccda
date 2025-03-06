@@ -44,7 +44,7 @@ The Observation value is used to record a calculated score using an integer. A L
 * value 1..1
   * insert USCDI([[Functional Status, Mental/Cognitive Status, Alcohol Use, Substance Use, Physical Activity, SDOH Assessment]])
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:4515-14450)."
-  * ^short = "Intended to hold the calculated score, if a calculated score exists in the originating questionaire or scale from the contained Assessment Scale Observations, and the associated answer integer will be at observation.value.translationCode, if present"
+  * ^short = "This is intended to hold the overall assessment score.  This could be calculated from the contained Assessment Scale Supporting Observations"
 * interpretationCode 0..*
   * ^comment = "MAY contain zero or more [0..*] interpretationCode (CONF:4515-14459)."
   * translation 0..*
