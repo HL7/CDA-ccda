@@ -46,51 +46,51 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * SocialHistorySection - added IndividualPronounObservation
 
 #### Tracker Issues Applied
-* CDA-20007
-* CDA-20887
-* CDA-21022
-* CDA-21112
-* CDA-21113
-* CDA-21114
-* CDA-21120
-* CDA-21123
-* CDA-21124
-* CDA-21125
-* CDA-21126
-* CDA-21127
-* CDA-21128
-* CDA-21129
-* CDA-21130
-* CDA-21134
-* CDA-21137
-* CDA-21143
-* CDA-21144
-* CDA-21148
-* CDA-21151
-* CDA-21153
-* CDA-21157
-* CDA-21178
-* CDA-21179
-* CDA-21180
-* CDA-21181
-* CDA-21215
-* CDA-21221
-* CDA-21222
-* CDA-21224
-* CDA-21225
-* CDA-21226
-* CDA-21227
-* CDA-21228
-* CDA-21229
-* CDA-21230
-* CDA-21231
-* CDA-21232
-* CDA-21233
-* CDA-21234
-* CDA-21235
-* CDA-21237
-* CDA-21244
-* CDA-22328
+* [CDA-20007](https://jira.hl7.org/browse/CDA-20007) - Allow CMS Place of Service codes for HealthcareServiceLocation
+* [CDA-20887](https://jira.hl7.org/browse/CDA-20887) - Update Guidance on Unknown and No Known Information
+* [CDA-21022](https://jira.hl7.org/browse/CDA-21022) - Examples need to be streamlined
+* [CDA-21112](https://jira.hl7.org/browse/CDA-21112) - Update Pregnancy Status Observation to better align with FHIR
+* [CDA-21113](https://jira.hl7.org/browse/CDA-21113) - Align Encounter Type between C-CDA and FHIR US Core
+* [CDA-21114](https://jira.hl7.org/browse/CDA-21114) - Problem Type Value Set points to https instead of http
+* [CDA-21120](https://jira.hl7.org/browse/CDA-21120) - How to Read: Word "Profile" should be replaced with "Template"
+* [CDA-21123](https://jira.hl7.org/browse/CDA-21123) - Add guidance in the short description in the Result Organizer at component:SpecimenProc
+* [CDA-21124](https://jira.hl7.org/browse/CDA-21124) - Correct link and name to VSAC SDOH Assessments and Questions value set
+* [CDA-21125](https://jira.hl7.org/browse/CDA-21125) - On validation page add information about the new tooling that generated SD generated schematron
+* [CDA-21126](https://jira.hl7.org/browse/CDA-21126) - Move "How to Read"
+* [CDA-21127](https://jira.hl7.org/browse/CDA-21127) - Link to Specimen Condition Observation in USCDI table is broken
+* [CDA-21128](https://jira.hl7.org/browse/CDA-21128) - Discharge Disposition - point to US Core set and delete C-CDA set
+* [CDA-21129](https://jira.hl7.org/browse/CDA-21129) - Change binding at encompassingEncounter.code from HL7 EncounterDischargeDisposition to NUBC
+* [CDA-21130](https://jira.hl7.org/browse/CDA-21130) - Add Guidance about Radiology LOINC codes in Result Organizer and Result Observation Templates
+* [CDA-21134](https://jira.hl7.org/browse/CDA-21134) - Sexual Orientation should be a simple observation and not derive from from Social Hx Observation
+* [CDA-21137](https://jira.hl7.org/browse/CDA-21137) - Review hl7VS-specimenCondition completeness
+* [CDA-21143](https://jira.hl7.org/browse/CDA-21143) - Assessment Scale Observation - add value set binding to observation code
+* [CDA-21144](https://jira.hl7.org/browse/CDA-21144) - Add Guidance about Lab LOINC in Result Organizer and Result Observation Templates
+* [CDA-21148](https://jira.hl7.org/browse/CDA-21148) - Binding to value sets where null and or DAR values are used instead of null values - restriction and guidance is needed
+* [CDA-21151](https://jira.hl7.org/browse/CDA-21151) - Add guidance to Assessment Scale Observation and Assessment Scale Supporting Observation about scores and calculated scores
+* [CDA-21153](https://jira.hl7.org/browse/CDA-21153) - UnitsofMeasureCaseSensitive
+* [CDA-21157](https://jira.hl7.org/browse/CDA-21157) - Add USCDI to C-CDA mapping table
+* [CDA-21178](https://jira.hl7.org/browse/CDA-21178) - Improve Guidance and coding guidance for Result Organizer
+* [CDA-21179](https://jira.hl7.org/browse/CDA-21179) - Add requirement to require C-CDAs include minimum content
+* [CDA-21180](https://jira.hl7.org/browse/CDA-21180) - Improve Progress Note Document-level guidance
+* [CDA-21181](https://jira.hl7.org/browse/CDA-21181) - Add Requirement to wrap Assessment and Plan in Note Activity
+* [CDA-21215](https://jira.hl7.org/browse/CDA-21215) - Instruction template is ambiguous / not useful
+* [CDA-21221](https://jira.hl7.org/browse/CDA-21221) - Add USCDI indicator to Immunization Lot Number Text
+* [CDA-21222](https://jira.hl7.org/browse/CDA-21222) - Updated Guidance on Medication Route
+* [CDA-21224](https://jira.hl7.org/browse/CDA-21224) - USCDI Planned Procedure
+* [CDA-21225](https://jira.hl7.org/browse/CDA-21225) - USCDI Name to Use
+* [CDA-21226](https://jira.hl7.org/browse/CDA-21226) - USCDI Interpreter Needed
+* [CDA-21227](https://jira.hl7.org/browse/CDA-21227) - USCDI Patient Pronouns
+* [CDA-21228](https://jira.hl7.org/browse/CDA-21228) - USCDI Add Provenance Author and Author Role
+* [CDA-21229](https://jira.hl7.org/browse/CDA-21229) - USCDI Advance Directive Observation
+* [CDA-21230](https://jira.hl7.org/browse/CDA-21230) - USCDI Add new Author extension to Advance Directive observation
+* [CDA-21231](https://jira.hl7.org/browse/CDA-21231) - USCDI - Update Advance Directive Observation
+* [CDA-21232](https://jira.hl7.org/browse/CDA-21232) - USCDI - Deprecate Advance Directive Organizer
+* [CDA-21233](https://jira.hl7.org/browse/CDA-21233) - USCDI - Update Advance Directive Text in Advance Directive Observation
+* [CDA-21234](https://jira.hl7.org/browse/CDA-21234) - USCDI - Advance Directive Section - changes related to new AD design
+* [CDA-21235](https://jira.hl7.org/browse/CDA-21235) - USCDI Sex Parameter for Clinical Use
+* [CDA-21237](https://jira.hl7.org/browse/CDA-21237) - Add sdtc:category to documents with required value
+* [CDA-21244](https://jira.hl7.org/browse/CDA-21244) - Modify constraints within Additional Orders Act to align with equivalent FHIR ADI profiles
+* [CDA-22328](https://jira.hl7.org/browse/CDA-22328) - 
 
 ### Version 3.0.0
 
