@@ -61,7 +61,8 @@ Wrapping the text of this section in a Note Activity will support ingestion.
 * entry[plannedMed] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8811) such that it"
   * substanceAdministration 1..1
   * substanceAdministration only PlannedMedicationActivity
-    * insert USCDI([[MedicationOrder - SHALL contain exactly one [1..1] Planned Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1098-30475).]])
+    * insert USCDI([[MedicationOrder]])
+    * ^comment = "SHALL contain exactly one [1..1] Planned Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.42:2014-06-09) (CONF:1098-30475)."
 * entry[plannedSupply] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8813) such that it"
   * supply 1..1
   * supply only PlannedSupply
