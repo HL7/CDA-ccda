@@ -89,8 +89,8 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * [CDA-21234](https://jira.hl7.org/browse/CDA-21234) - USCDI - Advance Directive Section - changes related to new AD design
 * [CDA-21235](https://jira.hl7.org/browse/CDA-21235) - USCDI Sex Parameter for Clinical Use
 * [CDA-21237](https://jira.hl7.org/browse/CDA-21237) - Add sdtc:category to documents with required value
-* [CDA-21244](https://jira.hl7.org/browse/CDA-21244) - Modify constraints within Additional Orders Act to align with equivalent FHIR ADI profiles
-* [CDA-22328](https://jira.hl7.org/browse/CDA-22328) - 
+* [CDA-21245](https://jira.hl7.org/browse/CDA-21245) - Sex Observation templateId extension changed
+* [CDA-21247](https://jira.hl7.org/browse/CDA-21247) - Add guidance to Note Activity template to call out USCDI Notes and their LOINC codes
 
 ### Version 3.0.0
 
