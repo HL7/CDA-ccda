@@ -49,7 +49,7 @@ A Consultation Note includes the reason for the referral, history of present ill
   * order 1..1
     * ^comment = "Such inFulfillmentOfs SHALL contain exactly one [1..1] order (CONF:1198-29923)."
     * id 1..*
-      * ^short = "Where a referral is being fulfilled by this consultation, this id would be the same as the id in the Patient Referral Act template."
+      * ^short = "Where a referral is being fulfilled by this consultation, this id would be the same as the id in the Referral Act template."
       * ^comment = "This order SHALL contain at least one [1..*] id (CONF:1198-29924)."
 * componentOf 1..1
   * ^short = "A Consultation Note is always associated with an encounter; the id element of the encompassingEncounter is required to be present and represents the identifier for the encounter."

@@ -11,5 +11,5 @@ Description: "This section describes the clinical reason why a provider is sendi
 * entry contains patientReferral 0..*
 * entry[patientReferral] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-30808) such that it"
   * act 1..1
-  * act only PatientReferralAct
-    * ^comment = "SHALL contain exactly one [1..1] Patient Referral Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.140) (CONF:1098-30897)."
+  * act only ReferralAct
+    * ^comment = "SHALL contain exactly one [1..1] Referral Act (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.140) (CONF:1098-30897)."
