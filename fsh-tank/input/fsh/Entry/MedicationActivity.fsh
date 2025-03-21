@@ -52,12 +52,12 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * high 0..1
     * ^short = "indicates when medication stopped"
     * ^comment = "MAY contain zero or one [0..1] high (CONF:1098-32777)."
-* effectiveTime[periodicFrequency] only $EIVL-TS
+* effectiveTime[periodicFrequency] only $PIVL-TS
   * ^short = "This effectiveTime represents a periodic medication frequency (e.g., administration times per day)."
   * operator 1..1
   * operator = #A
     * ^comment = "SHALL contain exactly one [1..1] @operator=\"A\" (CONF:1098-9106)."
-* effectiveTime[eventFrequency] only $PIVL-TS
+* effectiveTime[eventFrequency] only $EIVL-TS
   * ^short = "This effectiveTime represents an event-based medication frequency (e.g., administration at bedtime)."
   * operator 1..1
   * operator = #A
