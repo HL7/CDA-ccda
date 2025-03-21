@@ -2866,10 +2866,9 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
             style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                 bgcolor="#C5D9F0"><p class="s19"
                 style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                >C-CDA Content Creators SHOULD use specific
+                >C-CDA Content Creators are encouraged to use specific 
                 templates over general templates when an appropriate
-                specific template has been defined.
-                <b>[BP-087]</b></p></td>
+                specific template has been defined.</p></td>
     </tr>
 </table>
 
