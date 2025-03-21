@@ -962,13 +962,13 @@ represent the clinical note information.
             style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                 bgcolor="#C5D9F0"><p class="s19"
                 style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                >C-CDA Content Creators MAY support the Unstructured
+                >C-CDA Content Creators are encouraged to support the Unstructured
                 Document template for representing clinical note
                 types when the type of clinical note to be exchanged
                 does not have an appropriate structured document
                 template or when it is not possible for the C-CDA
                 Content Creator to represent the clinical note 
-                information using a structured document template. <b>[BP-050]</b></p></td>
+                information using a structured document template.</p></td>
     </tr>
 </table>
 
