@@ -389,11 +389,10 @@ within the recordTarget represents the provider organization to which the medica
           style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
           bgcolor="#C5D9F0"><p class="s19"
           style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
-          >C-CDA Content Creators SHOULD populate the
+          >C-CDA Content Creators are encouraged to populate the
           providerOrganization within the recordTarget when
           the document represents information from a
-          provider’s medical record system.
-          <b>[CONF-035]</b></p></td>
+          provider’s medical record system.</p></td>
     </tr>
     <tr style="height:45pt">
         <td
