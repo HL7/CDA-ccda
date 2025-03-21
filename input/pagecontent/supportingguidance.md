@@ -2079,11 +2079,10 @@ A study by the Association for Healthcare Documentation Integrity, presented at 
             style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             bgcolor="#C5D9F0"><p class="s19"
                 style="padding-left: 41pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
-                >C-CDA Content Creators SHOULD render date/time
+                >C-CDA Content Creators are encouraged to render date/time
                 information using a level of precision that is
                 relevant and pertinent to the intended purpose of
-                the section within the context of the document<b>.
-                  [BP-071</b></p></td>
+                the section within the context of the document.</p></td>
     </tr>
 </table>
 
