@@ -399,8 +399,7 @@ within the recordTarget represents the provider organization to which the medica
           style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
           bgcolor="#C5D9F0"><p class="s19"
           style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
-          >C-CDA Content Creators SHOULD include an
-          identifier for the provider organization in the
+          >C-CDA Content Creators SHOULD include the provider organization's identifier in the
           id/@extension attribute and SHOULD identify the
           assigning authority for the identifier using a
           globally unique identifier (GUID or OID) in the
