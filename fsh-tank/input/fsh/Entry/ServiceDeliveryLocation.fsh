@@ -2,7 +2,11 @@ Profile: ServiceDeliveryLocation
 Parent: $ParticipantRole
 Id: ServiceDeliveryLocation
 Title: "Service Delivery Location"
-Description: "This clinical statement represents the physical place of available services or resources. It is the location of a service event where an act, observation or procedure took or can place."
+Description: "This clinical statement represents the physical place of available services or resources. It is the location of a service event where an act, observation or procedure took or can place.
+
+The ASTP/ONC U.S. Core Data for Interoperability (USCDI) terminology requirements for Encounter Location specify the use of National Healthcare Safety Network (NHSN) Healthcare Facility Patient Care Location (HSLOC) codes or SNOMED CT location type codes.
+This template's HealthcareServiceLocation value set, bound to ParticipantRole.code, includes HSLOC and CMS Place of Service codes.
+Certifying systems must minimally implement HSLOC codes and may implement CMS Place of Service codes. Implementers may also use SNOMED CT codes as translations for existing codes where applicable."
 
 * insert LogicalModelTemplateRootOnly(service-delivery-loc, 2.16.840.1.113883.10.20.22.4.32)
 
