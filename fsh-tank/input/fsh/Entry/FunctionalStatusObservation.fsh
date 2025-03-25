@@ -61,8 +61,8 @@ Description: "This template represents the patient's physical function (e.g., mo
 * entryRelationship[assessmentScaleObservation] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-14465) such that it"
   * insert USCDI([[Functional Status]])
   * typeCode 1..1
-  * typeCode = #COMP (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has component (CONF:1098-14598)."
+  * typeCode = #SPRT (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRT\" has support."
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1098-14466)."
