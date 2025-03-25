@@ -227,5 +227,21 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/IndividualPronounObservation"/>
             </type>
         </element>
+        <element id="Section.entry:pregnancyIntention">
+            <path value="Section.entry"/>
+            <sliceName value="pregnancyIntention"/>
+            <comment value="MAY contain zero or more [0..*] entry such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:pregnancyIntention.observation">
+            <path value="Section.entry.observation"/>
+            <comment value="SHALL contain exactly one [1..1] Pregnancy Intention In Next Year (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.281:2023-05-01)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyIntentionInNextYear"/>
+            </type>
+        </element>
     </differential>
 </StructureDefinition>
