@@ -20,7 +20,7 @@ Overarching goals described in this section are not tied to a specific condition
 
 The plan may also indicate that patient education will be provided.
 
-Wrapping the text of this section in a Note Activity will support ingestion.
+When this section.text contains extra information not contained in the discrete entries, it is helpful to wrap the text of this section in a Note Activity to support ingestion.
 """
 
 // !!! Caution - this templateId and extension is used in CarePlan invariant 1198-31044. If changed here, replace there.
