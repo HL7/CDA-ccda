@@ -124,6 +124,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * obeys should-high
     * high 0..1
       * ^comment = "The time, if present, SHOULD contain zero or one [0..1] high (CONF:4537-8920)." // auto-should
+      * ^short = "SHOULD contain high"
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4537-8921)."
     * id 1..*

@@ -37,6 +37,7 @@ Description: "This clinical statement represents the response to an undesired sy
   * obeys should-high
   * high 0..1
     * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] high (CONF:1098-7334)." // auto-should
+    * ^short = "SHOULD contain high"
 * value 1..1
 * value only $CD
 * value from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (required)
