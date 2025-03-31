@@ -142,7 +142,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * languageCommunication 0..*
         * insert USCDI([[Preferred Language]])
         * languageCode 1..1
-        * languageCode from http://hl7.org/fhir/us/core/ValueSet/simple-language (required)
+        * languageCode from http://terminology.hl7.org/ValueSet/Languages (required)
         * modeCode 0..1
         * modeCode from LanguageAbilityMode (required)
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:4537-5409)."
