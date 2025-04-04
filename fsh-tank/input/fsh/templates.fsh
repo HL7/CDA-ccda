@@ -25,9 +25,9 @@ Severity: #warning
 Expression: "component.where(section.hasTemplateIdOf(FunctionalStatusSection))"
 
 Invariant: should-section-healthstatus
-Description: "SHOULD contain a Health Status Evaluations and Outcomes Section"
+Description: "SHOULD contain an Outcomes Section"
 Severity: #warning
-Expression: "component.where(section.hasTemplateIdOf(HealthStatusEvaluationsandOutcomesSection))"
+Expression: "component.where(section.hasTemplateIdOf(OutcomesSection))"
 
 Invariant: should-section-hpi
 Description: "SHOULD contain a History of Present Illness Section"
