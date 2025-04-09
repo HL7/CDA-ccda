@@ -61,7 +61,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * typeCode 1..1
   * typeCode = #REFR (exactly)
   * act 1..1
-  * act only EncounterDiagnosis or HospitalAdmissionDiagnosis or PostprocedureDiagnosis or PreoperativeDiagnosis or EntryReference
+  * act only EncounterDiagnosis or HospitalAdmissionDiagnosis or PostprocedureDiagnosis or PreoperativeDiagnosis
 * entryRelationship[organizers]
   * typeCode 1..1
   * typeCode = #REFR (exactly)
