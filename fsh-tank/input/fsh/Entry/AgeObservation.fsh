@@ -2,7 +2,7 @@ Profile: AgeObservation
 Parent: $Observation
 Id: AgeObservation
 Title: "Age Observation"
-Description: "This Age Observation represents the subject's age at onset of an event or observation. The age of a relative in a Family History Observation at the time of that observation could also be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime. However, a common scenario is that a patient will know the age of a relative when the relative had a certain condition or when the relative died, but will not know the actual year (e.g., \"grandpa died of a heart attack at the age of 50\"). Often times, neither precise dates nor ages are known (e.g., \"cousin died of congenital heart disease as an infant\")."
+Description: "This Age Observation represents the subject's precise age at onset of an event or observation. The age of a relative in a Family History Observation at the time of that observation could also be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime. However, a common scenario is that a patient will know the age of a relative when the relative had a certain condition or when the relative died, but will not know the actual year (e.g., \"grandpa died of a heart attack at the age of 50\"). Often times, neither precise dates nor ages are known (e.g., \"cousin died of congenital heart disease as an infant\")."
 
 * insert LogicalModelTemplateRootOnly(age-obs, 2.16.840.1.113883.10.20.22.4.31)
 * insert NarrativeLink
