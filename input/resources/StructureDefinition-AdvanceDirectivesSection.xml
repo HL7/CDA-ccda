@@ -120,14 +120,14 @@
             </slicing>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"/>
         </element>
-        <element id="Section.entry:advdirexistenceobservation">
+        <element id="Section.entry:AdvDirExistanceObservation">
             <path value="Section.entry"/>
-            <sliceName value="advdirexistenceobservation"/>
-            <comment value="SHALL contain one [1..1] entry such that it"/>
+            <sliceName value="AdvDirExistanceObservation"/>
+            <comment value="MAY contain zero or more [0..*] entry such that it"/>
             <min value="0"/>
-            <max value="1"/>
+            <max value="*"/>
         </element>
-        <element id="Section.entry:advdirexistenceobservation.observation">
+        <element id="Section.entry:AdvDirExistanceObservation.observation">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
                 <valueBoolean value="true"/>
             </extension>
@@ -139,6 +139,14 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveExistenceObservation"/>
             </type>
+        </element>
+        <element id="Section.entry:AdvDirExistanceObservation.observation.sdtcCategory">
+            <path value="Section.entry.observation.sdtcCategory"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4"/>
+            </binding>
         </element>
     </differential>
 </StructureDefinition>
