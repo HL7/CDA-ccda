@@ -41,6 +41,8 @@ Description: """ This observation represents a simple observation indicating whe
   * observation 1..1
   * observation only AdvanceDirectiveObservation
     * ^comment = "SHALL contain exactly one [1..1] Advance Directive Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.48:2025-05-01)."
+  * typeCode 1..1
+  * typeCode = #REFR (exactly)
 
 Invariant: no-obs-if-existence-false
 Severity: #error
