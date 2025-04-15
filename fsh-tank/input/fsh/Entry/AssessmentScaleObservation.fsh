@@ -19,7 +19,7 @@ The Observation value is used to record a calculated score using an integer. A L
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-14435)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-14438)."
-* code 1..1
+* sdtcCategory 0..1
   * ^short = "survey"
   * code 1..1
   * code = #survey
@@ -30,6 +30,9 @@ The Observation value is used to record a calculated score using an integer. A L
   * translation 0..*
   * translation from $2.16.840.1.113762.1.4.1267.13 (preferred)
     * insert AdditionalBinding(preferred, $SDoHAssessmentsAndQuestions, For Social Determinant of Health Assessments, [[If the Assessment Scale Observation is a Social Determinant of Health Assessment, the observation code **SHOULD** be selected from ValueSet [Social Determinant of Health Assessments and Questions](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.206/expansion).]])
+* code 1..1
+  * codeSystem 0..1
+  * codeSystem = "2.16.840.1.113883.6.1"
 * derivationExpr 0..1
   * ^comment = "MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."
   * ^short = "Such derivation expression can contain a text calculation of how the components total up to the summed score"
