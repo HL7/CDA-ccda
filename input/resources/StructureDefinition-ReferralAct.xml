@@ -193,20 +193,20 @@
             </slicing>
             <short value="The following entryRelationship represents a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:careModel">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="careModel"/>
             <short value="The following entryRelationship represents whether the referral is for full or shared care."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31604) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:careModel.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31613)."/>
             <fixedCode value="SUBJ"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation">
+        <element id="Act.entryRelationship:careModel.observation">
             <path value="Act.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] observation (CONF:1098-31605)."/>
             <min value="1"/>
@@ -218,44 +218,44 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
             </constraint>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.classCode">
+        <element id="Act.entryRelationship:careModel.observation.classCode">
             <path value="Act.entryRelationship.observation.classCode"/>
             <comment value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31606)."/>
             <fixedCode value="OBS"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.moodCode">
+        <element id="Act.entryRelationship:careModel.observation.moodCode">
             <path value="Act.entryRelationship.observation.moodCode"/>
             <comment value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;RQO&quot; request (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31607)."/>
             <fixedCode value="RQO"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.code">
+        <element id="Act.entryRelationship:careModel.observation.code">
             <path value="Act.entryRelationship.observation.code"/>
             <comment value="This observation SHALL contain exactly one [1..1] code (CONF:1098-31608)."/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.code.code">
+        <element id="Act.entryRelationship:careModel.observation.code.code">
             <path value="Act.entryRelationship.observation.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; assertion (CONF:1098-31619)."/>
             <min value="1"/>
             <patternCode value="ASSERTION"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.code.codeSystem">
+        <element id="Act.entryRelationship:careModel.observation.code.codeSystem">
             <path value="Act.entryRelationship.observation.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4 &quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-31620)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.5.4"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.statusCode">
+        <element id="Act.entryRelationship:careModel.observation.statusCode">
             <path value="Act.entryRelationship.observation.statusCode"/>
             <comment value="This observation SHALL contain exactly one [1..1] statusCode (CONF:1098-31614)."/>
             <min value="1"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.statusCode.code">
+        <element id="Act.entryRelationship:careModel.observation.statusCode.code">
             <path value="Act.entryRelationship.observation.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31615)."/>
             <min value="1"/>
             <fixedCode value="completed"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.priorityCode">
+        <element id="Act.entryRelationship:careModel.observation.priorityCode">
             <path value="Act.entryRelationship.observation.priorityCode"/>
             <comment value="This observation SHOULD contain zero or one [0..1] priorityCode, which SHOULD be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-32443)."/>
             <binding>
@@ -263,7 +263,7 @@
                 <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>
             </binding>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.value">
+        <element id="Act.entryRelationship:careModel.observation.value">
             <path value="Act.entryRelationship.observation.value"/>
             <comment value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Care Model urn:oid:2.16.840.1.113883.11.20.9.61 DYNAMIC (CONF:1098-31611)."/>
             <min value="1"/>
