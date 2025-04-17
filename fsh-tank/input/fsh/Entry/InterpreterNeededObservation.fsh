@@ -14,6 +14,7 @@ Description: "The interpreter needed observation represents an indication of whe
   * obeys should-high
   * low 1..1
   * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."
+  * ^short = "The effectiveTime/@low represents when an interpreter is needed"
   * high 0..1
   * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] high (CONF:1198-32331)."
   * ^short = "SHOULD contain high"
