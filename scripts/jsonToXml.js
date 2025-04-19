@@ -55,7 +55,6 @@ const parse = require('csv-parse/sync').parse;
   templateIds.entry['2.16.840.1.113883.10.20.22.4.89'] = 'PolicyActivity';
   templateIds.entry['2.16.840.1.113883.10.20.22.4.90'] = 'PolicyActivity';
 
-
   // Iterate through each file
   files.forEach(async (file) => {
     if (path.extname(file) === '.json') {
@@ -88,6 +87,7 @@ const parse = require('csv-parse/sync').parse;
 
       // Build a list of required / recommended / additional sections
       appendSectionUsageToDescription(json);
+      appendEntryUsageToDescription(json);
 
       // Save value sets used by this SD
       collectValueSets(json);
@@ -228,6 +228,83 @@ function getProfileTemplateId(sd) {
   return value.replace('urn:hl7ii:', '').replace('urn:oid:', '');
 }
 
+/**
+ * Looks at every referenced template (from both invariants as well as slices) and
+ * generates a list, similar to the document section usage to be added to the description
+ * @returns 
+ */
+function appendEntryUsageToDescription(sd) {
+  const root = sd.differential?.element[0]?.id;
+  if (!root) return;
+
+  const [ linkName, linkNames ] = 
+    root === 'Section' ? ['entry', 'Entries'] :
+    root === 'Organizer' ? ['component', 'Components'] :
+    ['Act', 'Observation', 'Procedure', 'Encounter', 'SubstanceAdministration', 'Supply'].includes(root) ? ['entryRelationship', 'EntryRelationships'] :
+    [];
+  if (!linkName) return;
+
+  const entries = sd.differential?.element.filter(e => e.path.startsWith(`${root}.${linkName}`));
+  if (entries.length === 0) return;
+
+  const foundProfiles = [];
+
+  const shouldEntries = new Set();
+  const shallEntries = new Set();
+  const mayEntries = new Set();
+
+  for (const constraint of sd.differential?.element[0]?.constraint || []) {
+    // Ignoring everything but (entry.where / component.where / entryRelationship.where)
+    if (!constraint.expression?.includes(`${linkName}.where(`)) continue;
+    // TODO check for double hasTemplateIdOf in expression
+
+    const matches = [...constraint.expression.matchAll(/hasTemplateIdOf\('([^)]+)'\)/g)].map(m => m[1]);
+    if (!matches || matches.length === 0) {
+      console.warn(`${sd.name}'s constraint ${constraint.key} needs to be handled manually in jsonToXml.js > appendEntryUsageToDescription`);
+      continue;
+    }
+    foundProfiles.push(...matches);
+    // SHOULD constraints
+    if (constraint.severity === 'warning') {
+      shouldEntries.add(matches.map(profileLink).join(' or '));
+    } else {
+      shallEntries.add(matches.map(profileLink).join(' or '));
+    }
+  }
+
+  for (const entry of entries.filter(e => e.path === `${root}.${linkName}`)) {
+    const entryId = entry.id;
+    for (const clinStatement of entries.filter(e => e.id.startsWith(`${entryId}.`))) {
+      for (const profile of (clinStatement.type?.[0].profile || [])) {
+        if (foundProfiles.includes(profile)) continue;
+        foundProfiles.push(profile);
+        if (entry.min === 1) {
+          shallEntries.add(profileLink(profile));
+        } else {
+          mayEntries.add(profileLink(profile));
+        }
+      }
+    }
+  }
+
+  if ([...shallEntries, ...shouldEntries, ...mayEntries].length === 0) return;
+
+  sd.description += '\n\n#### Templates Used\nAlthough open templates may contain any valid CDA content, the following templates are specifically called out by this template:';
+  if (shallEntries.size > 0) {
+    sd.description += `\n\n**Required ${linkNames}**: `;
+    sd.description += Array.from(shallEntries).sort().join(', ');
+  }
+  if (shouldEntries.size > 0) {
+    sd.description += `\n\n**Recommended ${linkNames}**: `;
+    sd.description += Array.from(shouldEntries).sort().join(', ');
+  }
+  if (mayEntries.size > 0) {
+    sd.description += `\n\n**Optional ${linkNames}**: `;
+    sd.description += Array.from(mayEntries).sort().join(', ');
+  }
+
+}
+
 function appendSectionUsageToDescription(sd) {
   const sBody = sd.differential?.element.find(e => e.id === 'ClinicalDocument.component.structuredBody');
   if (!sBody) return;
@@ -336,7 +413,6 @@ function parseTerminologyCSV(vsORcs) {
 }
 
 function generateTemplateIdPage(templateIds, ig) {
-  console.log(templateIds);
   let contents = `The following templateIds are used by this Implementation Guide:\n\n`;
   for (const group of Object.keys(templateIds)) {
     if (Object.keys(templateIds[group]).length === 0) continue;
