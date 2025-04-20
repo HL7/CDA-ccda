@@ -7,7 +7,7 @@ Description: """The Operative Note is a frequently used type of procedure note w
 The Operative Note is created immediately following a surgical or other high-risk procedure. It records the pre- and post-surgical diagnosis, pertinent events of the procedure, as well as the condition of the patient following the procedure. The report should be sufficiently detailed to support the diagnoses, justify the treatment, document the course of the procedure, and provide continuity of care."""
 
 * insert LogicalModelTemplate(operative-note, 2.16.840.1.113883.10.20.22.1.7, 2024-05-01)
-* insert DocumentCategory(Operative Note, 11504-8, Surgical operation note)
+* insert DocumentCategoryV(Operative Note, 11504-8, Surgical operation note)
 
 * ^status = #active
 * code from SurgicalOperationNoteDocumentTypeCode (required)
@@ -174,8 +174,3 @@ Invariant: width-or-high
 Description: "Width and high are mutually exclusive. If width is known, high **SHALL NOT** be present. If with is not present, **SHALL** include high."
 Severity: #error
 Expression: "(width | high).count() = 1"
-
-Invariant: category-11504-8
-Description: "If category is present, then there shall be a category with LOINC code '11504-8'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11504-8' and codeSystem = '2.16.840.1.113883.6.1')"

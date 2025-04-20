@@ -1,0 +1,70 @@
+////////////////////////////////////////////////////////////
+//                                                        //
+//        Helpers to support new sdtc:Category            //
+//                                                        //
+////////////////////////////////////////////////////////////
+
+RuleSet: DocumentCategoryV(title, loinc, loincName)
+* sdtcCategory 0..*
+  * insert DocCatShort({title}, {loinc}, {loincName}, an)
+* obeys category-{loinc}
+
+RuleSet: DocumentCategory(title, loinc, loincName)
+* sdtcCategory 0..*
+  * insert DocCatShort({title}, {loinc}, {loincName}, a)
+* obeys category-{loinc}
+
+RuleSet: DocCatShort(title, loinc, loincName, aORan)
+* ^short = "Used to categorize the document as {aORan} {title}. If present, there SHALL be a category of {loinc} ({loincName})."
+
+////////////////////////////////////////////////////////////
+//                                                        //
+//    Various invariants (because these can't be          //
+//      build consistently via rulesets...yet)            //
+//                                                        //
+////////////////////////////////////////////////////////////
+
+Invariant: category-11488-4
+Description: "If category is present, then there shall be a category with LOINC code '11488-4'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11488-4' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-11504-8
+Description: "If category is present, then there shall be a category with LOINC code '11504-8'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11504-8' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-11506-3
+Description: "If category is present, then there shall be a category with LOINC code '11506-3'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11506-3' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-18842-5
+Description: "If category is present, then there shall be a category with LOINC code '18842-5'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18842-5' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-18761-7
+Description: "If category is present, then there shall be a category with LOINC code '18761-7'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18761-7' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-18776-5
+Description: "If category is present, then there shall be a category with LOINC code '18776-5'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18776-5' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-28570-0
+Description: "If category is present, then there shall be a category with LOINC code '28570-0'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '28570-0' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-34117-2
+Description: "If category is present, then there shall be a category with LOINC code '34117-2'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '34117-2' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-57133-1
+Description: "If category is present, then there shall be a category with LOINC code '57133-1'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '57133-1' and codeSystem = '2.16.840.1.113883.6.1')"

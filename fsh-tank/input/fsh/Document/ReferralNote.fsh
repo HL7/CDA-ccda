@@ -185,8 +185,3 @@ Examples of referral situations are when a patient is referred from a family phy
     * component[payers] ^comment = "This structuredBody SHOULD contain exactly one [0..1] component (CONF:1198-309240) such that it"
       * section only PayersSection
         * ^comment = "SHOULD contain exactly one [0..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2024-05-01) (CONF:1198-309250)."
-
-Invariant: category-57133-1
-Description: "If category is present, then there shall be a category with LOINC code '57133-1'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '57133-1' and codeSystem = '2.16.840.1.113883.6.1')"
