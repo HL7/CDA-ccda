@@ -2,7 +2,7 @@ Profile: AgeRangeObservation
 Parent: $Observation
 Id: AgeRangeObservation
 Title: "Age Range Observation"
-Description: "This Age Range Observation represents the subject's age during an event or observation. This is to be used when the onset of an event, condition, or observation occurs over a range of time."
+Description: "This Age Range Observation represents the subject's age during an event or observation when the precise age is unknown. This is to be used when the onset of an event, condition, or observation occurs over a range of time."
 
 * insert LogicalModelTemplateRootOnly(age-obs, 2.16.840.1.113883.10.20.22.4.31)
 * insert NarrativeLink
