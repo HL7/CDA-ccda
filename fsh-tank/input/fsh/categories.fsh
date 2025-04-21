@@ -5,18 +5,12 @@
 ////////////////////////////////////////////////////////////
 
 RuleSet: DocumentCategoryV(title, loinc, loincName)
-* sdtcCategory 0..*
-  * insert DocCatShort({title}, {loinc}, {loincName}, an)
-* obeys category-{loinc}
+* insert FixedCategory({loinc}, 2.16.840.1.113883.6.1, {loincName}, documentType)
+* sdtcCategory ^short = "Used to categorize the document as an {title}. If present, there SHALL be a category of {loinc} ({loincName})."
 
 RuleSet: DocumentCategory(title, loinc, loincName)
-* sdtcCategory 0..*
-  * insert DocCatShort({title}, {loinc}, {loincName}, a)
-* obeys category-{loinc}
-
-RuleSet: DocCatShort(title, loinc, loincName, aORan)
-* ^short = "Used to categorize the document as {aORan} {title}. If present, there SHALL be a category of {loinc} ({loincName})."
-
+* insert FixedCategory({loinc}, 2.16.840.1.113883.6.1, {loincName}, documentType)
+* sdtcCategory ^short = "Used to categorize the document as a {title}. If present, there SHALL be a category of {loinc} ({loincName})."
 
 // Create a fixed-but-optional category
 // When using, MUST ALSO create an invariant named "category-{code}" (see rest of this file)
