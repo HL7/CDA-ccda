@@ -11,8 +11,8 @@ An Immunization Activity is very similar to a Medication Activity with some key 
 3. Vaccine lot number
 4. Name and title of the person who administered the vaccine and the address of the clinic or facility where the permanent record will reside
 5. Vaccine information statement (VIS)
-  1. Date printed on the VIS
-  2. Date VIS given to patient or parent/guardian.
+    1. Date printed on the VIS
+    2. Date VIS given to patient or parent/guardian.
 
 This information should be included in an Immunization Activity when available. Reference: [CDC Instructions](https://www.cdc.gov/vaccines/pubs/pinkbook/downloads/appendices/c/vis-instruct.pdf)"""
 
