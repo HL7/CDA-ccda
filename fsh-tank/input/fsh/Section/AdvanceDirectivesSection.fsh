@@ -20,6 +20,6 @@ Description: """This section contains details about the patient’s advance heal
   * observation only AdvanceDirectiveExistenceObservation
     * ^comment = "SHALL contain exactly one [1..1] Advance Directive Existence Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.513:2025-05-01)."
     * insert USCDI([[Advance Directive Existence Observation]])
-    * sdtcCategory 0..1
+    * sdtcCategory 0..*
     * sdtcCategory from 2.16.840.1.113883.11.20.9.69.4 (preferred)
 * obeys shall-adv-directive-existence
