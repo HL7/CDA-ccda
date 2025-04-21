@@ -205,8 +205,3 @@ Invariant: ap-or-a-and-p
 Description: "**SHALL** include an Assessment and Plan Section, or both an Assessment Section and a Plan of Treatment Section."
 Severity: #error
 Expression: "component.where(section.hasTemplateIdOf(AssessmentandPlanSection)).exists() or (component.where(section.hasTemplateIdOf(AssessmentSection) or section.hasTemplateIdOf(PlanofTreatmentSection)).count() = 2)"
-
-Invariant: category-11488-4
-Description: "If category is present, then there shall be a category with LOINC code '11488-4'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11488-4' and codeSystem = '2.16.840.1.113883.6.1')"

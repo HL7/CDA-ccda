@@ -33,7 +33,7 @@ The Result Observation template is a versatile template designed to represent an
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7131)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7137)."
-* sdtcCategory 0..1
+* sdtcCategory 0..*
 * sdtcCategory from https://build.fhir.org/ig/HL7/US-Core/ValueSet-us-core-clinical-result-observation-category.html (preferred)
 * code 1..1
   * insert ShallCodeOrNullFlavor

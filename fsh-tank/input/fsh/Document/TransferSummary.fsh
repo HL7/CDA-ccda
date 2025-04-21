@@ -217,8 +217,3 @@ Standardization of information used in this form will promote interoperability; 
     * component[courseOfCare] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-32648) such that it"
       * section only CourseofCareSection
         * ^comment = "SHALL contain exactly one [1..1] Course of Care Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.64) (CONF:1198-32649)."
-
-Invariant: category-18761-7
-Description: "If category is present, then there shall be a category with LOINC code '18761-7'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18761-7' and codeSystem = '2.16.840.1.113883.6.1')"
