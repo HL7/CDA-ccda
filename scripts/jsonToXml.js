@@ -48,6 +48,13 @@ const parse = require('csv-parse/sync').parse;
   const codeSystemCSV = parseTerminologyCSV('codesystem');
 
   const templateIds = Object.fromEntries(ccdaIg.ImplementationGuide.definition.grouping.map(group => [group.$.id, {}]));
+  // Weird old templates that specified templateIds in their contents rather than defining a new template
+  templateIds.entry['2.16.840.1.113883.10.20.1.58'] = 'AdvanceDirectiveObservation';
+  templateIds.entry['2.16.840.1.113883.10.20.22.4.87'] = 'PolicyActivity';
+  templateIds.entry['2.16.840.1.113883.10.20.22.4.88'] = 'PolicyActivity';
+  templateIds.entry['2.16.840.1.113883.10.20.22.4.89'] = 'PolicyActivity';
+  templateIds.entry['2.16.840.1.113883.10.20.22.4.90'] = 'PolicyActivity';
+
 
   // Iterate through each file
   files.forEach(async (file) => {
