@@ -17,6 +17,28 @@ RuleSet: DocumentCategory(title, loinc, loincName)
 RuleSet: DocCatShort(title, loinc, loincName, aORan)
 * ^short = "Used to categorize the document as {aORan} {title}. If present, there SHALL be a category of {loinc} ({loincName})."
 
+
+// Create a fixed-but-optional category
+// When using, MUST ALSO create an invariant named "category-{code}" (see rest of this file)
+RuleSet: FixedCategory(code, codeSystem, display, sliceName)
+* obeys should-sdtcCategory
+* obeys category-{code}
+* sdtcCategory 0..*
+  * ^short = "Category is optional, but if present it SHALL contain a category with code={code}."
+  * ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[=].path = "code"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "codeSystem"
+  * ^slicing.rules = #open
+* sdtcCategory contains {sliceName} 0..1
+* sdtcCategory[{sliceName}]
+  * code 1..1
+  * code = #{code}
+  * codeSystem 1..1
+  * codeSystem = "{codeSystem}"
+  * ^short = "{display}"
+
+
 ////////////////////////////////////////////////////////////
 //                                                        //
 //    Various invariants (because these can't be          //
@@ -68,3 +90,8 @@ Invariant: category-57133-1
 Description: "If category is present, then there shall be a category with LOINC code '57133-1'."
 Severity: #error
 Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '57133-1' and codeSystem = '2.16.840.1.113883.6.1')"
+
+Invariant: category-survey
+Description: "If category is present, then there shall be a category with code 'survey'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = 'survey' and codeSystem = '2.16.840.1.113883.4.642.1.1125')"

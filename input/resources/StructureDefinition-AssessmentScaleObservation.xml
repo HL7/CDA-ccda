@@ -46,6 +46,20 @@
                 <expression value="text.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
             </constraint>
+            <constraint>
+                <key value="should-sdtcCategory"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain sdtcCategory"/>
+                <expression value="sdtcCategory.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
+            <constraint>
+                <key value="category-survey"/>
+                <severity value="error"/>
+                <human value="If category is present, then there shall be a category with code 'survey'."/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = 'survey' and codeSystem = '2.16.840.1.113883.4.642.1.1125')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
         </element>
         <element id="Observation.templateId">
             <path value="Observation.templateId"/>
@@ -95,8 +109,38 @@
         </element>
         <element id="Observation.sdtcCategory">
             <path value="Observation.sdtcCategory"/>
-            <short value="survey"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="codeSystem"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <short value="Category is optional, but if present it SHALL contain a category with code=survey."/>
+        </element>
+        <element id="Observation.sdtcCategory:survey">
+            <path value="Observation.sdtcCategory"/>
+            <sliceName value="survey"/>
+            <short value="Survey"/>
+            <min value="0"/>
             <max value="1"/>
+        </element>
+        <element id="Observation.sdtcCategory:survey.code">
+            <path value="Observation.sdtcCategory.code"/>
+            <min value="1"/>
+            <patternCode value="survey"/>
+        </element>
+        <element id="Observation.sdtcCategory:survey.codeSystem">
+            <path value="Observation.sdtcCategory.codeSystem"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.4.642.1.1125"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
             <constraint>
                 <key value="should-translation"/>
                 <severity value="warning"/>
@@ -105,19 +149,12 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
             </constraint>
         </element>
-        <element id="Observation.sdtcCategory.code">
-            <path value="Observation.sdtcCategory.code"/>
-            <min value="1"/>
-            <patternCode value="survey"/>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
-        <element id="Observation.sdtcCategory.codeSystem">
-            <path value="Observation.sdtcCategory.codeSystem"/>
-            <short value="Observation Category Codes"/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.4.642.1.1125"/>
-        </element>
-        <element id="Observation.sdtcCategory.translation">
-            <path value="Observation.sdtcCategory.translation"/>
+        <element id="Observation.code.translation">
+            <path value="Observation.code.translation"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.13"/>
@@ -128,10 +165,6 @@
                     <shortDoco value="For Social Determinant of Health Assessments"/>
                 </additional>
             </binding>
-        </element>
-        <element id="Observation.code.codeSystem">
-            <path value="Observation.code.codeSystem"/>
-            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.derivationExpr">
             <path value="Observation.derivationExpr"/>
