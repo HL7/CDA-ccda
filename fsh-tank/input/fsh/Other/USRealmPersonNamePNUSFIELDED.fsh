@@ -5,6 +5,7 @@ Title: "US Realm Person Name (PN.US.FIELDED)"
 Description: "The US Realm Clinical Document Person Name datatype flavor is a set of reusable constraints that can be used for Persons."
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.1.1"
+* ^identifier.system = $RFC
 * obeys 81-9371 and 81-9372
 
 Invariant: 81-9371

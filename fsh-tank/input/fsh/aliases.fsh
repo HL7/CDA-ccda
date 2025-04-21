@@ -1,3 +1,5 @@
+Alias: $RFC = urn:ietf:rfc:3986
+
 // CDA Types
 Alias: $Act = http://hl7.org/cda/stds/core/StructureDefinition/Act
 Alias: $Author = http://hl7.org/cda/stds/core/StructureDefinition/Author
