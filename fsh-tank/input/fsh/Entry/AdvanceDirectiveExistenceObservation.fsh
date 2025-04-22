@@ -15,6 +15,8 @@ Description: """ This observation represents a simple observation indicating whe
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id."
+* sdtcCategory 0..*
+* sdtcCategory from 2.16.840.1.113883.11.20.9.69.4 (preferred)
 * code 1..1
   * insert CodedLoinc(45473-6, [[Advance directive/living will completed]])
 * text 1..1
