@@ -16,10 +16,12 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-8549)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-8551)."
+* sdtcCategory 1..1
+  * code = http://terminology.hl7.org/CodeSystem/observation-category#social-history
+    * ^short = "Social History"
 * code 1..1
-* code from $2.16.840.1.113883.3.88.12.80.60 (preferred)
+* code from $2.16.840.1.113762.1.4.1267.28 (preferred)
   * obeys 4515-32956
-  * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Social History Type urn:oid:2.16.840.1.113883.3.88.12.80.60 DYNAMIC (CONF:4515-8558)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-8553)."
   * code 1..1
