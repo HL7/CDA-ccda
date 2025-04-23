@@ -96,6 +96,7 @@ The following templateIds are used by this Implementation Guide:
 | ---------- | ------- |
 | 2.16.840.1.113883.10.15.2:2025-05-01 | [IndividualPronounObservation](StructureDefinition-IndividualPronounObservation.html) |
 | 2.16.840.1.113883.10.20.1.19 | [AuthorizationActivity](StructureDefinition-AuthorizationActivity.html) |
+| 2.16.840.1.113883.10.20.1.58 | [AdvanceDirectiveObservation](StructureDefinition-AdvanceDirectiveObservation.html) |
 | 2.16.840.1.113883.10.20.15.3.1 | [EstimatedDateofDelivery](StructureDefinition-EstimatedDateofDelivery.html) |
 | 2.16.840.1.113883.10.20.15.3.8 | [PregnancyStatusObservation](StructureDefinition-PregnancyStatusObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.1:2023-05-01 | [ResultOrganizer](StructureDefinition-ResultOrganizer.html) |
@@ -156,6 +157,10 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.79:2015-08-01 | [DeceasedObservation](StructureDefinition-DeceasedObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.80:2024-05-01 | [EncounterDiagnosis](StructureDefinition-EncounterDiagnosis.html) |
 | 2.16.840.1.113883.10.20.22.4.86:2022-06-01 | [AssessmentScaleSupportingObservation](StructureDefinition-AssessmentScaleSupportingObservation.html) |
+| 2.16.840.1.113883.10.20.22.4.87 | [PolicyActivity](StructureDefinition-PolicyActivity.html) |
+| 2.16.840.1.113883.10.20.22.4.88 | [PolicyActivity](StructureDefinition-PolicyActivity.html) |
+| 2.16.840.1.113883.10.20.22.4.89 | [PolicyActivity](StructureDefinition-PolicyActivity.html) |
+| 2.16.840.1.113883.10.20.22.4.90 | [PolicyActivity](StructureDefinition-PolicyActivity.html) |
 | 2.16.840.1.113883.10.20.22.4.109 | [CharacteristicsofHomeEnvironment](StructureDefinition-CharacteristicsofHomeEnvironment.html) |
 | 2.16.840.1.113883.10.20.22.4.110 | [ProgressTowardGoalObservation](StructureDefinition-ProgressTowardGoalObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.111 | [CulturalandReligiousObservation](StructureDefinition-CulturalandReligiousObservation.html) |

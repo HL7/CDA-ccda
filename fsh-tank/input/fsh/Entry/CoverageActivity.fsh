@@ -19,9 +19,7 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8874)."
 * code 1..1
-  * insert USCDI([[Coverage Type : Records the category of health care payers, insurance products, or benefits.]])
   * insert CodedLoinc(52556-8, Payment sources)
-  * ^short = "\ud835\udde8\ud835\udde6\ud835\uddd6\ud835\uddd7\ud835\udddc: Coverage Type : Records the category of health care payers, insurance products, or benefits.  Code Display Name: Payment sources"
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8875)."
   * code 1..1

@@ -18,10 +18,11 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8899)."
 * id 1..*
-  * insert USCDI([[**GROUP NUMBER**: This is the identifier used to uniquely refer to a specific health insurance plan.]])
+  * insert USCDI([[**GROUP IDENTIFIER**: This is the identifier used to uniquely refer to a specific health insurance plan.]])
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8901)."
 * code 1..1
-  * code from $Payer (preferred)
+  * insert USCDI([[Coverage Type : Records the category of health care payers, insurance products, or benefits.]])
+* code from $Payer (preferred)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."
   * code 1..1
