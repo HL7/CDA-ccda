@@ -4,7 +4,7 @@ Id: SexObservation
 Title: "Sex Observation"
 Description: """This Sex Observation template is used to reflect the documentation of a person's sex. Systems choosing to record the source of information should include the Provenance participation.
 
-USCDI includes a data element for **Sex**, intended to support the exchange of a recorded sex value. This extension aligns with the USCDI definition of Sex: \"Documentation of a specific instance of sex.\" It enables systems to capture and share the sex value as it was documented in a particular context.
+USCDI includes a data element for **Sex**, intended to support the exchange of a recorded sex value. This Observation aligns with the USCDI definition of Sex: \"Documentation of a specific instance of sex.\" It enables systems to capture and share the sex value as it was documented in a particular context.
 
 Future versions of the template may be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation, which may include additional guidance on this Sex observation and the relationship to administrative gender (administrativeGenderCode).
 

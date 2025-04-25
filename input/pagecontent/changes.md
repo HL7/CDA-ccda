@@ -21,9 +21,6 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * Smoking Status Meaningful Use
 * Instruction Activity
 
-##### Renamed Templates
-* Pregnancy Observation replaced by Pregnancy Status Observation
-
 ##### Changed Templates
 
 ###### Entry Templates
@@ -33,6 +30,7 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * PlannedEncounter - changed code binding, added InterpreterNeededObservation entry
 * PlannedProcedure - added sdtcCategory
 * PregnancyIntentionInNextYear - mood changed from INT to EVN
+* PregnancyObservation renamed to PregnancyStatusObservation
 * ResultOrganizer - add sdtcCategory
 * ServiceDeliveryLocation - changed code binding
 * SexualOrientationObservation - no longer a Social History Observation

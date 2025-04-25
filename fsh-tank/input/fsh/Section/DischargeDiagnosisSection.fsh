@@ -24,8 +24,8 @@ Description: "This template represents problems or diagnoses present at the time
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] entry such that it"
 * obeys should-entry
-* entry contains hospitaladmissiondiagnosis 0..1 
-* entry[hospitaladmissiondiagnosis] ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-7983)." // auto-should
+* entry contains hospitaldischargediagnosis 0..1 
+* entry[hospitaldischargediagnosis] ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-7983)." // auto-should
   * act 1..1
   * act only HospitalDischargeDiagnosis
     * ^comment = "The entry, if present, SHALL contain exactly one [1..1] Hospital Discharge Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.33:2015-08-01) (CONF:1198-15489)."
