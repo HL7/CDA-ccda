@@ -125,7 +125,7 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="Indicates the time during which the condition or event occured"/>
+            <short value="Indicates the time range during which the event or observation occured"/>
             <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;IVL_TS&quot; (CONF:4515-14)."/>
             <min value="1"/>
             <max value="1"/>
@@ -135,8 +135,12 @@
         </element>
         <element id="Observation.value.low">
             <path value="Observation.value.low"/>
-            <comment value="This value SHALL contain exactly one [1..1] low (CONF:4515-33030)."/>
+            <comment value="This value SHALL contain exactly one [1..1] low."/>
             <min value="1"/>
+        </element>
+        <element id="Observation.value.high">
+            <path value="Observation.value.high"/>
+            <comment value="This value MAY contain exactly one [0..1] high."/>
         </element>
     </differential>
 </StructureDefinition>

@@ -16,7 +16,7 @@ Description: "This section contains social history data that influence a patient
     caregiver 0..* and
     culturalReligious 0..* and
     homeCharacteristics 0..* and
-	  individualPronoun 0..* and 
+    individualPronoun 0..* and 
     pregnancyIntention 0..*
 * entry[socialHistory] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-7953) such that it"
   * observation 1..1
@@ -45,7 +45,6 @@ Description: "This section contains social history data that influence a patient
 * entry[individualPronoun] ^comment = "MAY contain zero or more [0..*] entry such that it"
   * observation 1..1
   * observation only IndividualPronounObservation
-    * insert USCDI([[Individual Pronoun]])
     * ^comment = "SHALL contain exactly one [1..1] Individual Pronoun Observation (identifier: urn:oid:2.16.840.1.113883.10.15.2:2025-05-01)."
 * entry[pregnancyIntention] ^comment = "MAY contain zero or more [0..*] entry such that it"
   * observation 1..1

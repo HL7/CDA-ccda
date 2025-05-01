@@ -18,7 +18,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8899)."
 * id 1..*
-  * insert USCDI([[**GROUP IDENTIFIER**: This is the identifier used to uniquely refer to a specific health insurance plan.]])
+  * insert USCDI([[Group Identifier: This is the identifier used to uniquely refer to a specific health insurance plan.]])
   * ^comment = "If the root OID of Payer that assigned the group identifier is unknown, a local OID can be assigned or a nullFlavor of UNK"
 * code 1..1
   * insert USCDI([[Coverage Type : Records the category of health care payers, insurance products, or benefits.]])

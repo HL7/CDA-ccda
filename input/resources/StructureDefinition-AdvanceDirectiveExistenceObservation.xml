@@ -50,7 +50,7 @@
                 <key value="no-obs-if-existence-false"/>
                 <severity value="error"/>
                 <human value="If Advance Directive Observation entries are be present, then the observation value must be 'Yes'."/>
-                <expression value="(entryRelationship.observation.where(templateId.root='2.16.840.1.113883.10.20.22.4.48')count() &gt; 0) implies (value.code = '373066001')"/>
+                <expression value="(entryRelationship.observation.where(templateId.root='2.16.840.1.113883.10.20.22.4.48').count() &gt; 0) implies (value.code = '373066001')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveExistenceObservation"/>
             </constraint>
         </element>

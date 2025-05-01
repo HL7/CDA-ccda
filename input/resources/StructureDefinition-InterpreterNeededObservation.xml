@@ -109,8 +109,7 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
-            <short value="SHOULD contain high"/>
-            <comment value="This effectiveTime SHOULD contain zero or one [0..1] high (CONF:1198-32331)."/>
+            <comment value="This observation SHALL contain exactly one [1..1] effectiveTime (CONF:1198-31904)."/>
             <min value="1"/>
             <constraint>
                 <key value="should-high"/>
@@ -122,7 +121,14 @@
         </element>
         <element id="Observation.effectiveTime.low">
             <path value="Observation.effectiveTime.low"/>
+            <short value="The effectiveTime/@low represents when an interpreter is needed"/>
+            <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."/>
             <min value="1"/>
+        </element>
+        <element id="Observation.effectiveTime.high">
+            <path value="Observation.effectiveTime.high"/>
+            <short value="SHOULD contain high"/>
+            <comment value="This effectiveTime SHOULD contain zero or one [0..1] high (CONF:1198-32331)."/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>

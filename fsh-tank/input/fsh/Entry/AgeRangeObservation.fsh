@@ -23,7 +23,9 @@ Description: "This Age Range Observation represents the subject's age during an 
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-15966)."
 * value 1..1
 * value only $IVL-TS
-  * ^short = "Indicates the time during which the condition or event occured"
+  * ^short = "Indicates the time range during which the event or observation occured"
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"IVL_TS\" (CONF:4515-14)."
   * low 1..1
-    * ^comment = "This value SHALL contain exactly one [1..1] low (CONF:4515-33030)."
+    * ^comment = "This value SHALL contain exactly one [1..1] low."
+  * high 0..1
+    * ^comment = "This value MAY contain exactly one [0..1] high."
