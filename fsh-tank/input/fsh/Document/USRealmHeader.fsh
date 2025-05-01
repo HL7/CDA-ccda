@@ -70,9 +70,8 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * name 1..*
       * name only USRealmPatientNamePTNUSFIELDED
         * ^comment = "This patient SHALL contain at least one [1..*] US Realm Patient Name (PTN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1) (CONF:4537-5284)."
-      * administrativeGenderCode 1..1
+      * administrativeGenderCode 0..1
       * administrativeGenderCode from $2.16.840.1.113883.1.11.1 (required)
-        * ^comment = "This patient SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:4537-6394)."
       * birthTime 1..1
         * obeys ts-shall-year and ts-should-day
         * insert USCDI([[Date of Birth - **MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)]])

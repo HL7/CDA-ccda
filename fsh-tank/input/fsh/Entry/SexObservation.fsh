@@ -2,15 +2,9 @@ Profile: SexObservation
 Parent: $Observation
 Id: SexObservation
 Title: "Sex Observation"
-Description: """This Sex Observation template is used to reflect the documentation of a person's sex. Systems choosing to record the source of information should include the Provenance participation.
-
-USCDI includes a data element for **Sex**, intended to support the exchange of a recorded sex value. This Observation aligns with the USCDI definition of Sex: \"Documentation of a specific instance of sex.\" It enables systems to capture and share the sex value as it was documented in a particular context.
-
-Future versions of the template may be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation, which may include additional guidance on this Sex observation and the relationship to administrative gender (administrativeGenderCode).
-
-It is recommended systems include the Sex Observation in the Social History section."""
-* ^meta.versionId = "4"
-* ^meta.lastUpdated = "2023-07-11T23:41:53.603Z"
+Description: """USCDI includes a data element for Sex, intended to support the exchange of a recorded sex value. This observation template aligns with the USCDI definition of Sex: "Documentation of a specific instance of sex."
+It enables systems to share the documented sex value as recorded in a particular context. If the source of the information is captured, it should be represented using Provenance participation.
+It is recommended that systems include the Sex Observation in the Social History section; however, the template may be used wherever it is appropriate to support the sending system’s workflow."""
 
 * insert LogicalModelTemplate(sex-obs, 2.16.840.1.113883.10.20.22.4.507, 2023-06-28)
 * insert NarrativeLink
