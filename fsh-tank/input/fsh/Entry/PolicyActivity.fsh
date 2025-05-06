@@ -21,7 +21,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * insert USCDI([[Group Identifier: This is the identifier used to uniquely refer to a specific health insurance plan.]])
   * ^comment = "If the root OID of Payer that assigned the group identifier is unknown, a local OID can be assigned or a nullFlavor of UNK"
 * code 1..1
-  * insert USCDI([[Coverage Type : Records the category of health care payers, insurance products, or benefits.]])
+  * insert USCDI([[Coverage Type: Records the category of health care payers, insurance products, or benefits.]])
 * code from $Payer (preferred)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."
