@@ -153,8 +153,3 @@ Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."
 Severity: #error
 Expression: "width.empty() implies high.exists()"
-
-Invariant: category-11506-3
-Description: "If category is present, then there shall be a category with LOINC code '11506-3'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11506-3' and codeSystem = '2.16.840.1.113883.6.1')"

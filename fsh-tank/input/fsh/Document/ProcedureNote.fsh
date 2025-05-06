@@ -260,8 +260,3 @@ Invariant: 1198-8511
 Description: "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."
 Severity: #error
 Expression: "codeSystem = '2.16.840.1.113883.6.104' or codeSystem = '2.16.840.1.113883.6.4' or codeSystem = '2.16.840.1.113883.6.12' or codeSystem = '2.16.840.1.113883.6.285' or (codeSystem = '2.16.840.1.113883.6.96' and code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28'))"
-
-Invariant: category-28570-0
-Description: "If category is present, then there shall be a category with LOINC code '28570-0'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '28570-0' and codeSystem = '2.16.840.1.113883.6.1')"

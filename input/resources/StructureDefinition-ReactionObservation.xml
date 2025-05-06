@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ReactionObservation"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="ReactionObservation"/>
     <title value="Reaction Observation"/>
     <status value="draft"/>
-    <description value="This clinical statement represents the response to an undesired symptom, finding, etc. due to administered or exposed substance. A reaction can be defined described with respect to its severity, and can have been treated by one or more interventions."/>
+    <description value="This clinical statement represents the response to an undesired symptom, finding, etc. due to administered or exposed substance. A reaction can be defined described with respect to its severity, and can have been treated by one or more interventions.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [MedicationActivity](StructureDefinition-MedicationActivity.html), [ProcedureActivityProcedure](StructureDefinition-ProcedureActivityProcedure.html), [SeverityObservation](StructureDefinition-SeverityObservation.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -165,6 +165,7 @@
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
+            <short value="SHOULD contain high"/>
             <comment value="The effectiveTime, if present, SHOULD contain zero or one [0..1] high (CONF:1098-7334)."/>
         </element>
         <element id="Observation.value">

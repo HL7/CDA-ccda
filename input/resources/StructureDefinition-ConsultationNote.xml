@@ -15,7 +15,7 @@
         <valueString value="ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-container">
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
@@ -39,6 +39,13 @@
     <differential>
         <element id="ClinicalDocument">
             <path value="ClinicalDocument"/>
+            <constraint>
+                <key value="should-sdtcCategory"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain sdtcCategory"/>
+                <expression value="sdtcCategory.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
+            </constraint>
             <constraint>
                 <key value="category-11488-4"/>
                 <severity value="error"/>
@@ -76,7 +83,35 @@
         </element>
         <element id="ClinicalDocument.sdtcCategory">
             <path value="ClinicalDocument.sdtcCategory"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="codeSystem"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
             <short value="Used to categorize the document as a Consult Note. If present, there SHALL be a category of 11488-4 (Consult note)."/>
+        </element>
+        <element id="ClinicalDocument.sdtcCategory:documentType">
+            <path value="ClinicalDocument.sdtcCategory"/>
+            <sliceName value="documentType"/>
+            <short value="Consult note"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.sdtcCategory:documentType.code">
+            <path value="ClinicalDocument.sdtcCategory.code"/>
+            <min value="1"/>
+            <patternCode value="11488-4"/>
+        </element>
+        <element id="ClinicalDocument.sdtcCategory:documentType.codeSystem">
+            <path value="ClinicalDocument.sdtcCategory.codeSystem"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="ClinicalDocument.code">
             <path value="ClinicalDocument.code"/>
@@ -170,7 +205,7 @@
         </element>
         <element id="ClinicalDocument.inFulfillmentOf.order.id">
             <path value="ClinicalDocument.inFulfillmentOf.order.id"/>
-            <short value="Where a referral is being fulfilled by this consultation, this id would be the same as the id in the Patient Referral Act template."/>
+            <short value="Where a referral is being fulfilled by this consultation, this id would be the same as the id in the Referral Act template."/>
             <comment value="This order SHALL contain at least one [1..*] id (CONF:1198-29924)."/>
         </element>
         <element id="ClinicalDocument.componentOf">

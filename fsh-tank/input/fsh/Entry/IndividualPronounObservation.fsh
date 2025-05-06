@@ -14,7 +14,7 @@ Description: "The Individual Personal Pronoun Observation represents words speci
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC)."
 * code 1..1
-  * insert CodedLoinc(90779-2, [[Personal pronouns reported]])
+  * insert CodedLoinc(90778-2, [[Personal pronouns reported]])
 * text 0..1
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode."
@@ -28,6 +28,7 @@ Description: "The Individual Personal Pronoun Observation represents words speci
   * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low."
   * high 0..1
   * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] high."
+  * ^short = "SHOULD contain high"
 * value 1..1
 * value only $CD
 * value from http://terminology.hl7.org/ValueSet/pronouns (preferred)

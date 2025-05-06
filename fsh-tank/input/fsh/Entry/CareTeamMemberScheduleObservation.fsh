@@ -47,3 +47,4 @@ Description: """This template represents the schedule of when the care team memb
   * obeys should-high
   * high 0..1
     * ^comment = "This value SHOULD contain zero or one [0..1] high (CONF:4515-33029)." // auto-should
+    * ^short = "SHOULD contain high"

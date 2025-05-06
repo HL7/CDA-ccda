@@ -2,15 +2,9 @@ Profile: SexObservation
 Parent: $Observation
 Id: SexObservation
 Title: "Sex Observation"
-Description: """This Sex Observation template is used to reflect the documentation of a person's sex. Systems choosing to record the source of information should include the Provenance participation.
-
-USCDI v3 includes a data element for sex, intended to support the exchange of a sex value that is not characterized as sex assigned at birth or birth sex. This version of the C-CDA companion guide supports USCDI Sex data element. Sex assigned at birth or birth sex must be recorded using the Birth Sex Observation which falls under the broader category of a 'Sex observation'. A Data Absent Reason (DAR) code value of 'asked-declined' may be used when a person has chosen not to disclose their sex.
-
-Future versions of the template may be informed by the content of the HL7 Cross Paradigm IG: Gender Harmony - Sex and Gender Representation, which may include additional guidance on this Sex observation and the relationship to administrative gender (administrativeGenderCode).
-
-It is recommended systems include the Sex Observation in the Social History section."""
-* ^meta.versionId = "4"
-* ^meta.lastUpdated = "2023-07-11T23:41:53.603Z"
+Description: """USCDI includes a data element for Sex, intended to support the exchange of a recorded sex value. This observation template aligns with the USCDI definition of Sex: "Documentation of a specific instance of sex."
+It enables systems to share the documented sex value as recorded in a particular context. If the source of the information is captured, it should be represented using Provenance participation.
+It is recommended that systems include the Sex Observation in the Social History section; however, the template may be used wherever it is appropriate to support the sending system’s workflow."""
 
 * insert LogicalModelTemplate(sex-obs, 2.16.840.1.113883.10.20.22.4.507, 2023-06-28)
 * insert NarrativeLink
@@ -36,4 +30,4 @@ It is recommended systems include the Sex Observation in the Social History sect
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\"(CONF:4537-33080)."
-  * insert BindAtCode($2.16.840.1.113762.1.4.1240.3, preferred)
+  * insert BindAtCode($2.16.840.1.113762.1.4.1021.121, preferred)

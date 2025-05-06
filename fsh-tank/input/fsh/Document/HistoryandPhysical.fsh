@@ -168,8 +168,3 @@ Invariant: ccrfv-or-cc-or-rfv
 Description: "This structuredBody **SHALL** contain a Chief Complaint and Reason for Visit Section (2.16.840.1.113883.10.20.22.2.13) or a Chief Complaint Section (1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) or a Reason for Visit Section (2.16.840.1.113883.10.20.22.2.12)."
 Severity: #error
 Expression: "component.where(section.hasTemplateIdOf(ChiefComplaintandReasonforVisitSection).exists() or section.hasTemplateIdOf(ChiefComplaintSection).exists() or section.hasTemplateIdOf(ReasonforVisitSection).exists()).exists()"
-
-Invariant: category-34117-2
-Description: "If category is present, then there shall be a category with LOINC code '34117-2'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '34117-2' and codeSystem = '2.16.840.1.113883.6.1')"

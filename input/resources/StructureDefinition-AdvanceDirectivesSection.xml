@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectivesSection"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="AdvanceDirectivesSection"/>
     <title value="Advance Directives Section"/>
     <status value="draft"/>
-    <description value="This section contains details about the patient’s advance healthcare directives, including references to supporting documents such as Living Wills, Healthcare Power of Attorney, Personal Advance Care Plans, DNR Orders, and Portable Medical Orders. Each type of advance directive document is represented by an individual Advance Directive Observation within a single Advance Directive Existence Observation. Each Advance Directive Observation specifies the type of advance directive and provides a unique reference for the document. Additionally, the Advance Directive Observation may include information about the document’s author and any individuals who verified the information with the patient or their healthcare agent."/>
+    <description value="This section contains details about the patient’s advance healthcare directives, including references to supporting documents such as Living Wills, Healthcare Power of Attorney, Personal Advance Care Plans, DNR Orders, and Portable Medical Orders. Each type of advance directive document is represented by an individual Advance Directive Observation within a single Advance Directive Existence Observation. Each Advance Directive Observation specifies the type of advance directive and provides a unique reference for the document. Additionally, the Advance Directive Observation may include information about the document’s author and any individuals who verified the information with the patient or their healthcare agent.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Required Entries**: [AdvanceDirectiveExistenceObservation](StructureDefinition-AdvanceDirectiveExistenceObservation.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -120,14 +120,14 @@
             </slicing>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"/>
         </element>
-        <element id="Section.entry:advdirexistenceobservation">
+        <element id="Section.entry:AdvDirExistanceObservation">
             <path value="Section.entry"/>
-            <sliceName value="advdirexistenceobservation"/>
-            <comment value="SHALL contain one [1..1] entry such that it"/>
+            <sliceName value="AdvDirExistanceObservation"/>
+            <comment value="MAY contain zero or more [0..*] entry such that it"/>
             <min value="0"/>
-            <max value="1"/>
+            <max value="*"/>
         </element>
-        <element id="Section.entry:advdirexistenceobservation.observation">
+        <element id="Section.entry:AdvDirExistanceObservation.observation">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
                 <valueBoolean value="true"/>
             </extension>

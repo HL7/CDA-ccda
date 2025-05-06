@@ -49,7 +49,7 @@ A Consultation Note includes the reason for the referral, history of present ill
   * order 1..1
     * ^comment = "Such inFulfillmentOfs SHALL contain exactly one [1..1] order (CONF:1198-29923)."
     * id 1..*
-      * ^short = "Where a referral is being fulfilled by this consultation, this id would be the same as the id in the Patient Referral Act template."
+      * ^short = "Where a referral is being fulfilled by this consultation, this id would be the same as the id in the Referral Act template."
       * ^comment = "This order SHALL contain at least one [1..*] id (CONF:1198-29924)."
 * componentOf 1..1
   * ^short = "A Consultation Note is always associated with an encounter; the id element of the encompassingEncounter is required to be present and represents the identifier for the encounter."
@@ -205,8 +205,3 @@ Invariant: ap-or-a-and-p
 Description: "**SHALL** include an Assessment and Plan Section, or both an Assessment Section and a Plan of Treatment Section."
 Severity: #error
 Expression: "component.where(section.hasTemplateIdOf(AssessmentandPlanSection)).exists() or (component.where(section.hasTemplateIdOf(AssessmentSection) or section.hasTemplateIdOf(PlanofTreatmentSection)).count() = 2)"
-
-Invariant: category-11488-4
-Description: "If category is present, then there shall be a category with LOINC code '11488-4'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '11488-4' and codeSystem = '2.16.840.1.113883.6.1')"

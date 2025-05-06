@@ -23,7 +23,7 @@ The Result Organizer template is a versatile template designed to represent any 
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7127)."
 * obeys should-sdtcCategory
-* sdtcCategory 0..1
+* sdtcCategory 0..*
 * sdtcCategory from http://hl7.org/fhir/ValueSet/diagnostic-service-sections (preferred)
 * code 1..1
   * obeys 4537-19218
@@ -74,7 +74,7 @@ The Result Organizer template is a versatile template designed to represent any 
     * ^comment = "SHALL contain exactly one [1..1] Result Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.2:2015-08-01) (CONF:4537-14850)."
 * component[specimenProc] ^comment = "SHOULD contain exactly one [0..1] component such that it"
   * ^comment = "SHALL contain at least one [1..*] component such that it"
-  * ^short = "(USCDI) Specimen Condition Acceptability"
+  * insert USCDI([[Specimen Condition Acceptability]])
   * procedure 1..1
   * procedure only SpecimenCollectionProcedure
     * ^comment = "SHALL contain exactly one [1..1] Specimen Collection Procedure."

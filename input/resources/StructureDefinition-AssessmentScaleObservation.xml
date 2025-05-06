@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="AssessmentScaleObservation"/>
     <title value="Assessment Scale Observation"/>
     <status value="draft"/>
-    <description value="An assessment scale is a collection of observations that together can yield a calculated or non-calculated summary evaluation of a one or more conditions. Examples include the Braden Scale (assesses pressure ulcer risk), APACHE Score (estimates mortality in critically ill patients), Mini-Mental Status Exam (assesses cognitive function), APGAR Score (assesses the health of a newborn), Glasgow Coma Scale (assesses coma and impaired consciousness), and WE CARE (Well Child Care, Evaluation, Community Resources, Advocacy, Referral, Education - a clinic-based screening and referral system developed for pediatric settings).&#xA;&#xA;When an Assessment Scale Observation is contained in a Problem Observation, a Social History Observation or a Procedure instance that is Social Determinant of Health focused, that Assessment scale **MAY** contain assessment scale observations that represent question and answer pairs from SDOH screening instruments that are represented in LOINC. Note that guidance on the use of LOINC in assessment scales already exists in Assessment Scale Observation constraints and Assessment Scale Supporting Observations constraints.&#xA;&#xA;The Observation value is used to record a calculated score using an integer. A LOINC answer concept is used when the assessment is non-calculated result."/>
+    <description value="An assessment scale is a collection of observations that together can yield a calculated or non-calculated summary evaluation of a one or more conditions. Examples include the Braden Scale (assesses pressure ulcer risk), APACHE Score (estimates mortality in critically ill patients), Mini-Mental Status Exam (assesses cognitive function), APGAR Score (assesses the health of a newborn), Glasgow Coma Scale (assesses coma and impaired consciousness), and WE CARE (Well Child Care, Evaluation, Community Resources, Advocacy, Referral, Education - a clinic-based screening and referral system developed for pediatric settings).&#xA;&#xA;When an Assessment Scale Observation is contained in a Problem Observation, a Social History Observation or a Procedure instance that is Social Determinant of Health focused, that Assessment scale **MAY** contain assessment scale observations that represent question and answer pairs from SDOH screening instruments that are represented in LOINC. Note that guidance on the use of LOINC in assessment scales already exists in Assessment Scale Observation constraints and Assessment Scale Supporting Observations constraints.&#xA;&#xA;The Observation value is used to record a calculated score using an integer. A LOINC answer concept is used when the assessment is non-calculated result.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [AssessmentScaleSupportingObservation](StructureDefinition-AssessmentScaleSupportingObservation.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -44,6 +44,20 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain text/reference/@value"/>
                 <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
+            <constraint>
+                <key value="should-sdtcCategory"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain sdtcCategory"/>
+                <expression value="sdtcCategory.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
+            </constraint>
+            <constraint>
+                <key value="category-survey"/>
+                <severity value="error"/>
+                <human value="If category is present, then there shall be a category with code 'survey'."/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = 'survey' and codeSystem = '2.16.840.1.113883.4.642.1.1125')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
             </constraint>
         </element>
@@ -93,9 +107,40 @@
             <comment value="SHALL contain at least one [1..*] id (CONF:4515-14438)."/>
             <min value="1"/>
         </element>
+        <element id="Observation.sdtcCategory">
+            <path value="Observation.sdtcCategory"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="codeSystem"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <short value="Category is optional, but if present it SHALL contain a category with code=survey."/>
+        </element>
+        <element id="Observation.sdtcCategory:survey">
+            <path value="Observation.sdtcCategory"/>
+            <sliceName value="survey"/>
+            <short value="Survey"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.sdtcCategory:survey.code">
+            <path value="Observation.sdtcCategory.code"/>
+            <min value="1"/>
+            <patternCode value="survey"/>
+        </element>
+        <element id="Observation.sdtcCategory:survey.codeSystem">
+            <path value="Observation.sdtcCategory.codeSystem"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.4.642.1.1125"/>
+        </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <short value="survey"/>
             <constraint>
                 <key value="should-translation"/>
                 <severity value="warning"/>
@@ -104,16 +149,9 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
             </constraint>
         </element>
-        <element id="Observation.code.code">
-            <path value="Observation.code.code"/>
-            <min value="1"/>
-            <patternCode value="survey"/>
-        </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <short value="Observation Category Codes"/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.4.642.1.1125"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.code.translation">
             <path value="Observation.code.translation"/>
@@ -169,7 +207,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Observation.value"/>
-            <short value="Intended to hold the calculated score, if a calculated score exists in the originating questionaire or scale from the contained Assessment Scale Observations, and the associated answer integer will be at observation.value.translationCode, if present"/>
+            <short value="This is intended to hold the overall assessment score.  This could be calculated from the contained Assessment Scale Supporting Observations"/>
             <comment value="SHALL contain exactly one [1..1] value (CONF:4515-14450)."/>
             <min value="1"/>
             <max value="1"/>

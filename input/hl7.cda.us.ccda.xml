@@ -150,7 +150,16 @@
                 <display value="Age Observation"/>
             </reference>
             <name value="Age Observation"/>
-            <description value="This Age Observation represents the subject's age at onset of an event or observation."/>
+            <description value="This Age Observation represents the subject's precise age at onset of an event or observation."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/AgeRangeObservation"/>
+                <display value="Age Range Observation"/>
+            </reference>
+            <name value="Age Range Observation"/>
+            <description value="This Age Range Observation represents the subject's age during an event or observation when the precise age is unknown."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -776,15 +785,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
-                <display value="Health Status Evaluations and Outcomes Section"/>
-            </reference>
-            <name value="Health Status Evaluations and Outcomes Section"/>
-            <description value="This section represents observations regarding the evaluation or assessment of the patient, and the outcome of care from the interventions used to treat the patient."/>
-            <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="StructureDefinition/HealthStatusObservation"/>
                 <display value="Health Status Observation"/>
             </reference>
@@ -1289,21 +1289,21 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/OutcomesSection"/>
+                <display value="Outcomes Section"/>
+            </reference>
+            <name value="Outcomes Section"/>
+            <description value="This section represents observations regarding the outcome of care from the interventions used to treat the patient."/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/PastMedicalHistory"/>
                 <display value="Past Medical History"/>
             </reference>
             <name value="Past Medical History"/>
             <description value="This section contains a record of the patient's past complaints, problems, and diagnoses."/>
             <groupingId value="section"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/PatientReferralAct"/>
-                <display value="Patient Referral Act"/>
-            </reference>
-            <name value="Patient Referral Act"/>
-            <description value="This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care."/>
-            <groupingId value="entry"/>
         </resource>
         <resource>
             <reference>
@@ -1712,6 +1712,15 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/ReferralAct"/>
+                <display value="Referral Act"/>
+            </reference>
+            <name value="Referral Act"/>
+            <description value="This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care."/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/ReferralNote"/>
                 <display value="Referral Note"/>
             </reference>
@@ -1833,7 +1842,7 @@
                 <display value="Sex Observation"/>
             </reference>
             <name value="Sex Observation"/>
-            <description value="This Sex Observation template is used to reflect the documentation of a person's sex."/>
+            <description value="USCDI includes a data element for Sex, intended to support the exchange of a recorded sex value."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -2166,7 +2175,7 @@
             <reference>
                 <reference value="Binary/advance-directive-existence-observation-example"/>
             </reference>
-            <name value="Advance Directive Existance Observation Example"/>
+            <name value="Advance Directive Existence Observation Example"/>
             <description value="Advance Directive Existence Observation example"/>
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveExistenceObservation"/>
@@ -3540,12 +3549,12 @@
                 <valueCanonical value="http://hl7.org/cda/stds/core/StructureDefinition/StructuredBody"/>
             </extension>
             <reference>
-                <reference value="Binary/health-status-evaluations-and-outcomes-section-example"/>
+                <reference value="Binary/outcomes-section-example"/>
             </reference>
-            <name value="Health Status Evalutations and Outcomes Section Example"/>
-            <description value="Health Status Evaluations and Outcomes Section example"/>
+            <name value="Outcomes Section Example"/>
+            <description value="Outcomes Section example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomesSection"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -4737,15 +4746,15 @@
                 <valueCode value="application/xml"/>
             </extension>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-resource-logical">
-                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+                <valueCanonical value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
             </extension>
             <reference>
-                <reference value="Binary/patient-referral-act-example"/>
+                <reference value="Binary/referral-act-example"/>
             </reference>
-            <name value="Patient Referral Act Example"/>
-            <description value="Patient Referral Act example"/>
+            <name value="Referral Act Example"/>
+            <description value="Referral Act example"/>
             <isExample value="true"/>
-            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+            <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
             <groupingId value="examples"/>
         </resource>
         <resource>
@@ -6349,6 +6358,12 @@
                 <sourceUrl value="changes.html"/>
                 <name value="changes.html"/>
                 <title value="Change Log"/>
+                <generation value="markdown"/>
+            </page>
+            <page>
+                <sourceUrl value="templateids.html"/>
+                <name value="templateids.html"/>
+                <title value="Template IDs"/>
                 <generation value="markdown"/>
             </page>
         </page>

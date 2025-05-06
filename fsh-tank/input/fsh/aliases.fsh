@@ -1,3 +1,5 @@
+Alias: $RFC = urn:ietf:rfc:3986
+
 // CDA Types
 Alias: $Act = http://hl7.org/cda/stds/core/StructureDefinition/Act
 Alias: $Author = http://hl7.org/cda/stds/core/StructureDefinition/Author
@@ -63,6 +65,7 @@ Alias: $2.16.840.1.113762.1.4.1186.8   = http://cts.nlm.nih.gov/fhir/ValueSet/2.
 Alias: $2.16.840.1.113762.1.4.1240.1   = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.1
 Alias: $2.16.840.1.113762.1.4.1240.11  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.11
 Alias: $2.16.840.1.113762.1.4.1240.3   = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.3
+Alias: $2.16.840.1.113762.1.4.1021.121 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.121
 Alias: $2.16.840.1.113762.1.4.1240.5   = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.5
 Alias: $2.16.840.1.113762.1.4.1240.6   = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.6
 Alias: $2.16.840.1.113762.1.4.1240.8   = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.8
@@ -79,6 +82,7 @@ Alias: $CommonLabTests                 = http://cts.nlm.nih.gov/fhir/ValueSet/2.
 Alias: $Radiology                      = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.18
 Alias: $ClinicalTest                   = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.19
 Alias: $2.16.840.1.113762.1.4.1046.35  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.35
+Alias: $2.16.840.1.113762.1.4.1267.28  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.28
 Alias: $2.16.840.1.113883.1.11.1       = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1
 Alias: $2.16.840.1.113883.1.11.10267   = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.10267
 Alias: $2.16.840.1.113883.1.11.10416   = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.10416
@@ -116,10 +120,14 @@ Alias: $Payer                          = http://cts.nlm.nih.gov/fhir/ValueSet/2.
 Alias: $2.16.840.1.114222.4.11.877     = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.877
 Alias: $2.16.840.1.114222.4.11.7900    = http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7900
 Alias: $2.16.840.1.114222.4.11.7901    = http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7901
+Alias: $DetailedRace = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.25
+Alias: $RaceCategories =  https://cts.nlm.nih.gov/fhir/Valueset/2.16.840.1.113883.4.642.2.575
 Alias: $2.16.840.1.113883.4.642.3.1312 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.1312
 Alias: $2.16.840.1.113883.4.642.3.155  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.155
 Alias: $2.16.840.1.113883.4.642.3.3290 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.3290
 Alias: $2.16.840.1.113883.4.642.3.3181 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.3181 
+Alias: $DetailedEthnicity = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.40.2.48.1
+Alias: $EthnicityCategories = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.40.2.48.3
 Alias: $2.16.840.1.113883.4.642.40.2.48.26 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.40.2.48.26
 Alias: $2.16.840.1.113883.11.20.12.1 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1
 Alias: $2.16.840.1.113883.11.20.7.1  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.7.1

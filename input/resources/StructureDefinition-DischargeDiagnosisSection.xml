@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/DischargeDiagnosisSection"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="DischargeDiagnosisSection"/>
     <title value="Discharge Diagnosis Section"/>
     <status value="draft"/>
-    <description value="This template represents problems or diagnoses present at the time of discharge which occurred during the hospitalization. This section includes an optional entry to record patient diagnoses specific to this visit. Problems that need ongoing tracking should also be included in the Problem Section."/>
+    <description value="This template represents problems or diagnoses present at the time of discharge which occurred during the hospitalization. This section includes an optional entry to record patient diagnoses specific to this visit. Problems that need ongoing tracking should also be included in the Problem Section.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional Entries**: [HospitalDischargeDiagnosis](StructureDefinition-HospitalDischargeDiagnosis.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -137,10 +137,27 @@
         </element>
         <element id="Section.entry">
             <path value="Section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="observation"/>
+                </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="organizer"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <comment value="SHALL contain at least one [1..*] entry such that it"/>
+        </element>
+        <element id="Section.entry:hospitaldischargediagnosis">
+            <path value="Section.entry"/>
+            <sliceName value="hospitaldischargediagnosis"/>
             <comment value="SHOULD contain zero or one [0..1] entry (CONF:1198-7983)."/>
+            <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Section.entry.act">
+        <element id="Section.entry:hospitaldischargediagnosis.act">
             <path value="Section.entry.act"/>
             <comment value="The entry, if present, SHALL contain exactly one [1..1] Hospital Discharge Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.33:2015-08-01) (CONF:1198-15489)."/>
             <min value="1"/>

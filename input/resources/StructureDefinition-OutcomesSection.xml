@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="HealthStatusEvaluationsandOutcomesSection"/>
+    <id value="OutcomesSection"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -18,17 +18,17 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomesSection"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.2.61"/>
     </identifier>
-    <name value="HealthStatusEvaluationsandOutcomesSection"/>
-    <title value="Health Status Evaluations and Outcomes Section"/>
+    <name value="OutcomesSection"/>
+    <title value="Outcomes Section"/>
     <status value="draft"/>
-    <description value="This section represents observations regarding the evaluation or assessment of the patient, and the outcome of care from the interventions used to treat the patient. These observations represent status information, at points in time, related to established goals or related to new care plan goals and/or interventions."/>
+    <description value="This section represents observations regarding the outcome of care from the interventions used to treat the patient. These observations represent status information, at points in time, related to established goals or related to new care plan goals and/or interventions.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Required Entries**: [OutcomeObservation](StructureDefinition-OutcomeObservation.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -43,7 +43,7 @@
                 <severity value="error"/>
                 <human value="If section/@nullFlavor is not present, SHALL contain at least one Outcome Observation"/>
                 <expression value="nullFlavor.exists() or entry.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/OutcomeObservation')).exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/HealthStatusEvaluationsandOutcomesSection"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/OutcomesSection"/>
             </constraint>
         </element>
         <element id="Section.nullFlavor">

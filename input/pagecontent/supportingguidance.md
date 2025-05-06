@@ -389,19 +389,17 @@ within the recordTarget represents the provider organization to which the medica
           style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
           bgcolor="#C5D9F0"><p class="s19"
           style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
-          >C-CDA Content Creators SHOULD populate the
+          >C-CDA Content Creators are encouraged to populate the
           providerOrganization within the recordTarget when
           the document represents information from a
-          provider’s medical record system.
-          <b>[CONF-035]</b></p></td>
+          provider’s medical record system.</p></td>
     </tr>
     <tr style="height:45pt">
         <td
           style="width:467pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
           bgcolor="#C5D9F0"><p class="s19"
           style="padding-left: 40pt;padding-right: 4pt;text-indent: 0pt;line-height: 107%;text-align: left;"
-          >C-CDA Content Creators SHOULD include an
-          identifier for the provider organization in the
+          >C-CDA Content Creators SHOULD include the provider organization's identifier in the
           id/@extension attribute and SHOULD identify the
           assigning authority for the identifier using a
           globally unique identifier (GUID or OID) in the
@@ -963,13 +961,13 @@ represent the clinical note information.
             style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                 bgcolor="#C5D9F0"><p class="s19"
                 style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                >C-CDA Content Creators MAY support the Unstructured
+                >C-CDA Content Creators are encouraged to support the Unstructured
                 Document template for representing clinical note
                 types when the type of clinical note to be exchanged
                 does not have an appropriate structured document
                 template or when it is not possible for the C-CDA
                 Content Creator to represent the clinical note 
-                information using a structured document template. <b>[BP-050]</b></p></td>
+                information using a structured document template.</p></td>
     </tr>
 </table>
 
@@ -2080,11 +2078,10 @@ A study by the Association for Healthcare Documentation Integrity, presented at 
             style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             bgcolor="#C5D9F0"><p class="s19"
                 style="padding-left: 41pt;padding-right: 6pt;text-indent: 0pt;text-align: left;"
-                >C-CDA Content Creators SHOULD render date/time
+                >C-CDA Content Creators are encouraged to render date/time
                 information using a level of precision that is
                 relevant and pertinent to the intended purpose of
-                the section within the context of the document<b>.
-                  [BP-071</b></p></td>
+                the section within the context of the document.</p></td>
     </tr>
 </table>
 
@@ -2867,10 +2864,9 @@ Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion)
             style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                 bgcolor="#C5D9F0"><p class="s19"
                 style="padding-left: 41pt;padding-right: 8pt;text-indent: 0pt;text-align: left;"
-                >C-CDA Content Creators SHOULD use specific
+                >C-CDA Content Creators are encouraged to use specific 
                 templates over general templates when an appropriate
-                specific template has been defined.
-                <b>[BP-087]</b></p></td>
+                specific template has been defined.</p></td>
     </tr>
 </table>
 

@@ -4,7 +4,7 @@ Id: AssessmentSection
 Title: "Assessment Section"
 Description: """The Assessment Section (also referred to as \"impression\" or \"diagnoses\" outside of the context of CDA) represents the clinician's conclusions and working assumptions that will guide treatment of the patient. The assessment may be a list of specific disease entities or a narrative block.
 
-Wrapping the text of this section in a Note Activity will support ingestion.
+When this section.text contains extra information not contained in the discrete entries, it is helpful to wrap the text of this section in a Note Activity to support ingestion.
 """
 * insert OldSection(#51848-0, Evaluation note, 2.16.840.1.113883.10.20.22.2.8)
 

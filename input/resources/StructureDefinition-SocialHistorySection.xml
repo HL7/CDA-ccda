@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistorySection"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="SocialHistorySection"/>
     <title value="Social History Section"/>
     <status value="draft"/>
-    <description value="This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header. Mental/behavioral health assessments such as PHQ-9 (Patient Health Questionnaire-9) for depression screening are captured in the Mental Status section."/>
+    <description value="This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header. Mental/behavioral health assessments such as PHQ-9 (Patient Health Questionnaire-9) for depression screening are captured in the Mental Status section.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Recommended Entries**: [SmokingStatus](StructureDefinition-SmokingStatus.html)&#xA;&#xA;**Optional Entries**: [CaregiverCharacteristics](StructureDefinition-CaregiverCharacteristics.html), [CharacteristicsofHomeEnvironment](StructureDefinition-CharacteristicsofHomeEnvironment.html), [CulturalandReligiousObservation](StructureDefinition-CulturalandReligiousObservation.html), [PregnancyIntentionInNextYear](StructureDefinition-PregnancyIntentionInNextYear.html), [PregnancyStatusObservation](StructureDefinition-PregnancyStatusObservation.html), [SocialHistoryObservation](StructureDefinition-SocialHistoryObservation.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -207,23 +207,20 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CharacteristicsofHomeEnvironment"/>
             </type>
         </element>
-        <element id="Section.entry:individualPronoun">
+        <element id="Section.entry:pregnancyIntention">
             <path value="Section.entry"/>
-            <sliceName value="individualPronoun"/>
+            <sliceName value="pregnancyIntention"/>
             <comment value="MAY contain zero or more [0..*] entry such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:individualPronoun.observation">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
+        <element id="Section.entry:pregnancyIntention.observation">
             <path value="Section.entry.observation"/>
-            <short value="𝗨𝗦𝗖𝗗𝗜: Individual Pronoun - SHALL contain exactly one [1..1] Individual Pronoun Observation (identifier: urn:oid:2.16.840.1.113883.10.15.2:2025-05-01)."/>
+            <comment value="SHALL contain exactly one [1..1] Pregnancy Intention In Next Year (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.281:2023-05-01)."/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/IndividualPronounObservation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyIntentionInNextYear"/>
             </type>
         </element>
     </differential>

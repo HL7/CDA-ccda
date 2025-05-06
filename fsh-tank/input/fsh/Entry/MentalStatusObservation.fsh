@@ -43,8 +43,8 @@ Description: "The Mental Status Observation template represents an observation a
 * entryRelationship[assessmentScale] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-14469) such that it"
   * insert USCDI([[Mental/Cognitive Status]])
   * typeCode 1..1
-  * typeCode = #COMP (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1198-14595)."
+  * typeCode = #SPRT (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRT\" has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1198-14470)."

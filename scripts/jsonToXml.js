@@ -47,6 +47,14 @@ const parse = require('csv-parse/sync').parse;
   const valueSetCSV = parseTerminologyCSV('valueset');
   const codeSystemCSV = parseTerminologyCSV('codesystem');
 
+  const templateIds = Object.fromEntries(ccdaIg.ImplementationGuide.definition.grouping.map(group => [group.$.id, {}]));
+  // Weird old templates that specified templateIds in their contents rather than defining a new template
+  templateIds.entry['2.16.840.1.113883.10.20.1.58'] = 'AdvanceDirectiveObservation';
+  templateIds.entry['2.16.840.1.113883.10.20.22.4.87'] = 'PolicyActivity';
+  templateIds.entry['2.16.840.1.113883.10.20.22.4.88'] = 'PolicyActivity';
+  templateIds.entry['2.16.840.1.113883.10.20.22.4.89'] = 'PolicyActivity';
+  templateIds.entry['2.16.840.1.113883.10.20.22.4.90'] = 'PolicyActivity';
+
   // Iterate through each file
   files.forEach(async (file) => {
     if (path.extname(file) === '.json') {
@@ -79,9 +87,15 @@ const parse = require('csv-parse/sync').parse;
 
       // Build a list of required / recommended / additional sections
       appendSectionUsageToDescription(json);
+      appendEntryUsageToDescription(json);
 
       // Save value sets used by this SD
       collectValueSets(json);
+
+      const templateId = getProfileTemplateId(json);
+      if (templateId && igResource) {
+        templateIds[igResource.groupingId.$.value][templateId] = json.id;
+      }
 
       const xml = fhir.jsonToXml(JSON.stringify(json));
       if (!xml) {
@@ -142,6 +156,8 @@ const parse = require('csv-parse/sync').parse;
 
   fs.writeFileSync(terminologyFilePath, terminologyContent, 'utf8');
 
+  generateTemplateIdPage(templateIds, ccdaIg.ImplementationGuide);
+
   // Filter code systems to only those used by ValueSets listed in Guide
   const codeSystemFilePath = 'input/data/codesystem-filtered.csv';
   terminologyContent = 'URL,Title,Used\n';
@@ -194,6 +210,100 @@ const parse = require('csv-parse/sync').parse;
 
 
 })();
+
+/**
+ * Look up a templateId from the StructureDefinition's identifier
+ * @param {*} sd 
+ * @returns string
+ */
+function getProfileTemplateId(sd) {
+  if (!sd.identifier?.length) return;
+  const { system, value } = sd.identifier[0];
+  if (system !== 'urn:ietf:rfc:3986') {
+    console.error(`${sd.name} identifier system is not RFC 3986`);
+  }
+  if (!value.startsWith('urn:hl7ii:') && !value.startsWith('urn:oid:')) {
+    console.error(`${sd.name} identifier value is not a recognized CDA templateId`);
+  }
+  return value.replace('urn:hl7ii:', '').replace('urn:oid:', '');
+}
+
+/**
+ * Looks at every referenced template (from both invariants as well as slices) and
+ * generates a list, similar to the document section usage to be added to the description
+ * @returns 
+ */
+function appendEntryUsageToDescription(sd) {
+  const root = sd.differential?.element[0]?.id;
+  if (!root) return;
+
+  const [ linkName, linkNames ] = 
+    root === 'Section' ? ['entry', 'Entries'] :
+    root === 'Organizer' ? ['component', 'Components'] :
+    ['Act', 'Observation', 'Procedure', 'Encounter', 'SubstanceAdministration', 'Supply'].includes(root) ? ['entryRelationship', 'EntryRelationships'] :
+    [];
+  if (!linkName) return;
+
+  const entries = sd.differential?.element.filter(e => e.path.startsWith(`${root}.${linkName}`));
+  if (entries.length === 0) return;
+
+  const foundProfiles = [];
+
+  const shouldEntries = new Set();
+  const shallEntries = new Set();
+  const mayEntries = new Set();
+
+  for (const constraint of sd.differential?.element[0]?.constraint || []) {
+    // Ignoring everything but (entry.where / component.where / entryRelationship.where)
+    if (!constraint.expression?.includes(`${linkName}.where(`)) continue;
+    // TODO check for double hasTemplateIdOf in expression
+
+    const matches = [...constraint.expression.matchAll(/hasTemplateIdOf\('([^)]+)'\)/g)].map(m => m[1]);
+    if (!matches || matches.length === 0) {
+      console.warn(`${sd.name}'s constraint ${constraint.key} needs to be handled manually in jsonToXml.js > appendEntryUsageToDescription`);
+      continue;
+    }
+    foundProfiles.push(...matches);
+    // SHOULD constraints
+    if (constraint.severity === 'warning') {
+      shouldEntries.add(matches.map(profileLink).join(' or '));
+    } else {
+      shallEntries.add(matches.map(profileLink).join(' or '));
+    }
+  }
+
+  for (const entry of entries.filter(e => e.path === `${root}.${linkName}`)) {
+    const entryId = entry.id;
+    for (const clinStatement of entries.filter(e => e.id.startsWith(`${entryId}.`))) {
+      for (const profile of (clinStatement.type?.[0].profile || [])) {
+        if (foundProfiles.includes(profile)) continue;
+        foundProfiles.push(profile);
+        if (entry.min === 1) {
+          shallEntries.add(profileLink(profile));
+        } else {
+          mayEntries.add(profileLink(profile));
+        }
+      }
+    }
+  }
+
+  if ([...shallEntries, ...shouldEntries, ...mayEntries].length === 0) return;
+
+  sd.description += '\n\n#### Templates Used\nAlthough open templates may contain any valid CDA content, the following templates are specifically called out by this template:';
+  if (shallEntries.size > 0) {
+    sd.description += `\n\n**Required ${linkNames}**: `;
+    sd.description += Array.from(shallEntries).sort().join(', ');
+  }
+  if (shouldEntries.size > 0) {
+    sd.description += `\n\n**Recommended ${linkNames}**: `;
+    sd.description += Array.from(shouldEntries).sort().join(', ');
+  }
+  if (mayEntries.size > 0) {
+    sd.description += `\n\n**Optional ${linkNames}**: `;
+    sd.description += Array.from(mayEntries).sort().join(', ');
+  }
+
+}
 
 function appendSectionUsageToDescription(sd) {
   const sBody = sd.differential?.element.find(e => e.id === 'ClinicalDocument.component.structuredBody');
@@ -266,12 +376,16 @@ function appendSectionUsageToDescription(sd) {
   }
 }
 
+// Turn a profile name or URL into a Markdown link to the profile
 function profileLink(profileNameOrUrl) {
   if (!profileNameOrUrl) return '';
   const profileId = profileNameOrUrl.includes('/') ? profileNameOrUrl.split('/').pop() : profileNameOrUrl;
   return `[${profileId}](StructureDefinition-${profileId}.html)`;
 }
 
+/**
+ * Turn IG-generated CSVs into a Map that we can process
+ */
 function parseTerminologyCSV(vsORcs) {
   const csvPaths = [
     path.resolve(__dirname, `../input/data/${vsORcs}-ref-all-list.csv`),
@@ -296,4 +410,35 @@ function parseTerminologyCSV(vsORcs) {
     }
   }
   return termCSVMap;
+}
+
+function generateTemplateIdPage(templateIds, ig) {
+  let contents = `The following templateIds are used by this Implementation Guide:\n\n`;
+  for (const group of Object.keys(templateIds)) {
+    if (Object.keys(templateIds[group]).length === 0) continue;
+    const groupName = ig.definition.grouping.find(g => g.$.id === group)?.name.$.value;
+    contents += `### ${groupName}\n\n`;
+    contents += `| TemplateId | Template |\n`;
+    contents += `| ---------- | ------- |\n`;
+
+    const sortedKeys = Object.keys(templateIds[group]).sort((a, b) => {
+      const aOID = a.split(':')[0].split('.');
+      const bOID = b.split(':')[0].split('.');
+      for (let i = 0; i < Math.max(aOID.length, bOID.length); i++) {
+        const aNum = parseInt(aOID[i] || 0, 10);
+        const bNum = parseInt(bOID[i] || 0, 10);
+        if (aNum !== bNum) {
+          return aNum - bNum;
+        }
+      }
+    });
+    for (const templateId of sortedKeys) {
+      const sdId = templateIds[group][templateId];
+      const sdName = profileLink(sdId);
+      contents += `| ${templateId} | ${sdName} |\n`;
+    }
+    contents += '\n\n';
+  }
+
+  fs.writeFileSync('input/pagecontent/templateids.md', contents, 'utf8');
 }

@@ -9,6 +9,7 @@ Certifying systems SHALL and non-certifying systems SHOULD follow the Project US
 For certifying systems, this requirement does not apply to historical records/documents that are exposed through C-CDA documents."""
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.2"
+* ^identifier.system = $RFC
 * obeys shall-city and shall-streetAddressLine and should-use and should-country and 81-7296 and 81-10024 and 81-10025 and shall-max-ad-parts
 * nullFlavor ^short = "If addr/@nullFlavor is present, none of the address parts are required."
 * use ^short = "Identifies which address to use for a given purpose."

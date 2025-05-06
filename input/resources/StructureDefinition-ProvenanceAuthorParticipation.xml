@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
     <identifier>
@@ -215,8 +215,8 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Author.assignedAuthor.representedOrganization"/>
-            <short value="𝗨𝗦𝗖𝗗𝗜: Author Organization - If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64)."/>
-            <comment value="This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Author Organization"/>
+            <comment value="If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64).  This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."/>
             <constraint>
                 <key value="provenance-org-details"/>
                 <severity value="error"/>

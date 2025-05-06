@@ -191,7 +191,3 @@ Description: "This assignedEntity **SHALL** contain an assignedPerson or a repre
 Severity: #error
 Expression: "assignedPerson.exists() or representedOrganization.exists()"
 
-Invariant: category-18842-5
-Description: "If category is present, then there shall be a category with LOINC code '18842-5'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18842-5' and codeSystem = '2.16.840.1.113883.6.1')"

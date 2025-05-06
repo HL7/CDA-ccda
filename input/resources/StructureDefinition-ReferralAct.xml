@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="PatientReferralAct"/>
+    <id value="ReferralAct"/>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
         <valueBoolean>
             <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
@@ -18,17 +18,17 @@
         <valueString value="act"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
-    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:2.16.840.1.113883.10.20.22.4.140"/>
     </identifier>
-    <name value="PatientReferralAct"/>
-    <title value="Patient Referral Act"/>
+    <name value="ReferralAct"/>
+    <title value="Referral Act"/>
     <status value="draft"/>
-    <description value="This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."/>
+    <description value="This template represents the type of referral (e.g., for dental care, to a specialist, for aging problems) and represents whether the referral is for full care or shared care. It may contain a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure).&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [Indication](StructureDefinition-Indication.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -43,21 +43,21 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain text/reference/@value"/>
                 <expression value="text.reference.value.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
             </constraint>
             <constraint>
                 <key value="should-priorityCode"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain priorityCode"/>
                 <expression value="priorityCode.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
             </constraint>
             <constraint>
                 <key value="should-author"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain author"/>
                 <expression value="author.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
             </constraint>
         </element>
         <element id="Act.templateId">
@@ -71,18 +71,18 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Act.templateId:patient-referral-act">
+        <element id="Act.templateId:referral-act">
             <path value="Act.templateId"/>
-            <sliceName value="patient-referral-act"/>
+            <sliceName value="referral-act"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.templateId:patient-referral-act.root">
+        <element id="Act.templateId:referral-act.root">
             <path value="Act.templateId.root"/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.10.20.22.4.140"/>
         </element>
-        <element id="Act.templateId:patient-referral-act.extension">
+        <element id="Act.templateId:referral-act.extension">
             <path value="Act.templateId.extension"/>
             <max value="0"/>
         </element>
@@ -93,7 +93,7 @@
         </element>
         <element id="Act.moodCode">
             <path value="Act.moodCode"/>
-            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Patient Referral Act moodCode urn:oid:2.16.840.1.113883.11.20.9.66 STATIC 2014-09-01 (CONF:1098-30885)."/>
+            <comment value="SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Referral Act moodCode urn:oid:2.16.840.1.113883.11.20.9.66 STATIC 2014-09-01 (CONF:1098-30885)."/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.66"/>
@@ -124,7 +124,7 @@
                 <severity value="error"/>
                 <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
                 <expression value="value.exists() implies value.startsWith('#')"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
             </constraint>
         </element>
         <element id="Act.statusCode">
@@ -193,20 +193,20 @@
             </slicing>
             <short value="The following entryRelationship represents a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1">
+        <element id="Act.entryRelationship:careModel">
             <path value="Act.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="careModel"/>
             <short value="The following entryRelationship represents whether the referral is for full or shared care."/>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:1098-31604) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.typeCode">
+        <element id="Act.entryRelationship:careModel.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; has subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31613)."/>
             <fixedCode value="SUBJ"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation">
+        <element id="Act.entryRelationship:careModel.observation">
             <path value="Act.entryRelationship.observation"/>
             <comment value="SHALL contain exactly one [1..1] observation (CONF:1098-31605)."/>
             <min value="1"/>
@@ -215,47 +215,47 @@
                 <severity value="warning"/>
                 <human value="SHOULD contain priorityCode"/>
                 <expression value="priorityCode.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PatientReferralAct"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ReferralAct"/>
             </constraint>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.classCode">
+        <element id="Act.entryRelationship:careModel.observation.classCode">
             <path value="Act.entryRelationship.observation.classCode"/>
             <comment value="This observation SHALL contain exactly one [1..1] @classCode=&quot;OBS&quot; observation (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1098-31606)."/>
             <fixedCode value="OBS"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.moodCode">
+        <element id="Act.entryRelationship:careModel.observation.moodCode">
             <path value="Act.entryRelationship.observation.moodCode"/>
             <comment value="This observation SHALL contain exactly one [1..1] @moodCode=&quot;RQO&quot; request (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1098-31607)."/>
             <fixedCode value="RQO"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.code">
+        <element id="Act.entryRelationship:careModel.observation.code">
             <path value="Act.entryRelationship.observation.code"/>
             <comment value="This observation SHALL contain exactly one [1..1] code (CONF:1098-31608)."/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.code.code">
+        <element id="Act.entryRelationship:careModel.observation.code.code">
             <path value="Act.entryRelationship.observation.code.code"/>
             <comment value="This code SHALL contain exactly one [1..1] @code=&quot;ASSERTION&quot; assertion (CONF:1098-31619)."/>
             <min value="1"/>
             <patternCode value="ASSERTION"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.code.codeSystem">
+        <element id="Act.entryRelationship:careModel.observation.code.codeSystem">
             <path value="Act.entryRelationship.observation.code.codeSystem"/>
             <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4 &quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-31620)."/>
             <min value="1"/>
             <patternString value="2.16.840.1.113883.5.4"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.statusCode">
+        <element id="Act.entryRelationship:careModel.observation.statusCode">
             <path value="Act.entryRelationship.observation.statusCode"/>
             <comment value="This observation SHALL contain exactly one [1..1] statusCode (CONF:1098-31614)."/>
             <min value="1"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.statusCode.code">
+        <element id="Act.entryRelationship:careModel.observation.statusCode.code">
             <path value="Act.entryRelationship.observation.statusCode.code"/>
             <comment value="This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31615)."/>
             <min value="1"/>
             <fixedCode value="completed"/>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.priorityCode">
+        <element id="Act.entryRelationship:careModel.observation.priorityCode">
             <path value="Act.entryRelationship.observation.priorityCode"/>
             <comment value="This observation SHOULD contain zero or one [0..1] priorityCode, which SHOULD be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-32443)."/>
             <binding>
@@ -263,7 +263,7 @@
                 <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>
             </binding>
         </element>
-        <element id="Act.entryRelationship:entryRelationship1.observation.value">
+        <element id="Act.entryRelationship:careModel.observation.value">
             <path value="Act.entryRelationship.observation.value"/>
             <comment value="This observation SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, where the code SHOULD be selected from ValueSet Care Model urn:oid:2.16.840.1.113883.11.20.9.61 DYNAMIC (CONF:1098-31611)."/>
             <min value="1"/>

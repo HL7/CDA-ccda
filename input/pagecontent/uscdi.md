@@ -36,7 +36,7 @@ Updates to C-CDA depend upon community input and we encourage our audience to su
 | v1            | [C-CDA Companion Guide Release 2](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        |
 {:.grid}
 
-The table below lists the C-CDA templates used for the corresponding USCDI Data elements.  It is a mapping between USCDI data elements and C-CDA Templates and C-CDA elements.
+The table below lists the C-CDA templates used for the corresponding USCDI Data elements. It is a mapping between USCDI data elements and C-CDA Templates and C-CDA elements.  Implementers seeking ONC certification **SHALL** interpret elements marked as **USCDI** as elements to be supported.  All *SHALL* and *USCDI* elements are in scope for ONC Health IT Certification.
 
 <!-- Do we add this later: This information is also available as a [csv](uscdi-table.csv) or [excel](uscdi-table.xlsx) file -->
 

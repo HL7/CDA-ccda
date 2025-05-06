@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation"/>
     <identifier>
@@ -113,6 +113,13 @@
             <path value="Observation.id"/>
             <comment value="SHALL contain at least one [1..*] id (CONF:4537-7137)."/>
             <min value="1"/>
+        </element>
+        <element id="Observation.sdtcCategory">
+            <path value="Observation.sdtcCategory"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-result-observation-category"/>
+            </binding>
         </element>
         <element id="Observation.code">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">

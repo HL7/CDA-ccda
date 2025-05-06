@@ -18,10 +18,11 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-8899)."
 * id 1..*
-  * insert USCDI([[**GROUP NUMBER**: This is the identifier used to uniquely refer to a specific health insurance plan.]])
-  * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-8901)."
+  * insert USCDI([[Group Identifier: This is the identifier used to uniquely refer to a specific health insurance plan.]])
+  * ^comment = "If the root OID of Payer that assigned the group identifier is unknown, a local OID can be assigned or a nullFlavor of UNK"
 * code 1..1
-  * code from $Payer (preferred)
+  * insert USCDI([[Coverage Type: Records the category of health care payers, insurance products, or benefits.]])
+* code from $Payer (preferred)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-8902)."
   * code 1..1
@@ -47,7 +48,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8908)."
     * id 1..*
-      * insert USCDI([[**PAYER IDENTIFIER**: This is the Payer id. The root is a unique identifier to an openly available assigning authority, such as National Association of Insurance Commissioners (NAIC) (2.16.840.1.113883.6.300), and the extension identifiers the payer within that authority.]])
+      * insert USCDI([[Payer Identifier: This is the Payer id. The root is a unique identifier to an openly available assigning authority, such as National Association of Insurance Commissioners (NAIC) (2.16.840.1.113883.6.300), and the extension identifiers the payer within that authority.]])
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-8909)."
     * obeys should-code
     * code 0..1
@@ -124,13 +125,14 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * obeys should-high
     * high 0..1
       * ^comment = "The time, if present, SHOULD contain zero or one [0..1] high (CONF:4537-8920)." // auto-should
+      * ^short = "SHOULD contain high"
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4537-8921)."
     * id 1..*
-      * insert USCDI([[**MEMBER IDENTIFIER**: This id is a unique identifier for  the covered party member. Implementers **SHOULD** use the same GUID for each instance of a member identifier from the same health plan (CONF:4537-8984).]])
+      * insert USCDI([[Member Identifier: This id is a unique identifier for  the covered party member. Implementers **SHOULD** use the same GUID for each instance of a member identifier from the same health plan (CONF:4537-8984).]])
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8922)."
     * code 1..1
-      * insert USCDI([[**RELATIONSHIP TO SUBSCRIBER**: Records the relationship of a patient to the primary insured person.]])
+      * insert USCDI([[Relationship to Subscriber: Records the relationship of a patient to the primary insured person.]])
       * ^comment = "This participantRole SHALL contain exactly one [1..1] code (CONF:4537-8923)."
       * obeys should-code-attr
       * code 0..1
@@ -166,7 +168,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4537-8936)."
     * id 1..*
-      * insert USCDI([[**SUBSCRIBER ID**: This id is a unique identifier for the subscriber of the coverage (CONF:4537-10120).]])
+      * insert USCDI([[Subscriber Id: This id is a unique identifier for the subscriber of the coverage (CONF:4537-10120).]])
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8937)."
     * obeys should-addr
     * addr 0..1

@@ -47,8 +47,8 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
   * insert USCDI([[Disability Status]])
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4537-32629) such that it"
   * typeCode 1..1
-  * typeCode = #COMP (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has component (CONF:4537-32631)."
+  * typeCode = #SPRT (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRT\" has support."
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^short = "A system **MAY** record the six-item set of questions and their answers options from the American Community Survey (ACS) in the Assessment Scale Observation using the [Disability Status Assessment](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.49/expansion) value set (CONF:4537-33057)."

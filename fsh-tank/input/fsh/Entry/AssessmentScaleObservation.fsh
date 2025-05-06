@@ -19,13 +19,10 @@ The Observation value is used to record a calculated score using an integer. A L
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4515-14435)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-14438)."
+* insert FixedCategory(survey, 2.16.840.1.113883.4.642.1.1125, Survey, survey)
 * code 1..1
-  * ^short = "survey"
-  * code 1..1
-  * code = #survey
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.4.642.1.1125"
-    * ^short = "Observation Category Codes"
+  * codeSystem 0..1
+  * codeSystem = "2.16.840.1.113883.6.1"
   * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113762.1.4.1267.13 (preferred)
@@ -44,7 +41,7 @@ The Observation value is used to record a calculated score using an integer. A L
 * value 1..1
   * insert USCDI([[Functional Status, Mental/Cognitive Status, Alcohol Use, Substance Use, Physical Activity, SDOH Assessment]])
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:4515-14450)."
-  * ^short = "Intended to hold the calculated score, if a calculated score exists in the originating questionaire or scale from the contained Assessment Scale Observations, and the associated answer integer will be at observation.value.translationCode, if present"
+  * ^short = "This is intended to hold the overall assessment score.  This could be calculated from the contained Assessment Scale Supporting Observations"
 * interpretationCode 0..*
   * ^comment = "MAY contain zero or more [0..*] interpretationCode (CONF:4515-14459)."
   * translation 0..*

@@ -18,7 +18,7 @@
         <valueString value="act"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CoverageActivity"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="CoverageActivity"/>
     <title value="Coverage Activity"/>
     <status value="draft"/>
-    <description value="A Coverage Activity groups the policy and authorization acts within a Payers Section to order the payment sources. A Coverage Activity contains one or more Policy Activities, each of which contains zero or more Authorization Activities. &#xA;The sequenceNumber/@value shows the policy order of preference. &#xA;The Member Identifier is described in the contained Policy Activity Template 2.16.840.1.113883.10.20.22.4.61."/>
+    <description value="A Coverage Activity groups the policy and authorization acts within a Payers Section to order the payment sources. A Coverage Activity contains one or more Policy Activities, each of which contains zero or more Authorization Activities. &#xA;The sequenceNumber/@value shows the policy order of preference. &#xA;The Member Identifier is described in the contained Policy Activity Template 2.16.840.1.113883.10.20.22.4.61.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Required EntryRelationships**: [PolicyActivity](StructureDefinition-PolicyActivity.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -101,11 +101,8 @@
             <min value="1"/>
         </element>
         <element id="Act.code">
-            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
-                <valueBoolean value="true"/>
-            </extension>
             <path value="Act.code"/>
-            <short value="Display: Payment sources. (USCDI) COVERAGE TYPE: Records the category of health care payers, insurance products, or benefits."/>
+            <short value="Payment sources"/>
         </element>
         <element id="Act.code.code">
             <path value="Act.code.code"/>
@@ -148,7 +145,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="Act.effectiveTime"/>
-            <short value="𝗨𝗦𝗖𝗗𝗜: COVERAGE STATUS : Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional time inside the Policy Activity/coverage-target participant. Systems may prioritize Coverages using the sequenceNumber."/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Coverage Status : Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional time inside the Policy Activity/coverage-target participant. Systems may prioritize Coverages using the sequenceNumber."/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-33064)."/>
         </element>
         <element id="Act.effectiveTime.value">

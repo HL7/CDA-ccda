@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="PlannedProcedure"/>
     <title value="Planned Procedure"/>
     <status value="draft"/>
-    <description value="This template is used to represent ordered procedures for a patient. A procedure is an activity that is performed on, with, or for a patient as part of the provision of care. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves. &#xA;&#xA;Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;."/>
+    <description value="This template is used to represent ordered procedures for a patient. A procedure is an activity that is performed on, with, or for a patient as part of the provision of care. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves. &#xA;&#xA;Planned Procedure Usage Note: Common practice in the industry has shown that Planned Procedure is the usually implemented CDA template for any type of intervention or procedure regardless of if the &quot;immediate and primary outcome (post-condition) is the alteration of the physical condition of the patient&quot;, or not. As a result, it is recommended to use Planned Procedure when sending procedures also thought of as &quot;interventions&quot; such as &quot;Home Environment Evaluation&quot; or &quot;Assessment of nutritional status&quot;.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html), [EntryReference](StructureDefinition-EntryReference.html), [Indication](StructureDefinition-Indication.html), [InstructionObservation](StructureDefinition-InstructionObservation.html), [PlannedCoverage](StructureDefinition-PlannedCoverage.html), [PriorityPreference](StructureDefinition-PriorityPreference.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -118,7 +118,6 @@
         </element>
         <element id="Procedure.sdtcCategory">
             <path value="Procedure.sdtcCategory"/>
-            <max value="1"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-servicerequest-category"/>

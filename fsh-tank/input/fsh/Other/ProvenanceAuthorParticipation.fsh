@@ -67,8 +67,8 @@ Note: The Provenance template title includes a version 2 to support moving from 
   * representedOrganization 0..1
     * obeys provenance-org-details
     * provenance-should-org-details
-    * insert USCDI([[Author Organization - If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64).]])
-    * ^comment = "This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."
+    * insert USCDI([[Author Organization]])
+    * ^comment = "If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64).  This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."
     * nullFlavor 0..1
       * ^short = "A nullFlavor of \"NA\" is allowed If the assignedAuthor is not a clinician"
       * ^comment = "The representedOrganization, if present, MAY contain zero or one [0..1] @nullFlavor (CONF:4515-35)."

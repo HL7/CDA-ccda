@@ -208,8 +208,8 @@ A care plan document can include entry references from the information in these 
       * section only ActivitiesSection
         * ^comment = "SHALL contain exactly one [1..1] Activities Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2024-05-01) (CONF:1198-28764)."
     * component[healthStatusEvalOutcm] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
-      * section only HealthStatusEvaluationsandOutcomesSection
-        * ^comment = "SHALL contain exactly one [1..1] Health Status Evaluations and Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."
+      * section only OutcomesSection
+        * ^comment = "SHALL contain exactly one [1..1] Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."
     * component[advDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only AdvanceDirectivesSection
         * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
@@ -218,8 +218,3 @@ Invariant: 1198-31044
 Description: "This structuredBody **SHALL NOT** contain a Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-31044)."
 Severity: #error
 Expression: "component.where(section.hasTemplateIdOf(PlanofTreatmentSection)).empty()"
-
-Invariant: category-18776-5
-Description: "If category is present, then there shall be a category with LOINC code '18776-5'."
-Severity: #error
-Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = '18776-5' and codeSystem = '2.16.840.1.113883.6.1')"

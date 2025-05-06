@@ -43,8 +43,8 @@ Description: "This template represents a patient's sensory or speech ability. It
 * entryRelationship contains assessmentScaleObservation 0..*
 * entryRelationship[assessmentScaleObservation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-27984) such that it"
   * typeCode 1..1
-  * typeCode = #COMP (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-27985)."
+  * typeCode = #SPRT (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRT\" has support (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:1098-27985)."
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1098-27986)."

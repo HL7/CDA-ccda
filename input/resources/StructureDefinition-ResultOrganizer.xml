@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/ResultOrganizer"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="ResultOrganizer"/>
     <title value="Result Organizer"/>
     <status value="draft"/>
-    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;. &#xA;&#xA;A specimen linked to a Result Organizer applies to all Result Observations. Centralizing specimen details within the Organizer is advised for clarity and consistency, as Result Observations typically relate to a single specimen collection, like using a purple top tube for CBCs. In cases of poor-quality specimens, a specimen reject reason is logically associated with the procedure, not the result, as there may be no result. The Result Organizer includes the specimen collection procedure, which may contain information about specimen condition acceptability. The Specimen Colection Procedure includes representation of the USCDI data element &quot;Specimen Condition Acceptability&quot;.&#xA;&#xA;The Result Organizer template is a versatile template designed to represent any type of finding resulting from various types of tests. Value set bindings for Observation.code have been created to support implementers, covering three categories: 1) Common Laboratory Tests, 2) Radiology Tests, and 3) Clinical Tests. If a suitable code is not available within these value sets, first use another LOINC code. If no LOINC code is appropriate, a local code may be used."/>
+    <description value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., Hematology, Chemistry, Nuclear Medicine). &#xA;&#xA;If any Result Observation within the organizer has a statusCode of &quot;active&quot;, the Result Organizer must also have a statusCode of &quot;active&quot;. &#xA;&#xA;A specimen linked to a Result Organizer applies to all Result Observations. Centralizing specimen details within the Organizer is advised for clarity and consistency, as Result Observations typically relate to a single specimen collection, like using a purple top tube for CBCs. In cases of poor-quality specimens, a specimen reject reason is logically associated with the procedure, not the result, as there may be no result. The Result Organizer includes the specimen collection procedure, which may contain information about specimen condition acceptability. The Specimen Colection Procedure includes representation of the USCDI data element &quot;Specimen Condition Acceptability&quot;.&#xA;&#xA;The Result Organizer template is a versatile template designed to represent any type of finding resulting from various types of tests. Value set bindings for Observation.code have been created to support implementers, covering three categories: 1) Common Laboratory Tests, 2) Radiology Tests, and 3) Clinical Tests. If a suitable code is not available within these value sets, first use another LOINC code. If no LOINC code is appropriate, a local code may be used.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Required Components**: [ResultObservation](StructureDefinition-ResultObservation.html)&#xA;&#xA;**Optional Components**: [SpecimenCollectionProcedure](StructureDefinition-SpecimenCollectionProcedure.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -107,7 +107,6 @@
         </element>
         <element id="Organizer.sdtcCategory">
             <path value="Organizer.sdtcCategory"/>
-            <max value="1"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
@@ -271,9 +270,12 @@
             </type>
         </element>
         <element id="Organizer.component:specimenProc">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Organizer.component"/>
             <sliceName value="specimenProc"/>
-            <short value="(USCDI) Specimen Condition Acceptability"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Specimen Condition Acceptability"/>
             <comment value="SHALL contain at least one [1..*] component such that it"/>
             <min value="0"/>
             <max value="1"/>

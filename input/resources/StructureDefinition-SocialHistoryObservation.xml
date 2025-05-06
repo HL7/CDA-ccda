@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="SocialHistoryObservation"/>
     <title value="Social History Observation"/>
     <status value="draft"/>
-    <description value="This template represents a patient's job (occupation and industry), lifestyle, and environmental health risk factors. Demographic data (e.g., marital status, race, ethnicity, religious affiliation) are captured in the header. Though tobacco use and exposure may be represented with a Social History Observation, it is recommended to use the Current Smoking Status template or the Tobacco Use template instead, to represent smoking or tobacco habits.&#xA;There are supplemental templates and guidance for observations of [Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522), [nutrition](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=478) and [pregnancy](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=494) that could be captured in the Social History Observation, and implementers may want to consider using those more specific templates in the Social History section."/>
+    <description value="This template represents a patient's job (occupation and industry), lifestyle, and environmental health risk factors. Demographic data (e.g., marital status, race, ethnicity, religious affiliation) are captured in the header. Though tobacco use and exposure may be represented with a Social History Observation, it is recommended to use the Current Smoking Status template or the Tobacco Use template instead, to represent smoking or tobacco habits.&#xA;There are supplemental templates and guidance for observations of [Occupational Data for Health](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=522), [nutrition](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=478) and [pregnancy](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=494) that could be captured in the Social History Observation, and implementers may want to consider using those more specific templates in the Social History section.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html), [EntryReference](StructureDefinition-EntryReference.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -113,9 +113,18 @@
             <comment value="SHALL contain at least one [1..*] id (CONF:4515-8551)."/>
             <min value="1"/>
         </element>
+        <element id="Observation.sdtcCategory">
+            <path value="Observation.sdtcCategory"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.sdtcCategory.code">
+            <path value="Observation.sdtcCategory.code"/>
+            <short value="Social History"/>
+            <patternCode value="social-history"/>
+        </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Social History Type urn:oid:2.16.840.1.113883.3.88.12.80.60 DYNAMIC (CONF:4515-8558)."/>
             <constraint>
                 <key value="4515-32956"/>
                 <severity value="warning"/>
@@ -125,7 +134,7 @@
             </constraint>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.60"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.28"/>
             </binding>
         </element>
         <element id="Observation.text">

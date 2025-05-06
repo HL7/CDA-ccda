@@ -4,7 +4,7 @@ Id: AssessmentandPlanSection
 Title: "Assessment and Plan Section"
 Description: """This section represents the clinician's conclusions and working assumptions that will guide treatment of the patient. The Assessment and Plan Section may be combined or separated to meet local policy requirements.
 
-Wrapping the text of this section in a Note Activity will support ingestion.
+When this section.text contains extra information not contained in the discrete entries, it is helpful to wrap the text of this section in a Note Activity to support ingestion.
 
 See also the Assessment Section: templateId 2.16.840.1.113883.10.20.22.2.8 and Plan of Treatment Section: templateId 2.16.840.1.113883.10.20.22.2.10:2014-06-09"""
 

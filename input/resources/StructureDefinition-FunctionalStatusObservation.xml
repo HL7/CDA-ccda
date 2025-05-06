@@ -18,7 +18,7 @@
         <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
-        <valueUri value="cda"/>
+        <valueCode value="cda"/>
     </extension>
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusObservation"/>
     <identifier>
@@ -29,7 +29,7 @@
     <name value="FunctionalStatusObservation"/>
     <title value="Functional Status Observation"/>
     <status value="draft"/>
-    <description value="This template represents the patient's physical function (e.g., mobility status, instrumental activities of daily living, self-care status) and problems that limit function (dyspnea, dysphagia). The template may include assessment scale observations, identify supporting caregivers, and provide information about non-medicinal supplies. This template is used to represent physical or developmental function of all patient populations."/>
+    <description value="This template represents the patient's physical function (e.g., mobility status, instrumental activities of daily living, self-care status) and problems that limit function (dyspnea, dysphagia). The template may include assessment scale observations, identify supporting caregivers, and provide information about non-medicinal supplies. This template is used to represent physical or developmental function of all patient populations.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html), [CaregiverCharacteristics](StructureDefinition-CaregiverCharacteristics.html), [NonMedicinalSupplyActivity](StructureDefinition-NonMedicinalSupplyActivity.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -240,8 +240,8 @@
         </element>
         <element id="Observation.entryRelationship:assessmentScaleObservation.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component (CONF:1098-14598)."/>
-            <fixedCode value="COMP"/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SPRT&quot; has support."/>
+            <fixedCode value="SPRT"/>
         </element>
         <element id="Observation.entryRelationship:assessmentScaleObservation.observation">
             <path value="Observation.entryRelationship.observation"/>

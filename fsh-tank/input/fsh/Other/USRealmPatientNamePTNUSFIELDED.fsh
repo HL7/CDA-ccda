@@ -7,6 +7,7 @@ Description: """The US Realm Patient Name datatype flavor is a set of reusable c
 For information on mixed content see the Extensible Markup Language reference (http://www.w3c.org/TR/2008/REC-xml-20081126/)."""
 * insert LogicalModelNA
 * ^identifier.value = "urn:oid:2.16.840.1.113883.10.20.22.5.1"
+* ^identifier.system = $RFC
 * obeys shall-family and shall-given and shall-max-suffix and 81-7278
 * use 0..1
   * ^short = "If name/@nullFlavor is present, the remaining conformance statements *SHALL NOT* be enforced"
@@ -23,7 +24,6 @@ For information on mixed content see the Extensible Markup Language reference (h
   * ^comment = "SHALL contain at least one [1..*] given (CONF:81-7157)."
   * qualifier 0..1
   * qualifier from EntityPersonNamePartQualifier (required)
-    * insert USCDI([[callMe meets the USCDI 'Name to use' requirement]])
     * ^comment = "Such givens MAY contain zero or one [0..1] @qualifier, which SHALL be selected from ValueSet EntityPersonNamePartQualifier urn:oid:2.16.840.1.113883.11.20.9.26 STATIC 2011-09-30 (CONF:81-7158)."
 * item.prefix ^comment = "MAY contain zero or more [0..*] prefix (CONF:81-7155)."
   * qualifier 0..1

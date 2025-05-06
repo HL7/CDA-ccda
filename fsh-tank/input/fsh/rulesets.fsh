@@ -177,15 +177,6 @@ RuleSet: _SectionCommon
 * title 1..1
 * text 1..1
 
-RuleSet: DocumentCategory(title, loinc, loincName)
-* sdtcCategory 0..*
-  * insert DocCatShort({title}, {loinc}, {loincName}, a)
-* obeys category-{loinc}
-
-RuleSet: DocCatShort(title, loinc, loincName, aORan)
-* ^short = "Used to categorize the document as {aORan} {title}. If present, there SHALL be a category of {loinc} ({loincName})."
-
-
 
 Alias: $LogicalTarget = http://hl7.org/fhir/tools/StructureDefinition/logical-target
 Alias: $DAR = http://hl7.org/fhir/StructureDefinition/data-absent-reason

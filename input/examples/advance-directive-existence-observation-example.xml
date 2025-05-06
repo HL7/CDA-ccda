@@ -41,4 +41,114 @@
       </representedOrganization>
     </assignedAuthor>
   </author>
+  <entryRelationship typeCode="COMP">
+    <observation classCode="OBS" moodCode="EVN" xmlns="urn:hl7-org:v3">
+      <!-- ** Advance Directive Observation** -->
+      <templateId root="2.16.840.1.113883.10.20.22.4.48" 
+          extension="2025-05-01" />
+      <id root="9b54c3c9-1673-49c7-aef9-b037ed72ed27" />
+    <code code="75320-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+      <translation code="81334-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+    </code>
+    <text><reference value="#HealthcareAgents"></reference></text>
+    <statusCode code="completed"/>
+    <effectiveTime>
+      <!-- The time at which the person named this individual to be his or her healthcare agent -->
+      <low value="20110219"/>
+      <high nullFlavor="NA"/>
+    </effectiveTime>
+    <value xsi:type="CD" code="405083000" displayName="Healthcare decision making"
+      codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+    </value>
+    <author>
+        <templateId root="2.16.840.1.113883.10.20.22.4.119" />
+        <time value="201308011235-0800" />
+        <assignedAuthor>
+          <!-- Refers to another author somewhere else in the document -->
+          <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
+          <addr use="H">
+            <streetAddressLine>23 Anywhere Street</streetAddressLine>
+            <city>El Paso</city>
+            <state>TX</state>
+            <postalCode>90210</postalCode>
+            <country>US</country>
+          </addr>
+          <telecom value="tel:(999)555-1212" use="WP" />
+          <assignedPerson>
+            <name>
+              <prefix>Mrs.</prefix>
+              <given>Martha</given>
+              <family>Jones</family>
+            </name>
+          </assignedPerson>
+        </assignedAuthor>
+    </author>
+    <informant typeCode="INF" contextControlCode="OP">
+      <assignedEntity>
+        <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
+      </assignedEntity>
+    </informant>
+    <participant typeCode="VRF">
+        <templateId root="2.16.840.1.113883.10.20.1.58" />
+        <time value="20130213" />
+        <participantRole classCode="CON">
+          <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c" />
+          <code code="163W00000X" 
+            codeSystem="2.16.840.1.113883.6.101" 
+            codeSystemName="Health Care Provider Taxonomy (HIPAA)" 
+            displayName="Registered nurse" />
+          <addr use="H">
+            <streetAddressLine>23 Anywhere Street</streetAddressLine>
+            <city>El Paso</city>
+            <state>TX</state>
+            <postalCode>90210</postalCode>
+            <country>US</country>
+          </addr>
+          <playingEntity classCode="PSN">
+            <code code="63161005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Principal" />
+            <name>
+              <given>Nurse</given>
+              <family>Florence</family>
+              <suffix>RN</suffix>
+            </name>
+          </playingEntity>
+        </participantRole>
+      </participant>
+      <participant typeCode="CST">
+        <templateId root="2.16.840.1.113883.10.20.1.58" />
+        <participantRole classCode="AGNT">
+          <code code="MTH" codeSystem="2.16.840.1.113883.5.111" displayName="Mother" />
+          <addr use="H">
+              <streetAddressLine>23 Anywhere Street</streetAddressLine>
+              <city>El Paso</city>
+              <state>TX</state>
+              <postalCode>90210</postalCode>
+              <country>US</country>
+            </addr>
+            <telecom value="tel:(999)555-1212" use="WP" />
+          <playingEntity classCode="PSN">
+            <code code="63161005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Principal" />
+            <name>
+              <prefix>Mrs.</prefix>
+              <given>Martha</given>
+              <family>Jones</family>
+            </name>
+          </playingEntity>
+        </participantRole>
+      </participant>
+	    <reference typeCode="REFR">
+	      <externalDocument>
+	        <id root="b50b7910-7ffb-4f4c-bbe4-177ed68cbbf3" />
+	        <code codeSystem="2.16.840.1.113883.6.1" 
+	          codeSystemName="LOINC" 
+	          code="45475-1"
+	          displayName="Advance directive - do not hospitalize [Minimum Data Set]" />
+	        <text mediaType="application/pdf">
+	          <reference value="AdvanceDirective.b50b7910-7ffb-4f4c-bbe4-177ed68cbbf3.pdf" />
+	        </text>
+	        <versionNumber value="1" />
+	      </externalDocument>
+	    </reference>
+    </observation>
+  </entryRelationship>
 </observation>
