@@ -3,8 +3,7 @@ Parent: $Observation
 Id: SexObservation
 Title: "Sex Observation"
 Description: """USCDI includes a data element for Sex, intended to support the exchange of a recorded sex value. This observation template aligns with the USCDI definition of Sex: "Documentation of a specific instance of sex."
-It enables systems to share the documented sex value as recorded in a particular context. If the source of the information is captured, it should be represented using Provenance participation.
-It is recommended that systems include the Sex Observation in the Social History section; however, the template may be used wherever it is appropriate to support the sending system’s workflow."""
+It enables systems to share the documented sex value as recorded in a particular context. If the source of the information is captured, it should be represented using Provenance participation."""
 
 * insert LogicalModelTemplate(sex-obs, 2.16.840.1.113883.10.20.22.4.507, 2023-06-28)
 * insert NarrativeLink
