@@ -13,6 +13,7 @@ Alias: $Encounter = http://hl7.org/cda/stds/core/StructureDefinition/Encounter
 Alias: $ExternalDocument = http://hl7.org/cda/stds/core/StructureDefinition/ExternalDocument
 Alias: $II = http://hl7.org/cda/stds/core/StructureDefinition/II
 Alias: $INT = http://hl7.org/cda/stds/core/StructureDefinition/INT
+Alias: $IVL-PQ = http://hl7.org/cda/stds/core/StructureDefinition/IVL-PQ
 Alias: $IVL-TS = http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS
 Alias: $ManufacturedProduct = http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct
 Alias: $Observation = http://hl7.org/cda/stds/core/StructureDefinition/Observation
@@ -159,5 +160,8 @@ Alias: $2.16.840.1.113883.11.20.9.65 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16
 Alias: $2.16.840.1.113883.11.20.9.66 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.66
 Alias: $2.16.840.1.113883.11.20.9.68 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68
 Alias: $2.16.840.1.113883.11.20.9.69.4 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4
+Alias: $HSLOC = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275
+Alias: $HealthcareFacilityTypeSCT = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26
+Alias: $CMSPlaceOfService = https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set
 
 Alias: $1.3.6.1.4.1.12009.10.1.3932 =  http://loinc.org/vs/LL5052-7

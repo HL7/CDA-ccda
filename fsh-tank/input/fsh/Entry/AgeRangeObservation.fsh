@@ -2,7 +2,7 @@ Profile: AgeRangeObservation
 Parent: $Observation
 Id: AgeRangeObservation
 Title: "Age Range Observation"
-Description: "This Age Range Observation represents the subject's age during an event or observation when the precise age is unknown. This is to be used when the onset of an event, condition, or observation occurs over a range of time."
+Description: """This Age Range Observation captures an estimated age range when the subject's exact age is unknown. It is used in cases where only an approximate age, expressed as a range within specific age units (e.g., years), is available. For example, a person might report, "My father was between 50 and 55 years old when he developed Parkinson's disease."""
 
 * insert LogicalModelTemplateRootOnly(age-obs, 2.16.840.1.113883.10.20.22.4.31)
 * insert NarrativeLink
@@ -22,10 +22,13 @@ Description: "This Age Range Observation represents the subject's age during an 
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-15966)."
 * value 1..1
-* value only $IVL-TS
-  * ^short = "Indicates the time range during which the event or observation occured"
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"IVL_TS\" (CONF:4515-14)."
+* value only $IVL-PQ
+  * ^short = "Indicates the age range during which the event or observation occured"
   * low 1..1
     * ^comment = "This value SHALL contain exactly one [1..1] low."
+    * unit 1..1
+    * unit from AgePQ_UCUM (required)
   * high 0..1
     * ^comment = "This value MAY contain exactly one [0..1] high."
+    * unit 1..1
+    * unit from AgePQ_UCUM (required)
