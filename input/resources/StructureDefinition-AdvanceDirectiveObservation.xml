@@ -29,7 +29,7 @@
     <name value="AdvanceDirectiveObservation"/>
     <title value="Advance Directive Observation"/>
     <status value="draft"/>
-    <description value="The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents. This template provides details about the type of advance directive document and may also include information on the document’s author, as well as any individuals who verified its contents with the patient or their designated healthcare agent."/>
+    <description value="The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents. Each Advance Directive Observation template provides details about one type of advance directive document and may also include information about the document’s author, as well as any individuals who discussed and verified its contents with the patient or their designated healthcare agent.&#xA;&#xA;The Advance Directive Observation template also can be nested within an Intervention Act to serve as documentation explaining why an intervention was planned/performed or not."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -191,8 +191,14 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <comment value="MAY contain zero or more [0..*] value."/>
             <max value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.5"/>
+            </binding>
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
@@ -459,7 +465,7 @@
             <min value="1"/>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.5"/>
             </binding>
         </element>
         <element id="Observation.reference:reference1.externalDocument.text">
