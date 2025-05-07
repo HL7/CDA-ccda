@@ -21,12 +21,11 @@ The Observation value is used to record a calculated score using an integer. A L
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-14438)."
 * insert FixedCategory(survey, 2.16.840.1.113883.4.642.1.1125, Survey, survey)
 * code 1..1
-  * codeSystem 0..1
-  * codeSystem = "2.16.840.1.113883.6.1"
+* code from $ScreeningAssessmentSurveyCodes
   * obeys should-translation
   * translation 0..*
-  * translation from $2.16.840.1.113762.1.4.1267.13 (preferred)
-    * insert AdditionalBinding(preferred, $SDoHAssessmentsAndQuestions, For Social Determinant of Health Assessments, [[If the Assessment Scale Observation is a Social Determinant of Health Assessment, the observation code **SHOULD** be selected from ValueSet [Social Determinant of Health Assessments and Questions](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.206/expansion).]])
+  * translation from $SDoHAssessmentsAndQuestions (preferred)
+  * ^short = "For Social Determinant of Health Assessments"
 * derivationExpr 0..1
   * ^comment = "MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."
   * ^short = "Such derivation expression can contain a text calculation of how the components total up to the summed score"
