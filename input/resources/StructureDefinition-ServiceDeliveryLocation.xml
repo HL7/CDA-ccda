@@ -138,11 +138,23 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="ParticipantRole.code"/>
-            <short value="𝗨𝗦𝗖𝗗𝗜: Facility Type"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI"/>
             <min value="1"/>
             <binding>
-                <strength value="required"/>
-                <valueSet value="http://terminology.hl7.org/ValueSet/v3-HealthcareServiceLocation"/>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26"/>
+                    <documentation value="SNOMED CT Facility Codes"/>
+                    <shortDoco value="Healthcare Facility Type"/>
+                </additional>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set"/>
+                    <documentation value="USCDI applicable vocabulary standard"/>
+                    <shortDoco value="CMS Place of Service"/>
+                </additional>
             </binding>
         </element>
         <element id="ParticipantRole.addr">
