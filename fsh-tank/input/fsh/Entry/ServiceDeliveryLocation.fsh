@@ -25,9 +25,10 @@ Certifying systems must minimally implement HSLOC codes and may implement CMS Pl
 * id[NAIC].root = "2.16.840.1.113883.6.300"  
 * code 1..1
 * code from $HSLOC (preferred)
-  * insert USCDI([[Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI]])
+  * insert USCDI([[Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI compliant]])
   * insert AdditionalBinding(preferred, $HealthcareFacilityTypeSCT, Healthcare Facility Type, [[SNOMED CT Facility Codes]])
   * insert AdditionalBinding(preferred, $CMSPlaceOfService, CMS Place of Service, [[USCDI applicable vocabulary standard]])
+  * obeys shall-use-one-binding
 * obeys should-addr
 * addr 0..1
 * addr only USRealmAddress
@@ -41,3 +42,8 @@ Certifying systems must minimally implement HSLOC codes and may implement CMS Pl
     * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] @classCode=\"PLC\" (CodeSystem: HL7EntityClass urn:oid:2.16.840.1.113883.5.41 STATIC) (CONF:81-7763)."
   * name 1..1
     * insert USCDI([[Facility Name]])
+
+Invariant: shall-use-one-binding
+Severity: #error
+Description: "The code shall belong to one of the value sets."
+Expression: "code.exists() implies (code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275') or code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26') or code.memberOf('https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set'))"

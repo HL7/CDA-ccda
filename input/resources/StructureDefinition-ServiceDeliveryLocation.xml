@@ -138,8 +138,15 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="ParticipantRole.code"/>
-            <short value="𝗨𝗦𝗖𝗗𝗜: Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI compliant"/>
             <min value="1"/>
+            <constraint>
+                <key value="shall-use-one-binding"/>
+                <severity value="error"/>
+                <human value="The code shall belong to one of the value sets."/>
+                <expression value="code.exists() implies (code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275') or code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26') or code.memberOf('https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
+            </constraint>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275"/>
