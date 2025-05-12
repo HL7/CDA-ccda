@@ -144,7 +144,7 @@
                 <key value="shall-use-one-binding"/>
                 <severity value="error"/>
                 <human value="The code shall belong to one of the value sets."/>
-                <expression value="code.exists() implies (code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275') or code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26') or code.memberOf('https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set'))"/>
+                <expression value="code.exists() implies (code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275') or code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26') or code.memberOf('http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
             </constraint>
             <binding>
@@ -158,7 +158,7 @@
                 </additional>
                 <additional>
                     <purpose value="preferred"/>
-                    <valueSet value="https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set"/>
+                    <valueSet value="http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes"/>
                     <documentation value="USCDI applicable vocabulary standard"/>
                     <shortDoco value="CMS Place of Service"/>
                 </additional>

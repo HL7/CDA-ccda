@@ -27,7 +27,7 @@ Certifying systems must minimally implement HSLOC codes and may implement CMS Pl
 * code from $HSLOC (preferred)
   * insert USCDI([[Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI compliant]])
   * insert AdditionalBinding(preferred, $HealthcareFacilityTypeSCT, Healthcare Facility Type, [[SNOMED CT Facility Codes]])
-  * insert AdditionalBinding(preferred, $CMSPlaceOfService, CMS Place of Service, [[USCDI applicable vocabulary standard]])
+  * insert AdditionalBinding(preferred, http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes, CMS Place of Service, [[USCDI applicable vocabulary standard]])
   * obeys shall-use-one-binding
 * obeys should-addr
 * addr 0..1
@@ -46,4 +46,4 @@ Certifying systems must minimally implement HSLOC codes and may implement CMS Pl
 Invariant: shall-use-one-binding
 Severity: #error
 Description: "The code shall belong to one of the value sets."
-Expression: "code.exists() implies (code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275') or code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26') or code.memberOf('https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set'))"
+Expression: "code.exists() implies (code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275') or code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26') or code.memberOf('http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes'))"
