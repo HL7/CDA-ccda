@@ -123,7 +123,7 @@ Alias: $2.16.840.1.114222.4.11.877     = http://cts.nlm.nih.gov/fhir/ValueSet/2.
 Alias: $2.16.840.1.114222.4.11.7900    = http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7900
 Alias: $2.16.840.1.114222.4.11.7901    = http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7901
 Alias: $DetailedRace = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.25
-Alias: $RaceCategories =  https://cts.nlm.nih.gov/fhir/Valueset/2.16.840.1.113883.4.642.2.575
+Alias: $RaceCategories =  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.2.575
 Alias: $2.16.840.1.113883.4.642.3.1312 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.1312
 Alias: $2.16.840.1.113883.4.642.3.155  = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.155
 Alias: $2.16.840.1.113883.4.642.3.3290 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.3.3290
@@ -163,6 +163,6 @@ Alias: $2.16.840.1.113883.11.20.9.68 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16
 Alias: $2.16.840.1.113883.11.20.9.69.4 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4
 Alias: $HSLOC = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275
 Alias: $HealthcareFacilityTypeSCT = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26
-Alias: $CMSPlaceOfService = https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set
+Alias: $CMSPlaceOfService = http://terminology.hl7.org/ValueSet/v3-HealthcareServiceLocation
 
 Alias: $1.3.6.1.4.1.12009.10.1.3932 =  http://loinc.org/vs/LL5052-7

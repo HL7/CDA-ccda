@@ -27,7 +27,7 @@ Certifying systems must minimally implement HSLOC codes and may implement CMS Pl
 * code from $HSLOC (preferred)
   * insert USCDI([[Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI compliant]])
   * insert AdditionalBinding(preferred, $HealthcareFacilityTypeSCT, Healthcare Facility Type, [[SNOMED CT Facility Codes]])
-  * insert AdditionalBinding(preferred, http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes, CMS Place of Service, [[USCDI applicable vocabulary standard]])
+  * insert AdditionalBinding(preferred, $CMSPlaceOfService, CMS Place of Service, [[USCDI applicable vocabulary standard]])
   * obeys shall-use-one-binding
 * obeys should-addr
 * addr 0..1
