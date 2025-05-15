@@ -24,10 +24,9 @@ Certifying systems must minimally implement HSLOC codes and may implement CMS Pl
 * id[CLIA].root = "2.16.840.1.113883.4.7"
 * id[NAIC].root = "2.16.840.1.113883.6.300"  
 * code 1..1
-* code from $HSLOC (preferred)
-  * insert USCDI([[Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI compliant]])
-  * insert AdditionalBinding(preferred, $HealthcareFacilityTypeSCT, Healthcare Facility Type, [[SNOMED CT Facility Codes]])
-  * insert AdditionalBinding(preferred, $CMSPlaceOfService, CMS Place of Service, [[USCDI applicable vocabulary standard]])
+* code from $HSLOCCombined (preferred)
+  * insert USCDI([[Facility Type]])
+  * insert AdditionalBinding(preferred, $CMSPlaceOfService, CMS Place of Service, [[Not required for USCDI certification]])
   * obeys shall-use-one-binding
 * obeys should-addr
 * addr 0..1
