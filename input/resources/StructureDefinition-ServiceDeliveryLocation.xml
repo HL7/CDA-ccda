@@ -28,7 +28,7 @@
     <name value="ServiceDeliveryLocation"/>
     <title value="Service Delivery Location"/>
     <status value="draft"/>
-    <description value="This clinical statement represents the physical place of available services or resources. It is the location of a service event where an act, observation or procedure took or can place.&#xD;&#xA;&#xD;&#xA;The ASTP/ONC U.S. Core Data for Interoperability (USCDI) terminology requirements for Encounter Location specify the use of National Healthcare Safety Network (NHSN) Healthcare Facility Patient Care Location (HSLOC) codes or SNOMED CT location type codes.&#xD;&#xA;This template's HealthcareServiceLocation value set, bound to ParticipantRole.code, includes HSLOC and CMS Place of Service codes.&#xD;&#xA;Certifying systems must minimally implement HSLOC codes and may implement CMS Place of Service codes. Implementers may also use SNOMED CT codes as translations for existing codes where applicable."/>
+    <description value="This clinical statement represents the physical place of available services or resources. It is the location of a service event where an act, observation or procedure took or can place.&#xA;&#xA;The ASTP/ONC U.S. Core Data for Interoperability (USCDI) terminology requirements for Encounter Location specify the use of National Healthcare Safety Network (NHSN) Healthcare Facility Patient Care Location (HSLOC) codes or SNOMED CT location type codes.&#xA;This template's HealthcareServiceLocation value set, bound to ParticipantRole.code, includes HSLOC and CMS Place of Service codes.&#xA;Certifying systems must minimally implement HSLOC codes and may implement CMS Place of Service codes. Implementers may also use SNOMED CT codes as translations for existing codes where applicable."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -138,7 +138,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="ParticipantRole.code"/>
-            <short value="𝗨𝗦𝗖𝗗𝗜: Facility Type - Either the HSLOC codes or the CMS Place of Service Codes are USCDI compliant"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Facility Type"/>
             <min value="1"/>
             <constraint>
                 <key value="shall-use-one-binding"/>
@@ -149,17 +149,11 @@
             </constraint>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275"/>
-                <additional>
-                    <purpose value="preferred"/>
-                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26"/>
-                    <documentation value="SNOMED CT Facility Codes"/>
-                    <shortDoco value="Healthcare Facility Type"/>
-                </additional>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.31"/>
                 <additional>
                     <purpose value="preferred"/>
                     <valueSet value="http://terminology.hl7.org/ValueSet/CMSPlaceOfServiceCodes"/>
-                    <documentation value="USCDI applicable vocabulary standard"/>
+                    <documentation value="Not required for USCDI certification"/>
                     <shortDoco value="CMS Place of Service"/>
                 </additional>
             </binding>
