@@ -29,7 +29,7 @@
     <name value="SpecimenCollectionProcedure"/>
     <title value="Specimen Collection Procedure"/>
     <status value="draft"/>
-    <description value="This template represents clinical information about the specimen including when it was collected, the type and source of specimen, as well as related observations regarding the specimen.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Required EntryRelationships**: [EntryReference](StructureDefinition-EntryReference.html)&#xA;&#xA;**Optional EntryRelationships**: [SpecimenConditionObservation](StructureDefinition-SpecimenConditionObservation.html)"/>
+    <description value="This template represents clinical information about the specimen including when it was collected, the type and source of specimen, as well as related observations regarding the specimen.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [SpecimenConditionObservation](StructureDefinition-SpecimenConditionObservation.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -137,42 +137,26 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
             </binding>
         </element>
+        <element id="Procedure.specimen">
+            <path value="Procedure.specimen"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Procedure.specimen.specimenRole.id">
+            <path value="Procedure.specimen.specimenRole.id"/>
+            <short value="This id is used to match the specimen listed in the containing Results Organizer."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
         <element id="Procedure.entryRelationship">
             <path value="Procedure.entryRelationship"/>
             <slicing>
-                <discriminator>
-                    <type value="profile"/>
-                    <path value="act"/>
-                </discriminator>
                 <discriminator>
                     <type value="profile"/>
                     <path value="observation"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Procedure.entryRelationship:specimenRef">
-            <path value="Procedure.entryRelationship"/>
-            <sliceName value="specimenRef"/>
-            <short value="References the specimen that is the subject of this procedure"/>
-            <comment value="SHALL contain exactly one [1..1] entryRelationship such that it"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Procedure.entryRelationship:specimenRef.typeCode">
-            <path value="Procedure.entryRelationship.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;SUBJ&quot; Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."/>
-            <fixedCode value="SUBJ"/>
-        </element>
-        <element id="Procedure.entryRelationship:specimenRef.act">
-            <path value="Procedure.entryRelationship.act"/>
-            <comment value="SHALL contain exactly one [1..1] Entry Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.122)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
-            </type>
         </element>
         <element id="Procedure.entryRelationship:condition">
             <path value="Procedure.entryRelationship"/>

@@ -18,20 +18,14 @@ Description: """This template represents clinical information about the specimen
 * obeys should-targetSiteCode
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * insert USCDI([[Specimen Source Site]])
+* specimen 1..1
+  * specimenRole 1..1
+    * id 1..1
+      * ^short = "This id is used to match the specimen listed in the containing Results Organizer."
 * entryRelationship ^slicing.discriminator[0].type = #profile
-  * ^slicing.discriminator[=].path = "act"
-  * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entryRelationship contains specimenRef 1..1 and condition 0..*
-* entryRelationship[specimenRef] ^comment = "SHALL contain exactly one [1..1] entryRelationship such that it"
-  * typeCode 1..1
-  * typeCode = #SUBJ (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC)."
-  * act 1..1
-  * act only EntryReference
-    * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.122)."
-  * ^short = "References the specimen that is the subject of this procedure"
+* entryRelationship contains condition 0..*
 * entryRelationship[condition] ^comment = "SHOULD contain at least one [0..*] entryRelationship such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)
