@@ -1,8 +1,8 @@
 The guidance here is drawn from [US Core - Basic Provenance](https://build.fhir.org/ig/HL7/US-Core/basic-provenance.html) tailored for C-CDA.
 In C-CDA, data provenance is captured using existing participation templates specifically:
 
-* **[Provenance - Author Participation]**(StructureDefinition-ProvenanceAuthorParticipation.html) records who created or asserted a clinical statement or section.
-* **[Provenance - Assembler Participation]**(StructureDefinition-ProvenanceAssemblerParticipation.html) records the entity (often a system or organization) that compiled or assembled the document or section, especially from multiple sources.
+* **[Provenance - Author Participation](StructureDefinition-ProvenanceAuthorParticipation.html)** records who created or asserted a clinical statement or section.
+* **[Provenance - Assembler Participation](StructureDefinition-ProvenanceAssemblerParticipation.html)** records the entity (often a system or organization) that compiled or assembled the document or section, especially from multiple sources.
 
 These templates serve a similar purpose to the [US Core Provenance Profile](https://build.fhir.org/ig/HL7/US-Core/StructureDefinition-us-core-provenance.html) by identifying *who was involved, what their role was, and when the information was created or compiled*. Provenance in C-CDA is essential to support traceability, accountability, and appropriate use of health information.
 
