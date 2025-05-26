@@ -15,6 +15,7 @@ Description: """This template represents clinical information about the specimen
   * insert CodedSnomed(17636008, [[Specimen collection (procedure)]])
 * obeys should-effectiveTime
 * effectiveTime 0..1
+  * ^short = "SHOULD have effectiveTime"
 * obeys should-targetSiteCode
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * insert USCDI([[Specimen Source Site]])
