@@ -28,7 +28,7 @@
     <name value="AgeRangeObservation"/>
     <title value="Age Range Observation"/>
     <status value="draft"/>
-    <description value="This Age Range Observation represents the subject's age during an event or observation when the precise age is unknown. This is to be used when the onset of an event, condition, or observation occurs over a range of time."/>
+    <description value="This Age Range Observation captures an estimated age range when the subject's exact age is unknown. It is used in cases where only an approximate age, expressed as a range within specific age units (e.g., years), is available. For example, a person might report, &quot;My father was between 50 and 55 years old when he developed Parkinson's disease."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -125,12 +125,11 @@
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
-            <short value="Indicates the time range during which the event or observation occured"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;IVL_TS&quot; (CONF:4515-14)."/>
+            <short value="Indicates the age range during which the event or observation occured"/>
             <min value="1"/>
             <max value="1"/>
             <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-PQ"/>
             </type>
         </element>
         <element id="Observation.value.low">
@@ -138,9 +137,25 @@
             <comment value="This value SHALL contain exactly one [1..1] low."/>
             <min value="1"/>
         </element>
+        <element id="Observation.value.low.unit">
+            <path value="Observation.value.low.unit"/>
+            <min value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.21"/>
+            </binding>
+        </element>
         <element id="Observation.value.high">
             <path value="Observation.value.high"/>
             <comment value="This value MAY contain exactly one [0..1] high."/>
+        </element>
+        <element id="Observation.value.high.unit">
+            <path value="Observation.value.high.unit"/>
+            <min value="1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.21"/>
+            </binding>
         </element>
     </differential>
 </StructureDefinition>

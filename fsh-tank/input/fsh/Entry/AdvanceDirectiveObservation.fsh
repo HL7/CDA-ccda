@@ -2,7 +2,9 @@ Profile: AdvanceDirectiveObservation
 Parent: $Observation
 Id: AdvanceDirectiveObservation
 Title: "Advance Directive Observation"
-Description: """The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents. This template provides details about the type of advance directive document and may also include information on the document’s author, as well as any individuals who verified its contents with the patient or their designated healthcare agent.
+Description: """The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents. Each Advance Directive Observation template provides details about one type of advance directive document and may also include information about the document’s author, as well as any individuals who discussed and verified its contents with the patient or their designated healthcare agent.
+ 
+The Advance Directive Observation template also can be nested within an Intervention Act to serve as documentation explaining why an intervention was planned/performed or not.
 """
 
 * insert LogicalModelTemplate(advance-directive-obs, 2.16.840.1.113883.10.20.22.4.48, 2025-05-01)
@@ -37,7 +39,8 @@ Description: """The Advance Directive Observation template is nested within the 
     * obeys 1198-32449
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high."
 * value 0..1
-  * ^comment = "MAY contain zero or more [0..*] value."
+* value only $CD
+* value from $AdvanceDirectiveDocumentTypes (preferred)
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation
@@ -134,7 +137,7 @@ Description: """The Advance Directive Observation template is nested within the 
         * ^short = "The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."
         * ^comment = "The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."
     * code 1..1
-    * code from $2.16.840.1.113883.11.20.9.69.4 (preferred)
+    * code from $AdvanceDirectiveDocumentTypes (preferred)
     * sdtcAuthor
       * insert USCDI([[Author]])
 

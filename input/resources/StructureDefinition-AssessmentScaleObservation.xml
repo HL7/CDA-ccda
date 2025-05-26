@@ -141,6 +141,7 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
+            <short value="For Social Determinant of Health Assessments"/>
             <constraint>
                 <key value="should-translation"/>
                 <severity value="warning"/>
@@ -148,22 +149,16 @@
                 <expression value="translation.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AssessmentScaleObservation"/>
             </constraint>
-        </element>
-        <element id="Observation.code.codeSystem">
-            <path value="Observation.code.codeSystem"/>
-            <patternString value="2.16.840.1.113883.6.1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.13"/>
+            </binding>
         </element>
         <element id="Observation.code.translation">
             <path value="Observation.code.translation"/>
             <binding>
                 <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.13"/>
-                <additional>
-                    <purpose value="preferred"/>
-                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.206"/>
-                    <documentation value="If the Assessment Scale Observation is a Social Determinant of Health Assessment, the observation code **SHOULD** be selected from ValueSet [Social Determinant of Health Assessments and Questions](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.206/expansion)."/>
-                    <shortDoco value="For Social Determinant of Health Assessments"/>
-                </additional>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.206"/>
             </binding>
         </element>
         <element id="Observation.derivationExpr">

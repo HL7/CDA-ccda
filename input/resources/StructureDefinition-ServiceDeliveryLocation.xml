@@ -140,9 +140,22 @@
             <path value="ParticipantRole.code"/>
             <short value="𝗨𝗦𝗖𝗗𝗜: Facility Type"/>
             <min value="1"/>
+            <constraint>
+                <key value="shall-use-one-binding"/>
+                <severity value="error"/>
+                <human value="The code shall belong to one of the value sets."/>
+                <expression value="code.exists() implies (code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275') or code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26') or code.memberOf('http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
+            </constraint>
             <binding>
-                <strength value="required"/>
-                <valueSet value="http://terminology.hl7.org/ValueSet/v3-HealthcareServiceLocation"/>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.31"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://terminology.hl7.org/ValueSet/CMSPlaceOfServiceCodes"/>
+                    <documentation value="Not required for USCDI certification"/>
+                    <shortDoco value="CMS Place of Service"/>
+                </additional>
             </binding>
         </element>
         <element id="ParticipantRole.addr">

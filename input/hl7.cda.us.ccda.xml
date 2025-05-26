@@ -2,7 +2,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
     <id value="hl7.cda.us.ccda"/>
     <url value="http://hl7.org/cda/us/ccda/ImplementationGuide/hl7.cda.us.ccda"/>
-    <version value="4.0.0-ballot"/>
+    <version value="4.0.0"/>
     <name value="CCDA"/>
     <title value="Consolidated CDA (C-CDA)"/>
     <status value="active"/>
@@ -30,10 +30,10 @@
     <dependsOn id="vsac">
         <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
         <packageId value="us.nlm.vsac"/>
-        <version value="0.21.0"/>
+        <version value="0.22.0"/>
     </dependsOn>
     <dependsOn id="phinvads">
-        <uri value="http://fhir.org/packages/us.cdc.phinvads/ImplementationGuide/us.cdc.phinvads"/>
+        <uri value="https://phinvads.cdc.gov/vads/fhir/ImplementationGuide/us.cdc.phinvads"/>
         <packageId value="us.cdc.phinvads"/>
         <version value="0.12.0"/>
     </dependsOn>
@@ -123,7 +123,7 @@
                 <display value="Advance Directive Existence Observation"/>
             </reference>
             <name value="Advance Directive Existence Observation"/>
-            <description value="This observation represents a simple observation indicating whether a person has an advance directive document."/>
+            <description value="This observation represents a simple observation indicating whether a person has any advance directive documents."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -159,7 +159,7 @@
                 <display value="Age Range Observation"/>
             </reference>
             <name value="Age Range Observation"/>
-            <description value="This Age Range Observation represents the subject's age during an event or observation when the precise age is unknown."/>
+            <description value="This Age Range Observation captures an estimated age range when the subject's exact age is unknown."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -6292,14 +6292,6 @@
             <isExample value="true"/>
             <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/WoundMeasurementObservation"/>
             <groupingId value="examples"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ValueSet/2.16.840.1.113883.3.88.12.80.33"/>
-            </reference>
-            <name value="NUBC UB-04 FL17 Patient Status"/>
-            <description value="These codes are used to convey the patient discharge status."/>
-            <groupingId value="terminology"/>
         </resource>
         <page>
             <sourceUrl value="index.html"/>
