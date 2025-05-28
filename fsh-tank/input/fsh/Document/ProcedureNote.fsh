@@ -36,7 +36,6 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^comment = "SHALL contain exactly one [1..1] associatedEntity/@classCode=\"PROV\" Provider (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8507)."
     * associatedPerson 1..1
       * ^comment = "This associatedEntity/@classCode SHALL contain exactly one [1..1] associatedPerson (CONF:1198-8508)."
-// Removed slicing on documentationOf since its only branch-id was serviceEvent, which is required anyway
 * documentationOf 1..*
   * ^short = "A serviceEvent is required in the Procedure Note to represent the main act, such as a colonoscopy or a cardiac stress study, being documented. It must be equivalent to or further specialize the value inherent in the ClinicalDocument/@code (such as where the ClinicalDocument/@code is simply \"Procedure Note\" and the procedure is \"colonoscopy\"), and it shall not conflict with the value inherent in the ClinicalDocument/@code, as such a conflict would create ambiguity. A serviceEvent/effectiveTime element indicates the time the actual event (as opposed to the encounter surrounding the event) took place. serviceEvent/effectiveTime may be represented two different ways in the Procedure Note. For accuracy to the second, the best method is effectiveTime/low together with effectiveTime/high. If a more general time, such as minutes or hours, is acceptable OR if the duration is unknown, an effectiveTime/low with a width element may be used. If the duration is unknown, the appropriate HL7 null value such as \"NI\" or \"NA\" must be used for the width element."
   * serviceEvent 1..1
@@ -109,10 +108,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
   * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-30871)." // auto-should
   * encompassingEncounter 1..1
     * ^comment = "The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-30872)."
-    * obeys should-id
     * id ..*
-      * ^short = "SG 20230709: EncompassingEncounter.id is required in US Realm Header - this is an illegal constraint - deleted min=0"
-      * ^comment = "This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)." // auto-should
     * code 1..1
     * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
