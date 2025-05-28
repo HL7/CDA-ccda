@@ -25,10 +25,10 @@ Description: "The Individual Personal Pronoun Observation represents words speci
   * ^comment = "This observation SHALL contain exactly one [1..1] effectiveTime."
   * obeys should-high
   * low 1..1
-  * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low."
+    * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low."
   * high 0..1
-  * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] high."
-  * ^short = "SHOULD contain high"
+    * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] high."
+    * ^short = "SHOULD contain high"
 * value 1..1
 * value only $CD
 * value from http://terminology.hl7.org/ValueSet/pronouns (preferred)
