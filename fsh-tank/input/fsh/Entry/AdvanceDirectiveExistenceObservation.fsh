@@ -49,4 +49,4 @@ Description: """This observation represents a simple observation indicating whet
 Invariant: no-obs-if-existence-false
 Severity: #error
 Description: "If Advance Directive Observation entries are be present, then the observation value must be 'Yes'."
-Expression: "(entryRelationship.observation.where(templateId.root='2.16.840.1.113883.10.20.22.4.48').count() > 0) implies (value.code = '373066001')"
+Expression: "(entryRelationship.observation.where(templateId.where(root='2.16.840.1.113883.10.20.22.4.48').count() > 0).count() > 0) implies (value.code = '373066001')"
