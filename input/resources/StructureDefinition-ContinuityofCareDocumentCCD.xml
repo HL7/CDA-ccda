@@ -135,12 +135,11 @@
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
-            <short value="SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"/>
             <comment value="The performer, if present, MAY contain zero or one [0..1] assignedEntity (CONF:1198-8459)."/>
             <constraint>
                 <key value="1198-32466"/>
                 <severity value="warning"/>
-                <human value="If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32466)."/>
+                <human value="If this assignedEntity is an assignedPerson, the assignedEntity/id SHOULD contain zero or one [0..1] @root=&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier (CONF:1198-32466)."/>
                 <expression value="assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ContinuityofCareDocumentCCD"/>
             </constraint>

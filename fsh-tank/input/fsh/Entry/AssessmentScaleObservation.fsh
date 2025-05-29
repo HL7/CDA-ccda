@@ -26,6 +26,7 @@ The Observation value is used to record a calculated score using an integer. A L
   * translation 0..*
   * translation from $SDoHAssessmentsAndQuestions (preferred)
   * ^short = "For Social Determinant of Health Assessments"
+  * ^comment = "SHOULD contain zero or many [0..*] translations."
 * derivationExpr 0..1
   * ^comment = "MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."
   * ^short = "Such derivation expression can contain a text calculation of how the components total up to the summed score"

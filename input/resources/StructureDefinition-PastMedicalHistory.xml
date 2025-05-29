@@ -110,7 +110,7 @@
         </element>
         <element id="Section.entry:problem.observation">
             <path value="Section.entry.observation"/>
-            <short value="Should contain an effectiveTime/high or and/or a Problem Status with value 73425007 (Inactive), 413322009 (Problem resolved), or 277022003 (Remission phase)."/>
+            <short value="SHOULD contain an effectiveTime/high or and/or a Problem Status with value 73425007 (Inactive), 413322009 (Problem resolved), or 277022003 (Remission phase)."/>
             <comment value="SHALL contain exactly one [1..1] Problem Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.4:2015-08-01) (CONF:1198-15476)."/>
             <min value="1"/>
             <type>
@@ -127,6 +127,10 @@
                 <expression value="high.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PastMedicalHistory"/>
             </constraint>
+        </element>
+        <element id="Section.entry:problem.observation.effectiveTime.high">
+            <path value="Section.entry.observation.effectiveTime.high"/>
+            <short value="SHOULD contain high"/>
         </element>
     </differential>
 </StructureDefinition>

@@ -20,4 +20,6 @@ This template may be used directly in any section, such as Care Plan Document Se
   * ^short = "Most of the time, the value will be a string representing the person's words."
 * obeys should-sdtcPrecondition2
 * sdtcPrecondition2
+  * ^comment = "SHOULD have 0..* sdtc:Precondition"
   * obeys should-criterion
+  * criterion ^comment = "SHOULD have 0..1 criterion"

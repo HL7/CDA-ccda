@@ -4,9 +4,12 @@ Id: ServiceDeliveryLocation
 Title: "Service Delivery Location"
 Description: "This clinical statement represents the physical place of available services or resources. It is the location of a service event where an act, observation or procedure took or can place.
 
-The ASTP/ONC U.S. Core Data for Interoperability (USCDI) terminology requirements for Encounter Location specify the use of National Healthcare Safety Network (NHSN) Healthcare Facility Patient Care Location (HSLOC) codes or SNOMED CT location type codes.
-This template's HealthcareServiceLocation value set, bound to ParticipantRole.code, includes HSLOC and CMS Place of Service codes.
-Certifying systems must minimally implement HSLOC codes and may implement CMS Place of Service codes. Implementers may also use SNOMED CT codes as translations for existing codes where applicable."
+The ASTP/ONC U.S. Core Data for Interoperability (USCDI) specifies that Encounter Location must be represented using either the National Healthcare Safety Network (NHSN) Healthcare Facility Patient Care Location (HSLOC) codes or SNOMED CT location type codes.
+
+The HealthcareServiceLocation value set, bound to ParticipantRole.code, includes concepts from HSLOC, SNOMED CT, and CMS Place of Service (POS) codes to support a variety of implementation contexts.
+
+To conform with USCDI requirements, certifying systems shall support either HSLOC codes or SNOMED CT codes. Inclusion of CMS POS codes is optional and may be used to meet billing or administrative needs.
+"
 
 * insert LogicalModelTemplateRootOnly(service-delivery-loc, 2.16.840.1.113883.10.20.22.4.32)
 
@@ -25,7 +28,8 @@ Certifying systems must minimally implement HSLOC codes and may implement CMS Pl
 * id[NAIC].root = "2.16.840.1.113883.6.300"  
 * code 1..1
 * code from $HSLOCCombined (preferred)
-  * insert USCDI([[Facility Type]])
+  * ^extension[http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement].valueBoolean = true
+  * ^binding.description = "\ud835\udde8\ud835\udde6\ud835\uddd6\ud835\uddd7\ud835\udddc: Facility Type"
   * insert AdditionalBinding(preferred, $CMSPlaceOfService, CMS Place of Service, [[Not required for USCDI certification]])
   * obeys shall-use-one-binding
 * obeys should-addr

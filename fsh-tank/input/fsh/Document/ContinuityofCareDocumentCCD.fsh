@@ -44,17 +44,10 @@ This document type was originally based on the Continuity of Care Document (CCD)
       * typeCode = #PRF (exactly)
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode=\"PRF\" Participation physical performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8458)."
       * assignedEntity ..1
-        * ^short = "SG 20230709: Illegal constraint - base has min = 1 (deleted min=0)"
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] assignedEntity (CONF:1198-8459)."
-        //"<min value=\"0\"/>"
         * obeys 1198-32466
         * id 1..*
           * ^comment = "The assignedEntity, if present, SHALL contain at least one [1..*] id (CONF:1198-30882)."
-          //"<slicing><rules value=\"open\"/></slicing></element>"
-          //"SG 20230601 Note that this has some weird extra long path"
-          //"<element id=\"ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id:id1\">"
-          //"<path value=\"ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id\"/>"
-          //"<sliceName value=\"id1\"/>"
         * assignedPerson 0..1
           * ^comment = "The assignedEntity, if present, MAY contain zero or one [0..1] assignedPerson (CONF:1198-32467)."
 * component 1..1
@@ -142,6 +135,6 @@ Severity: #error
 Expression: "assignedPerson.exists() or (assignedAuthoringDevice.exists() and representedOrganization.exists())"
 
 Invariant: 1198-32466
-Description: "If this assignedEntity is an assignedPerson, the assignedEntity/id **SHOULD** contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:1198-32466)."
+Description: "If this assignedEntity is an assignedPerson, the assignedEntity/id SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:1198-32466)."
 Severity: #warning
 Expression: "assignedPerson.exists() implies id.where(root = '2.16.840.1.113883.4.6')"

@@ -144,6 +144,7 @@
         </element>
         <element id="Observation.sdtcPrecondition2">
             <path value="Observation.sdtcPrecondition2"/>
+            <comment value="SHOULD have 0..* sdtc:Precondition2"/>
             <constraint>
                 <key value="should-criterion"/>
                 <severity value="warning"/>
@@ -151,6 +152,10 @@
                 <expression value="criterion.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/TreatmentInterventionPreference"/>
             </constraint>
+        </element>
+        <element id="Observation.sdtcPrecondition2.criterion">
+            <path value="Observation.sdtcPrecondition2.criterion"/>
+            <comment value="SHOULD have 0..1 criterion"/>
         </element>
         <element id="Observation.sdtcPrecondition2.criterion.code">
             <path value="Observation.sdtcPrecondition2.criterion.code"/>

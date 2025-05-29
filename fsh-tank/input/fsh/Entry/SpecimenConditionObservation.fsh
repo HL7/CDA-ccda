@@ -2,7 +2,7 @@ Profile: SpecimenConditionObservation
 Parent: $Observation
 Id: SpecimenConditionObservation
 Title: "Specimen Condition Observation"
-Description: """This template conveys the condition (mode or state of being) that describes the nature of the specimen.  A specimen may have multiple condition codes associated with it, in which case multiple instances of this template should be used. Values should be drawn from the HL7 V2 table 0493."""
+Description: """This template captures the condition or state of the specimen as identified by the laboratory upon receipt or during processing—such as hemolysis, clotting, or contamination. These conditions provide critical context for interpreting results or determining whether the specimen is suitable for testing. If multiple conditions apply, each should be represented using a separate instance of this template."""
 
 * insert LogicalModelTemplate(specimen-condition-obs, 2.16.840.1.113883.10.20.22.4.421, 2018-06-12)
 * insert NarrativeLink

@@ -334,18 +334,6 @@
         <element id="ClinicalDocument.componentOf.encompassingEncounter">
             <path value="ClinicalDocument.componentOf.encompassingEncounter"/>
             <comment value="The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-30872)."/>
-            <constraint>
-                <key value="should-id"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain id"/>
-                <expression value="id.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"/>
-            </constraint>
-        </element>
-        <element id="ClinicalDocument.componentOf.encompassingEncounter.id">
-            <path value="ClinicalDocument.componentOf.encompassingEncounter.id"/>
-            <short value="SG 20230709: EncompassingEncounter.id is required in US Realm Header - this is an illegal constraint - deleted min=0"/>
-            <comment value="This encompassingEncounter SHOULD contain zero or more [0..*] id (CONF:1198-32395)."/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.code">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.code"/>
