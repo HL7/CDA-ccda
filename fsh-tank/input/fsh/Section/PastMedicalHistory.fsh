@@ -16,4 +16,4 @@ Description: "This section contains a record of the patient's past complaints, p
     * ^short = "SHOULD contain an effectiveTime/high or and/or a Problem Status with value 73425007 (Inactive), 413322009 (Problem resolved), or 277022003 (Remission phase)."
     * effectiveTime 
       * obeys should-high
-	  * high ^short = "SHOULD contain high"
+      * high ^short = "SHOULD contain high"
