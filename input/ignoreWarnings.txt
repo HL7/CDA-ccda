@@ -70,12 +70,13 @@ The OID '2.16.840.1.113883.6.255.1336' is not known, so the code can't be valida
 The OID '2.16.840.1.113883.1.11.19563' is not known, so the code can't be validated
 The OID '2.16.840.1.113883.12.112' is not known, so the code can't be validated
 
-# 22 PHINVADS code systems that have no codes so can not be validated
+# 22 Different example code systems that have no codes so can not be validated
 A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated%
 None of the codings provided are in the value set 'Industry NAICS Detail (ODH)' (http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7900|1), and a coding from this value set is required%
 None of the codings provided are in the value set 'Occupation ONETSOC Detail (ODH)' (http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7901|1), and a coding from this value set is required%
 A definition for CodeSystem 'https://www.nubc.org/CodeSystem/PatDischargeStatus' could not be found, so the code cannot be validated%
 A definition for CodeSystem 'urn:oid:2.16.840.1.113883.12.112' could not be found, so the code cannot be validated
+A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.255.1336' could not be found, so the code cannot be validated
 
 # 23 SHOULD constraints that we are intentionally not including
 %1098-7513%
@@ -146,8 +147,10 @@ The definition for the element 'Organizer.sdtcCategory' binds to the value set '
 # 31 Multiple version matches for values sets - should choose specific version
 There are multiple different potential matches for the url%
 
-# v4-01 - referencing an example external document that doesn't exist
-URL value 'AdvanceDirective.b50b7910-7ffb-4f4c-bbe4-177ed68cbbf3.pdf' does not resolve
+# v4-01 - referencing an example external document and a sample email address that doesn't exist
+No definition could be found for URL value 'AdvanceDirective.b50b7910-7ffb-4f4c-bbe4-177ed68cbbf3.pdf'
+No definition could be found for URL value 'mailto:DrP@direct.sampleHISP2.com'
+
 
 # v4-02 - This is a valid code in the CDCREC code system for race.
 None of the codings provided are in the value set 'Detailed race including absence reasons.' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.25|20250419), and a coding from this value set is required)%
@@ -157,6 +160,6 @@ Unable to check if http://terminology.hl7.org/ValueSet/Languages is a proper sub
 
 # v4-04 - Text reference requires a URL but we don't have resolvable URLs.
 Observation.text.reference: minimum required = 1, but only found 0%
-Observation.code.originalText.reference: minimum required = 1, but only found 0%
+Organizer.code.originalText.reference: minimum required = 1, but only found 0%
 Act.text.reference: minimum required = 1, but only found 0%
 SubstanceAdministration.text.reference: minimum required = 1, but only found 0%
