@@ -2,7 +2,7 @@ Profile: AgeRangeObservation
 Parent: $Observation
 Id: AgeRangeObservation
 Title: "Age Range Observation"
-Description: """This Age Range Observation captures an estimated age range when the subject's exact age is unknown. It is used in cases where only an approximate age, expressed as a range within specific age units (e.g., years), is available. For example, a person might report, "My father was between 50 and 55 years old when he developed Parkinson's disease."""
+Description: """This Age Range Observation captures an estimated age range when the subject's exact age is unknown. It is used in cases where only an approximate age, expressed as a range within specific age units (e.g., years), is available. For example, a person might report, "My father was between 50 and 55 years old when he developed Parkinson's disease." """
 
 * insert LogicalModelTemplateRootOnly(age-obs, 2.16.840.1.113883.10.20.22.4.31)
 * insert NarrativeLink
