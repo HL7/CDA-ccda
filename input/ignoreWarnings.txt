@@ -144,6 +144,15 @@ The html source has duplicate anchor Ids:%
 # 28 Experimental value sets in THO
 The definition for the element 'Organizer.sdtcCategory' binds to the value set 'http://hl7.org/fhir/ValueSet/diagnostic-service-sections' which is experimental, but this structure is not labeled as experimental
 
+# 30 This is a guide that uses FHIR v5 that references guides that are FHIR v4
+This IG is for FHIR version 5.0.0, while the package 'hl7.terminology#5.2.0' is for FHIR version 4.0.1
+This IG is version 5.0.0, while the IG 'us.nlm.vsac' is from version 4.0.1
+This IG is version 5.0.0, while the IG 'us.cdc.phinvads' is from version 4.0.1
+This IG is version 5.0.0, while the IG 'hl7.fhir.us.core' is from version 4.0.1
+The ImplementationGuide is based on FHIR version 5.0.0 but package us.nlm.vsac#0.23.0 is based on FHIR version 4.0.1. In general, this version mismatch should be avoided - some tools will try to make this work with variable degrees of success, but others will not even try
+The ImplementationGuide is based on FHIR version 5.0.0 but package us.cdc.phinvads#0.12.0 is based on FHIR version 4.0.1. In general, this version mismatch should be avoided - some tools will try to make this work with variable degrees of success, but others will not even try
+The ImplementationGuide is based on FHIR version 5.0.0 but package hl7.fhir.us.core#8.0.0-ballot is based on FHIR version 4.0.1. In general, this version mismatch should be avoided - some tools will try to make this work with variable degrees of success, but others will not even try
+
 # 31 Multiple version matches for values sets - should choose specific version
 There are multiple different potential matches for the url%
 
@@ -153,7 +162,7 @@ No definition could be found for URL value 'AdvanceDirective.b50b7910-7ffb-4f4c-
 # v4-02 - We know that Languages is a proper subset of all-languages
 Unable to check if http://terminology.hl7.org/ValueSet/Languages is a proper subset of http://hl7.org/fhir/ValueSet/all-languages - base value set is too large to check
 
-# v4-03 - Text reference requires a URL but we don't have resolvable URLs.
+# v4-03 - Either we have an error for a reference that doesn't resolve or we have an error that the reference does not exist.
 Observation.text.reference: minimum required = 1, but only found 0%
 Organizer.code.originalText.reference: minimum required = 1, but only found 0%
 Act.text.reference: minimum required = 1, but only found 0%
