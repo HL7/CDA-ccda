@@ -503,7 +503,7 @@ Expression: "sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exist
 Invariant: 4537-5402
 Description: "If country is US, this addr **SHALL** contain exactly one [1..1] state, which **SHALL** be selected from ValueSet US Core USPS State *DYNAMIC* (CONF:4537-5402)."
 Severity: #error
-Expression: "nullFlavor.exists() or (item.country.exists() and item.country.xmlText != 'US' and item.country.xmlText != 'USA') or item.state.exists(nullFlavor.exists() or xmlText.memberOf('http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state'))"
+Expression: "nullFlavor.exists() or (item.country.exists() and item.country.xmlText != 'US' and item.country.xmlText != 'USA') or item.state.exists(nullFlavor.exists() or xmlText.memberOf('http://terminology.hl7.org/ValueSet/USPS-State'))"
 
 Invariant: 4537-5403
 Description: "If country is US, this addr **MAY** contain zero or one [0..1] postalCode, which **SHALL** be selected from ValueSet PostalCode urn:oid:2.16.840.1.113883.3.88.12.80.2 *DYNAMIC* (CONF:4537-5403)."

@@ -71,7 +71,7 @@
                 <key value="81-10024"/>
                 <severity value="error"/>
                 <human value="If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. If country is something other than US, the state MAY be present but MAY be bound to different vocabularies (CONF:81-10024)."/>
-                <expression value="nullFlavor.exists() or (item.country.exists() and item.country.xmlText != 'US' and item.country.xmlText != 'USA') or item.state.exists(nullFlavor.exists() or xmlText.memberOf('http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state'))"/>
+                <expression value="nullFlavor.exists() or (item.country.exists() and item.country.xmlText != 'US' and item.country.xmlText != 'USA') or item.state.exists(nullFlavor.exists() or xmlText.memberOf('http://terminology.hl7.org/ValueSet/USPS-State'))"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </constraint>
             <constraint>
@@ -112,7 +112,7 @@
                 <description value="If country is something other than US, the state MAY be present but MAY be bound to different vocabularies"/>
                 <additional>
                     <purpose value="required"/>
-                    <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state"/>
+                    <valueSet value="http://terminology.hl7.org/ValueSet/USPS-State"/>
                     <documentation value="If the country is US, the state element is required and SHALL be selected from ValueSet StateValueSet but SHOULD have @nullFlavor if the state is unknown. If country is not specified, it's assumed to be US. (CONF:81-10024)."/>
                     <shortDoco value="For US Addresses"/>
                 </additional>
