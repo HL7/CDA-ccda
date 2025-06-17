@@ -2,7 +2,7 @@ This Supporting Guidance Page provides guidance aimed at increasing consistency 
 
 This pages provides generalized document, section and entry guidance and additional guidance for specific types of C-CDA documents.
 
-All of the guidance blocked in blue below are non-mandatory recommendations, labeled as Best Practices.  They reflect consensus recommendations or lessons learned that improve interoperability, data quality, or implementation success.  They are not required for conformance but are strongly encouraged.  Rather than using conformance verbs, the best practices use "is encouraged to" or "is strongly encouraged to" to indicate the level of guidance.
+All of the guidance blocked in blue below represent **non-mandatory recommendations**, labeled as **Best Practices**.  They are based on consensus insights and lessons learned that aim to improve interoperability, data quality, and implementation outcomes.  While not **not required for conformance**, they are **strongly encouraged**.  Instead of using conformance verbs like "SHALL", Best Practices use phases such as *"is encouraged to"* or *"is strongly encouraged to"* to reflect the recommended level of adherence.
 
 ### Document Level Guidance
 #### Reusable, Nesting Templates
