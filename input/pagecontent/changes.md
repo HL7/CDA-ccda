@@ -6,6 +6,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 
 * Added a listing of templates ordered by template ID
 * Every template now lists referenced templates and templates that use that template
+* Updated the Supporting Guidance page to remove guidance that is already in templates and to not use conformance language for the remaining best practices
 
 ##### New Templates
 * Age Range Observation
@@ -37,6 +38,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 * [CDA-21257](https://jira.hl7.org/browse/CDA-21257) - Wrapping AdvanceDirectives inside an existence observation seems overly complicated
 * [CDA-21258](https://jira.hl7.org/browse/CDA-21258) - AdvanceDirective Existence - No way to identify type
 * [CDA-21259](https://jira.hl7.org/browse/CDA-21259) - Add category to Result Observation
+* [CDA-21263](https://jira.hl7.org/browse/CDA-21263) - Include high effectiveTime in differential when should is present
 * [CDA-21264](https://jira.hl7.org/browse/CDA-21264) - Include Pregnancy Intention in Social History
 * [CDA-21265](https://jira.hl7.org/browse/CDA-21265) - New Note Activity guidance in sections should be clarified
 * [CDA-21267](https://jira.hl7.org/browse/CDA-21267) - Assessment Scale Observation value guidance isn't clear
@@ -47,23 +49,33 @@ The changes in this version of Consolidated CDA were made from comments raised d
 * [CDA-21274](https://jira.hl7.org/browse/CDA-21274) - Consider adding the referenced entries to the narrative
 * [CDA-21275](https://jira.hl7.org/browse/CDA-21275) - Please add a "Plain Language Summary about this Guide" to the home page.
 * [CDA-21276](https://jira.hl7.org/browse/CDA-21276) - Age Observation does not accommodate age range 
+* [CDA-21277](https://jira.hl7.org/browse/CDA-21277) - Small and blurry images
 * [CDA-21281](https://jira.hl7.org/browse/CDA-21281) - Interpreter Needed Observation: effectiveTime description
 * [CDA-21282](https://jira.hl7.org/browse/CDA-21282) - Change Log: Replaced Templates
 * [CDA-21283](https://jira.hl7.org/browse/CDA-21283) - Artifacts: Search by templateId
+* [CDA-21284](https://jira.hl7.org/browse/CDA-21284) - Align any changes made in US Core 8.0 to C-CDA 
+* [CDA-21285](https://jira.hl7.org/browse/CDA-21285) - HLSOC translation for encounter location should be required, not optional
 * [CDA-21289](https://jira.hl7.org/browse/CDA-21289) - clarification about use of provider organization 
+* [CDA-21290](https://jira.hl7.org/browse/CDA-21290) - Change MAY to SHOULD
+* [CDA-21291](https://jira.hl7.org/browse/CDA-21291) - Change SHOULD to SHALL 
+* [CDA-21292](https://jira.hl7.org/browse/CDA-21292) - Change SHOULD to SHALL 
+* [CDA-21293](https://jira.hl7.org/browse/CDA-21293) - Change SHOULD to SHALL 
 * [CDA-21294](https://jira.hl7.org/browse/CDA-21294) - Advance Directive Observation Example shouldn't be about a Referral Note document
 * [CDA-21295](https://jira.hl7.org/browse/CDA-21295) - Complex entry should show the nested sub-part for the Advance Directive Observation
 * [CDA-21296](https://jira.hl7.org/browse/CDA-21296) - Type-o in name of Advance Directive Existance Observation Example
 * [CDA-21297](https://jira.hl7.org/browse/CDA-21297) - Assessment Scale Observation - move survey to category
 * [CDA-21298](https://jira.hl7.org/browse/CDA-21298) - Add link from USCDI page to C-CDA release checkerboard slide
 * [CDA-21299](https://jira.hl7.org/browse/CDA-21299) - Wrong title on USCDI mapping table?
+* [CDA-21313](https://jira.hl7.org/browse/CDA-21313) - Specimen Collection Procedure - Specimen Ref Makes No Sense
 * [CDA-21314](https://jira.hl7.org/browse/CDA-21314) - Referral Act entryRelationship is poorly modeled
 * [CDA-21315](https://jira.hl7.org/browse/CDA-21315) - Rename Patient Referral Act template
 * [CDA-21316](https://jira.hl7.org/browse/CDA-21316) - Discharge Diagnosis Section does not allow any other entries
 * [CDA-21318](https://jira.hl7.org/browse/CDA-21318) - Medication timing slice names and shorts are backwards
+* [CDA-21319](https://jira.hl7.org/browse/CDA-21319) - Conformance Statements in Supporting Guidance
 * [CDA-21320](https://jira.hl7.org/browse/CDA-21320) - Add SHALL in mapping of C-CDA to USCDI
 * [CDA-21322](https://jira.hl7.org/browse/CDA-21322) - Health Concern Act slicing is incorrect
 * [CDA-21323](https://jira.hl7.org/browse/CDA-21323) - Fix name of Health Status Evaluation and Outcomes Section
+* [CDA-21324](https://jira.hl7.org/browse/CDA-21324) - Add Narrative Guidance on USCDI Provenance
 * [CDA-21325](https://jira.hl7.org/browse/CDA-21325) - Add back "Complaint" (inactive SCT code) to SCT Problem Type Value Set
 * [CDA-21326](https://jira.hl7.org/browse/CDA-21326) - Change Value Set Binding in "Sex" Observation, change Observation description, adjust associated text guidance
 * [CDA-21328](https://jira.hl7.org/browse/CDA-21328) - Value sets referenced by US realm specs need to be updated at least yearly
@@ -72,19 +84,9 @@ The changes in this version of Consolidated CDA were made from comments raised d
 * [CDA-21334](https://jira.hl7.org/browse/CDA-21334) - Policy Activity, Coverage Activity and related USCDI table corrections
 * [CDA-21335](https://jira.hl7.org/browse/CDA-21335) - Policy Activity - Group Identifier
 * [CDA-21340](https://jira.hl7.org/browse/CDA-21340) - Code Binding corrections and text clarifications in ADI templates
-* [CDA-21342](https://jira.hl7.org/browse/CDA-21342) - EO Related Changes
-* [CDA-21263](https://jira.hl7.org/browse/CDA-21263) - Include high effectiveTime in differential when should is present
-* [CDA-21277](https://jira.hl7.org/browse/CDA-21277) - Small and blurry images
-* [CDA-21284](https://jira.hl7.org/browse/CDA-21284) - Align any changes made in US Core 8.0 to C-CDA 
-* [CDA-21285](https://jira.hl7.org/browse/CDA-21285) - HLSOC translation for encounter location should be required, not optional
-* [CDA-21290](https://jira.hl7.org/browse/CDA-21290) - Change MAY to SHOULD
-* [CDA-21291](https://jira.hl7.org/browse/CDA-21291) - Change SHOULD to SHALL 
-* [CDA-21292](https://jira.hl7.org/browse/CDA-21292) - Change SHOULD to SHALL 
-* [CDA-21293](https://jira.hl7.org/browse/CDA-21293) - Change SHOULD to SHALL 
-* [CDA-21313](https://jira.hl7.org/browse/CDA-21313) - Specimen Collection Procedure - Specimen Ref Makes No Sense
-* [CDA-21319](https://jira.hl7.org/browse/CDA-21319) - Conformance Statements in Supporting Guidance
-* [CDA-21324](https://jira.hl7.org/browse/CDA-21324) - Add Narrative Guidance on USCDI Provenance
 * [CDA-21341](https://jira.hl7.org/browse/CDA-21341) - Add Additional Bindings to Service Delivery Location for Multiple Industry Code Systems
+* [CDA-21342](https://jira.hl7.org/browse/CDA-21342) - EO Related Changes
+* [CDA-21343](https://jira.hl7.org/browse/CDA-21343) - Correct State value set to point to THO set
 
 ### Version 4.0.0-ballot
 
