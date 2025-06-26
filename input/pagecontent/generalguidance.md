@@ -1,5 +1,3 @@
-These General Guidance Pages are drawn from C-CDA R2.1 and the C-CDA Companion Guide R4.1 guidance pages. The content has been merged and deduplicated with references and links updated for this StructureDefintion publication. The pages from the Companion Guide covering Document, Section and Entry Level (Representing Discrete Data) guidance are largely unchanged. Some text was made more concise, links and references are updated and in a few cases, text was replaced with links to the same information in the [CDA StructureDefinition Publication]({{site.data.fhir.cda}}/index.html).
-
 ### What is CDA?
 Clinical Document Architecture (CDA) is the underlying standard that Consolidated Clinical Document Architecture (C-CDA) is derived from. The HL7 CDA is a document markup standard that specifies the structure and semantics of a clinical document (such as a discharge summary, progress note, procedure report) for the purpose of exchange. A CDA document is a defined and complete information object that can include text, images, sounds, and other multimedia content. It can be transferred within a message, and can exist independently, outside the transferring message.
 
@@ -33,7 +31,7 @@ C-CDA templates are identified with a templateId. The templateId is a two-part i
 #### Open and Closed Templates
 
 In CDA. templates are declared to be either Open or Closed templates. In Open templates, all of the features of the CDA R2 base specification are allowed except as constrained by the templates. Open templates allow HL7 CDA implementers to develop additional structured content not constrained within this guide. HL7 encourages implementers to bring their use cases forward as candidate requirements to be formalized in a subsequent version of the standard to maximize the use of shared semantics.
-By contrast, a Closed template specifies everything that is allowed and nothing further may be included. There are only two templates in C-CDA 3.0 that are closed templates. [Estimated Date of Delivery](StructureDefinition-EstimatedDateofDelivery.html) and [Medication Free Text Sig](StructureDefinition-MedicationFreeTextSig.html). Closed templates are indicated by a "sig-closed": constraint.
+By contrast, a Closed template specifies everything that is allowed and nothing further may be included. There are only two templates in this version of C-CDA that are closed templates. [Estimated Date of Delivery](StructureDefinition-EstimatedDateofDelivery.html) and [Medication Free Text Sig](StructureDefinition-MedicationFreeTextSig.html). Closed templates are indicated by a "sig-closed": constraint.
 
 ### Template Conformance
 
@@ -128,7 +126,7 @@ Subsections utilize codes from the LOINC Document Ontology to signify the inform
 
 ### Narrative Referencing
 
-The C-CDA R3.0 recommends that clinical statements include a link between the narrative (section.text) and coded clinical data (entry). Please see the [Narrative Block]({{site.data.fhir.cda}}/narrative.html) section in the StructureDefinition publication of CDA for implementation details about referencing. Each template contains conformance statements recommending (SHOULD) textReferencing unless explicitly prohibited.
+C-CDA recommends that clinical statements include a link between the narrative (section.text) and coded clinical data (entry). Please see the [Narrative Block]({{site.data.fhir.cda}}/narrative.html) section in the StructureDefinition publication of CDA for implementation details about referencing. Each template contains conformance statements recommending (SHOULD) textReferencing unless explicitly prohibited.
 
 ### Unknown and No Known Information
 Information technology solutions store and manage data, but sometimes data are not available. An item may be unknown, not relevant, or not computable or measurable, such as where a patient arrives at an emergency department unconscious and with no identification.
