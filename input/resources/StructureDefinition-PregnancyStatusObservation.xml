@@ -23,8 +23,9 @@
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyStatusObservation"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:2.16.840.1.113883.10.20.15.3.8"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.15.3.8:2025-05-01"/>
     </identifier>
+    <version value="2025-05-01"/>
     <name value="PregnancyStatusObservation"/>
     <title value="Pregnancy Status Observation"/>
     <status value="draft"/>
@@ -60,6 +61,10 @@
                     <type value="value"/>
                     <path value="root"/>
                 </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
             <min value="1"/>
@@ -77,7 +82,8 @@
         </element>
         <element id="Observation.templateId:pregnancy-obs.extension">
             <path value="Observation.templateId.extension"/>
-            <max value="0"/>
+            <min value="1"/>
+            <patternString value="2025-05-01"/>
         </element>
         <element id="Observation.classCode">
             <path value="Observation.classCode"/>
@@ -91,20 +97,18 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:81-19153)."/>
+            <short value="Pregnancy Status"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
-            <short value="Pregnancy Status"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;82810-3&quot; Pregnancy Status."/>
             <min value="1"/>
             <patternCode value="82810-3"/>
         </element>
         <element id="Observation.code.codeSystem">
             <path value="Observation.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.5.4&quot; (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:81-26505)."/>
+            <short value="LOINC"/>
             <min value="1"/>
-            <patternString value="2.16.840.1.113883.5.4"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
