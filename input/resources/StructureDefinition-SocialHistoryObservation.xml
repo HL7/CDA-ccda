@@ -47,6 +47,20 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
             </constraint>
             <constraint>
+                <key value="should-sdtcCategory"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain sdtcCategory"/>
+                <expression value="sdtcCategory.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+            </constraint>
+            <constraint>
+                <key value="category-social-history"/>
+                <severity value="error"/>
+                <human value="If category is present, then there shall be a category with code 'social-history'."/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = 'social-history' and codeSystem = 'http://terminology.hl7.org/CodeSystem/observation-category')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+            </constraint>
+            <constraint>
                 <key value="should-value"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain value"/>
@@ -115,13 +129,35 @@
         </element>
         <element id="Observation.sdtcCategory">
             <path value="Observation.sdtcCategory"/>
-            <min value="1"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="codeSystem"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <short value="Category is optional, but if present it SHALL contain a category with code=social-history."/>
+        </element>
+        <element id="Observation.sdtcCategory:social-history">
+            <path value="Observation.sdtcCategory"/>
+            <sliceName value="social-history"/>
+            <short value="Social History"/>
+            <min value="0"/>
             <max value="1"/>
         </element>
-        <element id="Observation.sdtcCategory.code">
+        <element id="Observation.sdtcCategory:social-history.code">
             <path value="Observation.sdtcCategory.code"/>
-            <short value="Social History"/>
+            <min value="1"/>
             <patternCode value="social-history"/>
+        </element>
+        <element id="Observation.sdtcCategory:social-history.codeSystem">
+            <path value="Observation.sdtcCategory.codeSystem"/>
+            <min value="1"/>
+            <patternString value="http://terminology.hl7.org/CodeSystem/observation-category"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
