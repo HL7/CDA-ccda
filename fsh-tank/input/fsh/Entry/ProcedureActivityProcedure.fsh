@@ -26,7 +26,6 @@ Description: "This template is used to represent the details of current and hist
   * insert BindAtCode($2.16.840.1.113883.11.20.9.22, required)
 * obeys active-high-ts-after-document
 * effectiveTime 1..1
-* effectiveTime only USRealmDateTimeInterval
   * insert USCDI([[Performance Time]])
   * obeys should-value and ts-value-before-document
   * value ^short = "Indicates historical procedure or an instance of a procedure where precision may be only a date or even a year."
@@ -213,4 +212,4 @@ Description: "This template is used to represent the details of current and hist
 Invariant: active-high-ts-after-document
 Severity: #error
 Description: "If the procedure is active and contains a high effectiveTime, this time SHALL be after the ClinicalDocument/effectiveTime"
-Expression: "(statusCode.code = 'active' and effectiveTime.high.value.exists()) implies effectiveTime.high.value > %resource.effectiveTime.value"
+Expression: "(statusCode.code = 'active' and effectiveTime.high.value.exists()) implies (effectiveTime.high.value > %resource.effectiveTime.value).allTrue()"
