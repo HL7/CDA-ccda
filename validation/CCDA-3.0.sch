@@ -2,11 +2,12 @@
 <!--
 THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL HL7, OR ANY OF ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-Generated from fhir-cda-validation version 1.0.0 on Mon Jul 22 2024
+Generated from @hl7/fhir-cda-validation version 1.2.0 on Mon Sep 08 2025
 Includes validation of Value Sets with fewer than 1000 concepts
 More information may be found at https://github.com/HL7/fhir-cda-validation
 
 - Jul 7 2025: Changed filename to include version
+- Sep 8 2025: Applied patch: https://jira.hl7.org/browse/CDA-21387 - Removed full-date requirement on Procedure
 -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron">
   <ns prefix="sch" uri="http://purl.oclc.org/dsdl/schematron"/>
@@ -660,6 +661,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
     </rule>
+    <rule id="AdvanceDirectivesSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.21.1' and @extension='2022-02-14']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="AdvanceDirectivesSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.21.1' and @extension='2022-02-14']]/cda:code">
       <assert test="@code = '42348-3'">@code SHALL = '42348-3'</assert>
       <assert test="@codeSystem = '2.16.840.1.113883.6.1'">@codeSystem SHALL = '2.16.840.1.113883.6.1'</assert>
@@ -710,6 +714,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
     </rule>
+    <rule id="AllergiesAndIntolerancesSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.6.1' and @extension='2015-08-01']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="AllergiesAndIntolerancesSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.6.1' and @extension='2015-08-01']]/cda:code">
       <assert test="@code = '48765-2'">@code SHALL = '48765-2'</assert>
       <assert test="@codeSystem = '2.16.840.1.113883.6.1'">@codeSystem SHALL = '2.16.840.1.113883.6.1'</assert>
@@ -751,6 +758,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or contains($ActStatus, @code)">SHALL be selected from ValueSet ActStatus</assert>
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="AllergyConcernAct-errors-statusCode.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.30' and @extension='2015-08-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="AllergyConcernAct-errors-statusCode.code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.30' and @extension='2015-08-01']]/cda:statusCode/@code">
       <assert test="contains($ProblemActStatusCode, .)">SHALL be selected from ValueSet ProblemActStatusCode</assert>
@@ -905,7 +915,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
   <pattern id="AssessmentandPlanSection-errors">
     <!--urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09-->
     <rule id="AssessmentandPlanSection-errors-root" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.9' and @extension='2014-06-09']]">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
@@ -1202,6 +1212,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
     <rule id="CarePlan-errors-authenticator.time" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:authenticator/cda:time">
       <assert test="@nullFlavor or string-length(@value) &gt;= 8">**SHALL** be precise to at least the day</assert>
     </rule>
+    <rule id="CarePlan-errors-authenticator.signatureCode" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:authenticator/cda:signatureCode">
+      <assert test="@nullFlavor or contains($CDASignatureCode, @code)">SHALL be selected from ValueSet CDASignatureCode</assert>
+    </rule>
     <rule id="CarePlan-errors-authenticator.assignedEntity" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:authenticator/cda:assignedEntity">
       <assert test="count(cda:id)&gt;=1">Cardinality of id is 1..*</assert>
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
@@ -1369,6 +1382,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="CareTeamMemberAct-errors-statusCode.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.1' and @extension='2024-05-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="CareTeamMemberAct-errors-statusCode.code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.1' and @extension='2024-05-01']]/cda:statusCode/@code">
       <assert test="contains($ActStatus_1, .)">SHALL be selected from ValueSet ActStatus_1</assert>
     </rule>
@@ -1515,6 +1531,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="CareTeamOrganizer-errors-statusCode.nullFlavor" context="cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500' and @extension='2022-06-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="CareTeamOrganizer-errors-statusCode.code" context="cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500' and @extension='2022-06-01']]/cda:statusCode/@code">
       <assert test="contains($ActStatus_1, .)">SHALL be selected from ValueSet ActStatus_1</assert>
     </rule>
@@ -1608,6 +1627,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
     <rule id="CareTeamTypeObservation-errors-value" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.2' and @extension='2019-07-01']]/cda:value">
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="CareTeamTypeObservation-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.2' and @extension='2019-07-01']]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="CareTeamTypeObservation-errors-value.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.2' and @extension='2019-07-01']]/cda:value/@code">
       <assert test="contains($CareTeamCategory, .)">SHALL be selected from ValueSet CareTeamCategory</assert>
@@ -1725,7 +1747,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
   <pattern id="ChiefComplaintandReasonforVisitSection-errors">
     <!--urn:oid:2.16.840.1.113883.10.20.22.2.13-->
     <rule id="ChiefComplaintandReasonforVisitSection-errors-root" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.13' and not(@extension)]]">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
@@ -1896,7 +1918,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="ConsultationNote-errors-component.structuredBody.component-assessmentAndPlan.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.9' and @extension='2014-06-09'])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
     </rule>
     <rule id="ConsultationNote-errors-component.structuredBody.component-planOfTreatment" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09'])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -1923,7 +1945,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="ConsultationNote-errors-component.structuredBody.component-chiefComplaintRFV.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.13' and not(@extension)])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
     </rule>
     <rule id="ConsultationNote-errors-component.structuredBody.component-familyHistory" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.15' and @extension='2015-08-01'])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -2196,7 +2218,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@value)=1">Cardinality of @value is 1..1</assert>
     </rule>
     <rule id="CoverageActivity-errors-entryRelationship-policy.act" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.60' and @extension='2024-05-01']]/cda:entryRelationship[cda:act[(cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01'])] and (@typeCode = 'COMP')]/cda:act">
-      <assert test="not(cda:participant[@typeCode = 'COV']/cda:participantRole/cda:code[cda:code = 'SELF']) or not(cda:participant[@typeCode = 'HLD'])">When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139).</assert>
+      <assert test="not(cda:participant[@typeCode = 'COV']/cda:participantRole/cda:code[@code = 'SELF']) or not(cda:participant[@typeCode = 'HLD'])">When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139).</assert>
     </rule>
   </pattern>
   <pattern id="CriticalityObservation-errors">
@@ -2445,6 +2467,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
     </rule>
+    <rule id="DischargeMedicationsSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.11.1' and @extension='2015-08-01']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="DischargeMedicationsSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.11.1' and @extension='2015-08-01']]/cda:code">
       <assert test="@code = '10183-2'">@code SHALL = '10183-2'</assert>
       <assert test="@codeSystem = '2.16.840.1.113883.6.1'">@codeSystem SHALL = '2.16.840.1.113883.6.1'</assert>
@@ -2573,7 +2598,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="DischargeSummary-errors-component.structuredBody.component-chiefComplaintRFV.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.13' and not(@extension)])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
     </rule>
     <rule id="DischargeSummary-errors-component.structuredBody.component-nutrition" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.57' and not(@extension)])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -2700,6 +2725,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="DrugMonitoringAct-errors-statusCode.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.123' and not(@extension)]]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="DrugMonitoringAct-errors-statusCode.code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.123' and not(@extension)]]/cda:statusCode/@code">
       <assert test="contains($ActStatus_1, .)">SHALL be selected from ValueSet ActStatus_1</assert>
     </rule>
@@ -2823,6 +2851,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
     </rule>
+    <rule id="EncountersSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.22.1' and @extension='2015-08-01']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="EncountersSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.22.1' and @extension='2015-08-01']]/cda:code">
       <assert test="@code = '46240-8'">@code SHALL = '46240-8'</assert>
       <assert test="@codeSystem = '2.16.840.1.113883.6.1'">@codeSystem SHALL = '2.16.840.1.113883.6.1'</assert>
@@ -2843,6 +2874,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
     </rule>
     <rule id="EntryReference-errors-id" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.122' and not(@extension)]]/cda:id">
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
+    </rule>
+    <rule id="EntryReference-errors-id.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.122' and not(@extension)]]/cda:id/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="EntryReference-errors-code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.122' and not(@extension)]]/cda:code">
       <assert test="@nullFlavor = 'NP'">@nullFlavor SHALL = 'NP'</assert>
@@ -3231,6 +3265,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="GoalObservation-errors-statusCode.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.121' and @extension='2022-06-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="GoalObservation-errors-statusCode.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.121' and @extension='2022-06-01']]/cda:statusCode/@code">
       <assert test="contains($ActStatus_1, .)">SHALL be selected from ValueSet ActStatus_1</assert>
     </rule>
@@ -3267,6 +3304,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
+    </rule>
+    <rule id="GoalsSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.60' and not(@extension)]]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="GoalsSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.60' and not(@extension)]]/cda:code">
       <assert test="@code = '61146-7'">@code SHALL = '61146-7'</assert>
@@ -3353,6 +3393,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="HealthConcernAct-errors-statusCode.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132' and @extension='2022-06-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="HealthConcernAct-errors-statusCode.code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.132' and @extension='2022-06-01']]/cda:statusCode/@code">
       <assert test="contains($ProblemActStatusCode, .)">SHALL be selected from ValueSet ProblemActStatusCode</assert>
     </rule>
@@ -3391,6 +3434,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
     </rule>
+    <rule id="HealthConcernsSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.58' and @extension='2015-08-01']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="HealthConcernsSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.58' and @extension='2015-08-01']]/cda:code">
       <assert test="@code = '75310-3'">@code SHALL = '75310-3'</assert>
       <assert test="@codeSystem = '2.16.840.1.113883.6.1'">@codeSystem SHALL = '2.16.840.1.113883.6.1'</assert>
@@ -3412,6 +3458,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
+    </rule>
+    <rule id="HealthStatusEvaluationsandOutcomesSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.61' and not(@extension)]]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="HealthStatusEvaluationsandOutcomesSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.61' and not(@extension)]]/cda:code">
       <assert test="@code = '11383-7'">@code SHALL = '11383-7'</assert>
@@ -3557,7 +3606,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="HistoryandPhysical-errors-component.structuredBody.component-assessmentAndPlan.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.9' and @extension='2014-06-09'])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
     </rule>
     <rule id="HistoryandPhysical-errors-component.structuredBody.component-chiefComplaint" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -3566,7 +3615,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="HistoryandPhysical-errors-component.structuredBody.component-chiefComplaintRFV.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.13' and not(@extension)])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
     </rule>
     <rule id="HistoryandPhysical-errors-component.structuredBody.component-familyHistory" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.15' and @extension='2015-08-01'])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -3802,6 +3851,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="ImmunizationActivity-errors-statusCode.nullFlavor" context="cda:substanceAdministration[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.52' and @extension='2015-08-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="ImmunizationActivity-errors-statusCode.code" context="cda:substanceAdministration[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.52' and @extension='2015-08-01']]/cda:statusCode/@code">
       <assert test="contains($ActStatus_1, .)">SHALL be selected from ValueSet ActStatus_1</assert>
     </rule>
@@ -3928,6 +3980,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
     </rule>
+    <rule id="ImmunizationsSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.2.1' and @extension='2015-08-01']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="ImmunizationsSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.2.1' and @extension='2015-08-01']]/cda:code">
       <assert test="@code = '11369-6'">@code SHALL = '11369-6'</assert>
       <assert test="@codeSystem = '2.16.840.1.113883.6.1'">@codeSystem SHALL = '2.16.840.1.113883.6.1'</assert>
@@ -3959,6 +4014,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
     <rule id="ImplantableDeviceStatusObservation-errors-value" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.305' and @extension='2019-06-21']]/cda:value">
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="ImplantableDeviceStatusObservation-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.305' and @extension='2019-06-21']]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="ImplantableDeviceStatusObservation-errors-value.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.305' and @extension='2019-06-21']]/cda:value/@code">
       <assert test="contains($ImplantableDeviceStatus, .)">SHALL be selected from ValueSet ImplantableDeviceStatus</assert>
@@ -4015,6 +4073,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
+    </rule>
+    <rule id="InstructionsSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.45' and @extension='2014-06-09']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="InstructionsSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.45' and @extension='2014-06-09']]/cda:code">
       <assert test="@code = '69730-0'">@code SHALL = '69730-0'</assert>
@@ -4127,6 +4188,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="LatexSafetyObservation-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.314' and @extension='2019-06-21']]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="LatexSafetyObservation-errors-value.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.314' and @extension='2019-06-21']]/cda:value/@code">
       <assert test="contains($DeviceLatexSafety, .)">SHALL be selected from ValueSet DeviceLatexSafety</assert>
     </rule>
@@ -4157,6 +4221,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
     <rule id="LongitudinalCareWoundObservation-errors-targetSiteCode.qualifier.value" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.114' and @extension='2015-08-01']]/cda:targetSiteCode/cda:qualifier/cda:value">
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="LongitudinalCareWoundObservation-errors-targetSiteCode.qualifier.value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.114' and @extension='2015-08-01']]/cda:targetSiteCode/cda:qualifier/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="LongitudinalCareWoundObservation-errors-author" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.114' and @extension='2015-08-01']]/cda:author">
       <assert test="(cda:templateId[@root='2.16.840.1.113883.10.20.22.4.119' and not(@extension)])">author SHALL conform to AuthorParticipation</assert>
@@ -4217,6 +4284,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="MRISafetyObservation-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.318' and @extension='2019-06-21']]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="MRISafetyObservation-errors-value.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.318' and @extension='2019-06-21']]/cda:value/@code">
       <assert test="contains($DeviceMagneticResonanceMRSafety, .)">SHALL be selected from ValueSet DeviceMagneticResonanceMRSafety</assert>
     </rule>
@@ -4264,6 +4334,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or contains($ActStatus, @code)">SHALL be selected from ValueSet ActStatus</assert>
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="MedicalEquipmentOrganizer-errors-statusCode.nullFlavor" context="cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.135' and not(@extension)]]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="MedicalEquipmentOrganizer-errors-statusCode.code" context="cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.135' and not(@extension)]]/cda:statusCode/@code">
       <assert test="contains($ResultStatus, .)">SHALL be selected from ValueSet ResultStatus</assert>
@@ -4473,6 +4546,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="MedicationAdherence-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.508' and @extension='2023-05-01']]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="MedicationAdherence-errors-informant" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.508' and @extension='2023-05-01']]/cda:informant">
       <assert test="count(cda:assignedEntity)=1">Cardinality of assignedEntity is 1..1</assert>
     </rule>
@@ -4621,6 +4697,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="MedicationSupplyOrder-errors-statusCode.nullFlavor" context="cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.17' and @extension='2014-06-09']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="MedicationSupplyOrder-errors-statusCode.code" context="cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.17' and @extension='2014-06-09']]/cda:statusCode/@code">
       <assert test="contains($ActStatus_1, .)">SHALL be selected from ValueSet ActStatus_1</assert>
     </rule>
@@ -4669,6 +4748,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
+    </rule>
+    <rule id="MedicationsSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.1.1' and @extension='2014-06-09']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="MedicationsSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.1.1' and @extension='2014-06-09']]/cda:code">
       <assert test="@code = '10160-0'">@code SHALL = '10160-0'</assert>
@@ -4812,6 +4894,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="NonMedicinalSupplyActivity-errors-statusCode.nullFlavor" context="cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.50' and @extension='2014-06-09']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="NonMedicinalSupplyActivity-errors-statusCode.code" context="cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.50' and @extension='2014-06-09']]/cda:statusCode/@code">
       <assert test="contains($ActStatus_1, .)">SHALL be selected from ValueSet ActStatus_1</assert>
     </rule>
@@ -4851,6 +4936,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="not(@value) or @value[starts-with(., '#')]">If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative</assert>
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@value)=1">Cardinality of @value is 1..1</assert>
+    </rule>
+    <rule id="NoteActivity-errors-text.reference.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:text/cda:reference/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="NoteActivity-errors-statusCode" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:statusCode">
       <assert test="@nullFlavor or contains($ActStatus, @code)">SHALL be selected from ValueSet ActStatus</assert>
@@ -5345,6 +5433,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or contains($ActStatus, @code)">SHALL be selected from ValueSet ActStatus</assert>
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="PatientReferralAct-errors-statusCode.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.140' and not(@extension)]]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="PatientReferralAct-errors-statusCode.code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.140' and not(@extension)]]/cda:statusCode/@code">
       <assert test="contains($ActStatus_1, .)">SHALL be selected from ValueSet ActStatus_1</assert>
@@ -5944,7 +6035,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
   <pattern id="PolicyActivity-errors">
     <!--urn:hl7ii:2.16.840.1.113883.10.20.22.4.61:2024-05-01-->
     <rule id="PolicyActivity-errors-root" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]">
-      <assert test="not(cda:participant[@typeCode = 'COV']/cda:participantRole/cda:code[cda:code = 'SELF']) or not(cda:participant[@typeCode = 'HLD'])">When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139).</assert>
+      <assert test="not(cda:participant[@typeCode = 'COV']/cda:participantRole/cda:code[@code = 'SELF']) or not(cda:participant[@typeCode = 'HLD'])">When the Subscriber is the patient (COV participant code = 'SELF'), the participant element describing the subscriber **SHALL NOT** be present. This information will be recorded instead in the data elements used to record member information (CONF:4537-17139).</assert>
       <assert test="@classCode = 'ACT'">@classCode SHALL = 'ACT'</assert>
       <assert test="@moodCode = 'EVN'">@moodCode SHALL = 'EVN'</assert>
       <assert test="count(cda:id)&gt;=1">Cardinality of id is 1..*</assert>
@@ -5983,6 +6074,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
     <rule id="PolicyActivity-errors-performer-payer.assignedEntity.code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.87')]/cda:assignedEntity/cda:code">
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="PolicyActivity-errors-performer-payer.assignedEntity.code.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.87')]/cda:assignedEntity/cda:code/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="PolicyActivity-errors-performer-payer.assignedEntity.addr" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.87')]/cda:assignedEntity/cda:addr">
       <assert test="@nullFlavor or count(cda:city) = 1">SHALL contain exactly one [1..1] city (CONF:81-7292).</assert>
@@ -6217,6 +6311,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="PregnancyObservation-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.15.3.8' and not(@extension)]]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="PregnancyObservation-errors-value.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.15.3.8' and not(@extension)]]/cda:value/@code">
       <assert test="contains($ExtendedPregnancyStatus, .)">SHALL be selected from ValueSet ExtendedPregnancyStatus</assert>
     </rule>
@@ -6322,6 +6419,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="ProblemConcernAct-errors-statusCode.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.3' and @extension='2024-05-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="ProblemConcernAct-errors-statusCode.code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.3' and @extension='2024-05-01']]/cda:statusCode/@code">
       <assert test="contains($ProblemActStatusCode, .)">SHALL be selected from ValueSet ProblemActStatusCode</assert>
     </rule>
@@ -6415,6 +6515,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
       <assert test="count(cda:entry[not(cda:act) and cda:observation[(cda:templateId[@root='2.16.840.1.113883.10.20.22.4.5' and @extension='2014-06-09'])]]) &lt;= 1">Cardinality of entry:observation is 0..1</assert>
     </rule>
+    <rule id="ProblemSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.5.1' and @extension='2015-08-01']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="ProblemSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.5.1' and @extension='2015-08-01']]/cda:code">
       <assert test="@code = '11450-4'">@code SHALL = '11450-4'</assert>
       <assert test="@codeSystem = '2.16.840.1.113883.6.1'">@codeSystem SHALL = '2.16.840.1.113883.6.1'</assert>
@@ -6487,6 +6590,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or contains($ActStatus, @code)">SHALL be selected from ValueSet ActStatus</assert>
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="ProcedureActivityProcedure-errors-statusCode.nullFlavor" context="cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="ProcedureActivityProcedure-errors-statusCode.code" context="cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:statusCode/@code">
       <assert test="contains($ProcedureActStatusCode, .)">SHALL be selected from ValueSet ProcedureActStatusCode</assert>
@@ -6846,7 +6952,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="ProcedureNote-errors-component.structuredBody.component-assessmentAndPlan.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.9' and @extension='2014-06-09'])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
     </rule>
     <rule id="ProcedureNote-errors-component.structuredBody.component-planOfTreatment" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09'])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -6867,7 +6973,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="ProcedureNote-errors-component.structuredBody.component-chiefComplaintRFV.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.13' and not(@extension)])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.12' and not(@extension)]]])">When using this section, the Chief Complaint Section and the Reason for Visit Section SHALL NOT be used.</assert>
     </rule>
     <rule id="ProcedureNote-errors-component.structuredBody.component-familyHistory" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.15' and @extension='2015-08-01'])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -6952,6 +7058,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
+    </rule>
+    <rule id="ProceduresSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.7.1' and @extension='2014-06-09']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="ProceduresSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.7.1' and @extension='2014-06-09']]/cda:code">
       <assert test="@code = '47519-4'">@code SHALL = '47519-4'</assert>
@@ -7091,7 +7200,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="ProgressNote-errors-component.structuredBody.component-assessmentAndPlan.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.9' and @extension='2014-06-09'])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
     </rule>
     <rule id="ProgressNote-errors-component.structuredBody.component-allergies" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.6.1' and @extension='2015-08-01'])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -7238,6 +7347,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:assignedAuthoringDevice) &lt;= 1">Cardinality of assignedAuthoringDevice is 0..1</assert>
       <assert test="count(cda:representedOrganization) &lt;= 1">Cardinality of representedOrganization is 0..1</assert>
     </rule>
+    <rule id="ProvenanceAuthorParticipation-errors-assignedAuthor.id-npi.nullFlavor" context="cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.6' and @extension='2019-10-01']]/cda:assignedAuthor/cda:id[(@root = '2.16.840.1.113883.4.6')]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="ProvenanceAuthorParticipation-errors-assignedAuthor.addr" context="cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.6' and @extension='2019-10-01']]/cda:assignedAuthor/cda:addr">
       <assert test="@nullFlavor or count(cda:city) = 1">SHALL contain exactly one [1..1] city (CONF:81-7292).</assert>
       <assert test="@nullFlavor or (count(cda:streetAddressLine) &gt;= 1 and count(cda:streetAddressLine) &lt;= 4)">SHALL contain at least one and not more than 4 streetAddressLine (CONF:81-7291).</assert>
@@ -7257,6 +7369,15 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:id[(@root = '2.16.840.1.113883.4.2')]) &lt;= 1">Cardinality of id:taxId is 0..1</assert>
       <assert test="count(cda:id[(@root = '2.16.840.1.113883.4.6')]) &lt;= 1">Cardinality of id:npi is 0..1</assert>
       <assert test="count(cda:name) &lt;= 1">Cardinality of name is 0..1</assert>
+    </rule>
+    <rule id="ProvenanceAuthorParticipation-errors-assignedAuthor.representedOrganization.nullFlavor" context="cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.6' and @extension='2019-10-01']]/cda:assignedAuthor/cda:representedOrganization/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
+    <rule id="ProvenanceAuthorParticipation-errors-assignedAuthor.representedOrganization.id-taxId.nullFlavor" context="cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.6' and @extension='2019-10-01']]/cda:assignedAuthor/cda:representedOrganization/cda:id[(@root = '2.16.840.1.113883.4.2')]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
+    <rule id="ProvenanceAuthorParticipation-errors-assignedAuthor.representedOrganization.id-npi.nullFlavor" context="cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.6' and @extension='2019-10-01']]/cda:assignedAuthor/cda:representedOrganization/cda:id[(@root = '2.16.840.1.113883.4.6')]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
   </pattern>
   <pattern id="ReactionObservation-errors">
@@ -7554,7 +7675,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="ReferralNote-errors-component.structuredBody.component-assessmentAndPlan.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.14' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.9' and @extension='2014-06-09'])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
     </rule>
     <rule id="ReferralNote-errors-component.structuredBody.component-medicalHistory" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.14' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.20' and @extension='2015-08-01'])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -7627,6 +7748,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
     <rule id="ResultObservation-errors-code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2' and @extension='2023-05-01']]/cda:code">
       <assert test="count(((@code | @nullFlavor))) = 1">SHALL contain either a @code attribute or a @nullFlavor attribute, but not both.</assert>
     </rule>
+    <rule id="ResultObservation-errors-code.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2' and @extension='2023-05-01']]/cda:code/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="ResultObservation-errors-text" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2' and @extension='2023-05-01']]/cda:text">
       <assert test="count(cda:reference) &lt;= 1">Cardinality of reference is 0..1</assert>
     </rule>
@@ -7637,6 +7761,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or contains($ActStatus, @code)">SHALL be selected from ValueSet ActStatus</assert>
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="ResultObservation-errors-statusCode.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2' and @extension='2023-05-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="ResultObservation-errors-statusCode.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.2' and @extension='2023-05-01']]/cda:statusCode/@code">
       <assert test="contains($ResultStatus, .)">SHALL be selected from ValueSet ResultStatus</assert>
@@ -7689,6 +7816,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="ResultOrganizer-errors-statusCode.nullFlavor" context="cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.1' and @extension='2023-05-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="ResultOrganizer-errors-statusCode.code" context="cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.1' and @extension='2023-05-01']]/cda:statusCode/@code">
       <assert test="contains($ResultStatus, .)">SHALL be selected from ValueSet ResultStatus</assert>
     </rule>
@@ -7723,6 +7853,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
+    </rule>
+    <rule id="ResultsSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.3.1' and @extension='2015-08-01']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="ResultsSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.3.1' and @extension='2015-08-01']]/cda:code">
       <assert test="@code = '30954-2'">@code SHALL = '30954-2'</assert>
@@ -7769,6 +7902,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or contains($ActStatus, @code)">SHALL be selected from ValueSet ActStatus</assert>
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="RiskConcernAct-errors-statusCode.nullFlavor" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.136' and @extension='2015-08-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="RiskConcernAct-errors-statusCode.code" context="cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.136' and @extension='2015-08-01']]/cda:statusCode/@code">
       <assert test="contains($ProblemActStatusCode, .)">SHALL be selected from ValueSet ProblemActStatusCode</assert>
@@ -8068,6 +8204,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="SexObservation-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.507' and @extension='2023-07-01']]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
   </pattern>
   <pattern id="SexualOrientationObservation-errors">
     <!--urn:hl7ii:2.16.840.1.113883.10.20.22.4.501:2023-05-01-->
@@ -8165,6 +8304,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or contains($ActStatus, @code)">SHALL be selected from ValueSet ActStatus</assert>
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="SmokingStatusMeaningfulUse-errors-statusCode.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.78' and @extension='2024-05-01']]/cda:statusCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="SmokingStatusMeaningfulUse-errors-statusCode.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.78' and @extension='2024-05-01']]/cda:statusCode/@code">
       <assert test="contains($CompletedOrNullifiedActStatus, .)">SHALL be selected from ValueSet CompletedOrNullifiedActStatus</assert>
@@ -8371,6 +8513,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="SubstanceOrDeviceAllergyIntoleranceObservation-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.24.3.90' and @extension='2014-06-09']]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="SubstanceOrDeviceAllergyIntoleranceObservation-errors-value.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.24.3.90' and @extension='2014-06-09']]/cda:value/@code">
       <assert test="contains($AllergyAndIntoleranceType, .)">SHALL be selected from ValueSet AllergyAndIntoleranceType</assert>
     </rule>
@@ -8454,6 +8599,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
     <rule id="TobaccoUse-errors-value" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.85' and @extension='2014-06-09']]/cda:value">
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="TobaccoUse-errors-value.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.85' and @extension='2014-06-09']]/cda:value/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="TobaccoUse-errors-value.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.85' and @extension='2014-06-09']]/cda:value/@code">
       <assert test="contains($TobaccoUse, .)">SHALL be selected from ValueSet TobaccoUse</assert>
@@ -8667,7 +8815,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
     </rule>
     <rule id="TransferSummary-errors-component.structuredBody.component-assessmentAndPlan.section" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.13' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.9' and @extension='2014-06-09'])]]/cda:section">
-      <assert test="not(/cda:ClinicalDocument/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
+      <assert test="not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)]] or cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.10' and @extension='2014-06-09']]])">When using this section, the Assessment Section and the Plan of Treatment Section SHALL NOT be used.</assert>
     </rule>
     <rule id="TransferSummary-errors-component.structuredBody.component-assessment" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.13' and @extension='2024-05-01']]/cda:component/cda:structuredBody/cda:component[cda:section[(cda:templateId[@root='2.16.840.1.113883.10.20.22.2.8' and not(@extension)])]]">
       <assert test="count(cda:section)=1">Cardinality of section is 1..1</assert>
@@ -8804,12 +8952,18 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
       <assert test="@codeSystem = '2.16.840.1.113883.6.1'">@codeSystem SHALL = '2.16.840.1.113883.6.1'</assert>
     </rule>
+    <rule id="USRealmHeader-errors-code.nullFlavor" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:code/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="USRealmHeader-errors-effectiveTime" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:effectiveTime">
       <assert test="@nullFlavor or string-length(@value) &gt;= 8">**SHALL** be precise to at least the day</assert>
     </rule>
     <rule id="USRealmHeader-errors-confidentialityCode" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:confidentialityCode">
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="USRealmHeader-errors-confidentialityCode.nullFlavor" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:confidentialityCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="USRealmHeader-errors-recordTarget" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget">
       <assert test="count(cda:patientRole)=1">Cardinality of patientRole is 1..1</assert>
@@ -8964,9 +9118,15 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:assignedPerson) &lt;= 1">Cardinality of assignedPerson is 0..1</assert>
       <assert test="count(cda:assignedAuthoringDevice) &lt;= 1">Cardinality of assignedAuthoringDevice is 0..1</assert>
     </rule>
+    <rule id="USRealmHeader-errors-author.assignedAuthor.id-npi.nullFlavor" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:author/cda:assignedAuthor/cda:id[(@root = '2.16.840.1.113883.4.6')]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="USRealmHeader-errors-author.assignedAuthor.code" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:author/cda:assignedAuthor/cda:code">
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
+    </rule>
+    <rule id="USRealmHeader-errors-author.assignedAuthor.code.nullFlavor" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:author/cda:assignedAuthor/cda:code/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="USRealmHeader-errors-author.assignedAuthor.addr" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:author/cda:assignedAuthor/cda:addr">
       <assert test="@nullFlavor or count(cda:city) = 1">SHALL contain exactly one [1..1] city (CONF:81-7292).</assert>
@@ -9101,6 +9261,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or string-length(@value) &gt;= 8">**SHALL** be precise to at least the day</assert>
     </rule>
     <rule id="USRealmHeader-errors-legalAuthenticator.signatureCode" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:legalAuthenticator/cda:signatureCode">
+      <assert test="@nullFlavor or contains($CDASignatureCode, @code)">SHALL be selected from ValueSet CDASignatureCode</assert>
       <assert test="@code = 'S'">@code SHALL = 'S'</assert>
     </rule>
     <rule id="USRealmHeader-errors-legalAuthenticator.assignedEntity" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:legalAuthenticator/cda:assignedEntity">
@@ -9138,6 +9299,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="@nullFlavor or string-length(@value) &gt;= 8">**SHALL** be precise to at least the day</assert>
     </rule>
     <rule id="USRealmHeader-errors-authenticator.signatureCode" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:authenticator/cda:signatureCode">
+      <assert test="@nullFlavor or contains($CDASignatureCode, @code)">SHALL be selected from ValueSet CDASignatureCode</assert>
       <assert test="@code = 'S'">@code SHALL = 'S'</assert>
     </rule>
     <rule id="USRealmHeader-errors-authenticator.assignedEntity" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:authenticator/cda:assignedEntity">
@@ -9427,6 +9589,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(@nullFlavor)=0">Cardinality of @nullFlavor is 0..0</assert>
       <assert test="count(@code)=1">Cardinality of @code is 1..1</assert>
     </rule>
+    <rule id="VitalSignObservation-errors-interpretationCode.nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27' and @extension='2014-06-09']]/cda:interpretationCode/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
     <rule id="VitalSignObservation-errors-interpretationCode.code" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.27' and @extension='2014-06-09']]/cda:interpretationCode/@code">
       <assert test="contains($ObservationInterpretationHL7, .)">SHALL be selected from ValueSet ObservationInterpretationHL7</assert>
     </rule>
@@ -9475,6 +9640,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:code)=1">Cardinality of code is 1..1</assert>
       <assert test="count(cda:title)=1">Cardinality of title is 1..1</assert>
       <assert test="count(cda:text)=1">Cardinality of text is 1..1</assert>
+    </rule>
+    <rule id="VitalSignsSection-errors-nullFlavor" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.4.1' and @extension='2015-08-01']]/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
     </rule>
     <rule id="VitalSignsSection-errors-code" context="cda:section[cda:templateId[@root='2.16.840.1.113883.10.20.22.2.4.1' and @extension='2015-08-01']]/cda:code">
       <assert test="@code = '8716-3'">@code SHALL = '8716-3'</assert>
@@ -9558,6 +9726,12 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="count(cda:postalCode) &lt;= 1">Cardinality of postalCode is 0..1</assert>
       <assert test="count(cda:streetAddressLine) &lt;= 1">Cardinality of streetAddressLine is 0..1</assert>
     </rule>
+    <rule id="USRealmAddress-errors-nullFlavor" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.48' and @extension='2022-02-14']]/cda:participant[(@typeCode = 'VRF')]/cda:participantRole/cda:addr/@nullFlavor | cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.48' and @extension='2022-02-14']]/cda:participant[(@typeCode = 'CST')]/cda:participantRole/cda:addr/@nullFlavor | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.119' and not(@extension)]]/cda:assignedAuthor/cda:addr/@nullFlavor | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.119' and not(@extension)]]/cda:assignedAuthor/cda:representedOrganization/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:informationRecipient/cda:intendedRecipient/cda:addr/@nullFlavor | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.1' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:addr/@nullFlavor | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.1' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:representedOrganization/cda:addr/@nullFlavor | cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500' and @extension='2022-06-01']]/cda:participant[(@typeCode = 'LOC')]/cda:participantRole/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/@nullFlavor | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.141' and not(@extension)]]/cda:participant[(@typeCode = 'IRCP')]/cda:participantRole/cda:addr/@nullFlavor | cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.18' and @extension='2023-05-01']]/cda:performer/cda:assignedEntity/cda:addr/@nullFlavor | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.87')]/cda:assignedEntity/cda:addr/@nullFlavor | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.88')]/cda:assignedEntity/cda:addr/@nullFlavor | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'COV')]/cda:participantRole/cda:addr/@nullFlavor | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'HLD')]/cda:participantRole/cda:addr/@nullFlavor | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:addr/@nullFlavor | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:representedOrganization/cda:addr/@nullFlavor | cda:participant[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.7' and @extension='2020-05-19']]/cda:associatedEntity/cda:scopingOrganization/cda:addr/@nullFlavor | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.6' and @extension='2019-10-01']]/cda:assignedAuthor/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.14' and @extension='2024-05-01']]/cda:informationRecipient/cda:intendedRecipient/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.14' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/@nullFlavor | cda:participant[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.8' and @extension='2023-05-01']]/cda:associatedEntity/cda:addr/@nullFlavor | cda:participantRole[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.32' and not(@extension)]]/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.13' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:author/cda:assignedAuthor/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:dataEnterer/cda:assignedEntity/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:informant[not(cda:relatedEntity) and (cda:assignedEntity)]/cda:assignedEntity/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:legalAuthenticator/cda:assignedEntity/cda:addr/@nullFlavor | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:authenticator/cda:assignedEntity/cda:addr/@nullFlavor">
+      <assert test="contains($CDANullFlavor, .)">SHALL be selected from ValueSet CDANullFlavor</assert>
+    </rule>
+    <rule id="USRealmAddress-errors-use" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.48' and @extension='2022-02-14']]/cda:participant[(@typeCode = 'VRF')]/cda:participantRole/cda:addr/@use | cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.48' and @extension='2022-02-14']]/cda:participant[(@typeCode = 'CST')]/cda:participantRole/cda:addr/@use | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.119' and not(@extension)]]/cda:assignedAuthor/cda:addr/@use | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.119' and not(@extension)]]/cda:assignedAuthor/cda:representedOrganization/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:informationRecipient/cda:intendedRecipient/cda:addr/@use | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.1' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:addr/@use | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.1' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:representedOrganization/cda:addr/@use | cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500' and @extension='2022-06-01']]/cda:participant[(@typeCode = 'LOC')]/cda:participantRole/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/@use | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.141' and not(@extension)]]/cda:participant[(@typeCode = 'IRCP')]/cda:participantRole/cda:addr/@use | cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.18' and @extension='2023-05-01']]/cda:performer/cda:assignedEntity/cda:addr/@use | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.87')]/cda:assignedEntity/cda:addr/@use | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.88')]/cda:assignedEntity/cda:addr/@use | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'COV')]/cda:participantRole/cda:addr/@use | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'HLD')]/cda:participantRole/cda:addr/@use | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:addr/@use | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:representedOrganization/cda:addr/@use | cda:participant[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.7' and @extension='2020-05-19']]/cda:associatedEntity/cda:scopingOrganization/cda:addr/@use | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.6' and @extension='2019-10-01']]/cda:assignedAuthor/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.14' and @extension='2024-05-01']]/cda:informationRecipient/cda:intendedRecipient/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.14' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/@use | cda:participant[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.8' and @extension='2023-05-01']]/cda:associatedEntity/cda:addr/@use | cda:participantRole[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.32' and not(@extension)]]/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.13' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:author/cda:assignedAuthor/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:dataEnterer/cda:assignedEntity/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:informant[not(cda:relatedEntity) and (cda:assignedEntity)]/cda:assignedEntity/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:legalAuthenticator/cda:assignedEntity/cda:addr/@use | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:authenticator/cda:assignedEntity/cda:addr/@use">
+      <assert test="contains($CDAPostalAddressUse, .)">SHALL be selected from ValueSet CDAPostalAddressUse</assert>
+    </rule>
     <rule id="USRealmAddress-errors-item.country" context="cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.48' and @extension='2022-02-14']]/cda:participant[(@typeCode = 'VRF')]/cda:participantRole/cda:addr/cda:country | cda:observation[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.48' and @extension='2022-02-14']]/cda:participant[(@typeCode = 'CST')]/cda:participantRole/cda:addr/cda:country | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.119' and not(@extension)]]/cda:assignedAuthor/cda:addr/cda:country | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.119' and not(@extension)]]/cda:assignedAuthor/cda:representedOrganization/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:informationRecipient/cda:intendedRecipient/cda:addr/cda:country | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.1' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:addr/cda:country | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500.1' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:representedOrganization/cda:addr/cda:country | cda:organizer[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.500' and @extension='2022-06-01']]/cda:participant[(@typeCode = 'LOC')]/cda:participantRole/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/cda:country | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.141' and not(@extension)]]/cda:participant[(@typeCode = 'IRCP')]/cda:participantRole/cda:addr/cda:country | cda:supply[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.18' and @extension='2023-05-01']]/cda:performer/cda:assignedEntity/cda:addr/cda:country | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.87')]/cda:assignedEntity/cda:addr/cda:country | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:performer[(cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.88')]/cda:assignedEntity/cda:addr/cda:country | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'COV')]/cda:participantRole/cda:addr/cda:country | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.61' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'HLD')]/cda:participantRole/cda:addr/cda:country | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:addr/cda:country | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:performer/cda:assignedEntity/cda:representedOrganization/cda:addr/cda:country | cda:participant[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.7' and @extension='2020-05-19']]/cda:associatedEntity/cda:scopingOrganization/cda:addr/cda:country | cda:author[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.6' and @extension='2019-10-01']]/cda:assignedAuthor/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.14' and @extension='2024-05-01']]/cda:informationRecipient/cda:intendedRecipient/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.14' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/cda:country | cda:participant[cda:templateId[@root='2.16.840.1.113883.10.20.22.5.8' and @extension='2023-05-01']]/cda:associatedEntity/cda:addr/cda:country | cda:participantRole[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.32' and not(@extension)]]/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.13' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'CALLBCK')]/cda:associatedEntity/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:author/cda:assignedAuthor/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:dataEnterer/cda:assignedEntity/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:informant[not(cda:relatedEntity) and (cda:assignedEntity)]/cda:assignedEntity/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:legalAuthenticator/cda:assignedEntity/cda:addr/cda:country | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:authenticator/cda:assignedEntity/cda:addr/cda:country">
       <assert test="count(((text()[normalize-space()] | @nullFlavor))) = 1">xmlText and nullFlavor are mutually exclusive (one must be present)</assert>
     </rule>
@@ -9583,18 +9757,18 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
   </pattern>
   <pattern id="USRealmDateTimeInterval-errors">
     <!--urn:oid:2.16.840.1.113883.10.20.22.5.3-->
-    <rule id="USRealmDateTimeInterval-errors-root" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime">
+    <rule id="USRealmDateTimeInterval-errors-root" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime">
       <assert test="not(cda:center) or (not(cda:low) and not(cda:high))">Center cannot co-exist with low or high</assert>
       <assert test="not(@value) or string-length(@value) &gt;= 8">If a time interval contains @value, then it shall be precise to at least the day.</assert>
       <assert test="not(@value) or string-length(@value) &lt;= 8 or ((substring(@value, string-length(@value) - 4, 1) = '+' or substring(@value, string-length(@value) - 4, 1) = '-') and (number(substring(@value, string-length(@value) - 3, 2)) &gt;= 0 and number(substring(@value, string-length(@value) - 3, 2)) &lt;= 12 and string-length(substring(@value, string-length(@value) - 3, 2)) = 2) and (number(substring(@value, string-length(@value) - 1, 2)) &gt;= 0 and number(substring(@value, string-length(@value) - 1, 2)) &lt;= 59 and string-length(substring(@value, string-length(@value) - 1, 2)) = 2))">Timestamps more precise than the day SHALL include a timezone offset (+/- HHMM)</assert>
       <assert test="count(cda:low) &lt;= 1">Cardinality of low is 0..1</assert>
       <assert test="count(cda:high) &lt;= 1">Cardinality of high is 0..1</assert>
     </rule>
-    <rule id="USRealmDateTimeInterval-errors-low" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low">
+    <rule id="USRealmDateTimeInterval-errors-low" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low">
       <assert test="@nullFlavor or string-length(@value) &gt;= 8">**SHALL** be precise to at least the day</assert>
       <assert test="not(@value) or string-length(@value) &lt;= 8 or ((substring(@value, string-length(@value) - 4, 1) = '+' or substring(@value, string-length(@value) - 4, 1) = '-') and (number(substring(@value, string-length(@value) - 3, 2)) &gt;= 0 and number(substring(@value, string-length(@value) - 3, 2)) &lt;= 12 and string-length(substring(@value, string-length(@value) - 3, 2)) = 2) and (number(substring(@value, string-length(@value) - 1, 2)) &gt;= 0 and number(substring(@value, string-length(@value) - 1, 2)) &lt;= 59 and string-length(substring(@value, string-length(@value) - 1, 2)) = 2))">Timestamps more precise than the day SHALL include a timezone offset (+/- HHMM)</assert>
     </rule>
-    <rule id="USRealmDateTimeInterval-errors-high" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high">
+    <rule id="USRealmDateTimeInterval-errors-high" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high">
       <assert test="@nullFlavor or string-length(@value) &gt;= 8">**SHALL** be precise to at least the day</assert>
       <assert test="not(@value) or string-length(@value) &lt;= 8 or ((substring(@value, string-length(@value) - 4, 1) = '+' or substring(@value, string-length(@value) - 4, 1) = '-') and (number(substring(@value, string-length(@value) - 3, 2)) &gt;= 0 and number(substring(@value, string-length(@value) - 3, 2)) &lt;= 12 and string-length(substring(@value, string-length(@value) - 3, 2)) = 2) and (number(substring(@value, string-length(@value) - 1, 2)) &gt;= 0 and number(substring(@value, string-length(@value) - 1, 2)) &lt;= 59 and string-length(substring(@value, string-length(@value) - 1, 2)) = 2))">Timestamps more precise than the day SHALL include a timezone offset (+/- HHMM)</assert>
     </rule>
@@ -9608,6 +9782,9 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
       <assert test="(not(cda:suffix) or count(cda:suffix) = 1)">There may be at most one suffix</assert>
       <assert test="not(text()[normalize-space()])">**SHALL NOT** have mixed content except for white space (CONF:81-7278).</assert>
       <assert test="count(cda:validTime) &lt;= 1">Cardinality of validTime is 0..1</assert>
+    </rule>
+    <rule id="USRealmPatientNamePTNUSFIELDED-errors-use" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:patient/cda:name/@use">
+      <assert test="contains($CDAEntityNameUse, .)">SHALL be selected from ValueSet CDAEntityNameUse</assert>
     </rule>
     <rule id="USRealmPatientNamePTNUSFIELDED-errors-item.family.qualifier" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family/@qualifier">
       <assert test="contains($EntityPersonNamePartQualifier, .)">SHALL be selected from ValueSet EntityPersonNamePartQualifier</assert>
@@ -12956,13 +13133,13 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
   </pattern>
   <pattern id="USRealmDateTimeInterval-warnings">
     <!--urn:oid:2.16.840.1.113883.10.20.22.5.3-->
-    <rule id="USRealmDateTimeInterval-warnings-root" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime">
+    <rule id="USRealmDateTimeInterval-warnings-root" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime">
       <assert test="not(@value) or string-length(@value) &gt; 8">If a time interval contains @value, then it SHOULD contain a time component.</assert>
     </rule>
-    <rule id="USRealmDateTimeInterval-warnings-low" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low">
+    <rule id="USRealmDateTimeInterval-warnings-low" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time/cda:low | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:low">
       <assert test="@nullFlavor or string-length(@value) &gt; 8">**SHOULD** be precise to at least the minute</assert>
     </rule>
-    <rule id="USRealmDateTimeInterval-warnings-high" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:procedure[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.14' and @extension='2024-05-01']]/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high">
+    <rule id="USRealmDateTimeInterval-warnings-high" context="cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:participant[(@typeCode = 'VRF')]/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:documentationOf[(cda:serviceEvent/@classCode = 'PCPR')]/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.15' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.2' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.8' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.3' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:act[cda:templateId[@root='2.16.840.1.113883.10.20.22.4.202' and @extension='2016-11-01']]/cda:participant[(@typeCode = 'LA')]/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.7' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.6' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.9' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:participant/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:documentationOf/cda:serviceEvent/cda:performer/cda:time/cda:high | cda:ClinicalDocument[cda:templateId[@root='2.16.840.1.113883.10.20.22.1.1' and @extension='2024-05-01']]/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime/cda:high">
       <assert test="@nullFlavor or string-length(@value) &gt; 8">**SHOULD** be precise to at least the minute</assert>
     </rule>
   </pattern>
@@ -12984,6 +13161,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
   <let name="UspsTwoLetterAlphabeticCodes" value="'AL AK AS AZ AR CA CO CT DE DC FM FL GA GU HI ID IL IN IA KS KY LA ME MH MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND MP OH OK OR PW PA PR RI SC SD TN TX UT VT VI VA WA WV WI WY AE AP AA'"/>
   <let name="HealthcareAgentOrProxyChoices" value="'75783-1 75784-9 75785-6 81335-2 81343-6'"/>
   <let name="PersonalAndLegalRelationshipRoleType" value="'ADOPTF ADOPTM ADOPTP AUNT BRO BROINLAW CHILD CHLDADOPT CHLDFOST CHLDINLAW COUSN DAU DAUADOPT DAUC DAUFOST DAUINLAW DOMPART DPOWATT EXCEST EXT FAMMEMB FMRSPS FRND FTH FTHFOST FTHINLAW FTWIN FTWINBRO FTWINSIS GESTM GGRFTH GGRMTH GGRPRN GRFTH GRMTH GRNDCHILD GRNDDAU GRNDSON GRPRN GUADLTM GUARD HBRO HPOWATT HSIB HSIS HUSB INLAW ITWIN ITWINBRO ITWINSIS MAUNT MCOUSN MGGRFTH MGGRMTH MGGRPRN MGRFTH MGRMTH MGRPRN MTH MTHFOST MTHINLAW MUNCLE NBOR NBRO NCHILD NEPHEW NFTH NFTHF NIECE NIENEPH NMTH NMTHF NPRN NSIB NSIS ONESELF PAUNT PCOUSN PGGRFTH PGGRMTH PGGRPRN PGRFTH PGRMTH PGRPRN POWATT PRN PRNFOST PRNINLAW PUNCLE ROOM SIB SIBINLAW SIGOTHR SIS SISINLAW SON SONADOPT SONC SONFOST SONINLAW SPOWATT SPS STPBRO STPCHLD STPDAU STPFTH STPMTH STPPRN STPSIB STPSIS STPSON TWIN TWINBRO TWINSIS UNCLE WIFE'"/>
+  <let name="CDANullFlavor" value="'NP NI MSK NA OTH NINF PINF UNK NASK TRC ASKU NAV'"/>
   <let name="AgePQ_UCUM" value="'a d h min mo wk'"/>
   <let name="ProblemActStatusCode" value="'aborted active completed suspended'"/>
   <let name="CommonSubstancesForAllergyAndIntoleranceDocumentationIncludingRefutations" value="'1002293 1003774007 1007388 1008298 1008519 1009148 10109 10154 10156 10169 10171 10180 10207 10223 102259006 102261002 102262009 102263004 102264005 10237 10324 10355 10368 1037042 10379 10395 103990 1040028 10438 10472 10493 10502 10510 10582 105908007 10594 10600 10627 10636 10689 10737 10759 107602 10763 10767 10800 108118 10829 10831 108417002 108661002 108665006 108787006 108807002 111088007 11124 1114195 1116632 11170 11248 11253 11256 11289 113588 11416 11423 114477 114970 114979 1151 11526002 115264 115552 11563006 115698 116085009 116274004 116596006 1181000221105 1191 119565 1202 121191 1223 123954005 1256 126175007 1272 1291 1292 129473008 1310171 1311085 1311524 1311629 1314891 1331 134615 1347 135447 13577000 135775 1359 1362879 1363043 136411 1364430 138099 139462 1399 140587 1406 141626 1418 1424 1514 153970 1596450 15996 16047007 161 1631000175102 16403005 16681 167 17128 1727875 17300 17767 1801000221105 1827 183379 1841 18631 187832 1886 18867 1895 1897 18993 190376 191831 19478 19552 19711 19831 1998 2002 20352 20481 20489 20610 2101 21107 21183 21212 214130 214153 214160 214181 214182 214183 214199 214223 214250 214256 214257 214317 214336 214354 214364 214392 214442 214445 214488 214502 214555 214558 214565 214599 214614 214617 214618 214619 214626 214627 214631 214682 214721 214807 2176 217627 2177 2180 2189 2191 2193 219314 219315 2194 21949 221147 22299 2231 226716 226723006 226734009 226915003 226916002 226934003 226955001 226967004 227144008 227151004 227208008 227219006 227313005 227388008 227400003 227421003 227444000 227493005 227512001 227598003 228102000 228476 228790 232158 233698 2348 2356 2358 236778 237159 2393 2400 2403 2409 2410 2418 2447 24605 24947 25025 25033 25037 25120 25255 253157 2541 25480 2551 2556 255641001 256259004 256277009 256306003 256307007 256313003 256315005 256317002 256319004 256326004 256329006 256350002 256351003 256352005 256353000 256354006 256417003 256440004 25789 2582 258337 2596005 2598 2599 260101 260152009 260154005 260167008 260176001 260177005 260179008 260184002 260189007 260205009 26225 2623 264287008 264337003 2670 2683 2685 27169 274783 274786 27723 278567 28031 281 28230009 282831004 283742 283809 28439 284635 2878 288328004 28889 28942008 28981 29046 29263009 29542 29561 296 3008 301542 306674 3108 3143 31448 31555 31565 31738 318340 320073005 321064 321988 322167 3247 325642 32592 32613 32624 3264 32675 327361 3289 32937 32968 33008008 33219003 3322 33252009 332955008 33408 3355 3356 3361 33738 3393 34012005 3407 341248 3418 3423 3443 3444 346636007 3498 349854005 350134005 350157004 350196005 350222007 350294001 350312004 35208 3521 352362 35296 35382 35636 35748005 358263 35827 35829 360204007 36108 36117 3616 363560004 3638 3640 36437 3648 36567 3692009 37084008 372783007 373531009 37418 37617 37798 37801 3827 3829 38400 38404 38413 38574 386127005 38685 389132 391737006 391739009 39487003 3966 39786 3992 39993 39998 400266000 40048 400674 4025 40254 4053 40575 40790 407935004 4083 409137002 4099 41126 41127 411600004 412061001 412062008 412068007 412071004 412357001 4124 412533000 412534006 412583005 41397 41493 41549009 416636000 416897008 417889008 418504009 418920007 419420009 422292008 42330 42331 42347 42351 42372 424369009 42463 426722004 4278 428607008 429625007 4316 4337 435 43611 43735007 43921001 44027008 441508005 4419 442381000124103 442571000124108 442771000124102 4441 4450 44588005 446273004 446274005 448 4492 4493 4496 4500 4530 45518007 4603 46041 461016 4637 465397 466522 466541 466549 466553 466566 466584 4719 475968 47703008 4815 48203 4821 484139 484211 4850 48698004 4917 49276 50166 5021 5032 5093 51272 51386004 519 51905005 52175 5224 52582 53041004 5470 5487 5489 5492 5499 5521 5553 5640 5691 56946 57258 5764 5781 588250 59078 591622 5933 593411 594040 5956 596 596723 597142 5992 60207 6038 60548 6057 6058 60978003 611854 6130 6135 61381 6142 61789006 6185 61946003 620 6218 6227 62294009 63045006 63094006 6369005 6387 6398 6425004 6448 645555 6468 6470 6472 6574 6585 662263 6676 6691 67108 6711 6719 67324005 6750 6754 6809 6813 6835 6845 6851 6876 689 689467 689518 689556 689558 689561 689582 689606 689623 690077 6901 6902 690693 690808 69120 6915 6916 6918 6922 692794 6932 6960 69749 6980 6984 703 703677008 704 7052 705258 70813002 710179004 713382001 713764001 716186003 720687003 7213 72143 72236 723 72302 7233 7238 7243 725 72511004 7258 72625 726730005 7299 73056 733 734881000 73494 735006003 735009005 735029006 735030001 735043001 735045008 735047000 735049002 735050002 735051003 735053000 735123009 735124003 735211005 735212003 735213008 735214002 735215001 735248001 735249009 735340006 735959004 735971005 735977009 736027000 736030007 736031006 736159005 736162008 73645 7393 7407 74169 7417 74226000 7454 74632002 746741 74801000 7486 7517 7531 75665004 7597 7623 762952008 763875007 764299009 764357006 7646 765419002 767151005 767365002 7676 768431001 768435005 768449001 768451002 768457003 768592009 768600002 768614002 768618004 768621002 768688006 768697005 768699008 768759001 768763008 768766000 768865007 770377009 770387008 771344003 7715 77492 7791007 7804 7821 787390 788032009 788541006 789250004 79440004 7975 797541 7980 7984 7994 8001 80259003 8120 8134 815166 8163 816346 8175 817579 817958 8183 82122 822929 830118008 83367 8356 836398006 83818 84108 84489001 8536 857974 8588 8591 860818003 8610 8611 861634 8629 8638 8640 8687 8691 8698 8700 8701 8703 8704 871727001 871742003 871758000 871826000 871839001 871875004 871919004 87233003 8727 8745 8754 87636 8782 8785 8787 8794 88014 88249 883815 8896 89013 89119000 8928 8948 895560003 89707004 89811004 90176 90614001 9068 9071 91263 9143 9384 9524 9601 961000221100 96281001 96302009 96308008 9778 9793 981000221107 9947 9997'"/>
@@ -12992,6 +13170,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
   <let name="SocialHistoryType" value="'102487004 105421008 160476009 228272008 229819007 256235009 302160007 363908000 364393001 364703007 423514004 424483007 425400000 442133001 446996006 897148007'"/>
   <let name="BirthSex" value="'ASKU F M OTH UNK asked-declined'"/>
   <let name="CarePlanDocumentType" value="'18776-5 64295-9 74156-1 77442-2 77443-0 77444-8 77445-5 77446-3 80739-6 80740-4 80741-2 80742-0 80743-8 80744-6 80745-3 80746-1 80747-9 80748-7 80749-5 80750-3 80751-1 80752-9 80753-7 80754-5 80755-2 80756-0 80757-8 80758-6 80759-4 80760-2 80761-0 80762-8 80763-6 80764-4 80765-1 80766-9 80767-7 80768-5 80769-3 80770-1 80771-9 80772-7 80773-5 80774-3 80775-0 80776-8 80777-6 80778-4 80779-2 80780-0 80781-8 80782-6 80783-4 80784-2 80785-9 80786-7 80787-5 80788-3 80789-1 80790-9 80791-7 80796-6 80797-4 80804-8 80818-8 81200-8 81957-3 82364-1 83635-3 83734-4 83895-3 84011-6 84034-8 84070-2 84094-2 84117-1 84124-7 84135-3 84136-1 84151-0 84164-3 84165-0 84172-6 84183-3 84185-8 84187-4 84197-3 84203-9 84210-4 84217-9 84244-3 84295-5 84306-0 84314-4 84337-5 85182-4 85186-5 85228-5 85254-1 87237-4 87253-1 87265-5 87629-2 89239-8 89240-6 90769-1 93023-0 93024-8 93902-5 94244-1 94318-3 95752-2 95759-7'"/>
+  <let name="CDASignatureCode" value="'S X'"/>
   <let name="INDRoleclassCodes" value="'AGNT CAREGIVER ECON GUAR NOK PRS'"/>
   <let name="X_ActRelationshipDocument" value="'APND RPLC XFRM'"/>
   <let name="ActStatus_1" value="'aborted active cancelled completed held new normal nullified obsolete suspended'"/>
@@ -13087,5 +13266,7 @@ More information may be found at https://github.com/HL7/fhir-cda-validation
   <let name="ObservationInterpretationHL7" value="'&lt; &gt; A AA AC B CAR Carrier D DET E EX EXP H H&gt; HH HM HU HX I IE IND L L&lt; LL LU LX MS N NCL ND NEG NR NS OBX ObservationInterpretationDetection ObservationInterpretationExpectation POS QCF R RR ReactivityObservationInterpretation S SDD SYN-R SYN-S TOX U UNE VS W WR'"/>
   <let name="WoundCharacteristic" value="'1137684004 15923071000119108 171000161100 201000161104 21000161105 211000161102 221000161109 225540005 225550006 225551005 225917003 225944008 239157004 239159001 239160006 239161005 239164002 239165001 239166000 239189008 239193002 271618001 286613000 298006005 298008006 298010008 298012000 304287001 304288006 307229009 31000161107 310639000 341000161109 371000161102 401000161100 409590008 418115006 418291005 418422005 418780004 419635000 419877002 431231000124104 445916002 447112000 447547000 448194002 448749002 449741007 449743005 449744004 449745003 449746002 449747006 449748001 449749009 449750009 449751008 449752001 449756003 449757007 449760000 449761001 449762008 449891003 531000161108 541000161103 551000161100 561000161102 591000161109 61000161101 651000161101 71000161109 781184005 781185006 781186007 781187003 781188008 781193006 781195004 789507005 827031005 830130002 833287004 866166001 91000161108'"/>
   <let name="WoundMeasurements" value="'39125-0 39126-8 39127-6 72293-4 72296-7'"/>
+  <let name="CDAPostalAddressUse" value="'H HP HV WP DIR PUB BAD TMP PHYS PST ABC IDE SYL'"/>
+  <let name="CDAEntityNameUse" value="'C L I P A R SRCH PHON SNDX ASGN ABC SYL IDE'"/>
   <let name="EntityPersonNamePartQualifier" value="'AC AD BR CL IN NB PR SP TITLE VV'"/>
 </schema>
