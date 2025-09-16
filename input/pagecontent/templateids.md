@@ -151,7 +151,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.69:2022-06-01 | [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.72 | [CaregiverCharacteristics](StructureDefinition-CaregiverCharacteristics.html) |
 | 2.16.840.1.113883.10.20.22.4.74:2024-05-01 | [MentalStatusObservation](StructureDefinition-MentalStatusObservation.html) |
-| 2.16.840.1.113883.10.20.22.4.75:2015-08-01 | [MentalStatusOrganizer](StructureDefinition-MentalStatusOrganizer.html) |
+| 2.16.840.1.113883.10.20.22.4.75:2024-05-01 | [MentalStatusOrganizer](StructureDefinition-MentalStatusOrganizer.html) |
 | 2.16.840.1.113883.10.20.22.4.76:2024-05-01 | [NumberofPressureUlcersObservation](StructureDefinition-NumberofPressureUlcersObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.77 | [HighestPressureUlcerStage](StructureDefinition-HighestPressureUlcerStage.html) |
 | 2.16.840.1.113883.10.20.22.4.79:2015-08-01 | [DeceasedObservation](StructureDefinition-DeceasedObservation.html) |
