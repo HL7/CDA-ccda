@@ -78,7 +78,8 @@ Advance Directive Observation that would not be contained in the context of an A
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low."
   * high 1..1
-    * obeys 1198-32449
+    * ^short = "If the Advance Directive does not have a specified ending time, use a nullFlavor of *NA*.
+If the ending time is unknown, use a nullFlavor of *UNK*."
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high."
 * value 1..1
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:1198-30804)."
@@ -180,11 +181,6 @@ Advance Directive Observation that would not be contained in the context of an A
         * ^comment = "The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."
     * code 1..1
     * code from $2.16.840.1.113883.11.20.9.69.4 (preferred)    
-
-Invariant: 1198-32449
-Description: "If the Advance Directive does not have a specified ending time, the <high> element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."
-Severity: #error
-Expression: "value.exists() or nullFlavor = 'NA'"
 
 Invariant: 1198-8699
 Description: "If a URL is referenced, then it **SHOULD** have a corresponding linkHTML element in narrative block (CONF:1198-8699)."

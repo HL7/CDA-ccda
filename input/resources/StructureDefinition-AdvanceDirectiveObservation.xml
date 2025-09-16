@@ -170,15 +170,9 @@
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
+            <short value="If the Advance Directive does not have a specified ending time, use a nullFlavor of *NA*.&#xA;If the ending time is unknown, use a nullFlavor of *UNK*."/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] high."/>
             <min value="1"/>
-            <constraint>
-                <key value="1198-32449"/>
-                <severity value="error"/>
-                <human value="If the Advance Directive does not have a specified ending time, the &lt;high&gt; element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."/>
-                <expression value="value.exists() or nullFlavor = 'NA'"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
-            </constraint>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
