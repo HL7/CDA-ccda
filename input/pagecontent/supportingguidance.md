@@ -219,7 +219,7 @@ These value sets are available in the C-CDA Value Set Release Package available 
 
 **Example 10: Logical display order of name pieces**
 
-(i.e., such that a receiver which only extracts the text and ignores the markup around <given>, <family>, etc. would still display the name in a way a human would interpret correctly).
+(i.e., such that a receiver which only extracts the text and ignores the markup around &lt;given&gt;, &lt;family&gt;, etc. would still display the name in a way a human would interpret correctly).
 
 {% include examplebutton_default.html example="name_display_order.xml" b_title = "Click Here to See 'Name Display Order' Example" %}
 
@@ -1271,11 +1271,11 @@ The table below provides information on some of the formatting tags commonly use
 
 | **Tag Description**   | **Description**    |
 | ---- | ------ |
-| **&lt;content&gt;**   | The CDA <content> element is used to wrap a string of text so that it can be explicitly referenced, or so that it can suggest rendering characteristics. The <content> element contains an optional identifier, that can serve as the target of a reference. All values of attributes of type XML id must be unique within the document (per the [W3C XML specification](https://www.w3.org/TR/xml/). The originalText component of a RIM attribute present in any CDA entry can make explicit reference to the identifier, thereby indicating the original text associated with the attribute in the CDA entry.  |
-| **&lt;br&gt;**   | The CDA element is used to indicate a hard line break. It differs from the CDA <paragraph> element in that the element has no content. Receivers are required to interpret this element when rendering so as to represent a line break.  |
-| **&lt;list&gt;**   | A CDA <list> is similar to the HTML list. A CDA <list> has an optional caption and contains one or more <item> elements. A CDA <item> element contains an optional caption, which if present must come first before any other character data. The required listType attribute specifies whether the <list> is ordered or unordered (with unordered being the default). Unordered lists are typically rendered with bullets, whereas ordered lists are typically rendered with numbers, although this is not a requirement.  |
-| **&lt;table&gt;**   | The CDA <table> is similar to the HTML table. The table markup is for presentation purposes only and, unlike a database table, does not possess meaningful field names.  |
-| **&lt;linkHtml&gt;**   | The CDA <linkHtml> is a generic referencing mechanism, similar, but not identical, to the HTML anchor tag. It can be used to reference identifiers that are either internal or external to the document.  |
+| **&lt;content&gt;**   | The CDA &lt;content&gt; element is used to wrap a string of text so that it can be explicitly referenced, or so that it can suggest rendering characteristics. The &lt;content&gt; element contains an optional identifier, that can serve as the target of a reference. All values of attributes of type XML id must be unique within the document (per the [W3C XML specification](https://www.w3.org/TR/xml/). The originalText component of a RIM attribute present in any CDA entry can make explicit reference to the identifier, thereby indicating the original text associated with the attribute in the CDA entry.  |
+| **&lt;br&gt;**   | The CDA element is used to indicate a hard line break. It differs from the CDA &lt;paragraph&gt; element in that the element has no content. Receivers are required to interpret this element when rendering so as to represent a line break.  |
+| **&lt;list&gt;**   | A CDA &lt;list&gt; is similar to the HTML list. A CDA &lt;list&gt; has an optional caption and contains one or more &lt;item&gt; elements. A CDA &lt;item&gt; element contains an optional caption, which if present must come first before any other character data. The required listType attribute specifies whether the &lt;list&gt; is ordered or unordered (with unordered being the default). Unordered lists are typically rendered with bullets, whereas ordered lists are typically rendered with numbers, although this is not a requirement.  |
+| **&lt;table&gt;**   | The CDA &lt;table&gt; is similar to the HTML table. The table markup is for presentation purposes only and, unlike a database table, does not possess meaningful field names.  |
+| **&lt;linkHtml&gt;**   | The CDA &lt;linkHtml&gt; is a generic referencing mechanism, similar, but not identical, to the HTML anchor tag. It can be used to reference identifiers that are either internal or external to the document.  |
 | **styleCode attribute**   | The styleCode attribute is used within the CDA Narrative Block to give the instance author the ability to suggest rendering characteristics of the nested character data (e.g. Bold, Underline, Italics). Receivers are not required to render documents using the style hints provided and can present stylized text in accordance with their local style conventions. Reference: HL7 CDA Chapter 4.3.5.11 for information on additional stylecodes.  |
 {:.grid}
 **Table 27: Tags for formatting Narrative Text**
@@ -1826,9 +1826,9 @@ Concerns, Goals, Activities and Outcomes.
 The id is required and must be the same id as the entry/id it is referencing. The id cannot be a null value. Act/Code
 is set to nullFlavor=“NP” (Not Present). This means the value is not present in the message (in act/Code).
 
-The `<linkHtml>` tag, is a generic referencing mechanism that can be used to reference identifiers that are internal
+The `&lt;linkHtml&gt;` tag, is a generic referencing mechanism that can be used to reference identifiers that are internal
 to a document. Note that security considerations need to be given to support for linking mechanisms. Not all
-stylesheets enable the linking features of the `<linkHtml>` tag to be operationalized.
+stylesheets enable the linking features of the `&lt;linkHtml&gt;` tag to be operationalized.
 
 
 <table

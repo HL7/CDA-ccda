@@ -30,3 +30,7 @@ In addition, there are format specific definitions files.
 ### IP Statements
 
 {% include ip-statements.xhtml %}
+
+### Expansion Parameters
+
+{% include expansion-params.xhtml %}
