@@ -80,4 +80,4 @@ Expression: "nullFlavor.exists() or value.toString().length() > 10"
 Invariant: ts-value-before-document
 Severity: #error
 Description: "Time value must be equal to or before ClinicalDocument/effectiveTime"
-Expression: "value.exists() implies value <= %resource.effectiveTime.value"
+Expression: "value.exists() implies (value <= %resource.effectiveTime.value).allTrue()"

@@ -36,7 +36,8 @@ The Advance Directive Observation template also can be nested within an Interven
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low."
   * high 1..1
-    * obeys 1198-32449
+    * ^short = "If the Advance Directive does not have a specified ending time, use a nullFlavor of *NA*.
+If the ending time is unknown, use a nullFlavor of *UNK*."
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high."
 * value 0..1
 * value only $CD
@@ -140,11 +141,6 @@ The Advance Directive Observation template also can be nested within an Interven
     * code from $AdvanceDirectiveDocumentTypes (preferred)
     * sdtcAuthor
       * insert USCDI([[Author]])
-
-Invariant: 1198-32449
-Description: "If the Advance Directive does not have a specified ending time, the <high> element **SHALL** have the nullFlavor attribute set to *NA* (CONF:1198-32449)."
-Severity: #error
-Expression: "value.exists() or nullFlavor = 'NA'"
 
 Invariant: 1198-8699
 Description: "If a URL is referenced, then it **SHOULD** have a corresponding linkHTML element in narrative block (CONF:1198-8699)."

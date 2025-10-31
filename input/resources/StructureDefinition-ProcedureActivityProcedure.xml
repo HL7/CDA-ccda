@@ -50,7 +50,7 @@
                 <key value="active-high-ts-after-document"/>
                 <severity value="error"/>
                 <human value="If the procedure is active and contains a high effectiveTime, this time SHALL be after the ClinicalDocument/effectiveTime"/>
-                <expression value="(statusCode.code = 'active' and effectiveTime.high.value.exists()) implies effectiveTime.high.value &gt; %resource.effectiveTime.value"/>
+                <expression value="(statusCode.code = 'active' and effectiveTime.high.value.exists()) implies (effectiveTime.high.value &gt; %resource.effectiveTime.value).allTrue()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
             <constraint>
@@ -198,10 +198,6 @@
             <path value="Procedure.effectiveTime"/>
             <short value="𝗨𝗦𝗖𝗗𝗜: Performance Time"/>
             <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmDateTimeInterval"/>
-            </type>
             <constraint>
                 <key value="should-value"/>
                 <severity value="warning"/>
@@ -213,7 +209,7 @@
                 <key value="ts-value-before-document"/>
                 <severity value="error"/>
                 <human value="Time value must be equal to or before ClinicalDocument/effectiveTime"/>
-                <expression value="value.exists() implies value &lt;= %resource.effectiveTime.value"/>
+                <expression value="value.exists() implies (value &lt;= %resource.effectiveTime.value).allTrue()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
         </element>
@@ -229,7 +225,7 @@
                 <key value="ts-value-before-document"/>
                 <severity value="error"/>
                 <human value="Time value must be equal to or before ClinicalDocument/effectiveTime"/>
-                <expression value="value.exists() implies value &lt;= %resource.effectiveTime.value"/>
+                <expression value="value.exists() implies (value &lt;= %resource.effectiveTime.value).allTrue()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"/>
             </constraint>
         </element>

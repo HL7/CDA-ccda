@@ -89,3 +89,8 @@ Invariant: category-survey
 Description: "If category is present, then there shall be a category with code 'survey'."
 Severity: #error
 Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = 'survey' and codeSystem = '2.16.840.1.113883.4.642.1.1125')"
+
+Invariant: category-social-history
+Description: "If category is present, then there shall be a category with code 'social-history'."
+Severity: #error
+Expression: "sdtcCategory.empty() or sdtcCategory.exists(code = 'social-history' and codeSystem = 'http://terminology.hl7.org/CodeSystem/observation-category')"

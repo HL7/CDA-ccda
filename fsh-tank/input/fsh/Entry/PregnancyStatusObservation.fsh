@@ -4,7 +4,7 @@ Id: PregnancyStatusObservation
 Title: "Pregnancy Status Observation"
 Description: "This clinical statement meets the requirements of the US Core Data for Interoperability (USCDI) Pregnancy Status Data Element. It represents the State or condition of being pregnant at a point in time. To represent the patient's intent to become pregnant, use the [Pregnancy Intention in Next Year template](StructureDefinition-PregnancyIntentionInNextYear.html)."
 
-* insert LogicalModelTemplateRootOnly(pregnancy-obs, 2.16.840.1.113883.10.20.15.3.8)
+* insert LogicalModelTemplate(pregnancy-obs, 2.16.840.1.113883.10.20.15.3.8, 2025-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -14,14 +14,7 @@ Description: "This clinical statement meets the requirements of the US Core Data
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:81-452)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:81-19153)."
-  * code 1..1
-  * code = #82810-3
-    * ^short = "Pregnancy Status"
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"82810-3\" Pregnancy Status."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.5.4"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.5.4\" (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:81-26505)."
+  * insert CodedLoinc(82810-3, Pregnancy Status)
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:81-455)."
   * code 1..1

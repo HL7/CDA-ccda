@@ -98,7 +98,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.1.19 | [AuthorizationActivity](StructureDefinition-AuthorizationActivity.html) |
 | 2.16.840.1.113883.10.20.1.58 | [AdvanceDirectiveObservation](StructureDefinition-AdvanceDirectiveObservation.html) |
 | 2.16.840.1.113883.10.20.15.3.1 | [EstimatedDateofDelivery](StructureDefinition-EstimatedDateofDelivery.html) |
-| 2.16.840.1.113883.10.20.15.3.8 | [PregnancyStatusObservation](StructureDefinition-PregnancyStatusObservation.html) |
+| 2.16.840.1.113883.10.20.15.3.8:2025-05-01 | [PregnancyStatusObservation](StructureDefinition-PregnancyStatusObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.1:2023-05-01 | [ResultOrganizer](StructureDefinition-ResultOrganizer.html) |
 | 2.16.840.1.113883.10.20.22.4.2:2023-05-01 | [ResultObservation](StructureDefinition-ResultObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.3:2024-05-01 | [ProblemConcernAct](StructureDefinition-ProblemConcernAct.html) |
@@ -120,7 +120,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.27:2014-06-09 | [VitalSignObservation](StructureDefinition-VitalSignObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.28:2019-06-20 | [AllergyStatusObservation](StructureDefinition-AllergyStatusObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.30:2015-08-01 | [AllergyConcernAct](StructureDefinition-AllergyConcernAct.html) |
-| 2.16.840.1.113883.10.20.22.4.31 | [AgeRangeObservation](StructureDefinition-AgeRangeObservation.html) |
+| 2.16.840.1.113883.10.20.22.4.31 | [AgeObservation](StructureDefinition-AgeObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.32 | [ServiceDeliveryLocation](StructureDefinition-ServiceDeliveryLocation.html) |
 | 2.16.840.1.113883.10.20.22.4.33:2015-08-01 | [HospitalDischargeDiagnosis](StructureDefinition-HospitalDischargeDiagnosis.html) |
 | 2.16.840.1.113883.10.20.22.4.34:2015-08-01 | [HospitalAdmissionDiagnosis](StructureDefinition-HospitalAdmissionDiagnosis.html) |
@@ -151,7 +151,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.69:2022-06-01 | [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.72 | [CaregiverCharacteristics](StructureDefinition-CaregiverCharacteristics.html) |
 | 2.16.840.1.113883.10.20.22.4.74:2024-05-01 | [MentalStatusObservation](StructureDefinition-MentalStatusObservation.html) |
-| 2.16.840.1.113883.10.20.22.4.75:2015-08-01 | [MentalStatusOrganizer](StructureDefinition-MentalStatusOrganizer.html) |
+| 2.16.840.1.113883.10.20.22.4.75:2024-05-01 | [MentalStatusOrganizer](StructureDefinition-MentalStatusOrganizer.html) |
 | 2.16.840.1.113883.10.20.22.4.76:2024-05-01 | [NumberofPressureUlcersObservation](StructureDefinition-NumberofPressureUlcersObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.77 | [HighestPressureUlcerStage](StructureDefinition-HighestPressureUlcerStage.html) |
 | 2.16.840.1.113883.10.20.22.4.79:2015-08-01 | [DeceasedObservation](StructureDefinition-DeceasedObservation.html) |
@@ -229,6 +229,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.512:2024-05-01 | [AverageBloodPressureOrganizer](StructureDefinition-AverageBloodPressureOrganizer.html) |
 | 2.16.840.1.113883.10.20.22.4.513:2025-05-01 | [SexParameterForClinicalUseObservation](StructureDefinition-SexParameterForClinicalUseObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.515:2025-05-01 | [InterpreterNeededObservation](StructureDefinition-InterpreterNeededObservation.html) |
+| 2.16.840.1.113883.10.20.22.4.516:2025-05-01 | [AgeRangeObservation](StructureDefinition-AgeRangeObservation.html) |
 | 2.16.840.1.113883.10.20.24.3.88:2023-05-01 | [Reason](StructureDefinition-Reason.html) |
 | 2.16.840.1.113883.10.20.24.3.90:2014-06-09 | [SubstanceOrDeviceAllergyIntoleranceObservation](StructureDefinition-SubstanceOrDeviceAllergyIntoleranceObservation.html) |
 | 2.16.840.1.113883.10.20.34.3.45:2023-05-01 | [GenderIdentityObservation](StructureDefinition-GenderIdentityObservation.html) |
