@@ -16,9 +16,14 @@ Description: "This template represents medications that the patient is intended 
 * code 1..1
   * insert CodedLoinc(10183-2, Hospital discharge medication)
   * ^comment = "This code SHALL contain exactly one [1..1] @code=\"10183-2\" Hospital discharge medication (CONF:1198-19161)."
-  * translation 1..1
-    * insert CodedLoinc(75311-1, Discharge Medication)
-    * ^comment = "This translation SHALL contain exactly one [1..1] @code=\"75311-1\" Discharge Medication (CONF:1198-32953)."
+  * translation ^slicing.discriminator[0].type = #value
+    * ^slicing.discriminator[=].path = "codeSystem"
+    * ^slicing.discriminator[+].type = #value
+    * ^slicing.discriminator[=].path = "code"
+    * ^slicing.rules = #open
+  * translation contains translation1 1..1
+  * translation[translation1] ^comment = "This translation SHALL contain exactly one [1..1] @code=\"75311-1\" Discharge Medication (CONF:1198-32953)."
+    * insert CodedLoinc(75311-1, Discharge Medication)    
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-32779)."
   * code 1..1

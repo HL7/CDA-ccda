@@ -106,17 +106,33 @@
         </element>
         <element id="Act.code.translation">
             <path value="Act.code.translation"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="codeSystem"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Act.code.translation:translation1">
+            <path value="Act.code.translation"/>
+            <sliceName value="translation1"/>
             <short value="Discharge Medication"/>
             <comment value="This translation SHALL contain exactly one [1..1] @code=&quot;75311-1&quot; Discharge Medication (CONF:1198-32953)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Act.code.translation.code">
+        <element id="Act.code.translation:translation1.code">
             <path value="Act.code.translation.code"/>
             <min value="1"/>
             <patternCode value="75311-1"/>
         </element>
-        <element id="Act.code.translation.codeSystem">
+        <element id="Act.code.translation:translation1.codeSystem">
             <path value="Act.code.translation.codeSystem"/>
             <short value="LOINC"/>
             <min value="1"/>
