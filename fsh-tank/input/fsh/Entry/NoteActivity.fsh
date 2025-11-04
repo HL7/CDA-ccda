@@ -20,7 +20,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
 
 """
 
-* insert LogicalModelTemplate(note-activity, 2.16.840.1.113883.10.20.22.4.202, 2016-11-01)
+* insert LogicalModelTemplate(note-activity, 2.16.840.1.113883.10.20.22.4.202, 2026-05-01)
 * insert NarrativeLink
 
 * classCode 1..1
@@ -30,18 +30,8 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CONF:3250-16900)."
 * code 1..1
-  * ^comment = "SHALL contain exactly one [1..1] code (CONF:3250-16895)."
-  * code 1..1
-  * code = #34109-9
-    * ^comment = "This code SHALL contain exactly one [1..1] @code=\"34109-9\" Note (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."
-  * codeSystem 1..1
-  * codeSystem = "2.16.840.1.113883.6.1"
-    * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" LOINC (CONF:3250-16941)."
-  * obeys should-translation
-  * translation 0..*
-  * translation from $2.16.840.1.113883.11.20.9.68 (preferred)
-    * ^short = "If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943). If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."
-    * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)." // man-should
+* code from http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type (required)
+  * insert AdditionalBinding(preferred, http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-note-type, Clinical Notes, [[For clinical notes, use the US Core Clinical Note Type value set.]])
 * text 1..1
   * ^comment = "SHALL contain exactly one [1..1] text (CONF:3250-16896)."
   * obeys 3250-16912
