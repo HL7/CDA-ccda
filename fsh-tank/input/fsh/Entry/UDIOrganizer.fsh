@@ -82,18 +82,23 @@ urn:hl7ii:2.16.840.1.113883.10.20.22.4.305 2019-06-21 NCIt: C160939 MAY be inclu
 * component[lotOrBatchNumberObservation] ^short = "Lot Or Batch Number observation component"
   * observation 1..1
   * observation only LotOrBatchNumberObservation
+    * ^comment = "SHOULD contain zero or one [0..1] lot or batch number observation."
 * component[serialNumberObservation] ^short = "Serial Number observation component"
   * observation 1..1
   * observation only SerialNumberObservation
+    * ^comment = "SHOULD contain zero or one [0..1] serial number observation."
 * component[manufacturingDateObservation] ^short = "Manufacturing Date observation component"
   * observation 1..1
   * observation only ManufacturingDateObservation
+    * ^comment = "SHOULD contain zero or one [0..1] manufacturing date observation."
 * component[expirationDateObservation] ^short = "Expiration Date observation component"
   * observation 1..1
   * observation only ExpirationDateObservation
+    * ^comment = "SHOULD contain zero or one [0..1] expiration date observation."
 * component[distinctIdentificationCodeObservation] ^short = "Distinct Identification Code observation component"
   * observation 1..1
   * observation only DistinctIdentificationCodeObservation
+    * ^comment = "SHOULD contain zero or one [0..1] distinct identification code observation."
 * component[brandNameObservation] ^short = "Brand Name observation component"
   * observation 1..1
   * observation only BrandNameObservation
