@@ -23,9 +23,9 @@
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2026-05-01"/>
     </identifier>
-    <version value="2016-11-01"/>
+    <version value="2026-05-01"/>
     <name value="NoteActivity"/>
     <title value="Note Activity"/>
     <status value="draft"/>
@@ -76,7 +76,7 @@
         <element id="Act.templateId:note-activity.extension">
             <path value="Act.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2016-11-01"/>
+            <patternString value="2026-05-01"/>
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
@@ -90,34 +90,15 @@
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:3250-16895)."/>
-            <constraint>
-                <key value="should-translation"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain translation"/>
-                <expression value="translation.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
-            </constraint>
-        </element>
-        <element id="Act.code.code">
-            <path value="Act.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;34109-9&quot; Note (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."/>
-            <min value="1"/>
-            <patternCode value="34109-9"/>
-        </element>
-        <element id="Act.code.codeSystem">
-            <path value="Act.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:3250-16941)."/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.6.1"/>
-        </element>
-        <element id="Act.code.translation">
-            <path value="Act.code.translation"/>
-            <short value="If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943). If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."/>
-            <comment value="This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."/>
             <binding>
-                <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68"/>
+                <strength value="required"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-note-type"/>
+                    <documentation value="If this is a Clinical Note, then this value set **SHOULD** be used."/>
+                    <shortDoco value="Clinical Note Type"/>
+                </additional>
             </binding>
         </element>
         <element id="Act.text">

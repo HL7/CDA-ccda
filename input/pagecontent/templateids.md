@@ -193,7 +193,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.147 | [MedicationFreeTextSig](StructureDefinition-MedicationFreeTextSig.html) |
 | 2.16.840.1.113883.10.20.22.4.200:2024-05-01 | [BirthSexObservation](StructureDefinition-BirthSexObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.201:2016-06-01 | [SectionTimeRangeObservation](StructureDefinition-SectionTimeRangeObservation.html) |
-| 2.16.840.1.113883.10.20.22.4.202:2016-11-01 | [NoteActivity](StructureDefinition-NoteActivity.html) |
+| 2.16.840.1.113883.10.20.22.4.202:2026-05-01 | [NoteActivity](StructureDefinition-NoteActivity.html) |
 | 2.16.840.1.113883.10.20.22.4.281:2023-05-01 | [PregnancyIntentionInNextYear](StructureDefinition-PregnancyIntentionInNextYear.html) |
 | 2.16.840.1.113883.10.20.22.4.301:2019-06-21 | [BrandNameObservation](StructureDefinition-BrandNameObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.302:2019-06-21 | [CatalogNumberObservation](StructureDefinition-CatalogNumberObservation.html) |
