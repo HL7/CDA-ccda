@@ -7,7 +7,7 @@ The Notes Section SHOULD NOT be used in place of a more specific C-CDA section. 
 When a Notes Section is present, Note Activity entries contain structured information about the note information allowing it to be more machine processable. 
 """
 
-* insert _SectionNoCode(2.16.840.1.113883.10.20.22.2.65, 2016-11-01)
+* insert _SectionNoCode(2.16.840.1.113883.10.20.22.2.65, 2026-05-01)
 
 * title ^short = "This title should reflect the kind of notes included in this section, corresponding to the code."
 * text ^short = """The narrative SHOULD contain human-readable representations using standard CDA narrative markup of each note to ensure widest compatibility with receivers.

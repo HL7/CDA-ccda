@@ -86,7 +86,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.2.60 | [GoalsSection](StructureDefinition-GoalsSection.html) |
 | 2.16.840.1.113883.10.20.22.2.61 | [OutcomesSection](StructureDefinition-OutcomesSection.html) |
 | 2.16.840.1.113883.10.20.22.2.64 | [CourseofCareSection](StructureDefinition-CourseofCareSection.html) |
-| 2.16.840.1.113883.10.20.22.2.65:2016-11-01 | [NotesSection](StructureDefinition-NotesSection.html) |
+| 2.16.840.1.113883.10.20.22.2.65:2026-05-01 | [NotesSection](StructureDefinition-NotesSection.html) |
 | 2.16.840.1.113883.10.20.22.2.500:2022-06-01 | [CareTeamsSection](StructureDefinition-CareTeamsSection.html) |
 
 
