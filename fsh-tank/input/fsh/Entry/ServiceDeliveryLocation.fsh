@@ -35,6 +35,7 @@ To conform with USCDI requirements, certifying systems shall support either HSLO
 * obeys should-addr
 * addr 0..1
 * addr only USRealmAddress
+  * insert USCDI([[Facility Address]])
 * obeys should-telecom
 * telecom 0..*
   * ^comment = "SHOULD contain zero or more [0..*] telecom (CONF:81-7761)." // auto-should
