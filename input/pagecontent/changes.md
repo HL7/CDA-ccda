@@ -7,9 +7,13 @@ The changes in this versino of Consolidated CDA were made from comments raised p
 ##### Changed Templates
 * Note Activity and Notes Section - new version of template with changes to note code bindings
 * Social History Observation - updated cardinality and invariants on sdtc:category
+* Age Range Observation - new template ID and value allows IVL_PQ or ST
+* Pregnancy Observation - new version of template and codeSystem is LOINC
 
 
 #### Tracker Issues Applied
+* [CDA-21375](https://jira.hl7.org/browse/CDA-21375) - Pregnancy Observation has wrong code system
+* [CDA-21376](https://jira.hl7.org/browse/CDA-21376) - Age Range Observation needs new template ID
 * [CDA-21383](https://jira.hl7.org/browse/CDA-21383) - Social History Observation added category without versioning
 * [CDA-21411](https://jira.hl7.org/browse/CDA-21411) - Discharge Medication Act does not slice translation
 * [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426),  - UDI Organizer Entry slices have been made individual and SHOULD constraints added
