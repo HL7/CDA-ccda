@@ -98,6 +98,16 @@ Description: "SHOULD contain Coverage Activity"
 Severity: #warning
 Expression: "entry.where(act.hasTemplateIdOf(CoverageActivity))"
 
+Invariant: should-distinct-identification-code-observation
+Description: "SHOULD contain Distinct Identification Code Observation"
+Severity: #warning
+Expression: "component.where(observation.hasTemplateIdOf(DistinctIdentificationCodeObservation))"
+
+Invariant: should-expiration-date-observation
+Description: "SHOULD contain Expiration Date Observation"
+Severity: #warning
+Expression: "component.where(observation.hasTemplateIdOf(ExpirationDateObservation))"
+
 Invariant: should-health-status-obs
 Description: "SHOULD contain Health Status Observation"
 Severity: #warning
@@ -107,6 +117,16 @@ Invariant: should-intervention-act
 Description: "SHOULD contain Intervention Act"
 Severity: #warning
 Expression: "entry.where(act.hasTemplateIdOf(InterventionAct))"
+
+Invariant: should-lot-or-batch-number-observation
+Description: "SHOULD contain Lot Or Batch Number Observation"
+Severity: #warning
+Expression: "component.where(observation.hasTemplateIdOf(LotOrBatchNumberObservation))"
+
+Invariant: should-manufacturing-date-observation
+Description: "SHOULD contain Manufacturing Date Observation"
+Severity: #warning
+Expression: "component.where(observation.hasTemplateIdOf(ManufacturingDateObservation))"
 
 Invariant: should-non-med-supply
 Description: "SHOULD contain Non-Medicinal Supply Activity"
@@ -137,6 +157,11 @@ Invariant: should-procedure-act-procedure
 Description: "SHOULD contain Procedure Activity Procedure"
 Severity: #warning
 Expression: "entry.where(procedure.hasTemplateIdOf(ProcedureActivityProcedure))"
+
+Invariant: should-serial-number-observation
+Description: "SHOULD contain Serial Number Observation"
+Severity: #warning
+Expression: "component.where(observation.hasTemplateIdOf(SerialNumberObservation))"
 
 Invariant: should-smoking-status
 Description: "SHOULD contain Smoking Status"
