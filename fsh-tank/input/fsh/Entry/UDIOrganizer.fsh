@@ -3,33 +3,7 @@ Parent: $Organizer
 Id: UDIOrganizer
 Title: "UDI Organizer"
 Description: """This template is nested in an entryRelationship/Procedure Activity Procedure to record all the UDI-related templates to exchange the parsed UDI data elements and associated data.
-
-* **Device Identifier**
-      urn:hl7ii:2.16.840.1.113883.10.20.22.4.304: 2019-06-21 NCIt: C101722 SHALL be included in UDI Organizer 
-* **Lot or Batch Number**
- urn:hl7ii:2.16.840.1.113883.10.20.22.4.315: 2019-06-21 NCIt:C101672 SHOULD be included in UDI Organizer if present in UDI
-* **Serial Number** 
-urn:hl7ii:2.16.840.1.113883.10.20.22.4.319: 2019-06-21 NCIt: C101671 SHOULD be included in UDI Organizer if present in UDI 
-* **Manufacturing Date**  
-urn:hl7ii:2.16.840.1.113883.10.20.22.4.316: 2019-06-21  NCIt:C101669 SHOULD be included in UDI Organizer if present in UDI  
-*  **Expiration Date**
-      urn:hl7ii:2.16.840.1.113883.10.20.22.4.309: 2019-06-21 NCIt: C101670 SHOULD be included in UDI Organizer if present in UDI 
-* **Distinct Identification Code** 
-urn:hl7ii:2.16.840.1.113883.10.20.22.4.308: 2019-06-21 NCIt: C113843 SHOULD be included in UDI Organizer if present in UDI
-* **Brand Name**
-      urn:hl7ii:2.16.840.1.113883.10.20.22.4.301: 2019-06-21 NCIt: C71898 MAY be included in the UDI Organizer if available
-* **Model Number** 
-urn:hl7ii:2.16.840.1.113883.10.20.22.4.317: 2019-06-21 NCIt: C99285 MAY be included in the UDI Organizer if available
-* **Catalog Number**
-      urn:hl7ii:2.16.840.1.113883.10.20.22.4.302: 2019-06-21 NCIt: C99286 MAY be included in the UDI Organizer if available
-* **Company Name** 
-urn:hl7ii:2.16.840.1.113883.10.20.22.4.303: 2019-06-21   NCIt: C54131 MAY be included in the UDI Organizer if available
-* **MRI Safety**
-urn:hl7ii:2.16.840.1.113883.10.20.22.4.318: 2019-06-21 NCIt: C106044 MAY be included in the UDI Organizer if available
-* **Latex Safety**
-urn:hl7ii:2.16.840.1.113883.10.20.22.4.314: 2019-06-21 NCIt: C160938 MAY be included in the UDI Organizer if available
-* **Implantable Device Status**
-urn:hl7ii:2.16.840.1.113883.10.20.22.4.305 2019-06-21 NCIt: C160939 MAY be included in the UDI Organizer if available"""
+The Device Identifier template SHALL be included.  The Lot or Batch Number, Serial Number, Manufacturing Date, Expiration Date, and Distinct Identification Code templates SHOULD be included if present in the UDI.  The Implantable Device Status template MAY be included if the device is implantable and the information is available.  The other listed templates MAY be included if available."""
 * ^meta.versionId = "5"
 * ^meta.lastUpdated = "2023-07-11T23:41:40.695Z"
 
