@@ -1,3 +1,22 @@
+### Version 5.0.0-ballot
+
+The changes in this versino of Consolidated CDA were made from comments raised post version 4.0.0 along with new USCDI requirements for Unique Device Identifier, Facility Address, Care Plan, Problem Date of Onset, Family Health History, and Portable Medical Order.
+
+#### Major Changes
+
+##### Changed Templates
+* Note Activity and Notes Section - new version of template with changes to note code bindings
+* Social History Observation - updated cardinality and invariants on sdtc:category
+
+
+#### Tracker Issues Applied
+* [CDA-21383](https://jira.hl7.org/browse/CDA-21383) - Social History Observation added category without versioning
+* [CDA-21411](https://jira.hl7.org/browse/CDA-21411) - Discharge Medication Act does not slice translation
+* [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426),  - UDI Organizer Entry slices have been made individual and SHOULD constraints added
+* [CDA-21415](https://jira.hl7.org/browse/CDA-21415) - Update note code bindings on Note Activity and Notes Section
+* [CDA-21423](https://jira.hl7.org/browse/CDA-21423) - Health Concern Act - Act.code contains wrong code display name
+
+
 ### Version 4.0.0
 
 The changes in this version of Consolidated CDA were made from comments raised during the ballot period.
