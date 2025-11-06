@@ -23,9 +23,9 @@
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/NotesSection"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.65:2016-11-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.2.65:2026-05-01"/>
     </identifier>
-    <version value="2016-11-01"/>
+    <version value="2026-05-01"/>
     <name value="NotesSection"/>
     <title value="Notes Section"/>
     <status value="draft"/>
@@ -76,15 +76,20 @@
         <element id="Section.templateId:section.extension">
             <path value="Section.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2016-11-01"/>
+            <patternString value="2026-05-01"/>
         </element>
         <element id="Section.code">
             <path value="Section.code"/>
-            <comment value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16892)."/>
             <min value="1"/>
             <binding>
-                <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68"/>
+                <strength value="required"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-note-type"/>
+                    <documentation value="If this is a Clinical Note, then this value set **SHOULD** be used."/>
+                    <shortDoco value="Clinical Note Type"/>
+                </additional>
             </binding>
         </element>
         <element id="Section.code.code">
