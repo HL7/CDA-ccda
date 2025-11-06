@@ -2,6 +2,10 @@
 
 The changes in this versino of Consolidated CDA were made from comments raised post version 4.0.0 along with new USCDI requirements for Unique Device Identifier, Facility Address, Care Plan, Problem Date of Onset, Family Health History, and Portable Medical Order.
 
+#### USCDI Changes
+* Portable Medical Order added to USCDI Mapping Table
+* Facility Address marked as USCDI element
+
 #### Major Changes
 
 ##### Changed Templates
@@ -19,6 +23,8 @@ The changes in this versino of Consolidated CDA were made from comments raised p
 * [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426),  - UDI Organizer Entry slices have been made individual and SHOULD constraints added
 * [CDA-21415](https://jira.hl7.org/browse/CDA-21415) - Update note code bindings on Note Activity and Notes Section
 * [CDA-21423](https://jira.hl7.org/browse/CDA-21423) - Health Concern Act - Act.code contains wrong code display name
+* [CDA-21420](https://jira.hl7.org/browse/CDA-21420) - USCDI v6 - Facility Address
+* [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add Portable Medical Order to USCDI Mapping Table
 
 
 ### Version 4.0.0
