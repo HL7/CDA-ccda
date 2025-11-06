@@ -23,13 +23,13 @@
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2016-11-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.202:2026-05-01"/>
     </identifier>
-    <version value="2016-11-01"/>
+    <version value="2026-05-01"/>
     <name value="NoteActivity"/>
     <title value="Note Activity"/>
     <status value="draft"/>
-    <description value="The Note Activity represents a clinical note. Notes require authorship, authentication, timing information, and references to other discrete data such as encounters. Similar to the Comment Activity, the Note Activity permits a more specific code to characterize the type of information available in the note. The Note Activity template SHOULD NOT be used in place of a more specific C-CDA entry. Note information included needs to be relevant and pertinent to the information being communicated in the document.&#xA;When the note information augments data represented in a more specific entry template, the Note Activity can be used in an entryRelationship to the associated standard C-CDA entry. For example, a Procedure Note added as an entryRelationship to a Procedure Activity Procedure entry). &#xA;The Note Activity template can be used as a standalone entry within a standard C-CDA section (e.g., a note about various procedures which have occurred during a visit as an entry in the Procedures Section) when it does not augment another standard entry. It may also be used to provide additional data about the source of a currently narrative-only section, such as Hospital Course.&#xA;Finally, if the type of data in the note is not known or no single C-CDA section is appropriate enough, the Note Activity should be placed in a Notes Section. (e.g., a free-text consultation note or a note which includes subjective, objective, assessment, and plan information combined).&#xA;An alternative is to place the Note Activity as an entryRelationship to an Encounter Activity entry in the Encounters Section, but implementers may wish to group notes categorically into a separate location in CDA documents rather than overloading the Encounters Section.&#xA;&#xA;The narrative Clinical Notes required in USCDI, along with their associated LOINC codes, are outlined below. These note types are included in the [Note Types Value Set](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.11.20.9.68/expansion), which is bound to Act.code.translation.&#xA;&#xA;* Consultation Note (LOINC: 11488-4)&#xA;* Discharge Summary (LOINC: 18842-5)&#xA;* History &amp; Physical Note (LOINC: 34117-2)&#xA;* Procedures Note (LOINC: 28570-0)&#xA;* Progress Note (LOINC: 11506-3)&#xA;* Surgical Operation Note (Operative Note) (LOINC: 11504-8)&#xA;* Emergency Department Note (LOINC: 34111-5)&#xA;"/>
+    <description value="The Note Activity represents a clinical note. Notes require authorship, authentication, timing information, and references to other discrete data such as encounters. Similar to the Comment Activity, the Note Activity permits a more specific code to characterize the type of information available in the note. The Note Activity template SHOULD NOT be used in place of a more specific C-CDA entry. Note information included needs to be relevant and pertinent to the information being communicated in the document.&#xA;When the note information augments data represented in a more specific entry template, the Note Activity can be used in an entryRelationship to the associated standard C-CDA entry. For example, a Procedure Note added as an entryRelationship to a Procedure Activity Procedure entry). &#xA;The Note Activity template can be used as a standalone entry within a standard C-CDA section (e.g., a note about various procedures which have occurred during a visit as an entry in the Procedures Section) when it does not augment another standard entry. It may also be used to provide additional data about the source of a currently narrative-only section, such as Hospital Course.&#xA;Finally, if the type of data in the note is not known or no single C-CDA section is appropriate enough, the Note Activity should be placed in a Notes Section. (e.g., a free-text consultation note or a note which includes subjective, objective, assessment, and plan information combined).&#xA;An alternative is to place the Note Activity as an entryRelationship to an Encounter Activity entry in the Encounters Section, but implementers may wish to group notes categorically into a separate location in CDA documents rather than overloading the Encounters Section.&#xA;&#xA;The narrative Clinical Notes required in USCDI, along with their associated LOINC codes, are outlined below. These note types are included in the [US Core Clinical Note Type value set](http://hl7.org/fhir/us/core/STU8/ValueSet-us-core-clinical-note-type.html), which is bound to Act.code.&#xA;&#xA;* Consultation Note (LOINC: 11488-4)&#xA;* Discharge Summary (LOINC: 18842-5)&#xA;* History &amp; Physical Note (LOINC: 34117-2)&#xA;* Procedures Note (LOINC: 28570-0)&#xA;* Progress Note (LOINC: 11506-3)&#xA;* Surgical Operation Note (Operative Note) (LOINC: 11504-8)&#xA;* Emergency Department Note (LOINC: 34111-5)&#xA;"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -76,7 +76,7 @@
         <element id="Act.templateId:note-activity.extension">
             <path value="Act.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2016-11-01"/>
+            <patternString value="2026-05-01"/>
         </element>
         <element id="Act.classCode">
             <path value="Act.classCode"/>
@@ -90,34 +90,15 @@
         </element>
         <element id="Act.code">
             <path value="Act.code"/>
-            <comment value="SHALL contain exactly one [1..1] code (CONF:3250-16895)."/>
-            <constraint>
-                <key value="should-translation"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain translation"/>
-                <expression value="translation.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/NoteActivity"/>
-            </constraint>
-        </element>
-        <element id="Act.code.code">
-            <path value="Act.code.code"/>
-            <comment value="This code SHALL contain exactly one [1..1] @code=&quot;34109-9&quot; Note (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:3250-16940)."/>
-            <min value="1"/>
-            <patternCode value="34109-9"/>
-        </element>
-        <element id="Act.code.codeSystem">
-            <path value="Act.code.codeSystem"/>
-            <comment value="This code SHALL contain exactly one [1..1] @codeSystem=&quot;2.16.840.1.113883.6.1&quot; LOINC (CONF:3250-16941)."/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.6.1"/>
-        </element>
-        <element id="Act.code.translation">
-            <path value="Act.code.translation"/>
-            <short value="If the Note Activity is within a narrative-only section (e.g. Hospital Course), the translation MAY match the section code (CONF:3250-16943). If the Note Activity is within a Note Section, the translation SHOULD match or specialize the section code (CONF:3250-16942)."/>
-            <comment value="This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Note Types urn:oid:2.16.840.1.113883.11.20.9.68 DYNAMIC (CONF:3250-16939)."/>
             <binding>
-                <strength value="preferred"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68"/>
+                <strength value="required"/>
+                <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type"/>
+                <additional>
+                    <purpose value="preferred"/>
+                    <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-note-type"/>
+                    <documentation value="If this is a Clinical Note, then this value set **SHOULD** be used."/>
+                    <shortDoco value="Clinical Note Type"/>
+                </additional>
             </binding>
         </element>
         <element id="Act.text">

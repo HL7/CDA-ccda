@@ -37,10 +37,60 @@ The Device Identifier template SHALL be included.  The Lot or Batch Number, Seri
 * component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* component contains deviceObs 1..1 and otherObs 0..*
-* component[deviceObs] ^short = "component"
+* component contains deviceIdentifierObservation 1..1 and
+    lotOrBatchNumberObservation 0..1 and 
+    serialNumberObservation 0..1 and 
+    manufacturingDateObservation 0..1 and 
+    expirationDateObservation 0..1 and 
+    distinctIdentificationCodeObservation 0..1 and 
+    brandNameObservation 0..1 and 
+    modelNumberObservation 0..1 and 
+    companyNameObservation 0..1 and 
+    catalogNumberObservation 0..1 and 
+    latexSafetyObservation 0..1 and 
+    mRISafetyObservation 0..1 and 
+    implantableDeviceStatusObservation 0..1
+* component[deviceIdentifierObservation] ^short = "Device Identifier observation component"
   * observation 1..1
   * observation only DeviceIdentifierObservation
-* component[otherObs]
+* component[lotOrBatchNumberObservation] ^short = "Lot Or Batch Number observation component"
   * observation 1..1
-  * observation only LotOrBatchNumberObservation or SerialNumberObservation or ManufacturingDateObservation or ExpirationDateObservation or DistinctIdentificationCodeObservation or BrandNameObservation or ModelNumberObservation or CompanyNameObservation or CatalogNumberObservation or LatexSafetyObservation or MRISafetyObservation or ImplantableDeviceStatusObservation
+  * observation only LotOrBatchNumberObservation
+* obeys should-lot-or-batch-number-observation
+* component[serialNumberObservation] ^short = "Serial Number observation component"
+  * observation 1..1
+  * observation only SerialNumberObservation
+* obeys should-serial-number-observation
+* component[manufacturingDateObservation] ^short = "Manufacturing Date observation component"
+  * observation 1..1
+  * observation only ManufacturingDateObservation
+* obeys should-manufacturing-date-observation
+* component[expirationDateObservation] ^short = "Expiration Date observation component"
+  * observation 1..1
+  * observation only ExpirationDateObservation
+* obeys should-expiration-date-observation
+* component[distinctIdentificationCodeObservation] ^short = "Distinct Identification Code observation component"
+  * observation 1..1
+  * observation only DistinctIdentificationCodeObservation
+* obeys should-distinct-identification-code-observation
+* component[brandNameObservation] ^short = "Brand Name observation component"
+  * observation 1..1
+  * observation only BrandNameObservation
+* component[modelNumberObservation] ^short = "Model Number observation component"
+  * observation 1..1
+  * observation only ModelNumberObservation
+* component[companyNameObservation] ^short = "Company Name observation component"
+  * observation 1..1
+  * observation only CompanyNameObservation
+* component[catalogNumberObservation] ^short = "Catalog Number observation component"
+  * observation 1..1
+  * observation only CatalogNumberObservation
+* component[latexSafetyObservation] ^short = "Latex Safety observation component"
+  * observation 1..1
+  * observation only LatexSafetyObservation
+* component[mRISafetyObservation] ^short = "MRI Safety observation component"
+  * observation 1..1
+  * observation only MRISafetyObservation
+* component[implantableDeviceStatusObservation] ^short = "Implantable Device Status observation component"
+  * observation 1..1
+  * observation only ImplantableDeviceStatusObservation

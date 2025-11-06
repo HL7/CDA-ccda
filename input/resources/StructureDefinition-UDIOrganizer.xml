@@ -50,6 +50,41 @@
                 <expression value="sdtcText.reference.value.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/UDIOrganizer"/>
             </constraint>
+            <constraint>
+                <key value="should-lot-or-batch-number-observation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Lot Or Batch Number Observation"/>
+                <expression value="component.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/LotOrBatchNumberObservation'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/UDIOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-serial-number-observation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Serial Number Observation"/>
+                <expression value="component.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/SerialNumberObservation'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/UDIOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-manufacturing-date-observation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Manufacturing Date Observation"/>
+                <expression value="component.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ManufacturingDateObservation'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/UDIOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-expiration-date-observation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Expiration Date Observation"/>
+                <expression value="component.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ExpirationDateObservation'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/UDIOrganizer"/>
+            </constraint>
+            <constraint>
+                <key value="should-distinct-identification-code-observation"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain Distinct Identification Code Observation"/>
+                <expression value="component.where(observation.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/DistinctIdentificationCodeObservation'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/UDIOrganizer"/>
+            </constraint>
         </element>
         <element id="Organizer.templateId">
             <path value="Organizer.templateId"/>
@@ -152,14 +187,14 @@
             </slicing>
             <min value="1"/>
         </element>
-        <element id="Organizer.component:deviceObs">
+        <element id="Organizer.component:deviceIdentifierObservation">
             <path value="Organizer.component"/>
-            <sliceName value="deviceObs"/>
-            <short value="component"/>
+            <sliceName value="deviceIdentifierObservation"/>
+            <short value="Device Identifier observation component"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Organizer.component:deviceObs.observation">
+        <element id="Organizer.component:deviceIdentifierObservation.observation">
             <path value="Organizer.component.observation"/>
             <min value="1"/>
             <type>
@@ -167,28 +202,183 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DeviceIdentifierObservation"/>
             </type>
         </element>
-        <element id="Organizer.component:otherObs">
+        <element id="Organizer.component:lotOrBatchNumberObservation">
             <path value="Organizer.component"/>
-            <sliceName value="otherObs"/>
+            <sliceName value="lotOrBatchNumberObservation"/>
+            <short value="Lot Or Batch Number observation component"/>
             <min value="0"/>
-            <max value="*"/>
+            <max value="1"/>
         </element>
-        <element id="Organizer.component:otherObs.observation">
+        <element id="Organizer.component:lotOrBatchNumberObservation.observation">
             <path value="Organizer.component.observation"/>
             <min value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/LotOrBatchNumberObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:serialNumberObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="serialNumberObservation"/>
+            <short value="Serial Number observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:serialNumberObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/SerialNumberObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:manufacturingDateObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="manufacturingDateObservation"/>
+            <short value="Manufacturing Date observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:manufacturingDateObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ManufacturingDateObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:expirationDateObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="expirationDateObservation"/>
+            <short value="Expiration Date observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:expirationDateObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ExpirationDateObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:distinctIdentificationCodeObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="distinctIdentificationCodeObservation"/>
+            <short value="Distinct Identification Code observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:distinctIdentificationCodeObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/DistinctIdentificationCodeObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:brandNameObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="brandNameObservation"/>
+            <short value="Brand Name observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:brandNameObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BrandNameObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:modelNumberObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="modelNumberObservation"/>
+            <short value="Model Number observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:modelNumberObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ModelNumberObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:companyNameObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="companyNameObservation"/>
+            <short value="Company Name observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:companyNameObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CompanyNameObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:catalogNumberObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="catalogNumberObservation"/>
+            <short value="Catalog Number observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:catalogNumberObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CatalogNumberObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:latexSafetyObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="latexSafetyObservation"/>
+            <short value="Latex Safety observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:latexSafetyObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/LatexSafetyObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:mRISafetyObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="mRISafetyObservation"/>
+            <short value="MRI Safety observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:mRISafetyObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/MRISafetyObservation"/>
+            </type>
+        </element>
+        <element id="Organizer.component:implantableDeviceStatusObservation">
+            <path value="Organizer.component"/>
+            <sliceName value="implantableDeviceStatusObservation"/>
+            <short value="Implantable Device Status observation component"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Organizer.component:implantableDeviceStatusObservation.observation">
+            <path value="Organizer.component.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ImplantableDeviceStatusObservation"/>
             </type>
         </element>

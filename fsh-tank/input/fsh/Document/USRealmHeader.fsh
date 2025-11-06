@@ -478,6 +478,12 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * assignedEntity 1..1
         * obeys 1198-32905
         * ^comment = "The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32904)."
+    * location
+      * healthCareFacility
+        * location
+          * addr
+            * insert USCDI([[Facility Address]])
+          
 
 Invariant: 4537-6380
 Description: "If setId is present versionNumber **SHALL** be present (CONF:4537-6380)."
