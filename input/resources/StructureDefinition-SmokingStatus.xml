@@ -29,7 +29,7 @@
     <name value="SmokingStatus"/>
     <title value="Smoking Status"/>
     <status value="draft"/>
-    <description value="This template represents a patient's smoking status. It is a combination and replacement of the two previous templates Smoking Status - Meaningful Use and Tobacco Use, and it aligns with the US Core Smoking Status profile.&#xA;&#xA;When the code represents a quantifiable observation (such as Cigarette pack-years - 401201003), the value may be a Physical Quantity. When the code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value **SHALL** be coded.&#xA;&#xA;Regarding effectiveTime: some values in the Tobacco Use value set represent temporal meanings (e.g. 266919005 - Never smoked tobacco) and should correspond to a single timestamp representing when the observation was true. Other codes, such as 59978006 - Cigar smoker, may be represented with a single timestamp or a time range indicating when the patient began smoking and when they stopped."/>
+    <description value="This template represents a patient's smoking status. It is a combination and replacement of the two previous templates Smoking Status - Meaningful Use and Tobacco Use, and it aligns with the US Core Smoking Status profile.&#xA;&#xA;When the code represents a quantifiable observation (such as Cigarette pack-years - 401201003), the value may be a Physical Quantity. When the code is Smoking Status (72166-2), Tobacco Use (11367-0), or Electronic cigarette status (105045-9) the value **SHALL** be coded.&#xA;&#xA;Regarding effectiveTime: some values in the Tobacco Use value set represent temporal meanings (e.g. 266919005 - Never smoked tobacco) and should correspond to a single timestamp representing when the observation was true. Other codes, such as 59978006 - Cigar smoker, may be represented with a single timestamp or a time range indicating when the patient began smoking and when they stopped."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -49,8 +49,8 @@
             <constraint>
                 <key value="coded-value"/>
                 <severity value="error"/>
-                <human value="When code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value SHALL be coded"/>
-                <expression value="(code.code = '72166-2' or code.code = '11367-0') implies value.code.exists()"/>
+                <human value="When code is Smoking Status (72166-2), or Tobacco Use (11367-0), or Electronic cigarette status (105045-9) the value SHALL be coded"/>
+                <expression value="(code.code = '72166-2' or code.code = '11367-0' or code.code = '105045-9') implies value.code.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus"/>
             </constraint>
         </element>
