@@ -51,7 +51,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
   * ^slicing.rules = #open
 * participant contains
     verifier 0..* and
-    custodian 0..*
+    healthcareAgent 0..*
 * participant[verifier]
   * insert USCDI([[Verifier - The participant \"VRF\" represents the clinician(s) who verified the patient advance directive.]])
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
@@ -88,8 +88,8 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
         * ^comment = "The playingEntity SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."
 * obeys should-informant
 * informant ^short = "SHOULD contain informant" // man-should
-* participant[custodian] ^short = "This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."
-* participant[custodian] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"
+* participant[healthcareAgent] ^short = "This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."
+* participant[healthcareAgent] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"
   * typeCode 1..1
   * typeCode = #CST (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"CST\" Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."
