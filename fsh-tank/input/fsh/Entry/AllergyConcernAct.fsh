@@ -6,7 +6,9 @@ Description: """This template reflects an ongoing concern on behalf of the provi
 
 The statusCode of the Allergy Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Allergy - Intolerance Observation is the definitive indication of whether or not the underlying allergy is resolved. 
 
-The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."""
+The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition).
+
+An Allergy Concern Act can contain one Allergy Intolerance Observation (templateId 2.16.840.1.113883.10.20.22.4.7). The Allergy Intolerance Observation is a discrete observation of a patient's allergy or intolerance, and therefore will have a statusCode of "completed"."""
 
 * insert LogicalModelTemplate(allergy-concern-act, 2.16.840.1.113883.10.20.22.4.30, 2015-08-01)
 * insert NarrativeLink
