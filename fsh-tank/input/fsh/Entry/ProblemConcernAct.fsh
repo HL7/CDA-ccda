@@ -5,9 +5,10 @@ Title: "Problem Concern Act"
 Description: """This template reflects an ongoing concern on behalf of the provider that placed the concern on a patient's problem list. So long as the underlying condition is of concern to the provider (i.e., as long as the condition, whether active or resolved, is of ongoing concern and interest to the provider), the statusCode is "active". Only when the underlying condition is no longer of concern is the statusCode set to "completed". The effectiveTime reflects the time that the underlying condition was felt to be a concern; it may or may not correspond to the effectiveTime of the condition (e.g., even five years later, the clinician may remain concerned about a prior heart attack).
 
 <figure>
-  <img style="padding-top:0;padding-bottom:0px" src="cda_problemactandproblemobs_timing.png"/>
+  <img style="padding-top:0;padding-bottom:0px" width="800px" src="cda_problemactandproblemobs_timing.png"/>
   <figcaption>Problem Act Timing Detail</figcaption>
 </figure>
+
 
 The statusCode of the Problem Concern Act is the definitive indication of the status of the concern, whereas the effectiveTime of the nested Problem Observation is the definitive indication of whether or not the underlying condition is resolved.
 
