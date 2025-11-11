@@ -96,16 +96,9 @@ Description: "This template is used to represent the details of current and hist
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
 * participant contains
+    serviceDeliveryLocation 0..* and
     productInstance 0..* and
-    serviceDeliveryLocation 0..*
-* participant[productInstance] ^short = "participant"
-  * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7751) such that it"
-  * typeCode 1..1
-  * typeCode = #DEV (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"DEV\" Device (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7752)."
-  * participantRole 1..1
-  * participantRole only ProductInstance
-    * ^comment = "SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:4515-15911)."
+    UDIOrganizer 0..*
 * participant[serviceDeliveryLocation] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
   * typeCode 1..1
@@ -113,7 +106,15 @@ Description: "This template is used to represent the details of current and hist
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"LOC\" Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4515-7766)."
   * participantRole 1..1
   * participantRole only ServiceDeliveryLocation
-    * ^comment = "SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:4515-15912)."
+    * ^comment = "SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:4515-15912)."  
+* participant[productInstance] ^short = "participant"
+  * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7751) such that it"
+  * typeCode 1..1
+  * typeCode = #DEV (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"DEV\" Device (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7752)."
+  * participantRole 1..1
+  * participantRole only ProductInstance
+    * ^comment = "SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:4515-15911)."  
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
@@ -125,6 +126,7 @@ Description: "This template is used to represent the details of current and hist
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
 * entryRelationship contains
+    udiOrganizer 0..* and
     encounter 0..* and
     instruction 0..1 and
     indication 0..* and
@@ -132,6 +134,17 @@ Description: "This template is used to represent the details of current and hist
     reaction 0..* and
     assessmentScaleObs 0..* and
     entryReference 0..*
+* entryRelationship[udiOrganizer] ^short = "entryRelationship"
+  * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-7768) such that it"
+  * typeCode 1..1
+  * typeCode = #COMP (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7769)."
+  * inversionInd 1..1
+  * inversionInd = true (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @inversionInd=\"true\" true (CONF:4515-8009)."
+  * encounter 0..0
+  * organizer 1..1
+  * organizer only UDIOrganizer
 * entryRelationship[encounter] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-7768) such that it"
   * typeCode 1..1
