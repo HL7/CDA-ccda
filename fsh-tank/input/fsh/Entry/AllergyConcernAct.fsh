@@ -8,7 +8,7 @@ The statusCode of the Allergy Concern Act is the definitive indication of the st
 
 The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition).
 
-An Allergy Concern Act **SHALL* contain one Allergy Intolerance Observation (templateId 2.16.840.1.113883.10.20.22.4.7). The Allergy Intolerance Observation is a discrete observation of a patient's allergy or intolerance, and therefore will have a statusCode of "completed"."""
+An Allergy Concern Act **SHALL** contain one Allergy Intolerance Observation (templateId 2.16.840.1.113883.10.20.22.4.7). The Allergy Intolerance Observation is a discrete observation of a patient's allergy or intolerance, and therefore will have a statusCode of "completed"."""
 
 * insert LogicalModelTemplate(allergy-concern-act, 2.16.840.1.113883.10.20.22.4.30, 2015-08-01)
 * insert NarrativeLink
