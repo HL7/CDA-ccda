@@ -97,8 +97,7 @@ Description: "This template is used to represent the details of current and hist
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
 * participant contains
     serviceDeliveryLocation 0..* and
-    productInstance 0..* and
-    UDIOrganizer 0..*
+    productInstance 0..*
 * participant[serviceDeliveryLocation] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
   * typeCode 1..1
