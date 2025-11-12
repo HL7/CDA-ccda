@@ -4,7 +4,7 @@ Id: FamilyHistoryOrganizer
 Title: "Family History Organizer"
 Description: "The Family History Organizer associates a set of observations with a family member. For example, the Family History Organizer can group a set of observations about the patient's father."
 
-* insert LogicalModelTemplate(family-history-org, 2.16.840.1.113883.10.20.22.4.45, 2015-08-01)
+* insert LogicalModelTemplate(family-history-org, 2.16.840.1.113883.10.20.22.4.45, 2026-05-01)
 * insert NarrativeLinkOrganizer
 
 * classCode 1..1
@@ -34,8 +34,7 @@ Description: "The Family History Organizer associates a set of observations with
     * subject 0..1
       * ^comment = "This relatedSubject SHOULD contain zero or one [0..1] subject (CONF:1198-15248)." // auto-should
       * administrativeGenderCode 1..1
-      * administrativeGenderCode from $2.16.840.1.113883.1.11.1 (required)
-        * ^comment = "The subject, if present, SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:1198-15974)."
+      * administrativeGenderCode from $FederalAdministrativeSex (required)
       * obeys should-birthTime
       * birthTime 0..1
         * ^short = "The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."
