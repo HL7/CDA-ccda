@@ -230,6 +230,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.513:2025-05-01 | [SexParameterForClinicalUseObservation](StructureDefinition-SexParameterForClinicalUseObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.515:2025-05-01 | [InterpreterNeededObservation](StructureDefinition-InterpreterNeededObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.516:2025-05-01 | [AgeRangeObservation](StructureDefinition-AgeRangeObservation.html) |
+| 2.16.840.1.113883.10.20.22.4.518:2026-05-01 | [CarePlanAct](StructureDefinition-CarePlanAct.html) |
 | 2.16.840.1.113883.10.20.24.3.88:2023-05-01 | [Reason](StructureDefinition-Reason.html) |
 | 2.16.840.1.113883.10.20.24.3.90:2014-06-09 | [SubstanceOrDeviceAllergyIntoleranceObservation](StructureDefinition-SubstanceOrDeviceAllergyIntoleranceObservation.html) |
 | 2.16.840.1.113883.10.20.34.3.45:2023-05-01 | [GenderIdentityObservation](StructureDefinition-GenderIdentityObservation.html) |
