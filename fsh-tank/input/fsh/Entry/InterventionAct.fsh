@@ -141,7 +141,7 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-31555)."
-* entryRelationship[entryReferenceRson] obeys entry-ref-goal
+* entryRelationship[entryReferenceRson]
   * ^short = "An Intervention Act should reference a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry. The following entryRelationship represents an Entry Reference to Goal Observation."
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-31621) such that it"
   * typeCode 1..1
@@ -149,6 +149,7 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-31622)."
   * act 1..1
   * act only EntryReference
+    * obeys entry-ref-goal
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-31623)."
 * entryRelationship[handoffCommunicationParticipants] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32317) such that it"
   * typeCode 1..1

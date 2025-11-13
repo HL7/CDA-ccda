@@ -205,13 +205,6 @@
             <comment value="SHALL contain at least one [1..*] entryRelationship (CONF:1198-32673) such that it"/>
             <min value="1"/>
             <max value="*"/>
-            <constraint>
-                <key value="entry-ref-goal"/>
-                <severity value="error"/>
-                <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template."/>
-                <expression value="%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedInterventionAct"/>
-            </constraint>
         </element>
         <element id="Act.entryRelationship:reason.typeCode">
             <path value="Act.entryRelationship.typeCode"/>
@@ -226,6 +219,13 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
             </type>
+            <constraint>
+                <key value="entry-ref-goal"/>
+                <severity value="error"/>
+                <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template."/>
+                <expression value="%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedInterventionAct"/>
+            </constraint>
         </element>
         <element id="Act.entryRelationship:immunizationActivity">
             <path value="Act.entryRelationship"/>

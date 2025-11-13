@@ -64,7 +64,7 @@ This entry conveys an instance of the evolving Care Plan at a specific point in 
   * act 0..1
   * act only EntryReference
     * ^short = "Use to reference a Goal Observation elsewhere"
-  * act obeys entry-ref-goal
+    * obeys entry-ref-goal
 
 * entryRelationship[supportingInfo]
   * typeCode = #SPRT
