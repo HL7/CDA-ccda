@@ -29,7 +29,7 @@
     <name value="ProcedureActivityProcedure"/>
     <title value="Procedure Activity Procedure"/>
     <status value="draft"/>
-    <description value="This template is used to represent the details of current and historical procedures performed on or for a patient. A procedure is an activity that is performed on, with, or for a patient as part of the provision of care. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html), [EntryReference](StructureDefinition-EntryReference.html), [Indication](StructureDefinition-Indication.html), [InstructionObservation](StructureDefinition-InstructionObservation.html), [MedicationActivity](StructureDefinition-MedicationActivity.html), [ReactionObservation](StructureDefinition-ReactionObservation.html)"/>
+    <description value="This template is used to represent the details of current and historical procedures performed on or for a patient. A procedure is an activity that is performed on, with, or for a patient as part of the provision of care. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html), [EntryReference](StructureDefinition-EntryReference.html), [Indication](StructureDefinition-Indication.html), [InstructionObservation](StructureDefinition-InstructionObservation.html), [MedicationActivity](StructureDefinition-MedicationActivity.html), [ReactionObservation](StructureDefinition-ReactionObservation.html), [UDIOrganizer](StructureDefinition-UDIOrganizer.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -383,6 +383,26 @@
             </slicing>
             <comment value="MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"/>
         </element>
+        <element id="Procedure.participant:serviceDeliveryLocation">
+            <path value="Procedure.participant"/>
+            <sliceName value="serviceDeliveryLocation"/>
+            <short value="participant"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Procedure.participant:serviceDeliveryLocation.typeCode">
+            <path value="Procedure.participant.typeCode"/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4515-7766)."/>
+            <fixedCode value="LOC"/>
+        </element>
+        <element id="Procedure.participant:serviceDeliveryLocation.participantRole">
+            <path value="Procedure.participant.participantRole"/>
+            <comment value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:4515-15912)."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
+            </type>
+        </element>
         <element id="Procedure.participant:productInstance">
             <path value="Procedure.participant"/>
             <sliceName value="productInstance"/>
@@ -402,26 +422,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProductInstance"/>
-            </type>
-        </element>
-        <element id="Procedure.participant:serviceDeliveryLocation">
-            <path value="Procedure.participant"/>
-            <sliceName value="serviceDeliveryLocation"/>
-            <short value="participant"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Procedure.participant:serviceDeliveryLocation.typeCode">
-            <path value="Procedure.participant.typeCode"/>
-            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;LOC&quot; Location (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:4515-7766)."/>
-            <fixedCode value="LOC"/>
-        </element>
-        <element id="Procedure.participant:serviceDeliveryLocation.participantRole">
-            <path value="Procedure.participant.participantRole"/>
-            <comment value="SHALL contain exactly one [1..1] Service Delivery Location (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.32) (CONF:4515-15912)."/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"/>
             </type>
         </element>
         <element id="Procedure.entryRelationship">
@@ -446,6 +446,37 @@
                 <rules value="open"/>
             </slicing>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"/>
+        </element>
+        <element id="Procedure.entryRelationship:udiOrganizer">
+            <path value="Procedure.entryRelationship"/>
+            <sliceName value="udiOrganizer"/>
+            <short value="entryRelationship"/>
+            <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-7768) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Procedure.entryRelationship:udiOrganizer.typeCode">
+            <path value="Procedure.entryRelationship.typeCode"/>
+            <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7769)."/>
+            <fixedCode value="COMP"/>
+        </element>
+        <element id="Procedure.entryRelationship:udiOrganizer.inversionInd">
+            <path value="Procedure.entryRelationship.inversionInd"/>
+            <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:4515-8009)."/>
+            <min value="1"/>
+            <fixedBoolean value="true"/>
+        </element>
+        <element id="Procedure.entryRelationship:udiOrganizer.encounter">
+            <path value="Procedure.entryRelationship.encounter"/>
+            <max value="0"/>
+        </element>
+        <element id="Procedure.entryRelationship:udiOrganizer.organizer">
+            <path value="Procedure.entryRelationship.organizer"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Organizer"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/UDIOrganizer"/>
+            </type>
         </element>
         <element id="Procedure.entryRelationship:encounter">
             <path value="Procedure.entryRelationship"/>

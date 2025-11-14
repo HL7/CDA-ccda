@@ -39,10 +39,23 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * participantRole 1..1
   * participantRole only ProductInstance
     * ^comment = "SHALL contain exactly one [1..1] Product Instance (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.37) (CONF:1098-15900)."
-* entryRelationship ^slicing.discriminator[0].type = #profile
+* entryRelationship 
+  * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
+  * ^slicing.discriminator[1].type = #profile
+  * ^slicing.discriminator[=].path = "cluster"
   * ^slicing.rules = #open
-* entryRelationship contains instruction 0..1
+* entryRelationship contains 
+    UDIOrganizer 0..* and
+    instruction 0..1
+* entryRelationship[UDIOrganizer] ^short = "participant"
+  * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7751) such that it"
+  * typeCode 1..1
+  * typeCode = #COMP (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002)."
+  * organizer 1..1
+  * organizer only UDIOrganizer
+    * ^comment = "SHALL contain exactly one [1..1] UDI Organizer (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.311) (CONF:4515-15911)."  
 * entryRelationship[instruction] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-30277) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)
