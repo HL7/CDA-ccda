@@ -179,7 +179,7 @@
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
-            <short value="If the Advance Directive does not have a specified ending time, use a nullFlavor of *NA*.&#xA;If the ending time is unknown, use a nullFlavor of *UNK*."/>
+            <short value="If the Advance Directive does not have a specified ending time, use a nullFlavor of *NA*.&#xD;&#xA;If the ending time is unknown, use a nullFlavor of *UNK*."/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] high."/>
             <min value="1"/>
         </element>
@@ -325,20 +325,20 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"/>
             </type>
         </element>
-        <element id="Observation.participant:custodian">
+        <element id="Observation.participant:healthcareAgent">
             <path value="Observation.participant"/>
-            <sliceName value="custodian"/>
+            <sliceName value="healthcareAgent"/>
             <short value="This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."/>
             <comment value="SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Observation.participant:custodian.typeCode">
+        <element id="Observation.participant:healthcareAgent.typeCode">
             <path value="Observation.participant.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;CST&quot; Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."/>
             <fixedCode value="CST"/>
         </element>
-        <element id="Observation.participant:custodian.participantRole">
+        <element id="Observation.participant:healthcareAgent.participantRole">
             <path value="Observation.participant.participantRole"/>
             <comment value="SHALL contain exactly one [1..1] participantRole (CONF:1198-8669)."/>
             <constraint>
@@ -363,13 +363,13 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
         </element>
-        <element id="Observation.participant:custodian.participantRole.classCode">
+        <element id="Observation.participant:healthcareAgent.participantRole.classCode">
             <path value="Observation.participant.participantRole.classCode"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] @classCode=&quot;AGNT&quot; Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."/>
             <min value="1"/>
             <fixedCode value="AGNT"/>
         </element>
-        <element id="Observation.participant:custodian.participantRole.code">
+        <element id="Observation.participant:healthcareAgent.participantRole.code">
             <path value="Observation.participant.participantRole.code"/>
             <comment value="This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent or Proxy Choices urn:oid:2.16.840.1.113762.1.4.1046.35 DYNAMIC (CONF:1198-28440)."/>
             <binding>
@@ -377,7 +377,7 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.35"/>
             </binding>
         </element>
-        <element id="Observation.participant:custodian.participantRole.addr">
+        <element id="Observation.participant:healthcareAgent.participantRole.addr">
             <path value="Observation.participant.participantRole.addr"/>
             <comment value="This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."/>
             <max value="1"/>
@@ -386,11 +386,11 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
         </element>
-        <element id="Observation.participant:custodian.participantRole.telecom">
+        <element id="Observation.participant:healthcareAgent.participantRole.telecom">
             <path value="Observation.participant.participantRole.telecom"/>
             <comment value="This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)."/>
         </element>
-        <element id="Observation.participant:custodian.participantRole.playingEntity">
+        <element id="Observation.participant:healthcareAgent.participantRole.playingEntity">
             <path value="Observation.participant.participantRole.playingEntity"/>
             <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."/>
             <min value="1"/>
@@ -402,7 +402,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
             </constraint>
         </element>
-        <element id="Observation.participant:custodian.participantRole.playingEntity.code">
+        <element id="Observation.participant:healthcareAgent.participantRole.playingEntity.code">
             <path value="Observation.participant.participantRole.playingEntity.code"/>
             <comment value="This playingEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal and Legal Relationship RoleType urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC."/>
             <binding>
@@ -410,7 +410,7 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.12.1"/>
             </binding>
         </element>
-        <element id="Observation.participant:custodian.participantRole.playingEntity.name">
+        <element id="Observation.participant:healthcareAgent.participantRole.playingEntity.name">
             <path value="Observation.participant.participantRole.playingEntity.name"/>
             <short value="The name of the healthcare agent."/>
             <comment value="This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."/>

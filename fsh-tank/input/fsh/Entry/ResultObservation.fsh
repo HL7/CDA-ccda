@@ -59,7 +59,7 @@ The Result Observation template is a versatile template designed to represent an
 * value[physical-quantity] only $PQ
   * unit 1..1
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
-    * insert USCDI(Result Unit of Measure)
+    * insert USCDI([[Result Unit of Measure - if null flavor is sent, the unit SHALL be set to '1']])
   * translation 0..1
     * ^short = "Can be used to represent the original results as output by the lab"
 * value[coded] only $CD
