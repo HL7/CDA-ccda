@@ -9,7 +9,7 @@ The statusCode of the Problem Concern Act is the definitive indication of the st
 The effectiveTime/low of the Problem Concern Act asserts when the concern became active. The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition).
 
 <figure>
-  <img style="padding-top:0;padding-bottom:0px" width="640px" src="cda_problemactandproblemobs_timing.png"/>
+  <img style="display:block;margin-left:auto;margin-right:auto;padding-top:0;padding-bottom:0px" width="640px" src="cda_problemactandproblemobs_timing.png"/>
   <figcaption>Problem Concern Act Timing Detail</figcaption>
 </figure>
 <br/>
