@@ -266,7 +266,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ConsultationNote"/>
             </constraint>
             <constraint>
-                <key value="1198-9504"/>
+                <key value="rfr-or-rfv"/>
                 <severity value="error"/>
                 <human value="**SHALL** include a Reason for Referral or Reason for Visit section (CONF:1198-9504)."/>
                 <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforReferralSection') or section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/ReasonforVisitSection')).exists()"/>
@@ -318,6 +318,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28896) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -333,6 +335,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28898) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessmentAndPlan.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -348,6 +352,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28900) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -363,6 +369,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28904) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
+            <condition value="rfr-or-rfv"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:reasonForVisit.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -393,6 +401,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28908) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-physical-exam"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:physicalExam.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -423,6 +432,7 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28912) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:chiefComplaint.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -438,6 +448,7 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28915) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:chiefComplaintRFV.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -513,6 +524,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28925) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-medications"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:medications.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -558,6 +570,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28932) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-results"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:results.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>

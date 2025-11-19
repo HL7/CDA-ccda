@@ -530,7 +530,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
             <constraint>
-                <key value="should-section-healthstatus"/>
+                <key value="should-section-outcomes"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain an Outcomes Section"/>
                 <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/OutcomesSection'))"/>
@@ -592,14 +592,15 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ActivitiesSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:healthStatusEvalOutcm">
+        <element id="ClinicalDocument.component.structuredBody.component:outcomes">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="healthStatusEvalOutcm"/>
+            <sliceName value="outcomes"/>
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-outcomes"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:healthStatusEvalOutcm.section">
+        <element id="ClinicalDocument.component.structuredBody.component:outcomes.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."/>
             <type>

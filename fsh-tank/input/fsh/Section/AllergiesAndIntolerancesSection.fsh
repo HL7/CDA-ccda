@@ -12,6 +12,7 @@ Description: "This section lists and describes any medication allergies, adverse
   * ^short = "If section/@nullFlavor is not present:"
 * entry contains allergyConcern 0..*
 * entry[allergyConcern] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7531) such that it"
+  * ^condition = "shall-allergy-concern"
   * act 1..1
   * act only AllergyConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Allergy Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.30:2015-08-01) (CONF:1198-15446)."
