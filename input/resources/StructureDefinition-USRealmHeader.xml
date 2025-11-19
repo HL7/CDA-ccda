@@ -368,6 +368,21 @@
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.4.642.2.575"/>
             </binding>
         </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.raceCode.translation">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.raceCode.translation"/>
+            <short value="Can be used to associate a detailed race with a category in the base element. See examples."/>
+            <constraint>
+                <key value="race-not-category"/>
+                <severity value="error"/>
+                <human value="Translation SHALL NOT be used to convey additional race categories. Multiple categories must be conveyed in multiple raceCode elements."/>
+                <expression value="(code in ('1002-5' | '2028-9' | '2054-5' | '2076-8' | '2106-3' | '2131-1')).not()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914"/>
+            </binding>
+        </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode">
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
                 <valueUri value="urn:hl7-org:sdtc"/>
@@ -380,9 +395,31 @@
             </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode"/>
             <short value="𝗨𝗦𝗖𝗗𝗜: Race - The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements."/>
+            <constraint>
+                <key value="sdtc-race-not-detail"/>
+                <severity value="error"/>
+                <human value="When using translation to convey race details, the base code SHALL be a race category."/>
+                <expression value="translation.exists(codeSystem = '2.16.840.1.113883.6.238') implies (code in ('1002-5' | '2028-9' | '2054-5' | '2076-8' | '2106-3' | '2131-1'))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.25"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode.translation">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode.translation"/>
+            <short value="Can be used to associate a detailed race with a category in the base element. See examples."/>
+            <constraint>
+                <key value="race-not-category"/>
+                <severity value="error"/>
+                <human value="Translation SHALL NOT be used to convey additional race categories. Multiple categories must be conveyed in multiple raceCode elements."/>
+                <expression value="(code in ('1002-5' | '2028-9' | '2054-5' | '2076-8' | '2106-3' | '2131-1')).not()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmHeader"/>
+            </constraint>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914"/>
             </binding>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.ethnicGroupCode">
