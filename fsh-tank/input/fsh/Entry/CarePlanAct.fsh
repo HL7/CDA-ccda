@@ -15,10 +15,9 @@ This entry conveys an instance of the evolving Care Plan at a specific point in 
 * insert LogicalModelTemplate(care-plan-act, 2.16.840.1.113883.10.20.22.4.518, 2026-05-01)
 * insert NarrativeLink
 
-// * insert FixedCategory(assess-plan, 2.16.840.1.113883.4.642.40.2.16.1, Assessment and Plan of Treatment, assess-plan)
-
 * moodCode 1..1
-  * ^short = "CarePlan.intent" // TODO move to mapping
+* moodCode from $CarePlanMood (required)
+  * ^short = "CarePlan.intent"
 
 * code 1..1
   * insert CodedLoinc(18776-5, Plan of care note)
