@@ -37,7 +37,7 @@ When additional context appears in the section narrative (section.text) but not 
     plannedProc 0..* and
     plannedSupply 0..* and
 	  notes 0..*
-* entry[carePlanAct]
+* entry[carePlanAct] ^short = "Represents a snapshot in time of a care plan. Related resources may be embedded directly or referenced via EntryReference (e.g. for systems who wish to continue including entries directly in the Plan of Treatment section)."
   * act 1..1
   * act only CarePlanAct
 * entry[plannedEnc] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8805) such that it"
