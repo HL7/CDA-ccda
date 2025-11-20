@@ -21,6 +21,7 @@ The Author Participation template was added to those templates in scope for anal
   * code from $2.16.840.1.114222.4.11.1066 (preferred)
     * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31671)."
     * insert AdditionalBinding(preferred, $2.16.840.1.113883.11.20.12.1, Patient-authored content, [[If the content is patient authored the code **SHOULD** be selected from Personal And Legal Relationship Role Type (2.16.840.1.113883.11.20.12.1) (CONF:1098-32315).]])
+  * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
   * addr 0..*
   * addr only USRealmAddress
     * ^short = "Required on at least one instance of this author in the document"

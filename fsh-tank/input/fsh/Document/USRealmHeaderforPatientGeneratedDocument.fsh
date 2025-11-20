@@ -49,6 +49,7 @@ The Patient Generated Document Header template is not a separate document type. 
       * ^short = "When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient."
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:1198-28481)." // auto-should
       * insert BindAtCode($2.16.840.1.113883.11.20.12.1, preferred)
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
 * dataEnterer 0..1
   * ^short = "The dataEnterer element represents the person who transferred the content, written or dictated by someone else, into the clinical document. The guiding rule of thumb is that an author provides the content found within the header or body of the document, subject to their own interpretation, and the dataEnterer adds that information to the electronic system. In other words, a dataEnterer transfers information from one source to another (e.g., transcription from paper form to electronic system). If the dataEnterer is missing, this role is assumed to be played by the author."
   * ^comment = "MAY contain zero or one [0..1] dataEnterer (CONF:1198-28678)."
@@ -57,6 +58,7 @@ The Patient Generated Document Header template is not a separate document type. 
     * code 0..1
     * code from $2.16.840.1.113883.11.20.12.1 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28680)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
 // Removing slicing since only discriminator is always required
 * informant[non-provider]
   * relatedEntity 1..1
@@ -127,6 +129,7 @@ The Patient Generated Document Header template is not a separate document type. 
     * code 0..1
     * code from $2.16.840.1.113883.11.20.12.1 (preferred)
       * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28706)."  // man-should
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
 * inFulfillmentOf 0..*
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-28707)."
   * order 1..1
