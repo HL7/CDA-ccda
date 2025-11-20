@@ -194,6 +194,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * ^short = "Only if this assignedAuthor is an assignedPerson should the assignedAuthor contain a code."
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4537-16787)." // auto-should
       * insert BindAtCode($2.16.840.1.114222.4.11.1066, preferred)
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5452)."
@@ -228,6 +229,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32173)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5460)."
@@ -263,6 +265,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32174)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8220)."
@@ -343,6 +346,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-17000)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5589)."
@@ -381,6 +385,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * code 0..1
       * code from $2.16.840.1.114222.4.11.1066 (preferred)
         * ^comment = "The code, if present, MAY contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-16826)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5616)."
