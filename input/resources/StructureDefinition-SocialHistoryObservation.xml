@@ -57,7 +57,7 @@
                 <key value="category-social-history"/>
                 <severity value="error"/>
                 <human value="If category is present, then there shall be a category with code 'social-history'."/>
-                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = 'social-history' and codeSystem = 'http://terminology.hl7.org/CodeSystem/observation-category')"/>
+                <expression value="sdtcCategory.empty() or sdtcCategory.exists(code = 'social-history' and codeSystem = '2.16.840.1.113883.4.642.1.1125')"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
             </constraint>
             <constraint>
@@ -157,7 +157,7 @@
         <element id="Observation.sdtcCategory:social-history.codeSystem">
             <path value="Observation.sdtcCategory.codeSystem"/>
             <min value="1"/>
-            <patternString value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+            <patternString value="2.16.840.1.113883.4.642.1.1125"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
