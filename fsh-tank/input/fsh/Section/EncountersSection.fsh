@@ -12,6 +12,7 @@ Description: "This section lists and describes any healthcare encounters pertine
   * ^short = "If section/@nullFlavor is not present:"
 * entry contains encounter 0..*
 * entry[encounter] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-8709) such that it"
+  * ^condition = "shall-encounter-activity"
   * encounter 1..1
   * encounter only EncounterActivity
     * ^comment = "SHALL contain exactly one [1..1] Encounter Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.49:2015-08-01) (CONF:1198-15468)."

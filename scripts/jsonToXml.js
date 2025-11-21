@@ -322,7 +322,7 @@ function appendSectionUsageToDescription(sd) {
       shallSections.push(`${profileLink('ChiefComplaintandReasonforVisitSection')} or both ${profileLink('ChiefComplaintSection')} and ${profileLink('ReasonforVisitSection')}`);
       continue;
     }
-    if (constraint.key === '1198-9504') {
+    if (constraint.key === 'rfr-or-rfv') {
       shallSections.push(`${profileLink('ReasonforReferralSection')} or ${profileLink('ReasonforVisitSection')}`);
       continue;
     }

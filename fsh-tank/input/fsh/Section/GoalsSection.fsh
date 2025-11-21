@@ -12,6 +12,7 @@ Description: "This template represents patient Goals. A goal is a defined outcom
   * ^short = "If section/@nullFlavor is not present:"
 * entry contains goal 0..*
 * entry[goal] ^comment = "SHALL contain at least one [1..*] entry (CONF:1098-30719) such that it"
+  * ^condition = "shall-goal-obs"
   * observation 1..1
   * observation only GoalObservation
     * ^comment = "SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:1098-30720)."

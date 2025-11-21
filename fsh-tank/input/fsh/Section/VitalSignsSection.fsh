@@ -13,6 +13,7 @@ Vital signs are represented in the same way as other results, but are aggregated
   * ^short = "If section/@nullFlavor is not present:"
 * entry contains vitalsOrg 0..* and averageBPOrg 0..*
 * entry[vitalsOrg] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7276) such that it"
+  * ^condition = "shall-vital-signs-org"
   * organizer 1..1
   * organizer only VitalSignsOrganizer
     * ^comment = "SHALL contain exactly one [1..1] Vital Signs Organizer (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.26:2015-08-01) (CONF:1198-15964)."

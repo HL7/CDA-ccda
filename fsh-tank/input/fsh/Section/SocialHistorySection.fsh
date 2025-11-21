@@ -26,6 +26,7 @@ Description: "This section contains social history data that influence a patient
   * observation only PregnancyStatusObservation
     * ^comment = "SHALL contain exactly one [1..1] Pregnancy Status Observation (identifier: urn:oid:2.16.840.1.113883.10.20.15.3.8) (CONF:1198-14822)."
 * entry[smokingStatus] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-14823) such that it"
+  * ^condition = "should-smoking-status"
   * observation 1..1
   * observation only SmokingStatus
     * ^comment = "SHALL contain exactly one [1..1] Smoking Status(identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.511:2024-05-01) (CONF:1198-14824)."

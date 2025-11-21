@@ -10,6 +10,7 @@ Description: "The Preoperative Diagnosis Section records the surgical diagnoses 
   * ^slicing.rules = #open
 * entry contains preopDiagnosis 0..1
 * entry[preopDiagnosis] ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-10096) such that it"
+  * ^condition = "should-preop-dx"
   * act 1..1
   * act only PreoperativeDiagnosis
     * ^comment = "SHALL contain exactly one [1..1] Preoperative Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.65:2015-08-01) (CONF:1198-15504)."

@@ -18,6 +18,7 @@ Description: "This section lists and describes all relevant clinical problems at
     act 0..* and
     observation 0..1
 * entry[act] ^comment = "SHALL contain exactly one [1..1] Problem Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15506)"
+  * ^condition = "shall-problem-concern-act"
   * act 1..1
   * act only ProblemConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Problem Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15505)"

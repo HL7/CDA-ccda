@@ -55,22 +55,27 @@ The Device Identifier template **SHALL** be included.  The Lot or Batch Number, 
   * observation 1..1
   * observation only DeviceIdentifierObservation
 * component[lotOrBatchNumberObservation] ^short = "Lot Or Batch Number observation component"
+  * ^condition = "should-lot-or-batch-number-observation"
   * observation 1..1
   * observation only LotOrBatchNumberObservation
 * obeys should-lot-or-batch-number-observation
 * component[serialNumberObservation] ^short = "Serial Number observation component"
+  * ^condition = "should-serial-number-observation"
   * observation 1..1
   * observation only SerialNumberObservation
 * obeys should-serial-number-observation
 * component[manufacturingDateObservation] ^short = "Manufacturing Date observation component"
+  * ^condition = "should-manufacturing-date-observation"
   * observation 1..1
   * observation only ManufacturingDateObservation
 * obeys should-manufacturing-date-observation
 * component[expirationDateObservation] ^short = "Expiration Date observation component"
+  * ^condition = "should-expiration-date-observation"
   * observation 1..1
   * observation only ExpirationDateObservation
 * obeys should-expiration-date-observation
 * component[distinctIdentificationCodeObservation] ^short = "Distinct Identification Code observation component"
+  * ^condition = "should-distinct-identification-code-observation"
   * observation 1..1
   * observation only DistinctIdentificationCodeObservation
 * obeys should-distinct-identification-code-observation

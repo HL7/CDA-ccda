@@ -187,7 +187,7 @@ A care plan document can include entry references from the information in these 
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-28753)."
   * structuredBody 1..1
     * obeys 1198-31044
-    * obeys should-section-healthstatus
+    * obeys should-section-outcomes
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28754)."
     * component 2..
       * ^slicing.discriminator[0].type = #profile
@@ -197,7 +197,7 @@ A care plan document can include entry references from the information in these 
         healthConcerns 1..1 and
         goals 1..1 and
         activities 0..1 and
-        healthStatusEvalOutcm 0..1 and
+        outcomes 0..1 and
         advDirectives 0..1
     * component[healthConcerns] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755)."
       * section only HealthConcernsSection
@@ -207,7 +207,8 @@ A care plan document can include entry references from the information in these 
     * component[activities] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28763) such that it"
       * section only ActivitiesSection
         * ^comment = "SHALL contain exactly one [1..1] Activities Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2024-05-01) (CONF:1198-28764)."
-    * component[healthStatusEvalOutcm] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
+    * component[outcomes] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
+      * ^condition = "should-section-outcomes"
       * section only OutcomesSection
         * ^comment = "SHALL contain exactly one [1..1] Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."
     * component[advDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"

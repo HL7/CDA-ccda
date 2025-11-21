@@ -14,6 +14,7 @@ This section requires either an entry indicating the subject is not known to be 
   * ^short = "If section/@nullFlavor is not present:"
 * entry contains medActivity 0..*
 * entry[medActivity] ^comment = "SHALL contain at least one [1..*] entry (CONF:1098-7572) such that it"
+  * ^condition = "shall-med-activity"
   * substanceAdministration 1..1
   * substanceAdministration only MedicationActivity
     * ^comment = "SHALL contain exactly one [1..1] Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:1098-10076)."

@@ -92,12 +92,18 @@ Systems shall include the full narrative Progress Note in an appropriate section
         advDirectives 0..1 and
         notes 0..1
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30618)."
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only AssessmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30619)."
     * component[planOfTreatment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30620) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30621)."
     * component[assessmentAndPlan] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30622) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only AssessmentandPlanSection
         * ^comment = "SHALL contain exactly one [1..1] Assessment and Plan Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09) (CONF:1198-30623)."
     * component[allergies] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30624) such that it"

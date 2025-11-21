@@ -141,6 +141,8 @@
                 <rules value="open"/>
             </slicing>
             <short value="Category is optional, but if present it SHALL contain a category with code=social-history."/>
+            <condition value="should-sdtcCategory"/>
+            <condition value="category-social-history"/>
         </element>
         <element id="Observation.sdtcCategory:social-history">
             <path value="Observation.sdtcCategory"/>
@@ -176,6 +178,7 @@
         <element id="Observation.text">
             <path value="Observation.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Observation.text.reference">
             <path value="Observation.text.reference"/>

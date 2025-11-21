@@ -102,6 +102,8 @@
                 <rules value="open"/>
             </slicing>
             <short value="Used to categorize the document as a Referral Note. If present, there SHALL be a category of 57133-1 (Referral note)."/>
+            <condition value="should-sdtcCategory"/>
+            <condition value="category-57133-1"/>
         </element>
         <element id="ClinicalDocument.sdtcCategory:documentType">
             <path value="ClinicalDocument.sdtcCategory"/>
@@ -354,6 +356,9 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29066) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
+            <condition value="should-section-plan-of-treatment"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -459,6 +464,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29090) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-results"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:results.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -519,6 +525,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29098) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-functional-status"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:functionalStatus.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -549,6 +556,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30780) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-nutrition"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:nutrition.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -564,6 +572,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30796) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-mental-status"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:mentalStatus.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -609,6 +618,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30913) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -624,6 +635,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30915) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessmentAndPlan.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>

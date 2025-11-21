@@ -64,6 +64,7 @@ Expression: "(code | nullFlavor).count() = 1"
 RuleSet: NarrativeLink
 * obeys should-text-ref-value
 * text 0..1
+  * ^condition = "should-text-ref-value"
   * ^short = "SHOULD reference the portion of section narrative text corresponding to this entry"
   * reference 0..1
     * obeys value-starts-octothorpe
@@ -80,6 +81,7 @@ Expression: "value.exists() implies value.startsWith('#')"
 RuleSet: NarrativeOriginalText
 * obeys should-otext-ref-value
 * originalText 0..1
+  * ^condition = "should-otext-ref-value"
   * ^short = "SHOULD reference the portion of narrative corresponding to this code"
   * reference 0..1
     * obeys value-starts-octothorpe
@@ -92,6 +94,7 @@ Expression: "originalText.reference.value.exists()"
 RuleSet: NarrativeLinkOrganizer
 * obeys should-sdtctext-ref-value
 * sdtcText 0..1
+  * ^condition = "should-sdtctext-ref-value"
   * ^short = "SHOULD reference the portion of section narrative text corresponding to this entry"
   * reference 0..1
     * obeys value-starts-octothorpe

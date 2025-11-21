@@ -1,8 +1,9 @@
 ////////////////////////////////////////////////////////////
 //                  Section SHOULD's                      //
 ////////////////////////////////////////////////////////////
-// Basically all identical; copy, paste, change
-// Apply at top-level of section
+// Basically all identical; copy, paste, change (be sure to change entry type, too)
+// Apply at top-level of document
+// Also attach a * ^condition = "should-section-xxxx" to the appropriate section slice
 
 Invariant: should-section-advance-directives
 Description: "SHOULD contain am Advamce Directives Section"
@@ -24,7 +25,7 @@ Description: "SHOULD contain a Functional Status Section"
 Severity: #warning
 Expression: "component.where(section.hasTemplateIdOf(FunctionalStatusSection))"
 
-Invariant: should-section-healthstatus
+Invariant: should-section-outcomes
 Description: "SHOULD contain an Outcomes Section"
 Severity: #warning
 Expression: "component.where(section.hasTemplateIdOf(OutcomesSection))"
@@ -82,6 +83,7 @@ Expression: "component.where(section.hasTemplateIdOf(SocialHistorySection))"
 
 // Basically all identical; copy, paste, change (be sure to change entry type, too)
 // Apply at top-level of section
+// Also attach a * ^condition = "should-xxxx" to the appropriate entry slice
 
 Invariant: should-admission-medication
 Description: "SHOULD contain Admission Medication"
@@ -174,6 +176,8 @@ Expression: "entry.where(observation.hasTemplateIdOf(SmokingStatus))"
 //                 Entry Requirements                     //
 //                                                        //
 ////////////////////////////////////////////////////////////
+
+// Also add a * ^condition = "shall-xxxx" to the appropriate entry slice
 
 Invariant: shall-adv-directive-existence
 Description: "If section/@nullFlavor is not present, SHALL contain at least one Advance Directive Existence Observation"
