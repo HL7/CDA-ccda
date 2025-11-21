@@ -147,7 +147,7 @@ Systems shall include the full narrative Progress Note in an appropriate section
         * ^comment = "SHALL contain exactly one [1..1] Advance Directives Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.21.1:2024-05-01)."
     * component[notes] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"
       * section only NotesSection
-        * ^comment = "SHALL contain exactly one [1..1] Notes Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.65:2016-11-01)."
+        * ^comment = "SHALL contain exactly one [1..1] Notes Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.65:2026-05-01)."
 
 Invariant: 1198-10066
 Description: "If a width element is not present, the serviceEvent **SHALL** include effectiveTime/high (CONF:1198-10066)."
