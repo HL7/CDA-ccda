@@ -44,9 +44,13 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
   * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC."
 * obeys 4537-6380
 * setId 0..1
+  * ^condition[+] = "4537-6380"
+  * ^condition[+] = "4537-6387" // both tagged because they're interrelated
   * ^comment = "MAY contain zero or one [0..1] setId (CONF:4537-5261)."
 * obeys 4537-6387
 * versionNumber 0..1
+  * ^condition[+] = "4537-6380" // both tagged because they're interrelated
+  * ^condition[+] = "4537-6387"
   * ^comment = "MAY contain zero or one [0..1] versionNumber (CONF:4537-5264)."
 * recordTarget 1..*
   * ^short = "The recordTarget records the administrative and demographic data of the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element"

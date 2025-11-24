@@ -28,9 +28,15 @@ A care plan document can include entry references from the information in these 
 * insert ShouldElement(setId)
 * setId 0..1
   * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." // auto-should
+  // Duplicating these 2 from USRealmHeader because Sushi seems to lose the index when [+] is used between 2 different FSH files
+  * ^condition[+] = "4537-6380"
+  * ^condition[+] = "4537-6387" // both tagged because they're interrelated
 * insert ShouldElement(versionNumber)
 * versionNumber 0..1
   * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." // auto-should
+  // Duplicating these 2 from USRealmHeader because Sushi seems to lose the index when [+] is used between 2 different FSH files
+  * ^condition[+] = "4537-6380"
+  * ^condition[+] = "4537-6387" // both tagged because they're interrelated
 
 // Removing slicing on infoRecipient, since the only branch identifier (intendedRecipient) is required anyway
 * insert ShouldElement(informationRecipient)
