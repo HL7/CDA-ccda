@@ -25,11 +25,11 @@ Description: "This template records the intent to supply a patient with medicati
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15143) such that it"
   * high 1..1
     * ^comment = "SHALL contain exactly one [1..1] high (CONF:1098-15144)."
-* obeys should-repeatNumber
+* insert ShouldElement(repeatNumber)
 * repeatNumber 0..1
   * ^short = "In \"INT\" (intent) mood, the repeatNumber defines the number of allowed supplies. For example, a repeatNumber of \"3\" means that the substance can be supplied up to 3 times."
   * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:1098-7434)." // auto-should
-* obeys should-quantity
+* insert ShouldElement(quantity)
 * quantity 0..1
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-7436)." // auto-should
 * product 0..1

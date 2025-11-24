@@ -25,7 +25,7 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)." // man-should
   * high 0..1
     * ^short = "SHOULD contain high"
-* obeys should-quantity
+* insert ShouldElement(quantity)
 * quantity 0..1
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)." // auto-should
 * participant ^slicing.discriminator[0].type = #value

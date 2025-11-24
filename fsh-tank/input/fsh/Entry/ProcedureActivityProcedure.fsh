@@ -42,7 +42,7 @@ Description: "This template is used to represent the details of current and hist
 * methodCode 0..1
   * ^short = "MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4515-7670)."
-* obeys should-targetSiteCode
+* insert ShouldElement(targetSiteCode)
 * targetSiteCode 0..*
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^short = "In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."
@@ -56,7 +56,7 @@ Description: "This template is used to represent the details of current and hist
     * id 0..*
       * ^short = "If you want to indicate that the Procedure and the Results are referring to the same specimen, the Procedure/specimen/specimenRole/id **SHOULD** be set to equal an Organizer/specimen/specimenRole/id (CONF:4515-29744)."
       * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)." // auto-should
-* obeys should-performer
+* insert ShouldElement(performer)
 * performer 0..*
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"
   * assignedEntity 1..1

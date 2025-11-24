@@ -28,11 +28,11 @@ Description: "This template records the act of supplying medications (i.e., disp
 * obeys should-effectiveTime
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7456)." // auto-should
-* obeys should-repeatNumber
+* insert ShouldElement(repeatNumber)
 * repeatNumber 0..1
   * ^short = "In \"EVN\" (event) mood, the repeatNumber is the number of dispenses. For example, a repeatNumber of \"3\" indicates the third dispense."
   * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:4537-7457)." // auto-should
-* obeys should-quantity
+* insert ShouldElement(quantity)
 * quantity 0..1
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:4537-7458)." // auto-should
 * product 1..1

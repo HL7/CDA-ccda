@@ -23,7 +23,7 @@ Description: "This template represents problems or diagnoses present at the time
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] entry such that it"
-* obeys should-entry
+* insert ShouldElement(entry)
 * entry contains hospitaldischargediagnosis 0..1 
 * entry[hospitaldischargediagnosis] ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-7983)." // auto-should
   * act 1..1

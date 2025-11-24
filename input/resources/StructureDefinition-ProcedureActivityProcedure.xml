@@ -254,6 +254,7 @@
             <path value="Procedure.targetSiteCode"/>
             <short value="In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."/>
             <comment value="SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)."/>
+            <condition value="should-targetSiteCode"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
@@ -282,7 +283,9 @@
         </element>
         <element id="Procedure.performer">
             <path value="Procedure.performer"/>
+            <short value="SHOULD contain performer"/>
             <comment value="SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"/>
+            <condition value="should-performer"/>
         </element>
         <element id="Procedure.performer.assignedEntity">
             <path value="Procedure.performer.assignedEntity"/>

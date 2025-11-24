@@ -66,7 +66,7 @@ This information should be included in an Immunization Activity when available. 
   * manufacturedProduct 1..1
   * manufacturedProduct only ImmunizationMedicationInformation
     * ^comment = "This consumable SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1198-15546)."
-* obeys should-performer
+* insert ShouldElement(performer)
 * performer 0..1
   * ^comment = "SHOULD contain zero or one [0..1] performer (CONF:1198-8849)." // auto-should
 * insert ShouldElement(author)

@@ -16,7 +16,7 @@ Description: """This template represents clinical information about the specimen
 * obeys should-effectiveTime
 * effectiveTime 0..1
   * ^short = "SHOULD have effectiveTime"
-* obeys should-targetSiteCode
+* insert ShouldElement(targetSiteCode)
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * insert USCDI([[Specimen Source Site]])
 * specimen 1..1

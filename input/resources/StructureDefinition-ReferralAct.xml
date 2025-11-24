@@ -153,7 +153,9 @@
         </element>
         <element id="Act.priorityCode">
             <path value="Act.priorityCode"/>
+            <short value="SHOULD contain priorityCode"/>
             <comment value="SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)."/>
+            <condition value="should-priorityCode"/>
         </element>
         <element id="Act.author">
             <path value="Act.author"/>
@@ -260,7 +262,9 @@
         </element>
         <element id="Act.entryRelationship:careModel.observation.priorityCode">
             <path value="Act.entryRelationship.observation.priorityCode"/>
+            <short value="SHOULD contain priorityCode"/>
             <comment value="This observation SHOULD contain zero or one [0..1] priorityCode, which SHOULD be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-32443)."/>
+            <condition value="should-priorityCode"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>

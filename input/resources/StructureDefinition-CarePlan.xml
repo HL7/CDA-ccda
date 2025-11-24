@@ -155,6 +155,11 @@
             <comment value="SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)."/>
             <condition value="should-versionNumber"/>
         </element>
+        <element id="ClinicalDocument.informationRecipient">
+            <path value="ClinicalDocument.informationRecipient"/>
+            <short value="SHOULD contain informationRecipient"/>
+            <condition value="should-informationRecipient"/>
+        </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
             <comment value="SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."/>
@@ -206,7 +211,9 @@
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient"/>
+            <short value="SHOULD contain informationRecipient"/>
             <comment value="This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)."/>
+            <condition value="should-informationRecipient"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name"/>
@@ -510,7 +517,9 @@
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
+            <short value="SHOULD contain componentOf"/>
             <comment value="SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it"/>
+            <condition value="should-componentOf"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter">
             <path value="ClinicalDocument.componentOf.encompassingEncounter"/>

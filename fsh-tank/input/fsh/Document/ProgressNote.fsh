@@ -20,7 +20,7 @@ Systems shall include the full narrative Progress Note in an appropriate section
 * code from ProgressNoteDocumentTypeCode (required)
   * ^short = "The Progress Note recommends use of a single document type code, 11506-3 \"Progress note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17189)."
-* obeys should-documentationOf
+* insert ShouldElement(documentationOf)
 * documentationOf 0..1
   * ^short = "A documentationOf can contain a serviceEvent to further specialize the act inherent in the ClinicalDocument/code. In a Progress Note, a serviceEvent can represent the event of writing the Progress Note. The serviceEvent/effectiveTime is the time period the note documents."
   * ^comment = "SHOULD contain zero or one [0..1] documentationOf (CONF:1198-7603)." // auto-should

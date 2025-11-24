@@ -61,16 +61,16 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
             </constraint>
             <constraint>
+                <key value="4515-8555"/>
+                <severity value="error"/>
+                <human value="If Observation/value is a physical quantity (xsi:type=&quot;PQ&quot;): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
+            </constraint>
+            <constraint>
                 <key value="should-value"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain value"/>
                 <expression value="value.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
-            </constraint>
-            <constraint>
-                <key value="4515-8555"/>
-                <severity value="error"/>
-                <human value="If Observation/value is a physical quantity (xsi:type=&quot;PQ&quot;): This value SHALL contain exactly one [1..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC. Note: Base CDA requires that all @unit values SHALL be drawn from UCUM."/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistoryObservation"/>
             </constraint>
             <constraint>
@@ -221,6 +221,7 @@
             <short value="𝗨𝗦𝗖𝗗𝗜: Alcohol Use, Substance Use, SDOH Problems/Health Concerns"/>
             <comment value="SHOULD contain zero or one [0..1] value (CONF:4515-8559)."/>
             <max value="1"/>
+            <condition value="should-value"/>
         </element>
         <element id="Observation.value:physical-quantity">
             <path value="Observation.value"/>

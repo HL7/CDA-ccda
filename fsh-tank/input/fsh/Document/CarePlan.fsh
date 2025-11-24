@@ -33,7 +33,7 @@ A care plan document can include entry references from the information in these 
   * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." // auto-should
 
 // Removing slicing on infoRecipient, since the only branch identifier (intendedRecipient) is required anyway
-* obeys should-informationRecipient
+* insert ShouldElement(informationRecipient)
 * informationRecipient 0..*
   * intendedRecipient 1..1
     * ^comment = "SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."
@@ -46,7 +46,7 @@ A care plan document can include entry references from the information in these 
     * obeys should-telecom
     * telecom 0..*
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)." // auto-should
-    * obeys should-informationRecipient
+    * insert ShouldElement(informationRecipient)
     * informationRecipient 0..1
       * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)." // auto-should
       * name 1..1
@@ -175,7 +175,7 @@ A care plan document can include entry references from the information in these 
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] setId (CONF:1198-29895)."
     * versionNumber 1..1
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] versionNumber (CONF:1198-29896)."
-* obeys should-componentOf
+* insert ShouldElement(componentOf)
 * componentOf 0..1
   * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it" // man-should
   //"<sliceName value=\"componentOf1\"/>"
