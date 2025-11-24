@@ -13,7 +13,7 @@ Description: """This template represents clinical information about the specimen
 * moodCode = #EVN (exactly)
 * code 1..1
   * insert CodedSnomed(17636008, [[Specimen collection (procedure)]])
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^short = "SHOULD have effectiveTime"
 * insert ShouldElement(targetSiteCode)

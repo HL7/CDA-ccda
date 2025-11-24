@@ -22,7 +22,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32047)."
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^short = "The effectiveTime in a planned supply represents the time that the supply should occur."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)." // auto-should

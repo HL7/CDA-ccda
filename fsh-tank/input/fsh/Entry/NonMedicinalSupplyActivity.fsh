@@ -18,7 +18,7 @@ Description: "This template represents equipment supplied to the patient (e.g., 
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-8749)."
   * insert BindAtCode(ActStatus, required)
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
 * effectiveTime only $IVL-TS
   * obeys should-high

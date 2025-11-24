@@ -34,7 +34,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:4515-31978)."
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^short = "The effectiveTime in a planned procedure represents the time that the procedure should occur."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-30447)." // auto-should

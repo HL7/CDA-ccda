@@ -23,7 +23,7 @@ Description: "This template represents priority preferences chosen by a patient 
   * codeSystem 1..1
   * codeSystem = "2.16.840.1.113883.6.96"
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.96\" (CodeSystem: SNOMED CT urn:oid:2.16.840.1.113883.6.96) (CONF:1098-30956)."
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-32327)." // auto-should
 * value 1..1
