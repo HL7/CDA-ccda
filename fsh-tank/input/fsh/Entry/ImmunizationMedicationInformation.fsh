@@ -19,6 +19,7 @@ Description: "The Immunization Medication Information represents product informa
   * lotNumberText 0..1
     * insert USCDI([[Lot Number Text - lotNumberText should be included if known. It may not be known for historical immunizations, planned immunizations, or refused/deferred immunizations.]])
     * ^comment = "This manufacturedMaterial SHOULD contain zero or one [0..1] lotNumberText (CONF:1098-9014)." // auto-should
+  * sdtcExpirationTime ^short = "Can be used to express the expiration date of the vaccine product"
 * obeys should-manufacturerOrganization
 * manufacturerOrganization 0..1
   * ^comment = "SHOULD contain zero or one [0..1] manufacturerOrganization (CONF:1098-9012)." // auto-should

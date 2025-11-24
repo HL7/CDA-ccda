@@ -69,6 +69,7 @@ The Result Observation template is a versatile template designed to represent an
 * obeys should-interpretationCode
 * interpretationCode
   * insert USCDI([[Result Interpretation]])
+  * ^binding.description = "Bound in CDA core to CDAObservationInterpretation value set (subset of HL7 v3 ObservationInterpretation), a USCDI Result Interpretation vocabulary"
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)." // man-should
 * methodCode 0..1
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."

@@ -4,7 +4,9 @@ Id: ProblemObservation
 Title: "Problem Observation"
 Description: """This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of "completed". The effectiveTime, also referred to as the "biologically relevant time" is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago. 
 
-The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is inactive. If the problem is known to be resolved, in remission, or otherwise inactive, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK"."""
+The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is inactive. If the problem is known to be resolved, in remission, or otherwise inactive, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of "UNK".
+
+The onset date (Problem Observation.effectiveTime.low), diagnosis date (Date of Diagnosis Act), and recorded date (Problem Observation.author/time) represent distinct concepts that have long been supported in C-CDA. However, in practice, these timestamps are often not distinctly or reliably captured in EHR systems. Even when all fields are available, clinicians may not enter separate dates for each event. As a result, implementations should expect variability in the availability and precision of these values."""
 
 * insert LogicalModelTemplate(problem-obs, 2.16.840.1.113883.10.20.22.4.4, 2024-05-01)
 * insert NarrativeLink
@@ -31,7 +33,7 @@ The effectiveTime of the Problem Observation is the definitive indication of whe
   * ^short = "If the problem is known to be resolved, but the date of resolution is not known, then the high element **SHALL** be present, and the nullFlavor attribute **SHALL** be set to 'UNK'. Therefore, the existence of a high element within a problem does indicate that the problem has been resolved."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-9050)."
   * low 1..1
-    * ^short = "The effectiveTime/low (a.k.a. \"onset date\") asserts when the condition became biologically active."
+    * insert USCDI([[Date of Onset = When the problem began for the patient.]])
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-15603)."
   * high 0..1
     * insert USCDI([[Date of Resolution - The effectiveTime/high (a.k.a. resolution date) asserts when the condition became biologically resolved.]])

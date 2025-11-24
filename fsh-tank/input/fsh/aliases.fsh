@@ -163,6 +163,9 @@ Alias: $2.16.840.1.113883.11.20.9.65 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16
 Alias: $2.16.840.1.113883.11.20.9.66 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.66
 Alias: $2.16.840.1.113883.11.20.9.68 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.68
 Alias: $2.16.840.1.113883.11.20.9.69.4 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4
+Alias: $HSLOCCombined = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.31
+Alias: $FederalAdministrativeSex = http://cts.nlm.nih.gov/fhir/Valueset/2.16.840.1.113762.1.4.1021.121 
+
 Alias: $CMSPlaceOfService = http://terminology.hl7.org/ValueSet/CMSPlaceOfServiceCodes
 Alias: $USCoreDocumentReferenceType = http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
 Alias: $USCoreClinicalNoteType = http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-note-type
