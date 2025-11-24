@@ -46,6 +46,7 @@ There are supplemental templates and guidance for observations of [Occupational 
 * obeys should-sh-author
 * author 0..*
 * author only AuthorParticipation
+  * ^condition = "should-sh-author"
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31869)." // man-should
 * entryRelationship 0..*
   * ^slicing.discriminator[0].type = #profile

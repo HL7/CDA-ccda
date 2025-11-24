@@ -82,7 +82,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * insert USCDI([[Date of Death]])
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedTime (CONF:4537-32988)."
         * obeys should-value-att and ts-shall-year and ts-should-day
-      * obeys should-maritalStatusCode
+      * insert ShouldElement(maritalStatusCode)
       * maritalStatusCode 0..1
       * maritalStatusCode from $2.16.840.1.113883.1.11.12212 (required)
         * ^comment = "This patient SHOULD contain zero or one [0..1] maritalStatusCode, which SHALL be selected from ValueSet Marital Status urn:oid:2.16.840.1.113883.1.11.12212 DYNAMIC (CONF:4537-5303)."  // man-should
@@ -139,11 +139,11 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * modeCode 0..1
         * modeCode from LanguageAbilityMode (required)
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:4537-5409)."
-        * obeys should-proficiencyLevelCode
+        * insert ShouldElement(proficiencyLevelCode)
         * proficiencyLevelCode 0..1
         * proficiencyLevelCode from LanguageAbilityProficiency (required)
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] proficiencyLevelCode, which SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.1.11.12199 DYNAMIC (CONF:4537-9965)." // man-should
-        * obeys should-preferenceInd
+        * insert ShouldElement(preferenceInd)
         * preferenceInd 0..1
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] preferenceInd (CONF:4537-5414)." // auto-should
     * providerOrganization 0..1
@@ -421,6 +421,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-14838)."
     * obeys should-us-performer
     * performer 0..*
+      * ^condition = "should-us-performer"
       * ^short = "The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:4537-14839)." // auto-should
       * typeCode 1..1

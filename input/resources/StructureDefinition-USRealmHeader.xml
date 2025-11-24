@@ -342,7 +342,9 @@
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.maritalStatusCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.maritalStatusCode"/>
+            <short value="SHOULD contain maritalStatusCode"/>
             <comment value="This patient SHOULD contain zero or one [0..1] maritalStatusCode, which SHALL be selected from ValueSet Marital Status urn:oid:2.16.840.1.113883.1.11.12212 DYNAMIC (CONF:4537-5303)."/>
+            <condition value="should-maritalStatusCode"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12212"/>
@@ -569,7 +571,9 @@
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.proficiencyLevelCode">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.proficiencyLevelCode"/>
+            <short value="SHOULD contain proficiencyLevelCode"/>
             <comment value="The languageCommunication, if present, SHOULD contain zero or one [0..1] proficiencyLevelCode, which SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.1.11.12199 DYNAMIC (CONF:4537-9965)."/>
+            <condition value="should-proficiencyLevelCode"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.12199"/>
@@ -577,7 +581,9 @@
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.preferenceInd">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.preferenceInd"/>
+            <short value="SHOULD contain preferenceInd"/>
             <comment value="The languageCommunication, if present, SHOULD contain zero or one [0..1] preferenceInd (CONF:4537-5414)."/>
+            <condition value="should-preferenceInd"/>
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.providerOrganization">
             <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization"/>
@@ -1324,6 +1330,7 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <short value="The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."/>
             <comment value="This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:4537-14839)."/>
+            <condition value="should-us-performer"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
