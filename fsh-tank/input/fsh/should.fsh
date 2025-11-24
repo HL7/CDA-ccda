@@ -1,5 +1,5 @@
 // Collection of "SHOULD" invariants which can be re-used wherever an element SHOUULD be present
-// Keep alphabtetical
+// Keep alphabetical
 
 // Be sure to call from the PARENT element; cleanest is to place directly before the element definition
 // See USRealmHeader.fsh for examples
