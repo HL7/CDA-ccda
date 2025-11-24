@@ -456,6 +456,7 @@
             <short value="𝗨𝗦𝗖𝗗𝗜: Relationship to Subscriber: Records the relationship of a patient to the primary insured person."/>
             <comment value="This participantRole SHALL contain exactly one [1..1] code (CONF:4537-8923)."/>
             <min value="1"/>
+            <condition value="4537-17139"/>
             <constraint>
                 <key value="should-code-attr"/>
                 <severity value="warning"/>
@@ -504,6 +505,7 @@
             <short value="When the Subscriber is the patient, the participant element describing the subscriber *SHALL NOT* be present. This information will be recorded instead in the data elements used to record member information."/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="4537-17139"/>
         </element>
         <element id="Act.participant:subscriber.templateId">
             <path value="Act.participant.templateId"/>

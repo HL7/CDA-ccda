@@ -180,6 +180,7 @@
             <path value="Procedure.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4515-7661)."/>
             <min value="1"/>
+            <condition value="active-high-ts-after-document"/>
         </element>
         <element id="Procedure.statusCode.nullFlavor">
             <path value="Procedure.statusCode.nullFlavor"/>
@@ -235,6 +236,7 @@
             <path value="Procedure.effectiveTime.high"/>
             <short value="Indicates when a procedure ended. If the statusCode='active', this must be after the ClinicalDcument/effectiveTime"/>
             <comment value="MAY contain zero or one [0..1] high"/>
+            <condition value="active-high-ts-after-document"/>
         </element>
         <element id="Procedure.priorityCode">
             <path value="Procedure.priorityCode"/>

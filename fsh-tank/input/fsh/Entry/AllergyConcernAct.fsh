@@ -36,8 +36,10 @@ An Allergy Concern Act **SHALL** contain one Allergy Intolerance Observation (te
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-7498)."
   * low 0..1
+    * ^condition = "1198-7504"
     * ^short = "Required if statusCode = 'active'"
   * high 0..1
+    * ^condition = "1198-10085"
     * ^short = "Required if statusCode = 'completed'"
 * insert ShouldElement(author)
 * author 0..*

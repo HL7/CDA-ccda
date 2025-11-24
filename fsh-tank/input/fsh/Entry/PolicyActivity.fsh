@@ -132,6 +132,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * insert USCDI([[Member Identifier: This id is a unique identifier for  the covered party member. Implementers **SHOULD** use the same GUID for each instance of a member identifier from the same health plan (CONF:4537-8984).]])
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8922)."
     * code 1..1
+      * ^condition = "4537-17139"
       * insert USCDI([[Relationship to Subscriber: Records the relationship of a patient to the primary insured person.]])
       * ^comment = "This participantRole SHALL contain exactly one [1..1] code (CONF:4537-8923)."
       * obeys should-code-attr
@@ -152,6 +153,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
         * ^short = "sdtc:birthTime"
         * ^comment = "The playingEntity, if present, SHALL contain exactly one [1..1] sdtc:birthTime (CONF:4537-31344)."
 * participant[subscriber]
+  * ^condition = "4537-17139"
   * ^short = "When the Subscriber is the patient, the participant element describing the subscriber *SHALL NOT* be present. This information will be recorded instead in the data elements used to record member information."
   * ^comment = "SHOULD contain zero or one [0..1] participant (CONF:4537-8934) such that it"
   * typeCode 1..1

@@ -100,6 +100,8 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * observation only ReactionObservation
     * ^comment = "SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:1098-16340)."
 * entryRelationship[severity] ^short = "entryRelationship"
+  * ^condition = "should-not-severity"
+  * ^short = "SHOULD NOT contain severity at the allergy level; severity belongs at the reaction level."
   * ^comment = "SHOULD NOT contain zero or one [0..1] entryRelationship (CONF:1098-16341) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)

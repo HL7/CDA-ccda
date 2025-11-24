@@ -22,6 +22,7 @@ Description: "This template is used to represent the details of current and hist
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-7656)."
   * insert NarrativeOriginalText
 * statusCode 1..1
+  * ^condition = "active-high-ts-after-document"
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-7661)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.22, required)
 * obeys active-high-ts-after-document
@@ -34,6 +35,7 @@ Description: "This template is used to represent the details of current and hist
     * ^short = "Indicates when a procedure started"
     * ^comment = "MAY contain zero or one [0..1] low"
   * high
+    * ^condition = "active-high-ts-after-document"
     * ^short = "Indicates when a procedure ended. If the statusCode='active', this must be after the ClinicalDcument/effectiveTime"
     * ^comment = "MAY contain zero or one [0..1] high"
 * priorityCode 0..1

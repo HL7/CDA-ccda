@@ -53,11 +53,13 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     * ^short = "indicates when medication stopped"
     * ^comment = "MAY contain zero or one [0..1] high (CONF:1098-32777)."
 * effectiveTime[periodicFrequency] only $PIVL-TS
+  * ^condition = "1098-7513"
   * ^short = "This effectiveTime represents a periodic medication frequency (e.g., administration times per day)."
   * operator 1..1
   * operator = #A
     * ^comment = "SHALL contain exactly one [1..1] @operator=\"A\" (CONF:1098-9106)."
 * effectiveTime[eventFrequency] only $EIVL-TS
+  * ^condition = "1098-7513"
   * ^short = "This effectiveTime represents an event-based medication frequency (e.g., administration at bedtime)."
   * operator 1..1
   * operator = #A
@@ -83,6 +85,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * ^comment = "SHALL contain exactly one [1..1] doseQuantity (CONF:1098-7516)."
   * obeys should-unit
   * unit 0..1
+    * ^condition = "dose-unit-or-admin-unit"
     * insert USCDI([[Dose Unit of Measure. NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units]])
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * ^definition = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
@@ -98,6 +101,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * obeys dose-unit-or-admin-unit
 * administrationUnitCode 0..1
 * administrationUnitCode from AdministrationUnitDoseForm (required)
+  * ^condition = "dose-unit-or-admin-unit"
   * ^short = "administrationUnitCode@code describes the units of medication administration for an item using a code that is pre-coordinated to include a physical unit form (ointment, powder, solution, etc.) which differs from the units used in administering the consumable (capful, spray, drop, etc.). For example when recording medication administrations, 'metric drop (C48491)'' would be appropriate to accompany the RxNorm code of 198283 (Timolol 0.25% Ophthalmic Solution) where the number of drops would be specified in doseQuantity@value."
   * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519)."
 * consumable 1..1

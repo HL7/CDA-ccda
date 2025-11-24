@@ -33,6 +33,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^comment = "MAY contain zero or one [0..1] quantity (CONF:1098-32064)."
 * obeys shall-product-or-device
 * product 0..1 
+  * ^condition = "shall-product-or-device"
   * ^short = "Represents either a medication or an immunization supply"
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
@@ -51,6 +52,7 @@ Depending on the type of supply, the product or participant will be either a Med
 * participant contains productInstance 0..1
 * participant[productInstance] ^short = "This participant represents a device that is ordered, requested or intended for the patient."
   * ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"
+  * ^condition = "shall-product-or-device"
   * typeCode 1..1
   * typeCode = #DEV
   * participantRole 1..1

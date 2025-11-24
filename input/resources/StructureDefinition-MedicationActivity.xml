@@ -225,6 +225,7 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/PIVL-TS"/>
             </type>
+            <condition value="1098-7513"/>
         </element>
         <element id="SubstanceAdministration.effectiveTime:periodicFrequency.operator">
             <path value="SubstanceAdministration.effectiveTime.operator"/>
@@ -241,6 +242,7 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/EIVL-TS"/>
             </type>
+            <condition value="1098-7513"/>
         </element>
         <element id="SubstanceAdministration.effectiveTime:eventFrequency.operator">
             <path value="SubstanceAdministration.effectiveTime.operator"/>
@@ -315,6 +317,7 @@
             <short value="𝗨𝗦𝗖𝗗𝗜: Dose Unit of Measure. NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <definition value="NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="This doseQuantity SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-7526)."/>
+            <condition value="dose-unit-or-admin-unit"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive"/>
@@ -342,6 +345,7 @@
             <path value="SubstanceAdministration.administrationUnitCode"/>
             <short value="administrationUnitCode@code describes the units of medication administration for an item using a code that is pre-coordinated to include a physical unit form (ointment, powder, solution, etc.) which differs from the units used in administering the consumable (capful, spray, drop, etc.). For example when recording medication administrations, 'metric drop (C48491)'' would be appropriate to accompany the RxNorm code of 198283 (Timolol 0.25% Ophthalmic Solution) where the number of drops would be specified in doseQuantity@value."/>
             <comment value="MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519)."/>
+            <condition value="dose-unit-or-admin-unit"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.30"/>
