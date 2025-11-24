@@ -23,9 +23,9 @@
     <url value="http://hl7.org/cda/us/ccda/StructureDefinition/FamilyHistoryOrganizer"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.45:2015-08-01"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.45:2026-05-01"/>
     </identifier>
-    <version value="2015-08-01"/>
+    <version value="2026-05-01"/>
     <name value="FamilyHistoryOrganizer"/>
     <title value="Family History Organizer"/>
     <status value="draft"/>
@@ -76,7 +76,7 @@
         <element id="Organizer.templateId:family-history-org.extension">
             <path value="Organizer.templateId.extension"/>
             <min value="1"/>
-            <patternString value="2015-08-01"/>
+            <patternString value="2026-05-01"/>
         </element>
         <element id="Organizer.classCode">
             <path value="Organizer.classCode"/>
@@ -172,11 +172,18 @@
         </element>
         <element id="Organizer.subject.relatedSubject.subject.administrativeGenderCode">
             <path value="Organizer.subject.relatedSubject.subject.administrativeGenderCode"/>
-            <comment value="The subject, if present, SHALL contain exactly one [1..1] administrativeGenderCode, which SHALL be selected from ValueSet Administrative Gender (HL7 V3) urn:oid:2.16.840.1.113883.1.11.1 DYNAMIC (CONF:1198-15974)."/>
+            <min value="1"/>
+        </element>
+        <element id="Organizer.subject.relatedSubject.subject.administrativeGenderCode.nullFlavor">
+            <path value="Organizer.subject.relatedSubject.subject.administrativeGenderCode.nullFlavor"/>
+            <max value="0"/>
+        </element>
+        <element id="Organizer.subject.relatedSubject.subject.administrativeGenderCode.code">
+            <path value="Organizer.subject.relatedSubject.subject.administrativeGenderCode.code"/>
             <min value="1"/>
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.1"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.121"/>
             </binding>
         </element>
         <element id="Organizer.subject.relatedSubject.subject.birthTime">

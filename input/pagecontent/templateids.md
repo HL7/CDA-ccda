@@ -132,7 +132,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.41:2022-06-01 | [PlannedProcedure](StructureDefinition-PlannedProcedure.html) |
 | 2.16.840.1.113883.10.20.22.4.42:2014-06-09 | [PlannedMedicationActivity](StructureDefinition-PlannedMedicationActivity.html) |
 | 2.16.840.1.113883.10.20.22.4.43:2024-05-01 | [PlannedSupply](StructureDefinition-PlannedSupply.html) |
-| 2.16.840.1.113883.10.20.22.4.45:2015-08-01 | [FamilyHistoryOrganizer](StructureDefinition-FamilyHistoryOrganizer.html) |
+| 2.16.840.1.113883.10.20.22.4.45:2026-05-01 | [FamilyHistoryOrganizer](StructureDefinition-FamilyHistoryOrganizer.html) |
 | 2.16.840.1.113883.10.20.22.4.46:2015-08-01 | [FamilyHistoryObservation](StructureDefinition-FamilyHistoryObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.47 | [FamilyHistoryDeathObservation](StructureDefinition-FamilyHistoryDeathObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.48:2025-05-01 | [AdvanceDirectiveObservation](StructureDefinition-AdvanceDirectiveObservation.html) |

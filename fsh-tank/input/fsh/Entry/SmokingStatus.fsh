@@ -4,7 +4,7 @@ Id: SmokingStatus
 Title: "Smoking Status"
 Description: """This template represents a patient's smoking status. It is a combination and replacement of the two previous templates Smoking Status - Meaningful Use and Tobacco Use, and it aligns with the US Core Smoking Status profile.
 
-When the code represents a quantifiable observation (such as Cigarette pack-years - 401201003), the value may be a Physical Quantity. When the code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value **SHALL** be coded.
+When the code represents a quantifiable observation (such as Cigarette pack-years - 401201003), the value may be a Physical Quantity. When the code is Smoking Status (72166-2), Tobacco Use (11367-0), or Electronic cigarette status (105045-9) the value **SHALL** be coded.
 
 Regarding effectiveTime: some values in the Tobacco Use value set represent temporal meanings (e.g. 266919005 - Never smoked tobacco) and should correspond to a single timestamp representing when the observation was true. Other codes, such as 59978006 - Cigar smoker, may be represented with a single timestamp or a time range indicating when the patient began smoking and when they stopped."""
 
@@ -46,6 +46,6 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
 * obeys coded-value
 
 Invariant: coded-value
-Description: "When code is Smoking Status (72166-2) or Tobacco Use (11367-0), the value SHALL be coded"
+Description: "When code is Smoking Status (72166-2), or Tobacco Use (11367-0), or Electronic cigarette status (105045-9) the value SHALL be coded"
 Severity: #error
-Expression: "(code.code = '72166-2' or code.code = '11367-0') implies value.code.exists()"
+Expression: "(code.code = '72166-2' or code.code = '11367-0' or code.code = '105045-9') implies value.code.exists()"
