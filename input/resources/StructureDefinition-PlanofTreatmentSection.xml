@@ -29,7 +29,7 @@
     <name value="PlanofTreatmentSection"/>
     <title value="Plan of Treatment Section"/>
     <status value="draft"/>
-    <description value="This section, formerly known as &quot;Plan of Care&quot;, contains data that define pending orders, interventions, encounters, services, and procedures for the patient. It is limited to prospective, unfulfilled, or incomplete orders and requests only. These are indicated by the @moodCode of the entries within this section. All active, incomplete, or pending orders, appointments, referrals, procedures, services, or any other pending event of clinical significance to the current care of the patient should be listed. &#xA;&#xA;This section may also contain information about ongoing care of the patient, clinical reminders, patient's values, beliefs, preferences, care expectations, and overarching care goals. &#xA;&#xA;Clinical reminders are placed here to provide prompts for disease prevention and management, patient safety, and healthcare quality improvements, including widely accepted performance measures. &#xA;&#xA;Values may include the importance of quality of life over longevity. These values are taken into account when prioritizing all problems and their treatments. &#xA;&#xA;Beliefs may include comfort with dying or the refusal of blood transfusions because of the patient's religious convictions. &#xA;&#xA;Preferences may include liquid medicines over tablets, or treatment via secure email instead of in person. &#xA;&#xA;Care expectations may range from being treated only by female clinicians, to expecting all calls to be returned within 24 hours. &#xA;&#xA;Overarching goals described in this section are not tied to a specific condition, problem, health concern, or intervention. Examples of overarching goals could be to minimize pain or dependence on others, or to walk a daughter down the aisle for her marriage. &#xA;&#xA;The plan may also indicate that patient education will be provided.&#xA;&#xA;When this section.text contains extra information not contained in the discrete entries, it is helpful to wrap the text of this section in a Note Activity to support ingestion."/>
+    <description value="This section captures planned, pending, active, or completed orders, interventions, encounters, services, and procedures relevant to a patient’s care. It may also include or reference existing problems or conditions that inform ongoing care planning. While entries typically represent prospective or in-progress actions (as indicated by their @moodCode), completed activities of clinical significance may be included to maintain continuity and context. The section may contain information about ongoing or anticipated care, clinical reminders, and overarching goals, along with the patient’s values, beliefs, preferences, and care expectations that shape care decisions. Examples include reminders for preventive services, values such as quality of life over longevity, beliefs such as refusal of blood transfusions, or preferences regarding care modalities or provider characteristics.&#xA;&#xA;Previously defined entry templates remain valid for compatibility. The Care Plan Act entry template provides a structured way to represent a snapshot of a dynamic, consensus-driven care plan that captures prioritized concerns, goals, and planned interventions. This entry reflects the current state of the care plan as managed in the source system and supports exchange across systems for coordinated, longitudinal care.&#xA;&#xA;When additional context appears in the section narrative (section.text) but not in discrete entries, it is recommended to encapsulate the text in a Note Activity to support ingestion and preserve meaning."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -121,6 +121,84 @@
                 <rules value="open"/>
             </slicing>
         </element>
+        <element id="Section.entry:carePlanAct">
+            <path value="Section.entry"/>
+            <sliceName value="carePlanAct"/>
+            <short value="Represents a snapshot in time of a care plan. Related resources may be embedded directly or referenced via EntryReference (e.g. for systems who wish to continue including entries directly in the Plan of Treatment section)."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:carePlanAct.act">
+            <path value="Section.entry.act"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlanAct"/>
+            </type>
+        </element>
+        <element id="Section.entry:goal">
+            <path value="Section.entry"/>
+            <sliceName value="goal"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-32887) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:goal.observation">
+            <path value="Section.entry.observation"/>
+            <comment value="SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:1098-32888)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
+            </type>
+        </element>
+        <element id="Section.entry:handoffCommParticipants">
+            <path value="Section.entry"/>
+            <sliceName value="handoffCommParticipants"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-29621) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:handoffCommParticipants.act">
+            <path value="Section.entry.act"/>
+            <comment value="SHALL contain exactly one [1..1] Handoff Communication Participants (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.141) (CONF:1098-30868)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HandoffCommunicationParticipants"/>
+            </type>
+        </element>
+        <element id="Section.entry:instruction">
+            <path value="Section.entry"/>
+            <sliceName value="instruction"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-14695) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:instruction.observation">
+            <path value="Section.entry.observation"/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
+            </type>
+        </element>
+        <element id="Section.entry:nutrition">
+            <path value="Section.entry"/>
+            <sliceName value="nutrition"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-31841) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:nutrition.act">
+            <path value="Section.entry.act"/>
+            <comment value="SHALL contain exactly one [1..1] Nutrition Recommendation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.130) (CONF:1098-31864)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionRecommendation"/>
+            </type>
+        </element>
         <element id="Section.entry:plannedEnc">
             <path value="Section.entry"/>
             <sliceName value="plannedEnc"/>
@@ -137,20 +215,20 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedEncounter"/>
             </type>
         </element>
-        <element id="Section.entry:plannedProc">
+        <element id="Section.entry:plannedImmunization">
             <path value="Section.entry"/>
-            <sliceName value="plannedProc"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-8809) such that it"/>
+            <sliceName value="plannedImmunization"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-32353) such that it"/>
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="Section.entry:plannedProc.procedure">
-            <path value="Section.entry.procedure"/>
-            <comment value="SHALL contain exactly one [1..1] Planned Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09) (CONF:1098-30474)."/>
+        <element id="Section.entry:plannedImmunization.substanceAdministration">
+            <path value="Section.entry.substanceAdministration"/>
+            <comment value="SHALL contain exactly one [1..1] Planned Immunization Activity (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.120) (CONF:1098-32354)."/>
             <min value="1"/>
             <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedImmunizationActivity"/>
             </type>
         </element>
         <element id="Section.entry:plannedMed">
@@ -173,6 +251,22 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity"/>
             </type>
         </element>
+        <element id="Section.entry:plannedProc">
+            <path value="Section.entry"/>
+            <sliceName value="plannedProc"/>
+            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-8809) such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:plannedProc.procedure">
+            <path value="Section.entry.procedure"/>
+            <comment value="SHALL contain exactly one [1..1] Planned Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.41:2014-06-09) (CONF:1098-30474)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedProcedure"/>
+            </type>
+        </element>
         <element id="Section.entry:plannedSupply">
             <path value="Section.entry"/>
             <sliceName value="plannedSupply"/>
@@ -187,85 +281,6 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedSupply"/>
-            </type>
-        </element>
-        <element id="Section.entry:instruction">
-            <path value="Section.entry"/>
-            <sliceName value="instruction"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-14695) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:instruction.observation">
-            <path value="Section.entry.observation"/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InstructionObservation"/>
-            </type>
-        </element>
-        <element id="Section.entry:handoffCommParticipants">
-            <path value="Section.entry"/>
-            <sliceName value="handoffCommParticipants"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-29621) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:handoffCommParticipants.act">
-            <path value="Section.entry.act"/>
-            <comment value="SHALL contain exactly one [1..1] Handoff Communication Participants (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.141) (CONF:1098-30868)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/HandoffCommunicationParticipants"/>
-            </type>
-        </element>
-        <element id="Section.entry:nutrition">
-            <path value="Section.entry"/>
-            <sliceName value="nutrition"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-31841) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:nutrition.act">
-            <path value="Section.entry.act"/>
-            <comment value="SHALL contain exactly one [1..1] Nutrition Recommendation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.130) (CONF:1098-31864)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/NutritionRecommendation"/>
-            </type>
-        </element>
-        <element id="Section.entry:plannedImmunization">
-            <path value="Section.entry"/>
-            <sliceName value="plannedImmunization"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-32353) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:plannedImmunization.substanceAdministration">
-            <path value="Section.entry.substanceAdministration"/>
-            <comment value="SHALL contain exactly one [1..1] Planned Immunization Activity (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.120) (CONF:1098-32354)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedImmunizationActivity"/>
-            </type>
-        </element>
-        <element id="Section.entry:goal">
-            <path value="Section.entry"/>
-            <sliceName value="goal"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-32887) such that it"/>
-            <min value="0"/>
-            <max value="*"/>
-        </element>
-        <element id="Section.entry:goal.observation">
-            <path value="Section.entry.observation"/>
-            <comment value="SHALL contain exactly one [1..1] Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.121) (CONF:1098-32888)."/>
-            <min value="1"/>
-            <type>
-                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
-                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
             </type>
         </element>
         <element id="Section.entry:notes">

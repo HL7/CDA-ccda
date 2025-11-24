@@ -112,11 +112,11 @@ A goal may have components consisting of other goals (milestones). These milesto
     * ^comment = "The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:4515-32756)."
 
 
-// Add on any entry/entryRelationship/component containing an EntryReference that must be a reference to a Goal Observation (see Planned Intervention, Outcome, etc)
+// Add on any "act only EntryReference" that must be a reference to a Goal Observation (see Planned Intervention, Outcome, etc)
 Invariant: entry-ref-goal
 Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template."
 Severity: #error
-Expression: "%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"
+Expression: "%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension))"
 /*
 %resource.descendants().ofType(CDA.Observation).where(
   templateId.exists(
