@@ -78,6 +78,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)." // man-should
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * addr 0..*
     * addr only USRealmAddress
       * ^comment = "This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."
@@ -102,6 +103,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
     * code 0..1
     * code from $2.16.840.1.113762.1.4.1046.35 (preferred)
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent or Proxy Choices urn:oid:2.16.840.1.113762.1.4.1046.35 DYNAMIC (CONF:1198-28440)." // man-should
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress

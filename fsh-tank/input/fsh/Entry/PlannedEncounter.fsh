@@ -33,6 +33,7 @@ Description: "This template represents a planned or ordered encounter. The type 
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1098-31874)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
 * obeys should-author
 * author 0..*
 * author only AuthorParticipation

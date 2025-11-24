@@ -34,6 +34,7 @@ Description: "This clinical statement describes an interaction between a patient
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8727)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
 * participant ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "participantRole"
   * ^slicing.discriminator[+].type = #value

@@ -75,6 +75,7 @@ The components of the organizer contain the following information:
     * id 1..*
       * obeys 4515-133
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4515-132)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
 * participant[location] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-134) such that it"
   * typeCode 1..1
