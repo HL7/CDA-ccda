@@ -31,9 +31,9 @@ Here is the roadmap for [USCDI support in C-CDA](https://confluence.hl7.org/spac
 
 | USCDI Version | Referenced Specification | Dates Required for Certification |
 |---------------|----------------------------------------------|---|
-| v6            | [C-CDA STU 5.0](https://hl7.org/cda/us/ccda/) | |
-| v5            | [C-CDA STU 4.0](https://hl7.org/cda/us/ccda/) | |
-| v4            | [C-CDA STU 3.0](https://hl7.org/cda/us/ccda/) | Jan 2028 (proposed) |
+| v6            | [C-CDA STU 5.0](https://hl7.org/cda/us/ccda/5.0.0/) | |
+| v5            | [C-CDA STU 4.0](https://hl7.org/cda/us/ccda/4.0.0/) | |
+| v4            | [C-CDA STU 3.0](https://hl7.org/cda/us/ccda/3.0.0/) | Jan 2028 (proposed) |
 | v3            | [C-CDA R2.1](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) and [C-CDA Companion Guide Release 4.1](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)      | Jan 2026 |
 | v2            | [C-CDA R2.1](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) and [C-CDA Companion Guide Release 3](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        | |
 | v1            | [C-CDA R2.1](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) and [C-CDA Companion Guide Release 2](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)        | |
