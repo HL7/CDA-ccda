@@ -87,7 +87,11 @@
         </element>
         <element id="ParticipantRole.playingDevice.code">
             <path value="ParticipantRole.playingDevice.code"/>
-            <comment value="This playingDevice SHOULD contain zero or one [0..1] code (CONF:81-16837)."/>
+            <comment value="This playingDevice SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Device Type urn:oid:2.16.840.1.113762.1.4.1267.36 DYNAMIC."/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.36"/>
+            </binding>
         </element>
         <element id="ParticipantRole.scopingEntity">
             <path value="ParticipantRole.scopingEntity"/>

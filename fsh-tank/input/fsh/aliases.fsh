@@ -170,3 +170,4 @@ Alias: $CMSPlaceOfService = http://terminology.hl7.org/ValueSet/CMSPlaceOfServic
 Alias: $USCoreDocumentReferenceType = http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
 Alias: $USCoreClinicalNoteType = http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-note-type
 Alias: $1.3.6.1.4.1.12009.10.1.3932 =  http://loinc.org/vs/LL5052-7
+Alias: $2.16.840.1.113762.1.4.1267.36 = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.36
