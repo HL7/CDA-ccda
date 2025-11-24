@@ -39,7 +39,7 @@ Depending on the type of supply, the product or participant will be either a Med
 * performer 0..*
   * ^short = "The clinician who is expected to perform the supply could be identified using supply/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-32048)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..1
 * author only AuthorParticipation
   * ^short = "The author in a supply represents the clinician who is requesting or planning the supply."

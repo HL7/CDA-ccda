@@ -165,7 +165,9 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
+            <short value="SHOULD contain code"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:1098-7301)."/>
+            <condition value="should-code"/>
         </element>
         <element id="Observation.code.code">
             <path value="Observation.code.code"/>
@@ -242,11 +244,13 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
+            <short value="SHOULD contain author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-7310)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
     </differential>
 </StructureDefinition>

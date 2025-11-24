@@ -25,10 +25,10 @@ A care plan document can include entry references from the information in these 
 
 * ^status = #active
 * code from $2.16.840.1.113762.1.4.1099.10 (required)
-* obeys should-setId
+* insert ShouldElement(setId)
 * setId 0..1
   * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." // auto-should
-* obeys should-versionNumber
+* insert ShouldElement(versionNumber)
 * versionNumber 0..1
   * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." // auto-should
 

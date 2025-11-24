@@ -48,7 +48,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
 * performer 0..*
   * ^short = "The clinician who is expected to perform the procedure could be identified using procedure/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:4515-30449)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..1
 * author only AuthorParticipation
   * ^short = "The author in a planned procedure represents the clinician who is requesting or planning the procedure."

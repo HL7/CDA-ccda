@@ -41,7 +41,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^binding.strength = #example
   * ^binding.description = "See additional binding"
   * insert AdditionalBinding(preferred, $SDoHGoals, Social Determinant of Health Goals, [[When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet [Social Determinant of Health Goals 2.16.840.1.113762.1.4.1247.71](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.71/expansion) **DYNAMIC**.]])
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^short = "If the author is the recordTarget (patient), this is a patient goal.  If the author is a provider, this is a provider goal. If both patient and provider are authors, this is a negotiated goal. If no author is present, it is assumed the document or section author(s) is the author of this goal."

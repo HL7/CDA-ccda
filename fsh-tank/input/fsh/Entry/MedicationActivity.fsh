@@ -108,7 +108,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     * ^comment = "This consumable SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-16085)."
 * performer 0..1
   * ^comment = "MAY contain zero or one [0..1] performer (CONF:1098-7522)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31150)." // man-should

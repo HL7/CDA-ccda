@@ -39,7 +39,7 @@ An Allergy Concern Act **SHALL** contain one Allergy Intolerance Observation (te
     * ^short = "Required if statusCode = 'active'"
   * high 0..1
     * ^short = "Required if statusCode = 'completed'"
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31145)." // man-should

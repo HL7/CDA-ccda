@@ -4,6 +4,13 @@
 // Be sure to call from the PARENT element; cleanest is to place directly before the element definition
 // See USRealmHeader.fsh for examples
 
+// Additionally, if the invariant is placed on the root, and the template is large, consider using
+// the ruleSet to add a ^condition and a ^short to the element (the short can be overridden if needed)
+// This is not necessary if the parent element is small (like should-addr / should-telecom)
+RuleSet: ShouldElement(elementName)
+* obeys should-{elementName}
+* {elementName} ^condition = "should-{elementName}"
+  * ^short = "SHOULD contain {elementName}"
 
 Invariant: should-addr
 Description: "SHOULD contain addr"
