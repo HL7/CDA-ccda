@@ -80,6 +80,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
     * id 1..*
       * ^short = "This may be the ID of the note author. If so, no additional information in this participant is required."
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:3250-16927)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * playingEntity 0..1
       * ^comment = "This participantRole MAY contain zero or one [0..1] playingEntity (CONF:3250-16928)."
       * name 1..*

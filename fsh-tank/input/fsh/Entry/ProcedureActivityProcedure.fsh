@@ -65,6 +65,7 @@ Description: "This template is used to represent the details of current and hist
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-7722)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] addr (CONF:4515-7731)."

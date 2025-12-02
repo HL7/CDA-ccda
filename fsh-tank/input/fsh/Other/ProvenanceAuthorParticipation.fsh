@@ -47,6 +47,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * ^binding.description = "See additional bindings"
     * insert AdditionalBinding(preferred, $2.16.840.1.114222.4.11.1066, Providers, [[If the content is provider authored, the code SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4515-56).]])
     * insert AdditionalBinding(preferred, $2.16.840.1.113883.11.20.12.1, Non-clinicians, [[If the author is a person who is not acting in the role of a clinician, the code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4515-57).]])
+  * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
   * addr 0..*
   * addr only USRealmAddress
     * ^short = "Required on at least one instance of this author in the document"

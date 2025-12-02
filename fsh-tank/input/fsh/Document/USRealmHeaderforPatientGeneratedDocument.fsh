@@ -57,6 +57,7 @@ The Patient Generated Document Header template is not a separate document type. 
     * code 0..1
     * code from $2.16.840.1.113883.11.20.12.1 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28680)."
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
 // Removing slicing since only discriminator is always required
 * informant[non-provider]
   * relatedEntity 1..1
@@ -127,6 +128,7 @@ The Patient Generated Document Header template is not a separate document type. 
     * code 0..1
     * code from $2.16.840.1.113883.11.20.12.1 (preferred)
       * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-28706)."  // man-should
+    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
 * inFulfillmentOf 0..*
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-28707)."
   * order 1..1
