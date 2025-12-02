@@ -17,6 +17,7 @@ Subsections MAY be used to partition the entries into different categories. For 
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1098-7895) such that it"
 * entry contains entryProcedure 0..*
 * entry[entryProcedure] ^comment = "SHALL contain exactly one [1..1] Procedure Activity Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-15509)."
+  * ^condition = "shall-procedure-act-procedure"
   * procedure 1..1
   * procedure only ProcedureActivityProcedure
 * obeys shall-procedure-act-procedure

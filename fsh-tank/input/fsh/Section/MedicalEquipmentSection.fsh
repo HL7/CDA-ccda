@@ -26,10 +26,12 @@ These devices may be grouped together within a Medical Equipment Organizer. The 
   * organizer only MedicalEquipmentOrganizer
     * ^comment = "SHALL contain exactly one [1..1] Medical Equipment Organizer (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.135) (CONF:1098-30351)."
 * entry[nonMedSupply] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1098-31125) such that it"
+  * ^condition = "should-non-med-supply"
   * supply 1..1
   * supply only NonMedicinalSupplyActivity
     * ^comment = "SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-31861)."
 * entry[procedure] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1098-31885) such that it"
+  * ^condition = "should-procedure-act-procedure"
   * procedure 1..1
   * procedure only ProcedureActivityProcedure
     * ^comment = "SHALL contain exactly one [1..1] Procedure Activity Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-31886)."

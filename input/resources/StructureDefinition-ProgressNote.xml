@@ -95,6 +95,8 @@
                 <rules value="open"/>
             </slicing>
             <short value="Used to categorize the document as a Progress Note. If present, there SHALL be a category of 11506-3 (Progress note)."/>
+            <condition value="should-sdtcCategory"/>
+            <condition value="category-11506-3"/>
         </element>
         <element id="ClinicalDocument.sdtcCategory:documentType">
             <path value="ClinicalDocument.sdtcCategory"/>
@@ -127,6 +129,7 @@
             <short value="A documentationOf can contain a serviceEvent to further specialize the act inherent in the ClinicalDocument/code. In a Progress Note, a serviceEvent can represent the event of writing the Progress Note. The serviceEvent/effectiveTime is the time period the note documents."/>
             <comment value="SHOULD contain zero or one [0..1] documentationOf (CONF:1198-7603)."/>
             <max value="1"/>
+            <condition value="should-documentationOf"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent">
             <path value="ClinicalDocument.documentationOf.serviceEvent"/>
@@ -254,6 +257,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30618)."/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -269,6 +274,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30620) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -284,6 +291,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30622) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessmentAndPlan.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>

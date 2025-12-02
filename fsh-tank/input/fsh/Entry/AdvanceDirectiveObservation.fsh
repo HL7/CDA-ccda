@@ -42,7 +42,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
 * value 0..1
 * value only $CD
 * value from $AdvanceDirectiveDocumentTypes (preferred)
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)." // man-should
@@ -86,7 +86,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
       * name 1..1
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The playingEntity SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."
-* obeys should-informant
+* insert ShouldElement(informant)
 * informant ^short = "SHOULD contain informant" // man-should
 * participant[healthcareAgent] ^short = "This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."
 * participant[healthcareAgent] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"

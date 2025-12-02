@@ -43,7 +43,7 @@ The effectiveTime element is used to describe dates associated with the patient'
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF-1098-16562)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.41, required)
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31152)." // man-should

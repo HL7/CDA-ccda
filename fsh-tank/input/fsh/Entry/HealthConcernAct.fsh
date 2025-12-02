@@ -30,7 +30,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
 * effectiveTime 0..1
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:4515-30759)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^short = "A health concern may be a patient or provider concern. If the author is set to the recordTarget (patient), this is a patient concern. If the author is set to a provider, this is a provider concern. If both patient and provider are set as authors, this is a concern of both the patient and the provider."

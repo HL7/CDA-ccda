@@ -88,6 +88,8 @@
                 <rules value="open"/>
             </slicing>
             <short value="Used to categorize the document as a Discharge Summary. If present, there SHALL be a category of 18842-5 (Discharge summary)."/>
+            <condition value="should-sdtcCategory"/>
+            <condition value="category-18842-5"/>
         </element>
         <element id="ClinicalDocument.sdtcCategory:documentType">
             <path value="ClinicalDocument.sdtcCategory"/>
@@ -295,6 +297,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30525) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-discharge-meds"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:dischargeMeds.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -325,6 +328,7 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30529) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:chiefComplaint.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -340,6 +344,7 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30531) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:chiefComplaintRFV.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -565,6 +570,7 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30561) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:reasonForVisit.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>

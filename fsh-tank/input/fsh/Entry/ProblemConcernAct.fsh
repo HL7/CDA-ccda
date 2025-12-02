@@ -53,7 +53,7 @@ Many systems display the nested Problem Observation with the most recent author 
   * high 0..1
     * ^short = "The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-9033)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31146)." // man-should

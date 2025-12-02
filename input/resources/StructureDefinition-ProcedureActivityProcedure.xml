@@ -149,6 +149,7 @@
         <element id="Procedure.code.originalText">
             <path value="Procedure.code.originalText"/>
             <short value="SHOULD reference the portion of narrative corresponding to this code"/>
+            <condition value="should-otext-ref-value"/>
         </element>
         <element id="Procedure.code.originalText.reference">
             <path value="Procedure.code.originalText.reference"/>
@@ -163,6 +164,7 @@
         <element id="Procedure.text">
             <path value="Procedure.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Procedure.text.reference">
             <path value="Procedure.text.reference"/>
@@ -178,6 +180,7 @@
             <path value="Procedure.statusCode"/>
             <comment value="SHALL contain exactly one [1..1] statusCode (CONF:4515-7661)."/>
             <min value="1"/>
+            <condition value="active-high-ts-after-document"/>
         </element>
         <element id="Procedure.statusCode.nullFlavor">
             <path value="Procedure.statusCode.nullFlavor"/>
@@ -233,6 +236,7 @@
             <path value="Procedure.effectiveTime.high"/>
             <short value="Indicates when a procedure ended. If the statusCode='active', this must be after the ClinicalDcument/effectiveTime"/>
             <comment value="MAY contain zero or one [0..1] high"/>
+            <condition value="active-high-ts-after-document"/>
         </element>
         <element id="Procedure.priorityCode">
             <path value="Procedure.priorityCode"/>
@@ -252,6 +256,7 @@
             <path value="Procedure.targetSiteCode"/>
             <short value="In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."/>
             <comment value="SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)."/>
+            <condition value="should-targetSiteCode"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9"/>
@@ -280,7 +285,9 @@
         </element>
         <element id="Procedure.performer">
             <path value="Procedure.performer"/>
+            <short value="SHOULD contain performer"/>
             <comment value="SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"/>
+            <condition value="should-performer"/>
         </element>
         <element id="Procedure.performer.assignedEntity">
             <path value="Procedure.performer.assignedEntity"/>
@@ -366,11 +373,13 @@
         </element>
         <element id="Procedure.author">
             <path value="Procedure.author"/>
+            <short value="SHOULD contain author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-32479)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="Procedure.participant">
             <path value="Procedure.participant"/>

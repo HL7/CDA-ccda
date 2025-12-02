@@ -149,6 +149,7 @@
         <element id="Organizer.sdtcText">
             <path value="Organizer.sdtcText"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-sdtctext-ref-value"/>
         </element>
         <element id="Organizer.sdtcText.reference">
             <path value="Organizer.sdtcText.reference"/>
@@ -228,11 +229,13 @@
         </element>
         <element id="Organizer.author">
             <path value="Organizer.author"/>
+            <short value="SHOULD contain author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-31149)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="Organizer.component">
             <path value="Organizer.component"/>

@@ -86,18 +86,28 @@ A History and Physical Examination is required upon hospital admission as well a
       * section only AllergiesAndIntolerancesSection
         * ^comment = "SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.6.1:2024-05-01) (CONF:1198-30572)."
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30573) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only AssessmentSection
         * ^comment = "SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30574)."
     * component[planOfTreatment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30575) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30576)."
     * component[assessmentAndPlan] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30577) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only AssessmentandPlanSection
         * ^comment = "SHALL contain exactly one [1..1] Assessment and Plan Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09) (CONF:1198-30578)."
     * component[chiefComplaint] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30579) such that it"
+      * ^condition[+] = "ccrfv-or-cc-or-rfv"
+      * ^condition[+] = "cc-rfv-combo"
       * section only ChiefComplaintSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) (CONF:1198-30580)."
     * component[chiefComplaintRFV] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30581) such that it"
+      * ^condition[+] = "ccrfv-or-cc-or-rfv"
+      * ^condition[+] = "cc-rfv-combo"
       * section only ChiefComplaintandReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint and Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.13) (CONF:1198-30582)."
     * component[familyHistory] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30583) such that it"
@@ -110,6 +120,7 @@ A History and Physical Examination is required upon hospital admission as well a
       * section only PastMedicalHistory
         * ^comment = "SHALL contain exactly one [1..1] Past Medical History (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.20:2024-05-01) (CONF:1198-30588)."
     * component[historyPresentIllness] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30589) such that it" // man-should
+      * ^condition = "should-section-hpi"
       * section only HistoryofPresentIllnessSection
         * ^comment = "SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-30590)."
     * component[immunizations] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30591) such that it"
@@ -131,6 +142,8 @@ A History and Physical Examination is required upon hospital admission as well a
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30602)."
     * component[reasonForVisit] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30603) such that it"
+      * ^condition[+] = "ccrfv-or-cc-or-rfv"
+      * ^condition[+] = "cc-rfv-combo"
       * section only ReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.12) (CONF:1198-30604)."
     * component[results] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30605) such that it"

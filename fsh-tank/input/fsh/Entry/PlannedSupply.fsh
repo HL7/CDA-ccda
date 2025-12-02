@@ -22,7 +22,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-32047)."
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^short = "The effectiveTime in a planned supply represents the time that the supply should occur."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)." // auto-should
@@ -33,13 +33,14 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^comment = "MAY contain zero or one [0..1] quantity (CONF:1098-32064)."
 * obeys shall-product-or-device
 * product 0..1 
+  * ^condition = "shall-product-or-device"
   * ^short = "Represents either a medication or an immunization supply"
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
 * performer 0..*
   * ^short = "The clinician who is expected to perform the supply could be identified using supply/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-32048)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..1
 * author only AuthorParticipation
   * ^short = "The author in a supply represents the clinician who is requesting or planning the supply."
@@ -51,6 +52,7 @@ Depending on the type of supply, the product or participant will be either a Med
 * participant contains productInstance 0..1
 * participant[productInstance] ^short = "This participant represents a device that is ordered, requested or intended for the patient."
   * ^comment = "MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"
+  * ^condition = "shall-product-or-device"
   * typeCode 1..1
   * typeCode = #DEV
   * participantRole 1..1

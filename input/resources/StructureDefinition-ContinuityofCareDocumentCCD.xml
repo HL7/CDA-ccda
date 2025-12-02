@@ -127,6 +127,7 @@
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
             <short value="The serviceEvent/performer represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare providers would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."/>
             <comment value="This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)."/>
+            <condition value="should-performer"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
@@ -237,6 +238,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30667) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-procedures"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:procedures.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -372,6 +374,7 @@
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30685) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-plan-of-treatment"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>

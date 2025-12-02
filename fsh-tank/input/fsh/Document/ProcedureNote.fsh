@@ -103,7 +103,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^comment = "This consent SHALL contain exactly one [1..1] @moodCode=\"EVN\" event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:1198-32416)."
     * statusCode 1..1
       * ^comment = "This consent SHALL contain exactly one [1..1] statusCode (CONF:1198-32417)."
-* obeys should-componentOf
+* insert ShouldElement(componentOf)
 * componentOf 0..1
   * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-30871)." // auto-should
   * encompassingEncounter 1..1
@@ -177,12 +177,18 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * section only PostprocedureDiagnosisSection
         * ^comment = "SHALL contain exactly one [1..1] Postprocedure Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.36:2024-05-01) (CONF:1198-30360)."
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30361) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only AssessmentSection
         * ^comment = "SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-30362)."
     * component[assessmentAndPlan] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30363) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only AssessmentandPlanSection
         * ^comment = "SHALL contain exactly one [1..1] Assessment and Plan Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09) (CONF:1198-30364)."
     * component[planOfTreatment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30365) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30366)."
     * component[allergies] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30367) such that it"
@@ -192,9 +198,11 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * section only AnesthesiaSection
         * ^comment = "SHALL contain exactly one [1..1] Anesthesia Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.25:2014-06-09) (CONF:1198-30370)."
     * component[chiefComplaint] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30371) such that it"
+      * ^condition = "cc-rfv-combo"
       * section only ChiefComplaintSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) (CONF:1198-30372)."
     * component[chiefComplaintRFV] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30373) such that it"
+      * ^condition = "cc-rfv-combo"
       * section only ChiefComplaintandReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint and Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.13) (CONF:1198-30374)."
     * component[familyHistory] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30375) such that it"
@@ -240,6 +248,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30405)."
     * component[reasonForVisit] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30406) such that it"
+      * ^condition = "cc-rfv-combo"
       * section only ReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.12) (CONF:1198-30407)."
     * component[reviewOfSystems] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30408) such that it"

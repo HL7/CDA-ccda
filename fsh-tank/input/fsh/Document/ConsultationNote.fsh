@@ -70,7 +70,7 @@ A Consultation Note includes the reason for the referral, history of present ill
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-8397)."
   * structuredBody 1..1
-    * obeys ap-combo and cc-rfv-combo and 1198-9504 and ap-or-a-and-p
+    * obeys ap-combo and cc-rfv-combo and rfr-or-rfv and ap-or-a-and-p
     * obeys should-section-medications
     * obeys should-section-physical-exam
     * obeys should-section-results
@@ -106,30 +106,41 @@ A Consultation Note includes the reason for the referral, history of present ill
         mentalStatus 0..1 and
         nutrition 0..1
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28896) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only AssessmentSection
         * ^comment = "The component, if present, SHALL contain exactly one [1..1] Assessment Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.8) (CONF:1198-28897)."
     * component[assessmentAndPlan] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28898) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only AssessmentandPlanSection
         * ^comment = "SHALL contain exactly one [1..1] Assessment and Plan Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.9:2014-06-09) (CONF:1198-28899)."
     * component[planOfTreatment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28900) such that it"
+      * ^condition[+] = "ap-or-a-and-p"
+      * ^condition[+] = "ap-combo"
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-28901)."
     * component[reasonForVisit] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28904) such that it"
+      * ^condition[+] = "cc-rfv-combo"
+      * ^condition[+] = "rfr-or-rfv"
       * section only ReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.12) (CONF:1198-28905)."
     * component[hpi] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28906) such that it"
       * section only HistoryofPresentIllnessSection
         * ^comment = "SHALL contain exactly one [1..1] History of Present Illness Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:1198-28907)."
     * component[physicalExam] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28908) such that it" // man-should
+      * ^condition = "should-section-physical-exam"
       * section only PhysicalExamSection
         * ^comment = "SHALL contain exactly one [1..1] Physical Exam Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.2.10:2024-05-01) (CONF:1198-28909)."
     * component[allergies] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28910) such that it"
       * section only AllergiesAndIntolerancesSection
         * ^comment = "SHALL contain exactly one [1..1] Allergies and Intolerances Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.6.1:2024-05-01) (CONF:1198-28911)."
     * component[chiefComplaint] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28912) such that it"
+      * ^condition = "cc-rfv-combo"
       * section only ChiefComplaintSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) (CONF:1198-28913)."
     * component[chiefComplaintRFV] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28915) such that it"
+      * ^condition = "cc-rfv-combo"
       * section only ChiefComplaintandReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint and Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.13) (CONF:1198-28916)."
     * component[familyHistory] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28917) such that it"
@@ -145,6 +156,7 @@ A Consultation Note includes the reason for the referral, history of present ill
       * section only ImmunizationsSection
         * ^comment = "SHALL contain exactly one [1..1] Immunizations Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.2.1:2024-05-01) (CONF:1198-28924)."
     * component[medications] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28925) such that it" // man-should
+      * ^condition = "should-section-medications"
       * section only MedicationsSection
         * ^comment = "SHALL contain exactly one [1..1] Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.1.1:2014-06-09) (CONF:1198-28926)."
     * component[problems] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28928) such that it"
@@ -154,6 +166,7 @@ A Consultation Note includes the reason for the referral, history of present ill
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-28931)."
     * component[results] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28932) such that it" // man-should
+      * ^condition = "should-section-results"
       * section only ResultsSection
         * ^comment = "SHALL contain exactly one [1..1] Results Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.3.1:2024-05-01) (CONF:1198-28933)."
     * component[socialHist] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28934) such that it"
@@ -196,7 +209,7 @@ Description: "This structuredBody **SHALL NOT** contain a Chief Complaint and Re
 Severity: #error
 Expression: "component.where(section.hasTemplateIdOf(ChiefComplaintandReasonforVisitSection)).exists() implies component.where(section.hasTemplateIdOf(ChiefComplaintSection) or section.hasTemplateIdOf(ReasonforVisitSection)).empty()"
 
-Invariant: 1198-9504
+Invariant: rfr-or-rfv
 Description: "**SHALL** include a Reason for Referral or Reason for Visit section (CONF:1198-9504)."
 Severity: #error
 Expression: "component.where(section.hasTemplateIdOf(ReasonforReferralSection) or section.hasTemplateIdOf(ReasonforVisitSection)).exists()"

@@ -116,6 +116,8 @@
                 <rules value="open"/>
             </slicing>
             <short value="Used to categorize the document as a Care Plan. If present, there SHALL be a category of 18776-5 (Plan of care note)."/>
+            <condition value="should-sdtcCategory"/>
+            <condition value="category-18776-5"/>
         </element>
         <element id="ClinicalDocument.sdtcCategory:documentType">
             <path value="ClinicalDocument.sdtcCategory"/>
@@ -143,11 +145,24 @@
         </element>
         <element id="ClinicalDocument.setId">
             <path value="ClinicalDocument.setId"/>
+            <short value="SHOULD contain setId"/>
             <comment value="SHOULD contain zero or one [0..1] setId (CONF:1198-32321)."/>
+            <condition value="should-setId"/>
+            <condition value="4537-6380"/>
+            <condition value="4537-6387"/>
         </element>
         <element id="ClinicalDocument.versionNumber">
             <path value="ClinicalDocument.versionNumber"/>
+            <short value="SHOULD contain versionNumber"/>
             <comment value="SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)."/>
+            <condition value="should-versionNumber"/>
+            <condition value="4537-6380"/>
+            <condition value="4537-6387"/>
+        </element>
+        <element id="ClinicalDocument.informationRecipient">
+            <path value="ClinicalDocument.informationRecipient"/>
+            <short value="SHOULD contain informationRecipient"/>
+            <condition value="should-informationRecipient"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient"/>
@@ -200,7 +215,9 @@
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient"/>
+            <short value="SHOULD contain informationRecipient"/>
             <comment value="This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)."/>
+            <condition value="should-informationRecipient"/>
         </element>
         <element id="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name">
             <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient.name"/>
@@ -504,7 +521,9 @@
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
+            <short value="SHOULD contain componentOf"/>
             <comment value="SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it"/>
+            <condition value="should-componentOf"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter">
             <path value="ClinicalDocument.componentOf.encompassingEncounter"/>
@@ -530,7 +549,7 @@
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlan"/>
             </constraint>
             <constraint>
-                <key value="should-section-healthstatus"/>
+                <key value="should-section-outcomes"/>
                 <severity value="warning"/>
                 <human value="SHOULD contain an Outcomes Section"/>
                 <expression value="component.where(section.hasTemplateIdOf('http://hl7.org/cda/us/ccda/StructureDefinition/OutcomesSection'))"/>
@@ -592,14 +611,15 @@
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ActivitiesSection"/>
             </type>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:healthStatusEvalOutcm">
+        <element id="ClinicalDocument.component.structuredBody.component:outcomes">
             <path value="ClinicalDocument.component.structuredBody.component"/>
-            <sliceName value="healthStatusEvalOutcm"/>
+            <sliceName value="outcomes"/>
             <comment value="This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-section-outcomes"/>
         </element>
-        <element id="ClinicalDocument.component.structuredBody.component:healthStatusEvalOutcm.section">
+        <element id="ClinicalDocument.component.structuredBody.component:outcomes.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
             <comment value="SHALL contain exactly one [1..1] Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."/>
             <type>

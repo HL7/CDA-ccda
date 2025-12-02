@@ -104,15 +104,18 @@ The best practice for a Discharge Summary is to include the discharge dispositio
       * section only DischargeDiagnosisSection
         * ^comment = "SHALL contain exactly one [1..1] Discharge Diagnosis Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.24:2024-05-01) (CONF:1198-30524)."
     * component[dischargeMeds] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30525) such that it" // man-should
+      * ^condition = "should-section-discharge-meds"
       * section only DischargeMedicationsSection
         * ^comment = "SHALL contain exactly one [1..1] Discharge Medications Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.11.1:2024-05-01) (CONF:1198-30526)."
     * component[planOfTreatment] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30527) such that it"
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30528)."
     * component[chiefComplaint] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30529) such that it"
+      * ^condition = "cc-rfv-combo"
       * section only ChiefComplaintSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint Section (identifier: urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1) (CONF:1198-30530)."
     * component[chiefComplaintRFV] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30531) such that it"
+      * ^condition = "cc-rfv-combo"
       * section only ChiefComplaintandReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Chief Complaint and Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.13) (CONF:1198-30532)."
     * component[nutrition] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30533) such that it"
@@ -158,6 +161,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30560)."
     * component[reasonForVisit] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30561) such that it"
+      * ^condition = "cc-rfv-combo"
       * section only ReasonforVisitSection
         * ^comment = "SHALL contain exactly one [1..1] Reason for Visit Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.12) (CONF:1198-30562)."
     * component[reviewOfSystems] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30563) such that it"

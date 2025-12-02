@@ -10,6 +10,7 @@ Description: "The Postprocedure Diagnosis Section records the diagnosis or diagn
   * ^slicing.rules = #open
 * entry contains postopDiagnosis 0..1
 * entry[postopDiagnosis] ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-8762) such that it"
+  * ^condition = "should-post-procedure-dx"
   * act 1..1
   * act only PostprocedureDiagnosis
     * ^comment = "SHALL contain exactly one [1..1] Postprocedure Diagnosis (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.51:2015-08-01) (CONF:1198-15503)."

@@ -112,6 +112,7 @@
         <element id="Supply.text">
             <path value="Supply.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Supply.text.reference">
             <path value="Supply.text.reference"/>
@@ -142,11 +143,13 @@
         </element>
         <element id="Supply.effectiveTime">
             <path value="Supply.effectiveTime"/>
+            <short value="SHOULD contain effectiveTime"/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)."/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
             </type>
+            <condition value="should-effectiveTime"/>
             <constraint>
                 <key value="should-high"/>
                 <severity value="warning"/>
@@ -161,7 +164,9 @@
         </element>
         <element id="Supply.quantity">
             <path value="Supply.quantity"/>
+            <short value="SHOULD contain quantity"/>
             <comment value="SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)."/>
+            <condition value="should-quantity"/>
         </element>
         <element id="Supply.participant">
             <path value="Supply.participant"/>

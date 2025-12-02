@@ -20,7 +20,7 @@ Description: "This clinical statement meets the requirements of the US Core Data
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:81-19110)."
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime." // auto-should
   * insert IntervalValueOnly

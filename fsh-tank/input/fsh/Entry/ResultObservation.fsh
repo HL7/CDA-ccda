@@ -66,7 +66,7 @@ The Result Observation template is a versatile template designed to represent an
   * obeys 4537-32610
   * translation 0..1
     * ^short = "Can be used to represent the original results as output by the lab"
-* obeys should-interpretationCode
+* insert ShouldElement(interpretationCode)
 * interpretationCode
   * insert USCDI([[Result Interpretation]])
   * ^binding.description = "Bound in CDA core to CDAObservationInterpretation value set (subset of HL7 v3 ObservationInterpretation), a USCDI Result Interpretation vocabulary"
@@ -75,11 +75,11 @@ The Result Observation template is a versatile template designed to represent an
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."
 * targetSiteCode 0..1
   * ^comment = "MAY contain zero or one [0..1] targetSiteCode (CONF:4537-7153)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)." // man-should
-* obeys should-referenceRange
+* insert ShouldElement(referenceRange)
 * referenceRange 0..*
   * insert USCDI([[Result Reference Range]])
   * ^comment = "SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)." // auto-should

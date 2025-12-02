@@ -19,10 +19,10 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-31223)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32746)."
-* obeys should-value
+* insert ShouldElement(value)
 * value 0..1
   * ^comment = "SHOULD contain zero or one [0..1] value (CONF:1098-32747)." // auto-should
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)." // man-should

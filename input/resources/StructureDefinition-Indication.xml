@@ -107,6 +107,7 @@
             <short value="If the id element is used to reference a problem recorded elsewhere in the document then this id must equal another entry/id in the same document instance. Application Software must be responsible for resolving the identifier back to its original object and then rendering the information in the correct place in the containing section's narrative text. Its purpose is to obviate the need to repeat the complete XML representation of the referred to entry when relating one entry to another."/>
             <comment value="SHALL contain at least one [1..*] id (CONF:4537-7483)."/>
             <min value="1"/>
+            <condition value="indication-value"/>
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
@@ -119,6 +120,7 @@
         <element id="Observation.text">
             <path value="Observation.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Observation.text.reference">
             <path value="Observation.text.reference"/>
@@ -143,7 +145,9 @@
         </element>
         <element id="Observation.effectiveTime">
             <path value="Observation.effectiveTime"/>
+            <short value="SHOULD contain effectiveTime"/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7488)."/>
+            <condition value="should-effectiveTime"/>
         </element>
         <element id="Observation.value">
             <path value="Observation.value"/>
@@ -153,6 +157,7 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
+            <condition value="indication-value"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"/>

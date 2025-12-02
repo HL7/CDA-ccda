@@ -32,14 +32,12 @@ Provenance information such as author, performer, informant and participant can 
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1198-31346)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32407)." // man-should
-* obeys should-informant
-* informant ^short = "SHOULD contain informant" // man-should
-* obeys should-participant
-* participant ^short = "SHOULD contain participant" // man-should
+* insert ShouldElement(informant)
+* insert ShouldElement(participant)
 * component ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open

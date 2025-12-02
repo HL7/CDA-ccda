@@ -40,10 +40,12 @@ Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy
     nonMedicalSupply 0..* and
     procedureActivity 0..*
 * component[nonMedicalSupply] ^comment = "MAY contain zero or more [0..*] component (CONF:1098-31027) such that it"
+  * ^condition = "1098-32380"
   * supply 1..1
   * supply only NonMedicinalSupplyActivity
     * ^comment = "SHALL contain exactly one [1..1] Non-Medicinal Supply Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.50:2014-06-09) (CONF:1098-31862)."
 * component[procedureActivity] ^comment = "MAY contain zero or more [0..*] component (CONF:1098-31887) such that it"
+  * ^condition = "1098-32380"
   * procedure 1..1
   * procedure only ProcedureActivityProcedure
     * ^comment = "SHALL contain exactly one [1..1] Procedure Activity Procedure (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.14:2014-06-09) (CONF:1098-31888)."

@@ -145,6 +145,7 @@
             <path value="Observation.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
             <min value="1"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Observation.text.reference">
             <path value="Observation.text.reference"/>
@@ -179,7 +180,7 @@
         </element>
         <element id="Observation.effectiveTime.high">
             <path value="Observation.effectiveTime.high"/>
-            <short value="If the Advance Directive does not have a specified ending time, use a nullFlavor of *NA*.&#xD;&#xA;If the ending time is unknown, use a nullFlavor of *UNK*."/>
+            <short value="If the Advance Directive does not have a specified ending time, use a nullFlavor of *NA*.&#xA;If the ending time is unknown, use a nullFlavor of *UNK*."/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] high."/>
             <min value="1"/>
         </element>
@@ -196,15 +197,18 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
+            <short value="SHOULD contain author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="Observation.informant">
             <path value="Observation.informant"/>
             <short value="SHOULD contain informant"/>
+            <condition value="should-informant"/>
         </element>
         <element id="Observation.participant">
             <path value="Observation.participant"/>
