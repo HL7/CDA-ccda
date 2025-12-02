@@ -2,7 +2,7 @@ Profile: UDIOrganizer
 Parent: $Organizer
 Id: UDIOrganizer
 Title: "UDI Organizer"
-Description: """This template is nested within an entryRelationship of either a [Procedure Activity Procedure](http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure) or a [Non-Medicinal Supply Activity](http://hl7.org/cda/us/ccda/StructureDefinition/NonMedicinalSupplyActivity).
+Description: """This template is nested within an entryRelationship of either a [Procedure Activity Procedure](StructureDefinition-ProcedureActivityProcedure.html) or a [Non-Medicinal Supply Activity](StructureDefinition-NonMedicinalSupplyActivity.html).
 It is used to record all UDI-related templates needed to exchange parsed UDI data elements and their associated information.
 The Device Identifier template **SHALL** be included.  The Lot or Batch Number, Serial Number, Manufacturing Date, Expiration Date, and Distinct Identification Code templates **SHOULD** be included if present in the UDI.  Implantable Device Status (urn:hl7ii:2.16.840.1.113883.10.20.22.4.305, 2019-06-21, NCIt: C160939) **MAY** be included in the UDI Organizer if the device is implantable and the information is available. The other listed templates **MAY** be included if available."""
 * ^meta.versionId = "5"
