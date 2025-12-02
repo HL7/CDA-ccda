@@ -43,7 +43,7 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[1].type = #profile
-  * ^slicing.discriminator[=].path = "cluster"
+  * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
 * entryRelationship contains 
     UDIOrganizer 0..* and
