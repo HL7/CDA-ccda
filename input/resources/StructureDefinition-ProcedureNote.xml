@@ -95,6 +95,8 @@
                 <rules value="open"/>
             </slicing>
             <short value="Used to categorize the document as a Procedure Note. If present, there SHALL be a category of 28570-0 (Procedure note)."/>
+            <condition value="should-sdtcCategory"/>
+            <condition value="category-28570-0"/>
         </element>
         <element id="ClinicalDocument.sdtcCategory:documentType">
             <path value="ClinicalDocument.sdtcCategory"/>
@@ -329,7 +331,9 @@
         </element>
         <element id="ClinicalDocument.componentOf">
             <path value="ClinicalDocument.componentOf"/>
+            <short value="SHOULD contain componentOf"/>
             <comment value="SHOULD contain zero or one [0..1] componentOf (CONF:1198-30871)."/>
+            <condition value="should-componentOf"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter">
             <path value="ClinicalDocument.componentOf.encompassingEncounter"/>
@@ -482,6 +486,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30361) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -497,6 +503,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30363) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:assessmentAndPlan.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -512,6 +520,8 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30365) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="ap-or-a-and-p"/>
+            <condition value="ap-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:planOfTreatment.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -557,6 +567,7 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30371) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:chiefComplaint.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -572,6 +583,7 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30373) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:chiefComplaintRFV.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>
@@ -797,6 +809,7 @@
             <comment value="This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30406) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="cc-rfv-combo"/>
         </element>
         <element id="ClinicalDocument.component.structuredBody.component:reasonForVisit.section">
             <path value="ClinicalDocument.component.structuredBody.component.section"/>

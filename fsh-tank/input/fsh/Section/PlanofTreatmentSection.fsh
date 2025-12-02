@@ -2,25 +2,11 @@ Profile: PlanofTreatmentSection
 Parent: $Section
 Id: PlanofTreatmentSection
 Title: "Plan of Treatment Section"
-Description: """This section, formerly known as "Plan of Care", contains data that define pending orders, interventions, encounters, services, and procedures for the patient. It is limited to prospective, unfulfilled, or incomplete orders and requests only. These are indicated by the @moodCode of the entries within this section. All active, incomplete, or pending orders, appointments, referrals, procedures, services, or any other pending event of clinical significance to the current care of the patient should be listed. 
+Description: """This section captures planned, pending, active, or completed orders, interventions, encounters, services, and procedures relevant to a patient’s care. It may also include or reference existing problems or conditions that inform ongoing care planning. While entries typically represent prospective or in-progress actions (as indicated by their @moodCode), completed activities of clinical significance may be included to maintain continuity and context. The section may contain information about ongoing or anticipated care, clinical reminders, and overarching goals, along with the patient’s values, beliefs, preferences, and care expectations that shape care decisions. Examples include reminders for preventive services, values such as quality of life over longevity, beliefs such as refusal of blood transfusions, or preferences regarding care modalities or provider characteristics.
 
-This section may also contain information about ongoing care of the patient, clinical reminders, patient's values, beliefs, preferences, care expectations, and overarching care goals. 
+Previously defined entry templates remain valid for compatibility. The Care Plan Act entry template provides a structured way to represent a snapshot of a dynamic, consensus-driven care plan that captures prioritized concerns, goals, and planned interventions. This entry reflects the current state of the care plan as managed in the source system and supports exchange across systems for coordinated, longitudinal care.
 
-Clinical reminders are placed here to provide prompts for disease prevention and management, patient safety, and healthcare quality improvements, including widely accepted performance measures. 
-
-Values may include the importance of quality of life over longevity. These values are taken into account when prioritizing all problems and their treatments. 
-
-Beliefs may include comfort with dying or the refusal of blood transfusions because of the patient's religious convictions. 
-
-Preferences may include liquid medicines over tablets, or treatment via secure email instead of in person. 
-
-Care expectations may range from being treated only by female clinicians, to expecting all calls to be returned within 24 hours. 
-
-Overarching goals described in this section are not tied to a specific condition, problem, health concern, or intervention. Examples of overarching goals could be to minimize pain or dependence on others, or to walk a daughter down the aisle for her marriage. 
-
-The plan may also indicate that patient education will be provided.
-
-When this section.text contains extra information not contained in the discrete entries, it is helpful to wrap the text of this section in a Note Activity to support ingestion.
+When additional context appears in the section narrative (section.text) but not in discrete entries, it is recommended to encapsulate the text in a Note Activity to support ingestion and preserve meaning.
 """
 
 // !!! Caution - this templateId and extension is used in CarePlan invariant 1198-31044. If changed here, replace there.
@@ -40,16 +26,20 @@ When this section.text contains extra information not contained in the discrete 
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entry contains
-    plannedEnc 0..* and
-    plannedProc 0..* and
-    plannedMed 0..* and
-    plannedSupply 0..* and
-    instruction 0..* and
-    handoffCommParticipants 0..* and
-    nutrition 0..* and
-    plannedImmunization 0..* and
+    carePlanAct 0..* and
     goal 0..* and
-	notes 0..*
+    handoffCommParticipants 0..* and
+    instruction 0..* and
+    nutrition 0..* and
+    plannedEnc 0..* and
+    plannedImmunization 0..* and
+    plannedMed 0..* and
+    plannedProc 0..* and
+    plannedSupply 0..* and
+	  notes 0..*
+* entry[carePlanAct] ^short = "Represents a snapshot in time of a care plan. Related resources may be embedded directly or referenced via EntryReference (e.g. for systems who wish to continue including entries directly in the Plan of Treatment section)."
+  * act 1..1
+  * act only CarePlanAct
 * entry[plannedEnc] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8805) such that it"
   * encounter 1..1
   * encounter only PlannedEncounter

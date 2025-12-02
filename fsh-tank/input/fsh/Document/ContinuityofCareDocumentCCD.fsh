@@ -36,7 +36,7 @@ This document type was originally based on the Continuity of Care Document (CCD)
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-8454)."
       * high 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-8455)."
-    * obeys should-performer
+    * insert ShouldElement(performer)
     * performer 0..*
       * ^short = "The serviceEvent/performer represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare providers would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)." // auto-should
@@ -87,6 +87,7 @@ This document type was originally based on the Continuity of Care Document (CCD)
       * section only ProblemSection
         * ^comment = "SHALL contain exactly one [1..1] Problem Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.5.1:2024-05-01) (CONF:1198-30666)."
     * component[procedures] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30667) such that it" // man-should
+      * ^condition = "should-section-procedures"
       * section only ProceduresSection
         * ^comment = "SHALL contain exactly one [1..1] Procedures Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.7.1:2014-06-09) (CONF:1198-30668)."
     * component[results] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30669) such that it"
@@ -114,6 +115,7 @@ This document type was originally based on the Continuity of Care Document (CCD)
       * section only PayersSection
         * ^comment = "SHALL contain exactly one [1..1] Payers Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.18:2024-05-01) (CONF:1198-30684)."
     * component[planOfTreatment] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-30685) such that it" // man-should
+      * ^condition = "should-section-plan-of-treatment"
       * section only PlanofTreatmentSection
         * ^comment = "SHALL contain exactly one [1..1] Plan of Treatment Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.2.10:2014-06-09) (CONF:1198-30686)."
     * component[socialHist] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-30687) such that it"

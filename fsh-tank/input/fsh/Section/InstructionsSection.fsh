@@ -14,6 +14,7 @@ Description: "The Instructions Section records instructions given to a patient. 
   * ^short = "If section/@nullFlavor is not present:"
 * entry contains instructionAct 0..* and instructionObservation 0..*
 * entry[instructionAct]
+  * ^condition = "shall-instruction"
   * act 1..1
   * act only InstructionActivity
 * entry[instructionObservation]

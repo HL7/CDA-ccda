@@ -19,6 +19,8 @@ RuleSet: FixedCategory(code, codeSystem, display, sliceName)
 * obeys category-{code}
 * sdtcCategory 0..*
   * ^short = "Category is optional, but if present it SHALL contain a category with code={code}."
+  * ^condition[+] = "should-sdtcCategory"
+  * ^condition[+] = "category-{code}"
   * ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "code"
   * ^slicing.discriminator[+].type = #value

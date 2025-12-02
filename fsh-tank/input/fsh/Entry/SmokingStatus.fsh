@@ -40,6 +40,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
 * value[packYears] only $REAL
   * ^short = "Only used for Smoking Status where code = 401201003 or 782516008"
 * value[coded] only $CD
+  * ^condition = "coded-value"
   * code 1..1
   * code from $SmokingStatusComprehensive (required)
     * ^binding.description = "Smoking status comprehensive"

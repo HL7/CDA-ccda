@@ -23,7 +23,7 @@ Description: "This section contains a narrative description of the problems or d
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] entry such that it"
-* obeys should-entry
+* insert ShouldElement(entry)
 * entry contains hospitaladmissiondiagnosis 0..1 
 * entry[hospitaladmissiondiagnosis] ^comment = "SHOULD contain zero or one [0..1] entry (CONF:1198-9934)." // auto-should
   * act 1..1

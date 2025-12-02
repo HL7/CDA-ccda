@@ -32,7 +32,7 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
 * value only $CD
 * value from $1.3.6.1.4.1.12009.10.1.3932 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which MAY be selected from ValueSet CUBS_Disability urn:oid:1.3.6.1.4.1.12009.10.1.3932 DYNAMIC (CONF:4537-32628)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-13936)." // man-should

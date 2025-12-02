@@ -19,10 +19,10 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-31223)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code, which SHOULD be selected from CodeSystem LOINC (urn:oid:2.16.840.1.113883.6.1) (CONF:1098-32746)."
-* obeys should-value
+* insert ShouldElement(value)
 * value 0..1
   * ^comment = "SHOULD contain zero or one [0..1] value (CONF:1098-32747)." // auto-should
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)." // man-should
@@ -39,7 +39,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
     goal-reference 0..* and
     progressTowardGoalObservation 0..1 and
     intervention-reference 0..*
-* entryRelationship[goal-reference] obeys entry-ref-goal
+* entryRelationship[goal-reference] 
   * ^short = "The following entryRelationship represents the relationship between an Outcome Observation and a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry."
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"
   * typeCode 1..1
@@ -47,6 +47,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"GEVL\" Evaluates goal (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-31225)."
   * act 1..1
   * act only EntryReference
+    * obeys entry-ref-goal
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-32465)."
 * entryRelationship[progressTowardGoalObservation] ^short = "The following entryRelationship represents the relationship between an Outcome Observation and a Progress Toward Goal Observation (Outcome Observation SUPPORTS Progress Toward Goal Observation). In the Care Planning workflow, the judgment about how well the person is progressing towards the goal is based on the observations made about the status of the patient with respect to interventions performed in the pursuit of achieving that goal."
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-31427) such that it"

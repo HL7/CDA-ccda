@@ -29,7 +29,7 @@
     <name value="ProblemObservation"/>
     <title value="Problem Observation"/>
     <status value="draft"/>
-    <description value="This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the &quot;biologically relevant time&quot; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago. &#xA;&#xA;The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is inactive. If the problem is known to be resolved, in remission, or otherwise inactive, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [AgeObservation](StructureDefinition-AgeObservation.html), [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html), [DateOfDiagnosisAct](StructureDefinition-DateOfDiagnosisAct.html), [EntryReference](StructureDefinition-EntryReference.html), [PriorityPreference](StructureDefinition-PriorityPreference.html), [ProblemStatus](StructureDefinition-ProblemStatus.html), [PrognosisObservation](StructureDefinition-PrognosisObservation.html)"/>
+    <description value="This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of &quot;completed&quot;. The effectiveTime, also referred to as the &quot;biologically relevant time&quot; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago. &#xA;&#xA;The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is inactive. If the problem is known to be resolved, in remission, or otherwise inactive, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &quot;UNK&quot;.&#xA;&#xA;The onset date (Problem Observation.effectiveTime.low), diagnosis date (Date of Diagnosis Act), and recorded date (Problem Observation.author/time) represent distinct concepts that have long been supported in C-CDA. However, in practice, these timestamps are often not distinctly or reliably captured in EHR systems. Even when all fields are available, clinicians may not enter separate dates for each event. As a result, implementations should expect variability in the availability and precision of these values.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [AgeObservation](StructureDefinition-AgeObservation.html), [AssessmentScaleObservation](StructureDefinition-AssessmentScaleObservation.html), [DateOfDiagnosisAct](StructureDefinition-DateOfDiagnosisAct.html), [EntryReference](StructureDefinition-EntryReference.html), [PriorityPreference](StructureDefinition-PriorityPreference.html), [ProblemStatus](StructureDefinition-ProblemStatus.html), [PrognosisObservation](StructureDefinition-PrognosisObservation.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -115,6 +115,7 @@
         <element id="Observation.text">
             <path value="Observation.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Observation.text.reference">
             <path value="Observation.text.reference"/>
@@ -144,8 +145,11 @@
             <min value="1"/>
         </element>
         <element id="Observation.effectiveTime.low">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
             <path value="Observation.effectiveTime.low"/>
-            <short value="The effectiveTime/low (a.k.a. &quot;onset date&quot;) asserts when the condition became biologically active."/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Date of Onset = When the problem began for the patient."/>
             <comment value="This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-15603)."/>
             <min value="1"/>
         </element>
@@ -196,11 +200,13 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
+            <short value="SHOULD contain author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31147)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="Observation.entryRelationship">
             <path value="Observation.entryRelationship"/>

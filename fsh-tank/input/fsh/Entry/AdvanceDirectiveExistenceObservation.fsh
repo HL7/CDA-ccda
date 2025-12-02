@@ -30,6 +30,7 @@ Description: """This observation represents a simple observation indicating whet
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime."
   * insert IntervalValueOnly
 * value 1..1
+  * ^condition = "no-obs-if-existence-false"
 * value only $CD
 * value from $2.16.840.1.113762.1.4.1267.16 (required)
 * obeys no-obs-if-existence-false
@@ -39,6 +40,7 @@ Description: """This observation represents a simple observation indicating whet
 * informant 0..1
   * ^short = "MAY contain zero or one [0..1] informant"
 * entryRelationship 0..*
+  * ^condition = "no-obs-if-existence-false"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship."
   * observation 1..1
   * observation only AdvanceDirectiveObservation

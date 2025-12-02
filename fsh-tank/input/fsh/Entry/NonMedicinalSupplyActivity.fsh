@@ -18,14 +18,14 @@ Description: "This template represents equipment supplied to the patient (e.g., 
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-8749)."
   * insert BindAtCode(ActStatus, required)
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
 * effectiveTime only $IVL-TS
   * obeys should-high
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)." // man-should
   * high 0..1
     * ^short = "SHOULD contain high"
-* obeys should-quantity
+* insert ShouldElement(quantity)
 * quantity 0..1
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)." // auto-should
 * participant ^slicing.discriminator[0].type = #value

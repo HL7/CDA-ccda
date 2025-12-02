@@ -51,7 +51,7 @@ The components of the organizer contain the following information:
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4515-157)."
   * high 0..1
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4515-158)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-116)." // man-should

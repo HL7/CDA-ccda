@@ -12,6 +12,7 @@ Description: "This section represents observations regarding the outcome of care
   * ^short = "If section/@nullFlavor is not present:"
 * entry contains outcome 0..*
 * entry[outcome] ^comment = "SHALL contain at least one [1..*] entry (CONF:1098-31227) such that it"
+  * ^condition = "shall-outcome-obs"
   * observation 1..1
   * observation only OutcomeObservation
     * ^comment = "SHALL contain exactly one [1..1] Outcome Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.144) (CONF:1098-31228)."

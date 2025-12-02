@@ -93,7 +93,7 @@ Description: "This template represents planned medication activities. The priori
 * performer 0..*
   * ^short = "The clinician who is expected to perform the medication activity could be identified using substanceAdministration/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30470)."
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..1
 * author only AuthorParticipation
   * ^short = "The author in a planned medication activity represents the clinician who is requesting or planning the medication activity."

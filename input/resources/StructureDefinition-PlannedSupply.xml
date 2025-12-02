@@ -119,6 +119,7 @@
         <element id="Supply.text">
             <path value="Supply.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Supply.text.reference">
             <path value="Supply.text.reference"/>
@@ -146,6 +147,7 @@
             <short value="The effectiveTime in a planned supply represents the time that the supply should occur."/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)."/>
             <max value="1"/>
+            <condition value="should-effectiveTime"/>
         </element>
         <element id="Supply.repeatNumber">
             <path value="Supply.repeatNumber"/>
@@ -159,6 +161,7 @@
         <element id="Supply.product">
             <path value="Supply.product"/>
             <short value="Represents either a medication or an immunization supply"/>
+            <condition value="shall-product-or-device"/>
         </element>
         <element id="Supply.product.manufacturedProduct">
             <path value="Supply.product.manufacturedProduct"/>
@@ -182,6 +185,7 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="Supply.participant">
             <path value="Supply.participant"/>
@@ -200,6 +204,7 @@
             <comment value="MAY contain zero or one [0..1] participant (CONF:1098-32094) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="shall-product-or-device"/>
         </element>
         <element id="Supply.participant:productInstance.typeCode">
             <path value="Supply.participant.typeCode"/>

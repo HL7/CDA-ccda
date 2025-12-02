@@ -176,6 +176,7 @@
         <element id="Observation.text">
             <path value="Observation.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Observation.text.reference">
             <path value="Observation.text.reference"/>
@@ -284,6 +285,7 @@
             <path value="Observation.interpretationCode"/>
             <short value="𝗨𝗦𝗖𝗗𝗜: Result Interpretation"/>
             <comment value="SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)."/>
+            <condition value="should-interpretationCode"/>
             <binding>
                 <strength value="required"/>
                 <description value="Bound in CDA core to CDAObservationInterpretation value set (subset of HL7 v3 ObservationInterpretation), a USCDI Result Interpretation vocabulary"/>
@@ -302,11 +304,13 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
+            <short value="SHOULD contain author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="Observation.referenceRange">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
@@ -315,6 +319,7 @@
             <path value="Observation.referenceRange"/>
             <short value="𝗨𝗦𝗖𝗗𝗜: Result Reference Range"/>
             <comment value="SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)."/>
+            <condition value="should-referenceRange"/>
         </element>
         <element id="Observation.referenceRange.observationRange">
             <path value="Observation.referenceRange.observationRange"/>

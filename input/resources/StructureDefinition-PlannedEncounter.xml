@@ -120,6 +120,7 @@
             <path value="Encounter.code"/>
             <short value="Records the type of encounter ordered or recommended."/>
             <comment value="SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Encounter Planned urn:oid:2.16.840.1.113883.11.20.9.52 DYNAMIC (CONF:1098-31032)."/>
+            <condition value="should-code"/>
             <binding>
                 <strength value="preferred"/>
                 <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.23"/>
@@ -128,6 +129,7 @@
         <element id="Encounter.text">
             <path value="Encounter.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Encounter.text.reference">
             <path value="Encounter.text.reference"/>
@@ -152,7 +154,9 @@
         </element>
         <element id="Encounter.effectiveTime">
             <path value="Encounter.effectiveTime"/>
+            <short value="SHOULD contain effectiveTime"/>
             <comment value="SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30440)."/>
+            <condition value="should-effectiveTime"/>
         </element>
         <element id="Encounter.performer">
             <path value="Encounter.performer"/>
@@ -178,6 +182,7 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="Encounter.participant">
             <path value="Encounter.participant"/>

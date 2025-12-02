@@ -35,11 +35,11 @@ Description: "The Family History Organizer associates a set of observations with
       * ^comment = "This relatedSubject SHOULD contain zero or one [0..1] subject (CONF:1198-15248)." // auto-should
       * administrativeGenderCode 1..1
         * insert BindAtCode($2.16.840.1.113762.1.4.1021.121, required)
-      * obeys should-birthTime
+      * insert ShouldElement(birthTime)
       * birthTime 0..1
         * ^short = "The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."
         * ^comment = "The subject, if present, SHOULD contain zero or one [0..1] birthTime (CONF:1198-15976)." // auto-should
-      * obeys should-sdtcId
+      * insert ShouldElement(sdtcId)
       * sdtcId 0..1
         * ^short = "SHOULD contain sdtc:id" // man-should
       * sdtcDeceasedInd 0..1

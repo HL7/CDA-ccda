@@ -17,7 +17,7 @@ Description: "This profile represents whether a medication has been consumed acc
 * value 1..1
 * value only $CD
   * insert BindAtCode($2.16.840.1.113762.1.4.1240.8, preferred)
-* obeys should-informant
+* insert ShouldElement(informant)
 * informant
   * insert USCDI([[The person or organization that provided the information about the medication adherence.]])
   * assignedEntity 1..1

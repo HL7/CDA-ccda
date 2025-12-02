@@ -126,6 +126,7 @@
         <element id="Observation.text">
             <path value="Observation.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="Observation.text.reference">
             <path value="Observation.text.reference"/>
@@ -186,11 +187,13 @@
         </element>
         <element id="Observation.author">
             <path value="Observation.author"/>
+            <short value="SHOULD contain author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31144)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="Observation.participant">
             <path value="Observation.participant"/>
@@ -315,10 +318,11 @@
         <element id="Observation.entryRelationship:severity">
             <path value="Observation.entryRelationship"/>
             <sliceName value="severity"/>
-            <short value="entryRelationship"/>
+            <short value="SHOULD NOT contain severity at the allergy level; severity belongs at the reaction level."/>
             <comment value="SHOULD NOT contain zero or one [0..1] entryRelationship (CONF:1098-16341) such that it"/>
             <min value="0"/>
             <max value="1"/>
+            <condition value="should-not-severity"/>
         </element>
         <element id="Observation.entryRelationship:severity.typeCode">
             <path value="Observation.entryRelationship.typeCode"/>

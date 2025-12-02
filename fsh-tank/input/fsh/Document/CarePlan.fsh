@@ -25,15 +25,21 @@ A care plan document can include entry references from the information in these 
 
 * ^status = #active
 * code from $2.16.840.1.113762.1.4.1099.10 (required)
-* obeys should-setId
+* insert ShouldElement(setId)
 * setId 0..1
   * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." // auto-should
-* obeys should-versionNumber
+  // Duplicating these 2 from USRealmHeader because Sushi seems to lose the index when [+] is used between 2 different FSH files
+  * ^condition[+] = "4537-6380"
+  * ^condition[+] = "4537-6387" // both tagged because they're interrelated
+* insert ShouldElement(versionNumber)
 * versionNumber 0..1
   * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." // auto-should
+  // Duplicating these 2 from USRealmHeader because Sushi seems to lose the index when [+] is used between 2 different FSH files
+  * ^condition[+] = "4537-6380"
+  * ^condition[+] = "4537-6387" // both tagged because they're interrelated
 
 // Removing slicing on infoRecipient, since the only branch identifier (intendedRecipient) is required anyway
-* obeys should-informationRecipient
+* insert ShouldElement(informationRecipient)
 * informationRecipient 0..*
   * intendedRecipient 1..1
     * ^comment = "SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."
@@ -46,7 +52,7 @@ A care plan document can include entry references from the information in these 
     * obeys should-telecom
     * telecom 0..*
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)." // auto-should
-    * obeys should-informationRecipient
+    * insert ShouldElement(informationRecipient)
     * informationRecipient 0..1
       * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)." // auto-should
       * name 1..1
@@ -175,7 +181,7 @@ A care plan document can include entry references from the information in these 
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] setId (CONF:1198-29895)."
     * versionNumber 1..1
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] versionNumber (CONF:1198-29896)."
-* obeys should-componentOf
+* insert ShouldElement(componentOf)
 * componentOf 0..1
   * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it" // man-should
   //"<sliceName value=\"componentOf1\"/>"
@@ -187,7 +193,7 @@ A care plan document can include entry references from the information in these 
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-28753)."
   * structuredBody 1..1
     * obeys 1198-31044
-    * obeys should-section-healthstatus
+    * obeys should-section-outcomes
     * ^comment = "This component SHALL contain exactly one [1..1] structuredBody (CONF:1198-28754)."
     * component 2..
       * ^slicing.discriminator[0].type = #profile
@@ -197,7 +203,7 @@ A care plan document can include entry references from the information in these 
         healthConcerns 1..1 and
         goals 1..1 and
         activities 0..1 and
-        healthStatusEvalOutcm 0..1 and
+        outcomes 0..1 and
         advDirectives 0..1
     * component[healthConcerns] ^comment = "This structuredBody SHALL contain exactly one [1..1] component (CONF:1198-28755)."
       * section only HealthConcernsSection
@@ -207,7 +213,8 @@ A care plan document can include entry references from the information in these 
     * component[activities] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-28763) such that it"
       * section only ActivitiesSection
         * ^comment = "SHALL contain exactly one [1..1] Activities Section (identifier: urn:hl7ii:2.16.840.1.113883.10.20.21.2.3:2024-05-01) (CONF:1198-28764)."
-    * component[healthStatusEvalOutcm] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
+    * component[outcomes] ^comment = "This structuredBody SHOULD contain zero or one [0..1] component (CONF:1198-29596) such that it"
+      * ^condition = "should-section-outcomes"
       * section only OutcomesSection
         * ^comment = "SHALL contain exactly one [1..1] Outcomes Section (identifier: urn:oid:2.16.840.1.113883.10.20.22.2.61) (CONF:1198-29597)."
     * component[advDirectives] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-28942) such that it"

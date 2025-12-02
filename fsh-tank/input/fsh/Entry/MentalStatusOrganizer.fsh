@@ -25,7 +25,7 @@ Description: "The Mental Status Organizer template may be used to group related 
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-19093)."
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^short = "The effectiveTime is an interval that spans the effectiveTimes of the contained mental status observations. Because all contained mental status observations have a required time stamp, it is not required that this effectiveTime be populated."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32424)." // man-should

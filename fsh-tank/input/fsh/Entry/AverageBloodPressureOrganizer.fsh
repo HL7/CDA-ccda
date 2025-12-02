@@ -6,7 +6,7 @@ Description: """This template represents a single instance of an Average Blood P
 
 * insert LogicalModelTemplate(avg-bp-org, 2.16.840.1.113883.10.20.22.4.512, 2024-05-01)
 * insert NarrativeLinkOrganizer
-* obeys should-author
+* insert ShouldElement(author)
 
 * classCode = #BATTERY
 

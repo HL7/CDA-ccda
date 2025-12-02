@@ -144,7 +144,7 @@ The Patient Generated Document Header template is not a separate document type. 
     * code 0..1
       * ^short = "The code should be selected from a value set established by the document-level template for a specific type of Patient Generated Document."
       * ^comment = "This serviceEvent SHOULD contain zero or one [0..1] code (CONF:1198-28712)." // auto-should
-    * obeys should-performer
+    * insert ShouldElement(performer)
     * performer 0..*
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-28713)." // auto-should
       * typeCode 1..1

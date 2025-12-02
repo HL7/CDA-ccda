@@ -15,7 +15,7 @@ Description: "This template represents a planned or ordered encounter. The type 
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet Planned moodCode (Act/Encounter/Procedure) urn:oid:2.16.840.1.113883.11.20.9.23 STATIC 2014-09-01 (CONF:1098-8565)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-8567)."
-* obeys should-code
+* insert ShouldElement(code)
 * code 0..1
 * code from $2.16.840.1.113762.1.4.1267.23 (preferred)
   * ^short = "Records the type of encounter ordered or recommended."
@@ -25,7 +25,7 @@ Description: "This template represents a planned or ordered encounter. The type 
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31880)."
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30440)." // auto-should
 * performer 0..*
@@ -33,8 +33,7 @@ Description: "This template represents a planned or ordered encounter. The type 
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1098-31874)."
-    * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^short = "The author in a planned encounter represents the clinician who is requesting or planning the encounter."

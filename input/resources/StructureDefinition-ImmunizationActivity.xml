@@ -137,6 +137,7 @@
         <element id="SubstanceAdministration.text">
             <path value="SubstanceAdministration.text"/>
             <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+            <condition value="should-text-ref-value"/>
         </element>
         <element id="SubstanceAdministration.text.reference">
             <path value="SubstanceAdministration.text.reference"/>
@@ -260,16 +261,20 @@
         </element>
         <element id="SubstanceAdministration.performer">
             <path value="SubstanceAdministration.performer"/>
+            <short value="SHOULD contain performer"/>
             <comment value="SHOULD contain zero or one [0..1] performer (CONF:1198-8849)."/>
             <max value="1"/>
+            <condition value="should-performer"/>
         </element>
         <element id="SubstanceAdministration.author">
             <path value="SubstanceAdministration.author"/>
+            <short value="SHOULD contain author"/>
             <comment value="SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31151)."/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
             </type>
+            <condition value="should-author"/>
         </element>
         <element id="SubstanceAdministration.participant">
             <path value="SubstanceAdministration.participant"/>

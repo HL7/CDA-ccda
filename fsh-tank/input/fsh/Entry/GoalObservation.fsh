@@ -28,7 +28,7 @@ A goal may have components consisting of other goals (milestones). These milesto
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-32333)."
   * insert BindAtCode(ActStatus, required)
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-32335)." // auto-should
   * ^short = "effectiveTime/low represents when to start working on the goal. effectiveTime/high or effectiveTime/value represents when the goal should be met (i.e. a due date)"
@@ -41,7 +41,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^binding.strength = #example
   * ^binding.description = "See additional binding"
   * insert AdditionalBinding(preferred, $SDoHGoals, Social Determinant of Health Goals, [[When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet [Social Determinant of Health Goals 2.16.840.1.113762.1.4.1247.71](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.71/expansion) **DYNAMIC**.]])
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^short = "If the author is the recordTarget (patient), this is a patient goal.  If the author is a provider, this is a provider goal. If both patient and provider are authors, this is a negotiated goal. If no author is present, it is assumed the document or section author(s) is the author of this goal."
@@ -112,11 +112,11 @@ A goal may have components consisting of other goals (milestones). These milesto
     * ^comment = "The reference, if present, SHALL contain exactly one [1..1] External Document Reference (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.115:2014-06-09) (CONF:4515-32756)."
 
 
-// Add on any entry/entryRelationship/component containing an EntryReference that must be a reference to a Goal Observation (see Planned Intervention, Outcome, etc)
+// Add on any "act only EntryReference" that must be a reference to a Goal Observation (see Planned Intervention, Outcome, etc)
 Invariant: entry-ref-goal
 Description: "This entryReference template **SHALL** reference an instance of a Goal Observation template."
 Severity: #error
-Expression: "%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.act.id.first().root and $this.extension ~ %context.act.id.first().extension))"
+Expression: "%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension))"
 /*
 %resource.descendants().ofType(CDA.Observation).where(
   templateId.exists(

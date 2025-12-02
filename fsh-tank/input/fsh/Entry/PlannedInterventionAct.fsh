@@ -34,10 +34,10 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-32684)."
-* obeys should-effectiveTime
+* insert ShouldElement(effectiveTime)
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32723)." // auto-should
-* obeys should-author
+* insert ShouldElement(author)
 * author 0..*
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32719)." // man-should
@@ -138,7 +138,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32718)."
-* entryRelationship[reason] obeys entry-ref-goal
+* entryRelationship[reason]
   * ^short = "An Intervention Act SHALL reference a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry. The following entryRelationship represents an Entry Reference to Goal Observation."
   * ^comment = "SHALL contain at least one [1..*] entryRelationship (CONF:1198-32673) such that it"
   * typeCode 1..1
@@ -146,6 +146,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1198-32720)."
   * act 1..1
   * act only EntryReference
+    * obeys entry-ref-goal
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1198-32721)."
 * entryRelationship[plannedImmunizationActivity] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32676) such that it"
   * typeCode 1..1

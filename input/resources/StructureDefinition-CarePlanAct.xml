@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="CarePlanAct"/>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-target">
+        <valueBoolean>
+            <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+                <valueCode value="not-applicable"/>
+            </extension>
+        </valueBoolean>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/logical-container">
+        <valueUri value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/xml-name">
+        <valueString value="act"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/type-profile-style">
+        <valueCode value="cda"/>
+    </extension>
+    <url value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlanAct"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:hl7ii:2.16.840.1.113883.10.20.22.4.518:2026-05-01"/>
+    </identifier>
+    <version value="2026-05-01"/>
+    <name value="CarePlanAct"/>
+    <title value="Care Plan Act"/>
+    <status value="draft"/>
+    <description value="The Care Plan Act represents a snapshot in time of a dynamic, consensus-driven plan that has captured a patient's and care team members' prioritized concerns, goals, and planned interventions. It reflects the state of the care plan as managed within a source system and may be exchanged to support care coordination across systems and settings.&#xA;&#xA;The Care Plan Act identifies the authoring individual or organization (act.author), which aligns with the FHIR CarePlan.contributor, and records the set of health concerns or conditions being addressed.&#xA;&#xA;**To meet USCDI requirements, at least one entryRelationship:addresses element referencing an Indication, Problem Observation, or Observation is required.**&#xA;&#xA;The Care Plan Act may integrate multiple condition- or discipline-specific plans of care and serves to align activities and responsibilities among participants. *Supporting entryRelationship templates such as Goal, Intervention Act, Planned Intervention Act, and Act are available for systems capable of representing structured care plans, but their use is optional and not required for USCDI compliance.*&#xA;&#xA;This entry conveys an instance of the evolving Care Plan at a specific point in time and does not represent a dynamically updated plan.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Optional EntryRelationships**: [Act](StructureDefinition-Act.html), [EntryReference](StructureDefinition-EntryReference.html), [GoalObservation](StructureDefinition-GoalObservation.html), [Indication](StructureDefinition-Indication.html), [InterventionAct](StructureDefinition-InterventionAct.html), [Observation](StructureDefinition-Observation.html), [PlannedInterventionAct](StructureDefinition-PlannedInterventionAct.html), [ProblemObservation](StructureDefinition-ProblemObservation.html)"/>
+    <fhirVersion value="5.0.0"/>
+    <mapping>
+        <identity value="CarePlanActToUsCoreCarePlan"/>
+        <uri value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan"/>
+        <name value="FHIR US Core"/>
+    </mapping>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Act">
+            <path value="Act"/>
+            <constraint>
+                <key value="should-text-ref-value"/>
+                <severity value="warning"/>
+                <human value="SHOULD contain text/reference/@value"/>
+                <expression value="text.reference.value.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlanAct"/>
+            </constraint>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan"/>
+            </mapping>
+        </element>
+        <element id="Act.templateId">
+            <path value="Act.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Act.templateId:care-plan-act">
+            <path value="Act.templateId"/>
+            <sliceName value="care-plan-act"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.templateId:care-plan-act.root">
+            <path value="Act.templateId.root"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.10.20.22.4.518"/>
+        </element>
+        <element id="Act.templateId:care-plan-act.extension">
+            <path value="Act.templateId.extension"/>
+            <min value="1"/>
+            <patternString value="2026-05-01"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <short value="CarePlan.intent"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.37"/>
+            </binding>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan.intent"/>
+            </mapping>
+        </element>
+        <element id="Act.code">
+            <path value="Act.code"/>
+            <short value="Plan of care note"/>
+        </element>
+        <element id="Act.code.code">
+            <path value="Act.code.code"/>
+            <min value="1"/>
+            <patternCode value="18776-5"/>
+        </element>
+        <element id="Act.code.codeSystem">
+            <path value="Act.code.codeSystem"/>
+            <short value="LOINC"/>
+            <min value="1"/>
+            <patternString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Act.code.translation">
+            <path value="Act.code.translation"/>
+            <binding>
+                <strength value="preferred"/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/care-plan-category"/>
+            </binding>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan.category"/>
+            </mapping>
+        </element>
+        <element id="Act.text">
+            <path value="Act.text"/>
+            <short value="SHOULD reference the portion of section narrative text corresponding to this entry"/>
+        </element>
+        <element id="Act.text.reference">
+            <path value="Act.text.reference"/>
+            <constraint>
+                <key value="value-starts-octothorpe"/>
+                <severity value="error"/>
+                <human value="If reference/@value is present, it SHALL begin with a '#' and SHALL point to its corresponding narrative"/>
+                <expression value="value.exists() implies value.startsWith('#')"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlanAct"/>
+            </constraint>
+        </element>
+        <element id="Act.statusCode">
+            <path value="Act.statusCode"/>
+            <short value="CarePlan.status"/>
+            <min value="1"/>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan.status"/>
+            </mapping>
+        </element>
+        <element id="Act.author">
+            <path value="Act.author"/>
+            <short value="CarePlan.contributor"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Author"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/AuthorParticipation"/>
+            </type>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan.contributor"/>
+            </mapping>
+        </element>
+        <element id="Act.entryRelationship">
+            <path value="Act.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <short value="Entries can be embedded directly or referenced via EntryReference. Use the @typeCode attribute to distinguish the type of relationship."/>
+        </element>
+        <element id="Act.entryRelationship:addresses">
+            <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="Act.entryRelationship"/>
+            <sliceName value="addresses"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: CarePlan.addresses"/>
+            <min value="0"/>
+            <max value="*"/>
+            <constraint>
+                <key value="act-or-observation"/>
+                <severity value="error"/>
+                <human value="Either act or observation SHALL be present but not both."/>
+                <expression value="act.exists() or observation.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlanAct"/>
+            </constraint>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan.addresses"/>
+            </mapping>
+        </element>
+        <element id="Act.entryRelationship:addresses.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <patternCode value="RSON"/>
+        </element>
+        <element id="Act.entryRelationship:addresses.act">
+            <path value="Act.entryRelationship.act"/>
+            <short value="References an Indication, Problem Observation, or other Problem described elsewhere in the document."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
+                <profile value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship:addresses.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <short value="Directly-embedded Problem or Indication observation. Use EntryReference to reference an existing problem observation or indication described elsewhere in the document."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/Indication"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/ProblemObservation"/>
+                <profile value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship:goal">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="goal"/>
+            <short value="Desired outcome of the plan (CarePlan.goal). Can embed a Goal Observation directly or use the EntryReference template to reference a Goal Observation described elsewhere in the document."/>
+            <min value="0"/>
+            <max value="*"/>
+            <constraint>
+                <key value="act-or-observation"/>
+                <severity value="error"/>
+                <human value="Either act or observation SHALL be present but not both."/>
+                <expression value="act.exists() or observation.exists()"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlanAct"/>
+            </constraint>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan.goal"/>
+            </mapping>
+        </element>
+        <element id="Act.entryRelationship:goal.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <patternCode value="GEVL"/>
+        </element>
+        <element id="Act.entryRelationship:goal.act">
+            <path value="Act.entryRelationship.act"/>
+            <short value="Use to reference a Goal Observation elsewhere"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/EntryReference"/>
+            </type>
+            <constraint>
+                <key value="entry-ref-goal"/>
+                <severity value="error"/>
+                <human value="This entryReference template **SHALL** reference an instance of a Goal Observation template."/>
+                <expression value="%resource.descendants().ofType(CDA.Observation).where(templateId.exists($this.root = '2.16.840.1.113883.10.20.22.4.121' and $this.extension = '2022-06-01') and id.exists($this.root = %context.id.first().root and $this.extension ~ %context.id.first().extension))"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/CarePlanAct"/>
+            </constraint>
+        </element>
+        <element id="Act.entryRelationship:goal.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <short value="Use to embed a Goal Observation directly"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/GoalObservation"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship:supportingInfo">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="supportingInfo"/>
+            <short value="Information considered as part of the plan (CarePlan.supportingInfo)"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan.supportingInfo"/>
+            </mapping>
+        </element>
+        <element id="Act.entryRelationship:supportingInfo.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <patternCode value="SPRT"/>
+        </element>
+        <element id="Act.entryRelationship:activity">
+            <path value="Act.entryRelationship"/>
+            <sliceName value="activity"/>
+            <short value="Activity to occur as part of plan (CarePlan.activity). Common examples include the Intervention Act and Planned Intervention Act, but any entry may be considered an activity of the care plan."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mapping>
+                <identity value="CarePlanActToUsCoreCarePlan"/>
+                <map value="CarePlan.activity"/>
+            </mapping>
+        </element>
+        <element id="Act.entryRelationship:activity.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <patternCode value="COMP"/>
+        </element>
+        <element id="Act.entryRelationship:activity.act">
+            <path value="Act.entryRelationship.act"/>
+            <short value="A care plan may have multiple COMP entryRelationships, but each entryRelationship may only have a single act/encounter/observation/supply or other clinical statement."/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/InterventionAct"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PlannedInterventionAct"/>
+                <profile value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+            </type>
+        </element>
+        <element id="Act.entryRelationship:activity.encounter">
+            <path value="Act.entryRelationship.encounter"/>
+            <short value="A care plan may have multiple COMP entryRelationships, but each entryRelationship may only have a single act/encounter/observation/supply or other clinical statement."/>
+        </element>
+        <element id="Act.entryRelationship:activity.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <short value="A care plan may have multiple COMP entryRelationships, but each entryRelationship may only have a single act/encounter/observation/supply or other clinical statement."/>
+        </element>
+        <element id="Act.entryRelationship:activity.supply">
+            <path value="Act.entryRelationship.supply"/>
+            <short value="A care plan may have multiple COMP entryRelationships, but each entryRelationship may only have a single act/encounter/observation/supply or other clinical statement."/>
+        </element>
+    </differential>
+</StructureDefinition>

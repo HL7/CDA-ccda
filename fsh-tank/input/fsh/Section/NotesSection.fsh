@@ -23,6 +23,7 @@ While allowed by CDA, the use of renderMultiMedia elements, which contain a refe
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:3250-16904) such that it"
 * entry contains note 0..*
 * entry[note] ^short = "If section/@nullFlavor is not present:"
+  * ^condition = "shall-note-activity"
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:3250-16904) such that it"
   * act 1..1
   * act only NoteActivity
