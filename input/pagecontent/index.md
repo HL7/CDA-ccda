@@ -36,7 +36,7 @@ Since 2017, separate C-CDA Companion Guides were developed to provide supplement
 
 The latest C-CDA release consolidates prior specifications and guidance documents, incorporates enhancement requests, and introduces updated design and implementation guidance aligned with the current USCDI version. Future updates are planned annually to reflect new USCDI releases and respond to community feedback and implementation experience.
 
-The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is built upon the underlying [CDA standard’s structures defined as Logical Models in CDA 2.0 StructureDefinition](https://build.fhir.org/ig/HL7/CDA-core-2.0/). These FHIR Logical models are abstract data structures which have been instantiated into physical CDA templates to be implemented in CDA data exchange. As such, it adheres to the [CDA Release 2.0 standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=7) and remains a CDA-based Implementation Guide (IG). 
+The guide represents C-CDA templates using HL7 FHIR StructureDefinition. It is built upon the underlying [CDA standard’s structures defined as Logical Models in CDA 2.0 StructureDefinition]({{site.data.fhir.cda}}). These FHIR Logical models are abstract data structures which have been instantiated into physical CDA templates to be implemented in CDA data exchange. As such, it adheres to the [CDA Release 2.0 standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=7) and remains a CDA-based Implementation Guide (IG). 
 
 <style>
 	.important::before {

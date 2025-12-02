@@ -376,11 +376,13 @@ function appendSectionUsageToDescription(sd) {
   }
 }
 
+const cdaClasses = new Set(["Act","Observation","Procedure","Encounter","SubstanceAdministration","Supply"]);
+
 // Turn a profile name or URL into a Markdown link to the profile
 function profileLink(profileNameOrUrl) {
   if (!profileNameOrUrl) return '';
   const profileId = profileNameOrUrl.includes('/') ? profileNameOrUrl.split('/').pop() : profileNameOrUrl;
-  return `[${profileId}](StructureDefinition-${profileId}.html)`;
+  return `[${profileId}](${cdaClasses.has(profileId) ? 'https://hl7.org/cda/stds/core/' : ''}StructureDefinition-${profileId}.html)`;
 }
 
 /**

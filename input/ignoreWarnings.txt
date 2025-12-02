@@ -147,8 +147,24 @@ The html source has duplicate anchor Ids:%
 
 # 28 Experimental value sets in THO
 The definition for the element 'Organizer.sdtcCategory' binds to the value set 'http://hl7.org/fhir/ValueSet/diagnostic-service-sections' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Observation.participant.participantRole.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Author.assignedAuthor.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'ClinicalDocument.author.assignedAuthor.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'ClinicalDocument.dataEnterer.assignedEntity.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'ClinicalDocument.informant.assignedEntity.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'ClinicalDocument.legalAuthenticator.assignedEntity.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'ClinicalDocument.authenticator.assignedEntity.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Act.code.translation' binds to the value set 'http://hl7.org/fhir/ValueSet/care-plan-category' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Act.performer.assignedEntity.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Organizer.participant.participantRole.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Encounter.performer.assignedEntity.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Act.participant.participantRole.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Procedure.performer.assignedEntity.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
+The definition for the element 'Participant1.associatedEntity.sdtcSpecialty' binds to the value set 'http://hl7.org/fhir/ValueSet/c80-practice-codes' which is experimental, but this structure is not labeled as experimental
 
-# 29 Deprecated templates that are still referenced in section templatesMore actions
+# 29 - Retired profiles that are still being used
+The profile http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatusMeaningfulUse|5.0.0-ballot is retired
+The profile http://hl7.org/cda/us/ccda/StructureDefinition/TobaccoUse|5.0.0-ballot is retired
 
 # 30 This is a guide that uses FHIR v5 that references guides that are FHIR v4
 This IG is for FHIR version 5.0.0, while the package 'hl7.terminology#5.2.0' is for FHIR version 4.0.1
@@ -156,7 +172,7 @@ This IG is version 5.0.0, while the IG 'us.nlm.vsac' is from version 4.0.1
 This IG is version 5.0.0, while the IG 'us.cdc.phinvads' is from version 4.0.1
 This IG is version 5.0.0, while the IG 'hl7.fhir.us.core' is from version 4.0.1
 This IG is for FHIR version 5.0.0, while the package 'hl7.fhir.uv.smart-app-launch#2.2.0' is for FHIR version 4.0.1
-
+The ImplementationGuide is based on FHIR version 5.0.0 but package us.nlm.vsac#0.24.0 is based on FHIR version 4.0.1. In general, this version mismatch should be avoided - some tools will try to make this work with variable degrees of success, but others will not even try
 The ImplementationGuide is based on FHIR version 5.0.0 but package us.cdc.phinvads#0.12.0 is based on FHIR version 4.0.1. In general, this version mismatch should be avoided - some tools will try to make this work with variable degrees of success, but others will not even try
 The ImplementationGuide is based on FHIR version 5.0.0 but package hl7.fhir.us.core#8.0.0 is based on FHIR version 4.0.1. In general, this version mismatch should be avoided - some tools will try to make this work with variable degrees of success, but others will not even try
 
@@ -174,3 +190,30 @@ Observation.text.reference: minimum required = 1, but only found 0%
 Organizer.code.originalText.reference: minimum required = 1, but only found 0%
 Act.text.reference: minimum required = 1, but only found 0%
 SubstanceAdministration.text.reference: minimum required = 1, but only found 0%
+
+# v5-01 - This is the CDCREC code system and it used to validate (https://chat.fhir.org/#narrow/channel/246127-CDA-IG-Publisher/topic/Error.20with.20validating.20CDCREC.20code.20system/with/561496837)
+A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.238' could not be found, so the code cannot be validated%
+
+# v5-02 - These value sets used to validate but are not validating now (https://chat.fhir.org/#narrow/channel/246127-CDA-IG-Publisher/topic/Error.20with.20existing.20VSAC.20value.20sets/with/561498224)
+Error from https://tx.fhir.org/r5: The filter "concept in%
+Could not confirm that the codings provided are in the value set http://cts.nlm.nih.gov/fhir/ValueSet/%
+
+# v5-03 - Codes from NCI Thesaurus that are not in the code system fragment on tx.fhir.org but have been verified to be in the code system
+Unknown Code 'C45329' in the CodeSystem 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl' version '' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment
+Unknown Code 'C106038' in the CodeSystem 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl' version '' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment
+Unknown Code 'C113844' in the CodeSystem 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl' version '' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment
+The value provided ('C45329') was not found in the value set 'Implantable Device Status' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.48|20240606), and a code is required from this value set%
+The value provided ('C106038') was not found in the value set 'Device Latex Safety' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.47|20240606), and a code is required from this value set %
+The value provided ('C113844') was not found in the value set 'Device Magnetic resonance (MR) Safety' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.46|20240606), and a code is required from this value set%
+
+# v5-04 - Waiting for 2025-09-01 version of SNOMED to be loaded into tx.fhir.org
+A definition for CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/731000124108/version/20250901' could not be found, so the code cannot be validated.%
+
+# v5-05 - Publisher code that converts CDA text style tags to HTML tags is not handing captions in lists properly
+Elements of type caption must be in a table, not a li at text/ul/li/caption
+
+# v5-06 - HSLOC code system is not validating when it used to
+A definition for CodeSystem 'https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html' could not be found, so the code cannot be validated
+
+# v5-07 - The datatype is IVL_TS but the html page is IVL-TS
+No definition could be found for URL value 'http://hl7.org/cda/stds/core/StructureDefinition/IVL_TS'
