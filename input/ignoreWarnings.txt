@@ -208,29 +208,47 @@ Unknown Code 'C113844' in the CodeSystem 'http://ncicb.nci.nih.gov/xml/owl/EVS/T
 The value provided ('C45329') was not found in the value set 'Implantable Device Status' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.48|20240606), and a code is required from this value set%
 The value provided ('C106038') was not found in the value set 'Device Latex Safety' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.47|20240606), and a code is required from this value set %
 The value provided ('C113844') was not found in the value set 'Device Magnetic resonance (MR) Safety' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.46|20240606), and a code is required from this value set%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/UDIOrganizer|5.0.0-ballot%
 
-# v5-04 - Waiting for 2025-09-01 version of SNOMED to be loaded into tx.fhir.org
-A definition for CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/731000124108/version/20250901' could not be found, so the code cannot be validated.%
-None of the codings provided are in the value set 'Medication Route'%
-None of the codings provided are in the value set 'Body Site Value Set'%
-None of the codings provided are in the value set 'Referral Types'%
-None of the codings provided are in the value set 'Smoking Status Type'%
-None of the codings provided are in the value set 'Wound Characteristic'%
-Constraint failed: 1198-8487%
-Constraint failed: 1198-8511%
-This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/SmokingStatus|5.0.0-ballot%
+# v5-04 - Validator unable to determine that specific datatypes are present
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/AdmissionMedication|5.0.0-ballot%
+Slice 'Act.entryRelationship:medicationActivity': a matching slice is required, but not found%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/DischargeMedication|5.0.0-ballot%
+Slice 'Act.entryRelationship:medicationActivity': a matching slice is required, but not found%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/DischargeMedicationsSection|5.0.0-ballot%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/MedicationActivity|5.0.0-ballot%
+Slice 'SubstanceAdministration.effectiveTime:duration': a matching slice is required, but not found%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/MedicationsSection|5.0.0-ballot%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/PlannedMedicationActivity|5.0.0-ballot%
 
-# v5-05 - Publisher code that converts CDA text style tags to HTML tags is not handing captions in lists properly
+Slice 'Observation.value:coded': a matching slice is required, but not found%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/BasicIndustryObservation|5.0.0-ballot%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/BasicOccupationObservation|5.0.0-ballot%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/MentalStatusObservation|5.0.0-ballot%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/ResultObservation|5.0.0-ballot%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/SocialHistorySection|5.0.0-ballot%
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/TribalAffiliationObservation|5.0.0-ballot%
+
+
+# v5-05 - VSAC Value set definition has a modifier exception that is unknown
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/FunctionalStatusOrganizer|5.0.0-ballot%
+Slice 'Organizer.component:selfCare': a matching slice is required, but not found
+Error from https://tx.fhir.org/r5: The element exclude.filter has modifier exceptions that are unknown at ValueSetChecker.prepare%
+
+# v5-06 - Note Activity does have a matching text.reference target
+This element does not match any known slice defined in the profile http://hl7.org/cda/us/ccda/StructureDefinition/NotesSection|5.0.0-ballot%
+
+# v5-07 - Publisher code that converts CDA text style tags to HTML tags is not handing captions in lists properly
 Elements of type caption must be in a table, not a li at text/ul/li/caption
 
-# v5-06 - HSLOC code system is not validating when it used to
+# v5-08 - HSLOC code system is not validating when it used to
 A definition for CodeSystem 'https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html' could not be found, so the code cannot be validated
 
-# v5-07 - The datatype is IVL_TS but the html page is IVL-TS
+# v5-09 - The datatype is IVL_TS but the html page is IVL-TS
 No definition could be found for URL value 'http://hl7.org/cda/stds/core/StructureDefinition/IVL_TS'
 
-# v5-08 - New extension used by the publisher
+# v5-10 - New extension used by the publisher
 No definition could be found for URL value 'http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters'
 
-# v5-09 - guide parameter extension that the publisher uses
+# v5-11 - guide parameter extension that the publisher uses
 Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
