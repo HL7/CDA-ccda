@@ -491,7 +491,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * location
       * healthCareFacility
         * location
-          * addr
+          * addr only USRealmAddress
             * insert USCDI([[Facility Address]])
           
 
