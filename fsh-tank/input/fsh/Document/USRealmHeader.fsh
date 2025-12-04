@@ -90,17 +90,15 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * religiousAffiliationCode from $2.16.840.1.113883.1.11.19185 (required)
         * ^comment = "This patient MAY contain zero or one [0..1] religiousAffiliationCode, which SHALL be selected from ValueSet Religious Affiliation urn:oid:2.16.840.1.113883.1.11.19185 DYNAMIC (CONF:4537-5317)."
       * raceCode 1..1
-        * insert USCDI([[Race]])
+        * insert USCDI([[Race - raceCode SHALL contain only the OMB race category; detailed race values go in translation. Additional race categories are conveyed using sdtc:raceCode, following the same pattern (OMB category in root; details in translation).]])
         * translation 0..*
         * translation from $RaceCDCOnly (preferred)
-          * ^short = "Can be used to associate a detailed race with a category in the base element. See examples."
           * obeys race-not-category
       * raceCode from $RaceCategories (required)
       * sdtcRaceCode 0..*
         * obeys sdtc-race-not-detail
         * translation 0..*
         * translation from $RaceCDCOnly (preferred)
-          * ^short = "Can be used to associate a detailed race with a category in the base element. See examples."
           * obeys race-not-category
       * sdtcRaceCode from $DetailedRace (required)
         * insert USCDI([[Race - The sdtc:raceCode is only used to record additional values when the patient has indicated multiple races or additional race detail beyond the five categories required for Meaningful Use Stage 2. The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the additional raceCode elements.]])

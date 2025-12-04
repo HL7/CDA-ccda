@@ -361,7 +361,7 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="ClinicalDocument.recordTarget.patientRole.patient.raceCode"/>
-            <short value="𝗨𝗦𝗖𝗗𝗜: Race"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Race - raceCode SHALL contain only the OMB race category; detailed race values go in translation. Additional race categories are conveyed using sdtc:raceCode, following the same pattern (OMB category in root; details in translation)."/>
             <min value="1"/>
             <binding>
                 <strength value="required"/>
@@ -370,7 +370,6 @@
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.raceCode.translation">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.raceCode.translation"/>
-            <short value="Can be used to associate a detailed race with a category in the base element. See examples."/>
             <constraint>
                 <key value="race-not-category"/>
                 <severity value="error"/>
@@ -409,7 +408,6 @@
         </element>
         <element id="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode.translation">
             <path value="ClinicalDocument.recordTarget.patientRole.patient.sdtcRaceCode.translation"/>
-            <short value="Can be used to associate a detailed race with a category in the base element. See examples."/>
             <constraint>
                 <key value="race-not-category"/>
                 <severity value="error"/>
