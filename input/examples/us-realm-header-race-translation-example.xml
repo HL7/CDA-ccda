@@ -1,0 +1,111 @@
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
+  <realmCode code="US" />
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
+  <!-- US Realm Header Template -->
+  <templateId extension="2024-05-01" root="2.16.840.1.113883.10.20.22.1.1"/>
+  <!-- Globally unique identifier for the document  -->
+  <id extension="TT988" root="2.16.840.1.113883.19.5.99999.1" />
+  <code code="34133-9" displayName="Summarization of Episode Note" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Title of the document -->
+  <title>Patient Chart Summary</title>
+  <effectiveTime value="201209151030-0800" />
+  <confidentialityCode code="N" displayName="normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <languageCode code="en-US" />
+  <recordTarget>
+    <patientRole>
+      <!-- Example Social Security Number using the actual SSN OID. -->
+      <id extension="444222222" root="2.16.840.1.113883.4.1"/>
+      <addr nullFlavor="UNK" />
+      <telecom nullFlavor="UNK" />
+      <patient>
+        <name use="L">
+          <given>Eve</given>
+          <family>Betterhalf</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Female" codeSystem="2.16.840.1.113883.5.1" codeSystemName="AdministrativeGender"/>
+        <!-- Date of birth need only be precise to the day -->
+        <birthTime value="19750501"/>
+        <maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2" codeSystemName="MaritalStatusCode"/>
+
+        <!-- One root element for each race; use translations to associate detailed race with categories in the root -->
+
+        <!-- CDC Race and Ethnicity code set contains the five minimum race and ethnicity categories defined by OMB Standards -->
+        <raceCode code="2106-3" displayName="White" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC">
+          <!-- To specify a detailed race and associated it with a category, use the translation element -->
+           <translation code="2113-9" displayName="Irish" codeSystem="2.16.840.1.113883.6.238" />
+        </raceCode>
+        <!-- The raceCode extension is only used if raceCode is valued. It can be used to convey additional races or details.
+              But when conveying details using translation elements, send only categories in the root node, and place the detail in a translation -->
+        <sdtc:raceCode code="2076-8" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC" displayName="Native Hawaiian or Other Pacific Islander">
+          <translation code="2079-2" displayName="Native Hawaiian" codeSystem="2.16.840.1.113883.6.238" />
+        </sdtc:raceCode>
+
+
+        <ethnicGroupCode code="2186-5" displayName="Not Hispanic or Latino" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
+        <languageCommunication>
+          <languageCode code="en"/>
+          <!-- "en" is ISO 639-1 alpha-2 code for "English" -->
+          <modeCode code="ESP" displayName="Expressed spoken" codeSystem="2.16.840.1.113883.5.60" codeSystemName="LanguageAbilityMode"/>
+          <proficiencyLevelCode code="G" displayName="Good" codeSystem="2.16.840.1.113883.5.61" codeSystemName="LanguageAbilityProficiency"/>
+          <!-- Patient's preferred language -->
+          <preferenceInd value="true"/>
+        </languageCommunication>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="201308151030-0800"/>
+    <assignedAuthor>
+      <id extension="5555555555" root="2.16.840.1.113883.4.6"/>
+      <code code="207QA0505X" displayName="Adult Medicine Physician" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
+      <addr nullFlavor="UNK"/>
+      <telecom nullFlavor="UNK"/>
+      <assignedPerson>
+        <name>
+          <given>Patricia</given>
+          <given qualifier="CL">Patty</given>
+          <family>Primary</family>
+          <suffix qualifier="AC">M.D.</suffix>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id extension="321CX" root="2.16.840.1.113883.4.6"/>
+        <name>Good Health HIE</name>
+        <telecom nullFlavor="UNK"/>
+        <addr use="WP">
+          <streetAddressLine>1009 Healthcare Drive </streetAddressLine>
+          <city>Portland</city>
+          <state>OR</state>
+          <postalCode>99123</postalCode>
+          <country>US</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <legalAuthenticator>
+    <time value="201308151030-0800"/>
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id nullFlavor="UNK" />
+      <addr nullFlavor="UNK" />
+      <telecom nullFlavor="UNK" />
+      <assignedPerson>
+        <name nullFlavor="UNK" />
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <!-- Individual Body Section Contents --> 
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+
+</ClinicalDocument>
