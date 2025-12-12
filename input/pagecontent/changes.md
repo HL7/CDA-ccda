@@ -3,29 +3,56 @@
 The changes in this versino of Consolidated CDA were made from comments raised post version 4.0.0 along with new USCDI requirements for Unique Device Identifier, Facility Address, Care Plan, Problem Date of Onset, Family Health History, and Portable Medical Order.
 
 #### USCDI Changes
+* Update USCDI Version guidance
 * Portable Medical Order added to USCDI Mapping Table
 * Facility Address marked as USCDI element
+* Family Health History section added to USCDI Mapping Table
+* Date of Onset added as an element to the Problems section
+* Care Plan section added to USCDI Mapping Table
 
 #### Major Changes
+
+##### New Templates
+* Care Plan Act template was added
 
 ##### Changed Templates
 * Note Activity and Notes Section - new version of template with changes to note code bindings
 * Social History Observation - updated cardinality and invariants on sdtc:category
 * Age Range Observation - new template ID and value allows IVL_PQ or ST
 * Pregnancy Observation - new version of template and codeSystem is LOINC
-
+* Mental Status Organizer - new version of template
+* Procedure Activity Procedure - effectiveTime not required to be USRealmDateAndTimeInterval
+* Family Health Organizer - new version of template and relatedSubject administrativeGenderCode bound to Federal Administrative Sex value set
+* Plan of Treatment Section has new Care Plan Act as optional entry
 
 #### Tracker Issues Applied
+* [CDA-21016](https://jira.hl7.org/browse/CDA-21016) - Provide guidance on race.translation on how it can provide more race detail
+* [CDA-21333](https://jira.hl7.org/browse/CDA-21333) - Immunization Medication Information template does not support expressing an immunization's expiration date
+* [CDA-21363](https://jira.hl7.org/browse/CDA-21363) - Change slice name in Advance Directive Observation from Custodian to HealthcareAgent
+* [CDA-21365](https://jira.hl7.org/browse/CDA-21365) - US@ requirements are too broad
+* [CDA-21369](https://jira.hl7.org/browse/CDA-21369) - Make unit optional or document how to send when nullFlavor
+* [CDA-21370](https://jira.hl7.org/browse/CDA-21370), [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426), [CDA-21426](https://jira.hl7.org/browse/CDA-21426)  - Update UDI Organization description and list of templates
 * [CDA-21375](https://jira.hl7.org/browse/CDA-21375) - Pregnancy Observation has wrong code system
 * [CDA-21376](https://jira.hl7.org/browse/CDA-21376) - Age Range Observation needs new template ID
 * [CDA-21383](https://jira.hl7.org/browse/CDA-21383) - Social History Observation added category without versioning
+* [CDA-21384](https://jira.hl7.org/browse/CDA-21384) - Mental Status Organizer Not Versioned
+* [CDA-21387](https://jira.hl7.org/browse/CDA-21387) - Procedure entry incorrectly requires a full date
+* [CDA-21396](https://jira.hl7.org/browse/CDA-21396) - Improve Allergy Concern Act Guidance on Relationship to Allergy Observation
+* [CDA-21398](https://jira.hl7.org/browse/CDA-21398) - Restriction on Advance Directive effectiveTime.high nullFlavor
 * [CDA-21411](https://jira.hl7.org/browse/CDA-21411) - Discharge Medication Act does not slice translation
-* [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426),  - UDI Organizer Entry slices have been made individual and SHOULD constraints added
 * [CDA-21415](https://jira.hl7.org/browse/CDA-21415) - Update note code bindings on Note Activity and Notes Section
-* [CDA-21423](https://jira.hl7.org/browse/CDA-21423) - Health Concern Act - Act.code contains wrong code display name
+* [CDA-21416](https://jira.hl7.org/browse/CDA-21416) - In Result Observation, add InterpretationCode guidance in "short"
+* [CDA-21417](https://jira.hl7.org/browse/CDA-21417) - Add e-cig code to Smoking Status Type
 * [CDA-21420](https://jira.hl7.org/browse/CDA-21420) - USCDI v6 - Facility Address
+* [CDA-21421](https://jira.hl7.org/browse/CDA-21421) - USCDI v6 - Family Health History
+* [CDA-21422](https://jira.hl7.org/browse/CDA-21422) - USCDI v6 - Date of Onset (Problem)
+* [CDA-21423](https://jira.hl7.org/browse/CDA-21423) - Health Concern Act - Act.code contains wrong code display name
+* [CDA-21424](https://jira.hl7.org/browse/CDA-21424) - Add sdtc:specialty extension to align with US Core PractitionerRole specialty
+* [CDA-21427](https://jira.hl7.org/browse/CDA-21427) - USCDI v6 - Care Plan
+* [CDA-21428](https://jira.hl7.org/browse/CDA-21428) - USCDI - Device UDI Related Enhancement to Product Instance
 * [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add Portable Medical Order to USCDI Mapping Table
-
+* [CDA-21432](https://jira.hl7.org/browse/CDA-21432) - Add Portable Medical Order to USCDI Mapping Table
+* [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add condition invariant references on fields affected by nullFlavor / other advanced conditions
 
 ### Version 4.0.0
 
