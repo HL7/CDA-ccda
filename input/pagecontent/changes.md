@@ -1,6 +1,6 @@
 ### Version 5.0.0-ballot
 
-The changes in this versino of Consolidated CDA were made from comments raised post version 4.0.0 along with new USCDI requirements for Unique Device Identifier, Facility Address, Care Plan, Problem Date of Onset, Family Health History, and Portable Medical Order.
+The changes in this version of Consolidated CDA were made from comments raised post version 4.0.0 along with new USCDI requirements for Unique Device Identifier, Facility Address, Care Plan, Problem Date of Onset, Family Health History, and Portable Medical Order.
 
 #### USCDI Changes
 * Update USCDI Version guidance
@@ -22,7 +22,7 @@ The changes in this versino of Consolidated CDA were made from comments raised p
 * Pregnancy Observation - new version of template and codeSystem is LOINC
 * Mental Status Organizer - new version of template
 * Procedure Activity Procedure - effectiveTime not required to be USRealmDateAndTimeInterval
-* Family Health Organizer - new version of template and relatedSubject administrativeGenderCode bound to Federal Administrative Sex value set
+* Family History Organizer - new version of template and relatedSubject administrativeGenderCode bound to Federal Administrative Sex value set
 * Plan of Treatment Section has new Care Plan Act as optional entry
 
 #### Tracker Issues Applied
@@ -51,8 +51,7 @@ The changes in this versino of Consolidated CDA were made from comments raised p
 * [CDA-21427](https://jira.hl7.org/browse/CDA-21427) - USCDI v6 - Care Plan
 * [CDA-21428](https://jira.hl7.org/browse/CDA-21428) - USCDI - Device UDI Related Enhancement to Product Instance
 * [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add Portable Medical Order to USCDI Mapping Table
-* [CDA-21432](https://jira.hl7.org/browse/CDA-21432) - Add Portable Medical Order to USCDI Mapping Table
-* [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add condition invariant references on fields affected by nullFlavor / other advanced conditions
+* [CDA-21432](https://jira.hl7.org/browse/CDA-21432) - Add condition invariant references on fields affected by nullFlavor / other advanced conditions
 
 ### Version 4.0.0
 
