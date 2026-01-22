@@ -31,7 +31,7 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * [CDA-21363](https://jira.hl7.org/browse/CDA-21363) - Change slice name in Advance Directive Observation from Custodian to HealthcareAgent
 * [CDA-21365](https://jira.hl7.org/browse/CDA-21365) - US@ requirements are too broad
 * [CDA-21369](https://jira.hl7.org/browse/CDA-21369) - Make unit optional or document how to send when nullFlavor
-* [CDA-21370](https://jira.hl7.org/browse/CDA-21370), [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426), [CDA-21426](https://jira.hl7.org/browse/CDA-21426)  - Update UDI Organization description and list of templates
+* [CDA-21370](https://jira.hl7.org/browse/CDA-21370), [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426) - Update UDI Organization description and list of templates
 * [CDA-21375](https://jira.hl7.org/browse/CDA-21375) - Pregnancy Observation has wrong code system
 * [CDA-21376](https://jira.hl7.org/browse/CDA-21376) - Age Range Observation needs new template ID
 * [CDA-21383](https://jira.hl7.org/browse/CDA-21383) - Social History Observation added category without versioning
