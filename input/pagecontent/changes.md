@@ -13,45 +13,45 @@ The changes in this version of Consolidated CDA were made from comments raised p
 #### Major Changes
 
 ##### New Templates
-* Care Plan Act template was added
+* Care Plan Act template was added [link](StructureDefinition-CarePlanAct.html)
 
 ##### Changed Templates
-* Note Activity and Notes Section - new version of template with changes to note code bindings
-* Social History Observation - updated cardinality and invariants on sdtc:category
-* Age Range Observation - new template ID and value allows IVL_PQ or ST
-* Pregnancy Observation - new version of template and codeSystem is LOINC
-* Mental Status Organizer - new version of template
-* Procedure Activity Procedure - effectiveTime not required to be USRealmDateAndTimeInterval
-* Family History Organizer - new version of template and relatedSubject administrativeGenderCode bound to Federal Administrative Sex value set
-* Plan of Treatment Section has new Care Plan Act as optional entry
+* Note Activity and Notes Section - new version of template with changes to note code bindings [Note Activity](StructureDefinition-NoteActivity.html),  [Notes Section](StructureDefinition-NotesSection.html)
+* Social History Observation - updated cardinality and invariants on sdtc:category [link](StructureDefinition-SocialHistoryObservation.html)
+* Age Range Observation - new template ID and value allows IVL_PQ or ST [link](StructureDefinition-AgeRangeObservation.html)
+* Pregnancy Observation - new version of template and codeSystem is LOINC [link](StructureDefinition-PregnancyStatusObservation.html)
+* Mental Status Organizer - new version of template [link](StructureDefinition-MentalStatusOrganizer.html)
+* Procedure Activity Procedure - effectiveTime not required to be USRealmDateAndTimeInterval [link](StructureDefinition-ProcedureActivityProcedure.html)
+* Family History Organizer - new version of template and relatedSubject administrativeGenderCode bound to Federal Administrative Sex value set [link](StructureDefinition-FamilyHistoryOrganizer.html)
+* Plan of Treatment Section has new Care Plan Act as optional entry [link](StructureDefinition-PlanofTreatmentSection.html)
 
 #### Tracker Issues Applied
-* [CDA-21016](https://jira.hl7.org/browse/CDA-21016) - Provide guidance on race.translation on how it can provide more race detail
-* [CDA-21333](https://jira.hl7.org/browse/CDA-21333) - Immunization Medication Information template does not support expressing an immunization's expiration date
-* [CDA-21363](https://jira.hl7.org/browse/CDA-21363) - Change slice name in Advance Directive Observation from Custodian to HealthcareAgent
-* [CDA-21365](https://jira.hl7.org/browse/CDA-21365) - US@ requirements are too broad
-* [CDA-21369](https://jira.hl7.org/browse/CDA-21369) - Make unit optional or document how to send when nullFlavor
-* [CDA-21370](https://jira.hl7.org/browse/CDA-21370), [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426) - Update UDI Organization description and list of templates
-* [CDA-21375](https://jira.hl7.org/browse/CDA-21375) - Pregnancy Observation has wrong code system
-* [CDA-21376](https://jira.hl7.org/browse/CDA-21376) - Age Range Observation needs new template ID
-* [CDA-21383](https://jira.hl7.org/browse/CDA-21383) - Social History Observation added category without versioning
-* [CDA-21384](https://jira.hl7.org/browse/CDA-21384) - Mental Status Organizer Not Versioned
-* [CDA-21387](https://jira.hl7.org/browse/CDA-21387) - Procedure entry incorrectly requires a full date
-* [CDA-21396](https://jira.hl7.org/browse/CDA-21396) - Improve Allergy Concern Act Guidance on Relationship to Allergy Observation
-* [CDA-21398](https://jira.hl7.org/browse/CDA-21398) - Restriction on Advance Directive effectiveTime.high nullFlavor
-* [CDA-21411](https://jira.hl7.org/browse/CDA-21411) - Discharge Medication Act does not slice translation
-* [CDA-21415](https://jira.hl7.org/browse/CDA-21415) - Update note code bindings on Note Activity and Notes Section
-* [CDA-21416](https://jira.hl7.org/browse/CDA-21416) - In Result Observation, add InterpretationCode guidance in "short"
-* [CDA-21417](https://jira.hl7.org/browse/CDA-21417) - Add e-cig code to Smoking Status Type
-* [CDA-21420](https://jira.hl7.org/browse/CDA-21420) - USCDI v6 - Facility Address
-* [CDA-21421](https://jira.hl7.org/browse/CDA-21421) - USCDI v6 - Family Health History
-* [CDA-21422](https://jira.hl7.org/browse/CDA-21422) - USCDI v6 - Date of Onset (Problem)
-* [CDA-21423](https://jira.hl7.org/browse/CDA-21423) - Health Concern Act - Act.code contains wrong code display name
-* [CDA-21424](https://jira.hl7.org/browse/CDA-21424) - Add sdtc:specialty extension to align with US Core PractitionerRole specialty
-* [CDA-21427](https://jira.hl7.org/browse/CDA-21427) - USCDI v6 - Care Plan
-* [CDA-21428](https://jira.hl7.org/browse/CDA-21428) - USCDI - Device UDI Related Enhancement to Product Instance
-* [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add Portable Medical Order to USCDI Mapping Table
-* [CDA-21432](https://jira.hl7.org/browse/CDA-21432) - Add condition invariant references on fields affected by nullFlavor / other advanced conditions
+* [CDA-21016](https://jira.hl7.org/browse/CDA-21016) - Provide guidance on race.translation on how it can provide more race detail *(Clarification)* [link](StructureDefinition-USRealmHeader.html)
+* [CDA-21333](https://jira.hl7.org/browse/CDA-21333) - Immunization Medication Information template does not support expressing an immunization's expiration date *(Enhancement)* [link](StructureDefinition-ImmunizationMedicationInformation.html)
+* [CDA-21363](https://jira.hl7.org/browse/CDA-21363) - Change slice name in Advance Directive Observation from Custodian to HealthcareAgent *(Clarification)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
+* [CDA-21365](https://jira.hl7.org/browse/CDA-21365) - US@ requirements are too broad *(Correction)* [link](StructureDefinition-USRealmAddress.html)
+* [CDA-21369](https://jira.hl7.org/browse/CDA-21369) - Make unit optional or document how to send when nullFlavor *(Clarification)* [link](StructureDefinition-ResultObservation.html)
+* [CDA-21370](https://jira.hl7.org/browse/CDA-21370), [CDA-21412](https://jira.hl7.org/browse/CDA-21412), [CDA-21426](https://jira.hl7.org/browse/CDA-21426) - Update UDI Organization description and list of templates *Clarification and Correction* [link](StructureDefinition-UDIOrganizer.html)
+* [CDA-21375](https://jira.hl7.org/browse/CDA-21375) - Pregnancy Observation has wrong code system *(Correction)* [link](StructureDefinition-PregnancyStatusObservation.html)
+* [CDA-21376](https://jira.hl7.org/browse/CDA-21376) - Age Range Observation needs new template ID *(Correction)* [link](StructureDefinition-AgeRangeObservation.html)
+* [CDA-21383](https://jira.hl7.org/browse/CDA-21383) - Social History Observation added category without versioning *(Correction)* [link](StructureDefinition-SocialHistoryObservation.html)
+* [CDA-21384](https://jira.hl7.org/browse/CDA-21384) - Mental Status Organizer Not Versioned *(Correction)* [link](StructureDefinition-MentalStatusOrganizer.html)
+* [CDA-21387](https://jira.hl7.org/browse/CDA-21387) - Procedure entry incorrectly requires a full date *(Correction)* [link](StructureDefinition-ProcedureActivityProcedure.html)
+* [CDA-21396](https://jira.hl7.org/browse/CDA-21396) - Improve Allergy Concern Act Guidance on Relationship to Allergy Observation *(Clarification)* [link](StructureDefinition-AllergyConcernAct.html)
+* [CDA-21398](https://jira.hl7.org/browse/CDA-21398) - Restriction on Advance Directive effectiveTime.high nullFlavor *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
+* [CDA-21411](https://jira.hl7.org/browse/CDA-21411) - Discharge Medication Act does not slice translation *(Correction)* [link](StructureDefinition-DischargeMedication.html)
+* [CDA-21415](https://jira.hl7.org/browse/CDA-21415) - Update note code bindings on Note Activity and Notes Section *(Correction)* [Note Activity](StructureDefinition-NoteActivity.html),  [Notes Section](StructureDefinition-NotesSection.html)
+* [CDA-21416](https://jira.hl7.org/browse/CDA-21416) - In Result Observation, add InterpretationCode guidance in "short" *(Enhancement)* [link](StructureDefinition-ResultObservation.html)
+* [CDA-21417](https://jira.hl7.org/browse/CDA-21417) - Add e-cig code to Smoking Status Type *(Enhancement)* [link](StructureDefinition-SmokingStatus.html)
+* [CDA-21420](https://jira.hl7.org/browse/CDA-21420) - USCDI v6 - Facility Address *(Clarification)* [US Realm Header](StructureDefinition-USRealmHeader.html), [Service Delivery Location](StructureDefinition-ServiceDeliveryLocation.html), [USCDI table](uscdi.html)
+* [CDA-21421](https://jira.hl7.org/browse/CDA-21421) - USCDI v6 - Family Health History *(Enhancement)* [Family History Organizer](StructureDefinition-FamilyHistoryOrganizer.html), [USCDI table](uscdi.html)
+* [CDA-21422](https://jira.hl7.org/browse/CDA-21422) - USCDI v6 - Date of Onset (Problem) *(Clarification)* [Problem Observation](StructureDefinition-ProblemObservation.html), [Problem Concern Act](StructureDefinition-ProblemConcernAct.html), [USCDI table](uscdi.html)
+* [CDA-21423](https://jira.hl7.org/browse/CDA-21423) - Health Concern Act - Act.code contains wrong code display name *(Correction)* [link](StructureDefinition-HealthConcernAct.html)
+* [CDA-21424](https://jira.hl7.org/browse/CDA-21424) - Add sdtc:specialty extension to align with US Core PractitionerRole specialty *(Enhancement)* [link](StructureDefinition-AuthorParticipation.html)
+* [CDA-21427](https://jira.hl7.org/browse/CDA-21427) - USCDI v6 - Care Plan *(Enhancement)* [Plan of Treatment Section](StructureDefinition-PlanofTreatmentSection.html), [Care Plan Act](StructureDefinition-CarePlanAct.html), [USCDI table](uscdi.html)
+* [CDA-21428](https://jira.hl7.org/browse/CDA-21428) - USCDI - Device UDI Related Enhancement to Product Instance *(Enhancement)* [link](StructureDefinition-ProductInstance.html)
+* [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add Portable Medical Order to USCDI Mapping Table *(Clarification)* [link](uscdi.html)
+* [CDA-21432](https://jira.hl7.org/browse/CDA-21432) - Add condition invariant references on fields affected by nullFlavor / other advanced conditions *(Correction)*
 
 ### Version 4.0.0
 
