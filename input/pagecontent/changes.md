@@ -52,7 +52,12 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * [CDA-21428](https://jira.hl7.org/browse/CDA-21428) - USCDI - Device UDI Related Enhancement to Product Instance *(Enhancement)* [link](StructureDefinition-ProductInstance.html)
 * [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add Portable Medical Order to USCDI Mapping Table *(Clarification)* [link](uscdi.html)
 * [CDA-21432](https://jira.hl7.org/browse/CDA-21432) - Add condition invariant references on fields affected by nullFlavor / other advanced conditions *(Correction)*
-
+* [CDA-21439](https://jira.hl7.org/browse/CDA-21439) - Corrected typos in changelog *(Correction)* 
+* [CDA-21441](https://jira.hl7.org/browse/CDA-21441) - Corrected displayName of Health Concern Act example *(Correction)* [link](StructureDefinition-Binary-health-concern-act-example.html)
+* [CDA-21442](https://jira.hl7.org/browse/CDA-21442) - Corrected description of C-CDA ticket 21432 in changelog *(Correction)* 
+* [CDA-21445](https://jira.hl7.org/browse/CDA-21445) - Corrected 'health care' to 'healthcare' throughout *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
+* [CDA-21446](https://jira.hl7.org/browse/CDA-21446) - Removed leftover templateId from UDI Organizer description *(Correction)* [link](StructureDefinition-UDIOrganizer.html)
+* [CDA-21447](https://jira.hl7.org/browse/CDA-21447) - Removed extra hyperlink in C-CDA ticekt 21370 in changelog *(Correction)* 
 ### Version 4.0.0
 
 The changes in this version of Consolidated CDA were made from comments raised during the ballot period.
