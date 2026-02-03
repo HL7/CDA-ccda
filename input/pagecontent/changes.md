@@ -59,6 +59,7 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * [CDA-21446](https://jira.hl7.org/browse/CDA-21446) - Removed leftover templateId from UDI Organizer description *(Correction)* [link](StructureDefinition-UDIOrganizer.html)
 * [CDA-21447](https://jira.hl7.org/browse/CDA-21447) - Removed extra hyperlink in C-CDA ticket 21370 in changelog *(Correction)* 
 * [CDA-21511](https://jira.hl7.org/browse/CDA-21511) - Added requested text to description of Planned Procedure observation *(Clarification)* [link](StructureDefinition-PlannedProcedure.html)
+* [CDA-21512](https://jira.hl7.org/browse/CDA-21512) - Added new Pregnancy Section *(Enhancement)* [link](StructureDefinition-PregnancySection.html)
 
 ### Version 4.0.0
 
