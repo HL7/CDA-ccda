@@ -2,8 +2,10 @@ Profile: AdvanceDirectiveObservation
 Parent: $Observation
 Id: AdvanceDirectiveObservation
 Title: "Advance Directive Observation"
-Description: """The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents. Each Advance Directive Observation template provides details about one type of advance directive document and may also include information about the document’s author, as well as any individuals who discussed and verified its contents with the patient or their designated healthcare agent.
- 
+Description: """The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance healthcare directive documents. Each Advance Directive Observation template provides details about one type of advance directive document and may also include information about the document’s author, as well as any individuals who discussed and verified its contents with the patient or their designated healthcare agent.
+
+Advance healthcare directive documents include person-authored advance directives as well as provider-authored portable medical order types of documents.
+
 The Advance Directive Observation template also can be nested within an Intervention Act to serve as documentation explaining why an intervention was planned/performed or not.
 """
 
