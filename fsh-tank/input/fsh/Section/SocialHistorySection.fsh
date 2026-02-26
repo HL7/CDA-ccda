@@ -16,7 +16,9 @@ Description: """This section contains social history data that influence a patie
     caregiver 0..* and
     culturalReligious 0..* and
     homeCharacteristics 0..* and
-    pregnancyIntention 0..*
+    pregnancyIntention 0..* and
+    basicOccupation 0..* and 
+    basicIndustry 0..*
 * entry[socialHistory] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-7953) such that it"
   * observation 1..1
   * observation only SocialHistoryObservation
@@ -46,5 +48,13 @@ Description: """This section contains social history data that influence a patie
   * observation 1..1
   * observation only PregnancyIntentionInNextYear
     * ^comment = "SHALL contain exactly one [1..1] Pregnancy Intention In Next Year (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.281:2023-05-01)."
+* entry[basicOccupation] ^comment = "MAY contain zero or one [0..*] entry such that it"
+  * observation 1..1
+  * observation only BasicOccupationObservation
+    * ^comment = "SHALL contain exactly one [1..1] Basic Occupation Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.503:2023-05-01)."
+* entry[basicIndustry] ^comment = "MAY contain zero or more [0..*] entry such that it"
+  * observation 1..1
+  * observation only BasicIndustryObservation
+    * ^comment = "SHALL contain exactly one [1..1] Basic Industry Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.504:2023-05-01)."
 * obeys should-smoking-status
 	
