@@ -19,8 +19,8 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4537-32621)."
 * code 1..1
+* code from $2.16.840.1.113762.1.4.1267.33 (required)
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-32624)."
-  * insert CodedLoinc(89571-4, Disability Status [CUBS])
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-32625)."
   * code 1..1
@@ -30,7 +30,7 @@ This template SHOULD be included zero or more times [0..*] in the Functional Sta
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-32627)."
 * value 1..1
 * value only $CD
-* value from $1.3.6.1.4.1.12009.10.1.3932 (preferred)
+* value from $1.3.6.1.4.1.12009.10.1.3932 (example)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which MAY be selected from ValueSet CUBS_Disability urn:oid:1.3.6.1.4.1.12009.10.1.3932 DYNAMIC (CONF:4537-32628)."
 * insert ShouldElement(author)
 * author 0..*
