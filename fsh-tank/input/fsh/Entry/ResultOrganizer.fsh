@@ -25,6 +25,8 @@ The Result Organizer template is a versatile template designed to represent any 
 * obeys should-sdtcCategory
 * sdtcCategory 0..*
 * sdtcCategory from http://hl7.org/fhir/ValueSet/diagnostic-service-sections (preferred)
+  * ^condition = "should-sdtcCategory"
+  * ^short = "SHOULD contain sdtcCategory"
 * code 1..1
   * obeys 4537-19218
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4537-7128)."

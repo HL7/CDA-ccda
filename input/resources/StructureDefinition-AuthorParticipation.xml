@@ -110,10 +110,12 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
+            <condition value="author-details"/>
         </element>
         <element id="Author.assignedAuthor.telecom">
             <path value="Author.assignedAuthor.telecom"/>
             <short value="Required on at least one instance of this author in the document"/>
+            <condition value="author-details"/>
         </element>
         <element id="Author.assignedAuthor.assignedPerson">
             <path value="Author.assignedAuthor.assignedPerson"/>
@@ -123,6 +125,7 @@
         <element id="Author.assignedAuthor.assignedPerson.name">
             <path value="Author.assignedAuthor.assignedPerson.name"/>
             <comment value="The assignedPerson, if present, MAY contain zero or more [0..*] name (CONF:1098-31475)."/>
+            <condition value="author-details"/>
         </element>
         <element id="Author.assignedAuthor.representedOrganization">
             <path value="Author.assignedAuthor.representedOrganization"/>

@@ -209,7 +209,9 @@
         </element>
         <element id="Act.performer:payer.assignedEntity.code">
             <path value="Act.performer.assignedEntity.code"/>
+            <short value="SHOULD contain code"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)."/>
+            <condition value="should-code"/>
         </element>
         <element id="Act.performer:payer.assignedEntity.code.nullFlavor">
             <path value="Act.performer.assignedEntity.code.nullFlavor"/>
@@ -239,6 +241,7 @@
         <element id="Act.performer:payer.assignedEntity.representedOrganization">
             <path value="Act.performer.assignedEntity.representedOrganization"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)."/>
+            <condition value="should-representedOrganization"/>
             <constraint>
                 <key value="should-name"/>
                 <severity value="warning"/>
@@ -288,7 +291,9 @@
         </element>
         <element id="Act.performer:guarantor.time">
             <path value="Act.performer.time"/>
+            <short value="SHOULD contain time"/>
             <comment value="SHOULD contain zero or one [0..1] time (CONF:4537-8963)."/>
+            <condition value="should-time"/>
         </element>
         <element id="Act.performer:guarantor.assignedEntity">
             <path value="Act.performer.assignedEntity"/>
@@ -334,16 +339,20 @@
         </element>
         <element id="Act.performer:guarantor.assignedEntity.addr">
             <path value="Act.performer.assignedEntity.addr"/>
+            <short value="SHOULD contain addr"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)."/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
+            <condition value="should-addr"/>
         </element>
         <element id="Act.performer:guarantor.assignedEntity.telecom">
             <path value="Act.performer.assignedEntity.telecom"/>
+            <short value="SHOULD contain telecom"/>
             <comment value="This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)."/>
+            <condition value="should-telecom"/>
         </element>
         <element id="Act.participant">
             <path value="Act.participant"/>
@@ -395,8 +404,9 @@
         </element>
         <element id="Act.participant:coverage-target.time">
             <path value="Act.participant.time"/>
-            <short value="This records the policy coverage period or self-pay period."/>
+            <short value="This records the policy coverage period or self-pay period. SHOULD be present"/>
             <comment value="SHOULD contain zero or one [0..1] time (CONF:4537-8918)."/>
+            <condition value="should-time"/>
             <constraint>
                 <key value="should-low"/>
                 <severity value="warning"/>
@@ -475,17 +485,20 @@
         </element>
         <element id="Act.participant:coverage-target.participantRole.addr">
             <path value="Act.participant.participantRole.addr"/>
+            <short value="SHOULD contain addr"/>
             <comment value="This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)."/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
+            <condition value="should-addr"/>
         </element>
         <element id="Act.participant:coverage-target.participantRole.playingEntity">
             <path value="Act.participant.participantRole.playingEntity"/>
             <short value="This playingEntity records the covered party name and birthTime as represented by the health plan. This could match the information in recordTarget, or be different due to marriage or other reasons."/>
             <comment value="This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)."/>
+            <condition value="should-playingEntity"/>
         </element>
         <element id="Act.participant:coverage-target.participantRole.playingEntity.name">
             <path value="Act.participant.participantRole.playingEntity.name"/>
@@ -554,12 +567,14 @@
         </element>
         <element id="Act.participant:subscriber.participantRole.addr">
             <path value="Act.participant.participantRole.addr"/>
+            <short value="SHOULD contain addr"/>
             <comment value="This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)."/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
+            <condition value="should-addr"/>
         </element>
         <element id="Act.entryRelationship">
             <path value="Act.entryRelationship"/>

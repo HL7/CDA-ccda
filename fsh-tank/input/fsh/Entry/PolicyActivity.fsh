@@ -52,6 +52,8 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-8909)."
     * obeys should-code
     * code 0..1
+      * ^condition = "should-code"
+      * ^short = "SHOULD contain code"
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)." // auto-should
       * insert BindAtCode($2.16.840.1.113883.1.11.10416, preferred)
     * addr 0..1
@@ -61,6 +63,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^comment = "This assignedEntity MAY contain zero or more [0..*] telecom (CONF:4537-8911)."
     * obeys should-representedOrganization
     * representedOrganization 0..1
+      * ^condition = "should-representedOrganization"
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)." // auto-should
       * obeys should-name
       * name 0..1
@@ -77,6 +80,8 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * extension 0..0
   * obeys should-time
   * time 0..1
+    * ^condition = "should-time"
+    * ^short = "SHOULD contain time"
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8963)." // auto-should
   * assignedEntity 1..1
     * obeys 4537-8967
@@ -92,9 +97,13 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
+      * ^condition = "should-addr"
+      * ^short = "SHOULD contain addr"
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)." // man-should
     * obeys should-telecom
     * telecom 0..*
+      * ^condition = "should-telecom"
+      * ^short = "SHOULD contain telecom"
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)." // auto-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
@@ -117,7 +126,8 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * extension 0..0
   * obeys should-time
   * time 0..1
-    * ^short = "This records the policy coverage period or self-pay period."
+    * ^condition = "should-time"
+    * ^short = "This records the policy coverage period or self-pay period. SHOULD be present"
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8918)." // auto-should
     * obeys should-low
     * low 0..1
@@ -142,9 +152,12 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
+      * ^condition = "should-addr"
+      * ^short = "SHOULD contain addr"
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)." // man-should
     * obeys should-playingEntity
     * playingEntity 0..1
+      * ^condition = "should-playingEntity"
       * ^short = "This playingEntity records the covered party name and birthTime as represented by the health plan. This could match the information in recordTarget, or be different due to marriage or other reasons."
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)." // auto-should
       * name 1..1
@@ -175,6 +188,8 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * obeys should-addr
     * addr 0..1
     * addr only USRealmAddress
+      * ^condition = "should-addr"
+      * ^short = "SHOULD contain addr"
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "act.moodCode"

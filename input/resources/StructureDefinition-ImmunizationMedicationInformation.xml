@@ -115,6 +115,7 @@
             <path value="ManufacturedProduct.manufacturedMaterial.lotNumberText"/>
             <short value="𝗨𝗦𝗖𝗗𝗜: Lot Number Text - lotNumberText should be included if known. It may not be known for historical immunizations, planned immunizations, or refused/deferred immunizations."/>
             <comment value="This manufacturedMaterial SHOULD contain zero or one [0..1] lotNumberText (CONF:1098-9014)."/>
+            <condition value="should-lotNumberText"/>
         </element>
         <element id="ManufacturedProduct.manufacturedMaterial.sdtcExpirationTime">
             <path value="ManufacturedProduct.manufacturedMaterial.sdtcExpirationTime"/>
@@ -122,7 +123,9 @@
         </element>
         <element id="ManufacturedProduct.manufacturerOrganization">
             <path value="ManufacturedProduct.manufacturerOrganization"/>
+            <short value="SHOULD contain manufacturerOrganization"/>
             <comment value="SHOULD contain zero or one [0..1] manufacturerOrganization (CONF:1098-9012)."/>
+            <condition value="should-manufacturerOrganization"/>
         </element>
     </differential>
 </StructureDefinition>
