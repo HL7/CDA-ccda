@@ -53,15 +53,19 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add Portable Medical Order to USCDI Mapping Table *(Clarification)* [link](uscdi.html)
 * [CDA-21432](https://jira.hl7.org/browse/CDA-21432) - Add condition invariant references on fields affected by nullFlavor / other advanced conditions *(Correction)*
 * [CDA-21439](https://jira.hl7.org/browse/CDA-21439) - Corrected typos in changelog *(Correction)* 
-* [CDA-21441](https://jira.hl7.org/browse/CDA-21441) - Corrected displayName of Health Concern Act example *(Correction)* [link](StructureDefinition-Binary-health-concern-act-example.html)
+* [CDA-21441](https://jira.hl7.org/browse/CDA-21441) - Corrected displayName of Health Concern Act example *(Correction)* [link](Binary-health-concern-act-example.html)
 * [CDA-21442](https://jira.hl7.org/browse/CDA-21442) - Corrected description of C-CDA ticket 21432 in changelog *(Correction)* 
 * [CDA-21445](https://jira.hl7.org/browse/CDA-21445) - Corrected 'health care' to 'healthcare' throughout *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
 * [CDA-21446](https://jira.hl7.org/browse/CDA-21446) - Removed leftover templateId from UDI Organizer description *(Correction)* [link](StructureDefinition-UDIOrganizer.html)
 * [CDA-21447](https://jira.hl7.org/browse/CDA-21447) - Removed extra hyperlink in C-CDA ticket 21370 in changelog *(Correction)* 
 * [CDA-21449](https://jira.hl7.org/browse/CDA-21449) - Updated DisabilityStatusObservation.code *(Correction)* [link](StructureDefinition-DisabilityStatusObservation.html)
+* [CDA-21487](https://jira.hl7.org/browse/CDA-21487) - Added additional links to changed pages to changelog items *(Correction)* 
+* [CDA-21490](https://jira.hl7.org/browse/CDA-21490) - Added Basic Industry Observation and Basic Occupation Observation as optional templates in Social History Section *(Correction)* [link](StructureDefinition-SocialHistorySection.html)
+* [CDA-21506](https://jira.hl7.org/browse/CDA-21506) - Updated Advance Directive Existence Observation purpose statement *(Correction)* [link](StructureDefinition-AdvanceDirectiveExistenceObservation.html)
+* [CDA-21507](https://jira.hl7.org/browse/CDA-21507) - Updated Advance Directive Observation purpose statement *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
+* [CDA-21509](https://jira.hl7.org/browse/CDA-21509) - Altered healthcareAgent slice from custodian to notifier and added new assignedCustodian slice to AdvanceDirectiveObservation *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
 * [CDA-21511](https://jira.hl7.org/browse/CDA-21511) - Added requested text to description of Planned Procedure observation *(Clarification)* [link](StructureDefinition-PlannedProcedure.html)
 * [CDA-21512](https://jira.hl7.org/browse/CDA-21512) - Added new Pregnancy Section *(Enhancement)* [link](StructureDefinition-PregnancySection.html)
-* [CDA-21509](https://jira.hl7.org/browse/CDA-21509) - Altered healthcareAgent slice from custodian to notifier and added new assignedCustodian slice to AdvanceDirectiveObservation *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
 
 ### Version 4.0.0
 
