@@ -125,6 +125,8 @@ Description: "This template is used to represent the details of current and hist
   * ^slicing.discriminator[=].path = "substanceAdministration"
   * ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "encounter"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
 * entryRelationship contains
@@ -141,10 +143,6 @@ Description: "This template is used to represent the details of current and hist
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7769)."
-  * inversionInd 1..1
-  * inversionInd = true (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @inversionInd=\"true\" true (CONF:4515-8009)."
-  * encounter 0..0
   * organizer 1..1
   * organizer only UDIOrganizer
 * entryRelationship[encounter] ^short = "entryRelationship"
@@ -174,7 +172,6 @@ Description: "This template is used to represent the details of current and hist
   * inversionInd 1..1
   * inversionInd = true (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @inversionInd=\"true\" true (CONF:4515-7777)."
-  * encounter 0..0
   * observation 1..1
   * observation only InstructionObservation
 * entryRelationship[indication] ^short = "entryRelationship"
@@ -182,7 +179,6 @@ Description: "This template is used to represent the details of current and hist
   * typeCode 1..1
   * typeCode = #RSON (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" Has Reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7780)."
-  * encounter 0..0
   * observation 1..1
   * observation only Indication
     * ^comment = "SHALL contain exactly one [1..1] Indication (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.19:2014-06-09) (CONF:4515-15914)."
@@ -191,7 +187,6 @@ Description: "This template is used to represent the details of current and hist
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7887)."
-  * encounter 0..0
   * substanceAdministration 1..1
   * substanceAdministration only MedicationActivity
     * ^comment = "SHALL contain exactly one [1..1] Medication Activity (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.16:2014-06-09) (CONF:4515-15915)."
@@ -200,7 +195,6 @@ Description: "This template is used to represent the details of current and hist
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32474)."
-  * encounter 0..0
   * observation 1..1
   * observation only ReactionObservation
     * ^comment = "SHALL contain exactly one [1..1] Reaction Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.9:2014-06-09) (CONF:4515-32475)."
@@ -209,7 +203,6 @@ Description: "This template is used to represent the details of current and hist
   * typeCode 1..1
   * typeCode = #RSON (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32987)."
-  * encounter 0..0
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:4515-32986)."
@@ -218,7 +211,6 @@ Description: "This template is used to represent the details of current and hist
   * typeCode 1..1
   * typeCode = #RSON (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"RSON\" Has reason (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:4515-32990)."
-  * encounter 0..0
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32989)."
