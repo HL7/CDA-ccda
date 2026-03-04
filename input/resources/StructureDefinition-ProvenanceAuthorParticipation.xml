@@ -224,11 +224,19 @@
             <path value="Author.assignedAuthor.representedOrganization"/>
             <short value="𝗨𝗦𝗖𝗗𝗜: Author Organization"/>
             <comment value="If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64).  This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."/>
+            <condition value="4515-64"/>
             <constraint>
                 <key value="provenance-org-details"/>
                 <severity value="error"/>
                 <human value="If the author is not a clinician, set nullFlavor='NA'. Otherwise, the taxId, npi, and name are required."/>
                 <expression value="nullFlavor = 'NA' or (id.where(root='2.16.840.1.113883.4.2').exists() and id.where(root='2.16.840.1.113883.4.6').exists() and name.exists())"/>
+                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
+            </constraint>
+            <constraint>
+                <key value="provenance-should-telecom"/>
+                <severity value="warning"/>
+                <human value="If the author is not a clinician, set nullFlavor='NA'. Otherwise, the telecom is required."/>
+                <expression value="nullFlavor = 'NA' or telecom.exists()"/>
                 <source value="http://hl7.org/cda/us/ccda/StructureDefinition/ProvenanceAuthorParticipation"/>
             </constraint>
         </element>

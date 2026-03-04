@@ -163,16 +163,19 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="ParticipantRole.addr"/>
-            <short value="𝗨𝗦𝗖𝗗𝗜: Facility Address"/>
+            <short value="𝗨𝗦𝗖𝗗𝗜: Facility Address SHOULD be present"/>
             <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
             </type>
+            <condition value="should-addr"/>
         </element>
         <element id="ParticipantRole.telecom">
             <path value="ParticipantRole.telecom"/>
+            <short value="SHOULD contain telecom"/>
             <comment value="SHOULD contain zero or more [0..*] telecom (CONF:81-7761)."/>
+            <condition value="should-telecom"/>
         </element>
         <element id="ParticipantRole.playingEntity">
             <path value="ParticipantRole.playingEntity"/>

@@ -35,6 +35,8 @@ The Result Observation template is a versatile template designed to represent an
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7137)."
 * sdtcCategory 0..*
 * sdtcCategory from http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-result-observation-category (preferred)
+  * ^condition = "should-sdtcCategory"
+  * ^short = "SHOULD contain sdtcCategory"
 * code 1..1
   * insert ShallCodeOrNullFlavor
   * insert USCDI([[Tests]])
