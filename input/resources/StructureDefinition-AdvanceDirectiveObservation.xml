@@ -450,36 +450,24 @@
         </element>
         <element id="Observation.participant:assignedCustodian.participantRole">
             <path value="Observation.participant.participantRole"/>
-            <comment value="SHALL contain exactly one [1..1] participantRole (CONF:1198-8669)."/>
-            <constraint>
-                <key value="should-telecom"/>
-                <severity value="warning"/>
-                <human value="SHOULD contain telecom"/>
-                <expression value="telecom.exists()"/>
-                <source value="http://hl7.org/cda/us/ccda/StructureDefinition/AdvanceDirectiveObservation"/>
-            </constraint>
         </element>
         <element id="Observation.participant:assignedCustodian.participantRole.classCode">
             <path value="Observation.participant.participantRole.classCode"/>
-            <comment value="This participantRole SHALL contain exactly one [1..1] @classCode=&quot;AGNT&quot; Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."/>
             <min value="1"/>
             <fixedCode value="AGNT"/>
         </element>
         <element id="Observation.participant:assignedCustodian.participantRole.telecom">
             <path value="Observation.participant.participantRole.telecom"/>
-            <comment value="This participantRole SHALL contain exactly [1..1] telecom (CONF:1198-8672)."/>
             <min value="1"/>
             <max value="1"/>
         </element>
         <element id="Observation.participant:assignedCustodian.participantRole.playingEntity">
             <path value="Observation.participant.participantRole.playingEntity"/>
-            <comment value="This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."/>
             <min value="1"/>
         </element>
         <element id="Observation.participant:assignedCustodian.participantRole.playingEntity.name">
             <path value="Observation.participant.participantRole.playingEntity.name"/>
             <short value="The name of the healthcare agent."/>
-            <comment value="This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."/>
             <min value="1"/>
             <max value="1"/>
         </element>

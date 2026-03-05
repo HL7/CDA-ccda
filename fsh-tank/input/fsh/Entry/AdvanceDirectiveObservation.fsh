@@ -128,18 +128,13 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
   * typeCode = #CST (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"CST\" Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."
   * participantRole 1..1
-    * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:1198-8669)."
     * classCode 1..1
     * classCode = #AGNT (exactly)
       * ^comment = "This participantRole SHALL contain exactly one [1..1] @classCode=\"AGNT\" Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."
-    * obeys should-telecom
     * telecom 1..1
-      * ^comment = "This participantRole SHALL contain exactly [1..1] telecom (CONF:1198-8672)." // auto-should
     * playingEntity 1..1
-      * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."
       * name 1..1
         * ^short = "The name of the healthcare agent."
-        * ^comment = "This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."
 
 * reference ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
