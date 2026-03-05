@@ -29,7 +29,7 @@
     <name value="PregnancySection"/>
     <title value="Pregnancy Section"/>
     <status value="draft"/>
-    <description value="This section contains a patient's pregnancy information. It is consistent with the International Patient Summary specification."/>
+    <description value="This section contains a patient's pregnancy information. It is consistent with the International Patient Summary specification. This previous definition of this section was found in the Supplemental Templates for Pregnancy Status. Both the section as defined in that guide and the IPS section include other entries that C-CDA does not explicitly call out."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -102,12 +102,13 @@
             </slicing>
             <short value="If section/@nullFlavor is not present:"/>
             <comment value="SHALL contain at least one [1..*] entry (CONF:1198-9183)"/>
+            <min value="1"/>
         </element>
         <element id="Section.entry:pregnancyStatus">
             <path value="Section.entry"/>
             <sliceName value="pregnancyStatus"/>
-            <comment value="MAY contain zero or more [0..*] entry (CONF:1098-14695) such that it"/>
-            <min value="0"/>
+            <comment value="MAY contain one or more [0..*] entry (CONF:1098-14695) such that it"/>
+            <min value="1"/>
             <max value="*"/>
         </element>
         <element id="Section.entry:pregnancyStatus.observation">
