@@ -219,6 +219,7 @@
                 </discriminator>
                 <rules value="open"/>
             </slicing>
+            <min value="1"/>
         </element>
         <element id="Observation.participant:verifier">
             <extension url="http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement">
@@ -439,8 +440,8 @@
             <path value="Observation.participant"/>
             <sliceName value="assignedCustodian"/>
             <short value="This custodian (CST) participant is used to identify the custodian organization that maintains the external advance healthcare directive document."/>
-            <min value="0"/>
-            <max value="*"/>
+            <min value="1"/>
+            <max value="1"/>
         </element>
         <element id="Observation.participant:assignedCustodian.typeCode">
             <path value="Observation.participant.typeCode"/>
@@ -466,7 +467,9 @@
         </element>
         <element id="Observation.participant:assignedCustodian.participantRole.telecom">
             <path value="Observation.participant.participantRole.telecom"/>
-            <comment value="This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)."/>
+            <comment value="This participantRole SHALL contain exactly [1..1] telecom (CONF:1198-8672)."/>
+            <min value="1"/>
+            <max value="1"/>
         </element>
         <element id="Observation.participant:assignedCustodian.participantRole.playingEntity">
             <path value="Observation.participant.participantRole.playingEntity"/>
