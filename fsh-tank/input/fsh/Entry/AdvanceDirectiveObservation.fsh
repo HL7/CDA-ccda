@@ -54,7 +54,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
 * participant contains
     verifier 0..* and
     healthcareAgent 0..* and
-    assignedCustodian 0..*
+    assignedCustodian 1..1
 * participant[verifier]
   * insert USCDI([[Verifier - The participant \"VRF\" represents the clinician(s) who verified the patient advance directive.]])
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
@@ -133,8 +133,8 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
     * classCode = #AGNT (exactly)
       * ^comment = "This participantRole SHALL contain exactly one [1..1] @classCode=\"AGNT\" Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."
     * obeys should-telecom
-    * telecom 0..*
-      * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)." // auto-should
+    * telecom 1..1
+      * ^comment = "This participantRole SHALL contain exactly [1..1] telecom (CONF:1198-8672)." // auto-should
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."
       * name 1..1
