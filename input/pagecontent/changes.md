@@ -1,3 +1,35 @@
+### Version 5.0.0
+The changes in this version of Consolidated CDA were made from comments raised during the ballot period.
+
+#### Major Changes
+
+##### New Templates
+* Pregnancy Section template was added [link](StructureDefinition-PregnancySection.html)
+
+#### Tracker Issues Applied
+* [CDA-21397](https://jira.hl7.org/browse/CDA-21397) - Improve USCDI version guidance to C-CDA *(Correction)* [link](uscdi.html)
+* [CDA-21436](https://jira.hl7.org/browse/CDA-21436) - Missing Tribal Affiliation values *(Enhancement)* [link](StructureDefinition-TribalAffiliation.html)
+* [CDA-21439](https://jira.hl7.org/browse/CDA-21439) - Corrected typos in changelog *(Correction)* 
+* [CDA-21440](https://jira.hl7.org/browse/CDA-21440) - Family History Organizer binding does not allow UNK nullFlavor *(Correction)* [link](StructureDefinition-FamilyHistoryOrganizer.html)
+* [CDA-21441](https://jira.hl7.org/browse/CDA-21441) - Corrected displayName of Health Concern Act example *(Correction)* [link](Binary-health-concern-act-example.html)
+* [CDA-21442](https://jira.hl7.org/browse/CDA-21442) - Corrected description of C-CDA ticket 21432 in changelog *(Correction)* 
+* [CDA-21443](https://jira.hl7.org/browse/CDA-21443) - Add hyperlinks to profiles in ChangeLog *(Enhancement)*
+* [CDA-21445](https://jira.hl7.org/browse/CDA-21445) - Corrected 'health care' to 'healthcare' throughout *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
+* [CDA-21446](https://jira.hl7.org/browse/CDA-21446) - Removed leftover templateId from UDI Organizer description *(Correction)* [link](StructureDefinition-UDIOrganizer.html)
+* [CDA-21447](https://jira.hl7.org/browse/CDA-21447) - Removed extra hyperlink in C-CDA ticket 21370 in changelog *(Correction)* 
+* [CDA-21448](https://jira.hl7.org/browse/CDA-21448) - New updates to USCDI mapping table break previous conventions *(Correction)* [link](uscdi.html)
+* [CDA-21449](https://jira.hl7.org/browse/CDA-21449) - Updated DisabilityStatusObservation.code *(Correction)* [link](StructureDefinition-DisabilityStatusObservation.html)
+* [CDA-21450](https://jira.hl7.org/browse/CDA-21450) - UDI Organizer Link from Procedure should not be inverted *(Correction)* [link](StructureDefinition-ProcedureActivityProcedure.html)
+* [CDA-21465](https://jira.hl7.org/browse/CDA-21465) - Unimplemented SHOULD *(Correction)* [link](StructureDefinition-USRealmHeader.html)
+* [CDA-21487](https://jira.hl7.org/browse/CDA-21487) - Added additional links to changed pages to changelog items *(Correction)* 
+* [CDA-21490](https://jira.hl7.org/browse/CDA-21490) - Added Basic Industry Observation and Basic Occupation Observation as optional templates in Social History Section *(Correction)* [link](StructureDefinition-SocialHistorySection.html)
+* [CDA-21506](https://jira.hl7.org/browse/CDA-21506) - Updated Advance Directive Existence Observation purpose statement *(Correction)* [link](StructureDefinition-AdvanceDirectiveExistenceObservation.html)
+* [CDA-21507](https://jira.hl7.org/browse/CDA-21507) - Updated Advance Directive Observation purpose statement *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
+* [CDA-21509](https://jira.hl7.org/browse/CDA-21509) - Altered healthcareAgent slice from custodian to notifier and added new assignedCustodian slice to AdvanceDirectiveObservation *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
+* [CDA-21510](https://jira.hl7.org/browse/CDA-21510) - Request for specific example showing POLST where custodian is a State POLST Registry *(Enhancement)* [link](Binary-advance-directive-observation-example.html)
+* [CDA-21511](https://jira.hl7.org/browse/CDA-21511) - Added requested text to description of Planned Procedure observation *(Clarification)* [link](StructureDefinition-PlannedProcedure.html)
+* [CDA-21512](https://jira.hl7.org/browse/CDA-21512) - Added new Pregnancy Section *(Enhancement)* [link](StructureDefinition-PregnancySection.html)
+
 ### Version 5.0.0-ballot
 
 The changes in this version of Consolidated CDA were made from comments raised post version 4.0.0 along with new USCDI requirements for Unique Device Identifier, Facility Address, Care Plan, Problem Date of Onset, Family Health History, and Portable Medical Order.
@@ -49,23 +81,10 @@ The changes in this version of Consolidated CDA were made from comments raised p
 * [CDA-21423](https://jira.hl7.org/browse/CDA-21423) - Health Concern Act - Act.code contains wrong code display name *(Correction)* [link](StructureDefinition-HealthConcernAct.html)
 * [CDA-21424](https://jira.hl7.org/browse/CDA-21424) - Add sdtc:specialty extension to align with US Core PractitionerRole specialty *(Enhancement)* [link](StructureDefinition-AuthorParticipation.html)
 * [CDA-21427](https://jira.hl7.org/browse/CDA-21427) - USCDI v6 - Care Plan *(Enhancement)* [Plan of Treatment Section](StructureDefinition-PlanofTreatmentSection.html), [Care Plan Act](StructureDefinition-CarePlanAct.html), [USCDI table](uscdi.html)
-* [CDA-21428](https://jira.hl7.org/browse/CDA-21428) - USCDI - Device UDI Related Enhancement to Product Instance *(Enhancement)* [link](StructureDefinition-ProductInstance.html)
+* [CDA-21428](https://jira.hl7.org/browse/CDA-21428) - USCDI v6 - Revise and clarify the UDI Organizer template description and usage guidance. *(Enhancement)* [link](StructureDefinition-UDIOrganizer.html)
+* [CDA-21429](https://jira.hl7.org/browse/CDA-21429) - Corrected typos in changelog *(Correction)* 
 * [CDA-21430](https://jira.hl7.org/browse/CDA-21430) - Add Portable Medical Order to USCDI Mapping Table *(Clarification)* [link](uscdi.html)
 * [CDA-21432](https://jira.hl7.org/browse/CDA-21432) - Add condition invariant references on fields affected by nullFlavor / other advanced conditions *(Correction)*
-* [CDA-21439](https://jira.hl7.org/browse/CDA-21439) - Corrected typos in changelog *(Correction)* 
-* [CDA-21441](https://jira.hl7.org/browse/CDA-21441) - Corrected displayName of Health Concern Act example *(Correction)* [link](Binary-health-concern-act-example.html)
-* [CDA-21442](https://jira.hl7.org/browse/CDA-21442) - Corrected description of C-CDA ticket 21432 in changelog *(Correction)* 
-* [CDA-21445](https://jira.hl7.org/browse/CDA-21445) - Corrected 'health care' to 'healthcare' throughout *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
-* [CDA-21446](https://jira.hl7.org/browse/CDA-21446) - Removed leftover templateId from UDI Organizer description *(Correction)* [link](StructureDefinition-UDIOrganizer.html)
-* [CDA-21447](https://jira.hl7.org/browse/CDA-21447) - Removed extra hyperlink in C-CDA ticket 21370 in changelog *(Correction)* 
-* [CDA-21449](https://jira.hl7.org/browse/CDA-21449) - Updated DisabilityStatusObservation.code *(Correction)* [link](StructureDefinition-DisabilityStatusObservation.html)
-* [CDA-21487](https://jira.hl7.org/browse/CDA-21487) - Added additional links to changed pages to changelog items *(Correction)* 
-* [CDA-21490](https://jira.hl7.org/browse/CDA-21490) - Added Basic Industry Observation and Basic Occupation Observation as optional templates in Social History Section *(Correction)* [link](StructureDefinition-SocialHistorySection.html)
-* [CDA-21506](https://jira.hl7.org/browse/CDA-21506) - Updated Advance Directive Existence Observation purpose statement *(Correction)* [link](StructureDefinition-AdvanceDirectiveExistenceObservation.html)
-* [CDA-21507](https://jira.hl7.org/browse/CDA-21507) - Updated Advance Directive Observation purpose statement *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
-* [CDA-21509](https://jira.hl7.org/browse/CDA-21509) - Altered healthcareAgent slice from custodian to notifier and added new assignedCustodian slice to AdvanceDirectiveObservation *(Correction)* [link](StructureDefinition-AdvanceDirectiveObservation.html)
-* [CDA-21511](https://jira.hl7.org/browse/CDA-21511) - Added requested text to description of Planned Procedure observation *(Clarification)* [link](StructureDefinition-PlannedProcedure.html)
-* [CDA-21512](https://jira.hl7.org/browse/CDA-21512) - Added new Pregnancy Section *(Enhancement)* [link](StructureDefinition-PregnancySection.html)
 
 ### Version 4.0.0
 
