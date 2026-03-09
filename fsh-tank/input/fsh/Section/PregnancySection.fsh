@@ -2,7 +2,7 @@ Profile: PregnancySection
 Parent: $Section
 Id: PregnancySection
 Title: "Pregnancy Section"
-Description: "This section contains a patient's pregnancy information. It is consistent with the International Patient Summary specification. This previous definition of this section was found in the Supplemental Templates for Pregnancy Status. Both the section as defined in that guide and the IPS section include other entries that C-CDA does not explicitly call out."
+Description: "This section contains a patient's pregnancy information. It is consistent with the International Patient Summary specification. This previous definition of this section was located in the Supplemental Templates for Pregnancy Status. Both the section as defined in that guide and the IPS section include other entries that C-CDA does not explicitly call out."
 
 * insert Section(#10162-6, [[History of pregnancies Narrative]], 2.16.840.1.113883.10.20.22.2.70, 2026-05-01)
 * entry 0..*
