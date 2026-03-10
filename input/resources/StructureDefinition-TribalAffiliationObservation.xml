@@ -29,7 +29,7 @@
     <name value="TribalAffiliationObservation"/>
     <title value="Tribal Affiliation Observation"/>
     <status value="draft"/>
-    <description value="This template represents the tribe or band that an individual associates with, within the United States. It is recommended systems include the Tribal Affiliation Observation in the Social History section.&#xA;The tribe or band name is drawn from an HL7 code system that aligns with the Indian entities list, a list of tribes or bands recognized by and eligible to receive services from the United States Bureau of Indian Affairs. This template does not represent tribal enrollment.&#xA;Please see [Indian Entities Recognized by and Eligible To Receive Services From the United States Bureau of Indian Affairs](https://www.federalregister.gov/documents/2021/01/29/2021-01606/indian-entities-recognized-by-and-eligible-to-receive-services-from-the-united-states-bureau-of)."/>
+    <description value="This template represents the tribe or band that an individual associates with, within the United States. It is recommended systems include the Tribal Affiliation Observation in the Social History section.&#xA;The tribe or band name is drawn from an HL7 code system that aligns with the Indian entities list, a list of tribes or bands recognized by and eligible to receive services from the United States Bureau of Indian Affairs. This template does not represent tribal enrollment.&#xA;Please see [Indian Entities Recognized by and Eligible To Receive Services From the United States Bureau of Indian Affairs](https://www.federalregister.gov/documents/2021/01/29/2021-01606/indian-entities-recognized-by-and-eligible-to-receive-services-from-the-united-states-bureau-of).  The [IHS code book](https://www.ihs.gov/scb/standard-code-book-tables/tribe/) contains an additional set of codes that might need to be used for specific reporting purposes.  There are a lot of overlapping codes betweeh the IHS codes and the codes in the current preferred value set."/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -117,10 +117,9 @@
         <element id="Observation.value:coded">
             <path value="Observation.value"/>
             <sliceName value="coded"/>
-            <comment value="SHALL contain exactly one [1..1] value with @xsi:type=&quot;CD&quot;, which SHALL be selected from ValueSet TribalEntityUS http://terminology.hl7.org/ValueSet/v3-TribalEntityUS DYNAMIC (CONF:4537-12)."/>
             <min value="1"/>
             <binding>
-                <strength value="required"/>
+                <strength value="preferred"/>
                 <valueSet value="http://terminology.hl7.org/ValueSet/v3-TribalEntityUS"/>
             </binding>
         </element>

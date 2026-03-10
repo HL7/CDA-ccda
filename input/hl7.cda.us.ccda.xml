@@ -25,12 +25,7 @@
     <dependsOn id="cda">
         <uri value="http://hl7.org/cda/stds/core/ImplementationGuide/hl7.cda.uv.core"/>
         <packageId value="hl7.cda.uv.core"/>
-        <version value="2.0.2-sd"/>
-    </dependsOn>
-    <dependsOn id="vsac">
-        <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
-        <packageId value="us.nlm.vsac"/>
-        <version value="0.24.0"/>
+        <version value="current"/>
     </dependsOn>
     <dependsOn id="phinvads">
         <uri value="https://phinvads.cdc.gov/vads/fhir/ImplementationGuide/us.cdc.phinvads"/>
@@ -40,7 +35,7 @@
     <dependsOn id="uscore">
         <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
         <packageId value="hl7.fhir.us.core"/>
-        <version value="9.0.0-ballot"/>
+        <version value="current"/>
     </dependsOn>
     <definition>
         <grouping id="document">
@@ -114,7 +109,7 @@
                 <display value="Advance Directive Observation"/>
             </reference>
             <name value="Advance Directive Observation"/>
-            <description value="The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents."/>
+            <description value="The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance healthcare directive documents."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -123,7 +118,7 @@
                 <display value="Advance Directive Existence Observation"/>
             </reference>
             <name value="Advance Directive Existence Observation"/>
-            <description value="This observation represents a simple observation indicating whether a person has any advance directive documents."/>
+            <description value="This observation represents a simple observation indicating whether a person has any advance healthcare directive documents."/>
             <groupingId value="entry"/>
         </resource>
         <resource>
@@ -1466,6 +1461,15 @@
             <name value="Pregnancy Intention in Next Year"/>
             <description value="This template represents a patient's reported intention or desire in the next year to either become pregnant or prevent a future pregnancy."/>
             <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/PregnancySection"/>
+                <display value="Pregnancy Section"/>
+            </reference>
+            <name value="Pregnancy Section"/>
+            <description value="This section contains a patient's pregnancy information."/>
+            <groupingId value="section"/>
         </resource>
         <resource>
             <reference>

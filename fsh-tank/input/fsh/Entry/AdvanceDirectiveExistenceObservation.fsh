@@ -2,7 +2,9 @@ Profile: AdvanceDirectiveExistenceObservation
 Parent: $Observation
 Id: AdvanceDirectiveExistenceObservation
 Title: "Advance Directive Existence Observation"
-Description: """This observation represents a simple observation indicating whether a person has any advance directive documents. When documents are available, a system can nest the needed references to the advance directive documents inside this Advance Directive Existence Observation."""
+Description: """This observation represents a simple observation indicating whether a person has any advance healthcare directive documents. When documents are available, a system can nest the needed references to the documents inside this Advance Directive Existence Observation.
+
+Advance healthcare directive documents include person-authored advance directives as well as provider-authored portable medical order types of documents."""
 
 * insert LogicalModelTemplate(advance-directive-exist-obs, 2.16.840.1.113883.10.20.22.4.513, 2025-05-01)
 * insert NarrativeLink

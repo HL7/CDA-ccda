@@ -463,6 +463,10 @@
                     <type value="exists"/>
                     <path value="encounter"/>
                 </discriminator>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="organizer"/>
+                </discriminator>
                 <rules value="open"/>
             </slicing>
             <comment value="MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"/>
@@ -479,12 +483,6 @@
             <path value="Procedure.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7769)."/>
             <fixedCode value="COMP"/>
-        </element>
-        <element id="Procedure.entryRelationship:udiOrganizer.inversionInd">
-            <path value="Procedure.entryRelationship.inversionInd"/>
-            <comment value="SHALL contain exactly one [1..1] @inversionInd=&quot;true&quot; true (CONF:4515-8009)."/>
-            <min value="1"/>
-            <fixedBoolean value="true"/>
         </element>
         <element id="Procedure.entryRelationship:udiOrganizer.encounter">
             <path value="Procedure.entryRelationship.encounter"/>

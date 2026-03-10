@@ -129,6 +129,8 @@ Description: "This template is used to represent the details of current and hist
   * ^slicing.discriminator[=].path = "substanceAdministration"
   * ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "encounter"
+  * ^slicing.discriminator[+].type = #profile
+  * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
 * entryRelationship contains
@@ -145,9 +147,6 @@ Description: "This template is used to represent the details of current and hist
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" Has Component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4515-7769)."
-  * inversionInd 1..1
-  * inversionInd = true (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @inversionInd=\"true\" true (CONF:4515-8009)."
   * encounter 0..0
   * organizer 1..1
   * organizer only UDIOrganizer

@@ -4,7 +4,7 @@ Id: TribalAffiliationObservation
 Title: "Tribal Affiliation Observation"
 Description: """This template represents the tribe or band that an individual associates with, within the United States. It is recommended systems include the Tribal Affiliation Observation in the Social History section.
 The tribe or band name is drawn from an HL7 code system that aligns with the Indian entities list, a list of tribes or bands recognized by and eligible to receive services from the United States Bureau of Indian Affairs. This template does not represent tribal enrollment.
-Please see [Indian Entities Recognized by and Eligible To Receive Services From the United States Bureau of Indian Affairs](https://www.federalregister.gov/documents/2021/01/29/2021-01606/indian-entities-recognized-by-and-eligible-to-receive-services-from-the-united-states-bureau-of)."""
+Please see [Indian Entities Recognized by and Eligible To Receive Services From the United States Bureau of Indian Affairs](https://www.federalregister.gov/documents/2021/01/29/2021-01606/indian-entities-recognized-by-and-eligible-to-receive-services-from-the-united-states-bureau-of).  The [IHS code book](https://www.ihs.gov/scb/standard-code-book-tables/tribe/) contains an additional set of codes that might need to be used for specific reporting purposes.  There are a lot of overlapping codes betweeh the IHS codes and the codes in the current preferred value set."""
 
 * insert LogicalModelTemplate(tribal-affiliation-obs, 2.16.840.1.113883.10.20.22.4.506, 2023-05-01)
 
@@ -30,5 +30,4 @@ Please see [Indian Entities Recognized by and Eligible To Receive Services From 
 * value 1..1
 * value[physical-quantity] 0..0
 * value[coded] 1..1
-* value[coded] from TribalEntityUS (required)
-  * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which SHALL be selected from ValueSet TribalEntityUS http://terminology.hl7.org/ValueSet/v3-TribalEntityUS DYNAMIC (CONF:4537-12)."
+* value[coded] from TribalEntityUS (preferred)

@@ -29,7 +29,7 @@
     <name value="SocialHistorySection"/>
     <title value="Social History Section"/>
     <status value="draft"/>
-    <description value="This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header. Mental/behavioral health assessments such as PHQ-9 (Patient Health Questionnaire-9) for depression screening are captured in the Mental Status section.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Recommended Entries**: [SmokingStatus](StructureDefinition-SmokingStatus.html)&#xA;&#xA;**Optional Entries**: [CaregiverCharacteristics](StructureDefinition-CaregiverCharacteristics.html), [CharacteristicsofHomeEnvironment](StructureDefinition-CharacteristicsofHomeEnvironment.html), [CulturalandReligiousObservation](StructureDefinition-CulturalandReligiousObservation.html), [PregnancyIntentionInNextYear](StructureDefinition-PregnancyIntentionInNextYear.html), [PregnancyStatusObservation](StructureDefinition-PregnancyStatusObservation.html), [SocialHistoryObservation](StructureDefinition-SocialHistoryObservation.html)"/>
+    <description value="This section contains social history data that influence a patient's physical, psychological or emotional health (e.g., smoking status, pregnancy). Demographic data, such as marital status, race, ethnicity, and religious affiliation, is captured in the header. Mental/behavioral health assessments such as PHQ-9 (Patient Health Questionnaire-9) for depression screening are captured in the Mental Status section. Pregnancy information used to be found in this section and may still be found here but should now be placed in the Pregnancy section.&#xA;&#xA;#### Templates Used&#xA;Although open templates may contain any valid CDA content, the following templates are specifically called out by this template:&#xA;&#xA;**Recommended Entries**: [SmokingStatus](StructureDefinition-SmokingStatus.html)&#xA;&#xA;**Optional Entries**: [BasicIndustryObservation](StructureDefinition-BasicIndustryObservation.html), [BasicOccupationObservation](StructureDefinition-BasicOccupationObservation.html), [CaregiverCharacteristics](StructureDefinition-CaregiverCharacteristics.html), [CharacteristicsofHomeEnvironment](StructureDefinition-CharacteristicsofHomeEnvironment.html), [CulturalandReligiousObservation](StructureDefinition-CulturalandReligiousObservation.html), [PregnancyIntentionInNextYear](StructureDefinition-PregnancyIntentionInNextYear.html), [PregnancyStatusObservation](StructureDefinition-PregnancyStatusObservation.html), [SocialHistoryObservation](StructureDefinition-SocialHistoryObservation.html)"/>
     <fhirVersion value="5.0.0"/>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -222,6 +222,38 @@
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/PregnancyIntentionInNextYear"/>
+            </type>
+        </element>
+        <element id="Section.entry:basicOccupation">
+            <path value="Section.entry"/>
+            <sliceName value="basicOccupation"/>
+            <comment value="MAY contain zero or one [0..*] entry such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:basicOccupation.observation">
+            <path value="Section.entry.observation"/>
+            <comment value="SHALL contain exactly one [1..1] Basic Occupation Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.503:2023-05-01)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BasicOccupationObservation"/>
+            </type>
+        </element>
+        <element id="Section.entry:basicIndustry">
+            <path value="Section.entry"/>
+            <sliceName value="basicIndustry"/>
+            <comment value="MAY contain zero or more [0..*] entry such that it"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Section.entry:basicIndustry.observation">
+            <path value="Section.entry.observation"/>
+            <comment value="SHALL contain exactly one [1..1] Basic Industry Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.504:2023-05-01)."/>
+            <min value="1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/BasicIndustryObservation"/>
             </type>
         </element>
     </differential>

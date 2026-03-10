@@ -101,19 +101,11 @@
         </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
-            <short value="Disability Status [CUBS]"/>
             <comment value="SHALL contain exactly one [1..1] code (CONF:4537-32624)."/>
-        </element>
-        <element id="Observation.code.code">
-            <path value="Observation.code.code"/>
-            <min value="1"/>
-            <patternCode value="89571-4"/>
-        </element>
-        <element id="Observation.code.codeSystem">
-            <path value="Observation.code.codeSystem"/>
-            <short value="LOINC"/>
-            <min value="1"/>
-            <patternString value="2.16.840.1.113883.6.1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.33"/>
+            </binding>
         </element>
         <element id="Observation.text">
             <path value="Observation.text"/>
@@ -155,7 +147,7 @@
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
             </type>
             <binding>
-                <strength value="preferred"/>
+                <strength value="example"/>
                 <valueSet value="http://loinc.org/vs/LL5052-7"/>
             </binding>
         </element>

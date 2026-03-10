@@ -2,8 +2,10 @@ Profile: AdvanceDirectiveObservation
 Parent: $Observation
 Id: AdvanceDirectiveObservation
 Title: "Advance Directive Observation"
-Description: """The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance directive documents. Each Advance Directive Observation template provides details about one type of advance directive document and may also include information about the document’s author, as well as any individuals who discussed and verified its contents with the patient or their designated healthcare agent.
- 
+Description: """The Advance Directive Observation template is nested within the Advance Directive Existence Observation, which indicates whether the individual has any advance healthcare directive documents. Each Advance Directive Observation template provides details about one type of advance directive document and may also include information about the document’s author, as well as any individuals who discussed and verified its contents with the patient or their designated healthcare agent.
+
+Advance healthcare directive documents include person-authored advance directives as well as provider-authored portable medical order types of documents.
+
 The Advance Directive Observation template also can be nested within an Intervention Act to serve as documentation explaining why an intervention was planned/performed or not.
 """
 
@@ -51,7 +53,8 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
   * ^slicing.rules = #open
 * participant contains
     verifier 0..* and
-    healthcareAgent 0..*
+    healthcareAgent 0..* and
+    assignedCustodian 1..1
 * participant[verifier]
   * insert USCDI([[Verifier - The participant \"VRF\" represents the clinician(s) who verified the patient advance directive.]])
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8662) such that it"
@@ -89,11 +92,11 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
         * ^comment = "The playingEntity SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-28454)."
 * insert ShouldElement(informant)
 * informant ^short = "SHOULD contain informant" // man-should
-* participant[healthcareAgent] ^short = "This custodian (CST) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called health care agents, substitute decision makers and/or health care proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in carae decision-making during the documented care encounter."
+* participant[healthcareAgent] ^short = "This notifier (NOT) participant identifies a legal representative for healthcare decision-making. Examples of such  individuals are called healthcare agents, substitute decision makers and/or healthcare proxies.  Only record a healthcare agent who is acting in that capacitiy and participating in care decision-making during the documented care encounter."
 * participant[healthcareAgent] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8667) such that it"
   * typeCode 1..1
-  * typeCode = #CST (exactly)
-    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"CST\" Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."
+  * typeCode = #NOT (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"NOT\" Notifier (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:1198-8669)."
     * classCode 1..1
@@ -120,6 +123,19 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
       * name 1..1
         * ^short = "The name of the healthcare agent."
         * ^comment = "This playingEntity SHALL contain exactly one [1..1] name (CONF:1198-8673)."
+* participant[assignedCustodian] ^short = "This custodian (CST) participant is used to identify the custodian organization that maintains the external advance healthcare directive document."
+  * typeCode 1..1
+  * typeCode = #CST (exactly)
+    * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"CST\" Custodian (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8668)."
+  * participantRole 1..1
+    * classCode 1..1
+    * classCode = #AGNT (exactly)
+      * ^comment = "This participantRole SHALL contain exactly one [1..1] @classCode=\"AGNT\" Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."
+    * telecom 1..1
+    * playingEntity 1..1
+      * name 1..1
+        * ^short = "The name of the healthcare agent."
+
 * reference ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open

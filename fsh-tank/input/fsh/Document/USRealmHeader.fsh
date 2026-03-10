@@ -264,15 +264,15 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
 * informant contains
     provider 0..* and
     non-provider 0..*
-* informant[provider] ^short = "The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
-  * ^short = "The informant element describes an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
+* informant[provider] ^short = "The informant element describes an information source who is a healthcare provider for any content within the clinical document."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-8001) such that it"
   * relatedEntity 0..0
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8002)."
     * id 1..*
-      * ^short = "If assignedEntity/id is a provider then this id, **SHOULD** include zero or one [0..1] id where id/@root =\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-9946)."
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-9945)."
+      * root 0..1
+        * obeys should-npi
     * code 0..1
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32174)."
