@@ -8,7 +8,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 
 #### Tracker Issues Applied
 * [CDA-21397](https://jira.hl7.org/browse/CDA-21397) - Improve USCDI version guidance to C-CDA *(Correction)* [link](uscdi.html)
-* [CDA-21436](https://jira.hl7.org/browse/CDA-21436) - Missing Tribal Affiliation values *(Enhancement)* [link](StructureDefinition-TribalAffiliation.html)
+* [CDA-21436](https://jira.hl7.org/browse/CDA-21436) - Missing Tribal Affiliation values *(Enhancement)* [link](StructureDefinition-TribalAffiliationObservation.html)
 * [CDA-21439](https://jira.hl7.org/browse/CDA-21439) - Corrected typos in changelog *(Correction)* 
 * [CDA-21440](https://jira.hl7.org/browse/CDA-21440) - Family History Organizer binding does not allow UNK nullFlavor *(Correction)* [link](StructureDefinition-FamilyHistoryOrganizer.html)
 * [CDA-21441](https://jira.hl7.org/browse/CDA-21441) - Corrected displayName of Health Concern Act example *(Correction)* [link](Binary-health-concern-act-example.html)
