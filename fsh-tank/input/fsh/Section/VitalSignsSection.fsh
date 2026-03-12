@@ -11,7 +11,7 @@ Vital signs are represented in the same way as other results, but are aggregated
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains vitalsOrg 0..* and averageBPOrg 0..
+* entry contains vitalsOrg 0.. and averageBPOrg 0..
 * entry[vitalsOrg] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-7276) such that it"
   * ^condition = "shall-vital-signs-org"
   * organizer 1..1

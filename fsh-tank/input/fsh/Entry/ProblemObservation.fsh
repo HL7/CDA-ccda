@@ -66,7 +66,7 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
 * entryRelationship contains
     age 0..1 and
     prognosis 0.. and
-    priority 0..* and
+    priority 0.. and
     status 0..1 and
 	reference 0.. and
 	assessment 0.. and

@@ -49,9 +49,9 @@ Description: "This template represents acquired or surgical wounds and is not in
 * entryRelationship 
   * ^short = "When the wound observed is a type of pressure ulcer, then this template SHOULD contain an entry for the Highest Pressure Ulcer Stage."
 * entryRelationship contains
-    woundMeasurementObservation 0..* and
-    woundCharacteristic 0..* and
-    numberofPressureUlcersObservation 0..* and
+    woundMeasurementObservation 0.. and
+    woundCharacteristic 0.. and
+    numberofPressureUlcersObservation 0.. and
     highestPressureUlcerStage 0..
 * entryRelationship[woundMeasurementObservation] ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-29495) such that it"
   * typeCode 1..1

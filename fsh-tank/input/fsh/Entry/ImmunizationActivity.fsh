@@ -92,7 +92,7 @@ This information should be included in an Immunization Activity when available. 
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.rules = #open
 * entryRelationship contains
-    indication 0..* and
+    indication 0.. and
     instruction 0.. and
     medSupplyOrder 0.. and
     medDispense 0.. and

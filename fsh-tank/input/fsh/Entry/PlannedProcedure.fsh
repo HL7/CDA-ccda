@@ -60,11 +60,11 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32996) such that it"
 * entryRelationship contains
-    priorityPreference 0..* and
-    indication 0..* and
-    instruction 0..* and
-    coverage 0..* and
-    assessmentScale 0..* and
+    priorityPreference 0.. and
+    indication 0.. and
+    instruction 0.. and
+    coverage 0.. and
+    assessmentScale 0.. and
     entryReference 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the procedure."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31079) such that it"

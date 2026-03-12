@@ -46,7 +46,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
   * ^slicing.rules = #open
   * ^short = "The following entryRelationship represents a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
 * entryRelationship contains
-    careModel 0..* and
+    careModel 0.. and
     indication 0..
 * entryRelationship[careModel] ^short = "The following entryRelationship represents whether the referral is for full or shared care."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31604) such that it"

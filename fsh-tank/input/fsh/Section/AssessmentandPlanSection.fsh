@@ -16,7 +16,7 @@ See also the Assessment Section: templateId 2.16.840.1.113883.10.20.22.2.8 and P
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
-* entry contains plannedProcedure 0..* and notes 0..
+* entry contains plannedProcedure 0.. and notes 0..
 * entry[plannedProcedure] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-7708) such that it"
   * procedure 1..1
   * procedure only PlannedProcedure

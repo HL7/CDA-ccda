@@ -195,7 +195,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * ^slicing.discriminator[=].path = "act.moodCode"
   * ^slicing.rules = #open
 * entryRelationship contains 
-  authorization 0..* and
+  authorization 0.. and
   plan 0..
 * entryRelationship[authorization]
   * ^short = "entryRelationship"

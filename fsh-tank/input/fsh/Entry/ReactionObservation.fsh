@@ -50,8 +50,8 @@ Description: "This clinical statement represents the response to an undesired sy
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains
-    procedure 0..* and
-    medication 0..* and
+    procedure 0.. and
+    medication 0.. and
     severity 0..1
 * entryRelationship[procedure] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-7337) such that it"
   * typeCode 1..1

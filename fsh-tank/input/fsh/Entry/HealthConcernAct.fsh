@@ -47,10 +47,10 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * ^short = "When this Health Concern Act is a Social Determinant of Health Health Concern it **SHOULD** contain zero or more [0..*] entryRelationship subentries such that it contains an observation with an observation/value selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32962)."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"
 * entryRelationship contains
-    observations 0..* and
-    acts 0..* and
-    organizers 0..* and
-    related-entries 0..* and
+    observations 0.. and
+    acts 0.. and
+    organizers 0.. and
+    related-entries 0.. and
     component-health-concern-acts 0..
 * entryRelationship[observations] 
   * typeCode 1..1

@@ -14,12 +14,12 @@ Description: "The Functional Status Section contains observations and assessment
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.rules = #open
 * entry contains
-    funcStatusOrganizer 0..* and
-    funcStatusObs 0..* and
-    caregiverCharacteristics 0..* and
-    assessmentScale 0..* and
-    nonMedSupply 0..* and
-    selfCareActivity 0..* and
+    funcStatusOrganizer 0.. and
+    funcStatusObs 0.. and
+    caregiverCharacteristics 0.. and
+    assessmentScale 0.. and
+    nonMedSupply 0.. and
+    selfCareActivity 0.. and
     sensoryStatus 0..
 * entry[funcStatusOrganizer] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-14414) such that it"
   * organizer 1..1

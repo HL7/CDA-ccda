@@ -37,10 +37,10 @@ Description: "This template represents nutrition regimens (e.g., fluid restricti
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
 * entryRelationship contains
-    plannedEncounter 0..* and
-    plannedMedActivity 0..* and
-    plannedProc 0..* and
-    plannedSupply 0..* 
+    plannedEncounter 0.. and
+    plannedMedActivity 0.. and
+    plannedProc 0.. and
+    plannedSupply 0.. 
 * entryRelationship[plannedEncounter] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32382) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

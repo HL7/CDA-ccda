@@ -262,7 +262,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"
 * informant contains
-    provider 0..* and
+    provider 0.. and
     non-provider 0..
 * informant[provider] ^short = "The informant element describes an information source who is a healthcare provider for any content within the clinical document."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-8001) such that it"

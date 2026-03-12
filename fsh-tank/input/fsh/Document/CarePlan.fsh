@@ -92,7 +92,7 @@ A care plan document can include entry references from the information in these 
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
-    verifier 0..* and
+    verifier 0.. and
     indirect 0..
 * participant[verifier] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31677) such that it"
   * typeCode 1..1

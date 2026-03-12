@@ -137,14 +137,14 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.rules = #open
 * entryRelationship contains
-    indication 0..* and
+    indication 0.. and
     instruction 0.. and
     supplyOrder 0.. and
-    medicationDispense 0..* and
-    reaction 0..* and
+    medicationDispense 0.. and
+    reaction 0.. and
     drugMonitoring 0.. and
-    substanceAdministered 0..* and
-    adherence 0..* and
+    substanceAdministered 0.. and
+    adherence 0.. and
     signature 0..
 * entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-7536) such that it"
   * typeCode 1..1

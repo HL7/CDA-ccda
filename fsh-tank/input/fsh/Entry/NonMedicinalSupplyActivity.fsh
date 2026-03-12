@@ -46,7 +46,7 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
 * entryRelationship contains 
-    UDIOrganizer 0..* and
+    UDIOrganizer 0.. and
     instruction 0..
 * entryRelationship[UDIOrganizer] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7751) such that it"

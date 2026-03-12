@@ -52,8 +52,8 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
-    verifier 0..* and
-    healthcareAgent 0..* and
+    verifier 0.. and
+    healthcareAgent 0.. and
     assignedCustodian 1..1
 * participant[verifier]
   * insert USCDI([[Verifier - The participant \"VRF\" represents the clinician(s) who verified the patient advance directive.]])

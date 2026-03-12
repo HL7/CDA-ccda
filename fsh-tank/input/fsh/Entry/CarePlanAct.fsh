@@ -35,9 +35,9 @@ This entry conveys an instance of the evolving Care Plan at a specific point in 
   * ^slicing.rules = #open
   * ^short = "Entries can be embedded directly or referenced via EntryReference. Use the @typeCode attribute to distinguish the type of relationship."
 * entryRelationship contains
-  addresses 0..* and
-  goal 0..* and 
-  supportingInfo 0..* and
+  addresses 0.. and
+  goal 0.. and 
+  supportingInfo 0.. and
   activity 0..
 
 * entryRelationship[addresses]

@@ -74,7 +74,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32935) such that it"
 * entryRelationship contains
     status 0..1 and
-    reaction 0..* and
+    reaction 0.. and
     severity 0..1 and
     criticality 0..1
 * entryRelationship[status] ^short = "entryRelationship"

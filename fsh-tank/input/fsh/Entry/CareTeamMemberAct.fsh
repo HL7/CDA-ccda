@@ -81,7 +81,7 @@ This id must be a pointer to another Performer."""
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
 * participant contains
-    location 0..* and
+    location 0.. and
     addl-functions 0..
 * participant[location] ^short = "This participant represents the location where the care team member provides the service."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
@@ -118,8 +118,8 @@ This id must be a pointer to another Performer."""
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"
 * entryRelationship contains
-    encounter 0..* and
-    note 0..* and
+    encounter 0.. and
+    note 0.. and
     schedule 0..
 * entryRelationship[encounter] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-86) such that it"

@@ -63,8 +63,8 @@ The priority of the immunization activity to the patient and provider is communi
   * ^slicing.rules = #open
   * ^short = "The following entryRelationship captures any instructions associated with the planned immunization activity."
 * entryRelationship contains
-    priorityPreference 0..* and
-    indication 0..* and
+    priorityPreference 0.. and
+    indication 0.. and
     instruction 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the immunization activity."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32108) such that it"

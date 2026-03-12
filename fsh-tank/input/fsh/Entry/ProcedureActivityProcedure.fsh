@@ -103,7 +103,7 @@ Description: "This template is used to represent the details of current and hist
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
 * participant contains
-    serviceDeliveryLocation 0..* and
+    serviceDeliveryLocation 0.. and
     productInstance 0..
 * participant[serviceDeliveryLocation] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
@@ -134,13 +134,13 @@ Description: "This template is used to represent the details of current and hist
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32988) such that it"
 * entryRelationship contains
-    udiOrganizer 0..* and
-    encounter 0..* and
+    udiOrganizer 0.. and
+    encounter 0.. and
     instruction 0.. and
-    indication 0..* and
-    medication 0..* and
-    reaction 0..* and
-    assessmentScaleObs 0..* and
+    indication 0.. and
+    medication 0.. and
+    reaction 0.. and
+    assessmentScaleObs 0.. and
     entryReference 0..
 * entryRelationship[udiOrganizer] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-7768) such that it"

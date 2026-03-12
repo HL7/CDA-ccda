@@ -56,7 +56,7 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32969) such that it"
 * entryRelationship contains
-    supportingObs 0..* and
+    supportingObs 0.. and
     entryReference 0..
 * entryRelationship[supportingObs] ^short = "When an Assessment Scale Observation is contained in a Social History Observation instance that is a Social Determinant of Health Social History Observation, that Assessment Scale Observation MAY contain Assessment Scale Supporting Observations that contain LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32958) such that it"

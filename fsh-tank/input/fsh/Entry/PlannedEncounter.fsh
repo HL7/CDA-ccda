@@ -56,7 +56,7 @@ Description: "This template represents a planned or ordered encounter. The type 
   * ^short = "The following entryRelationship captures the reason for the planned or ordered encounter"
 * entryRelationship contains
     priorityPreference 0.. and
-    indication 0..* and
+    indication 0.. and
     observation 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the encounter."
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-31033) such that it"

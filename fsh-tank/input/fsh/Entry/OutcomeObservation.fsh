@@ -36,7 +36,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * ^slicing.rules = #open
   * ^short = "Where an Outcome Observation needs to reference an Intervention Act already described in the CDA document instance, rather than repeating the full content of the Intervention Act, the Entry Reference template may be used to reference this entry."
 * entryRelationship contains
-    goal-reference 0..* and
+    goal-reference 0.. and
     progressTowardGoalObservation 0.. and
     intervention-reference 0..
 * entryRelationship[goal-reference] 

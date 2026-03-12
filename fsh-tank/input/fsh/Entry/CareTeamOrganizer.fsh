@@ -59,7 +59,7 @@ The components of the organizer contain the following information:
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
-    lead 0..* and
+    lead 0.. and
     location 0..
 * participant[lead] ^short = "This Participant represents the Care Team lead."
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"
@@ -109,9 +109,9 @@ The components of the organizer contain the following information:
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4515-152) such that it"
 * component contains
-    type 0..* and
-    entryReference 0..* and
-    encounter 0..* and
+    type 0.. and
+    entryReference 0.. and
+    encounter 0.. and
     note 0.. and
     member 1..*
 * component[type] ^short = "component"

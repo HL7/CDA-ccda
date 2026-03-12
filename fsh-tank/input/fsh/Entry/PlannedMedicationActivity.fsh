@@ -102,8 +102,8 @@ Description: "This template represents planned medication activities. The priori
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains
-    priorityPreference 0..* and
-    indication 0..* and
+    priorityPreference 0.. and
+    indication 0.. and
     instruction 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the planned medication activity."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31104) such that it"

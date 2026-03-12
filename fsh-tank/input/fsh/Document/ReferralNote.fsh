@@ -36,7 +36,7 @@ Examples of referral situations are when a patient is referred from a family phy
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
-    indirect 0..* and
+    indirect 0.. and
     callback 0..
 * participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"  // man-should
   * typeCode 1..1

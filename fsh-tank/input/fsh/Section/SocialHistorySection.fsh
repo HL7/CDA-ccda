@@ -10,14 +10,14 @@ Description: """This section contains social history data that influence a patie
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entry contains
-    socialHistory 0..* and
-    pregnancyPregnancy 0..* and
-    smokingStatus 0..* and
-    caregiver 0..* and
-    culturalReligious 0..* and
-    homeCharacteristics 0..* and
-    pregnancyIntention 0..* and
-    basicOccupation 0..* and 
+    socialHistory 0.. and
+    pregnancyPregnancy 0.. and
+    smokingStatus 0.. and
+    caregiver 0.. and
+    culturalReligious 0.. and
+    homeCharacteristics 0.. and
+    pregnancyIntention 0.. and
+    basicOccupation 0.. and 
     basicIndustry 0..
 * entry[socialHistory] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-7953) such that it"
   * observation 1..1

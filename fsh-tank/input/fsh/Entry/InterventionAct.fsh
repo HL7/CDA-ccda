@@ -58,18 +58,18 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
   * ^slicing.discriminator[=].path = "supply"
   * ^slicing.rules = #open
 * entryRelationship contains
-    advanceDirectiveObservation 0..* and
-    immunizationActivity 0..* and
-    medicationActivity 0..* and
-    interventionAct 0..* and
-    procedureActivityProcedure 0..* and
-    encounterActivity 0..* and
-    instruction 0..* and
-    nonMedSupply 0..* and
-    nutritionRecommendation 0..* and
-    entryReferenceRefr 0..* and
-    entryReferenceRson 0..* and
-    handoffCommunicationParticipants 0..* and
+    advanceDirectiveObservation 0.. and
+    immunizationActivity 0.. and
+    medicationActivity 0.. and
+    interventionAct 0.. and
+    procedureActivityProcedure 0.. and
+    encounterActivity 0.. and
+    instruction 0.. and
+    nonMedSupply 0.. and
+    nutritionRecommendation 0.. and
+    entryReferenceRefr 0.. and
+    entryReferenceRson 0.. and
+    handoffCommunicationParticipants 0.. and
     plannedInterventionAct 0..
 * entryRelationship[advanceDirectiveObservation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-30980) such that it"
   * typeCode 1..1

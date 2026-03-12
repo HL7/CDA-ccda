@@ -55,10 +55,10 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31559) such that it"
 * entryRelationship contains
-    refersTo 0..* and
-    componentEntry 0..* and
+    refersTo 0.. and
+    componentEntry 0.. and
     priorityPreference 0.. and
-    goal 0..* and
+    goal 0.. and
     progressTowardGoal 0..
 * entryRelationship[refersTo] ^short = "The following entryRelationship represents the relationship between a Goal Observation and another entry (usually a Health Concern Act) (Goal Observation REFERS TO Health Concern Act) already described in the CDA document instance. Rather than clone the whole entry, an Entry Reference may be used in this entryRelationship to reference this entry."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-30701) such that it"

@@ -58,16 +58,16 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * ^slicing.rules = #open
 * entryRelationship contains
     reason 1..* and
-    immunizationActivity 0..* and
-    medicationActivity 0..* and
-    instruction 0..* and
-    nonMedSupply 0..* and
-    plannedEncounter 0..* and
-    plannedProcedure 0..* and
-    plannedMedicationActivity 0..* and
-    plannedSupply 0..* and
-    nutritionRecommendation 0..* and
-    entryReference 0..* and
+    immunizationActivity 0.. and
+    medicationActivity 0.. and
+    instruction 0.. and
+    nonMedSupply 0.. and
+    plannedEncounter 0.. and
+    plannedProcedure 0.. and
+    plannedMedicationActivity 0.. and
+    plannedSupply 0.. and
+    nutritionRecommendation 0.. and
+    entryReference 0.. and
     plannedImmunizationActivity 0..
 * entryRelationship[immunizationActivity] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32656) such that it"
   * typeCode 1..1

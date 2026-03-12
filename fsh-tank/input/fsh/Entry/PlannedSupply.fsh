@@ -65,9 +65,9 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^slicing.rules = #open
   * ^short = "The following entryRelationship represents the insurance coverage the patient may have for the supply."
 * entryRelationship contains
-    priorityPreference 0..* and
-    indication 0..* and
-    instruction 0..* and
+    priorityPreference 0.. and
+    indication 0.. and
+    instruction 0.. and
     plannedCoverage 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the supply."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31110) such that it"

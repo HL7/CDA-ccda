@@ -12,7 +12,7 @@ Description: "The Instructions Section records instructions given to a patient. 
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains instructionAct 0..* and instructionObservation 0..
+* entry contains instructionAct 0.. and instructionObservation 0..
 * entry[instructionAct]
   * ^condition = "shall-instruction"
   * act 1..1

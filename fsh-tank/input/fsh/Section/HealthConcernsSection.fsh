@@ -15,8 +15,8 @@ Problem Concerns are a subset of Health Concerns that have risen to the level of
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
 * entry contains
-    healthStatus 0..* and
-    healthConcern 0..* and
+    healthStatus 0.. and
+    healthConcern 0.. and
     riskConcern 0..
 * entry[healthStatus] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-30483) such that it" // man-should
   * ^condition = "should-health-status-obs"

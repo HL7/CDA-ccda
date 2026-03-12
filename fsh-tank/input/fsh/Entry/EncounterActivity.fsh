@@ -56,8 +56,8 @@ Description: "This clinical statement describes an interaction between a patient
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains
-    indication 0..* and
-    diagnosis 0..* and
+    indication 0.. and
+    diagnosis 0.. and
     observation 0..
 * entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-8722) such that it"
   * typeCode 1..1
