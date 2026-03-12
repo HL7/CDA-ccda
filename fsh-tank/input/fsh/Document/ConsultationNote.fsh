@@ -19,7 +19,7 @@ A Consultation Note includes the reason for the referral, history of present ill
   * ^slicing.rules = #open
   * ^short = "This participant represents the person to contact for questions about the consult summary. This call back contact individual may be a different person than the individual(s) identified in the author or legalAuthenticator participant."
 * obeys should-participant-callback
-* participant contains callback 0..*
+* participant contains callback 0..
 * participant[callback] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31656) such that it" // man-should
   * typeCode 1..1
   * typeCode = #CALLBCK (exactly)
@@ -32,7 +32,7 @@ A Consultation Note includes the reason for the referral, history of present ill
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31660)."
     * obeys should-addr
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31661)." // auto-should
     * telecom 1..*
@@ -61,7 +61,7 @@ A Consultation Note includes the reason for the referral, history of present ill
     * effectiveTime 1..1
     * effectiveTime only USRealmDateTimeInterval
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:1198-8389)."
-    * encounterParticipant 0..*
+    * encounterParticipant 0..
       * ^short = "The encounterParticipant element represents persons who participated in the encounter and not necessarily the entire episode of care."
       * ^comment = "This encompassingEncounter MAY contain zero or more [0..*] encounterParticipant (CONF:1198-8392)."
       * assignedEntity 1..1

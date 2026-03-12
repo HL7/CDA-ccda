@@ -63,7 +63,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"
-* participant contains legalAuthenticator 0..*
+* participant contains legalAuthenticator 0..
 * participant[legalAuthenticator] ^short = "Represents the person(s) legally responsible for the contents of the note."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:3250-16923) such that it"
   * typeCode 1..1
@@ -90,7 +90,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
   * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"
-* entryRelationship contains encounter 0..*
+* entryRelationship contains encounter 0..
 * entryRelationship[encounter] ^short = "Links the note to an encounter. If the Note Activity is present within a document containing an encompassingEncounter, then this entryRelationship is optional and the note is associated with the encounter represented by the encompassingEncounter."
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:3250-16907) such that it"
   * typeCode 1..1
@@ -111,7 +111,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
   * ^slicing.discriminator[=].path = "externalDocument"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"
-* reference contains externalDocument 0..*
+* reference contains externalDocument 0..
 * reference[externalDocument] ^short = "Represents an unstructured C-CDA document containing the original contents of the note in the original format."
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:3250-16910) such that it"
   * externalDocument 1..1

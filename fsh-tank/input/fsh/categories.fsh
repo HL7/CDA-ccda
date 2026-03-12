@@ -17,7 +17,7 @@ RuleSet: DocumentCategory(title, loinc, loincName)
 RuleSet: FixedCategory(code, codeSystem, display, sliceName)
 * obeys should-sdtcCategory
 * obeys category-{code}
-* sdtcCategory 0..*
+* sdtcCategory 0..
   * ^short = "Category is optional, but if present it SHALL contain a category with code={code}."
   * ^condition[+] = "should-sdtcCategory"
   * ^condition[+] = "category-{code}"

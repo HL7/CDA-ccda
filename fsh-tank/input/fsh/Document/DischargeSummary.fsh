@@ -19,7 +19,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
 * code from DischargeSummaryDocumentTypeCode (required) 
   * ^short = "The Discharge Summary recommends use of a single document type code, 18842-5 \"Discharge summary\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17178)."
-* participant 0..*
+* participant 0..
   * obeys 1198-8469
   * ^short = "The participant element in the Discharge Summary header follows the General Header Constraints for participants. Discharge Summary does not specify any use for functionCode for participants. Local policies will determine how this element should be used in implementations."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8467)."
@@ -49,7 +49,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
       * assignedEntity 1..1
         * obeys 1198-32898
         * ^comment = "The responsibleParty, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32613)."
-    * encounterParticipant 0..*
+    * encounterParticipant 0..
       * ^short = "The encounterParticipant element represents persons who participated in the encounter and not necessarily the entire episode of care."
       * ^comment = "This encompassingEncounter MAY contain zero or more [0..*] encounterParticipant (CONF:1198-8478)."
       * assignedEntity 1..1

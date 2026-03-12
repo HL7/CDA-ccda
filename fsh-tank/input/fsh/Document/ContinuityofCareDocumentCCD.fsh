@@ -37,7 +37,7 @@ This document type was originally based on the Continuity of Care Document (CCD)
       * high 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high (CONF:1198-8455)."
     * insert ShouldElement(performer)
-    * performer 0..*
+    * performer 0..
       * ^short = "The serviceEvent/performer represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare providers would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:1198-8482)." // auto-should
       * typeCode 1..1

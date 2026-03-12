@@ -20,7 +20,7 @@ These devices may be grouped together within a Medical Equipment Organizer. The 
 * entry contains
     medicalEquip 0..* and
     nonMedSupply 0..* and
-    procedure 0..*
+    procedure 0..
 * entry[medicalEquip] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-7948) such that it"
   * organizer 1..1
   * organizer only MedicalEquipmentOrganizer

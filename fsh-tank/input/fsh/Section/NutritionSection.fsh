@@ -8,7 +8,7 @@ Description: "The Nutrition Section represents diet and nutrition information in
 * entry ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open
-* entry contains nutritionalStatus 0..*
+* entry contains nutritionalStatus 0..
 * entry[nutritionalStatus] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1098-30321) such that it"
   * ^condition = "should-nutritional-status-obs"
   * observation 1..1

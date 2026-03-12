@@ -19,7 +19,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4515-8571)."
 * obeys should-sdtcCategory
-* sdtcCategory 0..*
+* sdtcCategory 0..
 * sdtcCategory from http://hl7.org/fhir/us/core/ValueSet/us-core-servicerequest-category (preferred)
 * code 1..1
 * code from http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code (preferred)
@@ -38,14 +38,14 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
 * effectiveTime 0..
   * ^short = "The effectiveTime in a planned procedure represents the time that the procedure should occur."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-30447)." // auto-should
-* methodCode 0..*
+* methodCode 0..
   * ^short = "In a planned procedure the provider may suggest that a procedure should be performed using a particular method. MethodCode *SHALL NOT* conflict with the method inherent in Procedure/code."
   * ^comment = "MAY contain zero or more [0..*] methodCode (CONF:4515-31980)."
-* targetSiteCode 0..*
+* targetSiteCode 0..
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^short = "The targetSiteCode is used to identify the part of the body of concern for the planned procedure."
   * ^comment = "MAY contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-31981)."
-* performer 0..*
+* performer 0..
   * ^short = "The clinician who is expected to perform the procedure could be identified using procedure/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:4515-30449)."
 * insert ShouldElement(author)
@@ -65,7 +65,7 @@ Planned Procedure Usage Note: Common practice in the industry has shown that Pla
     instruction 0..* and
     coverage 0..* and
     assessmentScale 0..* and
-    entryReference 0..*
+    entryReference 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the procedure."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31079) such that it"
   * typeCode 1..1

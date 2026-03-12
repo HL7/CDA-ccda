@@ -28,7 +28,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
 * effectiveTime 0..
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:1198-32226)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32300)." // man-should
 * entryRelationship 
@@ -75,7 +75,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
     resultOrganizer 0..* and
     priorityPreference1 0..* and
     priorityPreference2 0..* and
-    problemConcernAct 0..*
+    problemConcernAct 0..
 * entryRelationship[problemObservation1] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32179) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -312,7 +312,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * act 1..1
   * act only ProblemConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Problem Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-32299)."
-* reference 0..*
+* reference 0..
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1198-32769)."
   * typeCode 1..1
   * typeCode = #REFR (exactly)

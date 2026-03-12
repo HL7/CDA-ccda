@@ -73,7 +73,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * ^comment = "SHOULD contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-7514)." // man-should
   * insert USCDI([[Route Code - SPL]])
   * obeys should-translation
-  * translation 0..*
+  * translation 0..
   * translation from $2.16.840.1.113762.1.4.1099.12 (required)
     * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHALL be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32950)." // man-should
     * insert USCDI([[Route Code - SNOMED]])
@@ -113,13 +113,13 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
 * performer 0..
   * ^comment = "MAY contain zero or one [0..1] performer (CONF:1098-7522)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31150)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-* participant contains drugVehicle 0..*
+* participant contains drugVehicle 0..
 * participant[drugVehicle] ^comment = "MAY contain zero or more [0..*] participant (CONF:1098-7523) such that it"
   * typeCode 1..1
   * typeCode = #CSM (exactly)
@@ -145,7 +145,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
     drugMonitoring 0.. and
     substanceAdministered 0..* and
     adherence 0..* and
-    signature 0..*
+    signature 0..
 * entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-7536) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -222,7 +222,7 @@ The dose (doseQuantity) represents how many of the consumables are to be adminis
   * substanceAdministration 1..1
   * substanceAdministration only MedicationFreeTextSig
     * ^comment = "SHALL contain exactly one [1..1] Medication Free Text Sig (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.147) (CONF:1098-32909)."
-* precondition 0..*
+* precondition 0..
   * ^comment = "MAY contain zero or more [0..*] precondition (CONF:1098-31520)."
   * typeCode 1..1
   * typeCode = #PRCN (exactly)

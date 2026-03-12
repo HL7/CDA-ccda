@@ -59,10 +59,10 @@ Description: "This template represents planned medication activities. The priori
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-32067)."
   * obeys should-translation
-  * translation 0..*
+  * translation 0..
   * translation from $2.16.840.1.113762.1.4.1099.12 (preferred)
     * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32952)." // man-should
-* approachSiteCode 0..*
+* approachSiteCode 0..
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or more [0..*] approachSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32078)."
 * obeys dose-unit-or-admin-unit
@@ -90,7 +90,7 @@ Description: "This template represents planned medication activities. The priori
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation
     * ^comment = "This consumable SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32083)."
-* performer 0..*
+* performer 0..
   * ^short = "The clinician who is expected to perform the medication activity could be identified using substanceAdministration/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30470)."
 * insert ShouldElement(author)
@@ -104,7 +104,7 @@ Description: "This template represents planned medication activities. The priori
 * entryRelationship contains
     priorityPreference 0..* and
     indication 0..* and
-    instruction 0..*
+    instruction 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the planned medication activity."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31104) such that it"
   * typeCode 1..1
@@ -128,7 +128,7 @@ Description: "This template represents planned medication activities. The priori
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32073)."
   * observation 1..1
   * observation only InstructionObservation
-* precondition 0..*
+* precondition 0..
   * ^comment = "MAY contain zero or more [0..*] precondition (CONF:1098-32084)."
   * typeCode 1..1
   * typeCode = #PRCN (exactly)

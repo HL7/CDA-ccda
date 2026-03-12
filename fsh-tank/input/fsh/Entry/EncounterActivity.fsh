@@ -27,7 +27,7 @@ Description: "This clinical statement describes an interaction between a patient
 * sdtcDischargeDispositionCode from  http://terminology.hl7.org/ValueSet/v3-USEncounterDischargeDisposition (preferred)
   * insert USCDI(Disposition)
   * ^comment = """Implementers should note that a Discharge Disposition is not appropriate for all document types. Hospital Discharge Summary documents SHOULD have a discharge disposition. Progress Notes, or H&P, typically won’t have a discharge disposition. In Encounter Summaries, the Encounter Disposition will also be present in the document header at componentOf/encompassingEncounter/dischargeDispositionCode, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present. While an Encounter Summary provides a snapshot of the patient’s condition at the time of the encounter as authored by the clinician, a Patient summary provides the most current information available from the sending system across multiple encounters. [CodeSystem-AHANUBCPatientDischargeStatus](https://terminology.hl7.org/CodeSystem-AHANUBCPatientDischargeStatus.html)"""
-* performer 0..*
+* performer 0..
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1198-8725)."
   * assignedEntity 1..1
     * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:1198-8726)."
@@ -40,7 +40,7 @@ Description: "This clinical statement describes an interaction between a patient
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-* participant contains location 0..*
+* participant contains location 0..
 * participant[location] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-8738) such that it"
   * insert USCDI(Location)
   * ^comment = "In Encounter Summaries the Encounter Location will also be present in the document header at componentOf/encompassingEncounter/location, but in Patient Summaries, componentOf/encompassingEncounter SHALL NOT be present."
@@ -58,7 +58,7 @@ Description: "This clinical statement describes an interaction between a patient
 * entryRelationship contains
     indication 0..* and
     diagnosis 0..* and
-    observation 0..*
+    observation 0..
 * entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-8722) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)

@@ -90,7 +90,7 @@ Systems shall include the full narrative Progress Note in an appropriate section
         nutrition 0..1 and
         mentalStatus 0..1 and
         advDirectives 0..1 and
-        notes 0..*
+        notes 0..
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30618)."
       * ^condition[+] = "ap-or-a-and-p"
       * ^condition[+] = "ap-combo"

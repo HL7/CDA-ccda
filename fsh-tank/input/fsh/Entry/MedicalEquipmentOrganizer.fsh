@@ -38,7 +38,7 @@ Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy
   * ^slicing.rules = #open
 * component contains
     nonMedicalSupply 0..* and
-    procedureActivity 0..*
+    procedureActivity 0..
 * component[nonMedicalSupply] ^comment = "MAY contain zero or more [0..*] component (CONF:1098-31027) such that it"
   * ^condition = "1098-32380"
   * supply 1..1

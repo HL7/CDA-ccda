@@ -23,7 +23,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
 * value 0..1
   * ^comment = "SHOULD contain zero or one [0..1] value (CONF:1098-32747)." // auto-should
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31553)." // man-should
 * entryRelationship 1..*
@@ -38,7 +38,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
 * entryRelationship contains
     goal-reference 0..* and
     progressTowardGoalObservation 0.. and
-    intervention-reference 0..*
+    intervention-reference 0..
 * entryRelationship[goal-reference] 
   * ^short = "The following entryRelationship represents the relationship between an Outcome Observation and a Goal Observation. Because the Goal Observation is already described in the CDA document instance's Goals section, rather than repeating the full content of the Goal Observation, the Entry Reference template can be used to reference this entry."
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1098-31224) such that it"
@@ -69,7 +69,7 @@ Often thought of as an "actual outcome", the Outcome Observation may be related 
   * act 1..1
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:1098-31690)."
-* reference 0..*
+* reference 0..
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1098-32763)."
   * typeCode 1..1
   * typeCode = #REFR (exactly)

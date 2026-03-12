@@ -8,7 +8,7 @@ Description: "This section describes the clinical reason why a provider is sendi
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
-* entry contains patientReferral 0..*
+* entry contains patientReferral 0..
 * entry[patientReferral] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-30808) such that it"
   * act 1..1
   * act only ReferralAct

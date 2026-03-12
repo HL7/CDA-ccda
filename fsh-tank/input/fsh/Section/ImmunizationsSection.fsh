@@ -10,7 +10,7 @@ Description: "The Immunizations Section defines a patient's current immunization
   * ^slicing.discriminator[=].path = "substanceAdministration"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present..."
-* entry contains activity 0..*
+* entry contains activity 0..
 * entry[activity] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-9019) such that it"
   * ^condition = "shall-immunization-activity"
   * substanceAdministration 1..1

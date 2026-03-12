@@ -28,13 +28,13 @@ Description: "This template represents a planned or ordered encounter. The type 
 * insert ShouldElement(effectiveTime)
 * effectiveTime 0..
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30440)." // auto-should
-* performer 0..*
+* performer 0..
   * ^short = "Performers represent clinicians who are responsible for assessing and treating the patient."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30442) such that it"
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1098-31874)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^short = "The author in a planned encounter represents the clinician who is requesting or planning the encounter."
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32045)." // man-should
@@ -42,7 +42,7 @@ Description: "This template represents a planned or ordered encounter. The type 
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^short = "This location participation captures where the planned or ordered encounter may take place."
-* participant contains location 0..*
+* participant contains location 0..
 * participant[location] ^comment = "MAY contain zero or more [0..*] participant (CONF:1098-30443) such that it"
   * typeCode 1..1
   * typeCode = #LOC (exactly)
@@ -57,7 +57,7 @@ Description: "This template represents a planned or ordered encounter. The type 
 * entryRelationship contains
     priorityPreference 0.. and
     indication 0..* and
-    observation 0..*
+    observation 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the encounter."
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-31033) such that it"
   * typeCode 1..1

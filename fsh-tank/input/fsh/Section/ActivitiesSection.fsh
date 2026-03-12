@@ -18,7 +18,7 @@ Instructions are information or directions to the patient. Use the Instructions 
 * entry contains
     intervention 0..* and
     plannedIntervention 0..* and
-    handoffCommParticipants 0..*
+    handoffCommParticipants 0..
 * entry[intervention] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-30996) such that it"
   * ^condition = "should-intervention-act"
   * act 1..1

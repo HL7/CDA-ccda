@@ -37,7 +37,7 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^short = "Represents either a medication or an immunization supply"
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
-* performer 0..*
+* performer 0..
   * ^short = "The clinician who is expected to perform the supply could be identified using supply/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-32048)."
 * insert ShouldElement(author)
@@ -68,7 +68,7 @@ Depending on the type of supply, the product or participant will be either a Med
     priorityPreference 0..* and
     indication 0..* and
     instruction 0..* and
-    plannedCoverage 0..*
+    plannedCoverage 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the supply."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31110) such that it"
   * typeCode 1..1

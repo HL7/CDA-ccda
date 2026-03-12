@@ -17,7 +17,7 @@ The Care Team Organizer entry template used in the C-CDA Care Teams Section is m
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entry (CONF:4515-1) such that it"
-* entry contains primary 0..*
+* entry contains primary 0..
 * entry[primary] ^short = "entry"
   * ^condition = "should-care-team-org"
   * ^comment = "SHOULD contain zero or more [0..*] entry (CONF:4515-1) such that it"

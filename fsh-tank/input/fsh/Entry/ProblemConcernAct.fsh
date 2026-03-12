@@ -37,7 +37,7 @@ Description: """This template reflects an ongoing concern on behalf of the provi
     * ^short = "The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-9033)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31146)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
@@ -46,7 +46,7 @@ Description: """This template reflects an ongoing concern on behalf of the provi
   * ^short = "The following entryRelationship represents the importance of the concern to a provider."
 * entryRelationship contains
     problem 1..1 and
-    priority 0..*
+    priority 0..
 * entryRelationship[problem] ^comment = "SHALL contain exactly one [1..1] entryRelationship (CONF:1198-9034) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)

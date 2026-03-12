@@ -33,7 +33,7 @@ Description: """The Sex Parameter for Clinical Use (SPCU) observation is a clini
 * author 1..1
 * author only ProvenanceAuthorParticipation
   * ^comment = "SHALL contain exactly [1..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."
-* entryRelationship 0..*
+* entryRelationship 0..
   * ^short = "This Entry Reference links the Sex Parameter for Clinical Use Observation to the template containing the relevant clinical data, such as Observations, Procedures, Substance Administrations, or Orders (Planned Procedures)."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32996) such that it"
   * typeCode 1..1

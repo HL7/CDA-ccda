@@ -12,7 +12,7 @@ When this section.text contains extra information not contained in the discrete 
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
-* entry contains notes 0..*
+* entry contains notes 0..
 * entry[notes] ^comment = "MAY contain zero or more [0..*] entry such that it"
   * act 1..1
   * act only NoteActivity

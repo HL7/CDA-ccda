@@ -13,7 +13,7 @@ Description: "The Anesthesia Section records the type of anesthesia (e.g., gener
   * ^slicing.rules = #open
 * entry contains
     procedure 0..* and
-    medication 0..*
+    medication 0..
 * entry[procedure] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8092) such that it"
   * procedure 1..1
   * procedure only ProcedureActivityProcedure

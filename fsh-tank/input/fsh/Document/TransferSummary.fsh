@@ -23,7 +23,7 @@ Standardization of information used in this form will promote interoperability; 
   * ^slicing.rules = #open
 * participant contains
     indirect 0..* and
-    callback 0..*
+    callback 0..
 * participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31599) such that it"  // man-should
   * typeCode 1..1
   * typeCode = #IND (exactly)
@@ -49,7 +49,7 @@ Standardization of information used in this form will promote interoperability; 
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31629)."
     * obeys should-addr
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31630)." // auto-should
     * telecom 1..*

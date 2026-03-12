@@ -31,10 +31,10 @@ The priority of the immunization activity to the patient and provider is communi
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-32127)."
   * obeys should-translation
-  * translation 0..*
+  * translation 0..
   * translation from $2.16.840.1.113762.1.4.1099.12 (preferred)
     * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32951)." // man-should
-* approachSiteCode 0..*
+* approachSiteCode 0..
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or more [0..*] approachSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32128)."
 * doseQuantity 0..
@@ -49,10 +49,10 @@ The priority of the immunization activity to the patient and provider is communi
   * manufacturedProduct 1..1
   * manufacturedProduct only ImmunizationMedicationInformation
     * ^comment = "This consumable SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1098-32132)."
-* performer 0..*
+* performer 0..
   * ^short = "The clinician who is expected to perform the planned immunization activity could be identified using substanceAdministration/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-32104)."
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^short = "The author in a planned immunization activity represents the clinician who is requesting or planning the immunization activity."
   * ^comment = "MAY contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32105)."
@@ -65,7 +65,7 @@ The priority of the immunization activity to the patient and provider is communi
 * entryRelationship contains
     priorityPreference 0..* and
     indication 0..* and
-    instruction 0..*
+    instruction 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the immunization activity."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32108) such that it"
   * typeCode 1..1
@@ -92,7 +92,7 @@ The priority of the immunization activity to the patient and provider is communi
 * precondition ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "criterion"
   * ^slicing.rules = #open
-* precondition contains pronditionForSubstanceAdmin 0..*
+* precondition contains pronditionForSubstanceAdmin 0..
 * precondition[pronditionForSubstanceAdmin] ^comment = "MAY contain zero or more [0..*] precondition (CONF:1098-32123) such that it"
   * typeCode 1..1
   * typeCode = #PRCN (exactly)

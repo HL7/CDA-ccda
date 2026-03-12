@@ -18,7 +18,7 @@ Description: """This section contains social history data that influence a patie
     homeCharacteristics 0..* and
     pregnancyIntention 0..* and
     basicOccupation 0..* and 
-    basicIndustry 0..*
+    basicIndustry 0..
 * entry[socialHistory] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-7953) such that it"
   * observation 1..1
   * observation only SocialHistoryObservation

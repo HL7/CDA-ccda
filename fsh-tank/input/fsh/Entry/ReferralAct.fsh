@@ -29,10 +29,10 @@ Description: "This template represents the type of referral (e.g., for dental ca
 * priorityCode 0..
   * ^comment = "SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)." // auto-should
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31612)." // man-should
-* participant 0..*
+* participant 0..
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1098-32635)."
   * typeCode 1..1
     * ^comment = "The participant, if present, SHALL contain exactly one [1..1] @typeCode. Use REFT to represent the referred-to provider."
@@ -47,7 +47,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
   * ^short = "The following entryRelationship represents a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
 * entryRelationship contains
     careModel 0..* and
-    indication 0..*
+    indication 0..
 * entryRelationship[careModel] ^short = "The following entryRelationship represents whether the referral is for full or shared care."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31604) such that it"
   * typeCode 1..1

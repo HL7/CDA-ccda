@@ -8,7 +8,7 @@ Description: "The section contains the medications taken by the patient prior to
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
-* entry contains admissionMedication 0..*
+* entry contains admissionMedication 0..
 * entry[admissionMedication] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-10102) such that it"
   * ^condition = "should-admission-medication"
   * act 1..1

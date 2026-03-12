@@ -14,12 +14,12 @@ The Physical Exam Section may contain multiple nested subsections."""
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entry contains longCareWound 0..*
+* entry contains longCareWound 0..
 * entry[longCareWound] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-31926) such that it"
   * observation 1..1
   * observation only LongitudinalCareWoundObservation
     * ^comment = "SHALL contain exactly one [1..1] Longitudinal Care Wound Observation (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.114:2015-08-01) (CONF:1198-31927)."
-* component 0..*
+* component 0..
   * ^comment = "MAY contain zero or more [0..*] component (CONF:1198-32434) such that it"
   * section 1..1
     * ^comment = "SHALL contain exactly one [1..1] section (CONF:1198-32435)."

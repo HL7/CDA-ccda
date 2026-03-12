@@ -16,15 +16,15 @@ A History and Physical Examination is required upon hospital admission as well a
 * code from HPDocumentType (required)
   * ^short = "The H&P Note recommends use of a single document type code, 34117-2 \"History and physical note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17185)."
-* informationRecipient 0..*
+* informationRecipient 0..
   * ^comment = "MAY contain zero or more [0..*] informationRecipient (CONF:1198-32482)."
   * intendedRecipient 1..1
     * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-32483)."
-* participant 0..*
+* participant 0..
   * obeys 1198-8333
   * ^short = "The participant element in the H&P header follows the General Header Constraints for participants. H&P Note does not specify any use for functionCode for participants. Local policies will determine how this element should be used in implementations."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8286)."
-* inFulfillmentOf 0..*
+* inFulfillmentOf 0..
   * ^short = "inFulfillmentOf elements describe the prior orders that are fulfilled (in whole or part) by the service events described in this document. For example, the prior order might be a referral and the H&P Note may be in partial fulfillment of that referral."
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:1198-8336)."
 * componentOf 1..1
@@ -42,7 +42,7 @@ A History and Physical Examination is required upon hospital admission as well a
       * obeys 1198-8348
       * ^short = "The responsibleParty element records only the party responsible for the encounter, not necessarily the entire episode of care."
       * ^comment = "This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-8345)."
-    * encounterParticipant 0..*
+    * encounterParticipant 0..
       * obeys 1198-8343
       * ^short = "The encounterParticipant elements represent only those participants in the encounter, not necessarily the entire episode of care."
       * ^comment = "This encompassingEncounter MAY contain zero or more [0..*] encounterParticipant (CONF:1198-8342)."

@@ -19,7 +19,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
   * ^slicing.discriminator[=].path = "functionCode.code"
   * ^slicing.rules = #open
   * ^short = "The participant element in the Procedure Note header follows the General Header Constraints for participants."
-* participant contains participant1 0..*
+* participant contains participant1 0..
 * participant[participant1] ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8504) such that it"
   * typeCode 1..1
   * typeCode = #IND (exactly)
@@ -44,7 +44,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^slicing.rules = #open
     * performer contains
         primary 1.. and
-        secondary 0..*
+        secondary 0..
     * performer[primary] ^short = "This performer participant represents clinicians who actually and principally carry out the serviceEvent. Typically, these are clinicians who have the appropriate privileges in their institutions such as gastroenterologists, interventional radiologists, and family practice physicians. Performers may also be non-physician providers (NPPs) who have other significant roles in the procedure such as a radiology technician, dental assistant, or nurse. Any assistants are identified as a secondary performer (SPRF) in a second performer participant."
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] performer (CONF:1198-8520) such that it"
       * typeCode 1..1

@@ -95,13 +95,13 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * ^comment = "This patient MAY contain zero or one [0..1] religiousAffiliationCode, which SHALL be selected from ValueSet Religious Affiliation urn:oid:2.16.840.1.113883.1.11.19185 DYNAMIC (CONF:4537-5317)."
       * raceCode 1..1
         * insert USCDI([[Race - raceCode SHALL contain only the OMB race category; detailed race values go in translation. Additional race categories are conveyed using sdtc:raceCode, following the same pattern (OMB category in root; details in translation).]])
-        * translation 0..*
+        * translation 0..
         * translation from $RaceCDCOnly (preferred)
           * obeys race-not-category
       * raceCode from $RaceCategories (required)
-      * sdtcRaceCode 0..*
+      * sdtcRaceCode 0..
         * obeys sdtc-race-not-detail
-        * translation 0..*
+        * translation 0..
         * translation from $RaceCDCOnly (preferred)
           * obeys race-not-category
       * sdtcRaceCode from $DetailedRace (required)
@@ -109,21 +109,21 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * ethnicGroupCode 1..1
         * insert USCDI([[Ethnicity]])
       * ethnicGroupCode from $EthnicityCategories (required)
-      * sdtcEthnicGroupCode 0..*
+      * sdtcEthnicGroupCode 0..
       * sdtcEthnicGroupCode from $DetailedEthnicity (required)
         * insert USCDI([[Ethnicity]])
-      * guardian 0..*
+      * guardian 0..
         * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:4537-5325)."
         * obeys should-us-code
         * code 0..
         * code from $2.16.840.1.113883.11.20.12.1 (required)
           * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-5326)." // man-should
         * obeys should-us-addr
-        * addr 0..*
+        * addr 0..
         * addr only USRealmAddress
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5359)." // man-should
         * obeys should-us-telecom
-        * telecom 0..*
+        * telecom 0..
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] telecom (CONF:4537-5382)." // auto-should
           * obeys should-use
           * use 0..
@@ -143,7 +143,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
             * ^comment = "This place SHALL contain exactly one [1..1] addr (CONF:4537-5397)."
             * item.country from http://terminology.hl7.org/ValueSet/v3-Country2 (required)
       * obeys should-us-languageCommunication
-      * languageCommunication 0..*
+      * languageCommunication 0..
         * insert USCDI([[Preferred Language]])
         * languageCode 1..1
         * languageCode from http://terminology.hl7.org/ValueSet/Languages (required)
@@ -263,7 +263,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-31355) such that it"
 * informant contains
     provider 0..* and
-    non-provider 0..*
+    non-provider 0..
 * informant[provider] ^short = "The informant element describes an information source who is a healthcare provider for any content within the clinical document."
   * ^comment = "MAY contain zero or more [0..*] informant (CONF:4537-8001) such that it"
   * relatedEntity 0..0
@@ -316,12 +316,12 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * addr 1..1
       * addr only USRealmAddress
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-5559)."
-* informationRecipient 0..*
+* informationRecipient 0..
   * ^short = "The informationRecipient element records the intended recipient of the information at the time the document was created. In cases where the intended recipient of the document is the patient's health chart, set the receivedOrganization to the scoping organization for that chart."
   * ^comment = "MAY contain zero or more [0..*] informationRecipient (CONF:4537-5565)."
   * intendedRecipient 1..1
     * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:4537-5566)."
-    * id 0..*
+    * id 0..
       * ^comment = "This intendedRecipient MAY contain zero or more [0..*] id (CONF:4537-32399)."
     * informationRecipient 0..
       * ^comment = "This intendedRecipient MAY contain zero or one [0..1] informationRecipient (CONF:4537-5567)."
@@ -412,20 +412,20 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5625)."
 * obeys should-relatedParticipant
-* participant 0..*
+* participant 0..
   * obeys 4537-10006 and 4537-10007
   * ^short = "The participant element identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
   * ^comment = "SHOULD contain zero or more [0..*] RelatedPerson participant"
   * time only USRealmDateTimeInterval
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-10004)."
-* inFulfillmentOf 0..*
+* inFulfillmentOf 0..
   * ^short = "The inFulfillmentOf element represents orders that are fulfilled by this document such as a radiologists' report of an x-ray."
   * ^comment = "MAY contain zero or more [0..*] inFulfillmentOf (CONF:4537-9952)."
   * order 1..1
     * ^comment = "The inFulfillmentOf, if present, SHALL contain exactly one [1..1] order (CONF:4537-9953)."
     * id 1..*
       * ^comment = "This order SHALL contain at least one [1..*] id (CONF:4537-9954)."
-* documentationOf 0..*
+* documentationOf 0..
   * ^comment = "MAY contain zero or more [0..*] documentationOf (CONF:4537-14835)."
   * serviceEvent 1..1
     * ^short = "A serviceEvent represents the main act being documented, such as a colonoscopy or a cardiac stress study. In a provision of healthcare serviceEvent, the care providers, PCP, or other longitudinal providers, are recorded within the serviceEvent. If the document is about a single encounter, the providers associated can be recorded in the componentOf/encompassingEncounter template."
@@ -436,7 +436,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * low 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-14838)."
     * obeys should-us-performer
-    * performer 0..*
+    * performer 0..
       * ^condition = "should-us-performer"
       * ^short = "The performer participant represents clinicians who actually and principally carry out the serviceEvent. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient's key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
       * ^comment = "This serviceEvent SHOULD contain zero or more [0..*] performer (CONF:4537-14839)." // auto-should
@@ -461,12 +461,12 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * code 0..
         * code from $2.16.840.1.114222.4.11.1066 (preferred)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-14842)." // man-should
-* authorization 0..*
+* authorization 0..
   * ^short = "The authorization element represents information about the patient's consent. The type of consent is conveyed in consent/code. Consents in the header have been finalized (consent/statusCode must equal Completed) and should be on file. This specification does not address how 'Privacy Consent' is represented, but does not preclude the inclusion of 'Privacy Consent'. The authorization consent is used for referring to consents that are documented elsewhere in the EHR or medical record for a health condition and/or treatment that is described in the CDA document."
   * ^comment = "MAY contain zero or more [0..*] authorization (CONF:4537-16792) such that it"
   * consent 1..1
     * ^comment = "SHALL contain exactly one [1..1] consent (CONF:4537-16793)."
-    * id 0..*
+    * id 0..
       * ^comment = "This consent MAY contain zero or more [0..*] id (CONF:4537-16794)."
     * code 0..
       * ^short = "The type of consent (e.g., a consent to perform the related serviceEvent) is conveyed in consent/code."

@@ -8,7 +8,7 @@ Description: "The Immunization Medication Information represents product informa
 
 * classCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] @classCode=\"MANU\" (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1098-9002)."
-* id 0..*
+* id 0..
   * ^comment = "MAY contain zero or more [0..*] id (CONF:1098-9005)."
 * manufacturedMaterial 1..1
   * ^comment = "SHALL contain exactly one [1..1] manufacturedMaterial (CONF:1098-9006)."

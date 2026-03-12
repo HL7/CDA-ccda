@@ -24,7 +24,7 @@ Description: "This template represents the insurance coverage intended to cover 
   * code 1..1
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActCode urn:oid:2.16.840.1.113883.5.4) (CONF:1098-31955)."
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "MAY contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32178)."
 * entryRelationship ^slicing.discriminator.type = #exists

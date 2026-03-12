@@ -23,7 +23,7 @@ The Result Organizer template is a versatile template designed to represent any 
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7127)."
 * obeys should-sdtcCategory
-* sdtcCategory 0..*
+* sdtcCategory 0..
 * sdtcCategory from http://hl7.org/fhir/ValueSet/diagnostic-service-sections (preferred)
   * ^condition = "should-sdtcCategory"
   * ^short = "SHOULD contain sdtcCategory"
@@ -43,7 +43,7 @@ The Result Organizer template is a versatile template designed to represent any 
     * ^comment = "The effectiveTime, if present, SHALL contain exactly one [1..1] low (CONF:4537-32488)."
   * high 1..1
     * ^comment = "The effectiveTime, if present, SHALL contain exactly one [1..1] high (CONF:4537-32489)."
-* specimen 0..*
+* specimen 0..
   * ^short = "When an organizer is for laboratory,  observations are expected to include the specimen participant. The specimen included at specimenPlayingEntity/code must be consistent with the observation/code."
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4537-32615)."
   * specimenRole 1..1
@@ -57,7 +57,7 @@ The Result Organizer template is a versatile template designed to represent any 
       * code from $2.16.840.1.113762.1.4.1099.54 (preferred)
         * ^comment = "This specimenPlayingEntity SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Specimen type urn:oid:2.16.840.1.113762.1.4.1099.54 DYNAMIC (CONF:4537-32618)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-31149)." // man-should
 * component

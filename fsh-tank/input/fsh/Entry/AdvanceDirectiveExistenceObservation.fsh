@@ -17,7 +17,7 @@ Advance healthcare directive documents include person-authored advance directive
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id."
-* sdtcCategory 0..*
+* sdtcCategory 0..
 * sdtcCategory from 2.16.840.1.113883.11.20.9.69.4 (preferred)
 * code 1..1
   * insert CodedLoinc(45473-6, [[Advance directive/living will completed]])
@@ -41,7 +41,7 @@ Advance healthcare directive documents include person-authored advance directive
   * ^comment = "SHALL contain exactly [1..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."
 * informant 0..
   * ^short = "MAY contain zero or one [0..1] informant"
-* entryRelationship 0..*
+* entryRelationship 0..
   * ^condition = "no-obs-if-existence-false"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship."
   * observation 1..1

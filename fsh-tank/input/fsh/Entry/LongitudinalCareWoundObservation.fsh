@@ -28,7 +28,7 @@ Description: "This template represents acquired or surgical wounds and is not in
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (preferred)
   * ^comment = "SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"
   //"<sliceName value=\"targetSiteCode1\"/>"
-  * qualifier 0..*
+  * qualifier 0..
     * ^short = "If targetSite/qualifierCode name/value pairs are used, care must be taken to avoid conflict with the SNOMED-CT body structure code used in observation/value.  SNOMED-CT body structure codes are often pre-coordinated with laterality."
     * ^comment = "MAY contain zero or more [0..*] qualifier (CONF:1198-29490)."
     * name 1..1
@@ -43,7 +43,7 @@ Description: "This template represents acquired or surgical wounds and is not in
       * ^comment = "The qualifier, if present, SHALL contain exactly one [1..1] value (CONF:1198-29493)."
       * insert BindAtCode($2.16.840.1.113883.11.20.9.37, preferred)
 // * insert ShouldElement(author) // already in base-ProblemObservation
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31542)." // man-should
 * entryRelationship 

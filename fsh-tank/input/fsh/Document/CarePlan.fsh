@@ -40,17 +40,17 @@ A care plan document can include entry references from the information in these 
 
 // Removing slicing on infoRecipient, since the only branch identifier (intendedRecipient) is required anyway
 * insert ShouldElement(informationRecipient)
-* informationRecipient 0..*
+* informationRecipient 0..
   * intendedRecipient 1..1
     * ^comment = "SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31994)."
     * id 1..*
       * ^comment = "This intendedRecipient SHALL contain at least one [1..*] id (CONF:1198-31996)."
     * obeys should-addr
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31997)." // auto-should
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)." // auto-should
     * insert ShouldElement(informationRecipient)
     * informationRecipient 0..
@@ -62,7 +62,7 @@ A care plan document can include entry references from the information in these 
     * receivedOrganization 0..
       * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)." // auto-should
       * obeys should-id and should-standardIndustryClassCode
-      * id 0..*
+      * id 0..
         * ^comment = "The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)." // auto-should
       * standardIndustryClassCode 0..
       * standardIndustryClassCode from $2.16.840.1.114222.4.11.1066 (required)
@@ -93,7 +93,7 @@ A care plan document can include entry references from the information in these 
   * ^slicing.rules = #open
 * participant contains
     verifier 0..* and
-    indirect 0..*
+    indirect 0..
 * participant[verifier] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31677) such that it"
   * typeCode 1..1
   * typeCode = #VRF (exactly)
@@ -168,7 +168,7 @@ A care plan document can include entry references from the information in these 
 * relatedDocument ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "parentDocument"
   * ^slicing.rules = #open
-* relatedDocument contains relatedDocument1 0..*
+* relatedDocument contains relatedDocument1 0..
 * relatedDocument[relatedDocument1] ^comment = "MAY contain zero or more [0..*] relatedDocument (CONF:1198-29893) such that it"
   * typeCode 1..1
   * typeCode from $2.16.840.1.113883.1.11.11610 (required)

@@ -43,7 +43,7 @@ The Operative Note is created immediately following a surgical or other high-ris
       * ^slicing.rules = #open
     * performer contains
         primary 1..* and
-        secondary 0..*
+        secondary 0..
     * performer[primary] ^short = "This performer represents clinicians who actually and principally carry out the serviceEvent. Typically, these are clinicians who have surgical privileges in their institutions such as Surgeons, Obstetrician/Gynecologists, and Family Practice Physicians. The performer may also be non-physician providers (NPPs) who have surgical privileges. There may be more than one primary performer in the case of complicated surgeries. There are occasionally co-surgeons. Usually they will be billing separately and will each dictate their own notes. An example may be spinal surgery , where a general surgeon and an orthopedic surgeon both are present and billing off the same Current Procedural Terminology (CPT) codes. Typically two Operative Notes are generated; however, each will list the other as a co-surgeon. Any assistants are identified as a secondary performer (SPRF) in a second performer participant."
       * ^comment = "This serviceEvent SHALL contain one or more [1..*] performer (CONF:1198-8489) such that it"
       * typeCode 1..1

@@ -17,7 +17,7 @@ Description: """This template represents a single instance of an Average Blood P
   * code 1..1
   * code = #completed
 * effectiveTime ^short = "Shall match the time of the individual components"
-* author 0..*
+* author 0..
 * author only AuthorParticipation
 * author ^comment = "SHOULD contain zero or many [0..*] Author Participation."
 

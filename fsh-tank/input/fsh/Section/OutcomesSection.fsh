@@ -10,7 +10,7 @@ Description: "This section represents observations regarding the outcome of care
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains outcome 0..*
+* entry contains outcome 0..
 * entry[outcome] ^comment = "SHALL contain at least one [1..*] entry (CONF:1098-31227) such that it"
   * ^condition = "shall-outcome-obs"
   * observation 1..1

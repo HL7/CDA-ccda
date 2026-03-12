@@ -55,12 +55,12 @@ This id must be a pointer to another Performer."""
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)." // man-should
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * obeys should-addr
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * insert USCDI([[Care Team Member Location]])
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)." // auto-should
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * insert USCDI([[Care Team Member Telecom]])
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4515-183)." // auto-should
     * obeys should-assignedPerson
@@ -82,7 +82,7 @@ This id must be a pointer to another Performer."""
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
 * participant contains
     location 0..* and
-    addl-functions 0..*
+    addl-functions 0..
 * participant[location] ^short = "This participant represents the location where the care team member provides the service."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
   * typeCode 1..1

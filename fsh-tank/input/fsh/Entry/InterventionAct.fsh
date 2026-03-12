@@ -39,7 +39,7 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
 * effectiveTime 0..
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-31624)." // auto-should
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31552)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #value
@@ -70,7 +70,7 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
     entryReferenceRefr 0..* and
     entryReferenceRson 0..* and
     handoffCommunicationParticipants 0..* and
-    plannedInterventionAct 0..*
+    plannedInterventionAct 0..
 * entryRelationship[advanceDirectiveObservation] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-30980) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -165,7 +165,7 @@ All interventions referenced in an Intervention Act must have a moodCode of EVN,
   * act 1..1
   * act only PlannedInterventionAct
     * ^comment = "SHALL contain exactly one [1..1] Planned Intervention Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.146:2015-08-01) (CONF:1198-32915)."
-* reference 0..*
+* reference 0..
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1198-32760)."
   * typeCode 1..1
   * typeCode = #REFR (exactly)

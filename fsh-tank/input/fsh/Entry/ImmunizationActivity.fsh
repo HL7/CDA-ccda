@@ -44,7 +44,7 @@ This information should be included in an Immunization Activity when available. 
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1198-8839)."
   * obeys should-translation
-  * translation 0..*
+  * translation 0..
   * translation from $2.16.840.1.113762.1.4.1099.12 (preferred)
     * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1198-32960)." // man-should
 * approachSiteCode 0..
@@ -70,13 +70,13 @@ This information should be included in an Immunization Activity when available. 
 * performer 0..
   * ^comment = "SHOULD contain zero or one [0..1] performer (CONF:1198-8849)." // auto-should
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-31151)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-* participant contains drugVehicle 0..*
+* participant contains drugVehicle 0..
 * participant[drugVehicle] ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8850) such that it"
   * typeCode 1..1
   * typeCode = #CSM (exactly)
@@ -98,7 +98,7 @@ This information should be included in an Immunization Activity when available. 
     medDispense 0.. and
     reactionObs 0.. and
     immunizationNotGiven 0.. and
-    substanceAdmin 0..*
+    substanceAdmin 0..
 * entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-8853) such that it"
   * typeCode 1..1
   * typeCode = #RSON (exactly)
@@ -161,7 +161,7 @@ This information should be included in an Immunization Activity when available. 
 * precondition ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "criterion"
   * ^slicing.rules = #open
-* precondition contains substanceAdmin 0..*
+* precondition contains substanceAdmin 0..
 * precondition[substanceAdmin] ^comment = "MAY contain zero or more [0..*] precondition (CONF:1198-8869) such that it"
   * typeCode 1..1
   * typeCode = #PRCN (exactly)

@@ -12,7 +12,7 @@ The sources of payment are represented as a Coverage Activity, which identifies 
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.rules = #open
-* entry contains coverage 0..*
+* entry contains coverage 0..
 * entry[coverage] ^comment = "SHOULD contain zero or more [0..*] entry (CONF:1198-7959) such that it"
   * ^condition = "should-coverage-activity"
   * act 1..1

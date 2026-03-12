@@ -26,7 +26,7 @@ Description: """This template represents clinical information about the specimen
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entryRelationship contains condition 0..*
+* entryRelationship contains condition 0..
 * entryRelationship[condition] ^comment = "SHOULD contain at least one [0..*] entryRelationship such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)

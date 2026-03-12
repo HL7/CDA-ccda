@@ -38,7 +38,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
 * effectiveTime 0..
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32723)." // auto-should
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32719)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
@@ -68,7 +68,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
     plannedSupply 0..* and
     nutritionRecommendation 0..* and
     entryReference 0..* and
-    plannedImmunizationActivity 0..*
+    plannedImmunizationActivity 0..
 * entryRelationship[immunizationActivity] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32656) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -155,7 +155,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * substanceAdministration 1..1
   * substanceAdministration only PlannedImmunizationActivity
     * ^comment = "SHALL contain exactly one [1..1] Planned Immunization Activity (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.120) (CONF:1198-32729)."
-* reference 0..*
+* reference 0..
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1198-32766)."
   * typeCode 1..1
   * typeCode = #REFR (exactly)

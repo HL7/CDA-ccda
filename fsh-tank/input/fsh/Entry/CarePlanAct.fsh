@@ -25,11 +25,11 @@ This entry conveys an instance of the evolving Care Plan at a specific point in 
 * statusCode 1..1
   * ^short = "CarePlan.status"
 
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^short = "CarePlan.contributor"
 
-* entryRelationship 0..*
+* entryRelationship 0..
   * ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
@@ -38,7 +38,7 @@ This entry conveys an instance of the evolving Care Plan at a specific point in 
   addresses 0..* and
   goal 0..* and 
   supportingInfo 0..* and
-  activity 0..*
+  activity 0..
 
 * entryRelationship[addresses]
   * typeCode = #RSON

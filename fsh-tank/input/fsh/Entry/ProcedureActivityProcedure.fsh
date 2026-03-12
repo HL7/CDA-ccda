@@ -45,21 +45,21 @@ Description: "This template is used to represent the details of current and hist
   * ^short = "MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4515-7670)."
 * insert ShouldElement(targetSiteCode)
-* targetSiteCode 0..*
+* targetSiteCode 0..
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^short = "In the case of an implanted medical device, targetSiteCode is used to record the location of the device, in or on the patient's body."
   * ^comment = "SHOULD contain zero or more [0..*] targetSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:4515-7683)." // man-should
-* specimen 0..*
+* specimen 0..
   * ^short = "This specimen is for representing specimens obtained from a procedure (CONF:4515-16842)."
   * ^comment = "MAY contain zero or more [0..*] specimen (CONF:4515-7697)."
   * specimenRole 1..1
     * ^comment = "The specimen, if present, SHALL contain exactly one [1..1] specimenRole (CONF:4515-7704)."
     * obeys should-id
-    * id 0..*
+    * id 0..
       * ^short = "If you want to indicate that the Procedure and the Results are referring to the same specimen, the Procedure/specimen/specimenRole/id **SHOULD** be set to equal an Organizer/specimen/specimenRole/id (CONF:4515-29744)."
       * ^comment = "This specimenRole SHOULD contain zero or more [0..*] id (CONF:4515-7716)." // auto-should
 * insert ShouldElement(performer)
-* performer 0..*
+* performer 0..
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4515-7718) such that it"
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4515-7720)."
@@ -85,9 +85,9 @@ Description: "This template is used to represent the details of current and hist
       * ^short = "SHOULD contain representedOrganization"
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)." // auto-should
       * obeys should-id
-      * id 0..*
+      * id 0..
         * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:4515-7734)." // auto-should
-      * name 0..*
+      * name 0..
         * ^comment = "The representedOrganization, if present, MAY contain zero or more [0..*] name (CONF:4515-7735)."
       * telecom 1..*
         * ^comment = "The representedOrganization, if present, SHALL contain at least one [1..*] telecom (CONF:4515-7737)."
@@ -95,7 +95,7 @@ Description: "This template is used to represent the details of current and hist
       * addr only USRealmAddress
         * ^comment = "The representedOrganization, if present, SHALL contain at least one [1..*] addr (CONF:4515-7736)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-32479)." // man-should
 * participant ^slicing.discriminator[0].type = #value
@@ -104,7 +104,7 @@ Description: "This template is used to represent the details of current and hist
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
 * participant contains
     serviceDeliveryLocation 0..* and
-    productInstance 0..*
+    productInstance 0..
 * participant[serviceDeliveryLocation] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7765) such that it"
   * typeCode 1..1
@@ -141,7 +141,7 @@ Description: "This template is used to represent the details of current and hist
     medication 0..* and
     reaction 0..* and
     assessmentScaleObs 0..* and
-    entryReference 0..*
+    entryReference 0..
 * entryRelationship[udiOrganizer] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-7768) such that it"
   * typeCode 1..1

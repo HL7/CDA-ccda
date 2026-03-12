@@ -23,7 +23,7 @@ The Advance Directive Observation template also can be nested within an Interven
 * code 1..1
   * insert CodedLoinc(75320-2, [[Advance Directive]])
   * obeys should-translation
-  * translation 0..*
+  * translation 0..
   * translation from $2.16.840.1.113883.11.20.9.69.4 (preferred)   
     * insert USCDI([[Advance Directive Type]])
     * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Advance Directives Categories urn:oid:2.16.840.1.113883.11.20.9.69.4." // man-should
@@ -45,7 +45,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
 * value only $CD
 * value from $AdvanceDirectiveDocumentTypes (preferred)
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)." // man-should
 * participant ^slicing.discriminator[0].type = #value
@@ -82,7 +82,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)." // man-should
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."
     * playingEntity 1..1
@@ -112,7 +112,7 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
     * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."  // man-should
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)." // auto-should
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."

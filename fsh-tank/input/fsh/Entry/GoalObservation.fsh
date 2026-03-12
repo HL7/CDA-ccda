@@ -42,7 +42,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^binding.description = "See additional binding"
   * insert AdditionalBinding(preferred, $SDoHGoals, Social Determinant of Health Goals, [[When the Goal is Social Determinant of Health Goal, the observation/value **SHOULD** be selected from ValueSet [Social Determinant of Health Goals 2.16.840.1.113762.1.4.1247.71](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1247.71/expansion) **DYNAMIC**.]])
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^short = "If the author is the recordTarget (patient), this is a patient goal.  If the author is a provider, this is a provider goal. If both patient and provider are authors, this is a negotiated goal. If no author is present, it is assumed the document or section author(s) is the author of this goal."
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-30995)." // man-should
@@ -59,7 +59,7 @@ A goal may have components consisting of other goals (milestones). These milesto
     componentEntry 0..* and
     priorityPreference 0.. and
     goal 0..* and
-    progressTowardGoal 0..*
+    progressTowardGoal 0..
 * entryRelationship[refersTo] ^short = "The following entryRelationship represents the relationship between a Goal Observation and another entry (usually a Health Concern Act) (Goal Observation REFERS TO Health Concern Act) already described in the CDA document instance. Rather than clone the whole entry, an Entry Reference may be used in this entryRelationship to reference this entry."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-30701) such that it"
   * typeCode 1..1
@@ -101,7 +101,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * observation only ProgressTowardGoalObservation
     * ^short = "act"
     * ^comment = "SHALL contain exactly one [1..1] Progress Toward Goal Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.110)."
-* reference 0..*
+* reference 0..
   * ^short = "Where it is necessary to reference an external clinical document such a Referral document, Discharge Summary document etc., the External Document Reference template can be used to reference this document.  However, if this Care Plan document is replacing or appending another Care Plan document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:4515-32754)."
   * typeCode 1..1

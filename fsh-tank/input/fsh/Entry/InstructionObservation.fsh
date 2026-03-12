@@ -15,7 +15,7 @@ The value element represents the actual instructions given to the patient. Typic
 * moodCode = #EVN (exactly)
 * code 1..1
   * insert CodedLoinc(89187-7, Instructions Provided)
-  * translation 0..*
+  * translation 0..
   * translation from $2.16.840.1.113883.11.20.9.34 (preferred)
     * ^short = "Can further classify the type of instructions provided"
 * statusCode 1..1

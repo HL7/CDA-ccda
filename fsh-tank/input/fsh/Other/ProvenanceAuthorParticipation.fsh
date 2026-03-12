@@ -48,10 +48,10 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * insert AdditionalBinding(preferred, $2.16.840.1.114222.4.11.1066, Providers, [[If the content is provider authored, the code SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4515-56).]])
     * insert AdditionalBinding(preferred, $2.16.840.1.113883.11.20.12.1, Non-clinicians, [[If the author is a person who is not acting in the role of a clinician, the code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4515-57).]])
   * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
-  * addr 0..*
+  * addr 0..
   * addr only USRealmAddress
     * ^short = "Required on at least one instance of this author in the document"
-  * telecom 0..*
+  * telecom 0..
     * ^short = "Required on at least one instance of this author in the document"
   * assignedPerson 0..
     * insert USCDI([[Author - assignedPerson/name or assignedAuthoringDevice/manufacturerModelName is required on at least one instance of this author in the document]])
@@ -74,7 +74,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * nullFlavor 0..
       * ^short = "A nullFlavor of \"NA\" is allowed If the assignedAuthor is not a clinician"
       * ^comment = "The representedOrganization, if present, MAY contain zero or one [0..1] @nullFlavor (CONF:4515-35)."
-    * id 0..*
+    * id 0..
       * ^slicing.discriminator[0].type = #value
       * ^slicing.discriminator[=].path = "root"
       * ^slicing.rules = #open
@@ -100,7 +100,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-31)."
     * name 0..
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:4515-11)."
-    * telecom 0..*
+    * telecom 0..
       * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] telecom (CONF:4515-12)." // auto-should
 
 Invariant: 4515-64

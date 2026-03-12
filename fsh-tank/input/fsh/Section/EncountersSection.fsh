@@ -10,7 +10,7 @@ Description: "This section lists and describes any healthcare encounters pertine
   * ^slicing.discriminator[=].path = "encounter"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains encounter 0..*
+* entry contains encounter 0..
 * entry[encounter] ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-8709) such that it"
   * ^condition = "shall-encounter-activity"
   * encounter 1..1

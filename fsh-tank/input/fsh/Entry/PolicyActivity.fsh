@@ -34,7 +34,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
 * performer contains
     payer 1..1 and
-    guarantor 0..*
+    guarantor 0..
 * performer[payer] ^short = "This performer represents the Payer."
   * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4537-8906) such that it"
   * typeCode 1..1
@@ -59,7 +59,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * addr 0..
     * addr only USRealmAddress
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8910)."
-    * telecom 0..*
+    * telecom 0..
       * ^comment = "This assignedEntity MAY contain zero or more [0..*] telecom (CONF:4537-8911)."
     * obeys should-representedOrganization
     * representedOrganization 0..
@@ -101,7 +101,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^short = "SHOULD contain addr"
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)." // man-should
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * ^condition = "should-telecom"
       * ^short = "SHOULD contain telecom"
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4537-8965)." // auto-should
@@ -196,7 +196,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
   * ^slicing.rules = #open
 * entryRelationship contains 
   authorization 0..* and
-  plan 0..*
+  plan 0..
 * entryRelationship[authorization]
   * ^short = "entryRelationship"
   * ^comment = "MAY contain one [0..*] entryRelationship (CONF:4537-8939) such that it"

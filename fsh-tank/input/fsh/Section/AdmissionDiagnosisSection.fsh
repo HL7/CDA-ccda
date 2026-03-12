@@ -16,7 +16,7 @@ Description: "This section contains a narrative description of the problems or d
   * translation[admissionDiag] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32749) such that it"
     * insert CodedLoinc(42347-5, Admission Diagnosis)
     * ^comment = "SHALL contain exactly one [1..1] @code=\"42347-5\" Admission Diagnosis (CONF:1198-32750)."
-* entry 0..*
+* entry 0..
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #profile

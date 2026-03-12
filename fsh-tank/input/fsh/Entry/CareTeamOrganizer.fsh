@@ -52,7 +52,7 @@ The components of the organizer contain the following information:
   * high 0..
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4515-158)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-116)." // man-should
 * participant ^slicing.discriminator[0].type = #value
@@ -60,7 +60,7 @@ The components of the organizer contain the following information:
   * ^slicing.rules = #open
 * participant contains
     lead 0..* and
-    location 0..*
+    location 0..
 * participant[lead] ^short = "This Participant represents the Care Team lead."
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:4515-128) such that it"
   * typeCode 1..1
@@ -90,7 +90,7 @@ The components of the organizer contain the following information:
     * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)." // auto-should
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:4515-140)." // auto-should
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:4515-136)."
