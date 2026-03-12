@@ -73,12 +73,16 @@ Description: "This template is used to represent the details of current and hist
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4515-7732)."
     * obeys should-assignedPerson
     * assignedPerson 0..
+      * ^condition = "should-assignedPerson"
+      * ^short = "SHOULD contain assignedPerson"
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson." // man-should
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED)."
     * obeys should-representedOrganization
     * representedOrganization 0..
+      * ^condition = "should-representedOrganization"
+      * ^short = "SHOULD contain representedOrganization"
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)." // auto-should
       * obeys should-id
       * id 0..*

@@ -23,14 +23,17 @@ The Author Participation template was added to those templates in scope for anal
     * insert AdditionalBinding(preferred, $2.16.840.1.113883.11.20.12.1, Patient-authored content, [[If the content is patient authored the code **SHOULD** be selected from Personal And Legal Relationship Role Type (2.16.840.1.113883.11.20.12.1) (CONF:1098-32315).]])
   * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
   * addr 0..*
+    * ^condition = "author-details"
   * addr only USRealmAddress
     * ^short = "Required on at least one instance of this author in the document"
   * telecom 0..*
+    * ^condition = "author-details"
     * ^short = "Required on at least one instance of this author in the document"
   * assignedPerson 0..
     * ^short = "assignedPerson/name or assignedAuthoringDevice/manufacturerModelName is required on at least one instance of this author in the document"
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] assignedPerson (CONF:1098-31474)."
     * name 0..*
+      * ^condition = "author-details"
       * ^comment = "The assignedPerson, if present, MAY contain zero or more [0..*] name (CONF:1098-31475)."
   * representedOrganization 0..
     * ^short = "assignedPerson/name or representedOrganization/name is required on at least one instance of this author in the document"

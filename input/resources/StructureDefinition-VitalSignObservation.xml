@@ -222,6 +222,14 @@
             <short value="NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"/>
             <comment value="This value SHALL contain exactly one [1..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-31579).  Use a default of 1 for @unit when @nullFlavor is present."/>
             <min value="1"/>
+            <condition value="should-percent"/>
+            <condition value="should-cm"/>
+            <condition value="should-kg"/>
+            <condition value="should-cel"/>
+            <condition value="should-bp"/>
+            <condition value="should-rates"/>
+            <condition value="should-bmi"/>
+            <condition value="should-bsa"/>
             <binding>
                 <strength value="required"/>
                 <valueSet value="http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive"/>

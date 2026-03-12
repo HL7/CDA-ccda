@@ -49,6 +49,8 @@ Description: "This template represents the sender (author) and receivers (partic
     * obeys should-code
     * code 0..
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
+      * ^condition = "should-code"
+      * ^short = "SHOULD contain code"
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-31676)." // man-should
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * addr 1..*

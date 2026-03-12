@@ -67,7 +67,8 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] assignedAuthoringDevice (CONF:4515-32)."
   * representedOrganization 0..
     * obeys provenance-org-details
-    * provenance-should-org-details
+    * obeys provenance-should-telecom
+    * ^condition = "4515-64"
     * insert USCDI([[Author Organization]])
     * ^comment = "If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64).  This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."
     * nullFlavor 0..
@@ -128,7 +129,7 @@ Description: "If the author is not a clinician, set nullFlavor='NA'. Otherwise, 
 Severity: #error
 Expression: "nullFlavor = 'NA' or (id.where(root='2.16.840.1.113883.4.2').exists() and id.where(root='2.16.840.1.113883.4.6').exists() and name.exists())"
 
-Invariant: provenance-should-org-details
-Description: "If the author is not a clinician, set nullFlavor='NA'. Otherwise, the taxId, npi, and name are required."
+Invariant: provenance-should-telecom
+Description: "If the author is not a clinician, set nullFlavor='NA'. Otherwise, the telecom is required."
 Severity: #warning
 Expression: "nullFlavor = 'NA' or telecom.exists()"
