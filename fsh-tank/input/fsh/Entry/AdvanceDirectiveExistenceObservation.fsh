@@ -39,7 +39,7 @@ Advance healthcare directive documents include person-authored advance directive
 * author 1..1
 * author only ProvenanceAuthorParticipation
   * ^comment = "SHALL contain exactly [1..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)."
-* informant 0..1
+* informant 0..
   * ^short = "MAY contain zero or one [0..1] informant"
 * entryRelationship 0..*
   * ^condition = "no-obs-if-existence-false"

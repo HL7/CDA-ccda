@@ -22,6 +22,7 @@ The changes in this version of Consolidated CDA were made from comments raised d
 * [CDA-21449](https://jira.hl7.org/browse/CDA-21449) - Updated DisabilityStatusObservation.code *(Correction)* [link](StructureDefinition-DisabilityStatusObservation.html)
 * [CDA-21450](https://jira.hl7.org/browse/CDA-21450) - UDI Organizer Link from Procedure should not be inverted *(Correction)* [link](StructureDefinition-ProcedureActivityProcedure.html)
 * [CDA-21465](https://jira.hl7.org/browse/CDA-21465) - Unimplemented SHOULD *(Correction)* [link](StructureDefinition-USRealmHeader.html)
+* [CDA-21483](https://jira.hl7.org/browse/CDA-21483) - Removed incorrect upper-bound (..1) constraints on MAY/SHOULD throughout IG
 * [CDA-21487](https://jira.hl7.org/browse/CDA-21487) - Added additional links to changed pages to changelog items *(Correction)* 
 * [CDA-21490](https://jira.hl7.org/browse/CDA-21490) - Added Basic Industry Observation and Basic Occupation Observation as optional templates in Social History Section *(Correction)* [link](StructureDefinition-SocialHistorySection.html)
 * [CDA-21506](https://jira.hl7.org/browse/CDA-21506) - Updated Advance Directive Existence Observation purpose statement *(Correction)* [link](StructureDefinition-AdvanceDirectiveExistenceObservation.html)

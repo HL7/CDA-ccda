@@ -37,7 +37,7 @@ The effectiveTime element is used to describe dates associated with the patient'
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-16564)."
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-16565)."
-  * high 0..1
+  * high 0..
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31431)."
 * value 1..1
 * value only $CD

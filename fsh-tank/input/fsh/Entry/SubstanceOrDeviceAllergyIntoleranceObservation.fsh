@@ -35,7 +35,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-16309)."
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-31536)."
-  * high 0..1
+  * high 0..
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31537)."
 * value 1..1
 * value only $CD

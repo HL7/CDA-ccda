@@ -24,7 +24,7 @@ The scopingEntity/id should correspond to FDA or the appropriate issuing agency.
 * playingDevice 1..1
   * ^comment = "SHALL contain exactly one [1..1] playingDevice (CONF:81-7903)."
   * obeys should-code
-  * code 0..1
+  * code 0..
   * code from $2.16.840.1.113762.1.4.1267.36 (preferred)
     * ^comment = "This playingDevice SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Device Type urn:oid:2.16.840.1.113762.1.4.1267.36 DYNAMIC." // auto-should
 * scopingEntity 1..1

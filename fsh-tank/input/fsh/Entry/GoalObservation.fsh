@@ -29,7 +29,7 @@ A goal may have components consisting of other goals (milestones). These milesto
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-32333)."
   * insert BindAtCode(ActStatus, required)
 * insert ShouldElement(effectiveTime)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4515-32335)." // auto-should
   * ^short = "effectiveTime/low represents when to start working on the goal. effectiveTime/high or effectiveTime/value represents when the goal should be met (i.e. a due date)"
 * value 0..1
@@ -57,7 +57,7 @@ A goal may have components consisting of other goals (milestones). These milesto
 * entryRelationship contains
     refersTo 0..* and
     componentEntry 0..* and
-    priorityPreference 0..1 and
+    priorityPreference 0.. and
     goal 0..* and
     progressTowardGoal 0..*
 * entryRelationship[refersTo] ^short = "The following entryRelationship represents the relationship between a Goal Observation and another entry (usually a Health Concern Act) (Goal Observation REFERS TO Health Concern Act) already described in the CDA document instance. Rather than clone the whole entry, an Entry Reference may be used in this entryRelationship to reference this entry."

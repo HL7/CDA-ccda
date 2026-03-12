@@ -41,7 +41,7 @@ A Consultation Note includes the reason for the referral, history of present ill
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31663)."
       * name 1..*
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31664)."
-    * scopingOrganization 0..1
+    * scopingOrganization 0..
       * ^comment = "This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31665)."
 * inFulfillmentOf 1..*
   * ^short = "The inFulfillmentOf element describes prior orders that are fulfilled (in whole or part) by the service events described in the Consultation Note. For example, a prior order might be the consultation that is being reported in the note."

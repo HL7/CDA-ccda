@@ -26,7 +26,7 @@ Description: "This template represents a patient's sensory or speech ability. It
   * low 1..1
     * ^short = "The effectiveTime/low (a.k.a. \"onset date\") asserts when the condition became biologically active."
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-32630)."
-  * high 0..1
+  * high 0..
     * ^short = "The effectiveTime/high (a.k.a. \"resolution date\") asserts when the condition became biologically resolved."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-32631)."
 * value 1..1

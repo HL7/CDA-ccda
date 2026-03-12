@@ -74,7 +74,7 @@ Examples of referral situations are when a patient is referred from a family phy
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31653)."
       * name 1..*
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31654)."
-    * scopingOrganization 0..1
+    * scopingOrganization 0..
       * ^comment = "This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31655)."
 * component 1..1
   * structuredBody 1..1

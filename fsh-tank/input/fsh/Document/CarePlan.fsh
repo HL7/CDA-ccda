@@ -26,13 +26,13 @@ A care plan document can include entry references from the information in these 
 * ^status = #active
 * code from $2.16.840.1.113762.1.4.1099.10 (required)
 * insert ShouldElement(setId)
-* setId 0..1
+* setId 0..
   * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1198-32321)." // auto-should
   // Duplicating these 2 from USRealmHeader because Sushi seems to lose the index when [+] is used between 2 different FSH files
   * ^condition[+] = "4537-6380"
   * ^condition[+] = "4537-6387" // both tagged because they're interrelated
 * insert ShouldElement(versionNumber)
-* versionNumber 0..1
+* versionNumber 0..
   * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1198-32322)." // auto-should
   // Duplicating these 2 from USRealmHeader because Sushi seems to lose the index when [+] is used between 2 different FSH files
   * ^condition[+] = "4537-6380"
@@ -53,18 +53,18 @@ A care plan document can include entry references from the information in these 
     * telecom 0..*
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31998)." // auto-should
     * insert ShouldElement(informationRecipient)
-    * informationRecipient 0..1
+    * informationRecipient 0..
       * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] informationRecipient (CONF:1198-31999)." // auto-should
       * name 1..1
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:1198-32320)."
     * obeys should-receivedOrganization
-    * receivedOrganization 0..1
+    * receivedOrganization 0..
       * ^comment = "This intendedRecipient SHOULD contain zero or one [0..1] receivedOrganization (CONF:1198-32000)." // auto-should
       * obeys should-id and should-standardIndustryClassCode
       * id 0..*
         * ^comment = "The receivedOrganization, if present, SHOULD contain zero or more [0..*] id (CONF:1198-32001)." // auto-should
-      * standardIndustryClassCode 0..1
+      * standardIndustryClassCode 0..
       * standardIndustryClassCode from $2.16.840.1.114222.4.11.1066 (required)
         * ^comment = "The receivedOrganization, if present, SHOULD contain zero or one [0..1] standardIndustryClassCode, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32003)."  // man-should
 * authenticator
@@ -72,7 +72,7 @@ A care plan document can include entry references from the information in these 
     * ^comment = "SHALL contain exactly one [1..1] time (CONF:1198-31911)."
   * signatureCode 1..1
     * ^comment = "SHALL contain exactly one [1..1] signatureCode (CONF:1198-31912)."
-  * sdtcSignatureText 0..1
+  * sdtcSignatureText 0..
     //"<extension url=\"http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace\"><valueUri value=\"urn:hl7-org:sdtc\"/></extension>"
     * ^short = "The prefix sdtc: SHALL be bound to the namespace “urn:hl7-org:sdtc”. The use of the namespace provides a necessary extension to CDA R2 for the use of the signatureText element"
     * ^comment = "MAY contain zero or one [0..1] sdtc:signatureText (CONF:1198-31913)."
@@ -116,9 +116,9 @@ A care plan document can include entry references from the information in these 
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31684)."
     * obeys should-code
-    * code 0..1
+    * code 0..
       * ^comment = "This associatedEntity SHOULD contain zero or one [0..1] code (CONF:1198-31685)." // auto-should
-      * code 0..1
+      * code 0..
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
         * ^comment = "The code SHOULD be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:1198-32367)."
 * participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31895) such that it"
@@ -148,7 +148,7 @@ A care plan document can include entry references from the information in these 
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-31907)."
         * id 1..*
           * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:1198-31908)."
-        * code 0..1
+        * code 0..
           * ^comment = "This assignedEntity MAY contain zero or one [0..1] code (CONF:1198-31909)."
         * assignedPerson 1..1
           * ^comment = "This assignedEntity SHALL contain exactly one [1..1] assignedPerson (CONF:1198-32328)."
@@ -163,7 +163,7 @@ A care plan document can include entry references from the information in these 
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] effectiveTime (CONF:1198-31904)."
       * low 1..1
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-32330)."
-      * high 0..1
+      * high 0..
         * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-32331)."
 * relatedDocument ^slicing.discriminator[+].type = #exists
   * ^slicing.discriminator[=].path = "parentDocument"
@@ -182,7 +182,7 @@ A care plan document can include entry references from the information in these 
     * versionNumber 1..1
       * ^comment = "This parentDocument SHALL contain exactly one [1..1] versionNumber (CONF:1198-29896)."
 * insert ShouldElement(componentOf)
-* componentOf 0..1
+* componentOf 0..
   * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-32004) such that it" // man-should
   //"<sliceName value=\"componentOf1\"/>"
   * encompassingEncounter 1..1

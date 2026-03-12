@@ -23,7 +23,7 @@ This observation is not appropriate for recording patient gender (administrative
   * ^comment = "SHALL contain at least one [1..*] id."
 * code 1..1
   * insert CodedLoinc(76691-5, [[Gender Identity]])
-* text 0..1
+* text 0..
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-33067)."
   * code 1..1
@@ -34,7 +34,7 @@ This observation is not appropriate for recording patient gender (administrative
   * ^short = "The effectiveTime represents the relevant time of the observation. A patient's \"gender identity\" may change and using effectiveTime/low and effectiveTime/high defines the time during which the patient had identified as specified."
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-33070)."
-  * high 0..1
+  * high 0..
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33071)."
 * value 1..1
 * value only $CD

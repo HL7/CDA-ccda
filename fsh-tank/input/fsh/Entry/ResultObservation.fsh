@@ -60,20 +60,20 @@ The Result Observation template is a versatile template designed to represent an
   * unit 1..1
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * insert USCDI([[Result Unit of Measure - if null flavor is sent, the unit SHALL be set to '1']])
-  * translation 0..1
+  * translation 0..
     * ^short = "Can be used to represent the original results as output by the lab"
 * value[coded] only $CD
   * obeys 4537-32610
-  * translation 0..1
+  * translation 0..
     * ^short = "Can be used to represent the original results as output by the lab"
 * insert ShouldElement(interpretationCode)
 * interpretationCode
   * insert USCDI([[Result Interpretation]])
   * ^binding.description = "Bound in CDA core to CDAObservationInterpretation value set (subset of HL7 v3 ObservationInterpretation), a USCDI Result Interpretation vocabulary"
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)." // man-should
-* methodCode 0..1
+* methodCode 0..
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."
-* targetSiteCode 0..1
+* targetSiteCode 0..
   * ^comment = "MAY contain zero or one [0..1] targetSiteCode (CONF:4537-7153)."
 * insert ShouldElement(author)
 * author 0..*

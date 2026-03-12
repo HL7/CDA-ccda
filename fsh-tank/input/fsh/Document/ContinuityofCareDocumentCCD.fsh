@@ -43,12 +43,12 @@ This document type was originally based on the Continuity of Care Document (CCD)
       * typeCode 1..1
       * typeCode = #PRF (exactly)
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode=\"PRF\" Participation physical performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8458)."
-      * assignedEntity ..1
+      * assignedEntity 1..1
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] assignedEntity (CONF:1198-8459)."
         * obeys 1198-32466
         * id 1..*
           * ^comment = "The assignedEntity, if present, SHALL contain at least one [1..*] id (CONF:1198-30882)."
-        * assignedPerson 0..1
+        * assignedPerson 0..
           * ^comment = "The assignedEntity, if present, MAY contain zero or one [0..1] assignedPerson (CONF:1198-32467)."
 * component 1..1
   * ^comment = "SHALL contain exactly one [1..1] component (CONF:1198-30659)."

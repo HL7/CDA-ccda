@@ -33,7 +33,7 @@ Description: """This template reflects an ongoing concern on behalf of the provi
   * low 1..1
     * ^short = "The effectiveTime/low of the Problem Concern Act asserts when the concern became active."
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-9032)."
-  * high 0..1
+  * high 0..
     * ^short = "The effectiveTime/high asserts when the concern was completed (e.g., when the clinician deemed there is no longer any need to track the underlying condition)."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-9033)."
 * insert ShouldElement(author)

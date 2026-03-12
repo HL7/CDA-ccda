@@ -34,7 +34,7 @@ The Result Organizer template is a versatile template designed to represent any 
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4537-7123)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.39, required)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^short = "The effectiveTime is an interval that spans the effectiveTimes of the contained result observations. Because all contained result observations have a required time stamp, it is not required that this effectiveTime be populated."
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:4537-31865)."
   * low 1..1
@@ -65,7 +65,7 @@ The Result Organizer template is a versatile template designed to represent any 
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"
-* component contains resultObs 1..* and specimenProc 0..1
+* component contains resultObs 1..* and specimenProc 0..
 * component[resultObs] ^short = "component"
   * insert USCDI([[Values/Results]])
   * ^comment = "SHALL contain at least one [1..*] component (CONF:4537-7124) such that it"

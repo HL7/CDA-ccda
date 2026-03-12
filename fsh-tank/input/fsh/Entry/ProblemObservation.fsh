@@ -17,7 +17,7 @@ The onset date (Problem Observation.effectiveTime.low), diagnosis date (Date of 
 * moodCode 1..1
 * moodCode = #EVN (exactly)
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1198-9042)."
-* negationInd 0..1
+* negationInd 0..
   * ^short = "The negationInd is used to indicate the absence of the condition in observation/value. A negationInd of \"true\" coupled with an observation/value of SNOMED code 64572001 \"Disease (disorder)\" indicates that the patient has no known conditions."
   * ^comment = "MAY contain zero or one [0..1] @negationInd (CONF:1198-10139)."
 * id 1..*
@@ -35,7 +35,7 @@ The onset date (Problem Observation.effectiveTime.low), diagnosis date (Date of 
   * low 1..1
     * insert USCDI([[Date of Onset = When the problem began for the patient.]])
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-15603)."
-  * high 0..1
+  * high 0..
     * insert USCDI([[Date of Resolution - The effectiveTime/high (a.k.a. resolution date) asserts when the condition became biologically resolved.]])
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1198-15604)."
 * value 1..1
@@ -43,7 +43,7 @@ The onset date (Problem Observation.effectiveTime.low), diagnosis date (Date of 
 * value from http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code (preferred)
   * insert USCDI([[SDOH Problems/Health Concerns]])
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet US Core Condition Codes."
-  * code 0..1
+  * code 0..
     * ^short = "A negationInd of \"true\" coupled with an observation/value/@code of SNOMED code 64572001 \"Disease (disorder)\" indicates that the patient has no known conditions.  When the Problem is Social Determinant of Health Observation, the observation/value SHOULD be a SNOMED code selected from ValueSet Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788 DYNAMIC (CONF:4515-32951)."
     * ^comment = "This value MAY contain zero or one [0..1] @code (CONF:1198-31871)."
     * ^binding.strength = #example
@@ -65,12 +65,12 @@ Using SNOMED CT in CDA R2 Models, Release 1 using the V3 CD Data type 1 style.  
   * ^slicing.rules = #open
 * entryRelationship contains
     age 0..1 and
-    prognosis 0..1 and
+    prognosis 0.. and
     priority 0..* and
     status 0..1 and
-	reference 0..1 and
-	assessment 0..1 and
-	dateOfDiagnosis 0..1
+	reference 0.. and
+	assessment 0.. and
+	dateOfDiagnosis 0..
 * entryRelationship[age] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1198-9059) such that it"
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)

@@ -26,7 +26,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
   * ^short = "The effectiveTime represents the time when the future referral is intended to take place."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30893)."
 * insert ShouldElement(priorityCode)
-* priorityCode 0..1
+* priorityCode 0..
   * ^comment = "SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)." // auto-should
 * insert ShouldElement(author)
 * author 0..*
@@ -38,7 +38,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
     * ^comment = "The participant, if present, SHALL contain exactly one [1..1] @typeCode. Use REFT to represent the referred-to provider."
   * participantRole 1..1
     * ^comment = "The participant, if present, SHALL contain exactly one [1..1] participantRole (CONF:1098-32636)."
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This participantRole MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-32637)."
 * entryRelationship ^slicing.discriminator.type = #profile
@@ -75,7 +75,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
       * code = #completed (exactly)
         * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31615)."
     * insert ShouldElement(priorityCode)
-    * priorityCode 0..1
+    * priorityCode 0..
     * priorityCode from $ActPriority (preferred)
       * ^comment = "This observation SHOULD contain zero or one [0..1] priorityCode, which SHOULD be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-32443)." // man-should
     * value 1..1

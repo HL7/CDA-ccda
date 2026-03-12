@@ -25,7 +25,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-32225)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:1198-32226)."
 * insert ShouldElement(author)
 * author 0..*

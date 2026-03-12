@@ -17,8 +17,8 @@ Description: "Where it is necessary to reference an external clinical document, 
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-31933)."
 * insert ShouldElement(setId)
-* setId 0..1
+* setId 0..
   * ^comment = "SHOULD contain zero or one [0..1] setId (CONF:1098-32752)." // auto-should
 * insert ShouldElement(versionNumber)
-* versionNumber 0..1
+* versionNumber 0..
   * ^comment = "SHOULD contain zero or one [0..1] versionNumber (CONF:1098-32753)." // auto-should

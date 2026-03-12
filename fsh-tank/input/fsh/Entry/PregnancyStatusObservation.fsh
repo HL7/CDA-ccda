@@ -31,7 +31,7 @@ Description: "This clinical statement meets the requirements of the US Core Data
 * entryRelationship ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open
-* entryRelationship contains estimatedDateofDelivery 0..1
+* entryRelationship contains estimatedDateofDelivery 0..
 * entryRelationship[estimatedDateofDelivery] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:81-458) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

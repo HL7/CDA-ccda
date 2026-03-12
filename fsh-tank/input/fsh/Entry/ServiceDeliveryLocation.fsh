@@ -33,7 +33,7 @@ To conform with USCDI requirements, certifying systems shall support either HSLO
   * insert AdditionalBinding(preferred, $CMSPlaceOfService, CMS Place of Service, [[Not required for USCDI certification]])
   * obeys shall-use-one-binding
 * obeys should-addr
-* addr 0..1
+* addr 0..
 * addr only USRealmAddress
   * insert USCDI([[Facility Address]])
 * obeys should-telecom

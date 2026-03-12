@@ -41,9 +41,9 @@ Description: "This template represents the patient's physical function (e.g., mo
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains
-    nonMedSupply 0..1 and
-    caregiverCharacteristics 0..1 and
-    assessmentScaleObservation 0..1
+    nonMedSupply 0.. and
+    caregiverCharacteristics 0.. and
+    assessmentScaleObservation 0..
 * entryRelationship[nonMedSupply] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-13892) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

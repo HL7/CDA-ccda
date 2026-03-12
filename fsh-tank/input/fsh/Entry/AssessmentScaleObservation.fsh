@@ -27,7 +27,7 @@ The Observation value is used to record a calculated score using an integer. A L
   * translation from $SDoHAssessmentsAndQuestions (preferred)
   * ^short = "For Social Determinant of Health Assessments"
   * ^comment = "SHOULD contain zero or many [0..*] translations."
-* derivationExpr 0..1
+* derivationExpr 0..
   * ^comment = "MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."
   * ^short = "Such derivation expression can contain a text calculation of how the components total up to the summed score"
 * statusCode 1..1
@@ -70,6 +70,6 @@ The Observation value is used to record a calculated score using an integer. A L
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4515-16800)."
     * obeys should-text
     * insert NarrativeLink
-    * text 0..1
+    * text 0..
       * ^comment = "This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)." // auto-should
       * ^short = "The text may contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"

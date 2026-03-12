@@ -35,7 +35,7 @@ The following is a list of recommended units for common types of vital sign meas
 * insert ShouldElement(code)
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1098-7301)."
-  * code 0..1
+  * code 0..
   * code from $2.16.840.1.113883.3.88.12.80.62 (preferred)
     * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Vital Sign Result Type urn:oid:2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:1098-32934)." // man-should
 * statusCode 1..1
@@ -52,11 +52,11 @@ The following is a list of recommended units for common types of vital sign meas
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "This value SHALL contain exactly one [1..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-31579).  Use a default of 1 for @unit when @nullFlavor is present."
-* interpretationCode 0..1
+* interpretationCode 0..
   * ^comment = "MAY contain zero or one [0..1] interpretationCode (CONF:1098-7307)."
-* methodCode 0..1
+* methodCode 0..
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:1098-7308)."
-* targetSiteCode 0..1
+* targetSiteCode 0..
   * ^comment = "MAY contain zero or one [0..1] targetSiteCode (CONF:1098-7309)."
 * insert ShouldElement(author)
 * author 0..*

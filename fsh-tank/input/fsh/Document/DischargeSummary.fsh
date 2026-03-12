@@ -23,7 +23,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
   * obeys 1198-8469
   * ^short = "The participant element in the Discharge Summary header follows the General Header Constraints for participants. Discharge Summary does not specify any use for functionCode for participants. Local policies will determine how this element should be used in implementations."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8467)."
-  * typeCode 1..1  // TEMP until CDA is fixed
+  * typeCode 1..  // TEMP until CDA is fixed
   * associatedEntity 1..1
     * classCode ^binding.description = "See additional bindings"
       * insert AdditionalBinding(preferred, $2.16.840.1.113883.11.20.9.33, When typeCode=IND, [[When participant/@typeCode is IND, associatedEntity/@classCode **SHALL** be selected from ValueSet 2.16.840.1.113883.11.20.9.33 INDRoleclassCodes STATIC 2011-09-30 (CONF:1198-8469).]])
@@ -43,7 +43,7 @@ The best practice for a Discharge Summary is to include the discharge dispositio
     * dischargeDispositionCode 1..1
     * dischargeDispositionCode from http://terminology.hl7.org/ValueSet/v3-USEncounterDischargeDisposition (preferred)
       * ^short = "The dischargeDispositionCode records the disposition of the patient at time of discharge. Access to the National Uniform Billing Committee (NUBC) code system requires a membership. The following conformance statement aligns with HITSP C80 requirements. \n\nThe dischargeDispositionCode, @displayName, or NUBC UB-04 Print Name, must be displayed when the document is rendered."
-    * responsibleParty 0..1
+    * responsibleParty 0..
       * ^short = "The responsibleParty element represents only the party responsible for the encounter, not necessarily the entire episode of care."
       * ^comment = "This encompassingEncounter MAY contain zero or one [0..1] responsibleParty (CONF:1198-8479)."
       * assignedEntity 1..1

@@ -24,7 +24,7 @@ Description: "This template represents acquired or surgical wounds and is not in
 * value only $CD
 * value from $2.16.840.1.113883.1.11.20.2.6 (preferred)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", where the code SHOULD be selected from ValueSet Wound Type urn:oid:2.16.840.1.113883.1.11.20.2.6 DYNAMIC (CONF:1198-29485)."
-* targetSiteCode 0..1
+* targetSiteCode 0..
 * targetSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (preferred)
   * ^comment = "SHOULD contain zero or one [0..1] targetSiteCode, which SHOULD be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-29488) such that it"
   //"<sliceName value=\"targetSiteCode1\"/>"
@@ -52,7 +52,7 @@ Description: "This template represents acquired or surgical wounds and is not in
     woundMeasurementObservation 0..* and
     woundCharacteristic 0..* and
     numberofPressureUlcersObservation 0..* and
-    highestPressureUlcerStage 0..1
+    highestPressureUlcerStage 0..
 * entryRelationship[woundMeasurementObservation] ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:1198-29495) such that it"
   * typeCode 1..1
   * typeCode = #COMP (exactly)

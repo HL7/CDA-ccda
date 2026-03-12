@@ -28,7 +28,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-30758)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:4515-30759)."
 * insert ShouldElement(author)
 * author 0..*

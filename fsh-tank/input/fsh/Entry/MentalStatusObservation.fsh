@@ -29,7 +29,7 @@ Description: "The Mental Status Observation template represents an observation a
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:1198-14263)."
-* value contains code 0..1
+* value contains code 0..
 * value[code] only $CD
 * value[code] from $2.16.840.1.113762.1.4.1240.1 (preferred)
 * insert ShouldElement(author)

@@ -19,7 +19,7 @@ The date of diagnosis is usually not the same date as the date of condition onse
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001) (CONF:4515-33011)."
 * code 1..1
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:4515-33001)."
-  * code 0..1
+  * code 0..
   * code = #77975-1
     * ^comment = "This code SHALL contain zero or one [0..1] @code=\"77975-1\" Earliest date of diagnosis (CONF:4515-33004)."
   * codeSystem 1..1

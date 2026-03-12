@@ -26,6 +26,6 @@ The id is required and must be the same id as the entry/id it is referencing. Th
     * ^comment = "This code SHALL contain exactly one [1..1] @nullFlavor=\"NP\" Not Present (CodeSystem: HL7NullFlavor urn:oid:2.16.840.1.113883.5.1008) (CONF:1098-31491)."
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1098-31498)."
-  * code 0..1
+  * code 0..
     * ^short = "MAY be set to \"completed\""
     * ^comment = "This statusCode MAY contain zero or one [0..1] @code=\"completed\" (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31499)."

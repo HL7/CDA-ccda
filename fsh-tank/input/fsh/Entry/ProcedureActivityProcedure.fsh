@@ -38,10 +38,10 @@ Description: "This template is used to represent the details of current and hist
     * ^condition = "active-high-ts-after-document"
     * ^short = "Indicates when a procedure ended. If the statusCode='active', this must be after the ClinicalDcument/effectiveTime"
     * ^comment = "MAY contain zero or one [0..1] high"
-* priorityCode 0..1
+* priorityCode 0..
 * priorityCode from $ActPriority (required)
   * ^comment = "MAY contain zero or one [0..1] priorityCode, which SHALL be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:4515-7668)."
-* methodCode 0..1
+* methodCode 0..
   * ^short = "MethodCode **SHALL NOT** conflict with the method inherent in Procedure / code (CONF:4515-7890)."
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4515-7670)."
 * insert ShouldElement(targetSiteCode)
@@ -72,13 +72,13 @@ Description: "This template is used to represent the details of current and hist
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4515-7732)."
     * obeys should-assignedPerson
-    * assignedPerson 0..1
+    * assignedPerson 0..
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson." // man-should
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "This assignedPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED)."
     * obeys should-representedOrganization
-    * representedOrganization 0..1
+    * representedOrganization 0..
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4515-7733)." // auto-should
       * obeys should-id
       * id 0..*
@@ -132,7 +132,7 @@ Description: "This template is used to represent the details of current and hist
 * entryRelationship contains
     udiOrganizer 0..* and
     encounter 0..* and
-    instruction 0..1 and
+    instruction 0.. and
     indication 0..* and
     medication 0..* and
     reaction 0..* and

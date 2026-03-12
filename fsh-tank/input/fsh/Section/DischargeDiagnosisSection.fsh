@@ -12,8 +12,8 @@ Description: "This template represents problems or diagnoses present at the time
     * ^slicing.discriminator[+].type = #value
     * ^slicing.discriminator[=].path = "codeSystem"
     * ^slicing.rules = #open
-  * translation contains translation1 1..1
-  * translation[translation1] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32834) such that it"
+  * translation contains dischargeDiag 1..1
+  * translation[dischargeDiag] ^comment = "This code SHALL contain exactly one [1..1] translation (CONF:1198-32834) such that it"
     * insert CodedLoinc(78375-3, Discharge Diagnosis)
     * ^comment = "SHALL contain exactly one [1..1] @code=\"78375-3\" Discharge Diagnosis (CONF:1198-32835)."
 * entry 0..*

@@ -16,7 +16,7 @@ Description: "This section lists and describes all relevant clinical problems at
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-9183)"
 * entry contains
     act 0..* and
-    observation 0..1
+    observation 0..
 * entry[act] ^comment = "SHALL contain exactly one [1..1] Problem Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-15506)"
   * ^condition = "shall-problem-concern-act"
   * act 1..1

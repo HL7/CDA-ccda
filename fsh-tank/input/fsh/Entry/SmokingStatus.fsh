@@ -24,11 +24,11 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
   * code 1..1
   * code = #completed (exactly)
 * effectiveTime 1..1
-  * value 0..1
+  * value 0..
     * ^short = "Represents a timestamp indicating a \"point in time\" when the observation was true"
-  * low 0..1
+  * low 0..
     * ^short = "Represents the earliest time the observation was true. Should not be used for temporal codes (e.g. 266919005 - Never smoked tobacco)"
-  * high 0..1
+  * high 0..
     * ^short = "Represents the last known time the observation was true. If the observation is still true, set `@nullFlavor` to `UNK`."
 * value only $CD or $REAL
 * value 1..1
@@ -36,7 +36,7 @@ Regarding effectiveTime: some values in the Tobacco Use value set represent temp
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #closed
   * ^short = "REAL shall only be used for Smoking Status where code = 401201003 or 782516008"
-* value contains packYears 0..1 and coded 0..1
+* value contains packYears 0.. and coded 0..
 * value[packYears] only $REAL
   * ^short = "Only used for Smoking Status where code = 401201003 or 782516008"
 * value[coded] only $CD

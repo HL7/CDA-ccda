@@ -38,10 +38,10 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * root 1..1
     * root = "2.16.840.1.113883.4.6"
       * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-22)."
-    * extension 0..1
+    * extension 0..
       * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-23)."
   * obeys should-code
-  * code 0..1
+  * code 0..
     * insert USCDI([[Author Role - When the author is a person who is not acting in the role of a clinician, this code encodes the personal or legal relationship between author and the patient.]])
     * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4515-32979)." // auto-should
     * ^binding.description = "See additional bindings"
@@ -53,7 +53,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * ^short = "Required on at least one instance of this author in the document"
   * telecom 0..*
     * ^short = "Required on at least one instance of this author in the document"
-  * assignedPerson 0..1
+  * assignedPerson 0..
     * insert USCDI([[Author - assignedPerson/name or assignedAuthoringDevice/manufacturerModelName is required on at least one instance of this author in the document]])
     * name 1..*
       * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] name (CONF:4515-32977)."
@@ -63,14 +63,14 @@ Note: The Provenance template title includes a version 2 to support moving from 
       * obeys should-given
       * item.given ^short = "SHOULD contain given"
         * ^comment = "Such names SHOULD contain zero or more [0..*] given (CONF:4515-18)." // auto-should
-  * assignedAuthoringDevice 0..1
+  * assignedAuthoringDevice 0..
     * ^comment = "This assignedAuthor MAY contain zero or one [0..1] assignedAuthoringDevice (CONF:4515-32)."
-  * representedOrganization 0..1
+  * representedOrganization 0..
     * obeys provenance-org-details
     * provenance-should-org-details
     * insert USCDI([[Author Organization]])
     * ^comment = "If the assignedAuthor/id is not referencing a Provenance Author described elsewhere in the document with a representedOrganization populated, this assignedAuthor SHALL contain exactly one [1..1] representedOrganization (See - CONF:4440-64).  This assignedAuthor MAY contain zero or one [0..1] representedOrganization (CONF:4515-32978)."
-    * nullFlavor 0..1
+    * nullFlavor 0..
       * ^short = "A nullFlavor of \"NA\" is allowed If the assignedAuthor is not a clinician"
       * ^comment = "The representedOrganization, if present, MAY contain zero or one [0..1] @nullFlavor (CONF:4515-35)."
     * id 0..*
@@ -87,7 +87,7 @@ Note: The Provenance template title includes a version 2 to support moving from 
       * root 1..1
       * root = "2.16.840.1.113883.4.2"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.2\" Tax ID Number (CONF:4515-26)."
-      * extension 0..1
+      * extension 0..
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-32982)."
     * id[npi]
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] id (CONF:4515-28) such that it"
@@ -95,9 +95,9 @@ Note: The Provenance template title includes a version 2 to support moving from 
       * root 1..1
       * root = "2.16.840.1.113883.4.6"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier  (CONF:4515-30)."
-      * extension 0..1
+      * extension 0..
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4515-31)."
-    * name 0..1
+    * name 0..
       * ^comment = "The representedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:4515-11)."
     * telecom 0..*
       * ^comment = "The representedOrganization, if present, SHOULD contain zero or more [0..*] telecom (CONF:4515-12)." // auto-should

@@ -58,7 +58,7 @@ Standardization of information used in this form will promote interoperability; 
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31632)."
       * name 1..*
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31633)."
-    * scopingOrganization 0..1
+    * scopingOrganization 0..
       * ^comment = "This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31634)."
 * documentationOf 1..1
   * ^comment = "SHALL contain exactly one [1..1] documentationOf (CONF:1198-31570)."
@@ -68,7 +68,7 @@ Standardization of information used in this form will promote interoperability; 
     * classCode 1..1
     * classCode = #PCPR (exactly)
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] @classCode=\"PCPR\" Care Provision (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:1198-31572)."
-    * code 0..1
+    * code 0..
       * ^short = "Use serviceEvent/code when using a generic document type code such as 18761-7 (Provider-Unspecified Transfer Summary) to represent the service."
       * ^comment = "This serviceEvent MAY contain zero or one [0..1] code (CONF:1198-32650)."
     * performer ^slicing.discriminator[0].type = #value
@@ -79,7 +79,7 @@ Standardization of information used in this form will promote interoperability; 
       * typeCode 1..1
       * typeCode = #PRF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"PRF\" Participation of Physical Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 DYNAMIC) (CONF:1198-31575)."
-      * functionCode 0..1
+      * functionCode 0..
       * functionCode from $2.16.840.1.114222.4.11.1066 (preferred)
         * ^short = "Use performer/functionCode when using a generic document type code such as 18761-7 (Provider-Unspecified Transfer Summary) to represent the provider."
         * ^comment = "MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32651)."

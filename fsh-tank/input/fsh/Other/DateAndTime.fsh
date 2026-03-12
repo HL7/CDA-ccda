@@ -45,7 +45,7 @@ This data type uses the same rules as US Realm Date and Time (Interval), but is 
 // Flag a time element as reqiring timezone (if it contains time)
 // The year-valid check is default in CDA - requires year to be between 1800 and now+80 years
 RuleSet: RequireTimezone
-* value 0..1
+* value 0..
   * ^extension[http://hl7.org/fhir/tools/StructureDefinition/elementdefinition-date-rules].valueString = "year-valid:tz-for-time"
 
 

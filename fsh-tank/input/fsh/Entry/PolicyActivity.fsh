@@ -51,19 +51,19 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * insert USCDI([[Payer Identifier: This is the Payer id. The root is a unique identifier to an openly available assigning authority, such as National Association of Insurance Commissioners (NAIC) (2.16.840.1.113883.6.300), and the extension identifiers the payer within that authority.]])
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-8909)."
     * obeys should-code
-    * code 0..1
+    * code 0..
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code (CONF:4537-8914)." // auto-should
       * insert BindAtCode($2.16.840.1.113883.1.11.10416, preferred)
-    * addr 0..1
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8910)."
     * telecom 0..*
       * ^comment = "This assignedEntity MAY contain zero or more [0..*] telecom (CONF:4537-8911)."
     * obeys should-representedOrganization
-    * representedOrganization 0..1
+    * representedOrganization 0..
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] representedOrganization (CONF:4537-8912)." // auto-should
       * obeys should-name
-      * name 0..1
+      * name 0..
         * ^comment = "The representedOrganization, if present, SHOULD contain zero or one [0..1] name (CONF:4537-8913)." // auto-should
 * performer[guarantor] ^short = "This performer represents the Guarantor."
   * ^comment = "SHOULD contain zero or more [0..*] performer (CONF:4537-8961) such that it"
@@ -76,7 +76,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^comment = "This templateId SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.88\" Guarantor Performer (CONF:4537-16811)."
     * extension 0..0
   * obeys should-time
-  * time 0..1
+  * time 0..
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8963)." // auto-should
   * assignedEntity 1..1
     * obeys 4537-8967
@@ -90,7 +90,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * codeSystem = "2.16.840.1.113883.5.110"
         * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.5.110\" (CONF:4537-32165)."
     * obeys should-addr
-    * addr 0..1
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8964)." // man-should
     * obeys should-telecom
@@ -116,14 +116,14 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * ^comment = "This templateId SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.89\" Covered Party Participant (CONF:4537-16814)."
     * extension 0..0
   * obeys should-time
-  * time 0..1
+  * time 0..
     * ^short = "This records the policy coverage period or self-pay period."
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:4537-8918)." // auto-should
     * obeys should-low
-    * low 0..1
+    * low 0..
       * ^comment = "The time, if present, SHOULD contain zero or one [0..1] low (CONF:4537-8919)." // auto-should
     * obeys should-high
-    * high 0..1
+    * high 0..
       * ^comment = "The time, if present, SHOULD contain zero or one [0..1] high (CONF:4537-8920)." // auto-should
       * ^short = "SHOULD contain high"
   * participantRole 1..1
@@ -136,15 +136,15 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * insert USCDI([[Relationship to Subscriber: Records the relationship of a patient to the primary insured person.]])
       * ^comment = "This participantRole SHALL contain exactly one [1..1] code (CONF:4537-8923)."
       * obeys should-code-attr
-      * code 0..1
+      * code 0..
       * code from $2.16.840.1.113883.1.11.18877 (preferred)
         * ^comment = "This code SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Coverage Role Type Value Set urn:oid:2.16.840.1.113883.1.11.18877 DYNAMIC (CONF:4537-16078)." // man-should
     * obeys should-addr
-    * addr 0..1
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8956)." // man-should
     * obeys should-playingEntity
-    * playingEntity 0..1
+    * playingEntity 0..
       * ^short = "This playingEntity records the covered party name and birthTime as represented by the health plan. This could match the information in recordTarget, or be different due to marriage or other reasons."
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] playingEntity (CONF:4537-8932)." // auto-should
       * name 1..1
@@ -165,7 +165,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
     * root = "2.16.840.1.113883.10.20.22.4.90"
       * ^comment = "This templateId SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.10.20.22.4.90\" Policy Holder Participant (CONF:4537-16815)."
     * extension 0..0
-  * time 0..1
+  * time 0..
     * ^comment = "MAY contain zero or one [0..1] time (CONF:4537-8938)."
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:4537-8936)."
@@ -173,7 +173,7 @@ Note that the absence of a Policy Activity Act is not confirmation the patient d
       * insert USCDI([[Subscriber Id: This id is a unique identifier for the subscriber of the coverage (CONF:4537-10120).]])
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4537-8937)."
     * obeys should-addr
-    * addr 0..1
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-8925)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #value

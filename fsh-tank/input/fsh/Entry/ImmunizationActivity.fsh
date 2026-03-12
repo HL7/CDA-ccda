@@ -26,7 +26,7 @@ This information should be included in an Immunization Activity when available. 
   * ^comment = "SHALL contain exactly one [1..1] @moodCode, which SHALL be selected from ValueSet MoodCodeEvnInt urn:oid:2.16.840.1.113883.11.20.9.18 STATIC (CONF:1198-8827)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1198-8829)."
-* code 0..1
+* code 0..
   * ^short = "SubstanceAdministration.code is an optional field. Per HL7 Pharmacy Committee, \"this is intended to further specify the nature of the substance administration act. To date the committee has made no use of this attribute\". Because the type of substance administration is generally implicit in the routeCode, in the consumable participant, etc., the field is generally not used and there is no defined value set."
   * ^comment = "MAY contain zero or one [0..1] code (CONF:1198-8830)."
 * negationInd 1..1
@@ -37,28 +37,28 @@ This information should be included in an Immunization Activity when available. 
   * insert BindAtCode(ActStatus, required)
 * effectiveTime 1..1
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1198-8834)."
-* repeatNumber 0..1
+* repeatNumber 0..
   * ^short = "In \"INT\" (intent) mood, the repeatNumber defines the number of allowed administrations. For example, a repeatNumber of \"3\" means that the substance can be administered up to 3 times. In \"EVN\" (event) mood, the repeatNumber is the number of occurrences. For example, a repeatNumber of \"3\" in a substance administration event means that the current administration is the 3rd in a series."
   * insert IntervalValueOnly
-* routeCode 0..1
+* routeCode 0..
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1198-8839)."
   * obeys should-translation
   * translation 0..*
   * translation from $2.16.840.1.113762.1.4.1099.12 (preferred)
     * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1198-32960)." // man-should
-* approachSiteCode 0..1
+* approachSiteCode 0..
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or one [0..1] approachSiteCode, where the code SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1198-8840)."
 * obeys should-doseQuantity and dose-unit-or-admin-unit
-* doseQuantity 0..1
+* doseQuantity 0..
   * ^comment = "SHOULD contain zero or one [0..1] doseQuantity (CONF:1198-8841)." // auto-should
   * obeys should-unit
-  * unit 0..1
+  * unit 0..
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1198-8842)." // man-should
-* administrationUnitCode 0..1
+* administrationUnitCode 0..
 * administrationUnitCode from AdministrationUnitDoseForm (required)
   * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1198-8846)."
 * consumable 1..1
@@ -67,7 +67,7 @@ This information should be included in an Immunization Activity when available. 
   * manufacturedProduct only ImmunizationMedicationInformation
     * ^comment = "This consumable SHALL contain exactly one [1..1] Immunization Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.54:2014-06-09) (CONF:1198-15546)."
 * insert ShouldElement(performer)
-* performer 0..1
+* performer 0..
   * ^comment = "SHOULD contain zero or one [0..1] performer (CONF:1198-8849)." // auto-should
 * insert ShouldElement(author)
 * author 0..*
@@ -93,11 +93,11 @@ This information should be included in an Immunization Activity when available. 
   * ^slicing.rules = #open
 * entryRelationship contains
     indication 0..* and
-    instruction 0..1 and
-    medSupplyOrder 0..1 and
-    medDispense 0..1 and
-    reactionObs 0..1 and
-    immunizationNotGiven 0..1 and
+    instruction 0.. and
+    medSupplyOrder 0.. and
+    medDispense 0.. and
+    reactionObs 0.. and
+    immunizationNotGiven 0.. and
     substanceAdmin 0..*
 * entryRelationship[indication] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-8853) such that it"
   * typeCode 1..1
@@ -153,7 +153,7 @@ This information should be included in an Immunization Activity when available. 
   * inversionInd 1..1
   * inversionInd = true (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @inversionInd=\"true\" (CONF:1198-31512)."
-  * sequenceNumber 0..1
+  * sequenceNumber 0..
     * ^comment = "MAY contain zero or one [0..1] sequenceNumber (CONF:1198-31513)."
   * act 1..1
   * act only SubstanceAdministeredAct

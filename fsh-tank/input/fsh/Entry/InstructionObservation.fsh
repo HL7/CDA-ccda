@@ -21,7 +21,7 @@ The value element represents the actual instructions given to the patient. Typic
 * statusCode 1..1
   * code 1..1
   * code = #completed (exactly)
-* effectiveTime 0..1
+* effectiveTime 0..
   * insert IntervalValueOnly
 * value 1..1
 * value only $CD or $ST or $ED

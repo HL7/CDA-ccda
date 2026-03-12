@@ -11,7 +11,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
 * ^status = #draft
 * realmCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] realmCode=\"US\" (CONF:4537-16791)."
-  * code 1..
+  * code 1..1
   * code = #US
 * typeId 1..1
   * ^comment = "SHALL contain exactly one [1..1] typeId (CONF:4537-5361)."
@@ -43,12 +43,12 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
 * languageCode from http://hl7.org/fhir/ValueSet/all-languages (required)
   * ^comment = "SHALL contain exactly one [1..1] languageCode, which SHALL be selected from ValueSet AllLanguages https://www.hl7.org/fhir/valueset-all-languages.html (OID 2.16.840.1.113883.4.642.3.21) DYNAMIC."
 * obeys 4537-6380
-* setId 0..1
+* setId 0..
   * ^condition[+] = "4537-6380"
   * ^condition[+] = "4537-6387" // both tagged because they're interrelated
   * ^comment = "MAY contain zero or one [0..1] setId (CONF:4537-5261)."
 * obeys 4537-6387
-* versionNumber 0..1
+* versionNumber 0..
   * ^condition[+] = "4537-6380" // both tagged because they're interrelated
   * ^condition[+] = "4537-6387"
   * ^comment = "MAY contain zero or one [0..1] versionNumber (CONF:4537-5264)."
@@ -66,7 +66,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * telecom 1..*
       * insert USCDI([[Phone Number / Email]])
       * obeys should-use
-      * use 0..1
+      * use 0..
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-5375)." // man-should
     * patient 1..1
@@ -79,18 +79,18 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * insert USCDI([[Date of Birth - **MAY** be precise to the minute (CONF:4537-32418) (For cases where information about newborn's time of birth needs to be captured)]])
         * ^comment = "This patient SHALL contain exactly one [1..1] birthTime (CONF:4537-5298)."
       * obeys 4537-32993 and 4537-21000
-      * sdtcDeceasedInd 0..1
+      * sdtcDeceasedInd 0..
         * ^short = "sdtc:deceasedInd"
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedInd (CONF:4537-32990)."
-      * sdtcDeceasedTime 0..1
+      * sdtcDeceasedTime 0..
         * insert USCDI([[Date of Death]])
         * ^comment = "This patient MAY contain zero or one [0..1] sdtc:deceasedTime (CONF:4537-32988)."
         * obeys should-value-att and ts-shall-year and ts-should-day
       * insert ShouldElement(maritalStatusCode)
-      * maritalStatusCode 0..1
+      * maritalStatusCode 0..
       * maritalStatusCode from $2.16.840.1.113883.1.11.12212 (required)
         * ^comment = "This patient SHOULD contain zero or one [0..1] maritalStatusCode, which SHALL be selected from ValueSet Marital Status urn:oid:2.16.840.1.113883.1.11.12212 DYNAMIC (CONF:4537-5303)."  // man-should
-      * religiousAffiliationCode 0..1
+      * religiousAffiliationCode 0..
       * religiousAffiliationCode from $2.16.840.1.113883.1.11.19185 (required)
         * ^comment = "This patient MAY contain zero or one [0..1] religiousAffiliationCode, which SHALL be selected from ValueSet Religious Affiliation urn:oid:2.16.840.1.113883.1.11.19185 DYNAMIC (CONF:4537-5317)."
       * raceCode 1..1
@@ -115,7 +115,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * guardian 0..*
         * ^comment = "This patient MAY contain zero or more [0..*] guardian (CONF:4537-5325)."
         * obeys should-us-code
-        * code 0..1
+        * code 0..
         * code from $2.16.840.1.113883.11.20.12.1 (required)
           * ^comment = "The guardian, if present, SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Personal And Legal Relationship Role Type urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC (CONF:4537-5326)." // man-should
         * obeys should-us-addr
@@ -126,7 +126,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * telecom 0..*
           * ^comment = "The guardian, if present, SHOULD contain zero or more [0..*] telecom (CONF:4537-5382)." // auto-should
           * obeys should-use
-          * use 0..1
+          * use 0..
           * use from $2.16.840.1.113883.11.20.9.20 (required)
             * ^comment = "The telecom, if present, SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7993)." // man-should
         * guardianPerson 1..1
@@ -134,7 +134,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
           * name 1..*
           * name only USRealmPersonNamePNUSFIELDED
             * ^comment = "This guardianPerson SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5386)."
-      * birthplace 0..1
+      * birthplace 0..
         * ^comment = "This patient MAY contain zero or one [0..1] birthplace (CONF:4537-5395)."
         * place 1..1
           * ^comment = "The birthplace, if present, SHALL contain exactly one [1..1] place (CONF:4537-5396)."
@@ -147,21 +147,21 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * insert USCDI([[Preferred Language]])
         * languageCode 1..1
         * languageCode from http://terminology.hl7.org/ValueSet/Languages (required)
-        * modeCode 0..1
+        * modeCode 0..
         * modeCode from LanguageAbilityMode (required)
           * ^comment = "The languageCommunication, if present, MAY contain zero or one [0..1] modeCode, which SHALL be selected from ValueSet LanguageAbilityMode urn:oid:2.16.840.1.113883.1.11.12249 DYNAMIC (CONF:4537-5409)."
         * insert ShouldElement(proficiencyLevelCode)
-        * proficiencyLevelCode 0..1
+        * proficiencyLevelCode 0..
         * proficiencyLevelCode from LanguageAbilityProficiency (required)
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] proficiencyLevelCode, which SHALL be selected from ValueSet LanguageAbilityProficiency urn:oid:2.16.840.1.113883.1.11.12199 DYNAMIC (CONF:4537-9965)." // man-should
         * insert ShouldElement(preferenceInd)
-        * preferenceInd 0..1
+        * preferenceInd 0..
           * ^comment = "The languageCommunication, if present, SHOULD contain zero or one [0..1] preferenceInd (CONF:4537-5414)." // auto-should
-    * providerOrganization 0..1
+    * providerOrganization 0..
       * ^comment = "This patientRole MAY contain zero or one [0..1] providerOrganization (CONF:4537-5416)."
       * id 1..*
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] id (CONF:4537-5417)."
-        * root 0..1
+        * root 0..
           * obeys should-npi
           * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16820)." // man-should
       * name 1..*
@@ -169,7 +169,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * telecom 1..*
         * ^comment = "The providerOrganization, if present, SHALL contain at least one [1..*] telecom (CONF:4537-5420)."
         * obeys should-use
-        * use 0..1
+        * use 0..
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7994)." // man-should
       * addr 1..*
@@ -191,17 +191,17 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] id (CONF:4537-32882) such that it, This assignedAuthor SHALL contain at least one [1..*] id (CONF:4537-5449)."
     // This seems easier than using slice() which requires a structure parameter that isn't quite present in FSH
     * obeys should-id-npi
-    * id contains npi 0..1
+    * id contains npi 0..
     * id[npi]
       * nullFlavor ^short = "If NPI is unknown, set @nullFlavor to UNK"
       * root 1..1
       * root = "2.16.840.1.113883.4.6"
         * ^comment = "SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-32884)."
       * obeys should-extension
-      * extension 0..1
+      * extension 0..
         * ^comment = "SHOULD contain zero or one [0..1] @extension (CONF:4537-32885)." // man-should
     * obeys should-us-code
-    * code 0..1
+    * code 0..
       * ^short = "Only if this assignedAuthor is an assignedPerson should the assignedAuthor contain a code."
       * ^comment = "This assignedAuthor SHOULD contain zero or one [0..1] code (CONF:4537-16787)." // auto-should
       * insert BindAtCode($2.16.840.1.114222.4.11.1066, preferred)
@@ -212,21 +212,21 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * telecom 1..*
       * ^comment = "This assignedAuthor SHALL contain at least one [1..*] telecom (CONF:4537-5428)."
       * obeys should-use
-      * use 0..1
+      * use 0..
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7995)." // man-should
-    * assignedPerson 0..1
+    * assignedPerson 0..
       * ^comment = "MAY contain assignedPerson"
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The assignedPerson, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-16789)."
-    * assignedAuthoringDevice 0..1
+    * assignedAuthoringDevice 0..
       * ^comment = "MAY contain assignedAuthoringDevice"
       * manufacturerModelName 1..1
         * ^comment = "The assignedAuthoringDevice, if present, SHALL contain exactly one [1..1] manufacturerModelName (CONF:4537-16784)."
       * softwareName 1..1
         * ^comment = "The assignedAuthoringDevice, if present, SHALL contain exactly one [1..1] softwareName (CONF:4537-16785)."
-* dataEnterer 0..1
+* dataEnterer 0..
   * ^short = "The dataEnterer element represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content found within the header or body of a document, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
   * ^comment = "MAY contain zero or one [0..1] dataEnterer (CONF:4537-5441)."
   * time only USRealmDateTime
@@ -234,10 +234,10 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * ^comment = "The dataEnterer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5442)."
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5443)."
-      * root 0..1
+      * root 0..
         * obeys should-npi
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16821)." // man-should
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32173)."
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
@@ -247,7 +247,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5466)."
       * obeys should-use
-      * use 0..1
+      * use 0..
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7996)." // man-should
     * assignedPerson 1..1
@@ -271,9 +271,9 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-8002)."
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-9945)."
-      * root 0..1
+      * root 0..
         * obeys should-npi
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-32174)."
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
@@ -301,7 +301,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * ^comment = "This assignedCustodian SHALL contain exactly one [1..1] representedCustodianOrganization (CONF:4537-5521)."
       * id 1..*
         * ^comment = "This representedCustodianOrganization SHALL contain at least one [1..*] id (CONF:4537-5522)."
-        * root 0..1
+        * root 0..
           * obeys should-npi
           * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16822)." // man-should
       * name 1..1
@@ -309,7 +309,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * telecom 1..1
         * ^comment = "This representedCustodianOrganization SHALL contain exactly one [1..1] telecom (CONF:4537-5525)."
         * obeys should-use
-        * use 0..1
+        * use 0..
         * use from $2.16.840.1.113883.11.20.9.20 (required)
           * ^comment = "This telecom SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7998)." // man-should
       * sdtcTelecom ^short = "The stdc:telecom extension can be used to provide additional telecom elements for the custodian organization."
@@ -323,17 +323,17 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * ^comment = "The informationRecipient, if present, SHALL contain exactly one [1..1] intendedRecipient (CONF:4537-5566)."
     * id 0..*
       * ^comment = "This intendedRecipient MAY contain zero or more [0..*] id (CONF:4537-32399)."
-    * informationRecipient 0..1
+    * informationRecipient 0..
       * ^comment = "This intendedRecipient MAY contain zero or one [0..1] informationRecipient (CONF:4537-5567)."
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The informationRecipient, if present, SHALL contain at least one [1..*] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4537-5568)."
-    * receivedOrganization 0..1
+    * receivedOrganization 0..
       * ^comment = "This intendedRecipient MAY contain zero or one [0..1] receivedOrganization (CONF:4537-5577)."
       * name 1..1
         * ^comment = "The receivedOrganization, if present, SHALL contain exactly one [1..1] name (CONF:4537-5578)."
 * insert ShouldElement(legalAuthenticator)
-* legalAuthenticator 0..1
+* legalAuthenticator 0..
   * ^short = "The legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. A clinical document that does not contain this element has not been legally authenticated. The act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. Based on local practice, clinical documents may be released before legal authentication.  All clinical documents have the potential for legal authentication, given the appropriate credentials. Local policies MAY choose to delegate the function of legal authentication to a device or system that generates the clinical document. In these cases, the legal authenticator is a person accepting responsibility for the document, not the generating device or system. Note that the legal authenticator, if present, must be a person."
   * ^comment = "SHOULD contain zero or one [0..1] legalAuthenticator (CONF:4537-5579)." // auto-should
   * time 1..1
@@ -344,17 +344,17 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * code 1..1
     * code = #S
       * ^comment = "This signatureCode SHALL contain exactly one [1..1] @code=\"S\" (CodeSystem: HL7ParticipationSignature urn:oid:2.16.840.1.113883.5.89 STATIC) (CONF:4537-5584)."
-  * sdtcSignatureText 0..1
+  * sdtcSignatureText 0..
     * ^short = "The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:\n1) Electronic signature: this attribute can represent virtually any electronic signature scheme.\n2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.\n The sdtc:signatureText extension provides a location in CDA for a textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. Details of what goes in the field are described in the HL7 CDA Digital Signature Standard balloted in Fall 2013."
     * ^comment = "The legalAuthenticator, if present, MAY contain zero or one [0..1] sdtc:signatureText (CONF:4537-30810)."
   * assignedEntity 1..1
     * ^comment = "The legalAuthenticator, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5585)."
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5586)."
-      * root 0..1
+      * root 0..
         * ^short = "MAY contain '2.16.840.1.113883.4.6' (NPI)"
         * ^comment = "Such ids MAY contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-16823)."
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-17000)."
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
@@ -364,7 +364,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5595)."
       * obeys should-use
-      * use 0..1
+      * use 0..
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-7999)." // man-should
     * assignedPerson 1..1
@@ -381,19 +381,19 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * code 1..1
     * code = #S
       * ^comment = "This signatureCode SHALL contain exactly one [1..1] @code=\"S\" (CodeSystem: HL7ParticipationSignature urn:oid:2.16.840.1.113883.5.89 STATIC) (CONF:4537-5611)."
-  * sdtcSignatureText 0..1
+  * sdtcSignatureText 0..
     * ^short = "The signature can be represented either inline or by reference according to the ED data type. Typical cases for CDA are:\n1) Electronic signature: this attribute can represent virtually any electronic signature scheme.\n2) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc.\n The sdtc:signatureText extension provides a location in CDA for a textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. Details of what goes in the field are described in the HL7 CDA Digital Signature Standard balloted in Fall of 2013."
     * ^comment = "MAY contain zero or one [0..1] sdtc:signatureText (CONF:4537-30811)."
   * assignedEntity 1..1
     * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:4537-5612)."
     * id 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-5613)."
-      * root 0..1
+      * root 0..
         * obeys should-npi
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier  (CONF:4537-16824)." // man-should
-    * code 0..1
+    * code 0..
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] code (CONF:4537-16825)."
-      * code 0..1
+      * code 0..
       * code from $2.16.840.1.114222.4.11.1066 (preferred)
         * ^comment = "The code, if present, MAY contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-16826)."
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
@@ -403,7 +403,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * telecom 1..*
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] telecom (CONF:4537-5622)."
       * obeys should-use
-      * use 0..1
+      * use 0..
       * use from $2.16.840.1.113883.11.20.9.20 (required)
         * ^comment = "Such telecoms SHOULD contain zero or one [0..1] @use, which SHALL be selected from ValueSet Telecom Use (US Realm Header) urn:oid:2.16.840.1.113883.11.20.9.20 DYNAMIC (CONF:4537-8000)." // man-should
     * assignedPerson 1..1
@@ -443,10 +443,10 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * typeCode 1..1
       * typeCode from $2.16.840.1.113883.1.11.19601 (required)
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] @typeCode, which SHALL be selected from ValueSet x_ServiceEventPerformer urn:oid:2.16.840.1.113883.1.11.19601 STATIC (CONF:4537-14840)."
-      * functionCode 0..1
+      * functionCode 0..
         * ^comment = "The performer, if present, MAY contain zero or one [0..1] functionCode (CONF:4537-16818)."
         * obeys should-code-attr
-        * code 0..1
+        * code 0..
         * code from $2.16.840.1.113762.1.4.1099.30 (preferred)
           * ^comment = "The functionCode, if present, SHOULD contain zero or one [0..1] @code, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4537-32889)." // man-should
       * time only USRealmDateTimeInterval
@@ -454,11 +454,11 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
         * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-14841)."
         * id 1..*
           * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4537-14846)."
-          * root 0..1
+          * root 0..
             * obeys should-npi
             * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4537-14847)." // man-should
         * obeys should-us-code
-        * code 0..1
+        * code 0..
         * code from $2.16.840.1.114222.4.11.1066 (preferred)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:4537-14842)." // man-should
 * authorization 0..*
@@ -468,7 +468,7 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
     * ^comment = "SHALL contain exactly one [1..1] consent (CONF:4537-16793)."
     * id 0..*
       * ^comment = "This consent MAY contain zero or more [0..*] id (CONF:4537-16794)."
-    * code 0..1
+    * code 0..
       * ^short = "The type of consent (e.g., a consent to perform the related serviceEvent) is conveyed in consent/code."
       * ^comment = "This consent MAY contain zero or one [0..1] code (CONF:4537-16795)."
     * statusCode 1..1
@@ -476,21 +476,21 @@ In all C-CDA documents, at least one section SHALL contain clinically relevant i
       * code 1..1
       * code = #completed (exactly)
         * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:4537-16798)."
-* componentOf 0..1
+* componentOf 0..
   * ^short = "The encompassing encounter represents the setting of the clinical encounter during which the document act(s) or ServiceEvent(s) occurred. In order to represent providers associated with a specific encounter, they are recorded within the encompassingEncounter as participants. In a CCD, the encompassingEncounter may be used when documenting a specific encounter and its participants. All relevant encounters in a CCD may be listed in the encounters section."
   * ^comment = "MAY contain zero or one [0..1] componentOf (CONF:4537-9955)."
   * encompassingEncounter 1..1
     * ^comment = "The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:4537-9956)."
     * id 1..*
       * ^comment = "This encompassingEncounter SHALL contain at least one [1..*] id (CONF:4537-9959)."
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.113762.1.4.1240.5 (preferred)
       * ^comment = "This encompassingEncounter MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Act Encounter Codes urn:oid:2.16.840.1.113762.1.4.1240.5 (CONF:1198-30873)."
     * effectiveTime 1..1
     * effectiveTime only USRealmDateTimeInterval
       * ^comment = "This encompassingEncounter SHALL contain exactly one [1..1] US Realm Date and Time (Interval) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.3) (CONF:4537-9958)."
     * obeys should-responsibleParty
-    * responsibleParty 0..1
+    * responsibleParty 0..
       * ^comment = "This encompassingEncounter SHOULD contain zero or one [0..1] responsibleParty (CONF:1198-8391)." // auto-should
       * assignedEntity 1..1
         * obeys 1198-32905
@@ -517,7 +517,7 @@ Description: "If sdtc:deceasedInd=\"true\", then sdtc:deceasedTime **SHALL** be 
 Severity: #error
 Expression: "sdtcDeceasedInd.exists(value='true') implies sdtcDeceasedTime.exists()"
 
-// This is redundant - patient always requires 1..1 raceCode
+// This is redundant - patient always requires 1.. raceCode
 // Invariant: 4537-31347
 // Description: "If sdtc:raceCode is present, then the patient **SHALL** contain [1..1] raceCode (CONF:4537-31347)."
 // Severity: #error

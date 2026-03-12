@@ -34,7 +34,7 @@ The components of the organizer contain the following information:
   * codeSystem 1..1
   * codeSystem = "2.16.840.1.113883.6.1"
     * ^comment = "This code SHALL contain exactly one [1..1] @codeSystem=\"2.16.840.1.113883.6.1\" LOINC (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:4515-121)."
-  * originalText 0..1
+  * originalText 0..
     * ^comment = "This code SHOULD contain zero or one [0..1] originalText (CONF:4515-154) such that it"
     * reference 1..1
       * ^comment = "SHALL contain exactly one [1..1] reference (CONF:4515-155)."
@@ -49,7 +49,7 @@ The components of the organizer contain the following information:
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-127)."
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4515-157)."
-  * high 0..1
+  * high 0..
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4515-158)."
 * insert ShouldElement(author)
 * author 0..*
@@ -66,7 +66,7 @@ The components of the organizer contain the following information:
   * typeCode 1..1
   * typeCode = #PPRF (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"PPRF\" Primary Performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:4515-129)."
-  * sdtcFunctionCode 0..1
+  * sdtcFunctionCode 0..
   * sdtcFunctionCode from $2.16.840.1.113762.1.4.1099.30 (preferred)
     * ^short = "Describes the person's, caregiver's or health care provider's functional role on the care team."
     * ^comment = "MAY contain zero or one [0..1] sdtc:functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-130)."
@@ -86,7 +86,7 @@ The components of the organizer contain the following information:
     * id 1..*
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:4515-138)."
     * obeys should-addr
-    * addr 0..1
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] addr (CONF:4515-139)." // auto-should
     * obeys should-telecom
@@ -112,7 +112,7 @@ The components of the organizer contain the following information:
     type 0..* and
     entryReference 0..* and
     encounter 0..* and
-    note 0..1 and
+    note 0.. and
     member 1..*
 * component[type] ^short = "component"
   * ^comment = "MAY contain zero or more [0..*] component (CONF:4515-110) such that it"

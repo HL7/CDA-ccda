@@ -35,7 +35,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
 * text 1..1
   * ^comment = "SHALL contain exactly one [1..1] text (CONF:3250-16896)."
   * obeys 3250-16912
-  * mediaType 0..1
+  * mediaType 0..
   * mediaType from SupportedFileFormats (preferred)
     * ^short = "If the note was originally in another format, such as RTF, this element may also contain the base-64-encoded raw data of the note in addition to a reference to the narrative."
     * ^comment = "This text MAY contain zero or one [0..1] @mediaType, which SHOULD be selected from ValueSet SupportedFileFormats urn:oid:2.16.840.1.113883.11.20.7.1 DYNAMIC (CONF:3250-16906)."
@@ -53,7 +53,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
   * ^short = "The effectiveTime represents the clinically relevant time of the note. The precise timestamp of creation / updating should be conveyed in author/time."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:3250-16903)."
   * obeys should-value-att
-  * value 0..1
+  * value 0..
     * ^comment = "This effectiveTime SHOULD contain zero or one [0..1] @value (CONF:3250-16917)." // man-should
 * author 1..*
 * author only AuthorParticipation
@@ -81,7 +81,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
       * ^short = "This may be the ID of the note author. If so, no additional information in this participant is required."
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:3250-16927)."
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
-    * playingEntity 0..1
+    * playingEntity 0..
       * ^comment = "This participantRole MAY contain zero or one [0..1] playingEntity (CONF:3250-16928)."
       * name 1..*
       * name only USRealmPersonNamePNUSFIELDED
@@ -99,7 +99,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
   * inversionInd 1..1
   * inversionInd = true (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @inversionInd=\"true\" (CONF:3250-16922)."
-  * negationInd 0..1
+  * negationInd 0..
     * ^short = "To communicate that the note is not associated with any encounter, this entryRelationship MAY be included with @negationInd=\"true\" and encounter/id/@nullFlavor=\"NA\". The negationInd + encounter indicate this note is not associated with any encounter."
     * ^comment = "MAY contain zero or one [0..1] @negationInd (CONF:3250-16931)."
   * encounter 1..1
@@ -119,7 +119,7 @@ The narrative Clinical Notes required in USCDI, along with their associated LOIN
     * id 1..1
       * ^comment = "This externalDocument SHALL contain exactly one [1..1] id (CONF:3250-16915)."
     * obeys should-code
-    * code 0..1
+    * code 0..
       * ^comment = "This externalDocument SHOULD contain zero or one [0..1] code (CONF:3250-16918)." // auto-should
 
 Invariant: 3250-16912

@@ -10,7 +10,7 @@ The agent responsible for an allergy or adverse reaction is not always a manufac
 
 * insert LogicalModelTemplate(allergy, 2.16.840.1.113883.10.20.22.4.7, 2014-06-09)
 
-* negationInd 0..1
+* negationInd 0..
   * ^short = "Use negationInd=\"true\" to indicate that the allergy was not observed."
   * ^comment = "MAY contain zero or one [0..1] @negationInd (CONF:1098-31526)."
 * effectiveTime ^short = "If the allergy/intolerance is known to be resolved, but the date of resolution is not known, then the high element SHALL be present, and the nullFlavor attribute SHALL be set to 'UNK'."
