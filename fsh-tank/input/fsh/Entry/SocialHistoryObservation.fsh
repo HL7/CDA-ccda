@@ -44,11 +44,11 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^binding.description = "See additional binding"
   * insert AdditionalBinding(preferred, $SDoHConditions, Social Determinant of Health Observations, [[If the Social History Observation is a Social Determinant of Health Observation, the observation/value code **SHOULD** be selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32957).]])
 * obeys should-sh-author
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^condition = "should-sh-author"
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31869)." // man-should
-* entryRelationship 0..*
+* entryRelationship 0..
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "act"
   * ^slicing.discriminator[+].type = #profile
@@ -56,8 +56,8 @@ There are supplemental templates and guidance for observations of [Occupational 
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32969) such that it"
 * entryRelationship contains
-    supportingObs 0..* and
-    entryReference 0..*
+    supportingObs 0.. and
+    entryReference 0..
 * entryRelationship[supportingObs] ^short = "When an Assessment Scale Observation is contained in a Social History Observation instance that is a Social Determinant of Health Social History Observation, that Assessment Scale Observation MAY contain Assessment Scale Supporting Observations that contain LOINC question and answer pairs from SDOH screening instruments."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-32958) such that it"
   * typeCode 1..1

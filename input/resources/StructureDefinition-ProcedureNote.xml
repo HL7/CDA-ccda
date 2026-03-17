@@ -248,7 +248,7 @@
             <short value="This performer participant represents clinicians who actually and principally carry out the serviceEvent. Typically, these are clinicians who have the appropriate privileges in their institutions such as gastroenterologists, interventional radiologists, and family practice physicians. Performers may also be non-physician providers (NPPs) who have other significant roles in the procedure such as a radiology technician, dental assistant, or nurse. Any assistants are identified as a secondary performer (SPRF) in a second performer participant."/>
             <comment value="This serviceEvent SHALL contain exactly one [1..1] performer (CONF:1198-8520) such that it"/>
             <min value="1"/>
-            <max value="1"/>
+            <max value="*"/>
         </element>
         <element id="ClinicalDocument.documentationOf.serviceEvent.performer:primary.typeCode">
             <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
@@ -309,7 +309,6 @@
             <path value="ClinicalDocument.authorization"/>
             <short value="Authorization represents consent. Consent, if present, shall be represented by authorization/consent."/>
             <comment value="MAY contain zero or one [0..1] authorization (CONF:1198-32412)."/>
-            <max value="1"/>
         </element>
         <element id="ClinicalDocument.authorization.consent">
             <path value="ClinicalDocument.authorization.consent"/>
@@ -359,7 +358,7 @@
             <sliceName value="referrer"/>
             <comment value="This encompassingEncounter MAY contain zero or one [0..1] encounterParticipant (CONF:1198-30874) such that it"/>
             <min value="0"/>
-            <max value="1"/>
+            <max value="*"/>
         </element>
         <element id="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant:referrer.typeCode">
             <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant.typeCode"/>

@@ -39,7 +39,7 @@ Immunization Refusal Reason: 2.16.840.1.113883.10.20.22.4.53 should be used to r
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4537-11366)."
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-27551)."
-  * high 0..1
+  * high 0..
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-27552)."
 * value 1..1
 * value only $CD

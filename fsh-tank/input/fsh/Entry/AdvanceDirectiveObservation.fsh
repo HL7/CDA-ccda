@@ -23,7 +23,7 @@ The Advance Directive Observation template also can be nested within an Interven
 * code 1..1
   * insert CodedLoinc(75320-2, [[Advance Directive]])
   * obeys should-translation
-  * translation 0..*
+  * translation 0..
   * translation from $2.16.840.1.113883.11.20.9.69.4 (preferred)   
     * insert USCDI([[Advance Directive Type]])
     * ^comment = "This code SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Advance Directives Categories urn:oid:2.16.840.1.113883.11.20.9.69.4." // man-should
@@ -41,19 +41,19 @@ The Advance Directive Observation template also can be nested within an Interven
     * ^short = "If the Advance Directive does not have a specified ending time, use a nullFlavor of *NA*.
 If the ending time is unknown, use a nullFlavor of *UNK*."
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] high."
-* value 0..1
+* value 0..1 // Was SHALL 1..1 in C-CDA 2.1, so keeping upper-limit of 1
 * value only $CD
 * value from $AdvanceDirectiveDocumentTypes (preferred)
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
-    verifier 0..* and
-    healthcareAgent 0..* and
+    verifier 0.. and
+    healthcareAgent 0.. and
     assignedCustodian 1..1
 * participant[verifier]
   * insert USCDI([[Verifier - The participant \"VRF\" represents the clinician(s) who verified the patient advance directive.]])
@@ -72,17 +72,17 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
     * extension 0..0
       * ^comment = "SHALL not contain [0..0] extension"
   * obeys should-time
-  * time 0..1
+  * time 0..
     * ^comment = "SHOULD contain zero or one [0..1] time (CONF:1198-8665)." // auto-should
     * insert IntervalValueOnly
   * participantRole 1..1
     * ^comment = "SHALL contain exactly one [1..1] participantRole (CONF:1198-8825)."
     * obeys should-code
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-28446)." // man-should
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This participantRole MAY contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-28451)."
     * playingEntity 1..1
@@ -103,21 +103,21 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
     * classCode = #AGNT (exactly)
       * ^comment = "This participantRole SHALL contain exactly one [1..1] @classCode=\"AGNT\" Agent (CodeSystem: HL7RoleClass urn:oid:2.16.840.1.113883.5.110 STATIC) (CONF:1198-8670)."
     * obeys should-code
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.113762.1.4.1046.35 (preferred)
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Agent or Proxy Choices urn:oid:2.16.840.1.113762.1.4.1046.35 DYNAMIC (CONF:1198-28440)." // man-should
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * obeys should-addr
-    * addr 0..1
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This participantRole SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:1198-8671)."  // man-should
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * ^comment = "This participantRole SHOULD contain zero or more [0..*] telecom (CONF:1198-8672)." // auto-should
     * playingEntity 1..1
       * ^comment = "This participantRole SHALL contain exactly one [1..1] playingEntity (CONF:1198-8824)."
       * obeys should-code
-      * code 0..1
+      * code 0..
       * code from $2.16.840.1.113883.11.20.12.1 (preferred)
         * ^comment = "This playingEntity SHOULD contain zero or one [0..1] code, which SHOULD be selected from ValueSet Personal and Legal Relationship RoleType urn:oid:2.16.840.1.113883.11.20.12.1 DYNAMIC." // man-should
       * name 1..1
@@ -149,9 +149,9 @@ If the ending time is unknown, use a nullFlavor of *UNK*."
     * insert USCDI([[External Document]])
     * id 1..*
       * ^comment = "This externalDocument SHALL contain at least one [1..*] id (CONF:1198-8695)."
-    * text 0..1
+    * text 0..
       * ^comment = "This externalDocument MAY contain zero or one [0..1] text (CONF:1198-8696)."
-      * reference 0..1
+      * reference 0..
         * obeys 1198-8699
         * ^short = "The URL of a referenced advance directive document **MAY** be present, and **SHALL** be represented in Observation/reference/ExternalDocument/text/reference (CONF:1198-8698)."
         * ^comment = "The text, if present, MAY contain zero or one [0..1] reference (CONF:1198-8697)."

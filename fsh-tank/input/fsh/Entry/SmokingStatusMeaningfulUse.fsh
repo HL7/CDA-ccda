@@ -39,10 +39,10 @@ If the patient's current smoking status is unknown, the value element must be po
 * value only $CD
   * insert USCDI([[Smoking Status]])
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF:1098-14810).  If the patient's current smoking status is unknown, @code **SHALL** contain '266927001' (Unknown if ever smoked) from ValueSet Current Smoking Status (2.16.840.1.113883.11.20.9.38 STATIC 2014-09-01) (CONF:1098-31019)."
-  * code 0..1
+  * code 0..
   * code from $2.16.840.1.113883.11.20.9.38 (preferred)
     * ^comment = "This value SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Smoking Status urn:oid:2.16.840.1.113883.11.20.9.38 DYNAMIC (CONF:1098-14817)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31148)." // man-should

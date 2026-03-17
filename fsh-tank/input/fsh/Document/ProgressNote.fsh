@@ -21,7 +21,7 @@ Systems shall include the full narrative Progress Note in an appropriate section
   * ^short = "The Progress Note recommends use of a single document type code, 11506-3 \"Progress note\", with further specification provided by author or performer, setting, or specialty. When pre-coordinated codes are used, any coded values describing the author or performer of the service act or the practice setting must be consistent with the LOINC document type."
   * ^comment = "SHALL contain exactly one [1..1] code (CONF:1198-17189)."
 * insert ShouldElement(documentationOf)
-* documentationOf 0..1
+* documentationOf 0..
   * ^short = "A documentationOf can contain a serviceEvent to further specialize the act inherent in the ClinicalDocument/code. In a Progress Note, a serviceEvent can represent the event of writing the Progress Note. The serviceEvent/effectiveTime is the time period the note documents."
   * ^comment = "SHOULD contain zero or one [0..1] documentationOf (CONF:1198-7603)." // auto-should
   * serviceEvent 1..1
@@ -90,7 +90,7 @@ Systems shall include the full narrative Progress Note in an appropriate section
         nutrition 0..1 and
         mentalStatus 0..1 and
         advDirectives 0..1 and
-        notes 0..1
+        notes 0..
     * component[assessment] ^comment = "This structuredBody MAY contain zero or one [0..1] component (CONF:1198-30618)."
       * ^condition[+] = "ap-or-a-and-p"
       * ^condition[+] = "ap-combo"

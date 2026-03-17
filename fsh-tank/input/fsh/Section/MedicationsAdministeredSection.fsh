@@ -9,7 +9,7 @@ templateId 2.16.840.1.113883.10.20.22.2.25."""
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "substanceAdministration"
   * ^slicing.rules = #open
-* entry contains medication 0..1
+* entry contains medication 0..
 * entry[medication] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8156)."
   * substanceAdministration 1..1
   * substanceAdministration only MedicationActivity

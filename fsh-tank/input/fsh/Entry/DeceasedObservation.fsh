@@ -41,7 +41,7 @@ Description: "This template represents the observation that a patient has died. 
   * ^slicing.discriminator[+].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
-* entryRelationship contains problemObservation 0..1
+* entryRelationship contains problemObservation 0..
 * entryRelationship[problemObservation] ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1198-14868) such that it"
   * typeCode 1..1
   * typeCode = #CAUS (exactly)

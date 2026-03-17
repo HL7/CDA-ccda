@@ -35,10 +35,10 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1198-32684)."
 * insert ShouldElement(effectiveTime)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1198-32723)." // auto-should
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32719)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
@@ -58,17 +58,17 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * ^slicing.rules = #open
 * entryRelationship contains
     reason 1..* and
-    immunizationActivity 0..* and
-    medicationActivity 0..* and
-    instruction 0..* and
-    nonMedSupply 0..* and
-    plannedEncounter 0..* and
-    plannedProcedure 0..* and
-    plannedMedicationActivity 0..* and
-    plannedSupply 0..* and
-    nutritionRecommendation 0..* and
-    entryReference 0..* and
-    plannedImmunizationActivity 0..*
+    immunizationActivity 0.. and
+    medicationActivity 0.. and
+    instruction 0.. and
+    nonMedSupply 0.. and
+    plannedEncounter 0.. and
+    plannedProcedure 0.. and
+    plannedMedicationActivity 0.. and
+    plannedSupply 0.. and
+    nutritionRecommendation 0.. and
+    entryReference 0.. and
+    plannedImmunizationActivity 0..
 * entryRelationship[immunizationActivity] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32656) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -155,7 +155,7 @@ All interventions referenced in a Planned Intervention Act must have moodCodes i
   * substanceAdministration 1..1
   * substanceAdministration only PlannedImmunizationActivity
     * ^comment = "SHALL contain exactly one [1..1] Planned Immunization Activity (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.120) (CONF:1198-32729)."
-* reference 0..*
+* reference 0..
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1198-32766)."
   * typeCode 1..1
   * typeCode = #REFR (exactly)

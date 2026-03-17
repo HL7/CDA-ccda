@@ -49,9 +49,9 @@ RuleSet: BindAtCode(valueSet, strength)
 
 // Use to require code or nullFlavor on an element - makes the display look nice
 RuleSet: ShallCodeOrNullFlavor
-* code 0..1
+* code 0..
   * ^comment = "Either code or nullFlavor MUST be present"
-* nullFlavor 0..1
+* nullFlavor 0..
   * ^comment = "Either code or nullFlavor MUST be present"
 * obeys shall-code-or-nullflavor
 Invariant: shall-code-or-nullflavor
@@ -63,10 +63,10 @@ Expression: "(code | nullFlavor).count() = 1"
 // Inserts a "SHOULD" on the <text> element down to @value, and then requires that @value starts with #
 RuleSet: NarrativeLink
 * obeys should-text-ref-value
-* text 0..1
+* text 0..
   * ^condition = "should-text-ref-value"
   * ^short = "SHOULD reference the portion of section narrative text corresponding to this entry"
-  * reference 0..1
+  * reference 0..
     * obeys value-starts-octothorpe
 Invariant: should-text-ref-value
 Severity: #warning
@@ -80,10 +80,10 @@ Expression: "value.exists() implies value.startsWith('#')"
 // Similar to NarrativeLink, but for <originalText> elements
 RuleSet: NarrativeOriginalText
 * obeys should-otext-ref-value
-* originalText 0..1
+* originalText 0..
   * ^condition = "should-otext-ref-value"
   * ^short = "SHOULD reference the portion of narrative corresponding to this code"
-  * reference 0..1
+  * reference 0..
     * obeys value-starts-octothorpe
 Invariant: should-otext-ref-value
 Severity: #warning
@@ -93,10 +93,10 @@ Expression: "originalText.reference.value.exists()"
 // Similar to NarrativeLink, but for <originalText> elements
 RuleSet: NarrativeLinkOrganizer
 * obeys should-sdtctext-ref-value
-* sdtcText 0..1
+* sdtcText 0..
   * ^condition = "should-sdtctext-ref-value"
   * ^short = "SHOULD reference the portion of section narrative text corresponding to this entry"
-  * reference 0..1
+  * reference 0..
     * obeys value-starts-octothorpe
 Invariant: should-sdtctext-ref-value
 Severity: #warning
@@ -106,7 +106,7 @@ Expression: "sdtcText.reference.value.exists()"
 // Use on IVL_TS / IVL_INT / etc when you want to only allow the value (cleaner than a bunch of 0..0's)
 RuleSet: IntervalValueOnly
 * obeys value-only
-* value 0..1
+* value 0..
   * ^short = "value should be used instead of low/high"
 Invariant: value-only
 Severity: #error

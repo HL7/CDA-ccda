@@ -33,11 +33,11 @@ Description: """This clinical statement represents a caregiver's willingness to 
   * typeCode 1..1
   * typeCode = #IND (exactly)
     * ^comment = "Such participants SHALL contain exactly one [1..1] @typeCode=\"IND\" (CONF:81-26451)."
-  * time 0..1
+  * time 0..
     * ^comment = "Such participants MAY contain zero or one [0..1] time (CONF:81-14830)."
     * low 1..1
       * ^comment = "The time, if present, SHALL contain exactly one [1..1] low (CONF:81-14831)."
-    * high 0..1
+    * high 0..
       * ^comment = "The time, if present, MAY contain zero or one [0..1] high (CONF:81-14832)."
   * participantRole 1..1
     * ^comment = "Such participants SHALL contain exactly one [1..1] participantRole (CONF:81-14228)."

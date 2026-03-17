@@ -25,10 +25,10 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:1198-32225)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:1198-32226)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-32300)." // man-should
 * entryRelationship 
@@ -43,39 +43,39 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * ^slicing.rules = #open
   * ^short = "Where a Health Concern needs to reference another entry already described in the CDA document instance, rather than repeating the full content of the entry, the Entry Reference template may be used to reference this entry."
 * entryRelationship contains
-    problemObservation1 0..* and
-    allergy-IntoleranceObservation 0..* and
-    entryReferenceRefr 0..* and
-    entryReferenceComp 0..* and
-    assessmentScaleObservation 0..* and
-    mentalStatusObservation1 0..* and
-    self-CareActivitiesADLandIADL 0..* and
-    mentalStatusObservation2 0..* and
-    smokingStatus 0..* and
-    encounterDiagnosis 0..* and
-    entryRelationship11 0..* and
-    functionalStatusObservation 0..* and
-    hospitalAdmissionDiagnosis 0..* and
-    nutritionAssessment 0..* and
-    postprocedureDiagnosis 0..* and
-    pregnancyStatusObservation 0..* and
-    preoperativeDiagnosis 0..* and
-    reactionObservation 0..* and
-    resultObservation 0..* and
-    sensoryStatus 0..* and
-    socialHistoryObservation 0..* and
-    substanceorDeviceAllergy-IntoleranceObservation 0..* and
-    vitalSignObservation 0..* and
-    longitudinalCareWoundObservation 0..* and
-    problemObservation2 0..* and
-    caregiverCharacteristics 0..* and
-    culturalandReligiousObservation 0..* and
-    characteristicsofHomeEnvironment 0..* and
-    nutritionalStatusObservation 0..* and
-    resultOrganizer 0..* and
-    priorityPreference1 0..* and
-    priorityPreference2 0..* and
-    problemConcernAct 0..*
+    problemObservation1 0.. and
+    allergy-IntoleranceObservation 0.. and
+    entryReferenceRefr 0.. and
+    entryReferenceComp 0.. and
+    assessmentScaleObservation 0.. and
+    mentalStatusObservation1 0.. and
+    self-CareActivitiesADLandIADL 0.. and
+    mentalStatusObservation2 0.. and
+    smokingStatus 0.. and
+    encounterDiagnosis 0.. and
+    entryRelationship11 0.. and
+    functionalStatusObservation 0.. and
+    hospitalAdmissionDiagnosis 0.. and
+    nutritionAssessment 0.. and
+    postprocedureDiagnosis 0.. and
+    pregnancyStatusObservation 0.. and
+    preoperativeDiagnosis 0.. and
+    reactionObservation 0.. and
+    resultObservation 0.. and
+    sensoryStatus 0.. and
+    socialHistoryObservation 0.. and
+    substanceorDeviceAllergy-IntoleranceObservation 0.. and
+    vitalSignObservation 0.. and
+    longitudinalCareWoundObservation 0.. and
+    problemObservation2 0.. and
+    caregiverCharacteristics 0.. and
+    culturalandReligiousObservation 0.. and
+    characteristicsofHomeEnvironment 0.. and
+    nutritionalStatusObservation 0.. and
+    resultOrganizer 0.. and
+    priorityPreference1 0.. and
+    priorityPreference2 0.. and
+    problemConcernAct 0..
 * entryRelationship[problemObservation1] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-32179) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -312,7 +312,7 @@ A Risk Concern Act represents a health concern that is a risk. A risk is a clini
   * act 1..1
   * act only ProblemConcernAct
     * ^comment = "SHALL contain exactly one [1..1] Problem Concern Act (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.3:2015-08-01) (CONF:1198-32299)."
-* reference 0..*
+* reference 0..
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:1198-32769)."
   * typeCode 1..1
   * typeCode = #REFR (exactly)

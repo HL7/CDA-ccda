@@ -26,19 +26,19 @@ Description: "This template represents the type of referral (e.g., for dental ca
   * ^short = "The effectiveTime represents the time when the future referral is intended to take place."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30893)."
 * insert ShouldElement(priorityCode)
-* priorityCode 0..1
+* priorityCode 0..
   * ^comment = "SHOULD contain zero or one [0..1] priorityCode (CONF:1098-32623)." // auto-should
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31612)." // man-should
-* participant 0..*
+* participant 0..
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:1098-32635)."
   * typeCode 1..1
     * ^comment = "The participant, if present, SHALL contain exactly one [1..1] @typeCode. Use REFT to represent the referred-to provider."
   * participantRole 1..1
     * ^comment = "The participant, if present, SHALL contain exactly one [1..1] participantRole (CONF:1098-32636)."
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^comment = "This participantRole MAY contain zero or one [0..1] code, which SHOULD be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1098-32637)."
 * entryRelationship ^slicing.discriminator.type = #profile
@@ -46,8 +46,8 @@ Description: "This template represents the type of referral (e.g., for dental ca
   * ^slicing.rules = #open
   * ^short = "The following entryRelationship represents a reference to another act in the document instance representing the clinical reason for the referral (e.g., problem, concern, procedure)."
 * entryRelationship contains
-    careModel 0..* and
-    indication 0..*
+    careModel 0.. and
+    indication 0..
 * entryRelationship[careModel] ^short = "The following entryRelationship represents whether the referral is for full or shared care."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31604) such that it"
   * typeCode 1..1
@@ -75,7 +75,7 @@ Description: "This template represents the type of referral (e.g., for dental ca
       * code = #completed (exactly)
         * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31615)."
     * insert ShouldElement(priorityCode)
-    * priorityCode 0..1
+    * priorityCode 0..
     * priorityCode from $ActPriority (preferred)
       * ^comment = "This observation SHOULD contain zero or one [0..1] priorityCode, which SHOULD be selected from ValueSet ActPriority urn:oid:2.16.840.1.113883.1.11.16866 DYNAMIC (CONF:1098-32443)." // man-should
     * value 1..1

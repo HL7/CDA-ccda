@@ -26,20 +26,20 @@ Description: "This template records the intent to supply a patient with medicati
   * high 1..1
     * ^comment = "SHALL contain exactly one [1..1] high (CONF:1098-15144)."
 * insert ShouldElement(repeatNumber)
-* repeatNumber 0..1
+* repeatNumber 0..
   * ^short = "In \"INT\" (intent) mood, the repeatNumber defines the number of allowed supplies. For example, a repeatNumber of \"3\" means that the substance can be supplied up to 3 times."
   * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:1098-7434)." // auto-should
 * insert ShouldElement(quantity)
-* quantity 0..1
+* quantity 0..
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-7436)." // auto-should
-* product 0..1
+* product 0..
   * ^comment = "MAY contain zero or one [0..1] product (CONF:1098-7439)."
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
     * ^comment = "The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-16093)."
-* author 0..1
+* author 0..
   * ^comment = "MAY contain zero or one [0..1] author (CONF:1098-7438)."
-* entryRelationship 0..1
+* entryRelationship 0..
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-7442)."
   * typeCode 1..1
   * typeCode = #SUBJ (exactly)

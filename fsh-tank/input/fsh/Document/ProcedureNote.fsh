@@ -19,7 +19,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
   * ^slicing.discriminator[=].path = "functionCode.code"
   * ^slicing.rules = #open
   * ^short = "The participant element in the Procedure Note header follows the General Header Constraints for participants."
-* participant contains participant1 0..*
+* participant contains participant1 0..
 * participant[participant1] ^comment = "MAY contain zero or more [0..*] participant (CONF:1198-8504) such that it"
   * typeCode 1..1
   * typeCode = #IND (exactly)
@@ -43,8 +43,8 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
     * performer contains
-        primary 1..1 and
-        secondary 0..*
+        primary 1.. and
+        secondary 0..
     * performer[primary] ^short = "This performer participant represents clinicians who actually and principally carry out the serviceEvent. Typically, these are clinicians who have the appropriate privileges in their institutions such as gastroenterologists, interventional radiologists, and family practice physicians. Performers may also be non-physician providers (NPPs) who have other significant roles in the procedure such as a radiology technician, dental assistant, or nurse. Any assistants are identified as a secondary performer (SPRF) in a second performer participant."
       * ^comment = "This serviceEvent SHALL contain exactly one [1..1] performer (CONF:1198-8520) such that it"
       * typeCode 1..1
@@ -53,7 +53,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-14911)."
         * obeys should-code
-        * code 0..1
+        * code 0..
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-14912)." // man-should
     * performer[secondary] ^comment = "This serviceEvent MAY contain zero or more [0..*] performer (CONF:1198-32732) such that it"
@@ -63,10 +63,10 @@ The Procedure Note is created immediately following a non-operative procedure. I
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32733)."
         * obeys should-code
-        * code 0..1
+        * code 0..
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32735)." // man-should
-    * code 0..1
+    * code 0..
       * obeys 1198-8511
       * ^binding.strength = #required
       * ^binding.description = "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511)."
@@ -80,13 +80,13 @@ The Procedure Note is created immediately following a non-operative procedure. I
         // Need to keep SOMETHING different from USRealmHeader in these 3 fields to keep them in the diff
         * ^short = "Low is required"
         * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1198-26449) / (CONF:1198-8513)."
-      * width 0..1
+      * width 0..
         * ^short = "Represents the duration"
         * ^comment = "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-8515)."
-      * high 0..1
+      * high 0..
         * ^short = "Equals low if only the date is known"
         * ^comment = "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-8514)."
-* authorization 0..1
+* authorization 0..
   * ^short = "Authorization represents consent. Consent, if present, shall be represented by authorization/consent."
   * ^comment = "MAY contain zero or one [0..1] authorization (CONF:1198-32412)."
   // Removing for now - this is a fixed-value element in base CDA with a discrepancy between the fixed value (AUTH) and the coding system (AUTHEN)
@@ -104,7 +104,7 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * statusCode 1..1
       * ^comment = "This consent SHALL contain exactly one [1..1] statusCode (CONF:1198-32417)."
 * insert ShouldElement(componentOf)
-* componentOf 0..1
+* componentOf 0..
   * ^comment = "SHOULD contain zero or one [0..1] componentOf (CONF:1198-30871)." // auto-should
   * encompassingEncounter 1..1
     * ^comment = "The componentOf, if present, SHALL contain exactly one [1..1] encompassingEncounter (CONF:1198-30872)."
@@ -115,12 +115,12 @@ The Procedure Note is created immediately following a non-operative procedure. I
     * encounterParticipant ^slicing.discriminator[0].type = #value
       * ^slicing.discriminator[=].path = "typeCode"
       * ^slicing.rules = #open
-    * encounterParticipant contains referrer 0..1
+    * encounterParticipant contains referrer 0..
     * encounterParticipant[referrer] ^comment = "This encompassingEncounter MAY contain zero or one [0..1] encounterParticipant (CONF:1198-30874) such that it"
       * typeCode 1..1
       * typeCode = #REF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"REF\" Referrer (CONF:1198-30875)."
-    * location 1..
+    * location 1..1
       * healthCareFacility 1..1
         * ^comment = "Such locations SHALL contain exactly one [1..1] healthCareFacility (CONF:1198-30877)."
         * id 1..*

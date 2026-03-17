@@ -19,11 +19,11 @@ Examples of referral situations are when a patient is referred from a family phy
   * intendedRecipient 1..1
     * ^comment = "This informationRecipient SHALL contain exactly one [1..1] intendedRecipient (CONF:1198-31590)."
     * obeys should-addr
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] addr (CONF:1198-31591)." // auto-should
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * ^comment = "This intendedRecipient SHOULD contain zero or more [0..*] telecom (CONF:1198-31592)." // auto-should
     * informationRecipient 1..1
       * ^comment = "This intendedRecipient SHALL contain exactly one [1..1] informationRecipient (CONF:1198-31593)."
@@ -36,8 +36,8 @@ Examples of referral situations are when a patient is referred from a family phy
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * participant contains
-    indirect 0..* and
-    callback 0..*
+    indirect 0.. and
+    callback 0..
 * participant[indirect] ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1198-31642) such that it"  // man-should
   * typeCode 1..1
   * typeCode = #IND (exactly)
@@ -65,7 +65,7 @@ Examples of referral situations are when a patient is referred from a family phy
     * id 1..*
       * ^comment = "This associatedEntity SHALL contain at least one [1..*] id (CONF:1198-31650)."
     * obeys should-addr
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This associatedEntity SHOULD contain zero or more [0..*] addr (CONF:1198-31651)." // auto-should
     * telecom 1..*
@@ -74,7 +74,7 @@ Examples of referral situations are when a patient is referred from a family phy
       * ^comment = "This associatedEntity SHALL contain exactly one [1..1] associatedPerson (CONF:1198-31653)."
       * name 1..*
         * ^comment = "This associatedPerson SHALL contain at least one [1..*] name (CONF:1198-31654)."
-    * scopingOrganization 0..1
+    * scopingOrganization 0..
       * ^comment = "This associatedEntity MAY contain zero or one [0..1] scopingOrganization (CONF:1198-31655)."
 * component 1..1
   * structuredBody 1..1

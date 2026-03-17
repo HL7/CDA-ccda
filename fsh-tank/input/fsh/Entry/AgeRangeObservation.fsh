@@ -27,14 +27,14 @@ Description: """This Age Range Observation captures an estimated age range when 
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
   * ^short = "Represents the age range during which the event or observation occurred"
-* value contains range 0..1 and text 0..1
+* value contains range 0.. and text 0..
 * value[range] only $IVL-PQ
   * ^short = "Indicates the age range during which the event or observation occurred. Use when actual ages are known."
   * low 1..1
     * ^comment = "This value SHALL contain exactly one [1..1] low."
     * unit 1..1
     * unit from AgePQ_UCUM (required)
-  * high 0..1
+  * high 0..
     * ^comment = "This value MAY contain exactly one [0..1] high."
     * unit 1..1
     * unit from AgePQ_UCUM (required)

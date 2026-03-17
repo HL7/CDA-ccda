@@ -28,7 +28,7 @@ Implementers wishing to convey more advanced Occupation detail, such as employer
   * low 1..1
     * ^short = "The low value reflects the start date of the recorded occupation."
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4537-33007)."
-  * high 0..1
+  * high 0..
     * ^short = "The high value reflects the end date of the recorded occupation. An absent high value means the occupation was current at the time the document was generated."
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4537-33008)."
 * value 1..1
@@ -36,12 +36,12 @@ Implementers wishing to convey more advanced Occupation detail, such as employer
 * value[coded] 1..1
 * value[coded] from $2.16.840.1.114222.4.11.7901 (required)
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\", which SHALL be selected from ValueSet Occupation ONETSOC Detail (ODH) urn:oid:2.16.840.1.114222.4.11.7901 DYNAMIC (CONF:4537-33006)."
-* subject 0..1
+* subject 0..
   * ^short = "Indicates that this observation is for a related person whose occupation may affect the patient."
   * ^comment = "MAY contain zero or one [0..1] subject (CONF:4537-33058)."
   * relatedSubject 1..1
     * ^comment = "The subject, if present, SHALL contain exactly one [1..1] relatedSubject (CONF:4537-33059)."
-* entryRelationship contains basic-industry 0..1
+* entryRelationship contains basic-industry 0..
 * entryRelationship[basic-industry] ^short = "entryRelationship"
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:4537-33060) such that it"
   * typeCode 1..1

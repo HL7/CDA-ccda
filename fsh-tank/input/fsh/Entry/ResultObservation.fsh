@@ -33,7 +33,7 @@ The Result Observation template is a versatile template designed to represent an
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:4537-7131)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:4537-7137)."
-* sdtcCategory 0..*
+* sdtcCategory 0..
 * sdtcCategory from http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-result-observation-category (preferred)
   * ^condition = "should-sdtcCategory"
   * ^short = "SHOULD contain sdtcCategory"
@@ -62,27 +62,27 @@ The Result Observation template is a versatile template designed to represent an
   * unit 1..1
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * insert USCDI([[Result Unit of Measure - if null flavor is sent, the unit SHALL be set to '1']])
-  * translation 0..1
+  * translation 0..
     * ^short = "Can be used to represent the original results as output by the lab"
 * value[coded] only $CD
   * obeys 4537-32610
-  * translation 0..1
+  * translation 0..
     * ^short = "Can be used to represent the original results as output by the lab"
 * insert ShouldElement(interpretationCode)
 * interpretationCode
   * insert USCDI([[Result Interpretation]])
   * ^binding.description = "Bound in CDA core to CDAObservationInterpretation value set (subset of HL7 v3 ObservationInterpretation), a USCDI Result Interpretation vocabulary"
   * ^comment = "SHOULD contain zero or more [0..*] interpretationCode, which SHALL be selected from ValueSet Observation Interpretation (HL7) urn:oid:2.16.840.1.113883.1.11.78 DYNAMIC (CONF:4537-7147)." // man-should
-* methodCode 0..1
+* methodCode 0..
   * ^comment = "MAY contain zero or one [0..1] methodCode (CONF:4537-7148)."
-* targetSiteCode 0..1
+* targetSiteCode 0..
   * ^comment = "MAY contain zero or one [0..1] targetSiteCode (CONF:4537-7153)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4537-7149)." // man-should
 * insert ShouldElement(referenceRange)
-* referenceRange 0..*
+* referenceRange 0..
   * insert USCDI([[Result Reference Range]])
   * ^comment = "SHOULD contain zero or more [0..*] referenceRange (CONF:4537-7150)." // auto-should
   * observationRange 1..1

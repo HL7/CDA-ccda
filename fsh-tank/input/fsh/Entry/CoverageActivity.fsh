@@ -26,7 +26,7 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:4537-19094)."
 * insert ShouldElement(effectiveTime)
-* effectiveTime 0..1
+* effectiveTime 0..
   * insert USCDI([[Coverage Status : Records the date and time when you checked and possibly updated the coverage for a patient, and applies for all policies within the coverage activity. Multiple Coverage Activity Acts would be needed to convey different times when coverage was checked and possibly updated. Details on a specific Policy coverage period, or self-pay period, systems can record an additional time inside the Policy Activity/coverage-target participant. Systems may prioritize Coverages using the sequenceNumber.]])
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-33064)." // auto-should
   * value 1..1
@@ -42,7 +42,7 @@ The Member Identifier is described in the contained Policy Activity Template 2.1
   * typeCode 1..1
   * typeCode = #COMP (exactly)
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"COMP\" has component (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4537-8879)."
-  * sequenceNumber 0..1
+  * sequenceNumber 0..
     * ^comment = "MAY contain zero or one [0..1] sequenceNumber (CONF:4537-17174)."
     * value 1..1
       * ^comment = "The sequenceNumber, if present, SHALL contain exactly one [1..1] @value (CONF:4537-17175)."

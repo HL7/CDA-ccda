@@ -29,17 +29,17 @@ Description: "The Mental Status Observation template represents an observation a
   * ^slicing.discriminator[=].path = "$this"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:1198-14263)."
-* value contains code 0..1
+* value contains code 0..
 * value[code] only $CD
 * value[code] from $2.16.840.1.113762.1.4.1240.1 (preferred)
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1198-14266)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entryRelationship contains assessmentScale 0..*
+* entryRelationship contains assessmentScale 0..
 * entryRelationship[assessmentScale] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1198-14469) such that it"
   * insert USCDI([[Mental/Cognitive Status]])
   * typeCode 1..1
@@ -48,6 +48,6 @@ Description: "The Mental Status Observation template represents an observation a
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1198-14470)."
-* referenceRange 0..*
+* referenceRange 0..
   * ^short = "The referenceRange could be used to represent normal or expected capability for the mental function being evaluated."
   * ^comment = "MAY contain zero or more [0..*] referenceRange (CONF:1198-14267)."

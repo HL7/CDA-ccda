@@ -28,10 +28,10 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
 * statusCode 1..1
   * ^comment = "SHALL contain exactly one [1..1] statusCode (CONF:4515-30758)."
   * insert BindAtCode($2.16.840.1.113883.11.20.9.19, required)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:4515-30759)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^short = "A health concern may be a patient or provider concern. If the author is set to the recordTarget (patient), this is a patient concern. If the author is set to a provider, this is a provider concern. If both patient and provider are set as authors, this is a concern of both the patient and the provider."
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:4515-31546)." // man-should
@@ -47,11 +47,11 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * ^short = "When this Health Concern Act is a Social Determinant of Health Health Concern it **SHOULD** contain zero or more [0..*] entryRelationship subentries such that it contains an observation with an observation/value selected from ValueSet [Social Determinant of Health Conditions 2.16.840.1.113762.1.4.1196.788](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1196.788/expansion) **DYNAMIC** (CONF:4515-32962)."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-31549) such that it"
 * entryRelationship contains
-    observations 0..* and
-    acts 0..* and
-    organizers 0..* and
-    related-entries 0..* and
-    component-health-concern-acts 0..*
+    observations 0.. and
+    acts 0.. and
+    organizers 0.. and
+    related-entries 0.. and
+    component-health-concern-acts 0..
 * entryRelationship[observations] 
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -86,7 +86,7 @@ Health concerns require intervention(s) to increase the likelihood of achieving 
   * act only EntryReference
     * ^comment = "SHALL contain exactly one [1..1] Entry Reference (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.122) (CONF:4515-32107)."
 
-* reference 0..*
+* reference 0..
   * ^short = "Where it is necessary to reference an external clinical document such as a Referral document, Discharge Summary document etc., the External Document Reference template can be used to reference this document.  However, if this Care Plan document is replacing or appending another Care Plan document in the same set, that relationship is set in the header, using ClinicalDocument/relatedDocument."
   * ^comment = "MAY contain zero or more [0..*] reference (CONF:4515-32757)."
   * typeCode 1..1

@@ -8,7 +8,7 @@ Description: "This section contains data defining the patient's genetic relative
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
-* entry contains organizer 0..*
+* entry contains organizer 0..
 * entry[organizer] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-32430) such that it"
   * organizer 1..1
   * organizer only FamilyHistoryOrganizer

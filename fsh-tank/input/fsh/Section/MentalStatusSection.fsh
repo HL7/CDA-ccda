@@ -22,9 +22,9 @@ Description: """The Mental Status Section contains observations and evaluations 
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entry contains
-    mentalStatusOrganizer 0..* and
-    mentalStatusObs 0..* and
-    assessmentScale 0..*
+    mentalStatusOrganizer 0.. and
+    mentalStatusObs 0.. and
+    assessmentScale 0..
 * entry[mentalStatusOrganizer] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-28301) such that it"
   * organizer 1..1
   * organizer only MentalStatusOrganizer

@@ -29,13 +29,13 @@ Description: "This clinical statement represents the response to an undesired sy
   * code = #completed (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14 STATIC) (CONF:1098-19114)."
 * insert ShouldElement(effectiveTime)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-7332)." // auto-should
   * obeys should-low
-  * low 0..1
+  * low 0..
     * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] low (CONF:1098-7333)." // auto-should
   * obeys should-high
-  * high 0..1
+  * high 0..
     * ^comment = "The effectiveTime, if present, SHOULD contain zero or one [0..1] high (CONF:1098-7334)." // auto-should
     * ^short = "SHOULD contain high"
 * value 1..1
@@ -50,8 +50,8 @@ Description: "This clinical statement represents the response to an undesired sy
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains
-    procedure 0..* and
-    medication 0..* and
+    procedure 0.. and
+    medication 0.. and
     severity 0..1
 * entryRelationship[procedure] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-7337) such that it"
   * typeCode 1..1

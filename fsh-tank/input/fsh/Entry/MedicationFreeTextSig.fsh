@@ -25,7 +25,7 @@ NOTE: This is a Closed template so only the elements needed for the template are
   * reference 1..1
     * ^short = "Reference into the section/text to a tag that only contains free text sig."
     * ^comment = "This text SHALL contain exactly one [1..1] reference (CONF:81-32755)."
-    * value 0..1
+    * value 0..
       * ^comment = "This reference SHOULD contain zero or one [0..1] @value (CONF:81-32756)." // man-should
 * consumable 1..1
   * ^comment = "SHALL contain exactly one [1..1] consumable (CONF:81-32776)."

@@ -12,7 +12,7 @@ This section requires either an entry indicating the subject is not known to be 
   * ^slicing.discriminator[=].path = "substanceAdministration"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains medActivity 0..*
+* entry contains medActivity 0..
 * entry[medActivity] ^comment = "SHALL contain at least one [1..*] entry (CONF:1098-7572) such that it"
   * ^condition = "shall-med-activity"
   * substanceAdministration 1..1

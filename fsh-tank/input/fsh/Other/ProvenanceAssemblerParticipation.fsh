@@ -42,9 +42,9 @@ Note: The Provenance template title includes a version 2 to support moving from 
     * name 1..*
       * ^comment = "This scopingOrganization SHALL contain at least one [1..*] name (CONF:4537-51)."
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * ^comment = "This scopingOrganization SHOULD contain zero or more [0..*] telecom (CONF:4537-52)." // auto-should
     * obeys should-addr
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This scopingOrganization SHOULD contain zero or more [0..*] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-47)." // man-should

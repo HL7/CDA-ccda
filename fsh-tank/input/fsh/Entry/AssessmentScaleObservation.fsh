@@ -23,11 +23,11 @@ The Observation value is used to record a calculated score using an integer. A L
 * code 1..1
 * code from $ScreeningAssessmentSurveyCodes
   * obeys should-translation
-  * translation 0..*
+  * translation 0..
   * translation from $SDoHAssessmentsAndQuestions (preferred)
   * ^short = "For Social Determinant of Health Assessments"
   * ^comment = "SHOULD contain zero or many [0..*] translations."
-* derivationExpr 0..1
+* derivationExpr 0..
   * ^comment = "MAY contain zero or one [0..1] derivationExpr (CONF:4515-14637)."
   * ^short = "Such derivation expression can contain a text calculation of how the components total up to the summed score"
 * statusCode 1..1
@@ -42,11 +42,11 @@ The Observation value is used to record a calculated score using an integer. A L
   * insert USCDI([[Functional Status, Mental/Cognitive Status, Alcohol Use, Substance Use, Physical Activity, SDOH Assessment]])
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:4515-14450)."
   * ^short = "This is intended to hold the overall assessment score.  This could be calculated from the contained Assessment Scale Supporting Observations"
-* interpretationCode 0..*
+* interpretationCode 0..
   * ^comment = "MAY contain zero or more [0..*] interpretationCode (CONF:4515-14459)."
-  * translation 0..*
+  * translation 0..
     * ^comment = "The interpretationCode, if present, MAY contain zero or more [0..*] translation (CONF:4515-14888)."
-* author 0..*
+* author 0..
   * ^comment = "MAY contain zero or more [0..*] author (CONF:4515-14460)."
 * entryRelationship ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
@@ -54,7 +54,7 @@ The Observation value is used to record a calculated score using an integer. A L
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:4515-14451) such that it"
-* entryRelationship contains supportingObs 0..*
+* entryRelationship contains supportingObs 0..
 * entryRelationship[supportingObs] ^short = "entryRelationship"
   * ^comment = "SHOULD contain zero or more [0..*] entryRelationship (CONF:4515-14451) such that it"
   * typeCode 1..1
@@ -63,13 +63,13 @@ The Observation value is used to record a calculated score using an integer. A L
   * observation 1..1
   * observation only AssessmentScaleSupportingObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Supporting Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.86) (CONF:4515-16742)."
-* referenceRange 0..*
+* referenceRange 0..
   * ^comment = "MAY contain zero or more [0..*] referenceRange (CONF:4515-16799)."
   * ^short = "The referenceRange/observationRange/text, if present, MAY contain a description of the scale (e.g., for a Pain Scale 1 to 10: 1 to 3 = little pain, 4 to 7 = moderate pain, 8 to 10 = severe pain)"
   * observationRange 1..1
     * ^comment = "The referenceRange, if present, SHALL contain exactly one [1..1] observationRange (CONF:4515-16800)."
     * obeys should-text
     * insert NarrativeLink
-    * text 0..1
+    * text 0..
       * ^comment = "This observationRange SHOULD contain zero or one [0..1] text (CONF:4515-16801)." // auto-should
       * ^short = "The text may contain a description of the scale (e.g., for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= moderate pain, 8 to 10 = severe pain)"

@@ -28,5 +28,5 @@ Description: "This template represents the administration course in a series. Th
   * code 1..1
   * code = #completed (exactly)
     * ^comment = "SHALL contain exactly one [1..1] statusCode=\"completed\" Completed (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31505)."
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^comment = "MAY contain zero or one [0..1] effectiveTime (CONF:1098-31509)."

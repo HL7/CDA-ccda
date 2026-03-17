@@ -10,7 +10,7 @@ Description: "This template represents patient Goals. A goal is a defined outcom
   * ^slicing.discriminator.path = "observation"
   * ^slicing.rules = #open
   * ^short = "If section/@nullFlavor is not present:"
-* entry contains goal 0..*
+* entry contains goal 0..
 * entry[goal] ^comment = "SHALL contain at least one [1..*] entry (CONF:1098-30719) such that it"
   * ^condition = "shall-goal-obs"
   * observation 1..1

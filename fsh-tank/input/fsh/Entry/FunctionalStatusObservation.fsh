@@ -30,7 +30,7 @@ Description: "This template represents the patient's physical function (e.g., mo
   * obeys 1098-14234
   * ^comment = "SHALL contain exactly one [1..1] value (CONF:1098-13932)."
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-13936)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
@@ -41,9 +41,9 @@ Description: "This template represents the patient's physical function (e.g., mo
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
 * entryRelationship contains
-    nonMedSupply 0..1 and
-    caregiverCharacteristics 0..1 and
-    assessmentScaleObservation 0..1
+    nonMedSupply 0.. and
+    caregiverCharacteristics 0.. and
+    assessmentScaleObservation 0..
 * entryRelationship[nonMedSupply] ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:1098-13892) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)
@@ -66,7 +66,7 @@ Description: "This template represents the patient's physical function (e.g., mo
   * observation 1..1
   * observation only AssessmentScaleObservation
     * ^comment = "SHALL contain exactly one [1..1] Assessment Scale Observation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.69) (CONF:1098-14466)."
-* referenceRange 0..*
+* referenceRange 0..
   * ^short = "referenceRange could be used to represent normal or expected capability for the function being evaluated."
   * ^comment = "MAY contain zero or more [0..*] referenceRange (CONF:1098-13937)."
 

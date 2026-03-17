@@ -47,7 +47,7 @@ Description: "This template represents the sender (author) and receivers (partic
     * id 1..*
       * ^comment = "This participantRole SHALL contain at least one [1..*] id (CONF:1098-32422)."
     * obeys should-code
-    * code 0..1
+    * code 0..
     * code from $2.16.840.1.114222.4.11.1066 (preferred)
       * ^condition = "should-code"
       * ^short = "SHOULD contain code"
@@ -56,7 +56,7 @@ Description: "This template represents the sender (author) and receivers (partic
     * addr 1..*
     * addr only USRealmAddress
       * ^comment = "This participantRole SHALL contain at least one [1..*] addr (CONF:1098-32392)."
-    * playingEntity 0..1
+    * playingEntity 0..
       * ^comment = "This participantRole MAY contain zero or one [0..1] playingEntity (CONF:1098-32393)."
       * name 1..*
         * ^comment = "The playingEntity, if present, SHALL contain at least one [1..*] name (CONF:1098-32394)."

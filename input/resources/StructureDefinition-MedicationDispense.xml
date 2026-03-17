@@ -184,7 +184,6 @@
         <element id="Supply.performer">
             <path value="Supply.performer"/>
             <comment value="MAY contain zero or one [0..1] performer (CONF:4537-7461)."/>
-            <max value="1"/>
         </element>
         <element id="Supply.performer.assignedEntity">
             <path value="Supply.performer.assignedEntity"/>
@@ -200,7 +199,6 @@
         <element id="Supply.performer.assignedEntity.addr">
             <path value="Supply.performer.assignedEntity.addr"/>
             <comment value="This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-7468)."/>
-            <max value="1"/>
             <type>
                 <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
                 <profile value="http://hl7.org/cda/us/ccda/StructureDefinition/USRealmAddress"/>
@@ -221,19 +219,19 @@
             </slicing>
             <comment value="MAY contain zero or one [0..1] entryRelationship (CONF:4537-7473) such that it"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1">
+        <element id="Supply.entryRelationship:supply">
             <path value="Supply.entryRelationship"/>
-            <sliceName value="entryRelationship1"/>
+            <sliceName value="supply"/>
             <short value="entryRelationship"/>
             <min value="0"/>
-            <max value="1"/>
+            <max value="*"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1.typeCode">
+        <element id="Supply.entryRelationship:supply.typeCode">
             <path value="Supply.entryRelationship.typeCode"/>
             <comment value="SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002 STATIC) (CONF:4537-7474)."/>
             <fixedCode value="REFR"/>
         </element>
-        <element id="Supply.entryRelationship:entryRelationship1.supply">
+        <element id="Supply.entryRelationship:supply.supply">
             <path value="Supply.entryRelationship.supply"/>
             <comment value="SHALL contain exactly one [1..1] Medication Supply Order (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.17:2014-06-09) (CONF:4537-15606)."/>
             <min value="1"/>

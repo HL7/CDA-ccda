@@ -17,14 +17,14 @@ Description: """This template represents a single instance of an Average Blood P
   * code 1..1
   * code = #completed
 * effectiveTime ^short = "Shall match the time of the individual components"
-* author 0..*
+* author 0..
 * author only AuthorParticipation
 * author ^comment = "SHOULD contain zero or many [0..*] Author Participation."
 
 * component ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "observation.code.code"
   * ^slicing.rules = #open
-* component contains systolic 1..1 and diastolic 1..1
+* component contains systolic 1..1 and diastolic 1..1 
 * component[systolic]
   * observation 1..1
     * code 1..1

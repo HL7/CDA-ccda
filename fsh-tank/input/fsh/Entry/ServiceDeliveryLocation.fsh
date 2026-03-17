@@ -22,7 +22,7 @@ To conform with USCDI requirements, certifying systems shall support either HSLO
   * ^slicing.discriminator.type = #value
   * ^slicing.discriminator.path = "root"
   * ^slicing.rules = #open
-* id contains NPI 0..* and CLIA 0..* and NAIC 0..*
+* id contains NPI 0.. and CLIA 0.. and NAIC 0..
 * id[NPI].root = "2.16.840.1.113883.4.6"
 * id[CLIA].root = "2.16.840.1.113883.4.7"
 * id[NAIC].root = "2.16.840.1.113883.6.300"  
@@ -33,12 +33,12 @@ To conform with USCDI requirements, certifying systems shall support either HSLO
   * insert AdditionalBinding(preferred, $CMSPlaceOfService, CMS Place of Service, [[Not required for USCDI certification]])
   * obeys shall-use-one-binding
 * obeys should-addr
-* addr 0..1
+* addr 0..
 * addr only USRealmAddress
   * ^condition = "should-addr"
   * insert USCDI([[Facility Address SHOULD be present]])
 * obeys should-telecom
-* telecom 0..*
+* telecom 0..
   * ^condition = "should-telecom"
   * ^short = "SHOULD contain telecom"
   * ^comment = "SHOULD contain zero or more [0..*] telecom (CONF:81-7761)." // auto-should

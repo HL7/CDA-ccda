@@ -17,7 +17,7 @@ Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy
   * ^comment = "SHALL contain exactly one [1..1] @moodCode=\"EVN\" Event (CodeSystem: HL7ActMood urn:oid:2.16.840.1.113883.5.1001 STATIC) (CONF:1098-31021)."
 * id 1..*
   * ^comment = "SHALL contain at least one [1..*] id (CONF:1098-31024)."
-* code 0..1
+* code 0..
   * ^short = "This code can represent a category of devices. The code is strictly optional, and is not currently limited to any value set or code system. Implementers may use it if they wish to provide optional coded information about this grouping of medical equipment."
   * ^comment = "MAY contain zero or one [0..1] code (CONF:1098-31025)."
 * statusCode 1..1
@@ -37,8 +37,8 @@ Devices that are applied during a procedure (e.g., cardiac pacemaker, gastrosomy
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
 * component contains
-    nonMedicalSupply 0..* and
-    procedureActivity 0..*
+    nonMedicalSupply 0.. and
+    procedureActivity 0..
 * component[nonMedicalSupply] ^comment = "MAY contain zero or more [0..*] component (CONF:1098-31027) such that it"
   * ^condition = "1098-32380"
   * supply 1..1

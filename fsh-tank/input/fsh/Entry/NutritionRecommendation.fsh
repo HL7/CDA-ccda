@@ -22,7 +22,7 @@ Description: "This template represents nutrition regimens (e.g., fluid restricti
   * code = #active (exactly)
     * ^comment = "This statusCode SHALL contain exactly one [1..1] @code=\"active\" Active (CodeSystem: HL7ActStatus urn:oid:2.16.840.1.113883.5.14) (CONF:1098-31698)."
 * insert ShouldElement(effectiveTime)
-* effectiveTime 0..1
+* effectiveTime 0..
   * ^short = "The effectiveTime indicates the time when the activity is intended to take place."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-31699)." // auto-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
@@ -37,10 +37,10 @@ Description: "This template represents nutrition regimens (e.g., fluid restricti
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
 * entryRelationship contains
-    plannedEncounter 0..* and
-    plannedMedActivity 0..* and
-    plannedProc 0..* and
-    plannedSupply 0..* 
+    plannedEncounter 0.. and
+    plannedMedActivity 0.. and
+    plannedProc 0.. and
+    plannedSupply 0.. 
 * entryRelationship[plannedEncounter] ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-32382) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

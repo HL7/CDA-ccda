@@ -8,7 +8,7 @@ Description: "The Procedure Findings Section records clinically significant obse
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entry contains problem 0..*
+* entry contains problem 0..
 * entry[problem] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-8090) such that it"
   * observation 1..1
   * observation only ProblemObservation

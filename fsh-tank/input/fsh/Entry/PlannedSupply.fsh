@@ -26,22 +26,22 @@ Depending on the type of supply, the product or participant will be either a Med
 * effectiveTime 0..1
   * ^short = "The effectiveTime in a planned supply represents the time that the supply should occur."
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-30459)." // auto-should
-* repeatNumber 0..1
+* repeatNumber 0..
   * ^short = "In a Planned Supply, repeatNumber indicates the number of times the supply event can occur. For example, if a medication is filled at a pharmacy and the prescription may be refilled 3 more times, the supply RepeatNumber equals 4."
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1098-32063)."
-* quantity 0..1
+* quantity 0..
   * ^comment = "MAY contain zero or one [0..1] quantity (CONF:1098-32064)."
 * obeys shall-product-or-device
-* product 0..1 
+* product 0.. 
   * ^condition = "shall-product-or-device"
   * ^short = "Represents either a medication or an immunization supply"
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
-* performer 0..*
+* performer 0..
   * ^short = "The clinician who is expected to perform the supply could be identified using supply/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-32048)."
 * insert ShouldElement(author)
-* author 0..1
+* author 0..
 * author only AuthorParticipation
   * ^short = "The author in a supply represents the clinician who is requesting or planning the supply."
   * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31129)." // man-should
@@ -65,10 +65,10 @@ Depending on the type of supply, the product or participant will be either a Med
   * ^slicing.rules = #open
   * ^short = "The following entryRelationship represents the insurance coverage the patient may have for the supply."
 * entryRelationship contains
-    priorityPreference 0..* and
-    indication 0..* and
-    instruction 0..* and
-    plannedCoverage 0..*
+    priorityPreference 0.. and
+    indication 0.. and
+    instruction 0.. and
+    plannedCoverage 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the supply."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31110) such that it"
   * typeCode 1..1

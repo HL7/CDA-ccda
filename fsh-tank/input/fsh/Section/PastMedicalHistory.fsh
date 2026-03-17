@@ -8,7 +8,7 @@ Description: "This section contains a record of the patient's past complaints, p
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entry contains problem 0..*
+* entry contains problem 0..
 * entry[problem] ^comment = "MAY contain zero or more [0..*] entry (CONF:1198-8791) such that it"
   * observation 1..1
   * observation only ProblemObservation

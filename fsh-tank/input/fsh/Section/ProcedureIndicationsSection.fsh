@@ -8,7 +8,7 @@ Description: "This section contains the reason(s) for the procedure or surgery. 
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
-* entry contains indication 0..*
+* entry contains indication 0..
 * entry[indication] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8743) such that it"
   * observation 1..1
   * observation only Indication

@@ -29,22 +29,22 @@ Description: "This template records the act of supplying medications (i.e., disp
 * effectiveTime 0..1
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:4537-7456)." // auto-should
 * insert ShouldElement(repeatNumber)
-* repeatNumber 0..1
+* repeatNumber 0..
   * ^short = "In \"EVN\" (event) mood, the repeatNumber is the number of dispenses. For example, a repeatNumber of \"3\" indicates the third dispense."
   * ^comment = "SHOULD contain zero or one [0..1] repeatNumber (CONF:4537-7457)." // auto-should
 * insert ShouldElement(quantity)
-* quantity 0..1
+* quantity 0..
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:4537-7458)." // auto-should
 * product 1..1
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation or ImmunizationMedicationInformation
     * ^comment = "The product, if present, SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:4537-15607)."
-* performer 0..1
+* performer 0..
   * ^comment = "MAY contain zero or one [0..1] performer (CONF:4537-7461)."
   * assignedEntity 1..1
     * ^comment = "The performer, if present, SHALL contain exactly one [1..1] assignedEntity (CONF:4537-7467)."
     * obeys should-addr
-    * addr 0..1
+    * addr 0..
     * addr only USRealmAddress
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] US Realm Address (AD.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.2) (CONF:4537-7468)." // man-should
 * entryRelationship ^slicing.discriminator[0].type = #profile
@@ -53,8 +53,8 @@ Description: "This template records the act of supplying medications (i.e., disp
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4537-7473) such that it"
-* entryRelationship contains entryRelationship1 0..1
-* entryRelationship[entryRelationship1] ^short = "entryRelationship"
+* entryRelationship contains supply 0..
+* entryRelationship[supply] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4537-7473) such that it"
   * typeCode 1..1
   * typeCode = #REFR (exactly)

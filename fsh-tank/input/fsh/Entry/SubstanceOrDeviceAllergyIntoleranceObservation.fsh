@@ -35,21 +35,21 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-16309)."
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:1098-31536)."
-  * high 0..1
+  * high 0..
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:1098-31537)."
 * value 1..1
 * value only $CD
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"CD\" (CONF:1098-16312)."
   * insert BindAtCode($2.16.840.1.113883.3.88.12.3221.6.2, required)
 * insert ShouldElement(author)
-* author 0..*
+* author 0..
 * author only AuthorParticipation
   * ^comment = "SHOULD contain zero or more [0..*] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-31144)." // man-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
   * ^slicing.rules = #open
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1098-16318) such that it"
-* participant contains consumable 0..*
+* participant contains consumable 0..
 * participant[consumable] ^short = "participant"
   * ^comment = "SHOULD contain zero or more [0..*] participant (CONF:1098-16318) such that it"
   * typeCode 1..1
@@ -74,7 +74,7 @@ The effectiveTime of the Substance or Device Allergy - Intolerance Observation i
   * ^comment = "SHOULD contain zero or one [0..1] entryRelationship (CONF:1098-32935) such that it"
 * entryRelationship contains
     status 0..1 and
-    reaction 0..* and
+    reaction 0.. and
     severity 0..1 and
     criticality 0..1
 * entryRelationship[status] ^short = "entryRelationship"

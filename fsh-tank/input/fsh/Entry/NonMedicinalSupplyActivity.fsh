@@ -23,10 +23,10 @@ Description: "This template represents equipment supplied to the patient (e.g., 
 * effectiveTime only $IVL-TS
   * obeys should-high
   * ^comment = "SHOULD contain zero or one [0..1] effectiveTime (CONF:1098-15498)." // man-should
-  * high 0..1
+  * high 0..
     * ^short = "SHOULD contain high"
 * insert ShouldElement(quantity)
-* quantity 0..1
+* quantity 0..
   * ^comment = "SHOULD contain zero or one [0..1] quantity (CONF:1098-8751)." // auto-should
 * participant ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"
@@ -46,8 +46,8 @@ Description: "This template represents equipment supplied to the patient (e.g., 
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
 * entryRelationship contains 
-    UDIOrganizer 0..* and
-    instruction 0..1
+    UDIOrganizer 0.. and
+    instruction 0..
 * entryRelationship[UDIOrganizer] ^short = "participant"
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-7751) such that it"
   * typeCode 1..1

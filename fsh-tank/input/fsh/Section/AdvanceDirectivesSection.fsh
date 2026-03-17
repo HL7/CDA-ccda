@@ -7,14 +7,14 @@ Description: """This section contains details about the patient’s advance heal
 * nullFlavor ^short = "If a required section contains no information, the @nullFlavor MAY be set to NI"
 
 * insert Section(#42348-3, Advance directives, 2.16.840.1.113883.10.20.22.2.21.1, 2022-02-14)
-* entry 0..*
+* entry 0..
   * ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.discriminator[+].type = #profile
   * ^slicing.discriminator[=].path = "organizer"
   * ^slicing.rules = #open
   * ^comment = "SHALL contain at least one [1..*] entry (CONF:1198-30235) such that it"
-* entry contains AdvDirExistanceObservation 0..*
+* entry contains AdvDirExistanceObservation 0..
 * entry[AdvDirExistanceObservation] ^comment = "MAY contain zero or more [0..*] entry such that it"
   * ^condition = "shall-adv-directive-existence"
   * observation 1..1

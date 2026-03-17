@@ -32,14 +32,14 @@ Description: "This template represents planned medication activities. The priori
   * ^short = "The effectiveTime in a planned medication activity represents the time that the medication activity should occur."
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:1098-30468) such that it"
   * obeys should-value-att
-  * value 0..1
+  * value 0..
     * ^short = "indicates a single-administration timestamp"
     * ^comment = "SHOULD contain zero or one [0..1] @value (CONF:1098-32775)." // man-should
   * obeys should-low
-  * low 0..1
+  * low 0..
     * ^short = "indicates when medication started"
     * ^comment = "SHOULD contain zero or one [0..1] low (CONF:1098-32776)." // auto-should
-  * high 0..1
+  * high 0..
     * ^short = "indicates when medication stopped"
     * ^comment = "MAY contain zero or one [0..1] high (CONF:1098-32777)."
 * effectiveTime[periodicFrequency] only $EIVL-TS
@@ -52,37 +52,37 @@ Description: "This template represents planned medication activities. The priori
   * operator 1..1
   * operator = #A
     * ^comment = "SHALL contain exactly one [1..1] @operator=\"A\" (CONF:1098-9106)."
-* repeatNumber 0..1
+* repeatNumber 0..
   * ^short = "In a Planned Medication Activity, repeatNumber defines the number of allowed administrations. For example, a repeatNumber of \"3\" means that the substance can be administered up to 3 times."
   * ^comment = "MAY contain zero or one [0..1] repeatNumber (CONF:1098-32066)."
-* routeCode 0..1
+* routeCode 0..
 * routeCode from $2.16.840.1.113883.3.88.12.3221.8.7 (required)
   * ^comment = "MAY contain zero or one [0..1] routeCode, which SHALL be selected from ValueSet SPL Drug Route of Administration Terminology urn:oid:2.16.840.1.113883.3.88.12.3221.8.7 DYNAMIC (CONF:1098-32067)."
   * obeys should-translation
-  * translation 0..*
+  * translation 0..
   * translation from $2.16.840.1.113762.1.4.1099.12 (preferred)
     * ^comment = "The routeCode, if present, SHOULD contain zero or more [0..*] translation, which SHOULD be selected from ValueSet Medication Route urn:oid:2.16.840.1.113762.1.4.1099.12 DYNAMIC (CONF:1098-32952)." // man-should
-* approachSiteCode 0..*
+* approachSiteCode 0..
 * approachSiteCode from $2.16.840.1.113883.3.88.12.3221.8.9 (required)
   * ^comment = "MAY contain zero or more [0..*] approachSiteCode, which SHALL be selected from ValueSet Body Site Value Set urn:oid:2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-32078)."
 * obeys dose-unit-or-admin-unit
-* doseQuantity 0..1
+* doseQuantity 0..
   * ^comment = "MAY contain zero or one [0..1] doseQuantity (CONF:1098-32068)."
   * obeys should-unit
-  * unit 0..1
+  * unit 0..
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (preferred)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The doseQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHOULD be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32133)." // man-should
-* rateQuantity 0..1
+* rateQuantity 0..
   * ^comment = "MAY contain zero or one [0..1] rateQuantity (CONF:1098-32079)."
   * obeys should-unit
-  * unit 0..1
+  * unit 0..
   * unit from http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (required)
     * ^short = "NOTE: The base CDA R2.0 standard requires @unit to be drawn from UCUM, and best practice is to use case sensitive UCUM units"
     * ^comment = "The rateQuantity, if present, SHOULD contain zero or one [0..1] @unit, which SHALL be selected from ValueSet UnitsOfMeasureCaseSensitive urn:oid:2.16.840.1.113883.1.11.12839 DYNAMIC (CONF:1098-32134)." // man-should
-* maxDoseQuantity 0..1
+* maxDoseQuantity 0..
   * ^comment = "MAY contain zero or one [0..1] maxDoseQuantity (CONF:1098-32080)."
-* administrationUnitCode 0..1
+* administrationUnitCode 0..
 * administrationUnitCode from AdministrationUnitDoseForm (required)
   * ^comment = "MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm urn:oid:2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-32081)."
 * consumable 1..1
@@ -90,11 +90,11 @@ Description: "This template represents planned medication activities. The priori
   * manufacturedProduct 1..1
   * manufacturedProduct only MedicationInformation
     * ^comment = "This consumable SHALL contain exactly one [1..1] Medication Information (identifier: urn:hl7ii:2.16.840.1.113883.10.20.22.4.23:2014-06-09) (CONF:1098-32083)."
-* performer 0..*
+* performer 0..
   * ^short = "The clinician who is expected to perform the medication activity could be identified using substanceAdministration/performer."
   * ^comment = "MAY contain zero or more [0..*] performer (CONF:1098-30470)."
 * insert ShouldElement(author)
-* author 0..1
+* author 0..
 * author only AuthorParticipation
   * ^short = "The author in a planned medication activity represents the clinician who is requesting or planning the medication activity."
   * ^comment = "SHOULD contain zero or one [0..1] Author Participation (identifier: urn:oid:2.16.840.1.113883.10.20.22.4.119) (CONF:1098-32046)." // man-should
@@ -102,9 +102,9 @@ Description: "This template represents planned medication activities. The priori
   * ^slicing.discriminator[=].path = "observation"
   * ^slicing.rules = #open
 * entryRelationship contains
-    priorityPreference 0..* and
-    indication 0..* and
-    instruction 0..*
+    priorityPreference 0.. and
+    indication 0.. and
+    instruction 0..
 * entryRelationship[priorityPreference] ^short = "The following entryRelationship represents the priority that a patient or a provider places on the planned medication activity."
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:1098-31104) such that it"
   * typeCode 1..1
@@ -128,7 +128,7 @@ Description: "This template represents planned medication activities. The priori
     * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SUBJ\" Has Subject (CodeSystem: HL7ActRelationshipType urn:oid:2.16.840.1.113883.5.1002) (CONF:1098-32073)."
   * observation 1..1
   * observation only InstructionObservation
-* precondition 0..*
+* precondition 0..
   * ^comment = "MAY contain zero or more [0..*] precondition (CONF:1098-32084)."
   * typeCode 1..1
   * typeCode = #PRCN (exactly)

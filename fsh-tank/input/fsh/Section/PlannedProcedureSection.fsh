@@ -8,7 +8,7 @@ Description: "This section contains the procedure(s) that a clinician planned ba
 * entry ^slicing.discriminator[0].type = #profile
   * ^slicing.discriminator[=].path = "procedure"
   * ^slicing.rules = #open
-* entry contains plannedProcedure 0..*
+* entry contains plannedProcedure 0..
 * entry[plannedProcedure] ^comment = "MAY contain zero or more [0..*] entry (CONF:1098-8744) such that it"
   * procedure 1..1
   * procedure only PlannedProcedure

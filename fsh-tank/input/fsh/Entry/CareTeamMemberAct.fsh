@@ -36,11 +36,11 @@ This id must be a pointer to another Performer."""
   * ^comment = "SHALL contain exactly one [1..1] effectiveTime (CONF:4515-33)."
   * low 1..1
     * ^comment = "This effectiveTime SHALL contain exactly one [1..1] low (CONF:4515-167)."
-  * high 0..1
+  * high 0..
     * ^comment = "This effectiveTime MAY contain zero or one [0..1] high (CONF:4515-168)."
 * performer 1..1
   * ^comment = "SHALL contain exactly one [1..1] performer (CONF:4515-160)"
-  * sdtcFunctionCode 0..1
+  * sdtcFunctionCode 0..
   * sdtcFunctionCode from $2.16.840.1.113762.1.4.1099.30 (preferred)
     * insert USCDI([[Care Team Member Role - This sdtc:functionCode represents the function or role of the member on the care team. For example, the care team member roles on the care team can be a caregiver and a professional nurse or a primary care provider and the care coordinator.]])
     * ^comment = "MAY contain zero or one [0..1] sdtc:functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:4515-161)."
@@ -50,28 +50,28 @@ This id must be a pointer to another Performer."""
     * id 1..*
       * insert USCDI([[Care Team Member Identifier]])
       * ^comment = "This assignedEntity SHALL contain at least one [1..*] id (CONF:4515-176)."
-      * root 0..1
+      * root 0..
         * obeys should-npi
         * ^comment = "Such ids SHOULD contain zero or one [0..1] @root=\"2.16.840.1.113883.4.6\" National Provider Identifier (CONF:4515-177)." // man-should
     * sdtcSpecialty from $PracticeSettingCodeValueSet (preferred)
     * obeys should-addr
-    * addr 0..*
+    * addr 0..
     * addr only USRealmAddress
       * insert USCDI([[Care Team Member Location]])
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] addr (CONF:4515-182)." // auto-should
     * obeys should-telecom
-    * telecom 0..*
+    * telecom 0..
       * insert USCDI([[Care Team Member Telecom]])
       * ^comment = "This assignedEntity SHOULD contain zero or more [0..*] telecom (CONF:4515-183)." // auto-should
     * obeys should-assignedPerson
-    * assignedPerson 0..1
+    * assignedPerson 0..
       * ^short = "This assignedPerson must be present on at least one performer in this document for each unique assignedEntity/id."
       * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] assignedPerson (CONF:4515-178)." // auto-should
       * name 1..1
       * insert USCDI([[Care Team Member Name]])
       * name only USRealmPersonNamePNUSFIELDED
         * ^comment = "The assignedPerson, if present, SHALL contain exactly one [1..1] US Realm Person Name (PN.US.FIELDED) (identifier: urn:oid:2.16.840.1.113883.10.20.22.5.1.1) (CONF:4515-179)."
-    * representedOrganization 0..1
+    * representedOrganization 0..
       * ^comment = "This assignedEntity MAY contain zero or one [0..1] representedOrganization (CONF:4515-181)."
       * addr 1..*
       * addr only USRealmAddress
@@ -81,8 +81,8 @@ This id must be a pointer to another Performer."""
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
 * participant contains
-    location 0..* and
-    addl-functions 0..*
+    location 0.. and
+    addl-functions 0..
 * participant[location] ^short = "This participant represents the location where the care team member provides the service."
   * ^comment = "MAY contain zero or more [0..*] participant (CONF:4515-171) such that it"
   * typeCode 1..1
@@ -118,9 +118,9 @@ This id must be a pointer to another Performer."""
   * ^slicing.rules = #open
   * ^comment = "MAY contain zero or one [0..1] entryRelationship (CONF:4515-94) such that it"
 * entryRelationship contains
-    encounter 0..* and
-    note 0..* and
-    schedule 0..1
+    encounter 0.. and
+    note 0.. and
+    schedule 0..
 * entryRelationship[encounter] ^short = "entryRelationship"
   * ^comment = "MAY contain zero or more [0..*] entryRelationship (CONF:4515-86) such that it"
   * typeCode 1..1

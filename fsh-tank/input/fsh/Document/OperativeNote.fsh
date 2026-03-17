@@ -29,10 +29,10 @@ The Operative Note is created immediately following a surgical or other high-ris
         // Need to keep SOMETHING different from USRealmHeader in these 3 fields to keep them in the diff
         * ^short = "Low is required"
         * ^comment = "The serviceEvent/effectiveTime **SHALL** be present with effectiveTime/low (CONF:1198-8488)."
-      * width 0..1
+      * width 0..
         * ^short = "Represents the duration"
         * ^comment = "When only the date and the length of the procedure are known a width element **SHALL** be present and the serviceEvent/effectiveTime/high **SHALL NOT** be present (CONF:1198-10060)."
-      * high 0..1
+      * high 0..
         * ^short = "Equals low if only the date is known"
         * ^comment = "If a width is not present, the serviceEvent/effectiveTime **SHALL** include effectiveTime/high (CONF:1198-10058)."
     * effectiveTime only USRealmDateTimeInterval
@@ -43,19 +43,19 @@ The Operative Note is created immediately following a surgical or other high-ris
       * ^slicing.rules = #open
     * performer contains
         primary 1..* and
-        secondary 0..*
+        secondary 0..
     * performer[primary] ^short = "This performer represents clinicians who actually and principally carry out the serviceEvent. Typically, these are clinicians who have surgical privileges in their institutions such as Surgeons, Obstetrician/Gynecologists, and Family Practice Physicians. The performer may also be non-physician providers (NPPs) who have surgical privileges. There may be more than one primary performer in the case of complicated surgeries. There are occasionally co-surgeons. Usually they will be billing separately and will each dictate their own notes. An example may be spinal surgery , where a general surgeon and an orthopedic surgeon both are present and billing off the same Current Procedural Terminology (CPT) codes. Typically two Operative Notes are generated; however, each will list the other as a co-surgeon. Any assistants are identified as a secondary performer (SPRF) in a second performer participant."
       * ^comment = "This serviceEvent SHALL contain one or more [1..*] performer (CONF:1198-8489) such that it"
       * typeCode 1..1
       * typeCode = #PPRF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"PPRF\" Primary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90 STATIC) (CONF:1198-8495)."
-      * functionCode 0..1
+      * functionCode 0..
       * functionCode from $2.16.840.1.113762.1.4.1099.30 (preferred)
         * ^comment = "MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:1198-32963)."
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-10917)."
         * obeys should-code
-        * code 0..1
+        * code 0..
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-8490)." // man-should
     * performer[secondary] ^short = "This performer represents any assistants"
@@ -63,16 +63,16 @@ The Operative Note is created immediately following a surgical or other high-ris
       * typeCode 1..1
       * typeCode = #SPRF (exactly)
         * ^comment = "SHALL contain exactly one [1..1] @typeCode=\"SPRF\" Secondary performer (CodeSystem: HL7ParticipationType urn:oid:2.16.840.1.113883.5.90) (CONF:1198-32738)."
-      * functionCode 0..1
+      * functionCode 0..
       * functionCode from $2.16.840.1.113762.1.4.1099.30 (preferred)
         * ^comment = "MAY contain zero or one [0..1] functionCode, which SHOULD be selected from ValueSet Care Team Member Function urn:oid:2.16.840.1.113762.1.4.1099.30 DYNAMIC (CONF:1198-32964)."
       * assignedEntity 1..1
         * ^comment = "SHALL contain exactly one [1..1] assignedEntity (CONF:1198-32737)."
         * obeys should-code
-        * code 0..1
+        * code 0..
         * code from $2.16.840.1.114222.4.11.1066 (required)
           * ^comment = "This assignedEntity SHOULD contain zero or one [0..1] code, which SHALL be selected from ValueSet Healthcare Provider Taxonomy urn:oid:2.16.840.1.114222.4.11.1066 DYNAMIC (CONF:1198-32739)." // man-should
-* authorization 0..1
+* authorization 0..
   * ^short = "Authorization represents consent. Consent, if present, shall be represented by authorization/consent."
   * ^comment = "MAY contain zero or one [0..1] authorization (CONF:1198-32404)."
   * typeCode 1..1

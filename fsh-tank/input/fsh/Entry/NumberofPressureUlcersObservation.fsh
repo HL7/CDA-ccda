@@ -36,7 +36,7 @@ Description: "This template represents the number of pressure ulcers observed at
 * value 1..1
 * value only $INT
   * ^comment = "SHALL contain exactly one [1..1] value with @xsi:type=\"INT\" (CONF:1198-14771)."
-* author 0..1
+* author 0..
   * ^comment = "MAY contain zero or one [0..1] author (CONF:1198-14717)."
 * entryRelationship ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[=].path = "typeCode"

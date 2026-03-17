@@ -31,21 +31,21 @@ Description: "The Family History Organizer associates a set of observations with
     * code from $2.16.840.1.113883.1.11.19579 (preferred)
       * ^comment = "This relatedSubject SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Family Member Value urn:oid:2.16.840.1.113883.1.11.19579 DYNAMIC (CONF:1198-15246)."
     * obeys should-subject
-    * subject 0..1
+    * subject 0..
       * ^comment = "This relatedSubject SHOULD contain zero or one [0..1] subject (CONF:1198-15248)." // auto-should
       * administrativeGenderCode 1..1
       * administrativeGenderCode from $2.16.840.1.113762.1.4.1021.121 (required)
         * insert ShallCodeOrNullFlavor
       * insert ShouldElement(birthTime)
-      * birthTime 0..1
+      * birthTime 0..
         * ^short = "The age of a relative at the time of a family history observation **SHOULD** be inferred by comparing RelatedSubject/subject/birthTime with Observation/effectiveTime (CONF:1198-15983)."
         * ^comment = "The subject, if present, SHOULD contain zero or one [0..1] birthTime (CONF:1198-15976)." // auto-should
       * insert ShouldElement(sdtcId)
-      * sdtcId 0..1
+      * sdtcId 0..
         * ^short = "SHOULD contain sdtc:id" // man-should
-      * sdtcDeceasedInd 0..1
+      * sdtcDeceasedInd 0..
         * ^short = "MAY contain sdtc:deceasedInd"
-      * sdtcDeceasedTime 0..1
+      * sdtcDeceasedTime 0..
         * ^short = "MAY contain sdtc:deceasedTime"
 * component 1..*
   * ^comment = "SHALL contain at least one [1..*] component (CONF:1198-32428)."
