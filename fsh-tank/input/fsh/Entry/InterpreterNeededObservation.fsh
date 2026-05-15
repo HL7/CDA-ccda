@@ -4,7 +4,7 @@ Id: InterpreterNeededObservation
 Title: "Interpreter Needed Observation"
 Description: "The interpreter needed observation represents an indication of whether a person needs language interpretation services."
 
-* insert LogicalModelTemplate(interpreter-needed-obs, 2.16.840.1.113883.10.20.22.4.515, 2025-05-01)
+* insert LogicalModelTemplate(interpreter-needed-obs, 2.16.840.1.113883.10.20.22.4.514, 2025-05-01)
 * insert NarrativeLink
 
 * code 1..1
