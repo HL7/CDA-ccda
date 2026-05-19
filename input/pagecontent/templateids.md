@@ -96,6 +96,7 @@ The following templateIds are used by this Implementation Guide:
 | TemplateId | Template |
 | ---------- | ------- |
 | 2.16.840.1.113883.10.15.2:2025-05-01 | [IndividualPronounObservation](StructureDefinition-IndividualPronounObservation.html) |
+| 2.16.840.1.113883.10.15.3:2025-05-01 | [SexParameterForClinicalUseObservation](StructureDefinition-SexParameterForClinicalUseObservation.html) |
 | 2.16.840.1.113883.10.20.1.19 | [AuthorizationActivity](StructureDefinition-AuthorizationActivity.html) |
 | 2.16.840.1.113883.10.20.1.58 | [AdvanceDirectiveObservation](StructureDefinition-AdvanceDirectiveObservation.html) |
 | 2.16.840.1.113883.10.20.15.3.1 | [EstimatedDateofDelivery](StructureDefinition-EstimatedDateofDelivery.html) |
@@ -228,7 +229,7 @@ The following templateIds are used by this Implementation Guide:
 | 2.16.840.1.113883.10.20.22.4.510:2024-05-01 | [TreatmentInterventionPreference](StructureDefinition-TreatmentInterventionPreference.html) |
 | 2.16.840.1.113883.10.20.22.4.511:2024-05-01 | [SmokingStatus](StructureDefinition-SmokingStatus.html) |
 | 2.16.840.1.113883.10.20.22.4.512:2024-05-01 | [AverageBloodPressureOrganizer](StructureDefinition-AverageBloodPressureOrganizer.html) |
-| 2.16.840.1.113883.10.20.22.4.513:2025-05-01 | [SexParameterForClinicalUseObservation](StructureDefinition-SexParameterForClinicalUseObservation.html) |
+| 2.16.840.1.113883.10.20.22.4.513:2025-05-01 | [AdvanceDirectiveExistenceObservation](StructureDefinition-AdvanceDirectiveExistenceObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.515:2025-05-01 | [InterpreterNeededObservation](StructureDefinition-InterpreterNeededObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.516:2025-05-01 | [AgeRangeObservation](StructureDefinition-AgeRangeObservation.html) |
 | 2.16.840.1.113883.10.20.22.4.518:2026-05-01 | [CarePlanAct](StructureDefinition-CarePlanAct.html) |
