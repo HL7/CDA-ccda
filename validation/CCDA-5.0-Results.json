@@ -1,0 +1,110 @@
+{
+  "errors": [
+    "CarePlanAct: Profile http://hl7.org/cda/stds/core/StructureDefinition/Act does not have an identifier",
+    "CarePlanAct: Profile http://hl7.org/cda/stds/core/StructureDefinition/Observation does not have an identifier",
+    "CarePlanAct: Profile http://hl7.org/cda/stds/core/StructureDefinition/Act does not have an identifier",
+    "Failed to expand value set v3-ActPriority: Unable to expand dependent value set http://terminology.hl7.org/ValueSet/v3-ActPriorityCallback"
+  ],
+  "notices": [],
+  "skippedTemplates": [],
+  "unhandledInvariants": {
+    "Cannot calculate memberOf, Value Set http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28 is not loaded.": [
+      {
+        "key": "1198-8487",
+        "severity": "error",
+        "human": "The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD-9-CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC (CONF:1198-8487).",
+        "expression": "codeSystem = '2.16.840.1.113883.6.104' or codeSystem = '2.16.840.1.113883.6.4' or codeSystem = '2.16.840.1.113883.6.12' or (codeSystem = '2.16.840.1.113883.6.96' and code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28'))",
+        "source": "http://hl7.org/cda/us/ccda/StructureDefinition/OperativeNote"
+      },
+      {
+        "key": "1198-8511",
+        "severity": "error",
+        "human": "The value of Clinical Document /documentationOf/serviceEvent/code **SHALL** be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), ICD-10-PCS (codeSystem 2.16.840.1.113883.6.4), CPT (codeSystem 2.16.840.1.113883.6.12), HCPCS (codeSystem 2.16.840.1.113883.6.285), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure *DYNAMIC* (CONF:1198-8511).",
+        "expression": "codeSystem = '2.16.840.1.113883.6.104' or codeSystem = '2.16.840.1.113883.6.4' or codeSystem = '2.16.840.1.113883.6.12' or codeSystem = '2.16.840.1.113883.6.285' or (codeSystem = '2.16.840.1.113883.6.96' and code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28'))",
+        "source": "http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureNote"
+      }
+    ],
+    "Unsupported function allTrue": [
+      {
+        "key": "active-high-ts-after-document",
+        "severity": "error",
+        "human": "If the procedure is active and contains a high effectiveTime, this time SHALL be after the ClinicalDocument/effectiveTime",
+        "expression": "(statusCode.code = 'active' and effectiveTime.high.value.exists()) implies (effectiveTime.high.value > %resource.effectiveTime.value).allTrue()",
+        "source": "http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"
+      },
+      {
+        "key": "ts-value-before-document",
+        "severity": "error",
+        "human": "Time value must be equal to or before ClinicalDocument/effectiveTime",
+        "expression": "value.exists() implies (value <= %resource.effectiveTime.value).allTrue()",
+        "source": "http://hl7.org/cda/us/ccda/StructureDefinition/ProcedureActivityProcedure"
+      }
+    ],
+    "Cannot calculate memberOf, Value Set http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes is not loaded.": [
+      {
+        "key": "shall-use-one-binding",
+        "severity": "error",
+        "human": "The code shall belong to one of the value sets.",
+        "expression": "code.exists() implies (code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.20275') or code.memberOf('http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.26') or code.memberOf('http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes'))",
+        "source": "http://hl7.org/cda/us/ccda/StructureDefinition/ServiceDeliveryLocation"
+      }
+    ],
+    "Unsupported function conformsTo": [
+      {
+        "key": "81-9371",
+        "severity": "error",
+        "human": "The content of name **SHALL** be either a conformant Patient Name (PTN.US.FIELDED), or a string (CONF:81-9371).",
+        "expression": "conformsTo('http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPatientNamePTNUSFIELDED') or item.xmlText.exists()",
+        "source": "http://hl7.org/cda/us/ccda/StructureDefinition/USRealmPersonNamePNUSFIELDED"
+      }
+    ]
+  },
+  "nonLoadedValueSets": {
+    "too-costly": [
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.43 - too-costly: The value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.38' expansion has too many codes to produce (>10000)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.13 - too-costly: The value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.13' expansion has too many codes to produce (>3000)",
+      "http://hl7.org/fhir/ValueSet/all-languages - too-costly: The code System \"urn:ietf:bcp:47\" has a grammar, and cannot be enumerated directly",
+      "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code - too-costly: The value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code' expansion has too many codes to produce (>3000)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9 - too-costly: The value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.8.9' expansion has too many codes to produce (>3000)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4 - too-costly: The value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.5' expansion has too many codes to produce (>10000)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.2 - too-costly: The value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.17' expansion has too many codes to produce (>10000)",
+      "http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type - too-costly: The value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type' expansion has too many codes to produce (>3000)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28 - too-costly: The value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.28' expansion has too many codes to produce (>3000)",
+      "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code - too-costly: The code System \"http://www.ama-assn.org/go/cpt\" has a grammar, and cannot be enumerated directly",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.36 - too-costly: The value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.36' expansion has too many codes to produce (>3000)"
+    ],
+    "too-many-concepts": [
+      "http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7900 (19254)",
+      "http://phinvads.cdc.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7901 (59583)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.34 (1172)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.1 (1709)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.54 (1817)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.1.11.14914 (1279)",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.25 (1282)"
+    ],
+    "not-found: A definition for CodeSystem 'https://www.nubc.org/CodeSystem/PatDischargeStatus' could not be found, so the value set cannot be expanded": [
+      "http://terminology.hl7.org/ValueSet/v3-USEncounterDischargeDisposition"
+    ],
+    "apostrophes-in-codes": [
+      "http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive (840)"
+    ],
+    "Response from https://tx.fhir.org/r5 did not contain any codes in its expansion.": [
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.48",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.47",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.46",
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.22"
+    ],
+    "exception: The SNOMED CT Concept 1354756004 is not known": [
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.65"
+    ],
+    "not-found: A definition for CodeSystem 'https://nahdo.org/sopt' could not be found, so the value set cannot be expanded": [
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+    ],
+    "business-rule: Cannot process resource http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.46|20240606 at \"filter\" due to the presence of the modifier extension vsacOpModifier": [
+      "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.46"
+    ],
+    "not-found": [
+      "http://hl7.org/cda/us/ccda/ValueSet/CMSPlaceOfServiceCodes"
+    ]
+  }
+}
